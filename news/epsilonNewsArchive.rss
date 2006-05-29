@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+ <rss version="2.0">
+  <channel>
+    <title>Epsilon News</title>
+    <link>http://eclipse.org/gmt/epsilon/</link>
+    <description>Epsilon News</description>
+
+	<item>
+		<title>Start of Epsilon subproject</title>
+		<link>http://www.eclipse.org/gmt/epsilon/</link>
+		<description>
+			Creation of &lt;a href="http://www.eclipse.org/gmt/epsilon/"&gt;Epsilon&lt;/a&gt; subproject.
+		</description>
+		<pubDate>Mon, 29 May 2006 18:00:00 CET</pubDate>
+	</item>
+  </channel>
+</rss>
