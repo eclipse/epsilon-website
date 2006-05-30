@@ -28,7 +28,7 @@
 	#
 	
 	include('../news/scripts/news.php');
-	$amwnews = get_amwnews(5);
+	$epsilonnews = get_epsilonnews(5);
 		
 	# Paste your HTML content between the EOHTML markers!	
 	$html = <<<EOHTML
@@ -41,7 +41,10 @@
 					<h1>$pageTitle</h1>
 					<h3>Welcome</h3>
 				      <p align="JUSTIFY">
-				      	Epsilon.
+				      	The Epsilon subproject aims at building a framework for supporting the construction of domain-specific languages and tools for 
+				      	model management tasks, i.e., model merging, model comparison, inter- and intra-model consistency checking, text generation, 
+				      	etc. It will provide a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model 
+				      	instances.
 				      	<br /><br /><a href="about.php">more about Epsilon &raquo;</a>
 				      </p>
 		  		</td>
@@ -87,7 +90,7 @@
 		</div>
 
 		<div class="homeitem">
-			$amwnews
+			$epsilonnews
 		</div>
 		<hr class="clearer" />
 	</div>

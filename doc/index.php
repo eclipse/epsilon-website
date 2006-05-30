@@ -36,11 +36,10 @@
 
 		<h3>Documentation</h3
 		<p>
-			The user and developer guides are available as Eclipse Help Plugins in the
-			<a href="../download/">
-			download</a> section (in the same zip file).
+			<a href="Epsilon-Project-Description.pdf">Epsilon Project Plan</a>: Project plan of Epsilon subproject
 		</p>
       	<hr class="clearer" />
+	</div>
 
 EOHTML;
 
