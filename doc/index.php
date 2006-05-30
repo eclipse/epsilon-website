@@ -29,7 +29,7 @@
 					<h1>$pageTitle</h1>
 				</td>
 				<td align="right">
-					<img alt="Epsilon Logo" src="../resources/epsilonLogo.png" valign="top" />
+					<img alt="Epsilon Logo" src="../resources/epsilonlogo.png" valign="top" />
 				</td>
 			</tr>
 		</table>
