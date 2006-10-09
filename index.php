@@ -41,7 +41,7 @@
 					<h1>$pageTitle</h1>
 					<h3>Welcome</h3>
 				      <p align="JUSTIFY">
-				      	The Epsilon subproject aims at building a framework for supporting the construction of domain-specific languages and tools for 
+				      	The Epsilon component aims at building a framework for supporting the construction of domain-specific languages and tools for 
 				      	model management tasks, i.e., model merging, model comparison, inter- and intra-model consistency checking, text generation, 
 				      	etc. It will provide a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model 
 				      	instances.
@@ -104,17 +104,7 @@
 				<li><a href="doc/">Documentation</a></li>
 			</ul>
 		</div>
-		
-		<div class="sideitem">
-			<h6>Select your theme.</h6>
-			<form method="post">
-				<input type="radio" name="theme" value="Phoenix" /> Phoenix<br />
-				<input type="radio" name="theme" value="Miasma" /> Miasma<br />
-				<input type="radio" name="theme" value="Industrial" /> Industrial<br />
-				<input type="radio" name="theme" value="Blue" /> Blue<br />
-				<input type="submit" value="Set" />
-			</form>
-		</div>
+
 	</div>
 
 EOHTML;

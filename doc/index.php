@@ -36,7 +36,7 @@
 
 		<h3>Documentation</h3
 		<p>
-			<a href="Epsilon-Project-Description.pdf">Epsilon Project Plan</a>: Project plan of Epsilon subproject
+			<a href="Epsilon-Project-Description.doc">Epsilon Project Plan</a>: Project plan of Epsilon component
 		</p>
       	<hr class="clearer" />
 	</div>

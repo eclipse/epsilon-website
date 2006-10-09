@@ -6,12 +6,12 @@
     <description>Epsilon News</description>
 
 	<item>
-		<title>Start of Epsilon subproject</title>
+		<title>Creation of the Epsilon component</title>
 		<link>http://www.eclipse.org/gmt/epsilon/</link>
 		<description>
-			Creation of &lt;a href="http://www.eclipse.org/gmt/epsilon/"&gt;Epsilon&lt;/a&gt; subproject.
+			Creation of the <a href="http://www.eclipse.org/gmt/epsilon/">Epsilon</a> component.
 		</description>
-		<pubDate>Mon, 29 May 2006 18:00:00 CET</pubDate>
+		<pubDate>Mon, 09 Oct 2006 18:00:00 CET</pubDate>
 	</item>
   </channel>
 </rss>
