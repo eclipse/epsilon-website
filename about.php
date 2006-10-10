@@ -109,7 +109,7 @@
 		<p>
 		<div align="center">
 			<a href="resources/emlLanguage.png">
-				<img src="resources/emlLanguage.png" width="100%" height="100%" />
+				<img src="resources/emlLanguage.png" />
 			</a>
 		</div>
 		</p>
@@ -121,8 +121,13 @@
 
 		<p>
 		<div align="center">
-			<a href="resources/emlToolScreenshot.png">
-				<img src="resources/emlToolScreenshot.png" width="100%" height="100%" />
+			<a href="resources/emlToolScreenshot1.png">
+				<img src="resources/emlToolScreenshot1.png" />
+			</a>
+		</div>
+		<div align="center">
+			<a href="resources/emlToolScreenshot2.png">
+				<img src="resources/emlToolScreenshot2.png" />
 			</a>
 		</div>
 		</p>
