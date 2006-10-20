@@ -63,12 +63,12 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<b><a href="news://news.eclipse.org/eclipse.tools.gmt">Newsgroup</a></b>,
+								<b><a href="news://news.eclipse.org/eclipse.modeling.gmt">Newsgroup</a></b>,
 					            <a href="http://www.eclipse.org/search/search.cgi">Search</a>,
-					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.technology.gmt">Web Interface</a>
+					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.modeling.gmt">Web Interface</a>
 		  					</td>
 							<td align="right">
-								<a href="news://news.eclipse.org/eclipse.tools.gmt"><img align="right" src="../resources/images/news.gif" valign="top"/></a>
+								<a href="news://news.eclipse.org/eclipse.modeling.gmt"><img align="right" src="../resources/images/news.gif" valign="top"/></a>
 							</td>
 						</tr>
 					</table>
