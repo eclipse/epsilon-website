@@ -114,6 +114,6 @@ EOHTML;
 
 
 	# Generate the web page
-	$App->AddExtraHtmlHeader("<link rel='alternate' type='application/rss+xml' title='AMW News' href='news/amwNewsArchive.rss'>");
+	$App->AddExtraHtmlHeader("<link rel='alternate' type='application/rss+xml' title='AMW News' href='news/epsilonNewsArchive.rss'>");
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
