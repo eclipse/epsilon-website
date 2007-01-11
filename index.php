@@ -94,6 +94,19 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
+								<b><a href="download.php">Download</a></b>
+		  					</td>
+							<td align="right">
+								<a href="download.php"><img align="right" src="../resources/images/download.gif" valign="top"/></a>
+							</td>
+						</tr>
+					</table>
+				</li>
+
+				<li>
+					<table width="100%">
+						<tr>
+							<td width="80%" valign="bottom">
 								<b><a href="http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.gmt/epsilon/?root=Technology_Project">CVS</a></b>
 		  					</td>
 							<td align="right">
