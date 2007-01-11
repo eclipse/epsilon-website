@@ -89,6 +89,20 @@
 						</tr>
 					</table>
 				</li>
+
+				<li>
+					<table width="100%">
+						<tr>
+							<td width="80%" valign="bottom">
+								<b><a href="doc/">CVS</a></b>
+		  					</td>
+							<td align="right">
+								<a href="doc/"><img align="right" src="../resources/images/cvs.gif" valign="top"/></a>
+							</td>
+						</tr>
+					</table>
+				</li>
+				
 			</ul>
 		</div>
 
