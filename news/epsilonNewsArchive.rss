@@ -6,6 +6,15 @@
     <description>Epsilon News</description>
 
 	<item>
+		<title>Epsilon Source Code available on CVS</title>
+		<link>http://www.eclipse.org/gmt/epsilon/doc/EpsilonCVS.pdf</link>
+		<description>
+			Check <a href="http://www.eclipse.org/gmt/epsilon/doc/EpsilonCVS.pdf">this document</a>
+			for instructions on how to access the source code of Epsilon on the Eclipse CVS server.
+		</description>
+		<pubDate>Mon, 09 Oct 2006 18:00:00 CET</pubDate>
+	</item>
+	<item>
 		<title>Creation of the Epsilon component</title>
 		<link>http://www.eclipse.org/gmt/epsilon/</link>
 		<description>
