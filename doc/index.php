@@ -34,13 +34,26 @@
 			</tr>
 		</table>
 
-		<h3>Documentation</h3
+		<h3>Documentation</h3>
+		
 		<p>
-			<a href="Epsilon-Project-Description.doc">Epsilon Project Plan</a>: Project plan of Epsilon component
+			<b>Languages documentation</b> In Epsilon, documentation has been implemented as a 
+			plugin of the Eclipse Help system. Thus, documentation about the languages is available
+			from within Eclipse
 		</p>
+		
+		<p>
+			<a href="PluginInstallation.pdf">Installing the Epsilon Plug-ins</a>: Provides instructions for
+			installing the Epsilon plug-ins
+		</p>
+		
 		<p>
 			<a href="EpsilonCVS.pdf">Accessing the source code of Epsilon from CVS</a>: Provides instructions for setting up a local
 			copy of the source code of Epsilon on your machine using Eclipse 3.2
+		</p>
+		
+		<p>
+			<a href="Epsilon-Project-Description.doc">Epsilon Project Plan</a>: Project plan of Epsilon component
 		</p>
       	<hr class="clearer" />
 
