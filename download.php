@@ -48,7 +48,7 @@
 		</p>
 		
 		<p>
-			<a href="#">Plugins</a>:
+			<a href="plugins.zip">Plugins</a>:
 			This archive contains the Epsilon plugins only. Please refer to the instructions provided
 			<a href="doc/PluginInstallation.pdf"> for adding the plugins to your Eclipse installation.
 		</p>
