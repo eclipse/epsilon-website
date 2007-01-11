@@ -94,7 +94,7 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<b><a href="doc/">CVS</a></b>
+								<b><a href="http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.gmt/epsilon/?root=Technology_Project">CVS</a></b>
 		  					</td>
 							<td align="right">
 								<a href="http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.gmt/epsilon/?root=Technology_Project"><img align="right" src="../resources/images/cvs.gif" valign="top"/></a>

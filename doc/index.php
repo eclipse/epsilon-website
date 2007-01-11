@@ -47,10 +47,8 @@
 				Modeling Symposium, Eclipse Summit Europe 2006, Esslingen, Germany, 2006
 			</p>
 			<p>
-				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack.
-				<a href="http://st.inf.tu-dresden.de/OCLApps2006/topic/acceptedPapers/06_Kolovos_InstanceLevel.pdf">Towards Using OCL for Instance-Level Queries in Domain Specific Languages</a>, 
-				to appear in Proc. OCLApps 2006: OCL for (Meta-)Models in Multiple 
-				Application Domains, Models/UML 2006, Genova, Italy, October 2006. 
+				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack. <a href="http://dx.doi.org/10.1007/11787044_11">The Epsilon Object Language (EOL)</a>,
+				in Proc. European Conference in Model Driven Architecture (EC-MDA) 2006, Bilbao, Spain, July 2006.
 			</p>
 			<p>
 				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack. <a href="http://www-users.cs.york.ac.uk/~dkolovos/publications/models06-eml.pdf">Merging Models with the Epsilon Merging Language (EML)</a>,
@@ -61,16 +59,17 @@
 				in Proc. 2nd EC-MDA Workshop on Traceability, Bilbao, Spain, July 2006.
 			</p>
 			<p>
-				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack. <a href="http://dx.doi.org/10.1007/11787044_11">The Epsilon Object Language (EOL)</a>,
-				in Proc. European Conference in Model Driven Architecture (EC-MDA) 2006, Bilbao, Spain, July 2006.
-			</p>
-			<p>
 				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack. <a href="http://doi.acm.org/10.1145/1138304.1138308">Model Comparison: a Foundation
 				for Model Composition and Model Transformation Testing</a>,
 				in Proc. First International Workshop on Global Integrated Model
 				Management (G@MMA) 2006, IEEE/ACM ICSE'06, Shanghai, China, May 2006.
 			</p>
-
+			<p>
+				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack.
+				<a href="http://st.inf.tu-dresden.de/OCLApps2006/topic/acceptedPapers/06_Kolovos_InstanceLevel.pdf">Towards Using OCL for Instance-Level Queries in Domain Specific Languages</a>, 
+				to appear in Proc. OCLApps 2006: OCL for (Meta-)Models in Multiple 
+				Application Domains, Models/UML 2006, Genova, Italy, October 2006. 
+			</p>
       		<hr class="clearer" />
 	</div>
 
