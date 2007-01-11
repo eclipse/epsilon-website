@@ -16,7 +16,7 @@
 	# Begin: page-specific settings.  Change these. 
 	$pageTitle 		= "Epsilon Home page";
 	$pageKeywords	= "";
-	$pageAuthor		= "Freddy Allilaire";
+	$pageAuthor		= "Dimitrios Kolovos";
 	
 	# Add page-specific Nav bars here
 	# Format is Link text, link URL (can be http://www.someothersite.com/), target (_self, _blank), level (1, 2 or 3)
@@ -141,6 +141,6 @@ EOHTML;
 
 
 	# Generate the web page
-	$App->AddExtraHtmlHeader("<link rel='alternate' type='application/rss+xml' title='AMW News' href='news/epsilonNewsArchive.rss'>");
+	$App->AddExtraHtmlHeader("<link rel='alternate' type='application/rss+xml' title='Epsilon News' href='news/epsilonNewsArchive.rss'>");
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>

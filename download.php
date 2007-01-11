@@ -16,7 +16,7 @@
 	# Begin: page-specific settings.  Change these. 
 	$pageTitle 		= "Download Epsilon";
 	$pageKeywords	= "";
-	$pageAuthor		= "Freddy Allilaire";
+	$pageAuthor		= "Dimitrios Kolovos";
 	
 	# Paste your HTML content between the EOHTML markers!	
 	$html = <<<EOHTML

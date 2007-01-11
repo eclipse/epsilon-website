@@ -16,7 +16,7 @@
 	# Begin: page-specific settings.  Change these. 
 	$pageTitle 		= "About Epsilon";
 	$pageKeywords	= "";
-	$pageAuthor		= "Freddy Allilaire";
+	$pageAuthor		= "Dimitrios Kolovos";
 	
 	# End: page-specific settings
 	#
