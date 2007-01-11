@@ -97,7 +97,7 @@
 								<b><a href="doc/">CVS</a></b>
 		  					</td>
 							<td align="right">
-								<a href="doc/"><img align="right" src="../resources/images/cvs.gif" valign="top"/></a>
+								<a href="http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.gmt/epsilon/?root=Technology_Project"><img align="right" src="../resources/images/cvs.gif" valign="top"/></a>
 							</td>
 						</tr>
 					</table>
