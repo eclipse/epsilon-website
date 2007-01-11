@@ -71,8 +71,7 @@
 				Management (G@MMA) 2006, IEEE/ACM ICSE'06, Shanghai, China, May 2006.
 			</p>
 
-      	<hr class="clearer" />
-      	
+      		<hr class="clearer" />
 	</div>
 
 EOHTML;
