@@ -41,14 +41,14 @@
 		and working directly with the source code from CVS.
 		
 		<p>
-			<a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/bundles/bundle-win.php">Complete Bundle (for Win32 only)</a>
+			<a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/bundles/bundle-win.php">Complete Bundle (for Windows only) (42.3 MB)</a>
 			This bundle contains Eclipse 3.2.1, EMF and the Epsilon plugins. It also contains
 			examples for each language in Epsilon. To run, simply download and unzip the bundle
 			and run eclipse.exe.
 		</p>
 		
 		<p>
-			<a href="plugins.zip">Plugins</a>:
+			<a href="plugins.zip">Plugins (1.7 MB)</a>:
 			This archive contains the Epsilon plugins only. Please refer to the instructions provided
 			<a href="doc/PluginInstallation.pdf"> for adding the plugins to your Eclipse installation.
 		</p>
