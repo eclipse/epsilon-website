@@ -38,24 +38,27 @@
 		
 		There are three options for using Epsilon: download a complete bundle
 		containing everything required, download the plug-ins only,
-		and working directly with the source code from CVS.
+		and working directly with the source code from CVS.<br><br>
 		
 		<ul>
 		
 		<li>
-			<a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/bundles/bundle-win.php">Complete Bundle (for Windows only) (41.3 MB)</a>
+			<a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/bundles/bundle-win.php">Complete Bundle (for Windows only)</a>
+			<b> (41.3 MB)</b>:
 			This bundle contains Eclipse 3.2.1, EMF and the Epsilon plugins. It also contains
 			examples for each language in Epsilon. To run, simply download and unzip the bundle
 			and run eclipse.exe. 
 			<b> Updated: 19/1/2007</b>
-		<br><br>
+			<br><br>
 		
 		<li>
-			<a href="plugins.zip">Plugins (2.8 MB)</a>:
+			<a href="plugins.zip">Plugins</a>
+			<b> (2.8 MB)</b>:
 			This archive contains the Epsilon plugins only. Please refer to the instructions provided
 			<a href="doc/PluginInstallation.pdf"> here </a> for adding the Epsilon plugins to your Eclipse installation.
 			<b> Updated: 19/1/2007</b>
-		
+			<br><br>
+			
 		<li>
 			<a href="doc/EpsilonCVS.pdf">Source code</a>:
 			This document describes how you can set up a local copy of the source code of Epsilon
