@@ -46,18 +46,21 @@
 			<a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/bundles/bundle-win.php">Complete Bundle (for Windows only) (42.3 MB)</a>
 			This bundle contains Eclipse 3.2.1, EMF and the Epsilon plugins. It also contains
 			examples for each language in Epsilon. To run, simply download and unzip the bundle
-			and run eclipse.exe.
+			and run eclipse.exe. 
+			<b> Updated: 19/1/2007</b>
 		
 		
 		<li>
 			<a href="plugins.zip">Plugins (1.7 MB)</a>:
 			This archive contains the Epsilon plugins only. Please refer to the instructions provided
 			<a href="doc/PluginInstallation.pdf"> for adding the plugins to your Eclipse installation.
+			<b> Updated: 19/1/2007</b>
 		
 		<li>
 			<a href="doc/EpsilonCVS.pdf">Source code</a>:
 			This document describes how you can set up a local copy of the source code of Epsilon
 			on your machine.
+			<b> Updated: 19/1/2007</b>
 		</ul>
 		
 		<hr class="clearer" />
