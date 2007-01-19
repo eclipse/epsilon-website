@@ -14,7 +14,7 @@
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Contributors/Interested parties to Epsilon";
+	$pageTitle 		= "Contributors";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	
@@ -36,7 +36,7 @@
 
 		<h3>Contributors</h3>
 		
-		This paige contains the contributors and interested parties to Epsilon.<br><br>
+		This paige contains the contributors and parties interested in Epsilon.<br><br>
 		
 		<ul>
 		
