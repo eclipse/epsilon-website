@@ -48,12 +48,12 @@
 			examples for each language in Epsilon. To run, simply download and unzip the bundle
 			and run eclipse.exe. 
 			<b> Updated: 19/1/2007</b>
-		
+		<br><br>
 		
 		<li>
 			<a href="plugins.zip">Plugins (2.8 MB)</a>:
 			This archive contains the Epsilon plugins only. Please refer to the instructions provided
-			<a href="doc/PluginInstallation.pdf"> for adding the plugins to your Eclipse installation.
+			<a href="doc/PluginInstallation.pdf"> here </a> for adding the Epsilon plugins to your Eclipse installation.
 			<b> Updated: 19/1/2007</b>
 		
 		<li>
