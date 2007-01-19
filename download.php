@@ -38,7 +38,7 @@
 		
 		There are three options for using Epsilon: download a complete bundle
 		containing everything required, download the plug-ins only,
-		and working directly with the source code from CVS.<br><br>
+		or work directly with a copy of the source code from CVS.<br><br>
 		
 		<ul>
 		
