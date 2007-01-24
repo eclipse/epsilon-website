@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<?xml-stylesheet href="default.xsl" type="text/xsl"?>
+<toc label="Epsilon Comparison Language (ECL)">
+	<topic label="Getting Started" href="ecl/gettingStarted.html"/>
+	<topic label="Resources" href="ecl/resources.html"/>
+	<topic label="Reference">
+		<topic label="Pre Section" href="ecl/user/syntax/presection.html"/>
+		<topic label="Match Rules" href="ecl/user/syntax/matchrules.html"/>
+		<topic label="Post Section" href="ecl/user/syntax/postsection.html"/>
+		<topic label="Matching Strategies" href="ecl/user/syntax/strategies.html"/>
+		<topic label="Match Trace" href="ecl/user/syntax/matchtrace.html"/>
+	</topic>
+	<topic label="Examples">
+		<topic label="Complete OO with DB comparison" href="ecl/user/examples/oo2db.html"/>
+	</topic>
+</toc>

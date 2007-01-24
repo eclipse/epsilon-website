@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<?xml-stylesheet href="default.xsl" type="text/xsl"?>
+<toc label="Epsilon Transformation Language (ETL)">
+	<topic label="Getting Started" href="etl/gettingStarted.html"/>
+	<topic label="Reference">
+		<topic label="Pre Section" href="etl/user/syntax/presection.html"/>
+		<topic label="Transformation Rules" href="etl/user/syntax/transformationrules.html"/>
+		<topic label="Post Section" href="etl/user/syntax/postsection.html"/>
+		<topic label="Transformation strategies" href="etl/user/syntax/strategies.html"/>
+	</topic>
+	<topic label="Developer">
+		<topic label="Using ETL from Java" href="etl/developer/usingetlfromjava.html"/>
+		<topic label="Example Java code" href="etl/developer/workbench.html"/>
+	</topic>
+	<topic label="Examples">
+		<topic label="Complete OO to DB transformation" href="etl/user/examples/oo2db.html"/>
+		<topic label="OO refinement transformation" href="etl/user/examples/oorefinement.html"/>
+	</topic>
+</toc>

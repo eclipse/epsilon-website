@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../../common/css/style.css" charset="ISO-8859-1" type="text/css"><title>Transformation rules</title>
+
+</head>
+
+<body>
+<h2>Transformation rules</h2>
+An ETL module consists of a number of transformation rules. A rule
+defines a unique name, a source (following the <code>transform</code>
+keyword) and many target (following the <code>to</code>
+keyword) parameters.
+Moreover, a rule can extend other rules specified after the <code>extends</code>
+keyword. Each rule can specify
+a <code>guard</code> which is a block of EOL statements
+that returns a <code>Boolean</code>
+value to further limit
+its scope. The body of a rule is a block of EOL statements through
+which the user can modify the contents of the target elements, create
+other elements as well (using the new keyword). Finally, a rule can be
+declared as <code>abstract</code> which means that it will
+not be executed unless it is extended by one or more concrete rules
+and/or as&nbsp;<code>auto</code> which means that the
+rule will invoke the behavior of the strategy first and then its body. <br>
+<h3>Rule Inheritance</h3>
+When a rule B extends a rule A, when invoking B, the body of A will be
+first invoked followed by the body of B. The target parameters of A must be a subset of the target parameters of B.<br>
+<h3>Strategies</h3>
+
+ETL supports pluggable strategies to automate common scenarios without
+needing to specify a large number of trivial rules. For example, in the
+context of a refining transformation, the target model is usually a
+slightly altered copy of the source model. When a strategy is defined,
+the auto keyword is used to indicate that the rule complements the
+strategy while its absence shows that the rule overrides the strategy.<h3>Invoking other rules</h3>
+
+From the body of a transformation rule, it is often required to
+reference the result of another transformation rule. This is achieved
+using the <code>equivalent()</code> and <code>equivalents()</code>
+built-in ETL operations. The
+<code>equivalents()</code> operation returns a collection
+of the source element
+equivalents in the target model while the <code>equivalent()</code>
+operation
+returns the first equivalent element only (i.e. <code>equivalents().first()</code>).
+<h3>Syntax</h3>
+<code>
+(<b><font color="#7f0055">auto</font></b>)?&nbsp;(<b><font color="#7f0055">abstract</font></b>)?&nbsp;<b><font color="#7f0055">rule</font></b>&nbsp;ruleName<br>
+&nbsp;&nbsp;<b><font color="#7f0055">transform</font></b>&nbsp;sourceName&nbsp;:&nbsp;SourceType<br>
+&nbsp;&nbsp;<b><font color="#7f0055">to</font></b>&nbsp;targetName&nbsp;:&nbsp;TargetType&nbsp;(,&nbsp;targetName
+: TargetType)*<br>
+&nbsp;&nbsp;(<b><font color="#7f0055">extends</font></b>&nbsp;otherRuleName&nbsp;(,&nbsp;otherRuleName)*&nbsp;)?&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;(<b><font color="#7f0055">guard</font></b>&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;})?<br>
+&nbsp;&nbsp;<br>
+}<br>
+</code>
+<h3>Examples</h3>
+Examples of transformation rules can be found in the <a href="../examples/oo2db.html">complete OO to DB
+transformation</a>.<br>Example of a strategy-based transformation ca be found in the OO refinement transformation.<br>
+</body></html>

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="../../../../common/css/style.css" charset="ISO-8859-1" type="text/css">
+	<title>String datatype</title>
+</head>
+
+<body>
+<h2>String datatype</h2>
+The <code>String</code> datatype represents a sequence of characters. Litteral strings
+are expressed as sequences of characters enclosed in single quotes (') 
+(e.g. <code><font color='#2A00FF'>'I&nbsp;am&nbsp;a&nbsp;litteral&nbsp;string'</font></code>) and the
+escape character is the backslash (\)
+
+<h3>Built-in operations (on instances of the type)</h3>
+
+<table border="1" class="operationTable">
+	<tr>
+		<td class="signature">
+			firstToUpperCase() : String
+		</td>
+		<td>
+			Returns a copy of the string but 
+			with the first letter converted to its upper-case equivalent
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			firstToLowerCase() : String
+		</td>
+		<td>
+			Similar to the previous but for lower-case instead
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			toUpperCase() : String
+		</td>
+		<td>
+			Returns a copy of the string with each character converted to 
+			its upper-case equivalent
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			toLowerCase() : String
+		</td>
+		<td>
+			Similar to the previous but for lower-case instead
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			startsWith(start : String) : Boolean
+		</td>
+		<td>
+			Checks if the string starts with <code>start</code>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			endsWith(end : String) : Boolean
+		</td>
+		<td>
+			Checks if the string ends with <code>end</code>
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			isSubstringOf(str : String) : Boolean
+		</td>
+		<td>
+			Checks if the string is a substring of <code>str</code>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			toCharSequence() : <a href="sequence.html">Sequence</a>
+		</td>
+		<td>
+			Returns a sequence that contains the characters of the string
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			replace(what : String, with : String) : String
+		</td>
+		<td>
+			Returns a copy of the string after replacing 
+			(using regular expression) substrings that match to the 
+			<code>what</code> parameter with value of the 
+			<code>with<code> parameter
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			charAt(position : Integer) : String
+		</td>
+		<td>
+			Returns a string that contains the character of the 
+			string at <code>position</code>
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			substring(startIndex : Integer, endIndex : Integer) : String
+		</td>
+		<td>
+			Returns the substring starting at <code>startIndex</code>
+			and ending at <code>endIndex</code>
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			split(delimiter : String) : Sequence
+		</td>
+		<td>
+			Splits the string into a sequence of sub-strings
+		</td>
+	</tr>	
+
+	<tr>
+		<td class="signature">
+			trim() : String
+		</td>
+		<td>
+			Returns a copy of the string without
+			leading and trailing spaces
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			matches(regExp : String) : String
+		</td>
+		<td>
+			Returns <code>true</code> if the string matches the
+			regular expression <code>regExp</code>
+		</td>
+	</tr>	
+	
+</table>
+
+</body>
+</html>

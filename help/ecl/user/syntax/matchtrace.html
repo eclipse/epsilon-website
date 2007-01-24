@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  <link rel="stylesheet" href="../../../common/css/style.css" charset="ISO-8859-1" type="text/css">
+  <title>Matching strategies</title>
+
+ 
+</head>
+
+
+<body>
+
+<h2>Match Trace</h2>
+
+<p>The ECL engine maintains an internal trace in which it stores the results of the match rules. This trace is accessible from the ECL code via the built-in <code>matchTrace</code> variable. Users may want to access the <code>matchTrace</code> for a number of reasons such as to print  information to the console or to serialize it in the form of a traceability model.</p>
+<p>The <code>matchTrace</code> is a list of matches. Each <code>match</code> defines five properties: the <code>left</code> and <code>right</code> properties reference the element from the left and right model repsectively, the <code>rules</code> property refers to the list match rules with which the comparison was achieved, and the <code>isMatching</code> and <code>isConforming</code> Boolean properties indicate whether left and right were found to match and conform with each other.</p>
+<h3>Example</h3>
+<p>The following example of a <a href="postsection.html">post section</a> prints the names of the elements that were found to be matching after comparing an OO with a DB model as well as the first rule that matched them.</p>
+<code>
+<b><font color='#7F0055'>post</font></b>&nbsp;{<br>
+&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;For&nbsp;each&nbsp;match&nbsp;in&nbsp;the&nbsp;match&nbsp;trace<br>
+</font>&nbsp;&nbsp;<b><font color='#7F0055'>for</font></b>&nbsp;(m&nbsp;<b><font color='#7F0055'>in</font></b>&nbsp;<i><font color='#2A00FF'>matchTrace</font></i>.select(m|m.isMatching))&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;Print&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;left&nbsp;and&nbsp;the&nbsp;right&nbsp;elements&nbsp;of&nbsp;the&nbsp;match<br>
+</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;and&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;rule&nbsp;that&nbsp;matched&nbsp;them<br>
+</font>&nbsp;&nbsp;&nbsp;&nbsp;(m.left.name&nbsp;+&nbsp;<font color='#2A00FF'>'&nbsp;<'</font>&nbsp;+&nbsp;m.rules.first().name&nbsp;+&nbsp;<font color='#2A00FF'>'>&nbsp;'</font>&nbsp;+&nbsp;m.right.name).println();<br>
+&nbsp;&nbsp;}<br>
+}
+</code>
+</body>
+</html>

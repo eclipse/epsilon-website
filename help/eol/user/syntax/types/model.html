@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="../../../../common/css/style.css" charset="ISO-8859-1" type="text/css">
+	<title>Model datatype</title>
+</head>
+
+<body>
+<h2>Model datatype</h2>
+The <code>Model</code> datatype represents models accessible from EOL.
+In EOL, references to models are aquired through their names.
+
+<h3>Built-in operations</h3>
+
+<table border="1" class="operationTable">
+	<tr>
+		<td class="signature">
+			createInstance(type : String) : Any
+		</td>
+		<td>
+			Creates a new instance of the type in 
+			the model
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			store() : Boolean
+		</td>
+		<td>
+			Stores the model to the file 
+			from which it was loaded
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			store(newLocation : String) : Boolean
+		</td>
+		<td>
+			Stores the model to the file 
+			specified (absolute path)
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			allInstances() : Sequence
+		</td>
+		<td>
+			Returns all the model elements
+			in the model
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			deleteInstance(instance : Any) : Boolean
+		</td>
+		<td>
+			Deletes the specified instance
+			from the model
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			owns(instance : Any) : Boolean
+		</td>
+		<td>
+			Checks if the specified instance
+			is owned by the model
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			hasType(typeName : String) : Boolean
+		</td>
+		<td>
+			Checks if the model has a model-element
+			type with this name
+		</td>
+	</tr>
+	
+</table>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="../../../../common/css/style.css" charset="ISO-8859-1" type="text/css">
+	<title>Collection types</title>
+</head>
+
+<body>
+<h2>Collection types</h2>
+EOL defines four collection types all of which inherit the abstract <code>Collection</code> type.
+
+<ul>
+	<li><a href="bag.html">Bag</a>
+	<li><a href="sequence.html">Sequence</a>
+	<li><a href="set.html">Set</a>
+	<li><a href="orderedset.html">OrderedSet</a>
+</ul>
+
+The <code>Collection</code> defines the following built-in operations.
+
+<h3>Built-in Operations (Simple)</h3>
+
+<table border="1" class="operationTable">
+
+	<tr>
+		<td class="signature">
+			add(item : Any)
+		</td>
+		<td>
+			Adds the item to the collection
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			addAll(col : Collection)
+		</td>
+		<td>
+			Adds all the item of collection <code>col</code>
+			to the collection
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			remove(item : Any)
+		</td>
+		<td>
+			Removes the item from the collection
+		</td>
+	</tr>
+		
+	<tr>
+		<td class="signature">
+			removeAll(col : Collection)
+		</td>
+		<td>
+			Removes all the items of collection <code>col</code>
+			from the collection
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			includes(item : Any) : Boolean
+		</td> 
+		<td>
+			Checks if the collection includes the specified item
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			excludes(item : Any) : Boolean
+		</td> 
+		<td>
+			Checks if the collection excludes the specified item
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			includesAll(col : Collection) : Boolean
+		</td>
+		<td>
+			Checks if the collection includes all the items
+			included in collection <code>col</code>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			excludesAll(col : Collection) : Boolean
+		</td>
+		<td>
+			Checks if the collection excludes all the items
+			included in collection <code>col</code>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			including(item : Any) : Collection
+		</td> 
+		<td>
+			Returns a copy of the collection that 
+			also includes the specified item
+		</td>
+	</tr>
+	
+		<tr>
+		<td class="signature">
+			excluding(item : Any) : Boolean
+		</td> 
+		<td>
+			Returns a copy of the collection that 
+			excludes the specified item
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			includingAll(col : Collection) : Collection
+		</td>
+		<td>
+			Returns a copy of the collection that also includes
+			all the items of <code>col</code>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			excludingAll(col : Collection) : Collection
+		</td>
+		<td>
+			Returns a new collection from which all the
+			itemes of <code>col</code> have been removed
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			flatten() : Collection
+		</td>
+		<td>
+			Returns a flat copy of the collection
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			notEmpty() : Boolean
+		</td>
+		<td>
+			Checks if the collection contains at least one item
+		</td>
+	</tr>
+
+	
+
+	<tr>
+		<td class="signature">
+			count(item : Any) : Integer
+		</td>
+		<td>
+			Count how many times the item exists in
+			the collection
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			indexOf(item : Any) : Integer
+		</td>
+		<td>
+			Return the index of the item in the collection
+			(0-based)
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			size() : Integer
+		</td>
+		<td>
+			Returns the size of the collection
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			isEmpty() : Boolean
+		</td>
+		<td>
+			Checks if the collection has no items
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			first() : Any
+		</td>
+		<td>
+			Returns the first item in the collection
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			last() : Object
+		</td>
+		<td>
+			Returns the last item in the collection
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			at(index : Integer) : Any
+		</td>
+		<td>
+			Returns the item in the collection at the 
+			specified index
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			random() : Any
+		</td>
+		<td>
+			Returns a random item from the collection
+		</td>
+	</tr>
+</table>
+
+<h3>Operations declaring variables</h3>
+Collections, apart from normal built-in operations also support operations
+that declare variables. This feature is re-used from OCL to facilitate
+more elegant iteration and filtering of collections. 
+
+<i>(While variable-declaring operations make it easy to iterate and filter collections,
+when nested they can decrease readability of the code
+dramatically. Therefore, for complex queries, we suggest replacing
+nested calls with sequences of simpler queries.)</i>
+
+<h3>Built-in Operations (Declaring Variables)</h3>
+
+<table border="1" class="operationTable">
+
+	<tr>
+		<td class="signature">
+			select(iterator : iteratorType | condition) : Collection
+		</td>
+		<td>
+			Returns a new collection that contains
+			all the items of the collection that are 
+			compatible with the type of the declared 
+			<code>iterator</code> and satisfy
+			the <code>condition</code>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			reject(iterator : iteratorType | condition) : Collection
+		</td>
+		<td>
+			Returns a new collection that contains
+			all the items of the collection that are 
+			compatible with the type of the declared 
+			<code>iterator</code> and do not satisfy
+			the <code>condition</code>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			collect(iterator : iteratorType | collectExpression) : Sequence
+		</td>
+		<td>
+			Returns a new <code>Sequence</code> that contains
+			all the results of the gathered by
+			evaluating the <code>collectExpression</code>
+			when iterating the collection.
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			exists(iterator : iteratorType | condition) : Boolean
+		</td>
+		<td>
+			Checks if there is at least one item of type 
+			compatible with the type of <code>iterator</code> in the
+			collection for which the <code>condition</code>
+			is satisfied
+		</td>
+	</tr>
+
+	<tr>
+		<td class="signature">
+			forAll(iterator : iteratorType | condition) : Boolean
+		</td>
+		<td>
+			Checks if all the items of the collection
+			are compatible with the type of <code>iterator</code>
+			and also satisfy the <code>condition</code>
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="signature">
+			iterate(iterator : iteratorType ; result : resultType = initialValue | expression )
+		</td>
+		<td>
+			Iterates the collection using <code>iterator</code> and
+			calculates a value for the <code>result</code>
+		</td>
+	</tr>
+	
+</table>
+
+<h3>Instantiating collections</h3>
+
+To create and add values to a new collection, the <code>CollectionType{value1,value2,value3}</code>
+syntax can be used. For instance, the <code>Sequence{1,2,3}</code> expression creates
+a new sequence and adds the Integers 1, 2 and 3 to its contents. EOL also supports defining
+collections using ranges of integers using the <code>CollectionType{rangeStart..rangeEnd}</code>
+syntax. For instance, the <code>Sequence{0..10}</code> creates a new Sequence and adds the Integers 0,1,2
+,3,4....,10 to it.
+
+<h3>Examples</h3>
+
+<code>
+<b><font color='#7F0055'>var</font></b>&nbsp;seq&nbsp;:&nbsp;Sequence(Integer);<br>
+seq&nbsp;:=&nbsp;Sequence{1,2,3.1,4,5};<br>
+seq.select(i:Integer|i<4).size().println();
+</code>
+
+
+</body>
+</html>

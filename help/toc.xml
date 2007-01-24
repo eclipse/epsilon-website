@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Epsilon User Guide">
+	<topic label="Introduction">
+		<link toc="general/toc.xml" />
+	</topic>
+	<topic label="Epsilon Object Language (EOL)">
+		<link toc="eol/toc.xml" />
+	</topic>
+	<topic label="Epsilon Transformation Language (ETL)">
+		<link toc="etl/toc.xml" />
+	</topic>
+	<topic label="Epsilon Comparison Language (ECL)">
+		<link toc="ecl/toc.xml" />
+	</topic>
+	<topic label="Epsilon Merging Language (EML)">
+		<link toc="eml/toc.xml" />
+	</topic>
+	<topic label="Epsilon Validation Language (EVL)">
+		<link toc="evl/toc.xml" />
+	</topic>
+</toc>

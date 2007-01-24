@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../../common/css/style.css" charset="ISO-8859-1" type="text/css"><title>OO Model Merging Example</title>
+</head>
+
+<body>
+<h2>OO Model Merging Example</h2>
+
+<p>In this example we present an EML module for merging models that conform to the OO metamodel. 
+  
+Since both our input models (and our target model) are of the same metamodel we use the following strategies:</p>
+<ul>
+  <li>Merging strategy: org.epsilon.eml.strategy.CommonEMFMetamodelStrategy (Source and Target models have a common metamodel (EMF))</li>
+  <li>Left transformation strategy : org.epsilon.etl.strategy.CommonEMFMetaodelStrategy (Source and Target models have a common metamodel (EMF))</li>
+  <li>Right transformation strategy : org.epsilon.etl.strategy.CommonEMFMetaodelStrategy (Source and Target models have a common metamodel (EMF))</li>
+  </ul>
+<p>An extra requirement for our merging specification is that classes that exist only in the left or only in the right model will be placed in a separate package named as the left or right model respectively. Therefore, by merging the models of Figure 1 and 2, we should get the model of Figure 3. (Figures 1-3 have been automatically generated from the respective EMF models using <a href="../../../eol/user/examples/oo2graphviz.html">this EOL program</a>) </p>
+<p><img src="ooimages/EducationalOO.graph.png" width="795" height="517"> </p>
+<p><strong>Figure 1</strong> : Educational model of a school</p>
+<p><img src="ooimages/ManagementOO.graph.png" width="683" height="381"> <br>
+</p>
+<p><strong>Figure 2</strong> : Management model of a school</p>
+<p><img src="ooimages/MergedOO.graph.png" width="1205" height="581"><strong>Figure 3</strong> : Merged model </p>
+<h3>EML Code</h3>
+<p>In Listing 1 the EML code for achieving this merging is presented. Since we have no other means of establishing correspondences between elements of the input models, inevitably we have to specify a number of match rules. On the other hand, since we have used transformation and merging strategies, we only need to specify one merge and one transform rule to satisfy the extra requirement for placing non-common classes in separate packages with respect to the model they originated from. </p>
+<code>
+<b><font color='#7F0055'>import</font></b>&nbsp;<font color='#2A00FF'>'MatchTraceUtil.eol'</font>;<br>
+<br>
+<b><font color='#7F0055'>pre</font></b>&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;leftPackage&nbsp;:&nbsp;<b><font color='#7F0055'>new</font></b>&nbsp;Merged!Package;<br>
+&nbsp;&nbsp;leftPackage.name&nbsp;:=&nbsp;Left!Model.allInstances().first().name;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;rightPackage&nbsp;:&nbsp;<b><font color='#7F0055'>new</font></b>&nbsp;Merged!Package;<br>
+&nbsp;&nbsp;rightPackage.name&nbsp;:=&nbsp;Right!Model.allInstances().first().name;<br>
+}&nbsp;&nbsp;<br>
+<br>
+<b><font color='#7F0055'>mid</font></b>&nbsp;{<br>
+<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>if</font></b>&nbsp;(<i><font color='#2A00FF'>matchTrace</font></i>.getNonConforming().size()&nbsp;>&nbsp;0){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<i><font color='#2A00FF'>matchTrace</font></i>.printNonConforming();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color='#7F0055'>throw</font></b>&nbsp;<font color='#2A00FF'>'Non&nbsp;matching&nbsp;elements&nbsp;found'</font>;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+<b><font color='#7F0055'>post</font></b>&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;mergedModel&nbsp;:&nbsp;Merged!Model;<br>
+&nbsp;&nbsp;mergedModel&nbsp;:=&nbsp;Merged!Model.allInstances().first();<br>
+&nbsp;&nbsp;leftPackage.package&nbsp;:=&nbsp;mergedModel;<br>
+&nbsp;&nbsp;rightPackage.package&nbsp;:=&nbsp;mergedModel;<br>
+}<br>
+<br>
+<b><font color='#7F0055'>abstract</font></b>&nbsp;<b><font color='#7F0055'>rule</font></b>&nbsp;NamedElements<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>match</font></b>&nbsp;l&nbsp;:&nbsp;Left!NamedElement<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>with</font></b>&nbsp;r&nbsp;:&nbsp;Right!NamedElement&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>compare</font></b>&nbsp;:&nbsp;l.name&nbsp;=&nbsp;r.name<br>
+<br>
+}<br>
+<br>
+<b><font color='#7F0055'>abstract</font></b>&nbsp;<b><font color='#7F0055'>rule</font></b>&nbsp;PackageableElements<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>match</font></b>&nbsp;l&nbsp;:&nbsp;Left!PackageableElement<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>with</font></b>&nbsp;r&nbsp;:&nbsp;Right!PackageableElement&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>extends</font></b>&nbsp;NamedElements&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>compare</font></b>&nbsp;:&nbsp;l.package.matches(r.package)<br>
+&nbsp;&nbsp;<br>
+}<br>
+<br>
+<b><font color='#7F0055'>rule</font></b>&nbsp;Packages&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>match</font></b>&nbsp;l&nbsp;:&nbsp;Left!Package<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>with</font></b>&nbsp;r&nbsp;:&nbsp;Right!Package<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>extends</font></b>&nbsp;PackageableElements&nbsp;{<br>
+&nbsp;&nbsp;<br>
+}<br>
+<br>
+<b><font color='#7F0055'>rule</font></b>&nbsp;Models<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>match</font></b>&nbsp;l&nbsp;:&nbsp;Left!Model<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>with</font></b>&nbsp;r&nbsp;:&nbsp;Right!Model&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>compare</font></b>&nbsp;:&nbsp;<i><font color='#2A00FF'>true</font></i><br>
+&nbsp;&nbsp;<br>
+}&nbsp;&nbsp;<br>
+<br>
+<b><font color='#7F0055'>rule</font></b>&nbsp;Classifiers&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>match</font></b>&nbsp;l&nbsp;:&nbsp;Left!Classifier&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>with</font></b>&nbsp;r&nbsp;:&nbsp;Right!Classifier&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>compare</font></b>&nbsp;:&nbsp;l.name&nbsp;=&nbsp;r.name<br>
+&nbsp;&nbsp;<br>
+}<br>
+<br>
+<b><font color='#7F0055'>rule</font></b>&nbsp;Features<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>match</font></b>&nbsp;l&nbsp;:&nbsp;Left!Feature<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>with</font></b>&nbsp;r&nbsp;:&nbsp;Right!Feature&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>extends</font></b>&nbsp;NamedElements&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>compare</font></b>&nbsp;:&nbsp;l.owner.matches(r.owner)<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>conform</font></b>&nbsp;:&nbsp;l.type.matches(r.type)<br>
+}<br>
+<br>
+<b><font color='#7F0055'>rule</font></b>&nbsp;Operations<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>match</font></b>&nbsp;l&nbsp;:&nbsp;Left!Operation<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>with</font></b>&nbsp;r&nbsp;:&nbsp;Right!Operation<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>extends</font></b>&nbsp;Features&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>compare</font></b>&nbsp;:&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l.parameters.size()&nbsp;=&nbsp;r.parameters.size()&nbsp;<b><font color='#7F0055'>and</font></b>&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l.parameters.forAll(lp|lp.matches(r.parameters.at(l.parameters.indexOf(lp))))<br>
+}<br>
+<br>
+<b><font color='#7F0055'>rule</font></b>&nbsp;Parameters<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>match</font></b>&nbsp;l&nbsp;:&nbsp;Left!Parameter<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>with</font></b>&nbsp;r&nbsp;:&nbsp;Right!Parameter&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>compare</font></b>&nbsp;:&nbsp;l.type.matches(r.type)<br>
+&nbsp;&nbsp;<br>
+}<br>
+<br>
+<b><font color='#7F0055'>rule</font></b>&nbsp;Models<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>merge</font></b>&nbsp;l&nbsp;:&nbsp;Left!Model<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>with</font></b>&nbsp;r&nbsp;:&nbsp;Right!Model<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>into</font></b>&nbsp;m&nbsp;:&nbsp;Merged!Model&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;m.name&nbsp;:=&nbsp;l.name&nbsp;+&nbsp;<font color='#2A00FF'>'&nbsp;and&nbsp;'</font>&nbsp;+&nbsp;r.name;<br>
+&nbsp;&nbsp;<br>
+}<br>
+<br>
+<b><font color='#7F0055'>auto</font></b>&nbsp;<b><font color='#7F0055'>rule</font></b>&nbsp;PackageableElement2PackageableElement<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>transform</font></b>&nbsp;s&nbsp;:&nbsp;Source!PackageableElement<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>to</font></b>&nbsp;t&nbsp;:&nbsp;Merged!PackageableElement&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>if</font></b>&nbsp;(Left.owns(s)){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;t.package&nbsp;:=&nbsp;leftPackage;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>else</font></b>&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;t.package&nbsp;:=&nbsp;rightPackage;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+</code>
+<p><strong>Listing 1</strong> : OO.eml code</p>
+<code>
+<b><font color='#7F0055'>operation</font></b>&nbsp;<b><font color='#7F0055'>Any</font></b>&nbsp;printAllMatches()&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>for</font></b>&nbsp;(m&nbsp;<b><font color='#7F0055'>in</font></b>&nbsp;<i><font color='#2A00FF'>self</font></i>.select(m|m.isMatching))&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(m.left.name&nbsp;+&nbsp;<font color='#2A00FF'>'<->'</font>&nbsp;+&nbsp;m.right.name).println();<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+<b><font color='#7F0055'>operation</font></b>&nbsp;<b><font color='#7F0055'>Any</font></b>&nbsp;printMatchTrace()&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>for</font></b>&nbsp;(m&nbsp;<b><font color='#7F0055'>in</font></b>&nbsp;<i><font color='#2A00FF'>self</font></i>)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(m.left.name&nbsp;+&nbsp;<font color='#2A00FF'>'<->'</font>&nbsp;+&nbsp;m.right.name).println();<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+<b><font color='#7F0055'>operation</font></b>&nbsp;<b><font color='#7F0055'>Any</font></b>&nbsp;getNonConforming()&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>return</font></b>&nbsp;<i><font color='#2A00FF'>self</font></i>.select(m|m.isMatching&nbsp;<b><font color='#7F0055'>and</font></b>&nbsp;<b><font color='#7F0055'>not</font></b>&nbsp;m.isConforming);<br>
+}<br>
+<br>
+<b><font color='#7F0055'>operation</font></b>&nbsp;<b><font color='#7F0055'>Any</font></b>&nbsp;printNonConforming()&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;nonConforming;<br>
+&nbsp;&nbsp;nonConforming&nbsp;:=&nbsp;<i><font color='#2A00FF'>self</font></i>.getNonConforming();<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>if</font></b>&nbsp;(nonConforming.size()&nbsp;>&nbsp;0){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color='#7F0055'>for</font></b>&nbsp;(m&nbsp;<b><font color='#7F0055'>in</font></b>&nbsp;nonConforming)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(m.left.name&nbsp;+&nbsp;<font color='#2A00FF'>'<->'</font>&nbsp;+&nbsp;m.right.name).println();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}
+</code>
+<p><strong>Listing 2</strong> :  MatchTraceUtil.eol code </p>
+<p>&nbsp;</p>
+</body></html>

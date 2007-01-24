@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="../../../../common/css/style.css" charset="ISO-8859-1" type="text/css">
+	<title>Return statement</title>
+</head>
+
+<body>
+<h2>Return statement</h2>
+The <code>return</code> statement is used to (optionally) return a value and
+exit a statement block.
+In EOL, it is valid only in the body of a <a
+href="../operations/userdefinedoperations.html">
+user defined operation</a> but in 
+languages
+built atop EOL it is also used in bodies of rules.
+
+<h3>Syntax</h3>
+<code>
+<b><font color='#7F0055'>return</font></b>&nbsp;(value)?;<br>
+</code>
+
+<h3>Examples</h3>
+
+<code>
+<b><font
+color='#7F0055'>operation</font></b>&nbsp;Integer&nbsp;add(i&nbsp;:&nbsp;Integer
+)&nbsp;:&nbsp;Integer{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>return</font></b>&nbsp;<i><font
+color='#2A00FF'>self</font></i>&nbsp;+&nbsp;i;<br>
+}
+</code>
+<br><br>
+Returns the sum of the Integer on which it was invoked
+(accessible via the <code>self</code> built-in variable)
+with <code>i</code>.
+<hr>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<?xml-stylesheet href="default.xsl" type="text/xsl"?>
+<toc label="Epsilon Merging Language (EML)">
+	<topic label="Getting Started" href="eml/gettingStarted.html"/>
+	<topic label="Resources" href="eml/resources.html"/>
+	<topic label="Reference">
+		<topic label="Merge rules" href="eml/user/syntax/mergerules.html"/>
+		<topic label="Pre section" href="eml/user/syntax/presection.html"/>
+		<topic label="Mid section" href="eml/user/syntax/midsection.html"/>
+		<topic label="Post section" href="eml/user/syntax/postsection.html"/>
+		<topic label="Merging strategies" href="eml/user/syntax/strategies.html"/>
+	</topic>
+	<topic label="Examples">
+		<topic label="Merging OO models" href="eml/user/examples/oo.html"/>
+	</topic>
+</toc>

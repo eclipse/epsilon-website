@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="../common/css/style.css" charset="ISO-8859-1"
+type="text/css">
+	<title>Database metamodel</title>
+</head>
+
+<body>
+<h2>DataBase (DB) metamodel</h2>
+
+<code>
+<b><font color='#7F0055'>package</font></b><font color='#000000'>&nbsp;DB&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>abstract</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;NamedElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>attribute</font></b><font color='#000000'>&nbsp;name&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>String</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Database&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;contents</font><b><font color='#7F0055'>[</font></b><b><font color='#FF0000'>*</font></b><b><font color='#7F0055'>]</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>container</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;DatabaseElement&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;database</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>abstract</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;DatabaseElement&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;NamedElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;database&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Database&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;contents</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Table&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;DatabaseElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;columns</font><b><font color='#7F0055'>[</font></b><b><font color='#FF0000'>*</font></b><b><font color='#7F0055'>]</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>container</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Column&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;table</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;primaryKeys</font><b><font color='#7F0055'>[</font></b><b><font color='#FF0000'>*</font></b><b><font color='#7F0055'>]</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>subsets</font></b><font color='#000000'>&nbsp;columns&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Column</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Column&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;DatabaseElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;table&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Table&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;columns</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>attribute</font></b><font color='#000000'>&nbsp;type&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>String</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;ForeignKey&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;DatabaseElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;parent&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Column</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;child&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Column</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>attribute</font></b><font color='#000000'>&nbsp;isMany&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>Boolean</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>datatype</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>String</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>datatype</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>Boolean</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+}<br>
+</font>
+</code>
+
+</body>
+</html>

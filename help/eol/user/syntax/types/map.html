@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="../../../../common/css/style.css" charset="ISO-8859-1" type="text/css">
+	<title>Any datatype</title>
+</head>
+
+<body>
+<h2>Map datatype</h2>
+The <code>Map</code> datatype represents an object with
+dynamic features. The user can assign and retrieve arbitrary
+feature values.
+
+<h3>Examples</h3>
+<code>
+<b><font color='#7F0055'>var</font></b>&nbsp;m&nbsp;:&nbsp;<b><font color='#7F0055'>Map</font></b>;<br>
+m.someFeature&nbsp;:=&nbsp;<font color='#2A00FF'>'testValue'</font>;<br>
+m.someOtherFeature&nbsp;:=&nbsp;1;<br>
+(m.someFeature&nbsp;+&nbsp;m.someOtherFeature).println();
+</code>
+<br><br>
+
+In the above example, variable <code>m</code> is defined to be a <code>Map</code>.
+The definition automatically creates a new
+instance of <code>Map</code> and assigns it to the variable.
+At that time, <code>m</code> has no features. Upon executing the first
+assignment statement, <code>m</code> creates a feature named 
+<code>someFeature</code> and assigns the <code>'testValue'</code>
+value to it. Similarly, the second assignment creates a
+<code>someOtherFeature</code> feature and sets its value to the
+Integer <code>1</code>. Both features are accessed in the 
+final statement which prints <code>testValue1</code> to the
+default output stream.
+
+
+
+</body>
+</html>

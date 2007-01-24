@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="../../../../common/css/style.css" charset="ISO-8859-1"
+type="text/css">	<title>-> operator</title>
+</head>
+
+<body>
+<h2>-> operator</h2>
+In EOL, the <code>-></code> (arrow) operator is used to invoke operations
+on instances (but not to access features). It is used mainly for compatibility
+with OCL and when called, it examines the available operations in the following
+order (reverse of the <a href="dot.html" class="code">.</a> operator)
+
+<br><br>
+
+1. <a href="../operations/builtinoperations.html">Built-in operation</a><br>
+2. <a href="../operations/userdefinedoperations.html">User defined operation</a><br>
+
+<h3>Syntax</h3>
+<code>expression->operationCall(parameters)</code>
+
+<h3>Examples</h3>
+
+<code>a->print();</code>
+<br><br>
+Invokes the built-in <code>print()</code> operation 
+on instance <code>a</code>.
+
+<hr>
+
+<code>a->doSomething();</code>
+<br><br>
+Invokes the user-defined <code>doSomething()</code> operation 
+on instance <code>a</code>.
+
+<hr>
+
+</body>
+</html>

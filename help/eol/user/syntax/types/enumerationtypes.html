@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="../../../../common/css/style.css" charset="ISO-8859-1" type="text/css">
+	<title>Enumeration types</title>
+</head>
+
+<body>
+<h2>Enumeration types</h2>
+Many modelling technologies provide the concept of <code>Enumeration</code> types.
+Each enumeration-type has a finite number of primitive literals.
+To access a literal, the <code>#</code> operator can be used. For example, to
+aquire the value of the <code>vk_public</code> literal of the <code>VisibilityKind</code>
+in a UML 1.4 model named <code>Uml</code>, the <code>Uml!VisibilityKind#vk_public</code>
+expression can be used. As with model-element types, in case of conflicting names,
+the fully qualified path of the enumeration-type can be used.
+
+<h3>Syntax</h3>
+<code>modelName!enumerationType#literalName</code>
+<br><br>
+or
+<br><br>
+<code>modelName!package1::package2::enumerationType#literalName</code>
+
+<h3>Examples</h3>
+
+<code>Uml!VisibilityKind#vk_public</code>
+<br><br>
+Returns the value of the <code>vk_public</code>
+literal of the <code>VisibilityKind</code> enumeration
+type in the <code>Uml</code> model.
+
+<hr>
+
+</body>
+</html>

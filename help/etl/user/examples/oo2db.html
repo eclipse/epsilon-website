@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+  <link rel="stylesheet" href="../../../common/css/style.css" charset="ISO-8859-1" type="text/css">
+  <title>Complete OO to DB transformation</title>
+
+
+</head>
+
+
+<body>
+
+<h2>Complete OO to DB transformation</h2>
+
+<p><br>
+  
+  In this section we provide a complete OO to DB transformation expressed
+in ETL. In this scenario we transform an object model into a database schema. The overall functionality of the transformation is summarized below:</p>
+<ul>
+  <li>Each class is transformed into a table and a primary key </li>
+  <li>Each single valued attribute is transformed into a column</li>
+  <li>Each multi-valued attribute is transformed into a value-table and a foreign key</li>
+  <li>Each reference is transformed into a foreign key</li>
+  <li>Each inheritance relationship is transformed into a foreign key (following the approach discussed here)</li>
+</ul>
+<p>Instead of encoding the OO&lt;-&gt;DB datatype mapping in the transformation, we have used a third model that conforms to the <a href="../../../general/tmmetamodel.html">Type Mapping Metamodel</a>. This allows us to add support for more types without modifying the transformation. </p>
+<h3>Source code</h3>
+
+<code>
+<b><font color='#7F0055'>pre</font></b>&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;db&nbsp;:&nbsp;<b><font color='#7F0055'>new</font></b>&nbsp;DB!Database;<br>
+}<br>
+<br>
+<font color='#3F7F5F'>--&nbsp;Transforms&nbsp;a&nbsp;class&nbsp;into&nbsp;a&nbsp;table&nbsp;and&nbsp;</font><font color='#3F7F5F'><br>
+--&nbsp;a&nbsp;primary&nbsp;key&nbsp;column<br>
+</font><b><font color='#7F0055'>rule</font></b>&nbsp;Class2Table<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>transform</font></b>&nbsp;c&nbsp;:&nbsp;OO!Class&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>to</font></b>&nbsp;t&nbsp;:&nbsp;DB!Table,&nbsp;pk&nbsp;:&nbsp;DB!Column&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;t.name&nbsp;:=&nbsp;c.name;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;t.database&nbsp;:=&nbsp;db;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;Fill&nbsp;the&nbsp;details&nbsp;of&nbsp;the&nbsp;primary&nbsp;key&nbsp;<br>
+</font>&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;of&nbsp;the&nbsp;table<br>
+</font>&nbsp;&nbsp;pk.name&nbsp;:=&nbsp;t.primaryKeyName();<br>
+&nbsp;&nbsp;pk.type&nbsp;:=&nbsp;<font color='#2A00FF'>'INT'</font>;<br>
+&nbsp;&nbsp;t.columns.add(pk);<br>
+&nbsp;&nbsp;t.primaryKeys.add(pk);<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;If&nbsp;the&nbsp;class&nbsp;extends&nbsp;some&nbsp;other&nbsp;class<br>
+</font>&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;create&nbsp;a&nbsp;foreign&nbsp;key&nbsp;pointing&nbsp;towards<br>
+</font>&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;the&nbsp;primary&nbsp;key&nbsp;of&nbsp;the&nbsp;parent&nbsp;class<br>
+</font>&nbsp;&nbsp;<b><font color='#7F0055'>if</font></b>&nbsp;(c.extends.isDefined()){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;fk&nbsp;:&nbsp;<b><font color='#7F0055'>new</font></b>&nbsp;DB!ForeignKey;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;childFkCol&nbsp;:&nbsp;<b><font color='#7F0055'>new</font></b>&nbsp;DB!Column;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;parentFkCol&nbsp;:&nbsp;DB!Column;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;parentTable&nbsp;:&nbsp;DB!Table;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;parentTable&nbsp;:=&nbsp;c.extends.equivalent();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;parentFkCol&nbsp;:=&nbsp;parentTable.primaryKeys.first();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;childFkCol.name&nbsp;:=&nbsp;parentFkCol.name;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;childFkCol.type&nbsp;:=&nbsp;<font color='#2A00FF'>'INT'</font>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;childFkCol.table&nbsp;:=&nbsp;t;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fk.database&nbsp;:=&nbsp;db;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fk.parent&nbsp;:=&nbsp;parentFkCol;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fk.child&nbsp;:=&nbsp;childFkCol;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fk.name&nbsp;:=&nbsp;c.name&nbsp;+&nbsp;<font color='#2A00FF'>'Extends'</font>&nbsp;+&nbsp;c.extends.name;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+<font color='#3F7F5F'>--&nbsp;Transforms&nbsp;a&nbsp;single-valued&nbsp;attribute<br>
+--&nbsp;to&nbsp;a&nbsp;column<br>
+</font><b><font color='#7F0055'>rule</font></b>&nbsp;SingleValuedAttribute2Column<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>transform</font></b>&nbsp;a&nbsp;:&nbsp;OO!Attribute<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>to</font></b>&nbsp;c&nbsp;:&nbsp;DB!Column&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>guard</font></b>&nbsp;:&nbsp;<b><font color='#7F0055'>not</font></b>&nbsp;a.isMany<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;c.name&nbsp;:=&nbsp;a.name;<br>
+&nbsp;&nbsp;c.table&nbsp;:=&nbsp;a.owner.equivalent();<br>
+&nbsp;&nbsp;c.type&nbsp;:=&nbsp;a.type.name.toDbType();<br>
+}<br>
+<br>
+<font color='#3F7F5F'>--&nbsp;Transforms&nbsp;a&nbsp;multi-valued&nbsp;attribute<br>
+--&nbsp;to&nbsp;a&nbsp;table&nbsp;where&nbsp;its&nbsp;values&nbsp;are&nbsp;stored<br>
+--&nbsp;and&nbsp;a&nbsp;foreign&nbsp;key&nbsp;<br>
+</font><b><font color='#7F0055'>rule</font></b>&nbsp;MultiValuedAttribute2Table<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>transform</font></b>&nbsp;a&nbsp;:&nbsp;OO!Attribute<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>to</font></b>&nbsp;t&nbsp;:&nbsp;DB!Table,&nbsp;pkCol&nbsp;:&nbsp;DB!Column,&nbsp;valueCol&nbsp;:&nbsp;DB!Column,&nbsp;fkCol&nbsp;:&nbsp;DB!Column,&nbsp;fk&nbsp;:&nbsp;DB!ForeignKey&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>guard</font></b>&nbsp;:&nbsp;a.isMany<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;The&nbsp;table&nbsp;that&nbsp;stores&nbsp;the&nbsp;values&nbsp;<br>
+</font>&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;has&nbsp;an&nbsp;'id'&nbsp;column&nbsp;and&nbsp;a&nbsp;'value'&nbsp;column<br>
+</font>&nbsp;&nbsp;t.name&nbsp;:=&nbsp;a.valuesTableName();<br>
+&nbsp;&nbsp;t.database&nbsp;:=&nbsp;db;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;pkCol.name&nbsp;:=&nbsp;<font color='#2A00FF'>'id'</font>;<br>
+&nbsp;&nbsp;pkCol.table&nbsp;:=&nbsp;t;<br>
+&nbsp;&nbsp;pkCol.type&nbsp;:=&nbsp;<font color='#2A00FF'>'INT'</font>;<br>
+&nbsp;&nbsp;valueCol.name&nbsp;:=&nbsp;<font color='#2A00FF'>'value'</font>;<br>
+&nbsp;&nbsp;valueCol.table&nbsp;:=&nbsp;t;<br>
+&nbsp;&nbsp;valueCol.type&nbsp;:=&nbsp;a.type.name.toDbType();<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;Another&nbsp;column&nbsp;is&nbsp;added&nbsp;into&nbsp;the&nbsp;table<br>
+</font>&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;to&nbsp;link&nbsp;with&nbsp;the&nbsp;'id'&nbsp;column&nbsp;of&nbsp;the&nbsp;<br>
+</font>&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;values&nbsp;table<br>
+</font>&nbsp;&nbsp;fkCol.name&nbsp;:=&nbsp;a.name&nbsp;+&nbsp;<font color='#2A00FF'>'Id'</font>;<br>
+&nbsp;&nbsp;fkCol.table&nbsp;:=&nbsp;a.owner.equivalent();<br>
+&nbsp;&nbsp;fkCol.type&nbsp;:=&nbsp;<font color='#2A00FF'>'INT'</font>;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;The&nbsp;foreign&nbsp;key&nbsp;that&nbsp;connects<br>
+</font>&nbsp;&nbsp;<font color='#3F7F5F'>--&nbsp;the&nbsp;two&nbsp;columns&nbsp;is&nbsp;defined<br>
+</font>&nbsp;&nbsp;fk.parent&nbsp;:=&nbsp;pkCol;<br>
+&nbsp;&nbsp;fk.child&nbsp;:=&nbsp;fkCol;<br>
+&nbsp;&nbsp;fk.database&nbsp;:=&nbsp;db;<br>
+}&nbsp;<br>
+<br>
+<font color='#3F7F5F'>--&nbsp;Transforms&nbsp;a&nbsp;referecne&nbsp;into&nbsp;a&nbsp;foreign&nbsp;key<br>
+</font><b><font color='#7F0055'>rule</font></b>&nbsp;Reference2ForeignKey<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>transform</font></b>&nbsp;r&nbsp;:&nbsp;OO!Reference<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>to</font></b>&nbsp;fk&nbsp;:&nbsp;DB!ForeignKey,&nbsp;fkCol&nbsp;:&nbsp;DB!Column&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;fkCol.table&nbsp;:=&nbsp;r.type.equivalent();<br>
+&nbsp;&nbsp;fkCol.name&nbsp;:=&nbsp;r.name&nbsp;+&nbsp;<font color='#2A00FF'>'Id'</font>;<br>
+&nbsp;&nbsp;fkCol.type&nbsp;:=&nbsp;<font color='#2A00FF'>'INT'</font>;<br>
+&nbsp;&nbsp;fk.database&nbsp;:=&nbsp;db;<br>
+&nbsp;&nbsp;fk.parent&nbsp;:=&nbsp;r.owner.equivalent().primaryKeys.first();<br>
+&nbsp;&nbsp;fk.child&nbsp;:=&nbsp;fkCol;<br>
+&nbsp;&nbsp;fk.name&nbsp;:=&nbsp;r.name;<br>
+&nbsp;&nbsp;<br>
+}<br>
+<br>
+<b><font color='#7F0055'>operation</font></b>&nbsp;DB!Table&nbsp;primaryKeyName()&nbsp;:&nbsp;<b><font color='#7F0055'>String</font></b>&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>return</font></b>&nbsp;<i><font color='#2A00FF'>self</font></i>.name.firstToLowerCase()&nbsp;+&nbsp;<font color='#2A00FF'>'Id'</font>;<br>
+}<br>
+<br>
+<b><font color='#7F0055'>operation</font></b>&nbsp;OO!Attribute&nbsp;valuesTableName()&nbsp;:&nbsp;<b><font color='#7F0055'>String</font></b>&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>return</font></b>&nbsp;<i><font color='#2A00FF'>self</font></i>.owner.name&nbsp;+&nbsp;<font color='#2A00FF'>'_'</font>&nbsp;+&nbsp;<i><font color='#2A00FF'>self</font></i>.name.firstToUpperCase()&nbsp;+&nbsp;<font color='#2A00FF'>'Values'</font>;<br>
+}<br>
+<br>
+<b><font color='#7F0055'>operation</font></b>&nbsp;<b><font color='#7F0055'>Any</font></b>&nbsp;toDbType()&nbsp;:&nbsp;<b><font color='#7F0055'>String</font></b>&nbsp;{<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>var</font></b>&nbsp;mapping&nbsp;:&nbsp;OO2DB!TypeMapping;<br>
+&nbsp;&nbsp;mapping&nbsp;:=&nbsp;OO2DB!TypeMapping.allInstances().select(tm|tm.source&nbsp;=&nbsp;<i><font color='#2A00FF'>self</font></i>).first;<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>if</font></b>&nbsp;(<b><font color='#7F0055'>not</font></b>&nbsp;mapping.isDefined()){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<font color='#2A00FF'>'Cannot&nbsp;find&nbsp;DB&nbsp;type&nbsp;for&nbsp;OO&nbsp;type&nbsp;'</font>&nbsp;+&nbsp;<i><font color='#2A00FF'>self</font></i>&nbsp;+&nbsp;<font color='#2A00FF'>'.&nbsp;Setting&nbsp;the&nbsp;default.'</font>).println();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color='#7F0055'>return</font></b>&nbsp;OO2DB!TypeMap.allInstances().first().default.target;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<b><font color='#7F0055'>else</font></b>&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b><font color='#7F0055'>return</font></b>&nbsp;mapping.target;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+
+</code>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> <link rel="stylesheet" href="../common/css/style.css" charset="ISO-8859-1" type="text/css"><title>Object-Oriented
+metamodel</title> </head>
+
+
+<body><h2>Object-Oriented (OO) metamodel</h2>
+<code><b><font color='#7F0055'>package</font></b><font color='#000000'>&nbsp;OO&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Model&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;Package&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>abstract</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;PackageableElement&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;NamedElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;</font><font color='#0000FF'>"package"</font><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Package&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;contents</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>abstract</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;AnnotatedElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;annotations</font><b><font color='#7F0055'>[</font></b><b><font color='#FF0000'>*</font></b><b><font color='#7F0055'>]</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>container</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Annotation</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Annotation&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>attribute</font></b><font color='#000000'>&nbsp;key&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>String</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>attribute</font></b><font color='#000000'>&nbsp;value&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>String</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>abstract</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;NamedElement&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;AnnotatedElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>attribute</font></b><font color='#000000'>&nbsp;name&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>String</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Package&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;PackageableElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;contents</font><b><font color='#7F0055'>[</font></b><b><font color='#FF0000'>*</font></b><b><font color='#7F0055'>]</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>container</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;PackageableElement&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;</font><font color='#0000FF'>"package"</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>abstract</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Classifier&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;PackageableElement&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Class&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;Classifier&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;</font><font color='#0000FF'>"extends"</font><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Class&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;extendedBy</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;extendedBy</font><b><font color='#7F0055'>[</font></b><b><font color='#FF0000'>*</font></b><b><font color='#7F0055'>]</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Class&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;</font><font color='#0000FF'>"extends"</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;features</font><b><font color='#7F0055'>[</font></b><b><font color='#FF0000'>*</font></b><b><font color='#7F0055'>]</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>container</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Feature&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;owner</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>attribute</font></b><font color='#000000'>&nbsp;isAbstract&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>Boolean</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Datatype&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;Classifier&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>abstract</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Feature&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;NamedElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;owner&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Class&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;features</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;type&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Classifier</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>attribute</font></b><font color='#000000'>&nbsp;visibility&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;VisibilityEnum</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>abstract</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;StructuralFeature&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;Feature&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>attribute</font></b><font color='#000000'>&nbsp;isMany&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>Boolean</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Operation&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;Feature&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;parameters</font><b><font color='#7F0055'>[</font></b><b><font color='#FF0000'>*</font></b><b><font color='#7F0055'>]</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>container</font></b><font color='#000000'>&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Parameter&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;owner</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Parameter&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;NamedElement&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;type&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Classifier</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>reference</font></b><font color='#000000'>&nbsp;owner&nbsp;</font><b><font color='#7F0055'>:</font></b><font color='#000000'>&nbsp;Operation&nbsp;</font><b><font color='#7F0055'>oppositeOf</font></b><font color='#000000'>&nbsp;parameters</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Reference&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;StructuralFeature{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>class</font></b><font color='#000000'>&nbsp;Attribute&nbsp;</font><b><font color='#7F0055'>extends</font></b><font color='#000000'>&nbsp;StructuralFeature&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>enumeration</font></b><font color='#000000'>&nbsp;VisibilityEnum&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>literal</font></b><font color='#000000'>&nbsp;public</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</font><b><font color='#7F0055'>literal</font></b><font color='#000000'>&nbsp;private</font><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>datatype</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>String</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+&nbsp;&nbsp;</font><b><font color='#7F0055'>datatype</font></b><font color='#000000'>&nbsp;</font><b><font color='#2A00FF'>Boolean</font></b><b><font color='#7F0055'>;</font></b><font color='#000000'><br>
+}</font>
+</code></body></html>

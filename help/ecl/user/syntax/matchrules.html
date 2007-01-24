@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><link rel="stylesheet" href="../../../common/css/style.css" charset="ISO-8859-1" type="text/css"><title>Transformation
+rules</title>
+</head>
+<body><h2>Match rules</h2>
+An ECL module consists of a number of match rules. A rule
+defines a unique name and two input parameters (following the&nbsp;<code>match</code>
+and the <code>with </code>keywords).
+Moreover, a rule can extend other rules specified after the <code>extends</code>
+keyword or be declared as <code>abstract</code>. Each rule can specify
+a <code>guard</code> which is a block of EOL statements
+that returns a <code>Boolean</code>
+value to further limit
+its scope. <br>
+<br>
+A match-rule contains two parts. A
+compare and a conform part. In the compare part, the input elements are
+examined for basic correspondences. If the compare part returns <code>true</code>,
+the elements are characterized as <em>matching</em>. In this case, the <code>conform</code> part is executed and checks if the source elements also
+conform with each other. <br>
+<h3>Rule Inheritance</h3>
+<p>When a match rule <code>B</code> extends a rule <code>A</code>, when invoking the <code>compare</code> or <code>conform</code> part of <code>B</code>, the respective part of <code>A</code> will be
+first evaluated. The result will be a conjunction (<code>and</code>) of the two results. If a rule is defined as <code>abstract</code>, it will only be evaluated from rules that <code>extend</code> it. </p>
+<h3>The <code>auto</code> keyword </h3>
+<p>When the <code>auto</code> keyword is used, before the <code>compare</code> part of the rule is evaluated, the selected <a href="strategies.html">matching strategy</a> compares the two input elements. The result of the matching strategy is accessible from  the <code>compare</code> and the <code>conform</code> sections using the built-in <code>autoMatch</code> <code>Boolean </code>variable.</p>
+<h3>Invoking
+other rules</h3>
+From the body of a match rule, it is often required to
+reference the result of other match rules. This is achieved
+using the <code>matches(element)</code> built-in
+ECL operation. The <code>matches()</code>
+operation examines the internal <code>matchTrace</code> to find out if the two
+elements have been already compared and in case they have not tries to
+find an appropriate rule that can compare them. Finally it returns the
+result of the comparison.
+<h3>Syntax</h3>
+<code>(<b><font color="#7f0055">auto</font></b>)?&nbsp;(<b><font color="#7f0055">abstract</font></b>)?&nbsp;<b><font color="#7f0055">rule</font></b>&nbsp;ruleName<br>
+&nbsp;&nbsp;<b><font color="#7f0055">match</font></b> leftName : LeftType<br>
+&nbsp;&nbsp;<b><font color="#7f0055">with</font></b> rightName : RightType<br>
+&nbsp;&nbsp;(<b><font color="#7f0055">extends</font></b>&nbsp;otherRuleName&nbsp;(,&nbsp;otherRuleName)*&nbsp;)?&nbsp;{<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;(<b><font color="#7f0055">guard</font></b>&nbsp;<a href="../../../general/syntaxabbreviations.html">blockOrExpression</a>)?<br>
+&nbsp;</code><code><br>
+&nbsp;&nbsp;(<b><font color="#7f0055">compare</font></b> <a href="../../../general/syntaxabbreviations.html">blockOrExpression</a>)?<br>
+</code><code><br>
+&nbsp;&nbsp;(<b><font color="#7f0055">conform</font></b> <a href="../../../general/syntaxabbreviations.html">blockOrExpression</a>)?</code><br>
+<code> }</code><code><br>
+</code><h3>Examples</h3>
+Examples of match rules can be found in the <a href="../examples/oo2db.html">complete OO to DB comparison</a>.<br>
+</body>
+</html>

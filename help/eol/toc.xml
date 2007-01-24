@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<?xml-stylesheet href="default.xsl" type="text/xsl"?>
+<toc label="Epsilon Object Language (EOL)">
+	<topic label="Getting Started" href="eol/gettingStarted.html"/>
+	<topic label="Resources" href="eol/resources.html"/>
+	<topic label="Examples">
+		<topic label="Generating Graphviz graphs from OO models" href="eol/user/examples/oo2graphviz.html"/>
+	</topic>
+	<topic label="Reference">
+		<topic label="Types">
+			<topic label="Any" href="eol/user/syntax/types/any.html"/>
+			<topic label="Primitive types" href="eol/user/syntax/types/primitivetypes.html">
+				<topic label="String" href="eol/user/syntax/types/string.html"/>
+				<topic label="Integer" href="eol/user/syntax/types/integer.html"/>
+				<topic label="Boolean" href="eol/user/syntax/types/boolean.html"/>
+				<topic label="Real" href="eol/user/syntax/types/real.html"/>
+				<topic label="Map" href="eol/user/syntax/types/map.html"/>	
+			</topic>
+			<topic label="Collection types" href="eol/user/syntax/types/collectiontypes.html">
+				<topic label="Bag" href="eol/user/syntax/types/bag.html"/>
+				<topic label="Sequence" href="eol/user/syntax/types/sequence.html"/>
+				<topic label="Set" href="eol/user/syntax/types/set.html"/>
+				<topic label="OrderedSet" href="eol/user/syntax/types/orderedset.html"/>
+			</topic>
+			<topic label="Model-related types">
+				<topic label="Model type" href="eol/user/syntax/types/model.html"/>
+				<topic label="Model element types" href="eol/user/syntax/types/modelelementtypes.html"/>
+				<topic label="Enumeration types" href="eol/user/syntax/types/enumerationtypes.html"/>
+			</topic>
+		</topic>
+		<topic label="Operators">
+			<topic label = "Arithmetical" href="eol/user/syntax/operators/arithmeticaloperators.html">
+				<topic label = "+ operator" href="eol/user/syntax/operators/plus.html"/>
+				<topic label = "- operator" href="eol/user/syntax/operators/minus.html"/>
+				<topic label = "- unary operator" href="eol/user/syntax/operators/minusunary.html"/>
+				<topic label = "* operator" href="eol/user/syntax/operators/times.html"/>
+				<topic label = "/ operator" href="eol/user/syntax/operators/div.html"/>
+			</topic>
+			<topic label = "Logical" href="eol/user/syntax/operators/logicaloperators.html">
+				<topic label = "And operator" href="eol/user/syntax/operators/and.html"/>
+				<topic label = "Or operator" href="eol/user/syntax/operators/or.html"/>
+				<topic label = "Xor unary operator" href="eol/user/syntax/operators/xor.html"/>
+				<topic label = "Not operator" href="eol/user/syntax/operators/not.html"/>
+				<topic label = "Implies operator" href="eol/user/syntax/operators/implies.html"/>
+			</topic>
+			<topic label = "Navigational">
+				<topic label = ". operator" href="eol/user/syntax/operators/dot.html"/>
+				<topic label = "-> operator" href="eol/user/syntax/operators/arrow.html"/>
+			</topic>
+		</topic>
+		<topic label="Statements">
+			<topic label="Statement block" href="eol/user/syntax/statements/block.html"/>
+			<topic label="Var statement" href="eol/user/syntax/statements/var.html"/>
+			<topic label="Delete statement" href="eol/user/syntax/statements/delete.html"/>
+			<topic label="Def statement" href="eol/user/syntax/statements/def.html"/>
+			<topic label="Assignment statement" href="eol/user/syntax/statements/assignment.html"/>
+			<topic label="If-Else statement" href="eol/user/syntax/statements/if.html"/>
+			<topic label="For statement" href="eol/user/syntax/statements/for.html"/>
+			<topic label="While statement" href="eol/user/syntax/statements/while.html"/>
+			<topic label="Break statement" href="eol/user/syntax/statements/break.html"/>
+			<topic label="Continue statement" href="eol/user/syntax/statements/continue.html"/>
+			<topic label="Return statement" href="eol/user/syntax/statements/return.html"/>
+		</topic>
+		<topic label="Operations" href="eol/user/syntax/operations/operations.html">
+			<topic label="Built-in operations" href="eol/user/syntax/operations/builtinoperations.html"/>
+			<topic label="User-defined operations" href="eol/user/syntax/operations/userdefinedoperations.html"/>
+		</topic>
+	</topic>
+	<!--topic label="Alignment with Modelling Technologies"
+href="html/alignment/alignment.html">
+		<topic label="Meta Data Repository (MDR)"
+href="html/alignment/mdr/alignment.html"/>
+		<topic label="Eclipse Modeling Framework (EMF)"
+href="html/alignment/emf/alignment.html"/>
+	</topic-->
+	<!--
+	<topic label="Main Topic"  href="html/maintopic.html">
+		<topic label="Sub Topic" href="html/subtopic.html"/>
+	</topic>
+	<topic label="Main Topic 2"/>
+	-->
+</toc>

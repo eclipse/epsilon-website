@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<?xml-stylesheet href="default.xsl" type="text/xsl"?>
+<toc label="Installing the Epsilon Development Tools">
+	<topic label="Installing prerequisites" href="installation/prerequisites.html"/>
+	<topic label="Installing the EDT" href="installation/edt.html"/>
+	<topic label="Testing your installation" href="installation/helloworld.html"/>
+</toc>
