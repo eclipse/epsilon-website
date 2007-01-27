@@ -56,15 +56,26 @@
 		?>	
 			<tr>
 				<td>
-				<?=title?>
+				<?=$title?>
 				</td>
 			</tr>
 			<tr>
 				<td>
-				<?=description?>
+				<?=$description?>
 				</td>
 			</tr>
 		<?
 		}
 
 		?>
+		
+		<hr class="clearer" />
+
+	</div>
+
+<?
+	$html = ob_get_contents();
+	ob_end_clean();
+	# Generate the web page
+	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+?>
