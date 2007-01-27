@@ -165,7 +165,7 @@
 #<!--EOHTML-->;
 	$html = ob_get_contents();
 	ob_end_clean();
-
+	echo $html;
 	# Generate the web page
 	$App->AddExtraHtmlHeader("<link rel='alternate' type='application/rss+xml' title='Epsilon News' href='news/epsilonNewsArchive.rss'>");
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
