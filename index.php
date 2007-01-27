@@ -161,7 +161,7 @@
 	
 	<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c6.statcounter.com/counter.php?sc_project=2185757&java=0&security=2d5ff082&invisible=1" alt="free web hit counter" border="0"></a> </noscript>
 	<!-- End of StatCounter Code -->
-
+<?
 <!--EOHTML-->;
 	$html = ob_get_contents();
 	ob_end_clean();
