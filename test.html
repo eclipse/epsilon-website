@@ -16,8 +16,10 @@ var request = createXMLHttpRequest();
 request.open("GET", "http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/org.epsilon.eclipse.help/index.html");
 request.onreadystatechange = function() {
     if (request.readyState == 4) {
-        var node = document.createTextNode(request.responseText);
-        div.appendChild(node); 
+        
+        div.innerText = request.responseText;
+        //var node = document.createTextNode(request.responseText);
+        //div.appendChild(node); 
 	//document.getElementById("output").appendChild(node);
     }
 }
@@ -27,6 +29,6 @@ request.send(null);
 </script>
 </head>
 <body>
-<div onClick = "javascript:loadText(this)">Click here</div>
+<div onLoad = "javascript:loadText(this)">Click here</div>
 </body>
 </html>
