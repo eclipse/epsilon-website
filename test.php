@@ -8,5 +8,5 @@ while ($line = fread($fp, 1024)) {
 	$content .= $line;
 }
 ?>
-<?=$content>
+<?=$content?>
 }<?='Finished...'?>
