@@ -6,6 +6,16 @@
     <description>Epsilon News</description>
 
 	<item>
+		<title>Examples page opened and initial set of examples uploaded</title>
+		<link>http://www.eclipse.org/gmt/epsilon/doc/examples.php</link>
+		<description>
+			We have created a page that contains examples of using languages
+			in Epsilon and uploaded an initial set of examples of using 
+			EOL, EML and ETL.
+		</description>
+		<pubDate>Fri, 26 Jan 2007 12:21:00 CET</pubDate>
+	</item>
+	<item>
 		<title>Documentation on syntax/features of Epsilon languages available online</title>
 		<link>http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/org.epsilon.eclipse.help/index.html</link>
 		<description>
