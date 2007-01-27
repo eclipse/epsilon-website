@@ -1,5 +1,6 @@
 <?='Started#1...'?>
 <?
+error_reporting(E_ALL);
 $fp = fopen('http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/OO2DB/readme.txt','r');
 //$fp = fopen('http://www.google.com','r');
 $content = '';
