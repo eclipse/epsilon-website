@@ -94,7 +94,9 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<span><b><a href="doc/examples.php">Examples</a></b><img align="left" src="../resources/images/new.gif" valign="top"/></span>
+								<div>
+									<b><a href="doc/examples.php">Examples</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
+								</div>
 		  					</td>
 							<td align="right">
 								<a href="doc/examples.php"><img align="right" src="../resources/images/reference.gif" valign="top"/></a>
