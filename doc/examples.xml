@@ -1,18 +1,25 @@
 <?xml version="1.0"?>
 <examples>
+	<example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
+		<language name="EML"/>
+		<description>
+		This EML merging merges an Entity model with a Vocabulary model specifying the vocabulary
+		used in an organization.
+		</description>
+	</example>
+	<example title="Generating a GraphViz graph from a MOF1.4 metamodel" src="MOF2Dot">
+		<language name="EOL"/>
+		<description>
+		This EOL program generates a textual representation of a graph that can be
+		visualized using the Dot program of the Graphviz (www.graphviz.org) platform.
+		</description>
+	</example>
 	<example title="Transforming an Object Oriented model into a Relational Database model" src="OO2DB">
 		<language name="ETL"/>
 		<description>
 		This ETL transformation transforms an Object Oriented model into a Relational Database model.
 		The type mappings between the OO and the DB metamodel are provided in a separate Type Mapping
 		model.
-		</description>
-	</example>
-	<example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
-		<language name="ETL"/>
-		<description>
-		This EML merging merges an Entity model with a Vocabulary model specifying the vocabulary
-		used in an organization.
 		</description>
 	</example>
 </examples>
