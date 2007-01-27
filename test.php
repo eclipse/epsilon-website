@@ -1,4 +1,4 @@
-<?='Started#1...'?>
+<?='Started#2...'?>
 <?
 error_reporting(E_ALL);
 $fp = fopen('http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/OO2DB/readme.txt','r');
