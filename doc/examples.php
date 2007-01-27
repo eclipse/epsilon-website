@@ -10,7 +10,7 @@ $showfile = file_get_contents("examples.xml");  // whatever path
 <?=$showfile?>
 <?
 $newstring=utf8_encode($showfile);          // it's important!
-if(!$domDocument = domxml_open_mem1($newstring)) {
+if(!$domDocument = domxml_open_mem($newstring)) {
    echo "Couldn't load xml...";   
    exit;
 }
