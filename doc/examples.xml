@@ -12,7 +12,7 @@
 		<language name="ETL"/>
 		<description>
 		This EML merging merges an Entity model with a Vocabulary model specifying the vocabulary
-		of a specific organization.
+		used in an organization.
 		</description>
 	</example>
 </examples>
