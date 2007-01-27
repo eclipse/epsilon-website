@@ -34,9 +34,13 @@
 
 		<h3>Examples</h3>
 		
-		This page contains fully functional examples of using the languages in Epsilon.
-		All examples are accompanied by metamodels, models, source files and a Eclipse
-		launch configurations. 
+		This page contains fully functional examples of using the Epsilon languages.
+		All examples are accompanied by the required metamodels, models, source files and 
+		Eclipse launch configurations. Should you find an example that does not work
+		with the current version of Epsilon please let us know by sending
+		a message to the <a href="news://news.eclipse.org/eclipse.modeling.gmt">GMT newsgroup</a>
+		
+		<br><br>
 		
 		<table>
 		<?
@@ -48,9 +52,9 @@
 		
 		$exampleNodes = $document->getElementsByTagName("example");
 		
-		echo "<p> Currently, ";
-		echo sizeof($exampleNodes);
-		echo " examples have been released";
+		#echo "<p> Currently, ";
+		#echo sizeof($exampleNodes);
+		#echo " examples have been released";
 		
 		foreach ($exampleNodes as $example) {
 			$descriptionNodes = $example->selectElements(array(),"description");
