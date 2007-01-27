@@ -32,7 +32,6 @@
 		
 	# Paste your HTML content between the EOHTML markers!	
 ?>
-	<!--$html = <<<EOHTML-->
 
 	<!-- Middle part -->
 	<div id="midcolumn">
