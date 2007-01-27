@@ -14,7 +14,7 @@
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Template";
+	$pageTitle 		= "Examples";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	ob_start();
@@ -68,7 +68,7 @@
 		}
 
 		?>
-		
+		</table>		
 		<hr class="clearer" />
 
 	</div>
