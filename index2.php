@@ -36,7 +36,7 @@
 		<table width="100%">
 			<tr>
 				<td width="80%">
-					<h1>$pageTitle</h1>
+					<h1><?=$pageTitle?></h1>
 					<h3>Welcome</h3>
 				      <p align="JUSTIFY">
 						Epsilon is a metamodel-agnostic component for supporting model navigation, creation, and modification operations.<?="..."?>

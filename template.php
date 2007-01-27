@@ -32,39 +32,23 @@
 			</tr>
 		</table>
 
-		<h3>Examples</h3>
-		<table>
-		<?
+		<h3>Template</h3>
 		
-		# Create a parser and parse a simple document.
-		include_once("../dom4php/XmlParser.php");
-		$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-		$document = $parser->parse(file_get_contents("examples.xml"));
+		Template<br><br>
 		
-		$exampleNodes = $document->getElementsByTagName("example");
+		<ul>
 		
-		echo "<p>";
-		echo sizeof($exampleNodes);
-		echo " examples currently available";
+		<li>
+			<a href="http://www.cs.york.ac.uk">Department of Computer Science, The University of York</a>
+		</ul>
 		
-		foreach ($exampleNodes as $example) {
-			$descriptionNodes = $example->selectElements(array(),"description");
-			$descriptionNode = $descriptionNodes[0];
-			$description = $descriptionNode->childNodes[0]->data;
-			$src = $example->getAttribute("src");
-			$title = $example->getAttribute("title");
-		?>	
-			<tr>
-				<td>
-				<?=title?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-				<?=description?>
-				</td>
-			</tr>
-		<?
-		}
+		<hr class="clearer" />
 
-		?>
+	</div>
+
+<?
+	$html = ob_get_contents();
+	ob_end_clean();
+	# Generate the web page
+	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+?>
