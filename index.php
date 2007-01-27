@@ -94,6 +94,19 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
+								<b><a href="doc/examples.php">Examples</a><img align="left" src="../resources/images/new.gif" valign="top"/></b>
+		  					</td>
+							<td align="right">
+								<a href="doc/examples.php"><img align="right" src="../resources/images/reference.gif" valign="top"/></a>
+							</td>
+						</tr>
+					</table>
+				</li>
+
+				<li>
+					<table width="100%">
+						<tr>
+							<td width="80%" valign="bottom">
 								<b><a href="download.php">Download</a></b>
 		  					</td>
 							<td align="right">
