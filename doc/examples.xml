@@ -3,9 +3,16 @@
 	<example title="Transforming an Object Oriented model into a Relational Database model" src="OO2DB">
 		<language name="ETL"/>
 		<description>
-		This transformation transforms an Object Oriented model into a Relational Database model.
+		This ETL transformation transforms an Object Oriented model into a Relational Database model.
 		The type mappings between the OO and the DB metamodel are provided in a separate Type Mapping
 		model.
+		</description>
+	</example>
+	<example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
+		<language name="ETL"/>
+		<description>
+		This EML merging merges an Entity model with a Vocabulary model specifying the vocabulary
+		of a specific organization.
 		</description>
 	</example>
 </examples>
