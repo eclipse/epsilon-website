@@ -34,7 +34,7 @@
 
 		<h3>Examples</h3>
 		
-		This page contains fully functional examples of using the Epsilon languages.
+		This page contains working examples of using the Epsilon languages.
 		All examples are accompanied by the required metamodels, models, source files and 
 		Eclipse launch configurations. Should you find an example that does not work
 		with the current version of Epsilon please let us know by sending
