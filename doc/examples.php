@@ -1,10 +1,14 @@
+Version 1
+
 <?php
 $indent = "";
 $file = "semi.xml";
 
 $showfile = file_get_contents("examples.xml");  // whatever path
    // maybe the whole path is not important, look it up in other posts
-
+?>
+<?=$showfile?>
+<?
 $newstring=utf8_encode($showfile);          // it's important!
 if(!$domDocument = domxml_open_mem($newstring)) {
    echo "Couldn't load xml...";   
