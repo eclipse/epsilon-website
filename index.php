@@ -31,7 +31,8 @@
 	$epsilonnews = get_epsilonnews(5);
 		
 	# Paste your HTML content between the EOHTML markers!	
-	$html = <<<EOHTML
+?>
+	<!--$html = <<<EOHTML-->
 
 	<!-- Middle part -->
 	<div id="midcolumn">
@@ -131,9 +132,9 @@
 								
 			</ul>
 		</div>
-
+		
 		<div class="homeitem">
-			$epsilonnews
+			<?=$epsilonnews=>
 		</div>
 		<hr class="clearer" />
 	</div>
@@ -161,8 +162,9 @@
 	<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c6.statcounter.com/counter.php?sc_project=2185757&java=0&security=2d5ff082&invisible=1" alt="free web hit counter" border="0"></a> </noscript>
 	<!-- End of StatCounter Code -->
 
-EOHTML;
-
+<!--EOHTML-->;
+	$html = ob_get_contents();
+	ob_end_clean();
 
 	# Generate the web page
 	$App->AddExtraHtmlHeader("<link rel='alternate' type='application/rss+xml' title='Epsilon News' href='news/epsilonNewsArchive.rss'>");
