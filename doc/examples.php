@@ -27,7 +27,7 @@
 					<h1><?=$pageTitle?></h1>
 				</td>
 				<td align="right">
-					<img alt="Epsilon Logo" src="resources/epsilonlogo.png" valign="top" />
+					<img alt="Epsilon Logo" src="../resources/epsilonlogo.png" valign="top" />
 				</td>
 			</tr>
 		</table>
@@ -54,16 +54,19 @@
 			$src = $example->getAttribute("src");
 			$title = $example->getAttribute("title");
 		?>	
-			<tr>
-				<td>
-				<?=$title?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-				<?=$description?>
-				</td>
-			</tr>
+		<div class="homeitem3col">
+			<h3><?=title?></h3>
+			<ul>
+				<li>
+					<a href="BibTeXML2DocBook/ExampleBibTeXML2DocBook[v00.01].pdf">Documentation</a>, 
+					<a href="BibTeXML2DocBook/BibTeXML2DocBook.zip">Source files</a>
+					<blockquote>
+					<?=$description?>
+					</DESCRIPTION>
+					</blockquote>
+				</li>
+			</ul>
+			<hr class="clearer" /></div>
 		<?
 		}
 
