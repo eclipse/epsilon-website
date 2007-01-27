@@ -1,0 +1,32 @@
+<html>
+<head>
+<script language="javascript">
+function createXMLHttpRequest() {
+    if (typeof XMLHttpRequest != "undefined") {
+        return new XMLHttpRequest();
+    } else if (typeof ActiveXObject != "undefined") {
+        return new ActiveXObject("Microsoft.XMLHTTP");
+    } else {
+        throw new Error("XMLHttpRequest not supported");
+    }
+}
+
+function loadText(div) {
+var request = createXMLHttpRequest();
+request.open("GET", "http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/org.epsilon.eclipse.help/index.html");
+request.onreadystatechange = function() {
+    if (request.readyState == 4) {
+        var node = document.createTextNode(request.responseText);
+        div.appendChild(node); 
+	//document.getElementById("output").appendChild(node);
+    }
+}
+request.send(null);
+}
+
+</script>
+</head>
+<body>
+<div onClick = "javascript:loadText(this)">Click here</div>
+</body>
+</html>
