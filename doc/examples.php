@@ -55,11 +55,11 @@
 			$title = $example->getAttribute("title");
 		?>	
 		<div class="homeitem3col">
-			<h3><?=title?></h3>
+			<h3><?=$title?></h3>
 			<ul>
 				<li>
-					<a href="BibTeXML2DocBook/ExampleBibTeXML2DocBook[v00.01].pdf">Documentation</a>, 
-					<a href="BibTeXML2DocBook/BibTeXML2DocBook.zip">Source files</a>
+					<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/<?=$src?>/<?=$src?>.zip">Download</a>, 
+					<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/<?=$src?>/<?=$src?>">CVS</a>
 					<blockquote>
 					<?=$description?>
 					</DESCRIPTION>

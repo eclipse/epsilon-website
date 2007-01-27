@@ -1,14 +1,6 @@
 <?xml version="1.0"?>
 <examples>
-	<example title="Transforming an Object Oriented model to a Relational Database model" src="OO2DB/OO2DB.zip">
-		<language name="ETL"/>
-		<description>
-		This transformation transforms an Object Oriented model into a Relational Database model.
-		The type mappings between the OO and the DB metamodel are provided in a separate Type Mapping
-		model.
-		</description>
-	</example>
-	<example title="Transforming an Object Oriented model to a Relational Database model" src="OO2DB/OO2DB.zip">
+	<example title="Transforming an Object Oriented model into a Relational Database model" src="OO2DB">
 		<language name="ETL"/>
 		<description>
 		This transformation transforms an Object Oriented model into a Relational Database model.
