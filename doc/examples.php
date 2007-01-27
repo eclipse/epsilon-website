@@ -1,9 +1,9 @@
-Version 2
+Version 3
 
 <?php
 $indent = "";
 $file = "semi.xml";
-
+ini_set("display_errors","1");
 $showfile = file_get_contents("examples.xml");  // whatever path
    // maybe the whole path is not important, look it up in other posts
 ?>
