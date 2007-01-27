@@ -36,12 +36,6 @@
 		
 		Template<br><br>
 		
-		<ul>
-		
-		<li>
-			<a href="http://www.cs.york.ac.uk">Department of Computer Science, The University of York</a>
-		</ul>
-		
 		<hr class="clearer" />
 
 	</div>
