@@ -1,4 +1,4 @@
-<?='Started1...'?>
+<?='Started2...'?>
 <?
 //$fp = fopen('http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/org.epsilon.eclipse.help/index.html','r');
 $fp = fopen('http://www.google.com','r');
