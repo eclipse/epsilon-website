@@ -14,7 +14,7 @@
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Examples";
+	$pageTitle 		= "Epsilon Examples";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	ob_start();
@@ -33,6 +33,11 @@
 		</table>
 
 		<h3>Examples</h3>
+		
+		This page contains fully functional examples of using the languages in Epsilon.
+		All examples are accompanied by metamodels, models, source files and a Eclipse
+		launch configurations. 
+		
 		<table>
 		<?
 		
@@ -43,9 +48,9 @@
 		
 		$exampleNodes = $document->getElementsByTagName("example");
 		
-		echo "<p>";
+		echo "<p> Currently, ";
 		echo sizeof($exampleNodes);
-		echo " examples currently available";
+		echo " examples have been released";
 		
 		foreach ($exampleNodes as $example) {
 			$descriptionNodes = $example->selectElements(array(),"description");
@@ -59,7 +64,7 @@
 			<ul>
 				<li>
 					<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/<?=$src?>/<?=$src?>.zip">Download</a>, 
-					<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/<?=$src?>/<?=$src?>">CVS</a>
+					<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/<?=$src?>/">CVS</a>
 					<blockquote>
 					<?=$description?>
 					</DESCRIPTION>
