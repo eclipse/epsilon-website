@@ -1,59 +1,48 @@
-Version 4
-
 <?php
-$indent = "";
-$file = "semi.xml";
-ini_set("display_errors","1");
-$showfile = file_get_contents("examples.xml");  // whatever path
-   // maybe the whole path is not important, look it up in other posts
-?>
-<?=$showfile?>
-<?
-$newstring=utf8_encode($showfile);          // it's important!
-if(!$domDocument = domxml_open_mem($newstring)) {
-   echo "Couldn't load xml...";   
-   exit;
+
+# Create a parser and parse a simple document.
+include_once("../dom4php/XmlParser.php");
+$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
+$document = $parser->parse(file_get_contents("examples.xml"));
+
+$exampleNodes = $document->getElementsByTagName("example");
+
+echo "<p>";
+echo sizeof($exampleNodes);
+echo " examples currently available";
+
+foreach ($exampleNodes as $example) {
+	$descriptionNodes = $example->selectElements(array(),"description");
+	$descriptionNode = $descriptionNodes[0];
+	$description = $descriptionNode->childNodes[0]->data;
+	
+	echo "<p>";
+	echo $description;
+	
+	$src = $example->getAttribute("src");
+	echo "<p>";
+	echo $src;
+	
+	$title = $example->getAttribute("title");
+	echo "<p>";
+	echo $title;
+
 }
 
-$rootDomNode = $domDocument->document_element();
-print "<pre>";
-printElements($rootDomNode);
-print "</pre>";
+# Add a text node.
+#$text =& $document->createTextNode('foozle');
+#$document->childNodes[0]->appendChild($text);
 
-function printElements($domNode)
-{
-  if($domNode)
-  {
-   global $indent;
-  
-   if($domNode->node_type() == XML_ELEMENT_NODE)
-   {
-     print "<br />".$indent."&lt;".$domNode->node_name();
-     if($domNode->has_attributes())
-     {
-       $attributes = $domNode->attributes();
-       foreach($attributes as $domAttribute)
-       {
-         print " $domAttribute->name=\"$domAttribute->value\"";
-       }
-     }
-     print "&gt;";
-     if($domNode->has_child_nodes())
-     {
-       $indent.="  ";
-       $nextNode = $domNode->first_child();
-       printElements($nextNode);
-       $indent= substr($indent, 0, strlen($indent)-2);
-       print "<br />".$indent."&lt;"."/".$domNode->node_name()."&gt;";
-     }
-     else
-     {
-       print "$domNode->node_value()&lt;/".$domNode->node_name()."&gt;";
-     }                       
-   }
-  
-   $nextNode = $domNode->next_sibling();
-   printElements($nextNode);
-  }
-}
+# Navigate around the document a bit, starting at the new node we just added.
+#$strong =& $text->previousSibling;
+#echo "The content of the node is '" . $strong->childNodes->data . "'\n";
+
+# Serialize the XML document to a string.  Do NOT use print_r() as the cyclic
+# data structures will cause problems.  Instead, create an instance of the
+# XmlSerializer class.
+#include_once("XmlSerializer.php");
+#$serializer = new XmlSerializer("XML");
+#echo $serializer->serializeNode($document);
+#echo "\n";
+
 ?>
