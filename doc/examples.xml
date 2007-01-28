@@ -1,5 +1,12 @@
 <?xml version="1.0"?>
 <examples>
+	<example title="Building an Object Oriented model" src="BuildOOInstance">
+		<language name="EOL"/>
+		<description>
+		This EOL program builds a simple Object Oriented model from scratch. It is 
+		a useful example of the basic features of EOL.
+		</description>
+	</example>
 	<example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
 		<language name="EML"/>
 		<description>
