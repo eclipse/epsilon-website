@@ -18,6 +18,13 @@
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	ob_start();
+	
+	# Create a parser and parse the examples.xml document.
+	include_once("../dom4php/XmlParser.php");
+	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
+	$document = $parser->parse(file_get_contents("examples.xml"));
+	$exampleNodes = $document->getElementsByTagName("example");
+	
 ?>
 
 	<div id="midcolumn">
@@ -34,7 +41,7 @@
 
 		<h3>Examples</h3>
 		
-		This page contains working examples of using the Epsilon languages.
+		This page contains <b><?=sizeof($exampleNodes)?></b> working examples of using the Epsilon languages.
 		All examples are accompanied by the required metamodels, models, source files and 
 		Eclipse launch configurations. This introduces some replication as copies of the same
 		models/metamodels exist in more than one examples. However, our intention is that
@@ -49,18 +56,6 @@
 		
 		<table>
 		<?
-		
-		# Create a parser and parse a simple document.
-		include_once("../dom4php/XmlParser.php");
-		$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-		$document = $parser->parse(file_get_contents("examples.xml"));
-		
-		$exampleNodes = $document->getElementsByTagName("example");
-		
-		#echo "<p> Currently, ";
-		#echo sizeof($exampleNodes);
-		#echo " examples have been released";
-		
 		foreach ($exampleNodes as $example) {
 			$descriptionNodes = $example->selectElements(array(),"description");
 			$descriptionNode = $descriptionNodes[0];
