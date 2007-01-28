@@ -7,6 +7,12 @@
 		used in an organization.
 		</description>
 	</example>
+	<example title="Validating an Object Oriented model" src="ValidateOO">
+		<language name="EVL"/>
+		<description>
+		This EVL validation contains constraints and critiques that validate an Object Oriented model.
+		</description>
+	</example>
 	<example title="Generating a GraphViz graph from a MOF1.4 metamodel" src="MOF2Dot">
 		<language name="EOL"/>
 		<description>
