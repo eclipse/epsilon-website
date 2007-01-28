@@ -35,4 +35,12 @@
 		model.
 		</description>
 	</example>
+	<example title="Adding getters and setters to an Object Oriented model" src="OORefinement">
+		<language name="ETL"/>
+		<description>
+		This ETL transformation refines an Object Oriented model by adding a getter and a 
+		setter operation for each class attribute.
+		</description>
+	</example>
+
 </examples>

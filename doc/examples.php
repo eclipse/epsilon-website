@@ -36,7 +36,12 @@
 		
 		This page contains working examples of using the Epsilon languages.
 		All examples are accompanied by the required metamodels, models, source files and 
-		Eclipse launch configurations. Should you find an example that does not work
+		Eclipse launch configurations. This introduces some replication as copies of the same
+		models/metamodels exist in more than one examples. However, our intention is that
+		each example is complete and self-contained.
+		
+		<h2>Reporting issues</h2>
+		Should you find an example that does not work
 		with the current version of Epsilon please let us know by sending
 		a message to the <a href="news://news.eclipse.org/eclipse.modeling.gmt">GMT newsgroup</a>
 		
