@@ -36,6 +36,6 @@ EOBRANDING;
 	$Nav->addCustomNav("Epsilon", "/gmt/epsilon/", "_self", 1);
 	$Nav->addCustomNav("Download", "/gmt/epsilon/download.php", "_self", 2);
 	$Nav->addCustomNav("Documentation", "/gmt/epsilon/doc/", "_self", 2);
-	$Nav->addCustomNav("Examples", "/gmt/epsilon/examples.php", "_self", 2);
+	$Nav->addCustomNav("Examples", "/gmt/epsilon/doc/examples.php", "_self", 2);
 	
 ?>
