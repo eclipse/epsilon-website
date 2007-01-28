@@ -34,7 +34,8 @@ EOBRANDING;
 	$Nav->addCustomNav("Documentation", "/gmt/doc/", "_self", 1);
 	$Nav->addCustomNav("Wiki", "http://wiki.eclipse.org/index.php/GMT", "_self", 1);
 	$Nav->addCustomNav("Epsilon", "/gmt/epsilon/", "_self", 1);
-	$Nav->addCustomNav("Documentation", "/gmt/epsilon/doc/", "_self", 2);
 	$Nav->addCustomNav("Download", "/gmt/epsilon/download.php", "_self", 2);
+	$Nav->addCustomNav("Documentation", "/gmt/epsilon/doc/", "_self", 2);
+	$Nav->addCustomNav("Examples", "/gmt/epsilon/examples.php", "_self", 2);
 	
 ?>

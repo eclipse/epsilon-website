@@ -39,9 +39,9 @@
 			</tr>
 		</table>
 
-		<h3>Examples</h3>
+		<h3>Examples (<?=sizeof($exampleNodes)?> so far...)</h3>
 		
-		This page contains <b><?=sizeof($exampleNodes)?></b> working examples of using the Epsilon languages.
+		This page contains working examples of using the Epsilon languages.
 		All examples are accompanied by the required metamodels, models, source files and 
 		Eclipse launch configurations. This introduces some replication as copies of the same
 		models/metamodels exist in more than one examples. However, our intention is that
