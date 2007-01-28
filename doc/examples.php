@@ -40,7 +40,7 @@
 		models/metamodels exist in more than one examples. However, our intention is that
 		each example is complete and self-contained.
 		
-		<h2>Reporting issues</h2>
+		<h3>Reporting issues</h3>
 		Should you find an example that does not work
 		with the current version of Epsilon please let us know by sending
 		a message to the <a href="news://news.eclipse.org/eclipse.modeling.gmt">GMT newsgroup</a>
