@@ -6,6 +6,27 @@
     <description>Epsilon News</description>
 
 	<item>
+		<title>Implementation of Dijkstra's shortest path algorith example uploaded</title>
+		<link>http://www.eclipse.org/gmt/epsilon/doc/examples.php</link>
+		<description>
+			This example contains an EVL validation module that checks that
+			a graph is acyclic and its edges have only positive weights and
+			an EOL program that calculates the shortest paths according to
+			Dijkstra's algorithm.
+		</description>
+		<pubDate>Tue, 30 Jan 2007 12:43:00 CET</pubDate>
+	</item>
+	<item>
+		<title>Epsilon plugins and bundle updated</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			An update to the Epsilon plugins has been released. This
+			update addresses a bug found in the execution engine of the
+			Epsilon Validation Language (EVL)
+		</description>
+		<pubDate>Tue, 30 Jan 2007 12:43:00 CET</pubDate>
+	</item>
+	<item>
 		<title>Examples page opened and initial set of examples uploaded</title>
 		<link>http://www.eclipse.org/gmt/epsilon/doc/examples.php</link>
 		<description>

@@ -23,10 +23,10 @@
 	<example title="Validating an Object Oriented model" src="ValidateOO">
 		<language name="EVL"/>
 		<description>
-		This EVL validation contains constraints and critiques that validate an Object Oriented model.
+		This EVL validation contains constraints and  critiques that validate an Object Oriented model.
 		</description>
 	</example>
-	<example title="Implementing Dijkstra's shortest path algorighm">
+	<example title="Implementing Dijkstra's shortest path algorighm" src="ShortestPath">
 		<language name="EOL"/>
 		<language name="EVL"/>
 		<description>
