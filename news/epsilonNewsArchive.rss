@@ -7,7 +7,7 @@
 
 	<item>
 		<title>Implementation of Dijkstra's shortest path algorithm using EOL and EVL uploaded</title>
-		<link>http://www.eclipse.org/gmt/epsilon/doc/examples.php</link>
+		<link>http://www.eclipse.org/gmt/epsilon/doc/examples.php#ShortestPath</link>
 		<description>
 			This example contains an EVL validation module that checks that
 			a graph is acyclic and its edges have only positive weights and
