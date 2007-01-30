@@ -6,7 +6,7 @@
     <description>Epsilon News</description>
 
 	<item>
-		<title>Implementation of Dijkstra's shortest path algorith example uploaded</title>
+		<title>Implementation of Dijkstra's shortest path algorithm using EOL and EVL uploaded</title>
 		<link>http://www.eclipse.org/gmt/epsilon/doc/examples.php</link>
 		<description>
 			This example contains an EVL validation module that checks that

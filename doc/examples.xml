@@ -26,11 +26,11 @@
 		This EVL validation contains constraints and  critiques that validate an Object Oriented model.
 		</description>
 	</example>
-	<example title="Implementing Dijkstra's shortest path algorighm" src="ShortestPath">
+	<example title="Implementing Dijkstra's shortest path algorithm" src="ShortestPath">
 		<language name="EOL"/>
 		<language name="EVL"/>
 		<description>
-		In this project an EOL program implements Dijkstra's shortest path algorighm for
+		In this project an EOL program implements Dijkstra's shortest path algorithm for
 		directed graphs. Moreover,
 		an EVL module validates that a graph is acyclic and has only positive weight-edges
 		as required by the algorithm.

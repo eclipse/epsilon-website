@@ -64,7 +64,7 @@
 			$title = $example->getAttribute("title");
 		?>	
 		<div class="homeitem3col">
-			<h3><?=$title?></h3>
+			<a name="<?=src?>"><h3><?=$title?></h3></a>
 			<ul>
 				<li>
 					<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/<?=$src?>/<?=$src?>.zip">Download</a>, 
