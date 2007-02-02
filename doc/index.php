@@ -57,7 +57,7 @@
 		<p>
 			<a href="Exeed"></a>
 			<img src="../../resources/images/new.gif"><a href="Exeed.pdf">Exeed</a>: 
-			Exeed is an extension of the built-in reflective editor that enables customizing
+			Exeed is an extension of the built-in reflective EMF editor that enables customizing
 			labels and icons without generating a dedicated tree-based editor for each
 			.ecore metamodel
 		</p>
