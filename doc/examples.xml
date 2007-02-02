@@ -7,6 +7,13 @@
 		a useful example of the basic features of EOL.
 		</description>
 	</example>
+	<example title="Annotating an Object Oriented metamodel with Exeed-specific annotations" src="ExeedOO">
+		<language name="Exeed"/>
+		<description>
+		In this example, an Object Oriented ECore metamodel is annotated with Exeed-specific
+		annotations so that instances of it can be visualized properly with the Exeed editor.
+		</description>
+	</example>
 	<example title="Merging two Object Oriented models" src="MergeOO">
 		<language name="EML"/>
 		<description>

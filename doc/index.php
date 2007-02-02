@@ -53,6 +53,14 @@
 			<a href="EpsilonCVS.pdf">Accessing the source code of Epsilon from CVS</a>: Provides instructions for setting up a local
 			copy of the source code of Epsilon on your machine using Eclipse 3.2
 		</p>
+
+		<p>
+			<a href="Exeed"></a>
+			<img src="../../resources/images/new.gif"><a href="Exeed.pdf">Exeed</a>: 
+			Exeed is an extension of the built-in reflective editor that enables customizing
+			labels and icons without generating a dedicated tree-based editor for each
+			.ecore metamodel
+		</p>
 		
 		<p>
 			<a href="Epsilon-Project-Description.doc">Epsilon Project Plan</a>: Project plan of Epsilon component
