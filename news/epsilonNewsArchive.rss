@@ -4,7 +4,17 @@
     <title>Epsilon News</title>
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
-
+    
+	<item>
+		<title>Epsilon plugins and bundle updated</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			An update to the Epsilon plugins has been released. This
+			update addresses a bug found by Louis Rose in the execution engine of the
+			Epsilon Object Language (EOL)
+		</description>
+		<pubDate>Tue, 20 Feb 2007 13:36:00 CET</pubDate>
+	</item>
 	<item>
 		<title>New tool: Exeed (EXtended Emf EDitor) added to the Epsilon bundle and plugins</title>
 		<link>http://www.eclipse.org/gmt/epsilon/doc/index.php#Exeed</link>
