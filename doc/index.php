@@ -78,6 +78,17 @@
 				in Proc. European Conference in Model Driven Architecture (EC-MDA) 2006, Bilbao, Spain, July 2006.
 			</p>
 			<p>
+				Dimitrios S. Kolovos, Richard F. Paige, Fiona A.C. Polack. <a href="#">Aligning OCL with
+				Domain-Specific Languages to Support Instance-Level Model Queries</a>
+				to appear in Electronic Communications of the EASST, 2007
+			</p>
+			<p>
+				Boris Gruschko, Dimitrios S. Kolovos, Richard F. Paige. 
+				<a href="#">Towards Synchronizing Models with Evolving Metamodels</a>, to appear in
+				Workshop on Model-Driven Software Evolution (MODSE 2007), 
+				11th European Conference on Software Maintenance and Reengineering, Amsterdam, the Netherlands
+			</p>
+			<p>
 				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack. <a href="http://www-users.cs.york.ac.uk/~dkolovos/publications/models06-eml.pdf">Merging Models with the Epsilon Merging Language (EML)</a>,
 				in Proc. ACM/IEEE 9th International Conference on Model Driven Engineering Languages and Systems (Models/UML 2006), Genova, Italy, October 2006.
 			</p>
