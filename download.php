@@ -40,7 +40,7 @@
 		containing everything required, download the plug-ins only,
 		or work directly with a copy of the source code from CVS.<br><br>
 		<b>Please note that Epsilon requires Java 1.5 (or higher).</b><br><br>
-				
+		
 		<ul>
 		
 		<li>
