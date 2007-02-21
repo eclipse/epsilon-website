@@ -36,7 +36,7 @@
 
 		<h3>Contributors</h3>
 		
-		This paige contains the contributors and parties interested in Epsilon.<br><br>
+		This page contains the contributors and parties interested in Epsilon.<br><br>
 		
 		<ul>
 		
