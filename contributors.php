@@ -38,7 +38,7 @@
 		
 		This page contains the contributors and parties interested in Epsilon.<br><br>
 		
-		<h2>Contributors</h2>
+		<h3>Contributors</h2>
 		
 		<ul>
 		
@@ -46,7 +46,7 @@
 			<a href="http://www.cs.york.ac.uk">Department of Computer Science, The University of York</a>
 		</ul>
 		
-		<h2>Interested parties</h2>
+		<h3>Interested parties</h2>
 		
 		<ul>
 		
