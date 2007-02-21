@@ -78,11 +78,13 @@
 				in Proc. European Conference in Model Driven Architecture (EC-MDA) 2006, Bilbao, Spain, July 2006.
 			</p>
 			<p>
+				<img src="../../resources/images/new.gif">
 				Dimitrios S. Kolovos, Richard F. Paige, Fiona A.C. Polack. <a href="#">Aligning OCL with
 				Domain-Specific Languages to Support Instance-Level Model Queries</a>
 				to appear in Electronic Communications of the EASST, 2007
 			</p>
 			<p>
+				<img src="../../resources/images/new.gif">
 				Boris Gruschko, Dimitrios S. Kolovos, Richard F. Paige. 
 				<a href="#">Towards Synchronizing Models with Evolving Metamodels</a>, to appear in
 				Workshop on Model-Driven Software Evolution (MODSE 2007), 
