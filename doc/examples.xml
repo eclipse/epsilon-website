@@ -12,6 +12,7 @@
 		<description>
 		In this example, an Object Oriented ECore metamodel is annotated with Exeed-specific
 		annotations so that instances of it can be visualized properly with the Exeed editor.
+		(Updated 28 Feb 2007)
 		</description>
 	</example>
 	<example title="Merging two Object Oriented models" src="MergeOO">
