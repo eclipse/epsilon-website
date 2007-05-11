@@ -10,6 +10,15 @@
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
 			An update to the Epsilon plugins has been released. This
+			update includes a number of bug-fixes.
+		</description>
+		<pubDate>Thu, 11 May 2007 13:28:00 CET</pubDate>
+	</item>
+	<item>
+		<title>Epsilon plugins and bundle updated</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			An update to the Epsilon plugins has been released. This
 			update addresses a bug found by Louis Rose in the execution engine of the
 			Epsilon Object Language (EOL)
 		</description>

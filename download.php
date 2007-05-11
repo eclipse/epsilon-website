@@ -49,7 +49,7 @@
 			This bundle contains Eclipse 3.2.1, EMF, MDR and the Epsilon plugins. It also contains
 			examples for each language in Epsilon. To run, simply download and unzip the bundle
 			and run eclipse.exe. 
-			<b> Updated: 20/2/2007</b>
+			<b> Updated: 11/5/2007</b>
 			<br><br>
 		
 		<li>
@@ -57,7 +57,7 @@
 			<b> (2.8 MB)</b>:
 			This archive contains the Epsilon plugins only. Please refer to the instructions provided
 			<a href="doc/PluginInstallation.pdf"> here </a> for adding the Epsilon plugins to your Eclipse installation.
-			<b> Updated: 20/2/2007</b>
+			<b> Updated: 11/5/2007</b>
 			<br><br>
 			
 		<li>
