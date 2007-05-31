@@ -81,7 +81,7 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<b><a href="doc/">Documentation</a></b>
+								<b><a href="doc/">Documentation</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
 		  					</td>
 							<td align="right">
 								<a href="doc/"><img align="right" src="../resources/images/reference.gif" valign="top"/></a>
