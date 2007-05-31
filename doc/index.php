@@ -37,6 +37,15 @@
 		<h3>Documentation</h3>
 		
 		<p>
+			<a href="mdd-tif-epsilon.pdf" target="blank">A complete case study using Epsilon</a>:
+			This article demonstrates how languages and tools from Epsilon have been used to implement
+			the <a href="http://www.dsmforum.org/events/MDD-TIF07/InteractiveTVApps.pdf" target="blank">Interactive TV Applications</a> 
+			case study proposed by the organizers of the Model Driven Development Tools Implementor Forum 
+			(<a href="http://www.dsmforum.org/events/MDD-TIF07/" target="blank">MDD-TIF 2007</a>).
+			<i>(Source code for the case study to be released soon)</a> 
+		</p>
+		
+		<p>
 			<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/org.epsilon.eclipse.help/index.html" target="blank">Languages documentation</a>:
 			In Epsilon, documentation has been implemented as a 
 			plugin atop the Eclipse Help system. Thus, documentation about the languages is available
