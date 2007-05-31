@@ -6,6 +6,16 @@
     <description>Epsilon News</description>
     
 	<item>
+		<title>MDD-TIF case study available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/doc/</link>
+		<description>
+			An article that demonstrates using Epsilon to implement
+			the Interactive TV Applications case study proposed by
+			the organizers of MDD-TIF has been made available.
+		</description>
+		<pubDate>Thu, 11 May 2007 13:28:00 CET</pubDate>
+	</item>
+	<item>
 		<title>Epsilon plugins and bundle updated</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>

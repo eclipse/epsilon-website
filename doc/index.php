@@ -42,7 +42,7 @@
 			the <a href="http://www.dsmforum.org/events/MDD-TIF07/InteractiveTVApps.pdf" target="blank">Interactive TV Applications</a> 
 			case study proposed by the organizers of the Model Driven Development Tools Implementor Forum 
 			(<a href="http://www.dsmforum.org/events/MDD-TIF07/" target="blank">MDD-TIF 2007</a>).
-			<i>(Source code for the case study to be released soon)</a> 
+			<i>(The complete source code and models/metamodels used in the case study will be soon available in the <a href="examples.php">examples section</a>.)</i> 
 		</p>
 		
 		<p>
