@@ -148,10 +148,10 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<b><a href="#">Coming up...</a></b>
+								<b><a href="previews.php">Previws</a></b>
 		  					</td>
 							<td align="right">
-								<a href="contributors.php"><img align="right" src="images/comingup.png" valign="top"/></a>
+								<a href="previews.php"><img align="right" src="images/comingup.png" valign="top"/></a>
 							</td>
 						</tr>
 					</table>
