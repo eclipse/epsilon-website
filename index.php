@@ -143,7 +143,20 @@
 						</tr>
 					</table>
 				</li>
-								
+
+				<li>
+					<table width="100%">
+						<tr>
+							<td width="80%" valign="bottom">
+								<b><a href="#">Coming up...</a></b>
+		  					</td>
+							<td align="right">
+								<a href="contributors.php"><img align="right" src="images/comingup.png" valign="top"/></a>
+							</td>
+						</tr>
+					</table>
+				</li>
+												
 			</ul>
 		</div>
 		
