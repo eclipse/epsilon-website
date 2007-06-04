@@ -14,7 +14,7 @@
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Contributors";
+	$pageTitle 		= "Previews";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	
@@ -34,16 +34,14 @@
 			</tr>
 		</table>
 
-		<h3>Previews</h3>
-		
-		This page offers previews of the upcoming Epsilon languages and tools.<br><br>
+		This page contains previews of the upcoming Epsilon languages and tools.<br><br>
 		
 		<h3>Tools and Languages</h3>
 		
 		<ul>
 		
 			<li> <b>Epsilon Workflow</b> : An ANT-based workflow for coordinating 
-			<li> <b>ModeLink</b> : A side-by-side editor that helps establishing links between different EMF models
+			<li> <b>ModeLink</b> : A side-by-side editor that helps users to establish links between different EMF models
 			<li> <b>Epsilon Generation Language</b> : A template language (similar to ASP, JSP etc) for generating textual artefacts (code, documentation etc.) from models
 			
 		</ul>
