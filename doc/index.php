@@ -37,7 +37,7 @@
 		<h3>Documentation</h3>
 		
 		<p>
-			<a href="mdd-tif-epsilon.pdf" target="blank">A complete case study using Epsilon</a>:
+			<img src="../../resources/images/new.gif"><a href="mdd-tif-epsilon.pdf" target="blank">A complete case study using Epsilon</a>:
 			This article demonstrates how languages and tools from Epsilon have been used to implement
 			the <a href="http://www.dsmforum.org/events/MDD-TIF07/InteractiveTVApps.pdf" target="blank">Interactive TV Applications</a> 
 			case study proposed by the organizers of the Model-Driven Development Tools Implementers Forum 
