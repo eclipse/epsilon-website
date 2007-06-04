@@ -148,7 +148,7 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<b><a href="previews.php">Previws</a></b>
+								<b><a href="previews.php">Previews</a></b>
 		  					</td>
 							<td align="right">
 								<a href="previews.php"><img align="right" src="images/comingup.png" valign="top"/></a>

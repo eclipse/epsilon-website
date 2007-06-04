@@ -40,7 +40,7 @@
 		
 		<ul>
 		
-			<li> <b>Epsilon Workflow</b> : An ANT-based workflow for coordinating 
+			<li> <b>Epsilon Workflow</b> : An ANT-based workflow for composing and coordinating model management tasks
 			<li> <b>ModeLink</b> : A side-by-side editor that helps users to establish links between different EMF models
 			<li> <b>Epsilon Generation Language</b> : A template language (similar to ASP, JSP etc) for generating textual artefacts (code, documentation etc.) from models
 			
