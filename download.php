@@ -36,9 +36,9 @@
 
 		<h3>Download</h3>
 		
-		There are three options for using Epsilon: download a complete bundle
-		containing everything required, download the plug-ins only,
-		or work directly with a copy of the source code from CVS. 
+		There are two options for obtaining Epsilon: you can install the binaries
+		using the Eclipse Update Manager or work directly with the source code from
+		the Eclipse CVS server. 
 		Please note that Epsilon requires Java 1.5 (or higher).<br><br>
 		
 		<ul>
@@ -65,10 +65,11 @@
 		<li>
 			<a href="doc/PluginInstallation.pdf">Binaries</a>:
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
-					
+			<br><br>	
 		<li>
 			<a href="doc/EpsilonCVS.pdf">Source code</a>:
 			This document describes how you can obtain the latest version of the source code of Epsilon from the Eclipse CVS server.
+			<br><br>
 		</ul>
 		
 		<hr class="clearer" />
