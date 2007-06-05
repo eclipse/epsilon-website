@@ -6,6 +6,16 @@
     <description>Epsilon News</description>
     
 	<item>
+		<title>Version 1.0.0 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			We have now implemented proper version management and integrated
+			with the Eclipse Update Manager. Also included in this release
+			is a new model-to-text language: the Epsilon Generation Language (EGL)
+		</description>
+		<pubDate>Tue, 05 May 2007 14:47:00 CET</pubDate>
+	</item>
+	<item>
 		<title>MDD-TIF case study available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/doc/</link>
 		<description>
