@@ -43,6 +43,7 @@
 		
 		<ul>
 		
+		<!--
 		<li>
 			<a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/bundles/bundle-win.php">Complete Bundle (for Windows only)</a>
 			<b> (41.3 MB)</b>:
@@ -59,12 +60,15 @@
 			<a href="doc/PluginInstallation.pdf"> here </a> for adding the Epsilon plugins to your Eclipse installation.
 			<b> Updated: 11/5/2007</b>
 			<br><br>
-			
+		-->
+		
+		<li>
+			<a href="doc/PluginInstallation.pdf">Binaries</a>:
+			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
+					
 		<li>
 			<a href="doc/EpsilonCVS.pdf">Source code</a>:
-			This document describes how you can set up a local copy of the source code of Epsilon
-			on your machine.
-			<b> Updated daily</b>
+			This document describes how you can obtain the latest version of the source code of Epsilon from the Eclipse CVS server.
 		</ul>
 		
 		<hr class="clearer" />
