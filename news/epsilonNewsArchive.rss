@@ -4,7 +4,15 @@
     <title>Epsilon News</title>
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
-    
+	
+	<item>
+		<title>Version 1.0.1 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			An update that fixes a bug in handling cross-model references in EMF
+		</description>
+		<pubDate>Tue, 05 May 2007 14:47:00 CET</pubDate>
+	</item>    
 	<item>
 		<title>Version 1.0.0 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
