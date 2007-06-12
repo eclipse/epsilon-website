@@ -15,19 +15,19 @@
 		(Updated 28 Feb 2007)
 		</description>
 	</example>
-	<example title="Merging two Object Oriented models" src="MergeOO">
+	<!--example title="Merging two Object Oriented models" src="MergeOO">
 		<language name="EML"/>
 		<description>
 		This EML merging merges two Object Oriented models.
 		</description>
-	</example>
-	<example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
+	</example-->
+	<!--example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
 		<language name="EML"/>
 		<description>
 		This EML merging merges an Entity model with a Vocabulary model specifying the vocabulary
 		used in an organization. It demonstrates that EML can be used to merge heterogenous models.
 		</description>
-	</example>
+	</example-->
 	<example title="Validating an Object Oriented model" src="ValidateOO">
 		<language name="EVL"/>
 		<description>

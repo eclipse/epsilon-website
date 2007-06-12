@@ -6,6 +6,16 @@
     <description>Epsilon News</description>
 	
 	<item>
+		<title>Version 1.0.2 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			In this version EML has been separated from ECL (EML does not
+			support match-rules any more). Examples of using the new version
+			of EML will appear soon in the Examples section. 
+		</description>
+		<pubDate>Tue, 12 Jun 2007 13:28:00 CET</pubDate>
+	</item>    
+	<item>
 		<title>Version 1.0.1 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
