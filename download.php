@@ -68,7 +68,7 @@
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
 			<br><br>	
 		<li>
-			<a href="http://download.eclipse.org/download.php?file=/technology/gmt/epsilon/org.epsilon.eclipse_<?=$version?>.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
+			<a href="http://www.eclipse.org/downloads/download.php?file=/technology/gmt/epsilon/org.epsilon.eclipse_$version.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
 			<br><br>	
 		<li>
 			<a href="doc/EpsilonCVS.pdf">Source code</a>:
