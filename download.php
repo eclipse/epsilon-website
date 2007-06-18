@@ -17,7 +17,8 @@
 	$pageTitle 		= "Download Epsilon";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	
+	$version = "1.0.3";
+		
 	# Paste your HTML content between the EOHTML markers!	
 	$html = <<<EOHTML
 
@@ -26,7 +27,7 @@
 		<table width="100%">
 			<tr>
 				<td width="50%">
-					<h1>$pageTitle</h1>
+					<h1>$pageTitle (version $version)</h1>
 				</td>
 				<td align="right">
 					<img alt="Epsilon Logo" src="resources/epsilonlogo.png" valign="top" />
@@ -36,9 +37,9 @@
 
 		<h3>Download</h3>
 		
-		There are two options for obtaining Epsilon: you can install the binaries
-		using the Eclipse Update Manager or work directly with the source code from
-		the Eclipse CVS server. 
+		There are three options for obtaining Epsilon: you can install the binaries
+		using the Eclipse Update Manager, download and install the binaries manually, 
+		or work directly with the source code from the Eclipse CVS server. 
 		Please note that Epsilon requires Java 1.5 (or higher).<br><br>
 		
 		<ul>
@@ -63,8 +64,11 @@
 		-->
 		
 		<li>
-			<a href="doc/PluginInstallation.pdf">Binaries</a>:
+			<a href="doc/PluginInstallation.pdf">Update Manager</a>:
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
+			<br><br>	
+		<li>
+			<a href="http://download.eclipse.org/download.php?file=/technology/gmt/epsilon/org.epsilon.eclipse_<?=$version?>.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
 			<br><br>	
 		<li>
 			<a href="doc/EpsilonCVS.pdf">Source code</a>:
