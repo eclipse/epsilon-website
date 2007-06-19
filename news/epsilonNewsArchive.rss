@@ -6,6 +6,15 @@
     <description>Epsilon News</description>
 
 	<item>
+		<title>Version 1.0.4 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			In this version a bug in the EMF model driver introduced in
+			1.0.3 has been fixed. 
+		</description>
+		<pubDate>Tue, 19 Jun 2007 11:14:00 CET</pubDate>
+	</item>	
+	<item>
 		<title>Version 1.0.3 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
