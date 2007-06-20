@@ -64,7 +64,7 @@
 		-->
 		
 		<li>
-			<a href="doc/PluginInstallation.pdf">Update Manager</a>:
+			<a href="doc/PluginInstallation.pdf">Update Manager</a> <b><i>(recommended)</i></b>:
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
 			<br><br>	
 		<li>
