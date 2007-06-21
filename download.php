@@ -17,7 +17,7 @@
 	$pageTitle 		= "Download Epsilon";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	$version = "1.0.5";
+	$version = "1.0.6";
 		
 	# Paste your HTML content between the EOHTML markers!	
 	$html = <<<EOHTML
@@ -64,9 +64,11 @@
 		-->
 		
 		<li>
-			<a href="doc/PluginInstallation.pdf">Update Manager</a> <b><i>(recommended)</i></b>:
+			<a href="doc/PluginInstallation.pdf">Eclipse Update Manager</a>:
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
-			<br><br>	
+			<i>(This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon (at this
+			stage, minor version increments happen almost daily))</i>.
+			<br><br>
 		<li>
 			<a href="http://www.eclipse.org/downloads/download.php?file=/technology/gmt/epsilon/org.epsilon.eclipse_$version.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
 			<br><br>	
