@@ -6,6 +6,15 @@
     <description>Epsilon News</description>
 
 	<item>
+		<title>Version 1.0.7 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			In this version Exeed has been enhanced with support for additional
+			annotations.
+		</description>
+		<pubDate>Thu, 05 Jul 2007 10:39:00 CET</pubDate>
+	</item>	
+	<item>
 		<title>Version 1.0.6 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>

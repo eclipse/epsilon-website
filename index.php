@@ -28,7 +28,7 @@
 	#
 	
 	include('../news/scripts/news.php');
-	$epsilonnews = get_epsilonnews_verbose(10);
+	$epsilonnews = get_epsilonnews(10);
 		
 	# Paste your HTML content between the EOHTML markers!	
 	$html = <<<EOHTML
