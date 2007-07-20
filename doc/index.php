@@ -73,13 +73,13 @@
 		<p> 
 			<img src="../../resources/images/new.gif"><a href="EpsilonTools.pdf">Epsilon <i>Tools</i> Documentation</a>: Provides instructions for defining and using
 			Epsilon <i>Tools</i>. <i>Tools</i> are user-defined Java classes that can be used from programs in Epsilon languages,
-			to address implement features that the languages do not inherently support (e.g. sophisticated string comparison, database connectivity etc)
+			to implement functionality that the languages do not inherently support (e.g. sophisticated string comparison, database connectivity etc)
 			
 		</p>
 		
 		<p>
 			<a href="Exeed"></a>
-			<img src="../../resources/images/new.gif"><a href="Exeed.pdf">Exeed</a>: 
+			<a href="Exeed.pdf">Exeed</a>: 
 			Exeed is an extension of the built-in reflective EMF editor that enables customizing
 			labels and icons without generating a dedicated tree-based editor for each
 			.ecore metamodel
