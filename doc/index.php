@@ -63,7 +63,20 @@
 			<a href="EpsilonCVS.pdf">Accessing the source code of Epsilon from CVS</a>: Provides instructions for setting up a local
 			copy of the source code of Epsilon on your machine using Eclipse 3.2
 		</p>
-
+		
+		<p> 
+			<a href="EpsilonProfilingTools.pdf">Profiling Tools Documentation</a>: Provides instructions for using
+			Epsilon Profiling Tools to measure the performance of model management operations implemented using languages
+			of the Epsilon component (EOL, EML, EVL, ETL etc.)
+		</p>
+		
+		<p> 
+			<a href="EpsilonProfilingTools.pdf">Epsilon <i>Tools</i> Documentation</a>: Provides instructions for defining and using
+			Epsilon <i>Tools</i>. <i>Tools</i> are user-defined Java classes that can be used from programs in Epsilon languages,
+			to address implement features that the languages do not inherently support (e.g. sophisticated string comparison, database connectivity etc)
+			
+		</p>
+		
 		<p>
 			<a href="Exeed"></a>
 			<img src="../../resources/images/new.gif"><a href="Exeed.pdf">Exeed</a>: 
