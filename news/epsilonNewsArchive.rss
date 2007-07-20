@@ -6,6 +6,19 @@
     <description>Epsilon News</description>
 
 	<item>
+		<title>Version 1.0.8 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			This version supports a number of additional features: 
+			cross-module inheritance in EML, ECL and ETL,
+			improved performance in EMF model management,
+			and profiling tools for measuring the performance 
+			of model management operations implemented in Epsilon 
+			languages (see the Documentation page)
+		</description>
+		<pubDate>Fri, 20 Jul 2007 13:34:00 CET</pubDate>
+	</item>	
+	<item>
 		<title>Version 1.0.7 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>

@@ -71,7 +71,7 @@
 		</p>
 		
 		<p> 
-			<a href="EpsilonProfilingTools.pdf">Epsilon <i>Tools</i> Documentation</a>: Provides instructions for defining and using
+			<a href="EpsilonTools.pdf">Epsilon <i>Tools</i> Documentation</a>: Provides instructions for defining and using
 			Epsilon <i>Tools</i>. <i>Tools</i> are user-defined Java classes that can be used from programs in Epsilon languages,
 			to address implement features that the languages do not inherently support (e.g. sophisticated string comparison, database connectivity etc)
 			
