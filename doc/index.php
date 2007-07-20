@@ -65,13 +65,13 @@
 		</p>
 		
 		<p> 
-			<a href="EpsilonProfilingTools.pdf">Profiling Tools Documentation</a>: Provides instructions for using
+			<img src="../../resources/images/new.gif"><a href="EpsilonProfilingTools.pdf">Profiling Tools Documentation</a>: Provides instructions for using
 			Epsilon Profiling Tools to measure the performance of model management operations implemented using languages
 			of the Epsilon component (EOL, EML, EVL, ETL etc.)
 		</p>
 		
 		<p> 
-			<a href="EpsilonTools.pdf">Epsilon <i>Tools</i> Documentation</a>: Provides instructions for defining and using
+			<img src="../../resources/images/new.gif"><a href="EpsilonTools.pdf">Epsilon <i>Tools</i> Documentation</a>: Provides instructions for defining and using
 			Epsilon <i>Tools</i>. <i>Tools</i> are user-defined Java classes that can be used from programs in Epsilon languages,
 			to address implement features that the languages do not inherently support (e.g. sophisticated string comparison, database connectivity etc)
 			
