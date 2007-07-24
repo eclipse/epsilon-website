@@ -66,8 +66,9 @@
 		<li>
 			<a href="doc/PluginInstallation.pdf">Eclipse Update Manager</a>:
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
-			<i>(This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon (at this
-			stage, minor version increments happen almost daily))</i>.
+			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon (at this
+			stage, minor version increments happen almost daily)). For users familiar with the Update Manager the update site
+			URL is <b>http://download.eclipse.org/technology/gmt/epsilon/org.epsilon.eclipse.updatesite/site.xml</b>.
 			
 			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
 			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
