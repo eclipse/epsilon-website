@@ -6,6 +6,15 @@
     <description>Epsilon News</description>
 
 	<item>
+		<title>Version 1.0.9 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			This version addresses some bug-fixes in the Epsilon ANT
+			tasks. It also introduces a sortBy() operation on collections.
+		</description>
+		<pubDate>Tue, 24 Jul 2007 11:58:00 CET</pubDate>
+	</item>	
+	<item>
 		<title>Version 1.0.8 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>

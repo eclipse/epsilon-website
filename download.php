@@ -68,6 +68,11 @@
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
 			<i>(This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon (at this
 			stage, minor version increments happen almost daily))</i>.
+			
+			<br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
+			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
+			time and try again. If problems seem to persist please let us know by sending a message to the GMT newsgroup.
+			
 			<br><br>
 		<li>
 			<a href="http://www.eclipse.org/downloads/download.php?file=/technology/gmt/epsilon/org.epsilon.eclipse_$version.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
