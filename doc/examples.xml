@@ -25,7 +25,7 @@
 		<language name="EML"/>
 		<description>
 		This EML merging merges an Entity model with a Vocabulary model specifying the vocabulary
-		used in an organization. It demonstrates that EML can be used to merge heterogenous models.
+		used in an organization. It demonstrates that EML can be used to merge heterogeneous models.
 		</description>
 	</example-->
 	<example title="Validating an Object Oriented model" src="ValidateOO">
