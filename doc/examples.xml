@@ -15,19 +15,23 @@
 		(Updated 28 Feb 2007)
 		</description>
 	</example>
-	<!--example title="Merging two Object Oriented models" src="MergeOO">
+	<example title="Merging two Object Oriented models" src="MergeOO">
 		<language name="EML"/>
 		<description>
-		This EML merging merges two Object Oriented models.
+		In this example, an ECL comparison is used to compare two Object Oriented models.
+		Then its match-trace is input into an EML merging that merges the two models. Coordination
+		is achieved using the Epsilon ANT tasks.
 		</description>
-	</example-->
-	<!--example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
+	</example>
+	<example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
 		<language name="EML"/>
 		<description>
-		This EML merging merges an Entity model with a Vocabulary model specifying the vocabulary
-		used in an organization. It demonstrates that EML can be used to merge heterogeneous models.
+		In this example, an ECL comparison is used to compare an Entity with a Vocabulary model.
+		Then its match-trace is input into an EML merging that merges the two models. Coordination
+		is achieved using the Epsilon ANT tasks. This example demonstrates that ECL and EML can be used 
+		to compare/merge heterogeneous models.
 		</description>
-	</example-->
+	</example>
 	<example title="Validating an Object Oriented model" src="ValidateOO">
 		<language name="EVL"/>
 		<description>
