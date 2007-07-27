@@ -23,6 +23,14 @@
 		is achieved using the Epsilon ANT tasks.
 		</description>
 	</example>
+	<example title="Aspect Oriented Modelling" src="AOM">
+		<language name="EML"/>
+		<description>
+		In this example, ECL and EML are used to implement the aspect oriented modelling case study
+		presented in <a href="http://reuseware.sourceforge.net/index.php?title=Aspect_Oriented_Modeling_%28example%29">
+		http://reuseware.sourceforge.net/index.php?title=Aspect_Oriented_Modeling_(example)</a>
+		</description>
+	</example>
 	<example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
 		<language name="EML"/>
 		<description>
