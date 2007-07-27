@@ -27,8 +27,7 @@
 		<language name="EML"/>
 		<description>
 		In this example, ECL and EML are used to implement the aspect oriented modelling case study
-		presented in <a href="http://reuseware.sourceforge.net/index.php?title=Aspect_Oriented_Modeling_%28example%29">
-		http://reuseware.sourceforge.net/index.php?title=Aspect_Oriented_Modeling_(example)</a>
+		presented at http://reuseware.sourceforge.net/index.php?title=Aspect_Oriented_Modeling_(example)
 		</description>
 	</example>
 	<example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
