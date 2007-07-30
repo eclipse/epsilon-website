@@ -7,6 +7,12 @@
 		a useful example of the basic features of EOL.
 		</description>
 	</example>
+	<example title="Generating Documentation for an Ecore metamodel" src="EglDoc">
+		<language name="EGL"/>
+		<description>
+		This application uses EGL to generate HTML-based documentation for Ecore metamodels.
+		</description>
+	</example>
 	<example title="Annotating an Object Oriented metamodel with Exeed-specific annotations" src="ExeedOO">
 		<language name="Exeed"/>
 		<description>
