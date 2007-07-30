@@ -76,7 +76,12 @@
 			to implement functionality that the languages do not inherently support (e.g. sophisticated string comparison, database connectivity etc)
 			
 		</p>
-				
+
+		<p> 
+			<img src="../../resources/images/new.gif"><a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/EglDoc/EglDoc.pdf">Generating documentation or Ecore metamodels</a>:
+			 Provides instructions for using an EGL-based tool for generating Javadoc-like HTML documentation for Ecore metamodels. 
+		</p>
+		
 		<p>
 			<a href="Exeed"></a>
 			<a href="Exeed.pdf">Exeed</a>: 
