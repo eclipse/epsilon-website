@@ -48,7 +48,7 @@
 				      	etc. It will provide a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model 
 				      	instances.
 -->
-				      	<br /><br /><a href="about.php">more about Epsilon &raquo;</a>
+				      	<br /><br /><a href="about.php">more about Epsilon &raquo;</a>, <br /><br /><a href="cinema/">watch Flash demos &raquo;</a>
 				      </p>
 		  		</td>
 				<td align="right">
