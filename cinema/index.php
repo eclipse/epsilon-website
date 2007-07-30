@@ -38,12 +38,14 @@
 		
 		<ul>
 		
-		<li><a href="BuildOOInstance.part1.htm">Defining and instantiating an OO metamodel</a> In this
+		<li><a href="BuildOOInstance_part1.htm">Defining and instantiating an OO metamodel</a> In this
 		example, we define a new metamodel using Emfatic and instantiate it manually using Exeed, an 
 		enhanced version of the built-in EMF reflective editor.
 		</ul>
 		
-		
+		<li><a href="BuildOOInstance_part2.htm">Populating an OO model using EOL</a> In this
+		example, we populate an instance of the OO metamodel we defined in the previous example using EOL.
+		</ul>		
 		
       	<hr class="clearer" />
 	</div>
