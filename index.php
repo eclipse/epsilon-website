@@ -99,7 +99,7 @@
 								</div>
 		  					</td>
 							<td align="right">
-								<a href="cinema/"><img align="right" src="resources/images/cinema.gif" valign="top"/></a>
+								<a href="cinema/"><img align="right" src="images/cinema.gif" valign="top"/></a>
 							</td>
 						</tr>
 					</table>
