@@ -95,7 +95,7 @@
 						<tr>
 							<td width="80%" valign="bottom">
 								<div>
-									<b><a href="cinema/">Cinema</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
+									<b><a href="cinema/">Cinema (Flash demos)</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
 								</div>
 		  					</td>
 							<td align="right">
