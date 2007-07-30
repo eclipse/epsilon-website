@@ -37,7 +37,7 @@
 		<h3>Cinema</h3>
 		
 		<ul>
-		<li><a href="BuildOOInstance.part1.swf">Building an OO model (Part 1)</a> In the first part of this
+		<li><a href="BuildOOInstance.part1.htm">Building an OO model (Part 1)</a> In the first part of this
 		example, we define a new metamodel using Emfatic and instantiate it using Exeed.
 		</ul>
       	<hr class="clearer" />
