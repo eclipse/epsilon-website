@@ -37,9 +37,14 @@
 		<h3>Cinema</h3>
 		
 		<ul>
-		<li><a href="BuildOOInstance.part1.htm">Building an OO model (Part 1)</a> In the first part of this
-		example, we define a new metamodel using Emfatic and instantiate it using Exeed.
+		
+		<li><a href="BuildOOInstance.part1.htm">Defining and instantiating an OO metamodel</a> In this
+		example, we define a new metamodel using Emfatic and instantiate it manually using Exeed, an 
+		enhanced version of the built-in EMF reflective editor.
 		</ul>
+		
+		
+		
       	<hr class="clearer" />
 	</div>
 
