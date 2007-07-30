@@ -95,6 +95,21 @@
 						<tr>
 							<td width="80%" valign="bottom">
 								<div>
+									<b><a href="cinema">Cinema</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
+								</div>
+		  					</td>
+							<td align="right">
+								<a href="cinema.php"><img align="right" src="../resources/images/reference.gif" valign="top"/></a>
+							</td>
+						</tr>
+					</table>
+				</li>
+				
+				<li>
+					<table width="100%">
+						<tr>
+							<td width="80%" valign="bottom">
+								<div>
 									<b><a href="doc/examples.php">Examples</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
 								</div>
 		  					</td>
