@@ -38,27 +38,20 @@
 		
 		<ul>
 		
-		<li><a href="BuildOOInstance_part1.htm">Defining and instantiating an OO metamodel</a> In this
+		<li><a href="BuildOOInstance_part1.htm">Defining and instantiating an OO metamodel (Part 1)</a> In this
 		example, we define a new metamodel using Emfatic and instantiate it manually using Exeed, an 
 		enhanced version of the built-in EMF reflective editor.
 		
-		<li><a href="BuildOOInstance_part2.htm">Populating an OO model using EOL</a> In this
+		<li><a href="BuildOOInstance_part2.htm">Populating an OO model using EOL (Part 2)</a> In this
 		example, we populate an instance of the OO metamodel we defined in the previous example using EOL.
-		</ul>		
+		
+		<li><a href="ModeLink_part1.htm">Establishing links between EMF models (Part 1)</a> In this
+		example, we demonstrate using Emfatic and ModeLink for establishing type-safe links between models of different
+		Ecore metamodels.
+		</ul>
 		
       	<hr class="clearer" />
 	</div>
-	
-	<!-- Start of StatCounter Code -->
-	<script type="text/javascript" language="javascript">
-	var sc_project=2185757; 
-	var sc_invisible=1; 
-	var sc_partition=5; 
-	var sc_security="2d5ff082"; 
-	</script>
-	
-	<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c6.statcounter.com/counter.php?sc_project=2185757&java=0&security=2d5ff082&invisible=1" alt="free web hit counter" border="0"></a> </noscript>
-	<!-- End of StatCounter Code -->
 
 EOHTML;
 
