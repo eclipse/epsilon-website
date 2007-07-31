@@ -40,15 +40,19 @@
 		
 		<li><a href="BuildOOInstance_part1.htm">Defining and instantiating an OO metamodel (Part 1)</a> In this
 		example, we define a new metamodel using Emfatic and instantiate it manually using Exeed, an 
-		enhanced version of the built-in EMF reflective editor.
+		enhanced version of the built-in EMF reflective editor.<br><br>
 		
 		<li><a href="BuildOOInstance_part2.htm">Populating an OO model using EOL (Part 2)</a> In this
-		example, we populate an instance of the OO metamodel we defined in the previous example using EOL.
+		example, we populate an instance of the OO metamodel we defined in the previous example using EOL.<br><br>
 		
 		<li><a href="ModeLink_part1.htm">Establishing links between EMF models (Part 1)</a> In this
 		example, we demonstrate using Emfatic and ModeLink for establishing type-safe links between models of different
-		Ecore metamodels.
+		Ecore metamodels.<br><br>
+
+		<li><a href="ModeLink_part1.htm">Validating links between EMF models (Part 2)</a> In this
+		example, we use EVL to validate the intermediate model we defined in the previous example.<br><br>
 		</ul>
+
 		
       	<hr class="clearer" />
 	</div>
