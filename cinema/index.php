@@ -49,7 +49,7 @@
 		example, we demonstrate using Emfatic and ModeLink for establishing type-safe links between models of different
 		Ecore metamodels.<br><br>
 
-		<li><a href="ModeLink_part1.htm">Validating links between EMF models (Part 2)</a> In this
+		<li><a href="ModeLink_part2.htm">Validating links between EMF models (Part 2)</a> In this
 		example, we use EVL to validate the intermediate model we defined in the previous example.<br><br>
 		</ul>
 
