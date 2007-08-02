@@ -57,6 +57,17 @@
       	<hr class="clearer" />
 	</div>
 
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=2185757; 
+var sc_invisible=0; 
+var sc_partition=5; 
+var sc_security="2d5ff082"; 
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c6.statcounter.com/2185757/0/2d5ff082/0/" alt="page hit counter" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+
 EOHTML;
 
 
