@@ -13,6 +13,12 @@
 		This application uses EGL to generate HTML-based documentation for Ecore metamodels.
 		</description>
 	</example>
+	<example title="Running EOL from Java" src="RunEOLfromJava">
+		<language name="EGL"/>
+		<description>
+		This example shows how EOL can be run from Java code (without the Eclipse-based tools).
+		</description>
+	</example>
 	<example title="Annotating an Object Oriented metamodel with Exeed-specific annotations" src="ExeedOO">
 		<language name="Exeed"/>
 		<description>
