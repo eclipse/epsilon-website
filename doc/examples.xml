@@ -14,7 +14,7 @@
 		</description>
 	</example>
 	<example title="Running EOL from Java" src="RunEOLfromJava">
-		<language name="EGL"/>
+		<language name="EOL"/>
 		<description>
 		This example shows how EOL can be run from Java code (without the Eclipse-based tools).
 		</description>
