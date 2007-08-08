@@ -78,7 +78,7 @@
 		</p>
 
 		<p> 
-			<img src="../../resources/images/new.gif"><a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/EglDoc/EglDoc.pdf">Generating documentation or Ecore metamodels</a>:
+			<img src="../../resources/images/new.gif"><a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/EglDoc/EglDoc.pdf">Generating documentation for Ecore metamodels</a>:
 			 Provides instructions for using an EGL-based tool for generating Javadoc-like HTML documentation for Ecore metamodels. 
 		</p>
 		
