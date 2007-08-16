@@ -51,7 +51,6 @@
 
 		<li><a href="ModeLink_part2.htm">Validating links between EMF models (Part 2)</a> In this
 		example, we use EVL to validate the intermediate model we defined in the previous example.<br><br>
-		</ul>
 
 		<li><a href="GMFWizards2.htm">GMF Wizards</a> In this
 		example, we use <a href="http://www-users.cs.york.ac.uk/~dkolovos/publications/EWL.pdf">EWL</a> 
