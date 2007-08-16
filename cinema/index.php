@@ -53,6 +53,11 @@
 		example, we use EVL to validate the intermediate model we defined in the previous example.<br><br>
 		</ul>
 
+		<li><a href="GMFWizards2.htm">GMF Wizards </a> In this
+		example, we use <a href="http://www-users.cs.york.ac.uk/~dkolovos/publications/EWL.pdf">EWL</a> 
+		to define a wizard that can be executed from within the GMF-based 
+		UML 2 Class Diagram Editor <br><br>
+		</ul>		
 		
       	<hr class="clearer" />
 	</div>
