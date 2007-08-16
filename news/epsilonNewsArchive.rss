@@ -6,6 +6,22 @@
     <description>Epsilon News</description>
 
 	<item>
+		<title>Version 1.0.0 of Epsilon GMF Support</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			Adds support for EWL wizards to GMF-based editors
+		</description>
+		<pubDate>Thu, 16 Aug 2007 22:02:00 CET</pubDate>
+	</item>	
+	<item>
+		<title>Version 1.1.3 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			Added support for transactions in EOL
+		</description>
+		<pubDate>Thu, 16 Aug 2007 22:02:00 CET</pubDate>
+	</item>	
+	<item>
 		<title>Version 1.1.2 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
