@@ -78,6 +78,13 @@
 		</p>
 
 		<p> 
+			<img src="../../resources/images/new.gif"><a href="ems07gmf-ewl.pdf">GMF EWL Wizards</a>: Provides an overview of the GMF-EWL integrations
+			that enables users to define custom wizards (i.e. macros/scripts) to automate common modelling tasks in the context of GMF-based editors.
+			Important features include support for existing GMF-based editors without needing to re-generate or customize them in any way, support for user-input, 
+			and for undoing/redoing the effects of a wizard on the edited model
+		</p>
+		
+		<p> 
 			<img src="../../resources/images/new.gif"><a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/EglDoc/EglDoc.pdf">Generating documentation for Ecore metamodels</a>:
 			 Provides instructions for using an EGL-based tool for generating Javadoc-like HTML documentation for Ecore metamodels. 
 		</p>
