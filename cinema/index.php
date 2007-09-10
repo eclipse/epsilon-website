@@ -56,6 +56,15 @@
 		example, we use <a href="http://www-users.cs.york.ac.uk/~dkolovos/publications/EWL.pdf">EWL</a> 
 		to define a wizard that can be executed from within the GMF-based 
 		UML 2 Class Diagram Editor <br><br>
+		
+		<li><a href="EglIntroduction.htm">Generating an HTML report from a Version Control model (Part 1) </a> In this
+		example, we use EGL 
+		to define a template that generates an HTML report from a simple Version Control model <br><br>
+		
+		<li><a href="EglVariables.htm">Generating an HTML report from a Version Control model (Part 2) </a> In this
+		example, we present a more advanced solution that also makes use of the template coordination 
+		mechanism featured by EGL<br><br>
+		
 		</ul>		
 		
       	<hr class="clearer" />
