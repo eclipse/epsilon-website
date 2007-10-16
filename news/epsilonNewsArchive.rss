@@ -6,6 +6,15 @@
     <description>Epsilon News</description>
 
 	<item>
+		<title>Version 1.1.4 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			Improved performance of EOL (by as much as 75% in some scenarios). Added support
+			for transactions in EWL
+		</description>
+		<pubDate>Tue, 16 Oct 2007 08:09:00 CET</pubDate>
+	</item>	
+	<item>
 		<title>2 New EGL Demos in the Cinema</title>
 		<link>http://www.eclipse.org/gmt/epsilon/cinema/</link>
 		<description>
