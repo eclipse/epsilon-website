@@ -17,7 +17,7 @@
 	$pageTitle 		= "Download Epsilon";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	$version = "1.1.4";
+	$version = "1.1.5";
 	
 	# Paste your HTML content between the EOHTML markers!	
 	$html = <<<EOHTML
