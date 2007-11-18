@@ -40,7 +40,7 @@
 		There are three options for obtaining Epsilon: you can install the binaries
 		using the Eclipse Update Manager, download and install the binaries manually, 
 		or work directly with the source code from the Eclipse CVS server. 
-		Please note that Epsilon requires Java 1.5 (or higher).<br><br>
+		Please note that Epsilon requires Java 1.6 (or higher).<br><br>
 		
 		<ul>
 		
