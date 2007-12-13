@@ -66,8 +66,7 @@
 		<li>
 			<a href="doc/PluginInstallation.pdf">Eclipse Update Manager</a>:
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
-			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon (at this
-			stage, minor version increments happen almost daily)). 
+			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon. 
 			
 			<br><br>Update site : <b>http://download.eclipse.org/technology/gmt/epsilon/org.epsilon.eclipse.updatesite/site.xml</b>
 			
