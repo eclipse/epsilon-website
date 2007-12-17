@@ -119,7 +119,6 @@
 						</tr>
 					</table>
 				</li>
-				<!--
 				<li>
 					<table width="100%">
 						<tr>
@@ -134,7 +133,6 @@
 						</tr>
 					</table>
 				</li>
-				-->
 				<li>
 					<table width="100%">
 						<tr>
