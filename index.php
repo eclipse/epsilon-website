@@ -124,6 +124,21 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
+								<div>
+									<b><a href="http://epsilonblog.wordpress.com">Blog</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
+								</div>
+		  					</td>
+							<td align="right">
+								<a href="http://epsilonblog.wordpress.com"><img align="right" src="images/wordpress.png" valign="top"/></a>
+							</td>
+						</tr>
+					</table>
+				</li>
+				
+				<li>
+					<table width="100%">
+						<tr>
+							<td width="80%" valign="bottom">
 								<b><a href="download.php">Download</a></b>
 		  					</td>
 							<td align="right">
