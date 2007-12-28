@@ -48,7 +48,7 @@
 				      	etc. It will provide a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model 
 				      	instances.
 -->
-				      	<br /><br /><a href="about.php">more about Epsilon &raquo;</a>, <b><a href="cinema/">watch Flash demos &raquo;</a></b> , <b><a href="http://epsilonblog.wordpress.com">read the blog &raquo;</a></b> <br /><br />
+				      	<br /><br /><a href="about.php">more about Epsilon &raquo;</a>, <b><a href="cinema/">watch Flash demos &raquo;</a></b> , <b><a href="http://epsilonblog.wordpress.com">read the Blog &raquo;</a></b> <br /><br />
 				      </p>
 		  		</td>
 				<td align="right">
@@ -81,7 +81,7 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<b><a href="doc/">Documentation</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
+								<b><a href="doc/">Documentation</a></b>
 		  					</td>
 							<td align="right">
 								<a href="doc/"><img align="right" src="../resources/images/reference.gif" valign="top"/></a>
@@ -95,7 +95,7 @@
 						<tr>
 							<td width="80%" valign="bottom">
 								<div>
-									<b><a href="cinema/">Cinema (Flash demos)</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
+									<b><a href="cinema/">Cinema (Flash demos)</a></b>
 								</div>
 		  					</td>
 							<td align="right">
@@ -110,7 +110,7 @@
 						<tr>
 							<td width="80%" valign="bottom">
 								<div>
-									<b><a href="doc/examples.php">Examples</a></b><img align="left" src="../resources/images/new.gif" valign="top"/>
+									<b><a href="doc/examples.php">Examples</a></b>
 								</div>
 		  					</td>
 							<td align="right">
