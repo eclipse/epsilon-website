@@ -48,7 +48,34 @@
 				      	etc. It will provide a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model 
 				      	instances.
 -->
-				      	<br /><br /><a href="about.php">more about Epsilon &raquo;</a>, <b><a href="cinema/">watch Flash demos &raquo;</a></b> , <b><a href="http://epsilonblog.wordpress.com">read the Blog &raquo;</a></b> <br /><br />
+				      	<br /><br />
+				      	<a href="about.php">more about Epsilon &raquo;</a>, 
+				      	<b><a href="cinema/">watch Flash demos &raquo;</a></b> 
+				      	, <b><a href="http://epsilonblog.wordpress.com">read the Blog &raquo;</a></b> 
+				      	
+				      	     <form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
+						    <b>Rate Epsilon @ Eclipse Plugin Central!</b>
+						    <select name="rating">
+						    <option selected>--</option>
+						    <option>10</option>
+						    <option>9</option>
+						    <option>8</option>
+						    <option>7</option>
+						    <option>6</option>
+						    <option>5</option>
+						    <option>4</option>
+						    <option>3</option>
+						    <option>2</option>
+						    <option>1</option>
+						    </select>
+						    <input type="hidden" name="ratinglid" value="842">
+						    <input type="hidden" name="ratinguser" value="outside">
+						    <input type="hidden" name="req" value="addrating">
+						    <input type="submit" value="Vote!">
+						    </form>
+						
+										      	
+				      	<br /><br />
 				      </p>
 		  		</td>
 				<td align="right">
