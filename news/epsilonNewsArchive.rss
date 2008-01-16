@@ -4,7 +4,14 @@
     <title>Epsilon News</title>
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
-
+	<item>
+		<title>New HUTN Demo in the Cinema</title>
+		<link>http://www.eclipse.org/gmt/epsilon/cinema/</link>
+		<description>
+			Screencast demonstrating an implementation of the Human Usable Textual Notation (HUTN)
+		</description>
+		<pubDate>Wed, 16 Jan 2008 16:17:00 CET</pubDate>
+	</item>	
 	<item>
 		<title>Epsilon Blog on WordPress</title>
 		<link>http://epsilonblog.wordpress.com</link>
