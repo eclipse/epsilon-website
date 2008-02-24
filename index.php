@@ -233,6 +233,9 @@
 
 	</div>
 
+	<a href="http://www4.clustrmaps.com/user/50849c1d"><img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
+	</a>
+
 	<!-- Start of StatCounter Code -->
 	<script type="text/javascript" language="javascript">
 	var sc_project=2185757; 
