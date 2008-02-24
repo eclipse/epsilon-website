@@ -198,6 +198,17 @@
 						</tr>
 					</table>
 				</li>
+				
+				<li>
+					<table width="100%">
+						<tr>
+							<td width="100%" valign="bottom">
+								<a href="http://www4.clustrmaps.com/user/50849c1d"><img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
+								</a>							
+							</td>
+						</tr>
+					</table>
+				</li>
 				<!--
 				<li>
 					<table width="100%">
@@ -221,8 +232,7 @@
 		<hr class="clearer" />
 	</div>
 	
-	<a href="http://www4.clustrmaps.com/user/50849c1d"><img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
-	</a>
+
 	
 	<!-- Right Part -->
 	<div id="rightcolumn">
