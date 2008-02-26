@@ -38,7 +38,7 @@
 		
 		This page contains the contributors and parties interested in Epsilon.<br><br>
 		
-		<h3>Contributors</h2>
+		<h3>Contributors</h3>
 		
 		<ul>
 		
@@ -46,7 +46,7 @@
 			<a href="http://www.cs.york.ac.uk">Department of Computer Science, The University of York</a>
 		</ul>
 		
-		<h3>Interested parties</h2>
+		<h3>Interested parties</h3>
 		
 		<ul>
 		
@@ -54,7 +54,7 @@
 			<a href="http://james.eii.us.es/MaCMAS/index.php/Main_Page">
 			Department of Computer Science and Languages, The University of Seville (Spain). 
 			<br>
-			Group MaCMAS (Methodogoly for Analysing Complex MultiAgent Sytems).
+			Group MaCMAS (Methodology for Analysing Complex MultiAgent Systems).
 			</a>
 		</ul>
 		
