@@ -5,10 +5,18 @@
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
 	<item>
+		<title>Version 1.3.2 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			Bug fix release.
+		</description>
+		<pubDate>Thu, 13 Mar 2008 15:59:00 CET</pubDate>
+	</item>
+	<item>
 		<title>Version 1.3.0 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
-			Added support for unit testing, assertions and virtual attributes. 
+			Added support for unit testing, assertions and extended properties. 
 		</description>
 		<pubDate>Tue, 29 Jan 2008 22:07:00 CET</pubDate>
 	</item>
