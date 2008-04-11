@@ -45,7 +45,8 @@
 		All examples are accompanied by the required metamodels, models, source files and 
 		Eclipse launch configurations. This introduces some replication as copies of the same
 		models/metamodels exist in more than one examples. However, our intention is that
-		each example is complete and self-contained.
+		each example is complete and self-contained. (Instructions for checking out files from the 
+		CVS are provided <a href="EpsilonCVS.pdf">here</a>)
 		
 		<h3>Reporting issues</h3>
 		Should you find an example that does not work
