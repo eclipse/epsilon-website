@@ -27,14 +27,13 @@
 		(Updated 28 Feb 2007)
 		</description>
 	</example>
-	<!--example title="Merging two Object Oriented models" src="MergeOO">
+	<example title="Merging two Object Oriented models" src="MergeOO">
 		<language name="EML"/>
 		<description>
 		In this example, an ECL comparison is used to compare two Object Oriented models.
-		Then its match-trace is input into an EML merging that merges the two models. Coordination
-		is achieved using the Epsilon ANT tasks.
+		Then its match-trace is input into an EML merging that merges the two models.
 		</description>
-	</example-->
+	</example>
 	<example title="Aspect Oriented Modelling" src="AOM">
 		<language name="EML"/>
 		<description>
