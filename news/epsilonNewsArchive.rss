@@ -5,6 +5,14 @@
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
 	<item>
+		<title>Version 1.3.3 Released</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			Adds support for viewing registered EPackages. Fixes bug #224791
+		</description>
+		<pubDate>Wed, 16 Mar 2008 00:31:00 CET</pubDate>
+	</item>
+	<item>
 		<title>Version 1.3.2 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
