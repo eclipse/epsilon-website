@@ -54,10 +54,10 @@
 				      	, <b><a href="http://epsilonblog.wordpress.com">read the Blog &raquo;</a></b> 
 				      	
 				      	     <form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
-						    <b>Rate Epsilon @ Eclipse Plugin Central!</b>
+						    <b><a href="http://www.eclipseplugincentral.com/Web_Links-index-req-ratelink-lid-842-ttitle-Epsilon.html">Rate Epsilon at EPIC</a></b>
 						    <select name="rating">
-						    <option selected>--</option>
-						    <option>10</option>
+						    <option>--</option>
+						    <option selected>10</option>
 						    <option>9</option>
 						    <option>8</option>
 						    <option>7</option>
