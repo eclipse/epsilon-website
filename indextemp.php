@@ -97,7 +97,7 @@
 					            <a href="http://www.eclipse.org/search/search.cgi">Search</a>,
 					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.modeling.gmt">Web Interface</a> <br><br>
 					            
-					            When posting messages to the GMT newsgroup about Epsilon please make sure you prefix the subject
+					            <b>Important:</b> When posting messages to the GMT newsgroup about Epsilon please make sure you prefix the subject
 					            of your post with [Epsilon] as required by the newsgroup policy. <i>Note: Please <b>do not</b> tag your messages
 					            using the names of individual languages such [EOL] [EVL] etc.</i>
 					            
