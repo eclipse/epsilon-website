@@ -54,10 +54,10 @@
 				      	, <b><a href="http://epsilonblog.wordpress.com">read the Blog &raquo;</a></b> 
 				      	
 				      	     <form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
-						    <b><a href="http://www.eclipseplugincentral.com/Web_Links-index-req-ratelink-lid-842-ttitle-Epsilon.html">Rate Epsilon at EPIC</a></b>
+						    <b>Rate Epsilon @ Eclipse Plugin Central!</b>
 						    <select name="rating">
-						    <option>--</option>
-						    <option selected>10</option>
+						    <option selected>--</option>
+						    <option>10</option>
 						    <option>9</option>
 						    <option>8</option>
 						    <option>7</option>
@@ -92,16 +92,10 @@
 				<li>
 					<table width="100%">
 						<tr>
-							<td width="80%" valign="top">
+							<td width="80%" valign="bottom">
 								<b><a href="news://news.eclipse.org/eclipse.modeling.gmt">Newsgroup</a></b>,
 					            <a href="http://www.eclipse.org/search/search.cgi">Search</a>,
-					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.modeling.gmt">Web Interface</a> <br><br>
-					            
-					            <b>Important:</b> When posting messages to the GMT newsgroup about Epsilon please make sure you <b>always prefix the subject
-					            of your post with [Epsilon]</b> as required by the <a href="http://wiki.eclipse.org/index.php/GMT">newsgroup policy</a>.
-					            <br><br> <i>Note: Please <b>do not</b> tag your messages
-					            using the names of individual languages such [EOL] [EVL] etc.</i>
-					            
+					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.modeling.gmt">Web Interface</a>
 		  					</td>
 							<td align="right">
 								<a href="news://news.eclipse.org/eclipse.modeling.gmt"><img align="right" src="../resources/images/news.gif" valign="top"/></a>
