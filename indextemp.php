@@ -92,14 +92,14 @@
 				<li>
 					<table width="100%">
 						<tr>
-							<td width="80%" valign="bottom">
+							<td width="80%" valign="top">
 								<b><a href="news://news.eclipse.org/eclipse.modeling.gmt">Newsgroup</a></b>,
 					            <a href="http://www.eclipse.org/search/search.cgi">Search</a>,
 					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.modeling.gmt">Web Interface</a> <br><br>
 					            
 					            <b>Important:</b> When posting messages to the GMT newsgroup about Epsilon please make sure you <b>always prefix the subject
 					            of your post with [Epsilon]</b> as required by the <a href="http://wiki.eclipse.org/index.php/GMT">newsgroup policy</a>.
-					            <br> <i>Note: Please <b>do not</b> tag your messages
+					            <br><br> <i>Note: Please <b>do not</b> tag your messages
 					            using the names of individual languages such [EOL] [EVL] etc.</i>
 					            
 		  					</td>
