@@ -100,7 +100,7 @@
 					            <b>Important:</b> When posting messages to the GMT newsgroup about Epsilon please make sure you <b>always prefix the subject
 					            of your post with [Epsilon]</b> as required by the <a href="http://wiki.eclipse.org/index.php/GMT">newsgroup policy</a>.
 					            <br><br> <i>Note: Please <b>do not</b> tag your messages
-					            using the names of individual languages such [EOL] [EVL] etc.</i>
+					            using the names of individual languages such as [EOL] [EVL] etc.</i>
 					            
 		  					</td>
 							<td align="right">
