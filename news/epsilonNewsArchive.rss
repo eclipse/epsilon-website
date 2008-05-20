@@ -5,6 +5,14 @@
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
 	<item>
+		<title>Version 1.3.4 is now available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+			Fixes bug #232457
+		</description>
+		<pubDate>Tue, 20 May 2008 18:24:00 CET</pubDate>
+	</item>
+	<item>
 		<title>Version 1.3.3 Released</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
