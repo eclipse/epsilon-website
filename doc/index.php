@@ -47,7 +47,7 @@
 		</p>
 		
 		<p>
-			<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/org.epsilon.eclipse.help/index.html" target="blank">Languages documentation</a>:
+			<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/plugins/org.eclipse.epsilon.help/index.html" target="blank">Languages documentation</a>:
 			In Epsilon, documentation has been implemented as a 
 			plugin atop the Eclipse Help system. Thus, documentation about the languages is available
 			from within Eclipse. You can also browse the documentation 
