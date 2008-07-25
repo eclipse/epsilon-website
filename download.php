@@ -40,7 +40,7 @@
 		There are three options for obtaining Epsilon: you can install the binaries
 		using the Eclipse Update Manager, download and install the binaries manually, 
 		or work directly with the source code from the Eclipse CVS server. 
-		Please note that Epsilon requires Java 1.6 (or higher).<br><br>
+		Please note that Epsilon requires Java 1.5 (or higher).<br><br>
 		
 		<ul>
 		
@@ -68,7 +68,7 @@
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
 			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon. 
 			
-			<br><br>Update site : <b>http://download.eclipse.org/technology/gmt/epsilon/org.epsilon.eclipse.updatesite/site.xml</b>
+			<br><br>Update site : <b>http://download.eclipse.org/technology/gmt/epsilon/updates/</b>
 			
 			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
 			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
@@ -76,8 +76,8 @@
 			
 			<br><br>
 		<li>
-			<a href="http://www.eclipse.org/downloads/download.php?file=/technology/gmt/epsilon/org.epsilon.eclipse_$version.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
-			<br><br>	
+			<a href="http://www.eclipse.org/downloads/download.php?file=/technology/gmt/epsilon/org.eclipse.epsilon_$version.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
+			<br><br>
 		<li>
 			<a href="doc/EpsilonCVS.pdf">Source code</a>:
 			This document describes how you can obtain the latest version of the source code of Epsilon from the Eclipse CVS server.
