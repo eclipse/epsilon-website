@@ -76,7 +76,7 @@
 			
 			<br><br>
 		<li>
-			<a href="http://www.eclipse.org/downloads/download.php?file=/technology/gmt/epsilon/org.eclipse.epsilon_$version_incubation.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
+			<a href="http://www.eclipse.org/downloads/download.php?file=/technology/gmt/epsilon/org.eclipse.epsilon_${version}_incubation.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
 			<br><br>
 		<li>
 			<a href="doc/EpsilonCVS.pdf">Source code</a>:
