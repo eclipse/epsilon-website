@@ -68,7 +68,11 @@
 		<li><a href="HUTN.htm">Human Usable Textual Notation (HUTN)</a> In this
 		example, we present an implementation of HUTN for specifying EMF models 
 		using a text-based editor<br><br>
-				
+
+		<li><a href="Eugenia.htm">EuGENia</a> In this
+		example, we demonstrate implementing a GMF-based editor using
+		EuGENia<br><br>
+						
 		</ul>		
 		
       	<hr class="clearer" />
