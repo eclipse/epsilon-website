@@ -71,7 +71,7 @@
 
 		<li><a href="Eugenia.htm">EuGENia</a> In this
 		example, we demonstrate implementing a GMF-based editor using
-		EuGENia<br><br>
+		<a href="http://epsilonlabs.wiki.sourceforge.net/EuGENia">EuGENia</a><br><br>
 						
 		</ul>		
 		
