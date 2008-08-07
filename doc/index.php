@@ -37,7 +37,15 @@
 		<h3>Documentation</h3>
 		
 		<p>
-			<img src="../../resources/images/new.gif"><a href="mdd-tif-epsilon.pdf" target="blank">A complete case study using Epsilon</a>:
+			<img src="../../resources/images/new.gif"><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf" target="blank">Languages documentation</a>:
+			We have launched an effort to put together a PDF e-book that provides a complete reference of all the individual languages
+			provided by Epsilon. Like Epsilon, the book is also open-source. You can access the LaTeX sources using the instructions provided
+			<a href="http://epsilonlabs.wiki.sourceforge.net/Subversion">here</a>. 
+			Any feedback on omissions, errors or out-dated content is always highly appreciated!
+		</p>
+		
+		<p>
+			<a href="mdd-tif-epsilon.pdf" target="blank">A complete case study using Epsilon</a>:
 			This article demonstrates how languages and tools from Epsilon have been used to implement
 			the <a href="http://www.dsmforum.org/events/MDD-TIF07/InteractiveTVApps.pdf" target="blank">Interactive TV Applications</a> 
 			case study proposed by the organizers of the Model-Driven Development Tools Implementers Forum 
@@ -46,13 +54,7 @@
 			Until then, a temporary compressed archive can be found <a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/mdd-tif/TVApps.zip">here</a>)</i>
 		</p>
 		
-		<p>
-			<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/plugins/org.eclipse.epsilon.help/index.html" target="blank">Languages documentation</a>:
-			In Epsilon, documentation has been implemented as a 
-			plugin atop the Eclipse Help system. Thus, documentation about the languages is available
-			from within Eclipse. You can also browse the documentation 
-			<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/plugins/org.eclipse.epsilon.help/index.html" target="blank">online</a>
-		</p>
+
 		
 		<p>
 			<a href="PluginInstallation.pdf">Installing the Epsilon Plug-ins</a>: Provides instructions for
@@ -65,13 +67,13 @@
 		</p>
 		
 		<p> 
-			<img src="../../resources/images/new.gif"><a href="EpsilonProfilingTools.pdf">Profiling Tools Documentation</a>: Provides instructions for using
+			<a href="EpsilonProfilingTools.pdf">Profiling Tools Documentation</a>: Provides instructions for using
 			Epsilon Profiling Tools to measure the performance of model management operations implemented using languages
 			of the Epsilon component (EOL, EML, EVL, ETL etc.)
 		</p>
 		
 		<p> 
-			<img src="../../resources/images/new.gif"><a href="EpsilonTools.pdf">Epsilon <i>Tools</i> Documentation</a>: Provides instructions for defining and using
+			<a href="EpsilonTools.pdf">Epsilon <i>Tools</i> Documentation</a>: Provides instructions for defining and using
 			Epsilon <i>Tools</i>. <i>Tools</i> are user-defined Java classes that can be used from programs in Epsilon languages,
 			to implement functionality that the languages do not inherently support (e.g. sophisticated string comparison, database connectivity etc)
 			
