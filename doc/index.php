@@ -53,9 +53,7 @@
 			<i>(The complete source code and models/metamodels used in the case study will be soon available in the <a href="examples.php">examples section</a>.
 			Until then, a temporary compressed archive can be found <a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/mdd-tif/TVApps.zip">here</a>)</i>
 		</p>
-		
-
-		
+			
 		<p>
 			<a href="PluginInstallation.pdf">Installing the Epsilon Plug-ins</a>: Provides instructions for
 			installing the Epsilon plug-ins
