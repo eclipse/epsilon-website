@@ -68,7 +68,7 @@
 			This document describes how you can obtain and install the Epsilon binaries through the Eclipse Update Manager.
 			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon. 
 			
-			<br><br>Update site : <b>http://download.eclipse.org/technology/gmt/epsilon/updates/</b>
+			<br><br>Update site : <b>http://download.eclipse.org/modeling/gmt/epsilon/updates/</b>
 			
 			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
 			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
@@ -76,7 +76,7 @@
 			
 			<br><br>
 		<li>
-			<a href="http://www.eclipse.org/downloads/download.php?file=/technology/gmt/epsilon/org.eclipse.epsilon_${version}_incubation.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
+			<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_${version}_incubation.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
 			<br><br>
 		<li>
 			<a href="doc/EpsilonCVS.pdf">Source code</a>:
