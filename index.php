@@ -44,13 +44,13 @@
 						Epsilon is a metamodel-agnostic component for supporting model navigation, creation, and modification operations.<?="..."?>
 						<br/><br/>
 						
-						<b><font color="red">Important : As Epsilon is moving from the Technology
+<!--						<b><font color="red">Important : As Epsilon is moving from the Technology
 						to the Modeling project, access to source code and binaries is temporarily not
 						available. This will hopefully be fixed within the next couple of days 
 						(Last update: Sept 10 2008)</font></b>
 						
 						<br/><br/>
-						
+-->						
 <!--				      	The Epsilon component aims at building a framework for supporting the construction of domain-specific languages and tools for 
 				      	model management tasks, i.e., model merging, model comparison, inter- and intra-model consistency checking, text generation, 
 				      	etc. It will provide a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model 
