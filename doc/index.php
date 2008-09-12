@@ -55,9 +55,14 @@
 			Until then, a temporary compressed archive can be found <a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/mdd-tif/TVApps.zip">here</a>)</i>
 		</p>
 		-->
-		<!--
+		
 		<h3>Installing Epsilon</h3>
 		
+		<p>
+			Please see the <a href="../download.php">downloads</a> page for instructions on how to install Epsilon.
+		</p>
+		
+		<!--
 		<p>
 			<a href="PluginInstallation.pdf">Installing the Epsilon Plug-ins</a>: Provides instructions for
 			installing the Epsilon plug-ins
