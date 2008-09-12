@@ -96,20 +96,21 @@
 		<div class="homeitem">
 			<h3>Quick Navigator</h3>
 			<ul>
+			
 				<li>
 					<table width="100%">
 						<tr>
-							<td width="80%" valign="top">
-								<b><a href="news://news.eclipse.org/eclipse.epsilon">Newsgroup</a></b>,
-					            <a href="http://www.eclipse.org/search/search.cgi">Search</a>,
-					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Web Interface</a> <br><br>
+							<td width="80%" valign="bottom">
+								<b><a href="download.php">Download</a></b>
 		  					</td>
 							<td align="right">
-								<a href="news://news.eclipse.org/eclipse.epsilon"><img align="right" src="../resources/images/news.gif" valign="top"/></a>
+								<a href="download.php"><img align="right" src="../resources/images/download.gif" valign="top"/></a>
 							</td>
 						</tr>
 					</table>
 				</li>
+			
+
 				
 				<li>
 					<table width="100%">
@@ -153,6 +154,7 @@
 						</tr>
 					</table>
 				</li>
+				
 				<li>
 					<table width="100%">
 						<tr>
@@ -167,19 +169,22 @@
 						</tr>
 					</table>
 				</li>
+
 				<li>
 					<table width="100%">
 						<tr>
-							<td width="80%" valign="bottom">
-								<b><a href="download.php">Download</a></b>
+							<td width="80%" valign="top">
+								<b><a href="news://news.eclipse.org/eclipse.epsilon">Newsgroup</a></b>,
+					            <a href="http://www.eclipse.org/search/search.cgi">Search</a>,
+					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Web Interface</a> <br><br>
 		  					</td>
 							<td align="right">
-								<a href="download.php"><img align="right" src="../resources/images/download.gif" valign="top"/></a>
+								<a href="news://news.eclipse.org/eclipse.epsilon"><img align="right" src="../resources/images/news.gif" valign="top"/></a>
 							</td>
 						</tr>
 					</table>
 				</li>
-
+				
 				<li>
 					<table width="100%">
 						<tr>
