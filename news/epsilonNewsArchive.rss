@@ -5,6 +5,15 @@
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
 	<item>
+		<title>Version 0.8.1 is now available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+		This version integrates EuGENia and supports for 
+		live validation in EMF/GMF editors using EVL
+		</description>
+		<pubDate>Fri, 12 Sept 2008 13:48:00 CET</pubDate>
+	</item>
+	<item>
 		<title>Version 0.8.0 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>

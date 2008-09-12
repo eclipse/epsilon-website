@@ -55,7 +55,7 @@
 			Until then, a temporary compressed archive can be found <a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/mdd-tif/TVApps.zip">here</a>)</i>
 		</p>
 		-->
-		
+		<!--
 		<h3>Installing Epsilon</h3>
 		
 		<p>
@@ -67,7 +67,7 @@
 			<a href="EpsilonCVS.pdf">Accessing the source code of Epsilon from CVS</a>: Provides instructions for setting up a local
 			copy of the source code of Epsilon on your machine using Eclipse 3.2
 		</p>
-		
+		-->
 		<h3>Technical Documents</h3>
 		
 		<p> 
