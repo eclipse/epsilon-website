@@ -39,8 +39,7 @@
 		
 		There are three options for obtaining Epsilon: you can install the binaries
 		using the Eclipse Update Manager, download and install the binaries manually, 
-		or work directly with the source code from the Eclipse CVS server. 
-		Please note that Epsilon requires Java 1.5 (or higher).<br><br>
+		or work directly with the source code from the Eclipse SVN server. <br><br>
 		
 		<ul>
 		
@@ -64,6 +63,14 @@
 			This document describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
 			<br><br>
 		</ul>
+		
+		
+		<h3>Dependencies</h3>
+		
+		Epsilon requires Java 1.5 (or greater), Eclipse 3.3 (or greater) and the latest 
+		versions of EMF and GMF. The <a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/R/eclipse-modeling-ganymede-incubation-win32.zip">Eclipse Ganymede Modeling distribution</a> is the fastest and 
+		safest way to get a compatible version of Eclipse with all the required dependencies
+		included.
 		
 		<hr class="clearer" />
 
