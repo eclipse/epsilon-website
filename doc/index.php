@@ -34,7 +34,7 @@
 			</tr>
 		</table>
 
-		<h3>Documentation</h3>
+		<h3>Book</h3>
 		
 		<p>
 			<img src="../../resources/images/new.gif"><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf" target="blank">Languages documentation</a>:
@@ -44,6 +44,7 @@
 			Any feedback on omissions, errors or out-dated content is always highly appreciated!
 		</p>
 		
+		<!--
 		<p>
 			<a href="mdd-tif-epsilon.pdf" target="blank">A complete case study using Epsilon</a>:
 			This article demonstrates how languages and tools from Epsilon have been used to implement
@@ -53,7 +54,10 @@
 			<i>(The complete source code and models/metamodels used in the case study will be soon available in the <a href="examples.php">examples section</a>.
 			Until then, a temporary compressed archive can be found <a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/mdd-tif/TVApps.zip">here</a>)</i>
 		</p>
-			
+		-->
+		
+		<h3>Installing Epsilon</h3>
+		
 		<p>
 			<a href="PluginInstallation.pdf">Installing the Epsilon Plug-ins</a>: Provides instructions for
 			installing the Epsilon plug-ins
@@ -63,6 +67,8 @@
 			<a href="EpsilonCVS.pdf">Accessing the source code of Epsilon from CVS</a>: Provides instructions for setting up a local
 			copy of the source code of Epsilon on your machine using Eclipse 3.2
 		</p>
+		
+		<h3>Technical Documents</h3>
 		
 		<p> 
 			<a href="EpsilonProfilingTools.pdf">Profiling Tools Documentation</a>: Provides instructions for using
@@ -101,7 +107,7 @@
 			<a href="Epsilon-Project-Description.doc">Epsilon Project Plan</a>: Project plan of Epsilon component
 		</p>
       	<hr class="clearer" />
-
+		<!--
 		<h3>Publications on Epsilon</h3
 			<p>
 				Dimitrios S. Kolovos, Richard F. Paige and Fiona A.C. Polack. <a href="http://www.eclipsecon.org/summiteurope2006/presentations/ESE2006-EclipseModelingSymposium9_DevelopmentToolsforEpsilon.pdf">
@@ -145,6 +151,7 @@
 				to appear in Proc. OCLApps 2006: OCL for (Meta-)Models in Multiple 
 				Application Domains, Models/UML 2006, Genova, Italy, October 2006. 
 			</p>
+		-->
       		<hr class="clearer" />
 	</div>
 

@@ -51,7 +51,7 @@
 		<h3>Reporting issues</h3>
 		Should you find an example that does not work
 		with the current version of Epsilon please let us know by sending
-		a message to the <a href="news://news.eclipse.org/eclipse.modeling.gmt">GMT newsgroup</a>.
+		a message to the <a href="news://news.eclipse.org/eclipse.epsilon">Epsilon newsgroup</a>.
 		
 		<br><br>
 		
