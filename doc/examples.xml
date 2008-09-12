@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <examples>
-	<example title="Building an Object Oriented model" src="BuildOOInstance">
+	<example title="Building an Object Oriented model" src="org.eclipse.epsilon.examples.buildooinstance">
 		<language name="EOL"/>
 		<description>
 		This EOL program builds a simple Object Oriented model from scratch. It is 
 		a useful example of the basic features of EOL.
 		</description>
 	</example>
-	<example title="Generating Documentation for an Ecore metamodel" src="EglDoc">
+	<example title="Generating Documentation for an Ecore metamodel" src="org.eclipse.epsilon.examples.egldoc">
 		<language name="EGL"/>
 		<description>
 		This application uses EGL to generate HTML-based documentation for Ecore metamodels.
 		</description>
 	</example>
-	<example title="Running EOL from Java" src="RunEOLfromJava">
+	<example title="Running Epsilon from Java" src="org.eclipse.epsilon.examples.standalone">
 		<language name="EOL"/>
 		<description>
-		This example shows how EOL can be run from Java code (without the Eclipse-based tools).
+		This example shows how Epsilon can be run from Java code (without the Eclipse-based tools).
 		</description>
 	</example>
-	<example title="Annotating an Object Oriented metamodel with Exeed-specific annotations" src="ExeedOO">
+	<example title="Annotating an Object Oriented metamodel with Exeed-specific annotations" src="org.eclipse.epsilon.examples.exeedoo">
 		<language name="Exeed"/>
 		<description>
 		In this example, an Object Oriented ECore metamodel is annotated with Exeed-specific
@@ -27,21 +27,14 @@
 		(Updated 28 Feb 2007)
 		</description>
 	</example>
-	<example title="Merging two Object Oriented models" src="MergeOO">
+	<example title="Merging two Object Oriented models" src="org.eclipse.epsilon.examples.mergeoo">
 		<language name="EML"/>
 		<description>
 		In this example, an ECL comparison is used to compare two Object Oriented models.
 		Then its match-trace is input into an EML merging that merges the two models.
 		</description>
 	</example>
-	<example title="Aspect Oriented Modelling" src="AOM">
-		<language name="EML"/>
-		<description>
-		In this example, ECL and EML are used to implement the aspect oriented modelling case study
-		presented at http://reuseware.sourceforge.net/index.php?title=Aspect_Oriented_Modeling_(example)
-		</description>
-	</example>
-	<example title="Merging an Entity model with a Vocabulary model" src="EntityWithVocabulary">
+	<example title="Merging an Entity model with a Vocabulary model" src="org.eclipse.epsilon.examples.mergeentitywithvocabulary">
 		<language name="EML"/>
 		<description>
 		In this example, an ECL comparison is used to compare an Entity with a Vocabulary model.
@@ -50,13 +43,13 @@
 		to compare/merge heterogeneous models.
 		</description>
 	</example>
-	<example title="Validating an Object Oriented model" src="ValidateOO">
+	<example title="Validating an Object Oriented model" src="org.eclipse.epsilon.examples.validateoo">
 		<language name="EVL"/>
 		<description>
 		This EVL validation contains constraints and  critiques that validate an Object Oriented model.
 		</description>
 	</example>
-	<example title="Implementing Dijkstra's shortest path algorithm" src="ShortestPath">
+	<example title="Implementing Dijkstra's shortest path algorithm" src="org.eclipse.epsilon.examples.shortestpath">
 		<language name="EOL"/>
 		<language name="EVL"/>
 		<description>
@@ -66,14 +59,7 @@
 		as required by the algorithm.
 		</description>
 	</example>
-	<example title="Generating a GraphViz graph from a MOF1.4 metamodel" src="MOF2Dot">
-		<language name="EOL"/>
-		<description>
-		This EOL program generates a textual representation of a graph that can be
-		visualized using the Dot program of the Graphviz (www.graphviz.org) platform.
-		</description>
-	</example>
-	<example title="Transforming an Object Oriented model into a Relational Database model" src="OO2DB">
+	<example title="Transforming an Object Oriented model into a Relational Database model" src="org.eclipse.epsilon.examples.oo2db">
 		<language name="ETL"/>
 		<description>
 		This ETL transformation transforms an Object Oriented model into a Relational Database model.
@@ -81,12 +67,4 @@
 		model.
 		</description>
 	</example>
-	<!--example title="Adding getters and setters to an Object Oriented model" src="OORefinement">
-		<language name="ETL"/>
-		<description>
-		This ETL transformation refines an Object Oriented model by adding a getter and a 
-		setter operation for each class attribute.
-		</description>
-	</example-->
-
 </examples>

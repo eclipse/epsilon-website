@@ -46,7 +46,7 @@
 		Eclipse launch configurations. This introduces some replication as copies of the same
 		models/metamodels exist in more than one examples. However, our intention is that
 		each example is complete and self-contained. (Instructions for checking out files from the 
-		CVS are provided <a href="EpsilonCVS.pdf">here</a>)
+		SVN are provided <a href="EpsilonSVN.pdf">here</a>)
 		
 		<h3>Reporting issues</h3>
 		Should you find an example that does not work
@@ -67,9 +67,8 @@
 		<div class="homeitem3col">
 			<a name="<?=$src?>"><h3><?=$title?></h3></a>
 			<ul>
-				<li>
-					<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/<?=$src?>/<?=$src?>.zip">Download</a>, 
-					<a href="http://dev.eclipse.org/viewcvs/indextech.cgi/org.eclipse.gmt/epsilon/examples/<?=$src?>/">CVS</a>
+				<li> 
+					<a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples/<?=$src?>/">SVN</a>
 					<blockquote>
 					<?=$description?>
 					</DESCRIPTION>

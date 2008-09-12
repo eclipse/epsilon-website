@@ -104,12 +104,6 @@
 								<b><a href="news://news.eclipse.org/eclipse.epsilon">Newsgroup</a></b>,
 					            <a href="http://www.eclipse.org/search/search.cgi">Search</a>,
 					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Web Interface</a> <br><br>
-					            <!--
-					            <b>Important:</b> When posting messages to the GMT newsgroup about Epsilon please make sure you <b>always prefix the subject
-					            of your post with [Epsilon]</b> as required by the <a href="http://wiki.eclipse.org/index.php/GMT">newsgroup policy</a>.
-					            <br><br> <i>Note: Please <b>do not</b> tag your messages
-					            using the names of individual languages such as [EOL] [EVL] etc.</i>
-					            -->
 		  					</td>
 							<td align="right">
 								<a href="news://news.eclipse.org/eclipse.epsilon"><img align="right" src="../resources/images/news.gif" valign="top"/></a>
@@ -191,15 +185,15 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<b><a href="http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.gmt/epsilon/?root=Technology_Project">CVS</a></b>
+								<b><a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/">SVN</a></b>
 		  					</td>
 							<td align="right">
-								<a href="http://dev.eclipse.org/viewcvs/index.cgi/org.eclipse.gmt/epsilon/?root=Technology_Project"><img align="right" src="../resources/images/cvs.gif" valign="top"/></a>
+								<a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/"><img align="right" src="../resources/images/cvs.gif" valign="top"/></a>
 							</td>
 						</tr>
 					</table>
 				</li>
-
+				<!--
 				<li>
 					<table width="100%">
 						<tr>
@@ -212,7 +206,7 @@
 						</tr>
 					</table>
 				</li>
-				
+				-->
 				<li>
 					<table width="100%">
 						<tr>
