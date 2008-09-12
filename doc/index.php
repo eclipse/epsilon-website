@@ -76,6 +76,12 @@
 		<h3>Technical Documents</h3>
 		
 		<p> 
+			<a href="http://epsilonlabs.wiki.sourceforge.net/EuGENia">EuGENia</a>: A tutorial for the 
+			EuGENia tool which can be used to develop GMF-based editors with minimal effort. A screencast
+			demonstrating EuGENia is available <a href="../cinema/Eugenia.htm">here</a>.
+		</p>
+		
+		<p> 
 			<a href="EpsilonProfilingTools.pdf">Profiling Tools Documentation</a>: Provides instructions for using
 			Epsilon Profiling Tools to measure the performance of model management operations implemented using languages
 			of the Epsilon component (EOL, EML, EVL, ETL etc.)
