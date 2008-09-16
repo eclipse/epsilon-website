@@ -190,12 +190,12 @@
 						<tr>
 							<td width="80%" valign="bottom">
 								<div>
-									<b><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=AMW&cmdtype=doit&order=Reuse+same+sort+as+last+time">Bugs</a></b>
+									<b><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time">Bugs</a></b>,
 									<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon">Report a bug</a>
 								</div>
 		  					</td>
 							<td align="right">
-								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=AMW&cmdtype=doit&order=Reuse+same+sort+as+last+time"><img align="right" src="../resources/images/bugzilla.gif" valign="top"/></a>
+								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time"><img align="right" src="../resources/images/bugzilla.gif" valign="top"/></a>
 							</td>
 						</tr>
 					</table>
