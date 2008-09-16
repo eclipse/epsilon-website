@@ -189,6 +189,23 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
+								<div>
+									<b><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=AMW&cmdtype=doit&order=Reuse+same+sort+as+last+time">Bugs</a></b>
+									<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon">Report a bug</a>
+								</div>
+		  					</td>
+							<td align="right">
+								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=AMW&cmdtype=doit&order=Reuse+same+sort+as+last+time"><img align="right" src="../resources/images/bugzilla.gif" valign="top"/></a>
+							</td>
+						</tr>
+					</table>
+				</li>
+				
+				
+				<li>
+					<table width="100%">
+						<tr>
+							<td width="80%" valign="bottom">
 								<b><a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/">SVN</a></b>
 		  					</td>
 							<td align="right">
