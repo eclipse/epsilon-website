@@ -5,6 +5,16 @@
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
 	<item>
+		<title>Version 0.8.1.1 is now available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+		If you have installed 0.8.1 please upgrade to 0.8.1.1
+		as 0.8.1 contains a few build-related and Java-version 
+		compliance problems.
+		</description>
+		<pubDate>Fri, 12 Sept 2008 13:48:00 CET</pubDate>
+	</item>
+	<item>
 		<title>Version 0.8.1 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
