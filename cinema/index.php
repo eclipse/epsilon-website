@@ -73,7 +73,7 @@
 		example, we demonstrate implementing a GMF-based editor using
 		<a href="http://epsilonlabs.wiki.sourceforge.net/EuGENia">EuGENia</a><br><br>
 		
-		<li><a href="EVLGMFIntegration.htm">Evaluating EVL constraints in GMF-based editors</a> In this
+		<li><a href="EVLGMFValidation.htm">Evaluating EVL constraints in GMF-based editors</a> In this
 		example, we present the integration of EVL with GMF-based editors. Technical details can be
 		found in <a href="http://epsilonlabs.wiki.sourceforge.net/EVL-GMF+Integration">http://epsilonlabs.wiki.sourceforge.net/EVL-GMF+Integration</a>.<br><br>
 					
