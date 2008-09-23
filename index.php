@@ -206,10 +206,10 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<b><a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/">SVN</a></b>
+								<b><a href="http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON">SVN</a></b>
 		  					</td>
 							<td align="right">
-								<a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/"><img align="right" src="../resources/images/cvs.gif" valign="top"/></a>
+								<a href="http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON"><img align="right" src="../resources/images/cvs.gif" valign="top"/></a>
 							</td>
 						</tr>
 					</table>

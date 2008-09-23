@@ -68,7 +68,7 @@
 			<a name="<?=$src?>"><h3><?=$title?></h3></a>
 			<ul>
 				<li> 
-					<a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples/<?=$src?>/">SVN</a>
+					<a href="http://dev.eclipse.org/viewsvn/index.cgi/trunk/examples/<?=$src?>/?root=Modeling_EPSILON">SVN</a>
 					<blockquote>
 					<?=$description?>
 					</DESCRIPTION>
