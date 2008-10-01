@@ -45,7 +45,7 @@
 		
 		<li>
 			<b>Eclipse Update Manager</b>:
-			Use the following update site and these <a href="doc/P2InstallationGuide.pdf">instructions</a> to install the Epsilon binaries through the Eclipse update manager.
+			Use the following update site and <a href="doc/P2InstallationGuide.pdf">the instructions provided here</a> to install the Epsilon binaries through the Eclipse update manager.
 			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon. 
 			
 			<br><br>Update site : <b>http://download.eclipse.org/modeling/gmt/epsilon/updates/</b>
