@@ -4,6 +4,16 @@
     <title>Epsilon News</title>
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
+    <item>
+		<title>Version 0.8.2 is now available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+		Fixes bug #249250. HUTN now supports cross-model references. 
+		Additional templates (ctrl-space) provided for Epsilon language editors.
+		Several bug-fixes.
+		</description>
+		<pubDate>Tue, 28 Oct 2008 11:42:00 CET</pubDate>
+	</item>
 	<item>
 		<title>Version 0.8.1.1 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
