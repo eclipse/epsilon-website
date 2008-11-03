@@ -5,6 +5,14 @@
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
     <item>
+		<title>Version 0.8.2.1 is now available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+		Fixes an EVL regression that affects HUTN, introduced in 0.8.2
+		</description>
+		<pubDate>Mon, 3 Nov 2008 10:16:00 CET</pubDate>
+	</item>
+    <item>
 		<title>Version 0.8.2 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
