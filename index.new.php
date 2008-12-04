@@ -56,7 +56,7 @@
 				'slideshow/images/ECL.png': { caption: 'Compare your models with ECL' },
 				'slideshow/images/EML.png': { caption: 'Merge your models with EML' },
 				'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages' },
-				'slideshow/images/ANT.png': { caption: 'Create complex workflows using ANT' }
+				'slideshow/images/ANT.png': { caption: 'Create complex workflows using the Epsilon ANT tasks' }
 	    };
 	    var myShow = new Slideshow('show', data, {resize: 'length', captions: true, controller: true, height: 320, thumbnails: false, width: 510, delay:4000});
 	  });
