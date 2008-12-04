@@ -43,9 +43,13 @@
 			<li>an extensible virtual machine for execution of EOL programs</li>
 			<li>directions and documentation to explain how to use the language and virtual machine for building integrated task-specific languages</li>
 			<li>a suite of integrated, task-specific languages, with tool support, for model management. These language and tools are all based on EOL 
-			and share common facilities and tools, and currently consist of: the Epsilon Merging Language (EML) for model merging, i.e., integrating 
-			two or more models of arbitrary metamodels into a consistent, coherent single model; Epsilon Transformation Language (ETL) for transforming 
-			models (re-used in EML); Epsilon Comparison Language (ECL), for comparing models of arbitrary metamodels (re-used in EML)</li>
+			and share common facilities and tools, and currently consist of
+				<ul>
+					<li> the Epsilon Merging Language (EML) for model merging, i.e., integrating two or more models of arbitrary metamodels into a consistent, coherent single model; 
+					<li> the Epsilon Transformation Language (ETL) for transforming models (re-used in EML);
+					<li> the Epsilon Comparison Language (ECL), for comparing models of arbitrary metamodels (re-used in EML)
+				</ul>
+			<!--/li-->
 		</ul>
 		</p>
 		<p>
