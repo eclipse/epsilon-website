@@ -41,7 +41,7 @@
 	//<![CDATA[
 	  window.addEvent('domready', function(){
 	    var data = {
-	      		'slideshow/images/EOL.png': { caption: 'Script your models with EOL' }, 
+	      		'slideshow/images/EOL.png': { caption: 'Query and modify your models with EOL' }, 
 	      		'slideshow/images/RegistryView.png': { caption: 'Explore the registered EMF EPackages' }, 
 				'slideshow/images/Exeed.png': { caption: 'Customize icons and labels in the reflective EMF editor' }, 
 				'slideshow/images/HUTN.png': { caption: 'Compose your models with the OMG HUTN' }, 
