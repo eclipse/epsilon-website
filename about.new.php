@@ -48,6 +48,9 @@
 					<li> the Epsilon Merging Language (EML) for model merging, i.e., integrating two or more models of arbitrary metamodels into a consistent, coherent single model; 
 					<li> the Epsilon Transformation Language (ETL) for transforming models (re-used in EML);
 					<li> the Epsilon Comparison Language (ECL), for comparing models of arbitrary metamodels (re-used in EML)
+					<li> the Epsilon Validation Language (EVL), for validating models of arbitrary metamodels
+					<li> the Epsilon Wizard Language (ECL), for performing in-place transformation of models of arbitrary metamodels (re-used in EML)
+					<li> an implementation of the HUTN OMG standard for text-based modelling
 				</ul>
 			<!--/li-->
 		</ul>
