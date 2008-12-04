@@ -71,7 +71,7 @@
 					<h1>$pageTitle</h1>
 					<h3>Welcome</h3>
 				      <p align="JUSTIFY">
-						Epsilon is a metamodel-agnostic component for supporting model navigation, creation, and modification operations <a href="about.php">(more...)</a>.
+						Epsilon is a metamodel-agnostic component that supports model navigation, creation, and modification operations <a href="about.php">(more...)</a>.
 				      </p>
 		  		</td>
 				<td align="right">
