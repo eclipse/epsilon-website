@@ -92,7 +92,7 @@
 			</table>
 		</div>
 
-		<hr>
+		<hr class="clearer">
 		
 		<div class="homeitem">
 			<h3>Quick Navigator</h3>
