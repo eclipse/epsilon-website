@@ -28,14 +28,13 @@
 	<div id="midcolumn">
 		<h1>$pageTitle</h1>
 
-		<h3>Scope of the Epsilon subproject</h3>
+		<h3>Scope of the Epsilon component</h3>
 		<img alt="Epsilon Logo" src="resources/epsilonlogo.png" valign="top" style="padding-left: 10px;" align="right">
         <p align="justify">
       		The Epsilon component aims at building a framework for supporting the construction of domain-specific languages and tools for model 
-      		management tasks, i.e., model merging, model comparison, inter- and intra-model consistency checking, text generation, etc. It will 
-      		provide a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model instances.
+      		management tasks, i.e., model merging, model comparison, inter- and intra-model consistency checking, text generation, etc. It 
+      		provides a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model instances (e.g. EMF, MDR, XML).
       	</p>
-      	<hr class="clearer" />
       	
 		<p>
 		The Epsilon component provides the basis for building integrated domain-specific model management languages and tools:
@@ -56,8 +55,8 @@
 		<p>
 		The Epsilon component focuses on supporting aspects needed in the context of general model management, including:
 		<ul>
-			<li>A metamodel-independent mechanism for navigating models and identifying model elements of interest. This mechanism will be executable and 
-			declarative, and where possible will be closely aligned with the Object Constraint Language (OCL) standard.</li>
+			<li>A metamodel-independent mechanism for navigating models and identifying model elements of interest. This mechanism is executable and 
+			declarative, and where possible it is closely aligned with the Object Constraint Language (OCL) standard.</li>
 			<li>A metamodel-independent means for modifying models and model elements, in order to help support update and deletion tasks for model management.</li>
 			<li>A metamodel-independent mechanism for creating and reading models.</li>
 			<li>Fundamental operations for loading and serialising models.</li>
@@ -81,7 +80,7 @@
 			<li>The Epsilon Comparison Language, for specifying comparison rules, along with a virtual machine for executing rules.</li>
 		</p>
 		<p>
-		An initial user guide, installation guide and examples will also be made available. An online tutorial will also be provided for getting started.
+		A user guide, installation guide and several examples are also available.
 		</p>
       	<hr class="clearer" />
 
