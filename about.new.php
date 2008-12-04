@@ -49,7 +49,8 @@
 					<li> the Epsilon Transformation Language (ETL) for transforming models (re-used in EML);
 					<li> the Epsilon Comparison Language (ECL), for comparing models of arbitrary metamodels (re-used in EML)
 					<li> the Epsilon Validation Language (EVL), for validating models of arbitrary metamodels
-					<li> the Epsilon Wizard Language (ECL), for performing in-place transformation of models of arbitrary metamodels (re-used in EML)
+					<li> the Epsilon Wizard Language (ECL), for performing in-place transformation of models of arbitrary metamodels
+					<li> the Epsilon Wizard Language (EGL), for performing model-to-text transformation of models of arbitrary metamodels
 					<li> an implementation of the HUTN OMG standard for text-based modelling
 				</ul>
 			<!--/li-->
