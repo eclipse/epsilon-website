@@ -44,7 +44,7 @@
 	      		'slideshow/images/EOL.png': { caption: 'Query and modify your models with EOL' }, 
 	      		'slideshow/images/RegistryView.png': { caption: 'Explore the registered EMF EPackages' }, 
 				'slideshow/images/Exeed.png': { caption: 'Customize icons and labels in the reflective EMF editor' }, 
-				'slideshow/images/HUTN.png': { caption: 'Compose your models with the OMG HUTN' }, 
+				'slideshow/images/HUTN.png': { caption: 'Construct your models with the OMG HUTN' }, 
 				'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your ECore metamodel with EuGENia' },
 				'slideshow/images/EVL.png': { caption: 'Write constraints for your ECore metamodel with EVL' },
 				'slideshow/images/EVL-GMF.png': { caption: '... and see the errors/warnings in your GMF editor' },
