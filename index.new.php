@@ -70,7 +70,7 @@
 					<h1>$pageTitle</h1>
 					<h3>Welcome</h3>
 				      <p align="JUSTIFY">
-						Epsilon is a metamodel-agnostic component for supporting model navigation, creation, and modification operations.<?="..."?>
+						Epsilon is a metamodel-agnostic component for supporting model navigation, creation, and modification operations <a href="about.php">(more...)</a>.
 				      </p>
 		  		</td>
 				<td align="right">
@@ -276,14 +276,7 @@
 				<li><a href="about.php">Project description</a></li>
 				<li><a href="doc/">Documentation</a></li>
 			</ul>
-		</div>
-		
-		<div class="sideitem">
-			<h6>Visitors</h6>
-			<a href="http://www4.clustrmaps.com/user/50849c1d">
-			<img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
-			</a>
-		</div>										
+		</div>									
 
 	</div>
 
