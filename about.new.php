@@ -31,7 +31,7 @@
 		<h3>Scope of the Epsilon component</h3>
 		<img alt="Epsilon Logo" src="resources/epsilonlogo.png" valign="top" style="padding-left: 10px;" align="right">
         <p align="justify">
-      		The Epsilon component aims at building a framework for supporting the construction of domain-specific languages and tools for model 
+      		The Epsilon component aims at building a <b>research workbench</b> that supports the construction of domain-specific languages and tools for model 
       		management tasks, i.e., model merging, model comparison, inter- and intra-model consistency checking, text generation, etc. It 
       		provides a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model instances (e.g. EMF, MDR, XML).
       	</p>
