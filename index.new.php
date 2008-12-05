@@ -28,7 +28,7 @@
 	#
 	
 	include('../news/scripts/news.php');
-	$epsilonnews = get_epsilonnews(10);
+	$epsilonnews = get_epsilonnews(6);
 		
 	# Paste your HTML content between the EOHTML markers!	
 	$html = <<<EOHTML
@@ -277,6 +277,7 @@
 			<ul>
 				<li><a href="about.new.php">Project description</a></li>
 				<li><a href="doc/">Documentation</a></li>
+				<li><a href="download.php"><b>Download</b></a></li>
 			</ul>
 		</div>									
 
