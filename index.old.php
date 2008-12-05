@@ -28,51 +28,61 @@
 	#
 	
 	include('../news/scripts/news.php');
-	$epsilonnews = get_epsilonnews(6);
+	$epsilonnews = get_epsilonnews(10);
 		
 	# Paste your HTML content between the EOHTML markers!	
 	$html = <<<EOHTML
-	
-	<link rel="stylesheet" type="text/css" href="slideshow/css/slideshow.css" media="screen" />
-	<script type="text/javascript" src="slideshow/js/mootools.js"></script>
-	<script type="text/javascript" src="slideshow/js/slideshow.js"></script>
-	
-	<script type="text/javascript">		
-	//<![CDATA[
-	  window.addEvent('domready', function(){
-	    var data = {
-	      		'slideshow/images/EOL.png': { caption: 'Query and modify your models with EOL' }, 
-	      		'slideshow/images/RegistryView.png': { caption: 'Explore the registered EMF EPackages' }, 
-				'slideshow/images/Exeed.png': { caption: 'Customize icons and labels in the reflective EMF editor' }, 
-				'slideshow/images/HUTN.png': { caption: 'Construct your models with the OMG HUTN' }, 
-				'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your ECore metamodel with EuGENia' },
-				'slideshow/images/EVL.png': { caption: 'Write constraints for your ECore metamodel with EVL' },
-				'slideshow/images/EVL-GMF.png': { caption: '... and see the errors/warnings in your GMF editor' },
-				'slideshow/images/EWL.png': { caption: 'Write wizards for your metamodel with EWL' },
-				'slideshow/images/InvokeWizard.png': { caption: '... invoke them in your GMF editor' },
-				'slideshow/images/InvokedWizard.png': { caption: '... and see the results live in your editor' },
-	      		'slideshow/images/EGL.png': { caption: 'Generate text from your models with EGL' },
-	      		'slideshow/images/ETL.png': { caption: 'Transform your models with ETL' },
-				'slideshow/images/ECL.png': { caption: 'Compare your models with ECL' },
-				'slideshow/images/EML.png': { caption: 'Merge your models with EML' },
-				'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages' },
-				'slideshow/images/ANT.png': { caption: 'Create complex workflows using the Epsilon ANT tasks' }
-	    };
-	    var myShow = new Slideshow('show', data, {resize: 'length', captions: true, controller: true, height: 320, thumbnails: false, width: 510, delay:4000});
-	  });
-	//]]>
-	</script>	
-	
+
 	<!-- Middle part -->
 	<div id="midcolumn">
 		<table width="100%">
 			<tr>
 				<td width="80%">
 					<h1>$pageTitle</h1>
-					<!--h3>Welcome</h3-->
-				      <p>
-						Epsilon is a metamodel-agnostic component that supports model navigation, 
-						creation, and modification operations<!--a href="about.new.php">(more...)</a-->.
+					<h3>Welcome</h3>
+				      <p align="JUSTIFY">
+						Epsilon is a metamodel-agnostic component for supporting model navigation, creation, and modification operations.<?="..."?>
+						
+<!--						<b><font color="red">Important : As Epsilon is moving from the Technology
+						to the Modeling project, access to source code and binaries is temporarily not
+						available. This will hopefully be fixed within the next couple of days 
+						(Last update: Sept 10 2008)</font></b>
+						
+						<br/><br/>
+-->						
+<!--				      	The Epsilon component aims at building a framework for supporting the construction of domain-specific languages and tools for 
+				      	model management tasks, i.e., model merging, model comparison, inter- and intra-model consistency checking, text generation, 
+				      	etc. It will provide a metamodel-agnostic approach that supports model management tasks for any kind of metamodel and model 
+				      	instances.
+-->
+				      	<br /><br />
+				      	<a href="about.php">more about Epsilon &raquo;</a>, 
+				      	<b><a href="cinema/">watch Flash demos &raquo;</a></b> 
+				      	, <b><a href="http://epsilonblog.wordpress.com">read the Blog &raquo;</a></b> 
+				      	
+				      	     <form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
+						    <b><a href="http://www.eclipseplugincentral.com/Web_Links-index-req-ratelink-lid-842-ttitle-Epsilon.html">Rate Epsilon at EPIC</a></b>
+						    <select name="rating">
+						    <option>--</option>
+						    <option selected>10</option>
+						    <option>9</option>
+						    <option>8</option>
+						    <option>7</option>
+						    <option>6</option>
+						    <option>5</option>
+						    <option>4</option>
+						    <option>3</option>
+						    <option>2</option>
+						    <option>1</option>
+						    </select>
+						    <input type="hidden" name="ratinglid" value="842">
+						    <input type="hidden" name="ratinguser" value="outside">
+						    <input type="hidden" name="req" value="addrating">
+						    <input type="submit" value="Vote!">
+						    </form>
+						
+										      	
+				      	<br /><br />
 				      </p>
 		  		</td>
 				<td align="right">
@@ -81,18 +91,7 @@
 			</tr>
 		</table>
 		
-		<div class="homeitem3col">
-		
-			<h3>What can you do with Epsilon?</h3>
-			<table width="100%">
-			<tr><td colspan=2>
-			<br>
-			<div style="position:relative;left:-50px" id="show" class="slideshow"></div>
-			</td></tr>
-			</table>
-		</div>
-
-		<hr class="clearer">
+		<hr/>
 		
 		<div class="homeitem">
 			<h3>Quick Navigator</h3>
@@ -275,11 +274,11 @@
 		<div class="sideitem">
 			<h6>Getting Started</h6>
 			<ul>
-				<li><a href="about.new.php">Project description</a></li>
+				<li><a href="about.php">Project description</a></li>
 				<li><a href="doc/">Documentation</a></li>
-				<li><a href="download.php"><b>Download</b></a></li>
 			</ul>
-		</div>									
+		</div>
+		
 
 	</div>
 

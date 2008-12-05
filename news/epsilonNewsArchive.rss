@@ -5,6 +5,16 @@
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
     <item>
+		<title>Version 0.8.3 is now available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
+		<description>
+		Adds the EPackage Registry view. Adds support for sub-templates in EGL.
+		Adds support for cross-resource containment references in HUTN. 
+		Various bug-fixes.
+		</description>
+		<pubDate>Mon, 5 Dec 2008 11:38:00 CET</pubDate>
+	</item>
+    <item>
 		<title>Version 0.8.2.1 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
