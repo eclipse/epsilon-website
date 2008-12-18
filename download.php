@@ -56,11 +56,14 @@
 			
 			<br><br>
 		<li>
-			<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_${version}_incubation.zip">Binaries</a>: A zip-file containing the features and plugins of Epsilon
+			<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_${version}_incubation.zip">Binaries</a>: 
+			A zip-file containing the features and plugins of Epsilon (please refer to the <i>Installing Epsilon Offline</i> section of the 
+			<a href="doc/P2InstallationGuide.pdf">installation guide</a>
+			for instructions on how to install Epsilon from this zip-file).
 			<br><br>
 		<li>
 			<a href="doc/EpsilonSVN.pdf">Source code</a>:
-			This document describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
+			This guide describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
 			<br><br>
 		</ul>
 		
