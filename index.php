@@ -177,7 +177,7 @@
 							<td width="80%" valign="top">
 								<b><a href="news://news.eclipse.org/eclipse.epsilon">Newsgroup</a></b>,
 					            <a href="http://www.eclipse.org/search/search.cgi">Search</a>,
-					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Web Interface</a> <br><br>
+					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Web Interface</a>, <a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">How do I access newsgroups?</a> <br><br>
 		  					</td>
 							<td align="right">
 								<a href="news://news.eclipse.org/eclipse.epsilon"><img align="right" src="../resources/images/news.gif" valign="top"/></a>
