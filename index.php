@@ -117,7 +117,8 @@
 					<table width="100%">
 						<tr>
 							<td width="80%" valign="bottom">
-								<b><a href="doc/">Documentation</a></b>
+								<b><a href="doc/">Documentation</a></b>, 
+								<b><a href="http://epsilonlabs.wiki.sourceforge.net/Book/">Book</a></b>
 		  					</td>
 							<td align="right">
 								<a href="doc/"><img align="right" src="../resources/images/reference.gif" valign="top"/></a>
