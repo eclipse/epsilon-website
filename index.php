@@ -290,7 +290,7 @@
 			<a href="http://www.ohloh.net/stack_entries/new?project_id=8615&ref=sample"><img src="images/iuseit.png"/></a>
 			<br>
 			<br>
-			<hr>
+			<hr style="border:1px solid #CCCCCC">
 			<a href="http://www.eclipseplugincentral.com/Web_Links-index-req-ratelink-lid-842.html">Rate @ EclipsePluginCentral</a>
 			<br>
 			<br>
