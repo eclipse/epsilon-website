@@ -315,7 +315,7 @@
 			<input type="hidden" name="ratinglid" value="842">
 			<input type="hidden" name="ratinguser" value="outside">
 			<input type="hidden" name="req" value="addrating">
-			<input type="submit" value="Rate!">
+			<input type="submit" value="Vote">
 			</td></tr></table>
 			</td></tr></table>
 			</form>
