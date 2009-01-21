@@ -292,6 +292,7 @@
 			<hr>
 			<a href="http://www.eclipseplugincentral.com/Web_Links-index-req-ratelink-lid-842.html">Rate @ EclipsePluginCentral</a>
 			<br>
+			<br>
 			<form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
 			<table align="center" border="0" cellspacing="0" cellpadding="0">
 			<tr><td>
