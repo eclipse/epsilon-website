@@ -284,12 +284,8 @@
 		</div>									
 
 		<div class="sideitem">
-			<h6>Getting Started 2</h6>
-			<ul>
-				<li><a href="about.php">Project description</a></li>
-				<li><a href="doc/">Documentation</a></li>
-				<li><a href="download.php"><b>Download</b></a></li>
-			</ul>
+			<h6>Support Epsilon</h6>
+			<a href="http://www.ohloh.net/stack_entries/new?project_id=8615&ref=sample"><img src="images/iuseit.png"/></a>
 		</div>	
 		
 	</div>
