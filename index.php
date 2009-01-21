@@ -285,7 +285,13 @@
 
 		<div class="sideitem">
 			<h6>Support Epsilon</h6>
+			<center>
+			<br>
 			<a href="http://www.ohloh.net/stack_entries/new?project_id=8615&ref=sample"><img src="images/iuseit.png"/></a>
+			<br>
+			<a href="http://www.eclipseplugincentral.com/Web_Links-index-req-ratelink-lid-842.html">Rate @ EclipsePluginCentral</a>
+			<br>
+			</center>
 		</div>	
 		
 	</div>
