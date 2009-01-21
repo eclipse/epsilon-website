@@ -292,6 +292,32 @@
 			<hr>
 			<a href="http://www.eclipseplugincentral.com/Web_Links-index-req-ratelink-lid-842.html">Rate @ EclipsePluginCentral</a>
 			<br>
+			<form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
+			<table align="center" border="0" cellspacing="0" cellpadding="0">
+			<tr><td>
+			<table border="0" cellspacing="0" cellpadding="0" align="center">
+			<tr><td valign="top">
+			<select name="rating">
+			<option selected>--</option>
+			<option>10</option>
+			<option>9</option>
+			<option>8</option>
+			<option>7</option>
+			<option>6</option>
+			<option>5</option>
+			<option>4</option>
+			<option>3</option>
+			<option>2</option>
+			<option>1</option>
+			</select>
+			</td><td valign="top">
+			<input type="hidden" name="ratinglid" value="842">
+			<input type="hidden" name="ratinguser" value="outside">
+			<input type="hidden" name="req" value="addrating">
+			<input type="submit" value="Rate!">
+			</td></tr></table>
+			</td></tr></table>
+			</form>
 			<br>
 			</center>
 		</div>	
