@@ -320,7 +320,6 @@
 			</td></tr></table>
 			</td></tr></table>
 			</form>
-			<br><i>(Please vote only once)</i>
 			<br>
 			</center>
 		</div>	
