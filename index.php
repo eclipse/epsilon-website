@@ -317,6 +317,7 @@
 			<input type="hidden" name="ratinguser" value="outside">
 			<input type="hidden" name="req" value="addrating">
 			<input type="submit" value="Vote">
+			<br><i>(Please vote only once)</i>
 			</td></tr></table>
 			</td></tr></table>
 			</form>
