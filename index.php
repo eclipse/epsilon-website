@@ -284,7 +284,7 @@
 		</div>									
 
 		<div class="sideitem">
-			<h6>Support Epsilon</h6>
+			<h6>Users</h6>
 			<center>
 			<br>
 			<a href="http://www.ohloh.net/stack_entries/new?project_id=8615&ref=sample"><img src="images/iuseit.png"/></a>
