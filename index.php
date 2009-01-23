@@ -300,8 +300,8 @@
 			<table border="0" cellspacing="0" cellpadding="0" align="center">
 			<tr><td valign="top">
 			<select name="rating">
-			<option selected>--</option>
-			<option>10</option>
+			<option>--</option>
+			<option selected>10</option>
 			<option>9</option>
 			<option>8</option>
 			<option>7</option>
