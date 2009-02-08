@@ -285,9 +285,11 @@
 		
 		<div class="sideitem">
 			<h6>Visitors</h6>
+			<center>
 			<a href="http://www4.clustrmaps.com/user/50849c1d">
 				<img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
 			</a>
+			</center>
 		</div>
 		
 		<div class="sideitem">
