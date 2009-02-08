@@ -310,8 +310,7 @@
 			<h6>Used in...</h6>
 			<center>
 			<div id="users" class="slideshow" style="width:100%; height:100%"></div>
-			<br>
-			<a href="users/disclaimer.php">Disclaimer</a>
+			<a href="users/disclaimer.php">more...</a>
 			<!--
 			<br>
 			<a href="http://www.ohloh.net/stack_entries/new?project_id=8615&ref=sample"><img src="images/iuseit.png"/></a>
