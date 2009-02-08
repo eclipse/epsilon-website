@@ -70,7 +70,7 @@
 	      		'users/Modelware.png' : {}, 
 	      		'users/Modelplex.png' : {}
 	    };
-	    var myShow2 = new Slideshow('users', data2, {resize: 'length', captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:4000});
+	    var myShow2 = new Slideshow('users', data2, {captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:4000});
 	  });
 	//]]>
 	</script>
