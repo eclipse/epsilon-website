@@ -298,15 +298,6 @@
 		</div>									
 		
 		<div class="sideitem">
-			<h6>Visitors</h6>
-			<center>
-			<a href="http://www4.clustrmaps.com/user/50849c1d">
-				<img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
-			</a>
-			</center>
-		</div>
-		
-		<div class="sideitem">
 			<h6>Used in...</h6>
 			<center>
 			<div id="users" class="slideshow" style="width:100%; height:100%"></div>
@@ -350,6 +341,15 @@
 			-->
 			</center>
 		</div>	
+		
+		<div class="sideitem">
+			<h6>Visitors</h6>
+			<center>
+			<a href="http://www4.clustrmaps.com/user/50849c1d">
+				<img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
+			</a>
+			</center>
+		</div>
 		
 	</div>
 
