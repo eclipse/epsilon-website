@@ -99,7 +99,7 @@
 			<table width="100%">
 			<tr><td colspan=2>
 			<br>
-			<div style="width:100%; height:100%" id="show" class="slideshow"></div>
+			<div style="position:relative;left:-50px" id="show" class="slideshow"></div>
 			</td></tr>
 			</table>
 		</div>
@@ -307,9 +307,11 @@
 		</div>
 		
 		<div class="sideitem">
-			<h6>Users</h6>
+			<h6>Used in...</h6>
 			<center>
 			<div id="users" class="slideshow" style="width:100%; height:100%"></div>
+			<br>
+			<a href="users/disclaimer.php>Disclaimer</a>
 			<!--
 			<br>
 			<a href="http://www.ohloh.net/stack_entries/new?project_id=8615&ref=sample"><img src="images/iuseit.png"/></a>
