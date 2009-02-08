@@ -58,7 +58,7 @@
 				'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages' },
 				'slideshow/images/ANT.png': { caption: 'Create complex workflows using the Epsilon ANT tasks' }
 	    };
-	    var myShow = new Slideshow('show', data, {resize: 'length', captions: true, controller: true, height: 320, thumbna ils: false, width: 510, delay:4000});
+	    var myShow = new Slideshow('show', data, {resize: 'length', captions: true, controller: true, height: 320, thumbnails: false, width: 510, delay:4000});
 	  });
 	//]]>
 	</script>	
