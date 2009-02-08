@@ -58,7 +58,7 @@
 				'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages' },
 				'slideshow/images/ANT.png': { caption: 'Create complex workflows using the Epsilon ANT tasks' }
 	    };
-	    var myShow = new Slideshow('show', data, {resize: 'length', captions: true, controller: true, height: 320, thumbnails: false, width: 510, delay:4000});
+	    var myShow = new Slideshow('show', data, {resize: 'length', captions: true, controller: true, height: 320, thumbna ils: false, width: 510, delay:4000});
 	  });
 	//]]>
 	</script>	
@@ -74,9 +74,11 @@
 	      		'users/Upv.png' : {},
 	      		'users/WesternGeco.png' : {},
 	      		'users/Lancaster.png' : {},
-	      		'users/Modelware.png' : {}
+	      		'users/Modelware.png' : {},
+	      		'users/Concordia.png' : {}
+	      		
 	    };
-	    var myShow2 = new Slideshow('users', data2, {captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:5000});
+	    var myShow2 = new Slideshow('users', data2, {captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:2000});
 	  });
 	//]]>
 	</script>
