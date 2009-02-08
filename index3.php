@@ -68,6 +68,7 @@
 	  window.addEvent('domready', function(){
 	    var data2 = { 
 	      		'users/Modelplex.png' : {},
+	      		'users/York.png' : {},
 	      		'users/Nasa.png' : {},
 	      		'users/Surrey.png' : {},
 	      		'users/Telefonica.png' : {},
@@ -76,7 +77,8 @@
 	      		'users/Lancaster.png' : {},
 	      		'users/Modelware.png' : {},
 	      		'users/WesternGeco.png' : {},
-	      		'users/Concordia.png' : {}
+	      		'users/Concordia.png' : {},
+	      		'users/Tud.png' : {}
 	      		
 	    };
 	    var myShow2 = new Slideshow('users', data2, {captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:2000});
