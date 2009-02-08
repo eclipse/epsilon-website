@@ -64,7 +64,9 @@
 		<li>
 			<a href="doc/EpsilonSVN.pdf">Source code</a>:
 			This guide describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
-			<br><br>
+			
+			<br><br>SVN Repository: <b>http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/</b>
+			
 		</ul>
 		
 		
