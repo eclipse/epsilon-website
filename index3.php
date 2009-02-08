@@ -75,7 +75,6 @@
 	      		'users/Upv.png' : {},
 	      		'users/Ssei.png' : {},
 	      		'users/Lancaster.png' : {},
-	      		'users/Modelware.png' : {},
 	      		'users/WesternGeco.png' : {},
 	      		'users/Concordia.png' : {},
 	      		'users/Tud.png' : {}
