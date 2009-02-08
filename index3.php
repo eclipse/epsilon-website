@@ -132,7 +132,7 @@
 						<tr>
 							<td width="80%" valign="bottom">
 								<div>
-									<b><a href="cinema/">Cinema (Flash demos)</a></b>
+									<b><a href="cinema/">Cinema (Screencasts)</a></b>
 								</div>
 		  					</td>
 							<td align="right">
@@ -230,7 +230,7 @@
 						</tr>
 					</table>
 				</li>
-				-->
+				
 				<li>
 					<table width="100%">
 						<tr>
@@ -241,7 +241,7 @@
 						</tr>
 					</table>
 				</li>
-				<!--
+				
 				<li>
 					<table width="100%">
 						<tr>
@@ -277,10 +277,11 @@
 		<div class="sideitem">
 			<h6>Getting Started</h6>
 			<ul>
-				<li>Watch the <a href="cinema">screencasts</a></li>
+				<li><a href="cinema">Watch the screencasts</a></li>
 				<li><a href="download.php"><b>Download</b></a></li>
-				<li>Read the <a href="http://epsilonlabs.wiki.sourceforge.net/Book/">book</a></li>
-				<li>Follow the <a href="http://epsilonblog.wordpress.com">blog</a></li>
+				<li><a href="http://epsilonlabs.wiki.sourceforge.net/Book/">Read the book</a></li>
+				<li><a href="http://epsilonblog.wordpress.com">Follow the blog</a></li>
+				<li><a href="news://news.eclipse.org/eclipse.epsilon">Drop by the newsgroup</a> <a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">(how?)</a></li>
 			</ul>
 		</div>									
 		
