@@ -70,6 +70,7 @@
 	      		'users/Modelplex.png' : {},
 	      		'users/Nasa.png' : {},
 	      		'users/Surrey.png' : {},
+	      		'users/Telefonica.png' : {},
 	      		'users/Upv.png' : {},
 	      		'users/WesternGeco.png' : {},
 	      		'users/Lancaster.png' : {},
