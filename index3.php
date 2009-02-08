@@ -73,6 +73,7 @@
 	      		'users/Surrey.png' : {},
 	      		'users/Telefonica.png' : {},
 	      		'users/Upv.png' : {},
+	      		'users/Us.png' : {},
 	      		'users/Ssei.png' : {},
 	      		'users/Lancaster.png' : {},
 	      		'users/WesternGeco.png' : {},
