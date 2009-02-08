@@ -66,11 +66,11 @@
 	<script type="text/javascript">		
 	//<![CDATA[
 	  window.addEvent('domready', function(){
-	    var data = {
-	      		'users/Modelware.png', 
-	      		'users/Modelplex.png'
+	    var data2 = {
+	      		'users/Modelware.png' : {}, 
+	      		'users/Modelplex.png' : {}
 	    };
-	    var myShow = new Slideshow('users', data, {resize: 'length', captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:4000});
+	    var myShow2 = new Slideshow('users', data2, {resize: 'length', captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:4000});
 	  });
 	//]]>
 	</script>
@@ -309,7 +309,7 @@
 		<div class="sideitem">
 			<h6>Users</h6>
 			<center>
-			<div style="position:relative;left:-50px" id="users" class="slideshow"></div>
+			<div id="users" class="slideshow"></div>
 			<!--
 			<br>
 			<a href="http://www.ohloh.net/stack_entries/new?project_id=8615&ref=sample"><img src="images/iuseit.png"/></a>
