@@ -99,7 +99,7 @@
 			<table width="100%">
 			<tr><td colspan=2>
 			<br>
-			<div style="position:relative;left:-50px" id="show" class="slideshow"></div>
+			<div style="width:100%; height:100%" id="show" class="slideshow"></div>
 			</td></tr>
 			</table>
 		</div>
