@@ -73,7 +73,7 @@
 	      		'users/Upv.png' : {},
 	      		'users/WesternGeco.png' : {},
 	      		'users/Lancaster.png' : {},
-	      		'users/Modelware.png' : {},
+	      		'users/Modelware.png' : {}
 	    };
 	    var myShow2 = new Slideshow('users', data2, {captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:4000});
 	  });
