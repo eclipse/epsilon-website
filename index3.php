@@ -277,9 +277,10 @@
 		<div class="sideitem">
 			<h6>Getting Started</h6>
 			<ul>
-				<li><a href="about.php">Project description</a></li>
-				<li><a href="doc/">Documentation</a></li>
+				<li>Watch the <a href="cinema">screencasts</a></li>
 				<li><a href="download.php"><b>Download</b></a></li>
+				<li>Read the <a href="http://epsilonlabs.wiki.sourceforge.net/Book/">book</a></li>
+				<li>Follow the <a href="http://epsilonblog.wordpress.com">blog</a></li>
 			</ul>
 		</div>									
 		
