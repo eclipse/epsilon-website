@@ -78,14 +78,13 @@
 	      		'users/Lancaster.png' : {},
 	      		'users/WesternGeco.png' : {},
 	      		'users/Concordia.png' : {},
-	      		'users/Tud.png' : {}
-	      		
+	      		'users/Tud.png' : {}      		
 	    };
 	    var myShow2 = new Slideshow('users', data2, {captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:2000});
 	  });
 	//]]>
 	</script>
-		
+	
 	<!-- Middle part -->
 	<div id="midcolumn" style="width:75%">
 		<table width="100%">
