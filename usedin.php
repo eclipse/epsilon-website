@@ -35,18 +35,20 @@
 		</table>
 		
 		We have assembled the list of organizations where Epsilon is
-		being used through the posts in the eclipse.epsilon and eclipse.technology.gmt newsgroups
+		being used, using information extracted from respective posts in the 
+		eclipse.epsilon and eclipse.technology.gmt newsgroups,
 		and through personal communication. So, for each organization that appears
 		in the list, to the best of our knowledge, at least one person there uses 
-		some aspect(s) of Epsilon. This does not imply that the organization itself 
-		endorses Epsilon.
+		some aspect(s) of Epsilon. Of course, this does not imply that the organization itself 
+		as a whole endorses Epsilon in any other way.
 		
-		If you are using Epsilon and you would
-		like your organization to be included in the list of users, please let us know
+		If you are using Epsilon and you would like your organization to be added to 
+		the list of users, please let us know
 		through the newsgroup. Similarly, if your organization is 
 		currently in the list of users and you would like it to be removed 
-		(e.g. Epsilon is not used there any more) please also let us know and we
-		will see to your request as soon as possible.
+		(e.g. Epsilon is not used there any more or you simply don't want it to be on the list) 
+		please also let us know (through the newsgroup or in private) and we will see to your
+		request as soon as possible.
 		
 		<hr class="clearer" />
 
