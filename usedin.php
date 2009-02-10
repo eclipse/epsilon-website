@@ -42,7 +42,7 @@
 		some aspect(s) of Epsilon. Of course, this does not imply that the organization itself 
 		as a whole endorses Epsilon in any other way.
 		
-		If you are using Epsilon and you would like your organization to be added to 
+		<p>If you are using Epsilon and you would like your organization to be added to 
 		the list of users, please let us know
 		through the newsgroup. Similarly, if your organization is 
 		currently in the list of users and you would like it to be removed 
