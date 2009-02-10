@@ -39,7 +39,8 @@
 		eclipse.epsilon and eclipse.technology.gmt newsgroups,
 		and through personal communication. So, for each organization that appears
 		in the list, to the best of our knowledge, at least one person there uses 
-		some aspect(s) of Epsilon for research or development. Of course, this does not imply that the organization itself 
+		some aspect(s) of Epsilon for research or development. Of course, this does <b>not</b> imply 
+		that the organization itself 
 		as a whole endorses Epsilon in any way.
 		
 		<p>If you are using Epsilon and you would like your organization to be added to 
