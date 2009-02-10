@@ -62,7 +62,8 @@
 	  });
 	//]]>
 	</script>	
-
+	
+	<!--
 	<script type="text/javascript">		
 	//<![CDATA[
 	  window.addEvent('domready', function(){
@@ -84,6 +85,7 @@
 	  });
 	//]]>
 	</script>
+	-->
 	
 	<!-- Middle part -->
 	<div id="midcolumn" style="width:75%">
@@ -306,7 +308,7 @@
 				<li><a href="news://news.eclipse.org/eclipse.epsilon">Drop by the newsgroup</a> <a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">(how?)</a></li>
 			</ul>
 		</div>									
-		
+		<!--
 		<div class="sideitem">
 			<h6>Used in...</h6>
 			<center>
@@ -351,6 +353,7 @@
 			-->
 			</center>
 		</div>	
+		-->
 		
 		<div class="sideitem">
 			<h6>Visitors</h6>
