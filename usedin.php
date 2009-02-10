@@ -34,17 +34,17 @@
 			</tr>
 		</table>
 		
-		We have assembled a list of organizations in which Epsilon is
+		We have assembled a list of organizations/projects in which Epsilon is
 		being used, using evidence provided in respective posts in the 
 		eclipse.epsilon newsgroup,
-		and through personal communication. So, for each organization that appears
+		and through personal communication. So, for each organization/project that appears
 		in the list, to the best of our knowledge, at least one person there uses 
 		some aspect(s) of Epsilon for research or development. Of course, this does <b>not</b> imply 
-		that the organization itself as a whole endorses Epsilon in any way.
+		that the organization/project itself as a whole endorses Epsilon in any way.
 		
-		<p>If you are using Epsilon and you would like your organization to be added to 
+		<p>If you are using Epsilon and you would like your organization/project to be added to 
 		the list of users, please let us know
-		through the newsgroup. Similarly, if your organization is 
+		through the newsgroup. Similarly, if your organization/project is 
 		currently in the list of users and you would like it to be removed 
 		(e.g. Epsilon is not used there any more, or you simply just don't want it to be on the list) 
 		please also let us know (through the newsgroup or in private) and we will see to your
