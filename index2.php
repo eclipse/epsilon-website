@@ -69,6 +69,7 @@
 	  window.addEvent('domready', function(){
 	    var data2 = { 
 	      		'users/Modelplex.png' : {},
+	      		'users/Ample.png' : {},
 	      		'users/York.png' : {}
 	      		//'users/Nasa.png' : {},
 	      		//'users/Surrey.png' : {},
