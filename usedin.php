@@ -34,7 +34,7 @@
 			</tr>
 		</table>
 		
-		We have assembled the list of organizations where Epsilon is
+		We have assembled the list of organizations in which Epsilon is
 		being used, using information extracted from respective posts in the 
 		eclipse.epsilon and eclipse.technology.gmt newsgroups,
 		and through personal communication. So, for each organization that appears
