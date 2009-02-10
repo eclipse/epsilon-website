@@ -63,7 +63,7 @@
 	//]]>
 	</script>	
 	
-	<!--
+	
 	<script type="text/javascript">		
 	//<![CDATA[
 	  window.addEvent('domready', function(){
@@ -85,8 +85,8 @@
 	  });
 	//]]>
 	</script>
-	-->
 	
+
 	<!-- Middle part -->
 	<div id="midcolumn" style="width:75%">
 		<table width="100%">
