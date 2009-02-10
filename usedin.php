@@ -46,7 +46,7 @@
 		the list of users, please let us know
 		through the newsgroup. Similarly, if your organization is 
 		currently in the list of users and you would like it to be removed 
-		(e.g. Epsilon is not used there any more or you simply don't want it to be on the list) 
+		(e.g. Epsilon is not used there any more, or you simply just don't want it to be on the list) 
 		please also let us know (through the newsgroup or in private) and we will see to your
 		request as soon as possible.
 		
