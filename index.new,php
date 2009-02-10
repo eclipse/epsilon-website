@@ -69,16 +69,16 @@
 	  window.addEvent('domready', function(){
 	    var data2 = { 
 	      		'users/Modelplex.png' : {},
-	      		'users/York.png' : {},
-	      		'users/Nasa.png' : {},
-	      		'users/Surrey.png' : {},
-	      		'users/Telefonica.png' : {},
-	      		'users/Upv.png' : {},
-	      		'users/Us.png' : {},
-	      		'users/Ssei.png' : {},
-	      		'users/Lancaster.png' : {},
+	      		'users/York.png' : {}
+	      		//'users/Nasa.png' : {},
+	      		//'users/Surrey.png' : {},
+	      		//'users/Telefonica.png' : {},
+	      		//'users/Upv.png' : {},
+	      		//'users/Us.png' : {},
+	      		//'users/Ssei.png' : {},
+	      		//'users/Lancaster.png' : {},
 	      		//'users/WesternGeco.png' : {},
-	      		'users/Concordia.png' : {}
+	      		//'users/Concordia.png' : {}
 	      		//'users/Tud.png' : {}      		
 	    };
 	    var myShow2 = new Slideshow('users', data2, {captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:2000});
@@ -308,13 +308,13 @@
 				<li><a href="news://news.eclipse.org/eclipse.epsilon">Drop by the newsgroup</a> <a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">(how?)</a></li>
 			</ul>
 		</div>									
-		<!--
+		
 		<div class="sideitem">
 			<h6>Used in...</h6>
 			<center>
 			<div id="users" class="slideshow" style="width:100%; height:100%"></div>
 			<a href="usedin.php">more...</a>
-			
+			<!--
 			<br>
 			<a href="http://www.ohloh.net/stack_entries/new?project_id=8615&ref=sample"><img src="images/iuseit.png"/></a>
 			<br>
@@ -350,10 +350,10 @@
 			</td></tr></table>
 			</form>
 			<br>
-			
+			-->
 			</center>
 		</div>	
-		-->
+		
 		
 		<div class="sideitem">
 			<h6>Visitors</h6>
