@@ -63,8 +63,33 @@
 	//]]>
 	</script>	
 	
+	<!--
+	<script type="text/javascript">		
+	//<![CDATA[
+	  window.addEvent('domready', function(){
+	    var data2 = { 
+	      		'users/Modelplex.png' : {},
+	      		'users/Ample.png' : {},
+	      		'users/York.png' : {}
+	      		//'users/Nasa.png' : {},
+	      		//'users/Surrey.png' : {},
+	      		//'users/Telefonica.png' : {},
+	      		//'users/Upv.png' : {},
+	      		//'users/Us.png' : {},
+	      		//'users/Ssei.png' : {},
+	      		//'users/Lancaster.png' : {},
+	      		//'users/WesternGeco.png' : {},
+	      		//'users/Concordia.png' : {}
+	      		//'users/Tud.png' : {}      		
+	    };
+	    var myShow2 = new Slideshow('users', data2, {captions: false, controller: false, height: 106, thumbnails: false, width: 160, delay:2000});
+	  });
+	//]]>
+	</script>
+	-->
+
 	<!-- Middle part -->
-	<div id="midcolumn">
+	<div id="midcolumn" style="width:75%">
 		<table width="100%">
 			<tr>
 				<td width="80%">
@@ -132,7 +157,7 @@
 						<tr>
 							<td width="80%" valign="bottom">
 								<div>
-									<b><a href="cinema/">Cinema (Flash demos)</a></b>
+									<b><a href="cinema/">Cinema (Screencasts)</a></b>
 								</div>
 		  					</td>
 							<td align="right">
@@ -230,7 +255,7 @@
 						</tr>
 					</table>
 				</li>
-				-->
+				
 				<li>
 					<table width="100%">
 						<tr>
@@ -241,7 +266,7 @@
 						</tr>
 					</table>
 				</li>
-				<!--
+				
 				<li>
 					<table width="100%">
 						<tr>
@@ -267,7 +292,7 @@
 
 	
 	<!-- Right Part -->
-	<div id="rightcolumn">
+	<div id="rightcolumn" style="width:20%">
 		
 		<div class="sideitem">
 			<h6>Incubation</h6>
@@ -277,52 +302,32 @@
 		<div class="sideitem">
 			<h6>Getting Started</h6>
 			<ul>
-				<li><a href="about.php">Project description</a></li>
-				<li><a href="doc/">Documentation</a></li>
+				<li><a href="cinema">Watch the screencasts</a></li>
 				<li><a href="download.php"><b>Download</b></a></li>
+				<li><a href="http://epsilonlabs.wiki.sourceforge.net/Book/">Read the book</a></li>
+				<li><a href="http://epsilonblog.wordpress.com">Follow the blog</a></li>
+				<li><a href="news://news.eclipse.org/eclipse.epsilon">Drop by the newsgroup</a> <a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">(how?)</a></li>
 			</ul>
 		</div>									
 
+		<!--
 		<div class="sideitem">
-			<h6>Users</h6>
+			<h6>Used in...</h6>
 			<center>
-			<br>
-			<a href="http://www.ohloh.net/stack_entries/new?project_id=8615&ref=sample"><img src="images/iuseit.png"/></a>
-			<br>
-			<br>
-			<hr style="border:1px solid #CCCCCC">
-			<a href="http://www.eclipseplugincentral.com/Web_Links-index-req-ratelink-lid-842.html">Rate @ EclipsePluginCentral</a>
-			<br>
-			<br>
-			<form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
-			<table align="center" border="0" cellspacing="0" cellpadding="0">
-			<tr><td>
-			<table border="0" cellspacing="0" cellpadding="0" align="center">
-			<tr><td valign="top">
-			<select name="rating">
-			<option>--</option>
-			<option selected>10</option>
-			<option>9</option>
-			<option>8</option>
-			<option>7</option>
-			<option>6</option>
-			<option>5</option>
-			<option>4</option>
-			<option>3</option>
-			<option>2</option>
-			<option>1</option>
-			</select>
-			</td><td valign="top">
-			<input type="hidden" name="ratinglid" value="842">
-			<input type="hidden" name="ratinguser" value="outside">
-			<input type="hidden" name="req" value="addrating">
-			<input type="submit" value="Vote">
-			</td></tr></table>
-			</td></tr></table>
-			</form>
-			<br>
+			<div id="users" class="slideshow" style="width:100%; height:100%"></div>
+			<a href="usedin.php">more...</a>
 			</center>
 		</div>	
+		-->
+		
+		<div class="sideitem">
+			<h6>Visitors</h6>
+			<center>
+			<a href="http://www4.clustrmaps.com/user/50849c1d">
+				<img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
+			</a>
+			</center>
+		</div>
 		
 	</div>
 
