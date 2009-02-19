@@ -41,21 +41,21 @@
 	//<![CDATA[
 	  window.addEvent('domready', function(){
 	    var data = {
-	      		'slideshow/images/EOL.png': { caption: 'Query and modify your models with EOL' }, 
-	      		'slideshow/images/RegistryView.png': { caption: 'Explore the registered EMF EPackages' }, 
-				'slideshow/images/Exeed.png': { caption: 'Customize icons and labels in the reflective EMF editor' }, 
-				'slideshow/images/HUTN.png': { caption: 'Construct your models with the OMG HUTN' }, 
-				'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your ECore metamodel with EuGENia' },
+	      		'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your ECore metamodel with EuGENia' },
 				'slideshow/images/EVL.png': { caption: 'Write constraints for your ECore metamodel with EVL' },
 				'slideshow/images/EVL-GMF.png': { caption: '... and see the errors/warnings in your GMF editor' },
 				'slideshow/images/EWL.png': { caption: 'Write wizards for your metamodel with EWL' },
 				'slideshow/images/InvokeWizard.png': { caption: '... invoke them in your GMF editor' },
 				'slideshow/images/InvokedWizard.png': { caption: '... and see the results live in your editor' },
-	      		'slideshow/images/EGL.png': { caption: 'Generate text from your models with EGL' },
+	      		'slideshow/images/EOL.png': { caption: 'Query and modify your models with EOL' }, 
+	      		'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages' },
+				'slideshow/images/RegistryView.png': { caption: 'Explore the registered EMF EPackages' }, 
+				'slideshow/images/Exeed.png': { caption: 'Customize icons and labels in the reflective EMF editor' }, 
+				'slideshow/images/HUTN.png': { caption: 'Construct your models with the OMG HUTN' }, 
+				'slideshow/images/EGL.png': { caption: 'Generate text from your models with EGL' },
 	      		'slideshow/images/ETL.png': { caption: 'Transform your models with ETL' },
 				'slideshow/images/ECL.png': { caption: 'Compare your models with ECL' },
 				'slideshow/images/EML.png': { caption: 'Merge your models with EML' },
-				'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages' },
 				'slideshow/images/ANT.png': { caption: 'Create complex workflows using the Epsilon ANT tasks' }
 	    };
 	    var myShow = new Slideshow('show', data, {resize: 'length', captions: true, controller: true, height: 320, thumbnails: false, width: 510, delay:4000});
