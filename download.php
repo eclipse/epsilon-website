@@ -48,8 +48,8 @@
 			Use the following update site and <a href="doc/P2InstallationGuide.pdf">the instructions provided here</a> to install the Epsilon binaries through the Eclipse update manager.
 			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon. 
 			
-			<br><br><font color="green">Stable</font> update site : <b>http://download.eclipse.org/modeling/gmt/epsilon/updates/</b>
-			<br><font color="red">Interim</font> update site : <b>http://download.eclipse.org/modeling/gmt/epsilon/interim/</b>
+			<br><br><font color="green">Stable</font> update site : <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">http://download.eclipse.org/modeling/gmt/epsilon/updates/</a>
+			<br><font color="red">Interim</font> update site : <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">http://download.eclipse.org/modeling/gmt/epsilon/interim/</a> 
 			
 			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
 			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
