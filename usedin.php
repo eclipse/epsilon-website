@@ -35,11 +35,11 @@
 		</table>
 		
 		In order to provide first-time visitors with a quick overview of the places/projects
-		where Epsilon is used, we have assembled a list,
+		where Epsilon is used, we have assembled a respective list,
 		using evidence provided in respective posts in the eclipse.epsilon newsgroup,
 		and through personal communication. So, for each organization/project that appears
 		in the list, to the best of our knowledge, at least one person there uses 
-		some aspect(s) of Epsilon for research or development. Of course, this does <b>not</b> imply 
+		some aspect(s) of Epsilon for research or development purposes. Of course, this does <b>not</b> imply 
 		that the organization/project itself as a whole endorses Epsilon in any way.</p>
 		
 		<p>If you are using Epsilon and you would like your organization/project to be added to 
