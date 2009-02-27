@@ -14,31 +14,22 @@
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Epsilon Documentation";
+	$pageTitle 		= "Documentation";
 	$pageKeywords	= "";
 	$pageAuthor		= "Freddy Allilaire";
-	
-	# Paste your HTML content between the EOHTML markers!	
-	$html = <<<EOHTML
+	include ('../common.php');
+	ob_start();
+	?>
 
 <!-- Main part -->
-	<div id="midcolumn">
-		<table width="100%">
-			<tr>
-				<td width="50%">
-					<h1>$pageTitle</h1>
-				</td>
-				<td align="right">
-					<img alt="Epsilon Logo" src="../resources/epsilonlogo.png" valign="top" />
-				</td>
-			</tr>
-		</table>
+	<div id="midcolumn" style="width:75%">
+		<h1><?=$pageTitle?></h1>
 
 		<h3>Book</h3>
 		
 		<p>
-			<img src="../../resources/images/new.gif"><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf" target="blank">Languages documentation</a>:
-			We have launched an effort to put together a PDF e-book that provides a complete reference of all the individual languages
+			<a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf" target="blank">The Epsilon Book</a>:
+			We have put together a PDF e-book that provides a complete reference of all the individual languages
 			provided by Epsilon. Like Epsilon, the book is also open-source. You can access the LaTeX sources using the instructions provided
 			<a href="http://epsilonlabs.wiki.sourceforge.net/Subversion">here</a>. 
 			Any feedback on omissions, errors or out-dated content is always highly appreciated!
@@ -118,57 +109,12 @@
 			<a href="Epsilon-Project-Description.doc">Epsilon Project Plan</a>: Project plan of Epsilon component
 		</p>
       	<hr class="clearer" />
-		<!--
-		<h3>Publications on Epsilon</h3
-			<p>
-				Dimitrios S. Kolovos, Richard F. Paige and Fiona A.C. Polack. <a href="http://www.eclipsecon.org/summiteurope2006/presentations/ESE2006-EclipseModelingSymposium9_DevelopmentToolsforEpsilon.pdf">
-				Epsilon Development Tools for Eclipse</a>, Eclipse
-				Modeling Symposium, Eclipse Summit Europe 2006, Esslingen, Germany, 2006
-			</p>
-			<p>
-				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack. <a href="http://dx.doi.org/10.1007/11787044_11">The Epsilon Object Language (EOL)</a>,
-				in Proc. European Conference in Model Driven Architecture (EC-MDA) 2006, Bilbao, Spain, July 2006.
-			</p>
-			<p>
-				<img src="../../resources/images/new.gif">
-				Dimitrios S. Kolovos, Richard F. Paige, Fiona A.C. Polack. <a href="#">Aligning OCL with
-				Domain-Specific Languages to Support Instance-Level Model Queries</a>
-				to appear in Electronic Communications of the EASST, 2007
-			</p>
-			<p>
-				<img src="../../resources/images/new.gif">
-				Boris Gruschko, Dimitrios S. Kolovos, Richard F. Paige. 
-				<a href="#">Towards Synchronizing Models with Evolving Metamodels</a>, to appear in
-				Workshop on Model-Driven Software Evolution (MODSE 2007), 
-				11th European Conference on Software Maintenance and Reengineering, Amsterdam, the Netherlands
-			</p>
-			<p>
-				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack. <a href="http://www-users.cs.york.ac.uk/~dkolovos/publications/models06-eml.pdf">Merging Models with the Epsilon Merging Language (EML)</a>,
-				in Proc. ACM/IEEE 9th International Conference on Model Driven Engineering Languages and Systems (Models/UML 2006), Genova, Italy, October 2006.
-			</p>
-			<p>
-				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack. <a href="http://modelbased.net/ecmda-traceability/images/papers/2_dkolovos.traceability06.camera-ready.pdf">On-Demand Merging of Traceability Links with Models</a>,
-				in Proc. 2nd EC-MDA Workshop on Traceability, Bilbao, Spain, July 2006.
-			</p>
-			<p>
-				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack. <a href="http://doi.acm.org/10.1145/1138304.1138308">Model Comparison: a Foundation
-				for Model Composition and Model Transformation Testing</a>,
-				in Proc. First International Workshop on Global Integrated Model
-				Management (G@MMA) 2006, IEEE/ACM ICSE'06, Shanghai, China, May 2006.
-			</p>
-			<p>
-				Dimitrios S. Kolovos, Richard F. Paige, and Fiona A.C. Polack.
-				<a href="http://st.inf.tu-dresden.de/OCLApps2006/topic/acceptedPapers/06_Kolovos_InstanceLevel.pdf">Towards Using OCL for Instance-Level Queries in Domain Specific Languages</a>, 
-				to appear in Proc. OCLApps 2006: OCL for (Meta-)Models in Multiple 
-				Application Domains, Models/UML 2006, Genova, Italy, October 2006. 
-			</p>
-		-->
+
       		<hr class="clearer" />
 	</div>
-
-EOHTML;
-
-
+<?
+	$html = ob_get_contents();
+	ob_end_clean();
 	# Generate the web page
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>

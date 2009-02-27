@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<cinema>
+	<screencast name="Eugenia" title="GMF Editor Development with EuGENia">
+		<description> <![CDATA[EuGENia is a tool that simplifies and speeds-up the development of fully functional GMF editors. From a few simple annotations embedded directly into your ECore metamodel, EuGENia can generate the required .gmftool, .gmfgraph and .gmfmap models automatically. This example demonstrates the implementation of a fully functional GMF editor with EuGENia in just a few minutes.]]>
+		</description>
+	</screencast>
+		<screencast name="EVLGMFValidation" title="Constraints in GMF editors with EVL">
+		<description><![CDATA[In this example we present how the Epsilon Validation Language (EVL) can be used to specify constraints for a metamodel, and how its integration with GMF allows failed constraints to appear as error/warning markers directly on GMF editors. 
+.]]>
+		</description>
+	</screencast>
+	<screencast name="GMFWizards2" title="In-place Model Transformation in GMF with EWL">
+		<description><![CDATA[In this example, we demonstrate how the Epsilon Wizard Language (EWL) can be used to define in-place model transformations (wizards) that can then be executed from within the GMF-based UML 2 Class Diagram Editor.]]>
+		</description>
+	</screencast>
+	<screencast name="BuildOOInstance_part1" title="Defining and instantiating an OO metamodel">
+		<description><![CDATA[In this example, we define a new ECore metamodel using the Emfatic textual notation. <p> We then register the metamodel and instantiate it manually using Exeed, an enhanced version of the built-in EMF reflective editor that - among other features - supports customizable labels and icons.]]>
+		</description>
+	</screencast>
+	<screencast name="BuildOOInstance_part2" title="Populating an OO model using EOL">
+		<description><![CDATA[In the previous example, we used Exeed to manually construct an EMF model that conforms to the OO metamodel. <p>In this example we do the same, but this time programmatically using the Epsilon Object Language (EOL) - a JavaScript/OCL-like imperative language on which all other Epsilon languages are built.]]>
+		</description>
+	</screencast>
+		<screencast name="HUTN" title="The Human Usable Textual Notation (HUTN)">
+		<description>  <![CDATA[The Human Usable Textual Notation (HUTN) is an OMG standard that provides a generic textual notation for capturing models. This example demonstrates the HUTN editor and the HUTN->EMF builder that automatically transforms HUTN text files to proper EMF models.]]>
+		</description>
+	</screencast>	
+	<screencast name="ModeLink_part1" title="Establishing links between EMF models">
+		<description><![CDATA[Model weaving (ie. establishing links between elements of different models using an intermediate model) is a very useful technique in MDE. <p>In this example, we demonstrate ModeLink: a tool for establishing type-safe links between models that conform to (potentially) different Ecore metamodels. <p> ModeLink constructs standard EMF models which can be used by any EMF-compatible tool/language.]]>
+		</description>
+	</screencast>
+	<screencast name="ModeLink_part2" title="Validating links between EMF models">
+		<description> <![CDATA[In this example, we use the Epsilon Validation Language (EVL) to validate the intermediate model we constructed in the previous example - using ModeLink - in order to identify inconsistencies across the woven models.]]>
+		</description>
+	</screencast>
+		<screencast name="EglIntroduction" title="Generating an HTML report from a Version Control model (part 1)">
+		<description> <![CDATA[In this example, we demonstrate using the Epsilon Generation Language - a template-based model-to-text transformation language in Epsilon - to specify a template that generates an HTML report from a simple version control model. <p> This example demonstrates the basic syntax of EGL as well as it's supporting tools.]]>
+		</description>
+	</screencast>
+		<screencast name="EglVariables" title="Generating an HTML report from a Version Control model (part 2)">
+		<description> <![CDATA[In this example, we present a more advanced solution for the problem above that also makes use of the template coordination and delegation mechanism featured by EGL in order to split the code generation logic into more than one reusable templates.]]>
+		</description>
+	</screencast>
+
+	</cinema>

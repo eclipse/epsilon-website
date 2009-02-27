@@ -18,24 +18,16 @@
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	$version = "0.8.4";
-	
-	# Paste your HTML content between the EOHTML markers!	
-	$html = <<<EOHTML
+	include ('common.php');
+	include ('news/news.php');
+	ob_start();
+	?>
 
 <!-- Main part -->
 	<div id="midcolumn">
-		<table width="100%">
-			<tr>
-				<td width="50%">
-					<h1>$pageTitle (version $version)</h1>
-				</td>
-				<td align="right">
-					<img alt="Epsilon Logo" src="resources/epsilonlogo.png" valign="top" />
-				</td>
-			</tr>
-		</table>
 
-		<h3>Download</h3>
+					<h1><?=$pageTitle?> (<?=$version?>)</h1>
+
 		
 		There are three options for obtaining Epsilon: you can install the binaries
 		using the Eclipse Update Manager, download and install the binaries manually, 
@@ -57,7 +49,7 @@
 			
 			<br><br>
 		<li>
-			<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_${version}_incubation.zip">Binaries</a>: 
+			<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Binaries</a>: 
 			A zip-file containing the features and plugins of Epsilon (please refer to the <i>Installing Epsilon Offline</i> section of the 
 			<a href="doc/P2InstallationGuide.pdf">installation guide</a>
 			for instructions on how to install Epsilon from this zip-file).
@@ -81,10 +73,26 @@
 		<hr class="clearer" />
 
 	</div>
-
-EOHTML;
-
-
+	
+	<div id="rightcolumn">
+		<div class="sideitem">
+			<h6>Quick Links</h6>
+			<ul>
+				<li> <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">Stable update site</a>
+				<li> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">Interim update site</a>
+				<li> <a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Zipped binaries</a>
+				<li> <a href="http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON">Source code</a>
+			</ul>
+		</div>
+		
+		<div class="sideitem">
+			<?=r2h("Updates", "http://www.eclipse.org/gmt/epsilon/news/epsilonNewsArchive.rss", array('Version'), 6)?>
+		</div>
+		
+	</div>
+<?
+	$html = ob_get_contents();
+	ob_end_clean();
 	# Generate the web page
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>

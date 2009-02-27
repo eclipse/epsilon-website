@@ -1,7 +1,7 @@
 <?php
 
 	# set default theme
-	$_theme = "Lazarus";
+	$_theme = "Nova";
 	$theme = "";
 	if(isset($_POST['theme'])) {
 		$_theme = $_POST['theme'];
@@ -29,13 +29,26 @@ EOBRANDING;
 	# Define your project-wide Nav bars here.
 	# Format is Link text, link URL (can be http://www.someothersite.com/), target (_self, _blank), level (1, 2 or 3)
 	# these are optional
+	$Nav->addNavSeparator("Epsilon", "/gmt/epsilon/");
+	$Nav->addCustomNav("Download", "/gmt/epsilon/download.php", "_self", 1);
+	$Nav->addCustomNav("Source code", "http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON", "_self", 1);
+	$Nav->addNavSeparator("Documentation", "#");
+	$Nav->addCustomNav("Screencasts", "/gmt/epsilon/cinema/", "_self", 1);
+	$Nav->addCustomNav("Documentation", "/gmt/epsilon/doc/", "_self", 1);
+	$Nav->addCustomNav("Book", "http://epsilonlabs.wiki.sourceforge.net/Book/", "_self", 1);
+	$Nav->addCustomNav("Examples", "/gmt/epsilon/doc/examples.php", "_self", 1);
+	$Nav->addCustomNav("Blog", "http://epsilonblog.wordpress.com", "_self", 1);
+	$Nav->addNavSeparator("Getting help", "#");
+	$Nav->addCustomNav("Newsgroup", "news://news.eclipse.org/eclipse.epsilon", "_self", 1);
+	$Nav->addCustomNav("Web interface", "http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon", "_self", 1);
+	$Nav->addCustomNav("How do I access the newsgroup?", "http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F", "_self", 2);
+	$Nav->addNavSeparator("Bugzilla", "#");
+	$Nav->addCustomNav("View bugs", "https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time", "_self", 1);
+	$Nav->addCustomNav("Report a bug", "https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon", "_self", 1);	
 	$Nav->addNavSeparator("GMT", "/gmt/");
 	$Nav->addCustomNav("Download", "/gmt/download/", "_self", 1);
 	$Nav->addCustomNav("Documentation", "/gmt/doc/", "_self", 1);
 	$Nav->addCustomNav("Wiki", "http://wiki.eclipse.org/index.php/GMT", "_self", 1);
-	$Nav->addCustomNav("Epsilon", "/gmt/epsilon/", "_self", 1);
-	$Nav->addCustomNav("Download", "/gmt/epsilon/download.php", "_self", 2);
-	$Nav->addCustomNav("Documentation", "/gmt/epsilon/doc/", "_self", 2);
-	$Nav->addCustomNav("Examples", "/gmt/epsilon/doc/examples.php", "_self", 2);
+
 	
 ?>

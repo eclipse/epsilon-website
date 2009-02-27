@@ -14,10 +14,10 @@
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Epsilon Home page";
+	$pageTitle 		= "Epsilon";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	
+	include ('common.php');
 	# Add page-specific Nav bars here
 	# Format is Link text, link URL (can be http://www.someothersite.com/), target (_self, _blank), level (1, 2 or 3)
 	# $Nav->addNavSeparator("My Page Links", 	"downloads.php");
@@ -28,10 +28,10 @@
 	#
 	
 	include('../news/scripts/news.php');
+	include('news/news.php');
 	$epsilonnews = get_epsilonnews(6);
-		
-	# Paste your HTML content between the EOHTML markers!	
-	$html = <<<EOHTML
+	ob_start();
+	?>
 	
 	<link rel="stylesheet" type="text/css" href="slideshow/css/slideshow.css" media="screen" />
 	<script type="text/javascript" src="slideshow/js/mootools.js"></script>
@@ -41,24 +41,24 @@
 	//<![CDATA[
 	  window.addEvent('domready', function(){
 	    var data = {
-	      		'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your ECore metamodel with EuGENia' },
-				'slideshow/images/EVL.png': { caption: 'Write constraints for your ECore metamodel with EVL' },
-				'slideshow/images/EVL-GMF.png': { caption: '... and see the errors/warnings in your GMF editor' },
-				'slideshow/images/EWL.png': { caption: 'Write wizards for your metamodel with EWL' },
-				'slideshow/images/InvokeWizard.png': { caption: '... invoke them in your GMF editor' },
-				'slideshow/images/InvokedWizard.png': { caption: '... and see the results live in your editor' },
-	      		'slideshow/images/EOL.png': { caption: 'Query and modify your models with EOL' }, 
-	      		'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages' },
-				'slideshow/images/RegistryView.png': { caption: 'Explore the registered EMF EPackages' }, 
-				'slideshow/images/Exeed.png': { caption: 'Customize icons and labels in the reflective EMF editor' }, 
-				'slideshow/images/HUTN.png': { caption: 'Construct your models with the OMG HUTN' }, 
-				'slideshow/images/EGL.png': { caption: 'Generate text from your models with EGL' },
-	      		'slideshow/images/ETL.png': { caption: 'Transform your models with ETL' },
-				'slideshow/images/ECL.png': { caption: 'Compare your models with ECL' },
-				'slideshow/images/EML.png': { caption: 'Merge your models with EML' },
-				'slideshow/images/ANT.png': { caption: 'Create complex workflows using the Epsilon ANT tasks' }
+						'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your ECore metamodel with EuGENia', href: 'cinema'},
+				'slideshow/images/EVL.png': { caption: 'Write constraints for your ECore metamodel with EVL', href: 'cinema' },
+				'slideshow/images/EVL-GMF.png': { caption: '... and see the errors/warnings in your GMF editor', href: 'cinema' },
+				'slideshow/images/EWL.png': { caption: 'Write wizards for your metamodel with EWL', href: 'cinema' },
+				'slideshow/images/InvokeWizard.png': { caption: '... invoke them in your GMF editor', href: 'cinema' },
+				'slideshow/images/InvokedWizard.png': { caption: '... and see the results live in your editor', href: 'cinema' },
+	      		'slideshow/images/EOL.png': { caption: 'Query and modify your models with EOL', href: 'cinema' }, 
+	      		'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages', href: 'cinema' },
+				'slideshow/images/RegistryView.png': { caption: 'Explore the registered EMF EPackages', href: 'cinema' }, 
+				'slideshow/images/Exeed.png': { caption: 'Customize icons and labels in the reflective EMF editor', href: 'cinema' }, 
+				'slideshow/images/HUTN.png': { caption: 'Construct your models with the OMG HUTN', href: 'cinema' }, 
+				'slideshow/images/EGL.png': { caption: 'Generate text from your models with EGL', href: 'cinema' },
+	      		'slideshow/images/ETL.png': { caption: 'Transform your models with ETL', href: 'cinema' },
+				'slideshow/images/ECL.png': { caption: 'Compare your models with ECL', href: 'cinema' },
+				'slideshow/images/EML.png': { caption: 'Merge your models with EML', href: 'cinema' },
+				'slideshow/images/ANT.png': { caption: 'Create complex workflows using the Epsilon ANT tasks', href: 'cinema' }
 	    };
-	    var myShow = new Slideshow('show', data, {resize: 'length', captions: true, controller: true, height: 320, thumbnails: false, width: 510, delay:4000});
+	    var myShow = new Slideshow('show', data, {resize: 'length', captions: true, controller: false, height: 320, thumbnails: false, width: 495, delay:4000});
 	  });
 	//]]>
 	</script>	
@@ -89,227 +89,72 @@
 	-->
 
 	<!-- Middle part -->
-	<div id="midcolumn" style="width:75%">
+	<div id="midcolumn">
 		<table width="100%">
 			<tr>
 				<td width="80%">
-					<h1>$pageTitle</h1>
+					<h1><?=$pageTitle?></h1>
 					<!--h3>Welcome</h3-->
-				      <p>
-						Epsilon is a metamodel-agnostic component that supports model navigation, 
-						creation, and modification operations<!--a href="about.new.php">(more...)</a-->.
-				      </p>
+				    
+						Epsilon is a metamodel-agnostic component that supports programmatic model navigation, 
+						creation, and modification operations. <a href="quickexample.php">See a quick example!</a><!--through task-specific 
+						model management languages which are interoperable and consistent with each other--><!--a href="about.new.php">(more...)</a-->
+				     
 		  		</td>
 				<td align="right">
-					<img align="right" src="resources/epsilonlogo.png" valign="top" alt="Epsilon Logo" />
+					<img style="float:right" src="resources/epsilonlogo.png" valign="top" alt="Epsilon Logo" />
 				</td>
 			</tr>
 		</table>
 		
-		<div class="homeitem3col">
+		<div class="homeitem">
 		
-			<h3>What can you do with Epsilon?</h3>
+			<h2>What can you do with Epsilon?</h2>
 			<table width="100%">
 			<tr><td colspan=2>
-			<br>
-			<div style="position:relative;left:-50px" id="show" class="slideshow"></div>
+			<div style="position:relative;left:-47px;top:-7px" id="show" class="slideshow"></div>
 			</td></tr>
 			</table>
 		</div>
-
-		<hr class="clearer">
 		
 		<div class="homeitem">
-			<h3>Quick Navigator</h3>
-			<ul>
-			
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="bottom">
-								<b><a href="download.php">Download</a></b>
-		  					</td>
-							<td align="right">
-								<a href="download.php"><img align="right" src="../resources/images/download.gif" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-			
-
-				
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="bottom">
-								<b><a href="doc/">Documentation</a></b>, 
-								<b><a href="http://epsilonlabs.wiki.sourceforge.net/Book/">Book</a></b>
-		  					</td>
-							<td align="right">
-								<a href="doc/"><img align="right" src="../resources/images/reference.gif" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="bottom">
-								<div>
-									<b><a href="cinema/">Cinema (Screencasts)</a></b>
-								</div>
-		  					</td>
-							<td align="right">
-								<a href="cinema/"><img align="right" src="images/cinema.gif" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-				
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="bottom">
-								<div>
-									<b><a href="doc/examples.php">Examples</a></b>
-								</div>
-		  					</td>
-							<td align="right">
-								<a href="doc/examples.php"><img align="right" src="../resources/images/reference.gif" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-				
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="bottom">
-								<div>
-									<b><a href="http://epsilonblog.wordpress.com">Blog</a></b>
-								</div>
-		  					</td>
-							<td align="right">
-								<a href="http://epsilonblog.wordpress.com"><img align="right" src="images/wordpress.png" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="top">
-								<b><a href="news://news.eclipse.org/eclipse.epsilon">Newsgroup</a></b>,
-					            <a href="http://www.eclipse.org/search/search.cgi">Search</a>,
-					            <a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Web Interface</a>, 
-					            <a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">How do I access the newsgroup?</a> <br><br>
-		  					</td>
-							<td align="right">
-								<a href="news://news.eclipse.org/eclipse.epsilon"><img align="right" src="../resources/images/news.gif" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-				
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="bottom">
-								<div>
-									<b><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time">Bugs</a></b>,
-									<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon">Report a bug</a>
-								</div>
-		  					</td>
-							<td align="right">
-								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time"><img align="right" src="../resources/images/bugzilla.gif" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-				
-				
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="bottom">
-								<b><a href="http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON">SVN</a></b>
-		  					</td>
-							<td align="right">
-								<a href="http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON"><img align="right" src="../resources/images/cvs.gif" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-				<!--
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="bottom">
-								<b><a href="contributors.php">Contributors</a></b>
-		  					</td>
-							<td align="right">
-								<a href="contributors.php"><img align="right" src="images/contributors.png" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-				
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="100%" valign="bottom">
-								<a href="http://www4.clustrmaps.com/user/50849c1d"><img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
-								</a>							
-							</td>
-						</tr>
-					</table>
-				</li>
-				
-				<li>
-					<table width="100%">
-						<tr>
-							<td width="80%" valign="bottom">
-								<b><a href="previews.php">Previews</a></b>
-		  					</td>
-							<td align="right">
-								<a href="previews.php"><img align="right" src="images/comingup.png" valign="top"/></a>
-							</td>
-						</tr>
-					</table>
-				</li>
-				-->							
-			</ul>
+			<?=r2h("Recent articles in the blog", "http://epsilonblog.wordpress.com/feed/", array('EPackage','properties','EuGENia','EVL', 'HUTN'))?>
 		</div>
 		
 		<div class="homeitem">
-			$epsilonnews
+			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'))?>
 		</div>
-		<hr class="clearer" />
+
 	</div>
 	
 
 	
 	<!-- Right Part -->
-	<div id="rightcolumn" style="width:20%">
-		
-		<div class="sideitem">
-			<h6>Incubation</h6>
-			<div align="center"><a href="/projects/what-is-incubation.php"><img align="center" src="/images/egg-incubation.png" border="0" alt="Incubation" /></a></div>
- 		</div>
+	<div id="rightcolumn">
+
+
 		
 		<div class="sideitem">
 			<h6>Getting Started</h6>
-			<ul>
+			<ol>
 				<li><a href="cinema">Watch the screencasts</a></li>
 				<li><a href="download.php"><b>Download</b></a></li>
 				<li><a href="http://epsilonlabs.wiki.sourceforge.net/Book/">Read the book</a></li>
-				<li><a href="http://epsilonblog.wordpress.com">Follow the blog</a></li>
+				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
 				<li><a href="news://news.eclipse.org/eclipse.epsilon">Drop by the newsgroup</a> <a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">(how?)</a></li>
-			</ul>
-		</div>									
-
+			</ol>
+		</div>
+		
+		<div class="sideitem">
+			<h6>Get The Book</h6>
+			<div align="center"><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf"><img align="center" src="book.png" border="0" alt="Incubation" /></a></div>
+ 		</div>
+		
+		<div class="sideitem">
+			<h6>Incubation</h6>
+			<div align="center"><a href="/projects/what-is-incubation.php"><img align="center" src="images/egg-incubation.png" border="0" alt="Incubation" /></a></div>
+ 		</div>
+		
 		<!--
 		<div class="sideitem">
 			<h6>Used in...</h6>
@@ -327,6 +172,10 @@
 				<img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
 			</a>
 			</center>
+		</div>
+		
+		<div class="sideitem">
+			<?=r2h("Updates", "http://www.eclipse.org/gmt/epsilon/news/epsilonNewsArchive.rss", array('Version'), 6)?>
 		</div>
 		
 	</div>
@@ -349,9 +198,10 @@
 	urchinTracker();
 	</script>
 
-EOHTML;
 
-
+<?
+	$html = ob_get_contents();
+	ob_end_clean();
 	# Generate the web page
 	$App->AddExtraHtmlHeader("<link rel='alternate' type='application/rss+xml' title='Epsilon News' href='news/epsilonNewsArchive.rss'>");
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
