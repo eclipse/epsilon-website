@@ -117,14 +117,6 @@
 			</table>
 		</div>
 		
-		<div class="homeitem">
-			<?=r2h("Recent articles in the blog", "http://epsilonblog.wordpress.com/feed/", array('EPackage','properties','EuGENia','EVL', 'HUTN'))?>
-		</div>
-		
-		<div class="homeitem">
-			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'))?>
-		</div>
-
 	</div>
 	
 
