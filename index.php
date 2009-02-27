@@ -116,7 +116,11 @@
 			</td></tr>
 			</table>
 		</div>
-		
+				
+		<div class="homeitem">
+			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'))?>
+		</div>
+
 	</div>
 	
 
