@@ -117,7 +117,7 @@
 			</table>
 		</div>
 		
-		<?include('blognews.static.php)?>
+		<?include('blognews.static.php');?>
 				
 		<div class="homeitem">
 			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'))?>
