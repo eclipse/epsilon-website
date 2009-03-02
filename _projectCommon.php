@@ -30,6 +30,7 @@ EOBRANDING;
 	# Format is Link text, link URL (can be http://www.someothersite.com/), target (_self, _blank), level (1, 2 or 3)
 	# these are optional
 	$Nav->addNavSeparator("Epsilon", "/gmt/epsilon/");
+	$Nav->addCustomNav("Home", "/gmt/epsilon/", "_self", 1);
 	$Nav->addCustomNav("Download", "/gmt/epsilon/download.php", "_self", 1);
 	$Nav->addCustomNav("Source code", "http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON", "_self", 1);
 	$Nav->addNavSeparator("Documentation", "#");
