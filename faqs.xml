@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<faqs>
+	<faq>
+		<title>What is the relationship between Epsilon and EMF?</title>
+		<answer><![CDATA[
+		<p>To put it simply, with EMF you can specify metamodels and construct models that conform to these metamodels, while with Epsilon you can <i>do stuff</i> with these EMF models and metamodels (e.g. validate them, transform them, generate code from them etc.).]]>
+		</answer>
+	</faq>
+	<faq>
+		<title>Is Epsilon a model transformation language?</title>
+		<answer><![CDATA[
+		<p>No. Epsilon is a component that facilitates the specification and tool-support of a range of task-specific model management languages, <b>one of which</b> targets model-to-model transformation (ETL).]]>
+		</answer>
+	</faq>
+	<faq>
+		<title>Who is using Epsilon?</title>
+		<answer><![CDATA[
+		<p>While we can't possibly have a precise answer to this, with more than 250 posts in the eclipse.epsilon newsgroup and roughly 4000 unique visitors in the last 6 months (as of February 2009), it appears that quite a few people are currently using different bits of Epsilon.]]>
+		</answer>
+	</faq>
+	<faq>
+		<title>Why don't you provide an all-in-one bundle?</title>
+		<answer><![CDATA[
+		<p>We'd very much like to be able to provide an one-in-all bundle which you could download and use straight away. However, due to space limitations, it is not possible for every Eclipse project/component to provide such a bundle.]]>
+		</answer>
+	</faq>
+	<faq>
+		<title>How does Epsilon compare to the OMG family of languages?</title>
+		<answer><![CDATA[
+		<p>There are two main differences: 
+		
+		<p>First, QVT, OCL and MTL are standards while languages in Epsilon are not. While having standards is arguably <i>a good thing</i>, by not having to conform to standardized specifications, Epsilon provides the agility to experiment with interesting new features and extensions to model management languages, and contribute small bits to advancing the level of understanding in the field. Examples of such interesting and novel features in Epsilon include <a href="http://epsilonblog.wordpress.com/2007/12/17/interactive-model-transformation-with-etl/">interactive transformation</a>, <a href="http://epsilonblog.wordpress.com/2007/12/16/using-java-objects-in-eol/">tight Java integration</a>, <a href="http://epsilonblog.wordpress.com/2008/01/30/extended-properties-in-eol/">extended properties</a>, and support for <a href="http://portal.acm.org/citation.cfm?id=1370748">transactions</a>.
+		
+		<p>Second, Epsilon provides specialized languages for tasks that are currently not explicitly targeted by the OMG standards. Examples of such tasks include <a href="">interactive in-place model transformation</a>, model comparison, and model merging.
+		]]>
+		</answer>
+	</faq>
+	<faq>
+		<title>Is Epsilon a competitor to the Eclipse OCL/M2M/M2T projects?</title>
+		<answer><![CDATA[
+		<p>No. Epsilon is a component of the GMT <b>research</b> incubator and as such, it is predominately <b>research</b>-oriented. This means that in Epsilon, precedence is given to experimenting with interesting and novel features - as opposed to producing a comprehensive industrial-strength platform. By contrast, the OCL/M2M/M2T projects aim at providing industrial-strength tools that will fully implement the respective OMG standards.
+		]]>
+		</answer>
+	</faq>
+	<faq>
+		<title>What is the difference between E*L and langage XYZ?</title>
+		<answer><![CDATA[
+		<p>If the available <a href="doc/">documentation</a> and <a href="cinema/">screencasts</a> don't answer this, please feel free to post your question to the eclipse.epsilon newsgroup.]]>
+		</answer>
+	</faq>
+</faqs>

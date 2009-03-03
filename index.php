@@ -30,6 +30,14 @@
 	include('../news/scripts/news.php');
 	include('news/news.php');
 	$epsilonnews = get_epsilonnews(6);
+	
+	#parse FAQs
+	include_once("dom4php/XmlParser.php");
+	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
+	$document = $parser->parse(file_get_contents("faqs.xml"));
+	$faqs = $document->getElementsByTagName("faq");
+	$faq = $faqs[rand(0,count($faqs)-1)];
+	$faq_title = $faq->getOneChild("title")->childNodes[0]->data;
 	ob_start();
 	?>
 	
@@ -143,6 +151,13 @@
 		<div class="sideitem">
 			<h6>Get The Book</h6>
 			<div align="center"><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf"><img align="center" src="book.png" border="0" alt="Incubation" /></a></div>
+ 		</div>
+	
+		<div class="sideitem">
+			<h6>Frequently Asked Question</h6>
+			<ul>
+				<a href="faq.php#<?=$faq_title?>"><?=$faq_title?></a>
+			</ul>
  		</div>
 		
 		<div class="sideitem">
