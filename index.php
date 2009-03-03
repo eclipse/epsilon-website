@@ -36,7 +36,8 @@
 	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
 	$document = $parser->parse(file_get_contents("faqs.xml"));
 	$faqs = $document->getElementsByTagName("faq");
-	$faq = $faqs[rand(0,count($faqs)-1)];
+	$random_faq = rand(0,count($faqs)-1);
+	$faq = $faqs[$random_faq];
 	$faq_title = $faq->getOneChild("title")->childNodes[0]->data;
 	ob_start();
 	?>
@@ -156,7 +157,7 @@
 		<div class="sideitem">
 			<h6>Frequently Asked Question</h6>
 			<ul>
-				<a href="faq.php#<?=$faq_title?>"><?=$faq_title?></a>
+				<a href="faq.php#<?=$faq_title?>"><?=$random_faq+1?>. <?=$faq_title?></a>
 			</ul>
  		</div>
 		
