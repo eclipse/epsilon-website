@@ -57,6 +57,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	
 	</div>	
 <?
+	include('stats.php');
 	$html = ob_get_contents();
 	ob_end_clean();
 	# Generate the web page

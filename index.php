@@ -151,7 +151,7 @@
 		
 		<div class="sideitem">
 			<h6>Get The Book</h6>
-			<div align="center"><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf"><img align="center" src="book.png" border="0" alt="Incubation" /></a></div>
+			<div align="center"><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf"><img align="center" src="images/book.png" border="0" alt="Incubation" /></a></div>
  		</div>
 	
 		<div class="sideitem">
@@ -191,26 +191,8 @@
 		
 	</div>
 
-	<!-- Start of StatCounter Code -->
-	<script type="text/javascript" language="javascript">
-	var sc_project=2185757; 
-	var sc_invisible=1; 
-	var sc_partition=5; 
-	var sc_security="2d5ff082"; 
-	</script>
-	
-	<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c6.statcounter.com/counter.php?sc_project=2185757&java=0&security=2d5ff082&invisible=1" alt="free web hit counter" border="0"></a> </noscript>
-	<!-- End of StatCounter Code -->
-
-	<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-	</script>
-	<script type="text/javascript">
-	_uacct = "UA-1498421-2";
-	urchinTracker();
-	</script>
-
-
 <?
+	include('stats.php');
 	$html = ob_get_contents();
 	ob_end_clean();
 	# Generate the web page
