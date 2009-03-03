@@ -33,11 +33,11 @@
 		<description> <![CDATA[In this example, we use the Epsilon Validation Language (EVL) to validate the intermediate model we constructed in the previous example - using ModeLink - in order to identify inconsistencies across the woven models.]]>
 		</description>
 	</screencast>
-		<screencast name="EglIntroduction" title="Generating an HTML report from a Version Control model (part 1)">
+		<screencast name="EglIntroduction" title="Generating an HTML report with EGL (part 1)">
 		<description> <![CDATA[In this example, we demonstrate using the Epsilon Generation Language - a template-based model-to-text transformation language in Epsilon - to specify a template that generates an HTML report from a simple version control model. <p> This example demonstrates the basic syntax of EGL as well as it's supporting tools.]]>
 		</description>
 	</screencast>
-		<screencast name="EglVariables" title="Generating an HTML report from a Version Control model (part 2)">
+		<screencast name="EglVariables" title="Generating an HTML report with EGL (part 2)">
 		<description> <![CDATA[In this example, we present a more advanced solution for the problem above that also makes use of the template coordination and delegation mechanism featured by EGL in order to split the code generation logic into more than one reusable templates.]]>
 		</description>
 	</screencast>

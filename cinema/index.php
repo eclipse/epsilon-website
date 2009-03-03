@@ -28,7 +28,7 @@
 	
 ?>
 
-	<div id="midcolumn" style="width:75%">
+	<div id="midcolumn">
 	<h1><?=$pageTitle?></h1>
 		
 		This page contains several Flash screencasts demonstrating different tools and languages in Epsilon. All screencasts have been captured using <a href="http://www.debugmode.com/wink">Wink</a>.
@@ -37,19 +37,19 @@
 		
 		<?
 		foreach ($screencasts as $screencast) {
-			$descriptionNodes = $screencast->selectElements(array(),"description");
-			$descriptionNode = $descriptionNodes[0];
-			$description = $descriptionNode->childNodes[0]->data;
+			$description = $screencast->getOneChild("description")->childNodes[0]->data;
 			$name = $screencast->getAttribute("name");
 			$title = $screencast->getAttribute("title");
 		?>	
 		<div class="homeitem3col">
-			<div style="background-image:url('../images/pageitem.png')"><h3>&nbsp;<?=$title?></h3></div>
+			<div style="background-image:url('../images/paigeitem75.png')"><h3><a name="<?=$name?>" style="color:black;text-decoration:none">&nbsp;<?=$title?></a></h3></div>
 			<div style="position:relative;top:-4px;background-color:#FAFAFA;border-left:1px solid #D7D7D7;border-right:1px solid #D7D7D7;border-bottom:1px solid #D7D7D7">
 			<table>
 				<tr>
 					<td><a href="<?=$name?>.htm"><img src="<?=$name?>.jpg"></img></a></td>
-					<td style="border-left:1px solid #CCCCCC;padding-left:5px;vertical-align:top"><b>Plot: </b><?=$description?></td>
+				</tr>
+				<tr>
+					<td style="padding-left:5px;vertical-align:top"><p><b>Plot: </b><?=$description?></td>
 				</tr>
 			</table>
 			</div>
@@ -60,7 +60,23 @@
 		<hr class="clearer" />
 
 	</div>
-
+	
+	<div id="rightcolumn">
+		<div class="sideitem">
+		<h6>Screencasts</h6>
+		<ul>
+		<?
+		foreach ($screencasts as $screencast) {
+			$description = $screencast->getOneChild("description")->childNodes[0]->data;
+			$name = $screencast->getAttribute("name");
+			$title = $screencast->getAttribute("title");
+		?>
+		<li><a href="#<?=$name?>"><?=$title?></a>
+		<?}?>
+		</ul>
+		</div>
+	</div>
+	
 <?
 	include('../stats.php');
 	$html = ob_get_contents();
