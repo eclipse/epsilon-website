@@ -2,7 +2,7 @@
 <examples>
 	<example src="org.eclipse.epsilon.examples.buildooinstance" title="Create an OO model with EOL">
 		<description>
-		<![CDATA[In this example we use the Epsilon Object Language (EOL) to construct a model that conforms to the OO.emf metamodel programmatically.]]>
+		<![CDATA[In this example we use the Epsilon Object Language (EOL) to programmatically construct a model that conforms to the OO.emf metamodel.]]>
 		</description>
 		<file name="BuildOOInstance.eol"/>
 		<metamodel name="OO.emf"/>
