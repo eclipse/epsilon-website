@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <examples>
-	<example title="Building an Object Oriented model" src="org.eclipse.epsilon.examples.buildooinstance">
+	<example title="Creating an OO model with EOL" src="org.eclipse.epsilon.examples.buildooinstance">
 		<language name="EOL"/>
 		<description>
 		This EOL program builds a simple Object Oriented model from scratch. It is 
 		a useful example of the basic features of EOL.
 		</description>
+		<file src="/BuildOOInstance.eol"/>
 	</example>
-	<example title="Generating Documentation for an Ecore metamodel" src="org.eclipse.epsilon.examples.egldoc">
+	<example title="Generating HTML for Ecore with EGL" src="org.eclipse.epsilon.examples.egldoc">
 		<language name="EGL"/>
 		<description>
 		This application uses EGL to generate HTML-based documentation for Ecore metamodels.
 		</description>
+		<file src="/src/org/epsilon/egl/doc/egl/Emf2Html.egl"/>
+		<file src="/src/org/epsilon/egl/doc/egl/html/Class.egl"/>
 	</example>
 	<example title="Running Epsilon from Java" src="org.eclipse.epsilon.examples.standalone">
 		<language name="EOL"/>
@@ -19,11 +22,11 @@
 		This example shows how Epsilon can be run from Java code (without the Eclipse-based tools).
 		</description>
 	</example>
-	<example title="Annotating an Object Oriented metamodel with Exeed-specific annotations" src="org.eclipse.epsilon.examples.exeedoo">
+	<example title="Customizing Tree Editor Icons and Labels" src="org.eclipse.epsilon.examples.exeedoo">
 		<language name="Exeed"/>
 		<description>
 		In this example, an Object Oriented ECore metamodel is annotated with Exeed-specific
-		annotations so that instances of it can be visualized properly with the Exeed editor.
+		annotations so that instances of it can be visualized properly with the Exeed tree-based editor.
 		(Updated 28 Feb 2007)
 		</description>
 	</example>
@@ -33,6 +36,8 @@
 		In this example, an ECL comparison is used to compare two Object Oriented models.
 		Then its match-trace is input into an EML merging that merges the two models.
 		</description>
+		<file src="/MatchOO.ecl"/>
+		<file src="/MergeOO.eml"/>
 	</example>
 	<example title="Merging an Entity model with a Vocabulary model" src="org.eclipse.epsilon.examples.mergeentitywithvocabulary">
 		<language name="EML"/>
@@ -59,7 +64,7 @@
 		as required by the algorithm.
 		</description>
 	</example>
-	<example title="Transforming an Object Oriented model into a Relational Database model" src="org.eclipse.epsilon.examples.oo2db">
+	<example title="Transforming an OO model into a DB model" src="org.eclipse.epsilon.examples.oo2db">
 		<language name="ETL"/>
 		<description>
 		This ETL transformation transforms an Object Oriented model into a Relational Database model.

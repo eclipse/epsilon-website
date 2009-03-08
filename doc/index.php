@@ -22,7 +22,7 @@
 	?>
 
 <!-- Main part -->
-	<div id="midcolumn" style="width:75%">
+	<div id="midcolumn">
 		<h1><?=$pageTitle?></h1>
 
 		<h3>Book</h3>
@@ -42,7 +42,7 @@
 			the <a href="http://www.dsmforum.org/events/MDD-TIF07/InteractiveTVApps.pdf" target="blank">Interactive TV Applications</a> 
 			case study proposed by the organizers of the Model-Driven Development Tools Implementers Forum 
 			(<a href="http://www.dsmforum.org/events/MDD-TIF07/" target="blank">MDD-TIF 2007</a>).
-			<i>(The complete source code and models/metamodels used in the case study will be soon available in the <a href="examples.php">examples section</a>.
+			<i>(The complete source code and models/metamodels used in the case study will be soon available in the <a href="../examples">examples section</a>.
 			Until then, a temporary compressed archive can be found <a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/mdd-tif/TVApps.zip">here</a>)</i>
 		</p>
 		-->
@@ -108,9 +108,17 @@
 		<p>
 			<a href="Epsilon-Project-Description.doc">Epsilon Project Plan</a>: Project plan of Epsilon component
 		</p>
-      	<hr class="clearer" />
-
-      		<hr class="clearer" />
+	</div>
+	<div id="rightcolumn">
+	<div class="sideitem">
+	<h6>See also...</h6>
+	<ul>
+		<li><a href="../cinema">Screencasts</a>
+		<li><a href="../examples">Examples</a>
+		<li><a href="../faq.php">Frequently Asked Questions</a>
+		<li><a href="../download.php">Download instructions</a>
+	</ul>
+	</div>
 	</div>
 <?
 	include('../stats.php');

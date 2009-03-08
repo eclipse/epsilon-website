@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<examples>
+	<example src="org.eclipse.epsilon.examples.buildooinstance" title="Create an OO model with EOL">
+		<description>
+		<![CDATA[In this example we use the Epsilon Object Language (EOL) to construct a model that conforms to the OO.emf metamodel programmatically.]]>
+		</description>
+		<file name="BuildOOInstance.eol"/>
+		<metamodel name="OO.emf"/>
+	</example>
+	<example src="org.eclipse.epsilon.examples.tree2graph" title="Transform a Tree model to a Graph model with ETL">
+		<description>
+		<![CDATA[In this example, we use the Epsilon Transformation Language to transform a model that conforms to the Tree.emf metamodel to a model that conforms to the Graph.emf metamodel.]]>
+		</description>
+		<file name="Tree2Graph.etl"/>
+		<metamodel name="Tree.emf"/>
+		<metamodel name="Graph.emf"/>
+	</example>
+	<example src="org.eclipse.epsilon.examples.calljava" title="Call Java from EOL">
+		<description>
+		<![CDATA[In this example, we create a JFrame in EOL, set its bounds and title, and make it visible. The aim of this example is to show how to call Java code from within Epsilon languages.]]>
+		</description>
+		<file name="CreateJFrame.eol"/>
+	</example>
+	<example src="org.eclipse.epsilon.examples.validateoo" title="Validate an OO model with EVL">
+		<description>
+		<![CDATA[In this example, we use the Epsilon Validation Language (EVL), to express constraints for models that conform to the OO.emf metamodel.]]>
+		</description>
+		<file name="ValidateOO.evl"/>
+		<metamodel name="OO.emf"/>
+	</example>
+	<example src="org.eclipse.epsilon.examples.egldoc" title="Generate HTML documentation from an ECore metamodel with EGL">
+		<description>
+		<![CDATA[In this example, we demonstrate how the template-based Epsilon Generation Language can be used to generate HTML documentation from an ECore metamodel.]]>
+		</description>
+		<file name="src/org/epsilon/egl/doc/egl/html/Class.egl"/>
+		<file name="src/org/epsilon/egl/doc/egl/html/Packages.egl"/>
+		<file name="src/org/epsilon/egl/doc/egl/Emf2Html.egl"/>
+	</example>
+	<example src="org.eclipse.epsilon.examples.standalone" title="Use Epsilon in standalone applications">
+		<description>
+		<![CDATA[In this example, we demonstrate how Epsilon languages can be used in standalone, non-Eclipse-based Java applications.]]>
+		</description>
+		<file name="src/org/eclipse/epsilon/examples/standalone/eol/EolStandaloneExample.java"/>
+		<file name="src/org/eclipse/epsilon/examples/standalone/EpsilonStandaloneExample.java"/>
+	</example>
+	<example src="org.eclipse.epsilon.examples.mergeentitywithvocabulary" title="Heterogeneous Model Merging with ECL/EML">
+		<description>
+		<![CDATA[In this example, we demonstrate merging heterogeneous models that conform to the Entity.emf and DomainVocabulary.emf metamodels using the Epsilon Comparison and Merging Languages.<br><br>In the first step, we use the Comparison.ecl ECL program to establish correspondences between the two models, and in the second step we use the Merging.eml EML program to merge the two models on the identified correspondences.]]>
+		</description>
+		<file name="Comparison.ecl"/>
+		<file name="Merging.eml"/>
+		<metamodel name="Entity.emf"/>
+		<metamodel name="DomainVocabulary.emf"/>
+	</example>	
+	<example src="org.eclipse.epsilon.examples.shortestpath" title="Dijkstra's shortest path algorithm with EOL/EVL">
+		<description>
+		<![CDATA[In this example, we use the Epsilon Object Language to implement Dijkstra's algorithm that allows us to find the shortest path between two nodes of a directed graph that conforms to the DirectedGraph.emf metamodel. To check the graph for cycles we use the constraints in ValidateDirectedGraph.evl]]>
+		</description>
+		<file name="ShortestPath.eol"/>
+		<metamodel name="DirectedGraph.emf"/>
+		<file name="ValidateDirectedGraph.evl"/>
+	</example>
+</examples>

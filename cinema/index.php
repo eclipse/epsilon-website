@@ -46,7 +46,7 @@
 			<div style="position:relative;top:-4px;background-color:#FAFAFA;border-left:1px solid #D7D7D7;border-right:1px solid #D7D7D7;border-bottom:1px solid #D7D7D7">
 			<table>
 				<tr>
-					<td><a href="<?=$name?>.htm"><img src="<?=$name?>.jpg"></img></a></td>
+					<td><a href="<?=$name?>.htm"><img src="<?=$name?>.jpg"></img><img src="../images/play.png" style="position:relative;top:-110px;left:-240px"></a></td>
 				</tr>
 				<tr>
 					<td style="padding-left:5px;vertical-align:top"><p><b>Plot: </b><?=$description?></td>
@@ -63,7 +63,7 @@
 	
 	<div id="rightcolumn">
 		<div class="sideitem">
-		<h6>Screencasts</h6>
+		<h6>Overview</h6>
 		<ul>
 		<?
 		foreach ($screencasts as $screencast) {
