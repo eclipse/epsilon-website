@@ -15,12 +15,12 @@
 		<metamodel name="Tree.emf"/>
 		<metamodel name="Graph.emf"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.modelmodification" title="Modify an OO model with EOL">
+	<example src="org.eclipse.epsilon.examples.modelmodification" title="Modify a Tree model with EOL">
 		<description>
-		<![CDATA[In this example we use the Epsilon Object Language (EOL) to programmatically modify a model that conforms to the OO.emf metamodel and store the modified version as a new model.]]>
+		<![CDATA[In this example we use the Epsilon Object Language (EOL) to programmatically modify a model that conforms to the Tree.emf metamodel and store the modified version as a new model.]]>
 		</description>
 		<file name="AddLeaves.eol"/>
-		<metamodel name="OO.emf"/>
+		<metamodel name="Tree.emf"/>
 	</example>
 	<example src="org.eclipse.epsilon.examples.oo2db" title="Transform an OO model to a DB model with ETL">
 		<description>
