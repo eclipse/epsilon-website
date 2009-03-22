@@ -30,8 +30,8 @@
 
 	<div id="midcolumn">
 	<h1><?=$pageTitle?></h1>
-		
-		This page contains several Flash screencasts demonstrating different tools and languages in Epsilon. All screencasts have been captured using <a href="http://www.debugmode.com/wink">Wink</a>.
+		<!--img style="float:right" src="../images/screencast.gif"-->
+		This page contains several screencasts demonstrating different tools and languages in Epsilon. To watch the screencasts you must have a <a href="http://get.adobe.com/flashplayer/">Flash player</a> installed and enabled in your browser. All screencasts have been captured using <a href="http://www.debugmode.com/wink">Wink</a>.
 		
 		<br><br>
 		
