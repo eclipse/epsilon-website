@@ -39,6 +39,8 @@
 	$random_faq = rand(0,count($faqs)-1);
 	$faq = $faqs[$random_faq];
 	$faq_title = $faq->getOneChild("title")->childNodes[0]->data;
+	$faq_answer = $faq->getOneChild("answer")->childNodes[0]->data;
+	
 	ob_start();
 	?>
 	
@@ -124,11 +126,11 @@
 			</div>
 		</div>
 		
-		<?include('blognews.static.php');?>
-				
 		<div class="homeitem">
 			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'))?>
 		</div>
+		
+		<?include('blognews.static.php');?>
 		
 	</div>
 	

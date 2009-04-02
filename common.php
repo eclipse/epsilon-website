@@ -1,5 +1,5 @@
 <?
-$App->Promotion = TRUE;
+$App->Promotion = FALSE;
 if (isset ($_GET["skin"]) && preg_match("/^(Blue|EclipseStandard|Industrial|Lazarus|Miasma|Modern|OldStyle|Phoenix|PhoenixTest|PlainText|Nova)$/", $_GET["skin"], $regs))
 {
 	$theme = $regs[1];
