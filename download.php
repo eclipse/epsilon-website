@@ -28,7 +28,7 @@
 		
 		<h1><?=$pageTitle?></h1>
 		
-		To download and install Epsilon in your machine please follow the two steps below:
+		To download and install Epsilon in your machine please follow the steps below:
 		
 		<h2>Step 1: Download Eclipse</h2>
 		<div style="float:right"><img src="images/modeling64.png"/></div>
@@ -44,6 +44,7 @@
 		<h2>Step 2: Download Epsilon</h2>
 		<div style="float:right"><img src="http://dev.eclipse.org/huge_icons/actions/go-bottom.png"></div>
 		<div>Once you have installed Eclipse, there are three alternative options for installing Epsilon: you can install the binaries using the Eclipse Update Manager, download and install the binaries manually, or work directly with the source code from the Eclipse SVN server.</div>
+		<div>
 		<br/><br/>
 		<!--
 		<div id="TabbedPanels1" class="TabbedPanels">
@@ -109,9 +110,12 @@
 		</ul>
 		
 		<hr class="clearer" />
-
+		</div>
+		<h2>Step 3 (optional): Download Emfatic</h2>
+		<div style="float:right"><img src="images/download_optional.png"></div>
+		<div>The last (optional but <b>highly recommended</b>) step is to install <a href="http://wiki.eclipse.org/Emfatic">Emfatic</a>, a tool that provides a convenient textual notation for specifying ECore metamodels. To install Emfatic you can use the following update site: <br/><br/><ul><li><b>http://www.scharf.gr/eclipse/emfatic/update/</b></ul></div>
 	</div>
-	
+		
 	<div id="rightcolumn">
 		<div class="sideitem">
 			<h6>Quick Links</h6>
@@ -130,6 +134,10 @@
 				<li> <a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Zipped binaries</a>
 				<li> <a href="http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON">Source code</a>
 				</ul>
+				<li><a href="#">Download Emfatic</a>
+					<ul>
+						<li><a href="http://www.scharf.gr/eclipse/emfatic/update/">Emfatic update site
+					</ul>
 			</ul>
 		</div>
 		

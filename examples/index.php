@@ -29,17 +29,22 @@
 	
 	$currentExampleName = $_REQUEST['example'];
 	$example = null;
+	$exampleIndex = 0;
 	
 	if ($currentExampleName) {
+		$i = 0;
 		foreach ($examples as $ex) {
+			$i++;
 			if ($ex->getAttribute("src") == $currentExampleName) {
 				$example = $ex;
+				$exampleIndex = $i;
 				break;
 			}
 		}
 	}
 	else {
 		$example = $examples[0];
+		$exampleIndex = 1;
 	}
 	
 ?>
@@ -47,8 +52,7 @@
 	
 	<div id="midcolumn">
 		<?include('../noscript.html')?>
-		<!--h1><?=$example->getAttribute("title")?></h1-->
-
+		<h1>Example: <?=$example->getAttribute("title")?></h1><br>
 	<div id="TabbedPanels1" class="TabbedPanels">	
 		<ul class="TabbedPanelsTabGroup" style="margin:0">	
 			<?foreach ($example->getElementsByTagName("file") as $file){?>

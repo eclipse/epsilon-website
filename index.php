@@ -147,7 +147,7 @@
 				<li><a href="cinema">Watch the screencasts</a></li>
 				<li><a href="examples">Go through the examples</a></li>
 				<li><a href="download.php"><b>Download</b></a></li>
-				<li><a href="http://epsilonlabs.wiki.sourceforge.net/Book/">Get the book</a></li>
+				<li><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf">Get the book</a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
 				<li><a href="news://news.eclipse.org/eclipse.epsilon">Drop by the newsgroup</a> <a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">(how?)</a></li>
 			</ol>
