@@ -57,7 +57,7 @@
 	<faq>
 		<title>How can I contribute to Epsilon?</title>
 		<answer><![CDATA[
-		<p>A good way is to start using Epsilon and demonstrate your interest by submiting bug reports, feature requrest - and hopefully patches that fix/implement them. This is required by the Eclipse Foundation in order to later on be nominated for a committer account.]]>
+		<p>A good way is to demonstrate your interest by submiting bug reports, feature requests - and hopefully patches that fix/implement them. This is required by the Eclipse Foundation in order to later on be nominated for a committer account.]]>
 		</answer>
 	</faq>
 </faqs>
