@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<scripts>
+	<script title="Hello World">
+		<description>
+		<![CDATA[A basic hello world script.]]>
+		</description>	
+		<source><![CDATA['Hello World'.println();]]></source>	
+	</script>
+	<script title="Variables and Control Flow">
+		<description>
+		<![CDATA[A script demonstrating EOL variables and control flow constructs.]]>
+		</description>	
+		<source>
+<![CDATA[
+var i : Integer = 5;
+if (i > 3) {
+    for (j in Sequence{1..i}) {
+      j.print();
+      if (hasMore) ','.print();
+    }
+}
+]]></source>
+	</script>
+	<script title="Model Querying">
+		<description>
+		<![CDATA[A script demonstrating the model querying facilities of EOL.]]>
+		</description>	
+		<source>
+<![CDATA[
+-- In this script, we query Ecore to find out:
+
+-- ... how many classes it has
+EClass.all.size().println('All classes: ');
+
+-- ... how many non abstract classes it has
+EClass.all.select(c|not c.abstract)
+    .size().println('Abstract classes: ');
+
+-- ... the names of its classes and how many 
+-- features each one has
+'Class names: '.println();
+for (c in EClass.all) {
+    var toPrint = ' ' + c.name;
+    toPrint = toPrint + '->' + 
+        c.eStructuralFeatures.size();
+
+    toPrint.println();
+}]]></source>	
+	</script>
+		<script title="Operations">
+		<description>
+		<![CDATA[Defines the and invokes addHello() operation on strings.]]>
+		</description>	
+		<source><![CDATA[
+'John'.addHello().println();
+
+operation String addHello() {
+    return 'Hello ' + self;
+}
+		]]></source>	
+	</script>
+	<script title="Collections">
+		<description>
+		<![CDATA[
+Demonstrates defining a collection (sequence) and then filtering and navigating it through the built-in EOL operations
+		]]>
+		</description>	
+		<source><![CDATA[
+var seq = Sequence{1..10};
+
+seq.size().println();
+
+seq.reject(i|i > 5).println();
+
+seq.invert().println();
+
+seq.collect(i|i*2).println();			
+		]]></source>	
+	</script>
+	<script title="Random">
+		<description>
+		<![CDATA[
+Demonstrates the random() operation that picks a random element of the collection on which it is invoked
+		]]>
+		</description>	
+		<source><![CDATA[
+for (i in Sequence{1..5}) {
+   EClass.all.random().name.println();
+}		
+		]]></source>	
+	</script>
+</scripts>
