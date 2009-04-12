@@ -109,8 +109,7 @@
 					<!--h3>Welcome</h3-->
 				    
 						Epsilon is a metamodel-agnostic component that supports programmatic model navigation, 
-						creation, and modification operations. <a href="examples">See a quick example!</a><!--through task-specific 
-						model management languages which are interoperable and consistent with each other--><!--a href="about.new.php">(more...)</a-->
+						creation, and modification operations. <a href="examples">See a quick example!</a><!--<a href="live">Run a <b>live</b> example in your browser!</a>-->
 				     
 		  		</td>
 				<td align="right">

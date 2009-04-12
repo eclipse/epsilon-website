@@ -32,7 +32,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<?include('../noscript.html')?>
 		<iframe src="http://epsilon-live.appspot.com/embedded.html" frameborder="0" scrolling="no" style="width:520px;height:600px;border:0px"></iframe>
 		<h3>Live Scripts</h3>
-			The following scripts demonstrate the main features of EOL. You can copy/paste all these scripts in the editor above and give them a spin.<br/><br/>
+			You can copy/paste any of the following scripts in the editor above, modify them if you want, and finally execute them.<br/><br/>
 			<?
 			foreach ($scripts as $script) {
 			$description = $script->getOneChild("description")->childNodes[0]->data;
@@ -55,9 +55,11 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="rightcolumn">
 		<div class="sideitem">
 			<h6>Epsilon Live</h6>
-			<p>Here you can play around with EOL - the core language of Epsilon - from your browser, without needing to download or install anything in your computer.
+			<p>This page provides a live editor and interpreter which allows you to play around with EOL - the core language of Epsilon - from your browser, without needing to download or install anything in your computer.
 			<br><br>
-			Except for playing with the basic features of the language, you can also query a real EMF model (which for simplicity, is <a href="#">ECore</a> itself).
+			Except for playing with the basic features of the language, you can also query a real EMF model (which for simplicity, is <a href="#">ECore</a> itself). 
+			
+			<br><br>Below are several small EOL scripts which you can try. To execute a script, copy/paste it in the editor on the left and then click the Run button to execute it and see its output in the console.
 			</p>
 		</div>
 		<div class="sideitem">
@@ -72,6 +74,12 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<li><a href="#<?=$title?>"><?=$title?></a>
 			<?}?>
 			</ul>
+		</div>
+		<div class="sideitem">
+			<h6>Feedback</h6>
+			<p>
+			This is one of the most recent features we've implemented and as such, there are probably a few bugs lurking in it. Should you find one, please consider <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon">filing a bug report</a>.
+			</p>
 		</div>
 </div>
 	

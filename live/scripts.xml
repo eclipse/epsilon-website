@@ -2,13 +2,13 @@
 <scripts>
 	<script title="Hello World">
 		<description>
-		<![CDATA[A basic hello world script.]]>
+		<![CDATA[The ubiquitous hello world script.]]>
 		</description>	
 		<source><![CDATA['Hello World'.println();]]></source>	
 	</script>
 	<script title="Variables and Control Flow">
 		<description>
-		<![CDATA[A script demonstrating EOL variables and control flow constructs.]]>
+		<![CDATA[A script that demonstrates defining and using variables and basic control flow constructs.]]>
 		</description>	
 		<source>
 <![CDATA[
@@ -23,7 +23,7 @@ if (i > 3) {
 	</script>
 	<script title="Model Querying">
 		<description>
-		<![CDATA[A script demonstrating the model querying facilities of EOL.]]>
+		<![CDATA[A script that demonstrate the model querying facilities of EOL.]]>
 		</description>	
 		<source>
 <![CDATA[
@@ -49,7 +49,7 @@ for (c in EClass.all) {
 	</script>
 		<script title="Operations">
 		<description>
-		<![CDATA[Defines the and invokes addHello() operation on strings.]]>
+		<![CDATA[This script defines the and invokes an addHello() operation on strings.]]>
 		</description>	
 		<source><![CDATA[
 'John'.addHello().println();
@@ -62,7 +62,7 @@ operation String addHello() {
 	<script title="Collections">
 		<description>
 		<![CDATA[
-Demonstrates defining a collection (sequence) and then filtering and navigating it through the built-in EOL operations
+The script demonstrates defining a collection (sequence) and then filtering and navigating it through the built-in EOL operations.
 		]]>
 		</description>	
 		<source><![CDATA[
@@ -80,7 +80,7 @@ seq.collect(i|i*2).println();
 	<script title="Random">
 		<description>
 		<![CDATA[
-Demonstrates the random() operation that picks a random element of the collection on which it is invoked
+This script demonstrates the random() operation that picks a random element of the collection on which it is invoked.
 		]]>
 		</description>	
 		<source><![CDATA[
