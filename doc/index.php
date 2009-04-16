@@ -115,6 +115,7 @@
 	<ul>
 		<li><a href="../cinema">Screencasts</a>
 		<li><a href="../examples">Examples</a>
+		<li><a href="../live">Live</a>
 		<li><a href="../faq.php">Frequently Asked Questions</a>
 		<li><a href="../download.php">Download instructions</a>
 	</ul>
