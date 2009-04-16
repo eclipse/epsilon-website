@@ -109,7 +109,7 @@
 					<!--h3>Welcome</h3-->
 				    
 						Epsilon is a metamodel-agnostic component that supports programmatic model navigation, 
-						creation, and modification operations. <a href="examples">See a quick example!</a> <!--a href="live">Run EOL scripts in your browser!</a-->
+						creation, and modification operations. <a href="examples">See a quick example!</a>, <a href="live">Run EOL scripts in your browser!</a>
 				     
 		  		</td>
 				<td align="right">
@@ -145,7 +145,7 @@
 			<ol>
 				<li><a href="cinema">Watch the screencasts</a></li>
 				<li><a href="examples">Go through the examples</a></li>
-				<!--li><a href="live">Run live scripts in your browser</a></li-->
+				<li><a href="live">Run live scripts in your browser</a></li>
 				<li><a href="download.php"><b>Download</b></a></li>
 				<li><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf">Get the book</a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
