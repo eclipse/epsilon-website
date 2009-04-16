@@ -55,11 +55,11 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="rightcolumn">
 		<div class="sideitem">
 			<h6>Epsilon Live</h6>
-			<p>This page provides a live editor and interpreter which allows you to play around with EOL - the core language of Epsilon - from your browser, without needing to download or install anything in your computer.
+			<p>In the editor on the left, you can <b>write and execute EOL scripts</b> (EOL is the core language of Epsilon) from your browser, without needing to download or install anything in your computer.
 			<br><br>
-			Except for playing with the basic features of the language, you can also query a real EMF model (which for simplicity, is <a href="#">ECore</a> itself). 
+			Except for playing with the basic features of the language, you can also query and modify a real EMF model (which for simplicity, is Ecore itself). 
 			
-			<br><br>Below are several small EOL scripts which you can try. To execute a script, copy/paste it in the editor on the left and then click the Run button to execute it and see its output in the console.
+			<br><br>Below are several small EOL scripts which you can try. To try a script, copy/paste it in the editor on the left and then click the Run button to execute it and see its output in the console.
 			</p>
 		</div>
 		<div class="sideitem">

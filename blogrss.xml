@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>Epsilon Weblog</title>
+	<atom:link href="http://epsilonblog.wordpress.com/feed/" rel="self" type="application/rss+xml" />
+	<link>http://epsilonblog.wordpress.com</link>
+	<description>... discussion on the Epsilon Eclipse GMT component</description>
+	<pubDate>Fri, 13 Feb 2009 21:26:28 +0000</pubDate>
+	<generator>http://wordpress.com/</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<image>
+		<url>http://www.gravatar.com/blavatar/cb1a619b4d489ef5780b3b2543218f9e?s=96&#038;d=http://s.wordpress.com/i/buttonw-com.png</url>
+		<title>Epsilon Weblog</title>
+		<link>http://epsilonblog.wordpress.com</link>
+	</image>
+			<item>
+		<title>The EMF EPackage Registry View</title>
+		<link>http://epsilonblog.wordpress.com/2009/02/13/the-emf-epackage-registry-view/</link>
+		<comments>http://epsilonblog.wordpress.com/2009/02/13/the-emf-epackage-registry-view/#comments</comments>
+		<pubDate>Fri, 13 Feb 2009 21:24:44 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/2009/02/13/the-emf-epackage-registry-view/</guid>
+		<description><![CDATA[The EPackage registry (EPackage.Registry.INSTANCE) contains references to all registered ECore EPackages in EMF. To visualise the contents of the registry, we have implemented the following EPackage Registry view.
+ 
+Using this view, one can browse through the EClasses contained in each registered EPackage, discover the super/sub types of each EClass, and navigate through its features and [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=66&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>The EPackage registry (EPackage.Registry.INSTANCE) contains references to all registered ECore EPackages in EMF. To visualise the contents of the registry, we have implemented the following EPackage Registry view.</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2009/02/image.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="335" alt="image" src="http://epsilonblog.files.wordpress.com/2009/02/image-thumb.png?w=404&#038;h=335" width="404" border="0"></a> </p>
+<p>Using this view, one can browse through the EClasses contained in each registered EPackage, discover the super/sub types of each EClass, and navigate through its features and operations. The view provides options to show/hide derived features, operations, inherited features and opposite references, supports quick navigation from a feature to it&#8217;s type (double-click), and integrates with the Properties view. </p>
+<p>If you&#8217;d like to give it a spin, it comes as a part of <a href="http://www.eclipse.org/gmt/epsilon">Epsilon</a> 0.8.3 (or later) and can be installed via the <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates">update site</a>.</p>
+  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/66/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/66/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/66/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/66/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/66/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/66/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/66/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/66/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/66/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/66/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=66&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2009/02/13/the-emf-epackage-registry-view/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/02/image-thumb.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Error Markers and Quick Fixes in GMF editors using EVL</title>
+		<link>http://epsilonblog.wordpress.com/2008/11/09/error-markers-and-quick-fixes-in-gmf-editors-using-evl/</link>
+		<comments>http://epsilonblog.wordpress.com/2008/11/09/error-markers-and-quick-fixes-in-gmf-editors-using-evl/#comments</comments>
+		<pubDate>Sun, 09 Nov 2008 13:30:51 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=59</guid>
+		<description><![CDATA[The Epsilon Validation Language (EVL) is a model validation language that provides additional features to OCL, such as guards, constraint dependency management, user interaction, access to Java objects, and the ability to specify a number of fixes for each constraint, that the user can invoke if the constraint fails in order to repair the model. [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=59&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>The Epsilon Validation Language (EVL) is a model validation language that provides additional features to OCL, such as guards, constraint dependency management, user interaction, access to Java objects, and the ability to specify a number of <em>fixes</em> for each constraint, that the user can invoke if the constraint fails in order to repair the model. We&#8217;ve been recently working on integrating EVL with GMF so that failed constraints can appear as error/warning markers in GMF editors, and fixes can be invoked using the standard Quick Fix mechanism. An example follows:</p>
+<p>The following screenshot shows a file system model in a GMF-based editor (constructed <a href="http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/">here</a>).</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/11/filesystem.png"><img style="border-width:0;" height="322" alt="FileSystem" src="http://epsilonblog.files.wordpress.com/2008/11/filesystem-thumb.png?w=438&#038;h=322" width="438" border="0"></a> </p>
+<p>We now specify the following EVL constraints and bind them to the editor (using the instructions provided <a href="http://epsilonlabs.wiki.sourceforge.net/EVL-GMF+Integration">here</a>):</p>
+<pre>context File {
+
+    constraint HasName {
+
+        check : self.name.isDefined()
+
+        message : 'Unnamed ' + self.eClass().name + ' not allowed'
+
+    }
+
+}
+
+context Folder {
+
+    critique NameStartsWithCapital {
+
+        guard : self.satisfies('HasName')
+
+        check : self.name.firstToUpperCase() = self.name
+
+        message : 'Folder ' + self.name +
+            ' should start with an upper-case letter'
+
+        fix {
+
+            title : 'Rename to ' + self.name.firstToUpperCase()
+
+            do {
+                self.name := self.name.firstToUpperCase();
+            }
+        }
+
+    }
+
+}
+
+context Sync {
+
+    constraint MustLinkSame {
+
+        check : self.source.eClass() = self.target.eClass()
+
+        message : 'Cannot synchronize a ' + self.source.eClass().name
+            + ' with a ' + self.target.eClass().name
+
+        fix {
+
+            title : 'Synchronize with another ' +
+                self.source.eClass().name
+
+            do {
+
+                var target := UserInput.choose('Select target',
+                    _Model.getAllOfType(self.source.eClass().name));
+
+                if (target.isDefined()) self.target := target;
+
+            }
+
+        }
+
+    }
+
+}
+</pre>
+<p>Then, we evaluate the constraints by clicking <strong>Diagram-&gt;Validate</strong>, and our editor and Problems view now look like this:</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/11/filesystemwitherrorshighlighted.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="322" alt="FileSystemWithErrorsHighlighted" src="http://epsilonblog.files.wordpress.com/2008/11/filesystemwitherrorshighlighted-thumb.png?w=438&#038;h=322" width="438" border="0"></a> </p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/11/problemsview.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="172" alt="ProblemsView" src="http://epsilonblog.files.wordpress.com/2008/11/problemsview-thumb.png?w=438&#038;h=172" width="438" border="0"></a> </p>
+<p>We can now right click on the warning and invoke quick fix we have defined for the <strong>NameStartsWithCapital</strong> critique.</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/11/quickfix.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="488" alt="QuickFix" src="http://epsilonblog.files.wordpress.com/2008/11/quickfix-thumb.png?w=412&#038;h=488" width="412" border="0"></a>&nbsp;
+<p>By clicking Finish, the fix is executed and the warning disappears.</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/11/afterquickfix.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="322" alt="AfterQuickFix" src="http://epsilonblog.files.wordpress.com/2008/11/afterquickfix-thumb.png?w=438&#038;h=322" width="438" border="0"></a> </p>
+<p>A complete reference of the syntax and semantics of EVL can be found in Chapter 6 of the <a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf">Epsilon Book</a> (PDF). Also, instructions for binding EVL constraints with an existing GMF editor can be found <a href="http://epsilonlabs.wiki.sourceforge.net/EVL-GMF+Integration">here</a>. Finally, a Flash screencast of this example is available <a href="http://www.eclipse.org/gmt/epsilon/cinema/EVLGMFValidation.htm">here</a>.</p>
+  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/59/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/59/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/59/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/59/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/59/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=59&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/11/09/error-markers-and-quick-fixes-in-gmf-editors-using-evl/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/11/filesystem-thumb.png" medium="image">
+			<media:title type="html">FileSystem</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/11/filesystemwitherrorshighlighted-thumb.png" medium="image">
+			<media:title type="html">FileSystemWithErrorsHighlighted</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/11/problemsview-thumb.png" medium="image">
+			<media:title type="html">ProblemsView</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/11/quickfix-thumb.png" medium="image">
+			<media:title type="html">QuickFix</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/11/afterquickfix-thumb.png" medium="image">
+			<media:title type="html">AfterQuickFix</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>New in HUTN 0.7.1</title>
+		<link>http://epsilonblog.wordpress.com/2008/09/15/new-in-hutn-071/</link>
+		<comments>http://epsilonblog.wordpress.com/2008/09/15/new-in-hutn-071/#comments</comments>
+		<pubDate>Mon, 15 Sep 2008 11:03:19 +0000</pubDate>
+		<dc:creator>Louis Rose</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=47</guid>
+		<description><![CDATA[Last week we released v0.7.1 of our Human-Usable Textual Notation implementation. It&#8217;s available as part of Epsilon 0.8.1. In this release, we&#8217;ve aligned our implementation more closely to the OMG specification, and added some new features. Here&#8217;s a summary of the changes:
+Validation
+An error is now produced when enumerations, data types and abstract classes are specified [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=47&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Last week we released v0.7.1 of our Human-Usable Textual Notation implementation. It&#8217;s available as part of Epsilon 0.8.1. In this release, we&#8217;ve aligned our implementation more closely to the OMG specification, and added some new features. Here&#8217;s a summary of the changes:</p>
+<h3><strong>Validation</strong></h3>
+<p>An error is now produced when enumerations, data types and abstract classes are specified as the type of an object.</p>
+<p>An error is now produced for objects that do not specify the value of attributes with a lower bound greater than zero.</p>
+<h3><strong>Adjectives</strong></h3>
+<p>Positive adjectives are no longer prefixed with the # symbol. For instance:</p>
+<pre>DogPackage {
+    male Dog "Fido" {}     // old syntax was #male Dog
+}</pre>
+<p>Adjectives prefixed with the # symbol will cause a deprecation warning.</p>
+<h3><strong>Enumeration Values</strong></h3>
+<p>Support for enumeration values in association instances has been added. The syntax is:</p>
+<pre>DogPackage {
+    Dog "Lassie" {
+        breed: Collie    // Enumeration value
+        name: "Lassie"   // String value
+    }
+}</pre>
+<h3><strong>Classifier-Level Attributes</strong></h3>
+<p>Support for classifier-level attributes has been added. The syntax is:</p>
+<pre>DogPackage {
+    Dog.breed: Collie;  // All dogs in this package are Collies by default
+
+    Dog "Lassie" {}
+    Dog "Jessie" {}
+
+    Dog "Scooby" {
+        breed: GreatDane
+    }
+}</pre>
+<p>Classifier-level attribute values take precedence over any default value rules specified in a HUTN configuration model.</p>
+<h3><strong>Associations: Block and Infix Notations</strong></h3>
+<p>Support for association blocks has been added. Assuming that the Family class has a reference called &#8220;pets&#8221; accepting objects of type Dog, the syntax is:</p>
+<pre>DogPackage {
+    Family "The Smiths" {}
+    Dog "Rover" {}
+    pets {
+        Family "The Smiths"
+        Dog "Rover"        // Refers to the existing Pet object, defined above
+        Family "The Smiths"
+        Dog "Fido"        // Created automatically by the association block
+    }
+}</pre>
+<p>Similarly, associations may be specified using an infix notation. The example above could be written:</p>
+<pre>DogPackage {
+    Family "The Smiths" {}
+    Dog "Rover" {}
+    Family "The Smiths" pets Dog "Rover";
+    Family "The Smiths" pets Dog "Fido";
+}</pre>
+<p>We hope you find the improved validation and more flexible syntax useful. You can update your installation using the Eclipse update manager, or follow the instructions on the <a href="http://www.eclipse.org/gmt/epsilon/download.php">Epsilon download page</a>.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/47/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/47/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/47/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/47/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/47/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/47/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/47/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=47&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/09/15/new-in-hutn-071/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/93092a0356ed01b8c8085ca30e48d3e5?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Louis Rose</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Negative Text Search Engine</title>
+		<link>http://epsilonblog.wordpress.com/2008/08/05/negative-text-search-engine/</link>
+		<comments>http://epsilonblog.wordpress.com/2008/08/05/negative-text-search-engine/#comments</comments>
+		<pubDate>Tue, 05 Aug 2008 22:47:13 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/2008/08/05/negative-text-search-engine/</guid>
+		<description><![CDATA[A little off-topic but hopefully useful. Recently, I needed to find all the .java files in my workspace that did not contain a particular phrase (&#8221;Eclipse Public License&#8221;) to find out which files I had forgot to add copyright notices to. I tried to do this with regular expressions but couldn&#8217;t seem to make it [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=45&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>A little off-topic but hopefully useful. Recently, I needed to find all the .java files in my workspace that did <strong>not</strong> contain a particular phrase (&#8221;Eclipse Public License&#8221;) to find out which files I had forgot to add copyright notices to. I tried to do this with regular expressions but couldn&#8217;t seem to make it work. So I looked into the Eclipse search plugin and finally managed to scribble a negative text search engine i.e. an engine that returns all the files that do <strong>not</strong> contain a particular phrase. Instructions on how to install and use the plugin are available <a href="http://kolovos.wiki.sourceforge.net/Eclipse+Negative+Text+Search+Engine" target="_blank">here</a>.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/45/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/45/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/45/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/45/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/45/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/45/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/45/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/45/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/45/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/45/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/45/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/45/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=45&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/08/05/negative-text-search-engine/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>EuGENia: Kick-start your GMF editor development</title>
+		<link>http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/</link>
+		<comments>http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/#comments</comments>
+		<pubDate>Mon, 04 Aug 2008 22:31:37 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=43</guid>
+		<description><![CDATA[GMF is a great piece of software in terms of features - and not only because it&#8217;s built atop GEF and EMF. Nevertheless, (here it comes) it also requires significant effort to learn, the error messages it produces during validation are often cryptic, the gmfmap wizard typically gets it all wrong, and all put together [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=43&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>GMF is a great piece of software in terms of features - and not only because it&#8217;s built atop GEF and EMF. Nevertheless, (here it comes) it also requires significant effort to learn, the error messages it produces during validation are often cryptic, the gmfmap wizard typically gets it all wrong, and all put together just make it too hard for the inexperienced user.</p>
+<p>To reduce the effort required to build a basic editor we&#8217;ve implemented a tool, called <strong>EuGENia</strong>, which can derive the gmfgraph, gmftool and gmfmap models that are required to generate a fully functional GMF editor using only the ECore metamodel itself, augmented with a few GMF-specific annotations (I know that annotations pollute metamodels but they&#8217;re irresistibly convenient).</p>
+<p><strong>The Filesystem editor example</strong></p>
+<p>In this example we&#8217;ll construct a GMF editor for a filesystem metamodel. To generate a basic GMF editor from the metamodel, all we need to know is that:</p>
+<ul>
+<li>The root of the diagram is FileSystem
+<li>File and all of its subclasses (Drive, Folder, Shortcut etc) are nodes with a label that reflects the value of their name attribute
+<li>Shortcut.target is a link
+<li>Sync is also a link class with Sync.source as the one end, Sync.target as the other and lastSync as the label</li>
+</ul>
+<p>To capture the above, plus a bit of formatting information, we add the following @gmf.* annotations to the metamodel (in Emfatic):</p>
+<pre>@namespace(uri="filesystem", prefix="filesystem")
+@gmf
+package filesystem;
+
+@gmf.diagram
+class Filesystem {
+    val Drive[*] drives;
+    val Sync[*] syncs;
+}
+
+class Drive extends Folder {
+
+}
+
+class Folder extends File {
+    @gmf.compartment
+    val File[*] contents;
+}
+
+class Shortcut extends File {
+    @gmf.link(target.decoration="arrow", style="dash")
+    ref File target;
+}
+
+@gmf.link(label="lastSync", source="source",
+                 target="target", style="dot", width="2")
+class Sync {
+    ref File source;
+    ref File target;
+    attr String lastSync;
+}
+
+@gmf.node(label = "name")
+class File {
+    attr String name;
+}
+</pre>
+<p>&nbsp;</p>
+<p>Through the process demonstrated in <a href="http://www.eclipse.org/gmt/epsilon/cinema/Eugenia.htm" target="_blank">this screencast</a> EuGENia can generate the following editor without the user needing to touch any of the .gmfgraph, .gmfmap or .gmftool models manually.</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/08/image.png"><img style="border-width:0;" height="348" alt="image" src="http://epsilonblog.files.wordpress.com/2008/08/image-thumb.png?w=442&#038;h=348" width="442" border="0"></a> </p>
+<p>Obviously EuGENia doesn&#8217;t support all the options the .gmfgraph and .gmfmap models do but only a small subset of commonly needed features. A complete list of the annotations EuGENia supports as well as instructions for obtaining it is available <a href="http://epsilonlabs.wiki.sourceforge.net/EuGENia" target="_blank">here</a>. </p>
+<p><strike>Currently, there is no binary build for the tool, so if you want to try it you&#8217;ll have to check out the code from the </strike><a href="http://epsilonlabs.wiki.sourceforge.net/Subversion" target="_blank"><strike>EpsilonLabs SVN</strike></a><strike>. Hopefully, the migration process of Epsilon to the Modeling/GMT project will be complete soon so that we can add EuGENia to the Eclipse CVS (which we&#8217;ve currently frozen for the ongoing IP review) and offer it through the Epsilon update site.</strike></p>
+<p><strong>[Update : 15 Sept 2008] </strong>Since 0.8.1, EuGENia has been integrated into Epsilon and is available from the Epsilon update site (<a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">http://download.eclipse.org/modeling/gmt/epsilon/updates/</a>). The source code is also available in the Eclipse SVN repository.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/43/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/43/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/43/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/43/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/43/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/43/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/43/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=43&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/08/image-thumb.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Inspecting EMF models with Exeed</title>
+		<link>http://epsilonblog.wordpress.com/2008/07/17/inspecting-emf-models-with-exeed/</link>
+		<comments>http://epsilonblog.wordpress.com/2008/07/17/inspecting-emf-models-with-exeed/#comments</comments>
+		<pubDate>Thu, 17 Jul 2008 22:34:08 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/2008/07/17/inspecting-emf-models-with-exeed/</guid>
+		<description><![CDATA[Exeed is an extended version of the built-in EMF reflective editor that enables customisation of labels and icons by adding annotations to ECore metamodels. Another feature it provides is the ability to display structural information about the elements of an EMF model. To see the types of all elements in the editor tree as well [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=40&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Exeed is an extended version of the built-in EMF reflective editor that enables <a href="http://www.eclipse.org/gmt/epsilon/doc/Exeed.pdf">customisation of labels and icons</a> by adding annotations to ECore metamodels. Another feature it provides is the ability to display structural information about the elements of an EMF model. To see the types of all elements in the editor tree as well as the feature in which each element is contained, open your EMF model with Exeed and click Exeed-&gt;Show Structural Info.</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/07/image.png"><img style="border-width:0;" height="282" alt="image" src="http://epsilonblog.files.wordpress.com/2008/07/image-thumb.png?w=173&#038;h=282" width="173" border="0"></a> </p>
+<p>By doing this, the structural information of each element appears next to its label. For example, selecting this option for a GMF .gmfgraph model will make it look like this:</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/07/image1.png"><img style="border-width:0;" height="405" alt="image" src="http://epsilonblog.files.wordpress.com/2008/07/image-thumb1.png?w=392&#038;h=405" width="392" border="0"></a> </p>
+<p>The red-underlined text shows the <strong>type</strong> of the element (FigureGallery), the blue-underlined text shows the <strong>feature</strong> in which it is contained (figures), and the green-underlined text shows <strong>the EClass that owns the containing feature</strong> (Canvas). So next time you need to open an EMF model with a text editor to inspect its structure by reading the underlying XMI, you may want to consider giving Exeed a try instead.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/40/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/40/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/40/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/40/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/40/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/40/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/40/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=40&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/07/17/inspecting-emf-models-with-exeed/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/07/image-thumb.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/07/image-thumb1.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>EpsilonLabs</title>
+		<link>http://epsilonblog.wordpress.com/2008/07/16/epsilonlabs/</link>
+		<comments>http://epsilonblog.wordpress.com/2008/07/16/epsilonlabs/#comments</comments>
+		<pubDate>Wed, 16 Jul 2008 16:30:31 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/2008/07/16/epsilonlabs/</guid>
+		<description><![CDATA[We&#8217;ve launched a satellite project of Epsilon, called EpsilonLabs (http://epsilonlabs.sourceforge.net), where we are hosting experimental contributions built atop Epsilon and contributions that use libraries which conflict with EPL (and as such they cannot be hosted in the Eclipse CVS). The initial contributions to EpsilonLabs include two non-EPL drivers for accessing MDR (MOF 1.4, XMI 1.x) [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=35&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>We&#8217;ve launched a satellite project of Epsilon, called EpsilonLabs (<a href="http://epsilonlabs.sourceforge.net">http://epsilonlabs.sourceforge.net</a>), where we are hosting experimental contributions built atop Epsilon and contributions that use libraries which conflict with EPL (and as such they cannot be hosted in the Eclipse CVS). The initial contributions to EpsilonLabs include two non-EPL drivers for accessing MDR (MOF 1.4, XMI 1.x) and Z (LaTeX) models from Epsilon programs, and an experimental integration of (a slightly modified version of) EMF Compare with the Epsilon Comparison Language (ECL).</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/35/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/35/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/35/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/35/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/35/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/35/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/35/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=35&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/07/16/epsilonlabs/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Migrating to ANTLR 3</title>
+		<link>http://epsilonblog.wordpress.com/2008/06/18/migrating-to-antlr-3/</link>
+		<comments>http://epsilonblog.wordpress.com/2008/06/18/migrating-to-antlr-3/#comments</comments>
+		<pubDate>Wed, 18 Jun 2008 21:58:18 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/2008/06/18/migrating-to-antlr-3/</guid>
+		<description><![CDATA[For the past couple of weeks we&#8217;ve been working on migrating to ANTLR 3 (to get rid of the dependency to the nasty ANTLR 2.x jar which we are not allowed to store in the CVS). Although ANTLR 3 was made available quite sometime ago, it didn&#8217;t provide any grammar reuse/inheritance mechanisms (which is essential [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=34&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>For the past couple of weeks we&#8217;ve been working on migrating to ANTLR 3 (to get rid of the dependency to the nasty ANTLR 2.x jar which we are not allowed to store in the CVS). Although ANTLR 3 was made available quite sometime ago, it didn&#8217;t provide any grammar reuse/inheritance mechanisms (which is essential for <a href="http://www.eclipse.org/gmt/epsilon">Epsilon</a> since all its languages reuse the grammar of the core EOL language, and the merging language (EML) also reuses the grammar of the transformation language (ETL)).</p>
+<p>Fortunately, an early version of ANTLR 3.1 which was released a month ago added support for grammar reuse and it is now possible to do the migration. Rewriting the grammars for v3.1 has <a href="http://www.antlr.org:8888/browse/ANTLR-301">not been as smooth</a> as we expected, however, we will have (hopefully) fully migrated to ANTLR 3.1 by early July.</p>
+<p><strong>[Update 23/6/2008]</strong> The migration process is now finished. This includes all the languages of the platform as well as the HUTN implementation.</p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/34/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/34/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/34/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=34&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/06/18/migrating-to-antlr-3/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Model Refactoring in EMF editors</title>
+		<link>http://epsilonblog.wordpress.com/2008/03/16/model-refactoring-in-emf-editors/</link>
+		<comments>http://epsilonblog.wordpress.com/2008/03/16/model-refactoring-in-emf-editors/#comments</comments>
+		<pubDate>Sun, 16 Mar 2008 21:53:20 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=27</guid>
+		<description><![CDATA[In this post we demonstrated how EWL from the Epsilon GMT component can be used to automate model refactoring (in-place model transformation in general) in GMF-based editors. Since version 1.3.2, the same wizards can be executed in EMF tree-based editors as well. The following screenshots demonstrate the application of the CreateAssociationClassCase1 wizard (originally described by [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=27&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p><a href="http://epsilonblog.wordpress.com/2008/01/18/model-refactoring-in-gmf-based-editors-with-ewl/" target="_blank">In this post</a> we demonstrated how EWL from the <a href="http://www.eclipse.org/gmt/epsilon" target="_blank">Epsilon GMT component</a> can be used to automate model refactoring (in-place model transformation in general) in GMF-based editors. Since version 1.3.2, the same wizards can be executed in EMF tree-based editors as well. The following screenshots demonstrate the application of the <a href="http://epsilonblog.wordpress.com/2008/01/18/model-refactoring-in-gmf-based-editors-with-ewl/#comment-9" target="_blank">CreateAssociationClassCase1</a> wizard (originally described by Ed Merks <a href="http://ed-merks.blogspot.com/2008/01/modeling-associations-with-ecore.html" target="_blank">here</a>) in the default ECore tree-based editor.</p>
+<p>The original ECore metamodel:</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/03/image3.png"><img style="border-width:0;" height="369" alt="image" src="http://epsilonblog.files.wordpress.com/2008/03/image-thumb3.png?w=401&#038;h=369" width="401" border="0"></a> </p>
+<p>Selecting the classes and applying the wizard:</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/03/image4.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="369" alt="image" src="http://epsilonblog.files.wordpress.com/2008/03/image-thumb4.png?w=401&#038;h=369" width="401" border="0"></a> </p>
+<p>The ECore metamodel after the wizard has executed:</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/03/image5.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="369" alt="image" src="http://epsilonblog.files.wordpress.com/2008/03/image-thumb5.png?w=401&#038;h=369" width="401" border="0"></a></p>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/27/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/27/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/27/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=27&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/03/16/model-refactoring-in-emf-editors/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/03/image-thumb3.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/03/image-thumb4.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2008/03/image-thumb5.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Extended properties in EOL</title>
+		<link>http://epsilonblog.wordpress.com/2008/01/30/extended-properties-in-eol/</link>
+		<comments>http://epsilonblog.wordpress.com/2008/01/30/extended-properties-in-eol/#comments</comments>
+		<pubDate>Wed, 30 Jan 2008 20:59:44 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=20</guid>
+		<description><![CDATA[Below is a simple metamodel (in Emfatic) for modelling Trees (however interesting this might be)
+
+package SimpleTree;
+
+class Tree {
+	attr String name;
+	ref Tree#children parent;
+	val Tree[*]#parent children;
+}
+Now, what we want to do is to traverse a model that conforms to this metamodel and calculate and print the depth of each Tree in it. We can do this using [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=20&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Below is a simple metamodel (in Emfatic) for modelling Trees (however interesting this might be)</p>
+<pre>
+package SimpleTree;
+
+class Tree {
+	attr String name;
+	ref Tree#children parent;
+	val Tree[*]#parent children;
+}</pre>
+<p>Now, what we want to do is to traverse a model that conforms to this metamodel and calculate and print the depth of each Tree in it. We can do this using this simple EOL program:</p>
+<pre>
+var depths := new Map;
+
+for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
+	n.setDepth(0);
+}
+
+for (n in Tree.allInstances) {
+	(n.name + ' ' + depths.get(n)).println();
+}
+
+operation Tree setDepth(depth : Integer) {
+	depths.put(self,depth);
+	for (c in self.children) {
+		c.setDepth(depth + 1);
+	}
+}</pre>
+<p>Because the Tree EClass doesn&#8217;t have a <code>depth</code> property, we have to use the <code>depths</code> Map to store the calculated depth of each Tree. Another solution would be to add a <code>depth</code> property to the Tree EClass so that its instances can store such information; but applying this tactic will soon pollute our metamodel with information of secondary importance.</p>
+<p>We&#8217;ve often come across similar situations where we needed to <i>attach</i> some kind of information (that is not supported by the metamodel) to particular model elements during model management operations (validation, transformation etc.). Until now, we&#8217;ve been using Maps to achieve this (similarly to what we&#8217;ve done above). However, from version 1.3.0, EOL (and all languages built atop it) support <i>non-invasive extended properties</i> which provide a more elegant solution to this recurring problem.</p>
+<p>An extended property is a property that starts with the ~ character. It&#8217;s semantics are quite straightforward: the first time a value is assigned to an extended property of an object (e.g. <code>x.~a := b;</code>), the property is created and associated to the object and the value is assigned to it. Similarly, <code>x.~a</code> returns the value of the property or <code>undefined</code> if the property has not been set on the particular object yet. Using extended properties, we can rewrite the above code (without needing to use a Map) as follows:</p>
+<pre>
+for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
+	n.setDepth(0);
+}
+
+for (n in Tree.allInstances) {
+	(n.name + ' ' + n.~depth).println();
+}
+
+operation Tree setDepth(depth : Integer) {
+	self.~depth := depth;
+	for (c in self.children) {
+		c.setDepth(depth + 1);
+	}
+}</pre>
+<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/20/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/20/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/20/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=20&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/01/30/extended-properties-in-eol/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

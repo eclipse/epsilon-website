@@ -12,7 +12,7 @@
 		</description>	
 		<source>
 <![CDATA[
-var i : Integer = 5;
+var i : Integer := 5;
 if (i > 3) {
     for (j in Sequence{1..i}) {
       j.print();
@@ -40,8 +40,8 @@ EClass.all.select(c|not c.abstract)
 -- features each one has
 'Class names: '.println();
 for (c in EClass.all) {
-    var toPrint = ' ' + c.name;
-    toPrint = toPrint + '->' + 
+    var toPrint := ' ' + c.name;
+    toPrint := toPrint + '->' + 
         c.eStructuralFeatures.size();
 
     toPrint.println();
@@ -66,7 +66,7 @@ The script demonstrates defining a collection (sequence) and then filtering and 
 		]]>
 		</description>	
 		<source><![CDATA[
-var seq = Sequence{1..10};
+var seq := Sequence{1..10};
 
 seq.size().println();
 
@@ -87,6 +87,18 @@ This script demonstrates the random() operation that picks a random element of t
 for (i in Sequence{1..5}) {
    EClass.all.random().name.println();
 }		
+		]]></source>	
+	</script>
+		<script title="Delete">
+		<description>
+		<![CDATA[This script demonstrates deleting model elements.]]>
+		</description>	
+		<source><![CDATA[
+var randomClass := EClass.all.random();
+EClass.all.size().println('Before delete: ');
+delete randomClass;
+EClass.all.size().println('After delete: ');
+		
 		]]></source>	
 	</script>
 </scripts>
