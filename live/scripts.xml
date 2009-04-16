@@ -98,7 +98,6 @@ var randomClass := EClass.all.random();
 EClass.all.size().println('Before delete: ');
 delete randomClass;
 EClass.all.size().println('After delete: ');
-		
 		]]></source>	
 	</script>
 </scripts>
