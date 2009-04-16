@@ -109,7 +109,7 @@
 					<!--h3>Welcome</h3-->
 				    
 						Epsilon is a metamodel-agnostic component that supports programmatic model navigation, 
-						creation, and modification operations. <a href="examples">See a quick example!</a>, <a href="live">Run EOL scripts in your browser!</a>
+						creation, and modification operations. <a href="examples">See a quick example!</a> <!--a href="live">Run EOL scripts in your browser!</a-->
 				     
 		  		</td>
 				<td align="right">
