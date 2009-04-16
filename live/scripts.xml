@@ -32,8 +32,8 @@ if (i > 3) {
 -- ... how many classes it has
 EClass.all.size().println('All classes: ');
 
--- ... how many non abstract classes it has
-EClass.all.select(c|not c.abstract)
+-- ... how many abstract classes it has
+EClass.all.select(c|c.abstract)
     .size().println('Abstract classes: ');
 
 -- ... the names of its classes and how many 
