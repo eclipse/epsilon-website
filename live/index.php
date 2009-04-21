@@ -20,11 +20,13 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../common.php');
+	
 	# Create a parser and parse the examples.xml document.
 	include_once("../dom4php/XmlParser.php");
 	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
 	$document = $parser->parse(file_get_contents("scripts.xml"));
 	$scripts = $document->getElementsByTagName("script");
+	//include ('../examples/SyntaxHighlight.php');
 	ob_start();
 ?>
 
@@ -38,6 +40,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			$description = $script->getOneChild("description")->childNodes[0]->data;
 			$title = $script->getAttribute("title");
 			$source = $script->getOneChild("source")->childNodes[0]->data;
+			//$source = highlight($source, "eol");
 			$order   = array("\r\n", "\n", "\r");
 			$replace = '<br/>';
 			$source = str_replace($order, $replace, trim($source));
@@ -47,7 +50,9 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			?>
 			<h4><a name="<?=$title?>" style="color:black;text-decoration:none"><?=$title?></a></h4> 
 			<b>Description:</b> <?=$description?>
-			<div style="padding:5px; border:1px dotted #C0C0C0; font-family:monospace; font-size:14px"><?=$source?></div>
+			<div style="padding:5px; border:1px dotted #C0C0C0; font-family:monospace; font-size:14px">
+			<?=$source?>
+			</div>
 			<br>
 			<?}?>
 	</div>

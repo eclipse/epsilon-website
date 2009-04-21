@@ -126,10 +126,16 @@
 		</div>
 		
 		<div class="homeitem">
+			<?=r2h("Recent articles in the blog", "blogrss.xml", array(' '))?>
+		</div>
+		
+		<div class="homeitem">
 			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'))?>
 		</div>
 		
-		<?include('blognews.static.php');?>
+		<?
+		//include('blognews.static.php');
+		?>
 		
 	</div>
 	

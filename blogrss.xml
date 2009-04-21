@@ -12,8 +12,8 @@
 	<title>Epsilon Weblog</title>
 	<atom:link href="http://epsilonblog.wordpress.com/feed/" rel="self" type="application/rss+xml" />
 	<link>http://epsilonblog.wordpress.com</link>
-	<description>... discussion on the Epsilon Eclipse GMT component</description>
-	<pubDate>Fri, 13 Feb 2009 21:26:28 +0000</pubDate>
+	<description>... new and noteworthy in the Epsilon Eclipse GMT component</description>
+	<pubDate>Mon, 20 Apr 2009 11:45:31 +0000</pubDate>
 	<generator>http://wordpress.com/</generator>
 	<language>en</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
@@ -24,6 +24,72 @@
 		<link>http://epsilonblog.wordpress.com</link>
 	</image>
 			<item>
+		<title>Test-Driven Development for Epsilon</title>
+		<link>http://epsilonblog.wordpress.com/2009/04/20/test-driven-development-for-epsilon/</link>
+		<comments>http://epsilonblog.wordpress.com/2009/04/20/test-driven-development-for-epsilon/#comments</comments>
+		<pubDate>Mon, 20 Apr 2009 11:45:31 +0000</pubDate>
+		<dc:creator>Louis Rose</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=85</guid>
+		<description><![CDATA[Test-Driven Development (TDD) is an approach to software development that advocates writing tests before implementation. TDD has many advantages when compared to other forms of development, in which tests are often an after-thought. Proponents argue that TDD produces clean interfaces, minimal implementations and a suite of tests that can be used to guard against regressions. [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=85&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Test-Driven Development (TDD) is an approach to software development that advocates writing tests before implementation. TDD has many advantages when compared to other forms of development, in which tests are often an after-thought. Proponents argue that TDD produces clean interfaces, minimal implementations and a suite of tests that can be used to guard against regressions. (See &#8220;TDD by Example,&#8221; Beck and, to some extent, &#8220;Refactoring,&#8221; Fowler).</p>
+<p>In the past, we&#8217;ve been reluctant to construct automated unit tests for Epsilon, largely because we lacked structures and processes for constructing and checking models in the context of a testing framework, such as jUnit.</p>
+<p>Since developing HUTN, we&#8217;ve been discovering/inventing/hallucinating patterns for constructing and checking models that allowed us to construct tests that were readable and malleable. This week, we wanted to make an enhancement to EOL, and, using these patterns, I was able to do so in a (more) test-driven manner.</p>
+<p>EOL defines distinct operators for comparing expressions and for performing assignment. The concrete syntax is = for the former and := for the latter. We&#8217;ve found that we&#8217;ve had a few reports of  code like the following:</p>
+<pre>var a : Integer;
+a = 2;</pre>
+<p>EOL compares a and 2 in the second line, rather than assigning a to 2.</p>
+<p>We decided that we could change EOL to rewrite statements whose first operator was = to an equivalent statement whose first operator was :=</p>
+<p>I started by defining some tests that exercised the EOL execution engine with the old behaviour and with the new behaviour:</p>
+<pre>private static final EolEvaluator evaluator = new EolEvaluator();
+
+@Test
+public void assignment() {
+	evaluator.execute("var a; a := 1 + 2;");
+	assertEquals(new EolInteger(3), evaluator.evaluate("a"));
+}
+
+@Test
+public void equalityActsAsAssignment() {
+	evaluator.execute("var a; a = 1 + 2;");
+	assertEquals(new EolInteger(3), evaluator.evaluate("a"));
+}</pre>
+<p>I&#8217;m using the EolEvaluator class, which decorates the EOL execution engine and can be used to execute small snippets of EOL code.</p>
+<p>The first test passed, and the second test failed as expected. Typically, we&#8217;d now define some unit tests on the unit that needs to change to accommodate those changes, but I&#8217;ll leave that as an exercise for your imagination.</p>
+<p>Crucially, because I&#8217;d used TDD, I felt comfortable editing a piece of code that I&#8217;d not developed, and never touched before - I had tests that verified (to some extent) my work.  Plus, we&#8217;ve got tests that guard against regression in this part of EOL.</p>
+  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/85/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/85/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/85/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/85/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/85/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=85&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2009/04/20/test-driven-development-for-epsilon/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/93092a0356ed01b8c8085ca30e48d3e5?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Louis Rose</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Epsilon + AppEngine + Ajax = Epsilon Live</title>
+		<link>http://epsilonblog.wordpress.com/2009/04/16/epsilon-appengine-ajax-epsilon-live/</link>
+		<comments>http://epsilonblog.wordpress.com/2009/04/16/epsilon-appengine-ajax-epsilon-live/#comments</comments>
+		<pubDate>Thu, 16 Apr 2009 10:16:43 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/2009/04/16/epsilon-appengine-ajax-epsilon-live/</guid>
+		<description><![CDATA[The Epsilon website already includes several screencasts and examples that demonstrate the tools and languages it provides. The preview release of the Google App Engine for Java has made it possible to go one step further and allow people to actually write and execute EOL (the core language of Epsilon) programs straight from their browser [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=84&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>The Epsilon website already includes several <a href="http://www.eclipse.org/gmt/epsilon/cinema/">screencasts</a> and <a href="http://www.eclipse.org/gmt/epsilon/examples">examples</a> that demonstrate the tools and languages it provides. The preview release of the <a href="http://appengine.google.com">Google App Engine</a> for Java has made it possible to go one step further and allow people to actually write and execute EOL (the core language of Epsilon) programs straight from their browser without needing to download or install anything.</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2009/04/image2.png"><img style="border-width:0;" height="480" alt="image" src="http://epsilonblog.files.wordpress.com/2009/04/image-thumb2.png?w=564&#038;h=480" width="564" border="0"></a> </p>
+<p><a href="http://www.eclipse.org/gmt/epsilon/live">http://www.eclipse.org/gmt/epsilon/live</a> includes an editor where one can write and execute EOL scripts, and a console that captures their output. Apart from playing with the basic features of EOL (variables, control flow structures etc.) one can also query/modify a live EMF model (which for simplicity is Ecore itself). To help you get started, the page also provides a number of ready-to-run scripts as a starting point for further exploration.</p>
+  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/84/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/84/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/84/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/84/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/84/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/84/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/84/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/84/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/84/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/84/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=84&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2009/04/16/epsilon-appengine-ajax-epsilon-live/feed/</wfw:commentRss>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/04/image-thumb2.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+	</item>
+		<item>
 		<title>The EMF EPackage Registry View</title>
 		<link>http://epsilonblog.wordpress.com/2009/02/13/the-emf-epackage-registry-view/</link>
 		<comments>http://epsilonblog.wordpress.com/2009/02/13/the-emf-epackage-registry-view/#comments</comments>
@@ -390,113 +456,6 @@ class File {
 <p><strong>[Update 23/6/2008]</strong> The migration process is now finished. This includes all the languages of the platform as well as the HUTN implementation.</p>
 <img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/34/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/34/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/34/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=34&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
 			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/06/18/migrating-to-antlr-3/feed/</wfw:commentRss>
-	
-		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
-			<media:title type="html">Dimitris Kolovos</media:title>
-		</media:content>
-	</item>
-		<item>
-		<title>Model Refactoring in EMF editors</title>
-		<link>http://epsilonblog.wordpress.com/2008/03/16/model-refactoring-in-emf-editors/</link>
-		<comments>http://epsilonblog.wordpress.com/2008/03/16/model-refactoring-in-emf-editors/#comments</comments>
-		<pubDate>Sun, 16 Mar 2008 21:53:20 +0000</pubDate>
-		<dc:creator>Dimitris Kolovos</dc:creator>
-				<category><![CDATA[Uncategorized]]></category>
-
-		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=27</guid>
-		<description><![CDATA[In this post we demonstrated how EWL from the Epsilon GMT component can be used to automate model refactoring (in-place model transformation in general) in GMF-based editors. Since version 1.3.2, the same wizards can be executed in EMF tree-based editors as well. The following screenshots demonstrate the application of the CreateAssociationClassCase1 wizard (originally described by [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=27&subd=epsilonblog&ref=&feed=1" />]]></description>
-			<content:encoded><![CDATA[<div class='snap_preview'><br /><p><a href="http://epsilonblog.wordpress.com/2008/01/18/model-refactoring-in-gmf-based-editors-with-ewl/" target="_blank">In this post</a> we demonstrated how EWL from the <a href="http://www.eclipse.org/gmt/epsilon" target="_blank">Epsilon GMT component</a> can be used to automate model refactoring (in-place model transformation in general) in GMF-based editors. Since version 1.3.2, the same wizards can be executed in EMF tree-based editors as well. The following screenshots demonstrate the application of the <a href="http://epsilonblog.wordpress.com/2008/01/18/model-refactoring-in-gmf-based-editors-with-ewl/#comment-9" target="_blank">CreateAssociationClassCase1</a> wizard (originally described by Ed Merks <a href="http://ed-merks.blogspot.com/2008/01/modeling-associations-with-ecore.html" target="_blank">here</a>) in the default ECore tree-based editor.</p>
-<p>The original ECore metamodel:</p>
-<p><a href="http://epsilonblog.files.wordpress.com/2008/03/image3.png"><img style="border-width:0;" height="369" alt="image" src="http://epsilonblog.files.wordpress.com/2008/03/image-thumb3.png?w=401&#038;h=369" width="401" border="0"></a> </p>
-<p>Selecting the classes and applying the wizard:</p>
-<p><a href="http://epsilonblog.files.wordpress.com/2008/03/image4.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="369" alt="image" src="http://epsilonblog.files.wordpress.com/2008/03/image-thumb4.png?w=401&#038;h=369" width="401" border="0"></a> </p>
-<p>The ECore metamodel after the wizard has executed:</p>
-<p><a href="http://epsilonblog.files.wordpress.com/2008/03/image5.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="369" alt="image" src="http://epsilonblog.files.wordpress.com/2008/03/image-thumb5.png?w=401&#038;h=369" width="401" border="0"></a></p>
-<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/27/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/27/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/27/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/27/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/27/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=27&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
-			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/03/16/model-refactoring-in-emf-editors/feed/</wfw:commentRss>
-	
-		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
-			<media:title type="html">Dimitris Kolovos</media:title>
-		</media:content>
-
-		<media:content url="http://epsilonblog.files.wordpress.com/2008/03/image-thumb3.png" medium="image">
-			<media:title type="html">image</media:title>
-		</media:content>
-
-		<media:content url="http://epsilonblog.files.wordpress.com/2008/03/image-thumb4.png" medium="image">
-			<media:title type="html">image</media:title>
-		</media:content>
-
-		<media:content url="http://epsilonblog.files.wordpress.com/2008/03/image-thumb5.png" medium="image">
-			<media:title type="html">image</media:title>
-		</media:content>
-	</item>
-		<item>
-		<title>Extended properties in EOL</title>
-		<link>http://epsilonblog.wordpress.com/2008/01/30/extended-properties-in-eol/</link>
-		<comments>http://epsilonblog.wordpress.com/2008/01/30/extended-properties-in-eol/#comments</comments>
-		<pubDate>Wed, 30 Jan 2008 20:59:44 +0000</pubDate>
-		<dc:creator>Dimitris Kolovos</dc:creator>
-				<category><![CDATA[Uncategorized]]></category>
-
-		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=20</guid>
-		<description><![CDATA[Below is a simple metamodel (in Emfatic) for modelling Trees (however interesting this might be)
-
-package SimpleTree;
-
-class Tree {
-	attr String name;
-	ref Tree#children parent;
-	val Tree[*]#parent children;
-}
-Now, what we want to do is to traverse a model that conforms to this metamodel and calculate and print the depth of each Tree in it. We can do this using [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=20&subd=epsilonblog&ref=&feed=1" />]]></description>
-			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Below is a simple metamodel (in Emfatic) for modelling Trees (however interesting this might be)</p>
-<pre>
-package SimpleTree;
-
-class Tree {
-	attr String name;
-	ref Tree#children parent;
-	val Tree[*]#parent children;
-}</pre>
-<p>Now, what we want to do is to traverse a model that conforms to this metamodel and calculate and print the depth of each Tree in it. We can do this using this simple EOL program:</p>
-<pre>
-var depths := new Map;
-
-for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
-	n.setDepth(0);
-}
-
-for (n in Tree.allInstances) {
-	(n.name + ' ' + depths.get(n)).println();
-}
-
-operation Tree setDepth(depth : Integer) {
-	depths.put(self,depth);
-	for (c in self.children) {
-		c.setDepth(depth + 1);
-	}
-}</pre>
-<p>Because the Tree EClass doesn&#8217;t have a <code>depth</code> property, we have to use the <code>depths</code> Map to store the calculated depth of each Tree. Another solution would be to add a <code>depth</code> property to the Tree EClass so that its instances can store such information; but applying this tactic will soon pollute our metamodel with information of secondary importance.</p>
-<p>We&#8217;ve often come across similar situations where we needed to <i>attach</i> some kind of information (that is not supported by the metamodel) to particular model elements during model management operations (validation, transformation etc.). Until now, we&#8217;ve been using Maps to achieve this (similarly to what we&#8217;ve done above). However, from version 1.3.0, EOL (and all languages built atop it) support <i>non-invasive extended properties</i> which provide a more elegant solution to this recurring problem.</p>
-<p>An extended property is a property that starts with the ~ character. It&#8217;s semantics are quite straightforward: the first time a value is assigned to an extended property of an object (e.g. <code>x.~a := b;</code>), the property is created and associated to the object and the value is assigned to it. Similarly, <code>x.~a</code> returns the value of the property or <code>undefined</code> if the property has not been set on the particular object yet. Using extended properties, we can rewrite the above code (without needing to use a Map) as follows:</p>
-<pre>
-for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
-	n.setDepth(0);
-}
-
-for (n in Tree.allInstances) {
-	(n.name + ' ' + n.~depth).println();
-}
-
-operation Tree setDepth(depth : Integer) {
-	self.~depth := depth;
-	for (c in self.children) {
-		c.setDepth(depth + 1);
-	}
-}</pre>
-<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/20/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/20/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/20/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/20/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/20/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=20&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
-			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/01/30/extended-properties-in-eol/feed/</wfw:commentRss>
 	
 		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
 			<media:title type="html">Dimitris Kolovos</media:title>
