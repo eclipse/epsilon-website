@@ -13,7 +13,7 @@
 	<atom:link href="http://epsilonblog.wordpress.com/feed/" rel="self" type="application/rss+xml" />
 	<link>http://epsilonblog.wordpress.com</link>
 	<description>... new and noteworthy in the Epsilon Eclipse GMT component</description>
-	<pubDate>Mon, 20 Apr 2009 11:45:31 +0000</pubDate>
+	<pubDate>Mon, 27 Apr 2009 14:01:59 +0000</pubDate>
 	<generator>http://wordpress.com/</generator>
 	<language>en</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
@@ -24,6 +24,61 @@
 		<link>http://epsilonblog.wordpress.com</link>
 	</image>
 			<item>
+		<title>Managing Inconsistent Models with HUTN</title>
+		<link>http://epsilonblog.wordpress.com/2009/04/27/managing-inconsistent-models-with-hutn/</link>
+		<comments>http://epsilonblog.wordpress.com/2009/04/27/managing-inconsistent-models-with-hutn/#comments</comments>
+		<pubDate>Mon, 27 Apr 2009 12:53:10 +0000</pubDate>
+		<dc:creator>Louis Rose</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=88</guid>
+		<description><![CDATA[A model and metamodel are consistent when the metamodel speciﬁes every concept used in the model deﬁnition. A metamodel can evolve (be adapted by a developer), which can cause inconsistency. We&#8217;ve recently added a tool to Epsilon, the HUTN / XMI bridge, that seeks to aid developers in manually managing inconsistency.
+HUTN, an OMG standard, specifies a human-usable, textual [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=88&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>A model and metamodel are<span> </span><strong><em>consistent</em></strong><span> </span>when the meta<span>model specifies every concept used in the model definition. A metamodel can evolve (be adapted by a developer), which can cause in<span>consistency. We&#8217;ve recently added a tool to Epsilon, the HUTN / XMI bridge, that seeks to aid developers in manually managing inconsistency.</span></span></p>
+<p>HUTN, an OMG standard, specifies a human-usable, textual notation for MOF-based models. Epsilon provides an implementation of HUTN for Ecore-based models. HUTN can be thought of as an alternative concrete syntax to XMI. While XMI is optimised for use by machines, HUTN is optimised for use by humans. We discuss HUTN in more detail in <a title="Constructing Models with HUTN at MoDELS '08" href="http://dx.doi.org/10.1007/978-3-540-87875-9_18">this paper at MoDELS 2008</a>.</p>
+<p>We have recently extended our HUTN implementation to include an XMI bridge, which allows us to generate HUTN source code from EMF models. Furthermore, the HUTN / XMI bridge can be used to report inconsistencies between a model and its metamodel, and to resolve those inconsistencies using a human-usable notation.</p>
+<p><strong>Example</strong></p>
+<p>To demonstrate the HUTN / XMI bridge, here&#8217;s a short example. Below is an exemplar metamodel, along with a sample model:</p>
+<p><img class="aligncenter size-full wp-image-90" title="channels_mm_before" src="http://epsilonblog.files.wordpress.com/2009/04/channels_mm_before.png?w=386&#038;h=198" alt="channels_mm_before" width="386" height="198" /><img class="aligncenter size-full wp-image-91" title="channels_model_before" src="http://epsilonblog.files.wordpress.com/2009/04/channels_model_before.png?w=450&#038;h=293" alt="channels_model_before" width="450" height="293" /></p>
+<p>Channel B has ConnectionPoint both?! as its reader and as its writer.</p>
+<p>Suppose we now wish to make distinct ConnectionPoints that are used for writing and ConnectionPoints that are used for reading. We may elect to change our metamodel, as shown in the diagram below:<img class="aligncenter size-full wp-image-92" title="channels_mm_after" src="http://epsilonblog.files.wordpress.com/2009/04/channels_mm_after.png?w=415&#038;h=339" alt="channels_mm_after" width="415" height="339" />When we try to load our model with EMF, we receive a single error, stating, for example, that &#8220;The class &#8216;ConnectionPoint&#8217; is not a valid classifier.&#8221; By contrast, the HUTN/XMI bridge is able to produce a complete list of the inconsistencies:</p>
+<p style="text-align:center;"><img class="aligncenter size-full wp-image-94" title="channels_model_hutn_xmi_errors" src="http://epsilonblog.files.wordpress.com/2009/04/channels_model_hutn_xmi_errors.png?w=450&#038;h=147" alt="channels_model_hutn_xmi_errors" width="450" height="147" /><em>(Produced by the <strong>Check Consistency</strong> option, available by right-clicking a .model file).</em></p>
+<p>To aid developers in resolving consistency, the HUTN / XMI bridge can generate HUTN from a model&#8217;s XMI, even when that model is inconsistent with its metamodel:</p>
+<p><img class="aligncenter size-full wp-image-95" title="channels_hutn_with_errors" src="http://epsilonblog.files.wordpress.com/2009/04/channels_hutn_with_errors.png?w=450&#038;h=400" alt="channels_hutn_with_errors" width="450" height="400" /></p>
+<p>Once there are no further inconsistencies, HUTN can be used to generate a model that is now consistent with its metamodel.</p>
+<p><strong>Related Work</strong></p>
+<p>The HUTN / XMI bridge is a tool for manually managing inconsistency between models and metamodels. There are situations in which an automatic approach is more suitable. For example, perhaps you have a large number of inconsistent models. In those situations, we&#8217;d recommend using a different tool, such as <a title="Couple Evolution of Metamodels and Models for EMF" href="http://cope.in.tum.de/pmwiki.php">COPE</a>. You may also be interested in <a title="Antonio Cicchetti's publications" href="http://www.di.univaq.it/cicchetti/index.php?pageId=publications">Antonio Cicchetti&#8217;s work</a>; Cicchetti advocates a fundamentally different approach to the one used in COPE.</p>
+<p><strong>Installation</strong></p>
+<p>If you&#8217;d like to try the HUTN / XMI bridge, it&#8217;s available from the Epsilon SVN repository (<a title="Instructions for accessing the Epsilon SVN repository" href="http://www.eclipse.org/gmt/epsilon/doc/EpsilonSVN.pdf">access instructions</a>). <span style="text-decoration:line-through;">It will also appear in the upcoming 0.7.5 HUTN release</span><strong>*</strong>. We&#8217;ll be adding new features and fixing problems per user requests - do drop by the <a href="news://news.eclipse.org/eclipse.epsilon">Epsilon newsgroup</a> if you have questions, problems or suggestions.</p>
+<p><strong>* [Update 27/04/09]</strong> The HUTN XMI Bridge is included in HUTN 0.7.5, which was released today, as part of Epsilon 0.8.5.<strong> </strong></p>
+  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/88/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/88/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/88/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/88/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/88/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/88/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/88/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/88/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/88/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/88/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=88&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2009/04/27/managing-inconsistent-models-with-hutn/feed/</wfw:commentRss>
+	
+		<media:content url="http://0.gravatar.com/avatar/6634d495dd596083ec80398d6fbe563a?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+			<media:title type="html">Louis Rose</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/04/channels_mm_before.png" medium="image">
+			<media:title type="html">channels_mm_before</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/04/channels_model_before.png" medium="image">
+			<media:title type="html">channels_model_before</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/04/channels_mm_after.png" medium="image">
+			<media:title type="html">channels_mm_after</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/04/channels_model_hutn_xmi_errors.png" medium="image">
+			<media:title type="html">channels_model_hutn_xmi_errors</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/04/channels_hutn_with_errors.png" medium="image">
+			<media:title type="html">channels_hutn_with_errors</media:title>
+		</media:content>
+	</item>
+		<item>
 		<title>Test-Driven Development for Epsilon</title>
 		<link>http://epsilonblog.wordpress.com/2009/04/20/test-driven-development-for-epsilon/</link>
 		<comments>http://epsilonblog.wordpress.com/2009/04/20/test-driven-development-for-epsilon/#comments</comments>
@@ -61,7 +116,7 @@ public void equalityActsAsAssignment() {
   <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/85/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/85/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/85/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/85/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/85/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/85/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=85&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
 			<wfw:commentRss>http://epsilonblog.wordpress.com/2009/04/20/test-driven-development-for-epsilon/feed/</wfw:commentRss>
 	
-		<media:content url="http://1.gravatar.com/avatar/93092a0356ed01b8c8085ca30e48d3e5?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+		<media:content url="http://0.gravatar.com/avatar/6634d495dd596083ec80398d6fbe563a?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
 			<media:title type="html">Louis Rose</media:title>
 		</media:content>
 	</item>
@@ -296,7 +351,7 @@ An error is now produced when enumerations, data types and abstract classes are 
 <img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/47/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/47/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/47/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/47/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/47/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/47/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/47/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/47/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=47&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
 			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/09/15/new-in-hutn-071/feed/</wfw:commentRss>
 	
-		<media:content url="http://1.gravatar.com/avatar/93092a0356ed01b8c8085ca30e48d3e5?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
+		<media:content url="http://0.gravatar.com/avatar/6634d495dd596083ec80398d6fbe563a?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
 			<media:title type="html">Louis Rose</media:title>
 		</media:content>
 	</item>
@@ -436,26 +491,6 @@ class File {
 			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>We&#8217;ve launched a satellite project of Epsilon, called EpsilonLabs (<a href="http://epsilonlabs.sourceforge.net">http://epsilonlabs.sourceforge.net</a>), where we are hosting experimental contributions built atop Epsilon and contributions that use libraries which conflict with EPL (and as such they cannot be hosted in the Eclipse CVS). The initial contributions to EpsilonLabs include two non-EPL drivers for accessing MDR (MOF 1.4, XMI 1.x) and Z (LaTeX) models from Epsilon programs, and an experimental integration of (a slightly modified version of) EMF Compare with the Epsilon Comparison Language (ECL).</p>
 <img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/35/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/35/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/35/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/35/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/35/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/35/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/35/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/35/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=35&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
 			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/07/16/epsilonlabs/feed/</wfw:commentRss>
-	
-		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
-			<media:title type="html">Dimitris Kolovos</media:title>
-		</media:content>
-	</item>
-		<item>
-		<title>Migrating to ANTLR 3</title>
-		<link>http://epsilonblog.wordpress.com/2008/06/18/migrating-to-antlr-3/</link>
-		<comments>http://epsilonblog.wordpress.com/2008/06/18/migrating-to-antlr-3/#comments</comments>
-		<pubDate>Wed, 18 Jun 2008 21:58:18 +0000</pubDate>
-		<dc:creator>Dimitris Kolovos</dc:creator>
-				<category><![CDATA[Uncategorized]]></category>
-
-		<guid isPermaLink="false">http://epsilonblog.wordpress.com/2008/06/18/migrating-to-antlr-3/</guid>
-		<description><![CDATA[For the past couple of weeks we&#8217;ve been working on migrating to ANTLR 3 (to get rid of the dependency to the nasty ANTLR 2.x jar which we are not allowed to store in the CVS). Although ANTLR 3 was made available quite sometime ago, it didn&#8217;t provide any grammar reuse/inheritance mechanisms (which is essential [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=34&subd=epsilonblog&ref=&feed=1" />]]></description>
-			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>For the past couple of weeks we&#8217;ve been working on migrating to ANTLR 3 (to get rid of the dependency to the nasty ANTLR 2.x jar which we are not allowed to store in the CVS). Although ANTLR 3 was made available quite sometime ago, it didn&#8217;t provide any grammar reuse/inheritance mechanisms (which is essential for <a href="http://www.eclipse.org/gmt/epsilon">Epsilon</a> since all its languages reuse the grammar of the core EOL language, and the merging language (EML) also reuses the grammar of the transformation language (ETL)).</p>
-<p>Fortunately, an early version of ANTLR 3.1 which was released a month ago added support for grammar reuse and it is now possible to do the migration. Rewriting the grammars for v3.1 has <a href="http://www.antlr.org:8888/browse/ANTLR-301">not been as smooth</a> as we expected, however, we will have (hopefully) fully migrated to ANTLR 3.1 by early July.</p>
-<p><strong>[Update 23/6/2008]</strong> The migration process is now finished. This includes all the languages of the platform as well as the HUTN implementation.</p>
-<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/34/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/34/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/34/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/34/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/34/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=34&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
-			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/06/18/migrating-to-antlr-3/feed/</wfw:commentRss>
 	
 		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2Fa.wordpress.com%2Favatar%2Funknown-96.jpg&#38;r=G" medium="image">
 			<media:title type="html">Dimitris Kolovos</media:title>
