@@ -8,8 +8,9 @@
 		<title>Version 0.8.5 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
-		Fixes bugs #273292, #273222, #271329, #270977, #270572, 
-		#270570, #266331, #265127, #265811, #264677, #270997
+		Fixes bugs and implements enhancement requests 
+		#273292, #273222, #271329, #270977, #270572, 
+		#270570, #266331, #265127, #265811, #264677 and #270997
 		</description>
 		<pubDate>Mon, 27 Apr 2009 13:34:00 CET</pubDate>
 	</item>
