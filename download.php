@@ -17,7 +17,7 @@
 	$pageTitle 		= "Download";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	$version = "0.8.4";
+	$version = "0.8.5";
 	include ('common.php');
 	include ('news/news.php');
 	ob_start();
