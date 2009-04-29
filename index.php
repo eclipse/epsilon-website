@@ -102,21 +102,13 @@
 	<!-- Middle part -->
 	<div id="midcolumn">
 		<?include('noscript.html')?>
-		<table width="100%">
-			<tr>
-				<td width="80%">
-					<h1><?=$pageTitle?></h1>
+		<h1><?=$pageTitle?></h1>
 					<!--h3>Welcome</h3-->
-				    
-						Epsilon is a metamodel-agnostic component that supports programmatic model navigation, 
-						creation, and modification operations. <a href="examples">See a quick example!</a>, <a href="live">Run EOL scripts in your browser!</a>
-				     
-		  		</td>
-				<td align="right">
-					<img style="float:right" src="resources/epsilonlogo.png" valign="top" alt="Epsilon Logo" />
-				</td>
-			</tr>
-		</table>
+	    <img style="float:right" src="resources/epsilonlogo.png" alt="Epsilon Logo" />
+			<p>Epsilon is a metamodel-agnostic component that supports programmatic creation, navigation, 
+			and modification of EMF models<br> <a href="examples">(see a quick example...)</a></p>
+	     
+
 		
 		<div class="homeitem">
 			<h2>What can you do with Epsilon?</h2>
@@ -147,7 +139,7 @@
 
 		
 		<div class="sideitem">
-			<h6>Getting Started</h6>
+			<h6 nostyle="background-color:#36354F;color:white">Getting Started</h6>
 			<ol>
 				<li><a href="cinema">Watch the screencasts</a></li>
 				<li><a href="examples">Go through the examples</a></li>
