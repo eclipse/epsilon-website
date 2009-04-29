@@ -54,7 +54,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<h3>Add Epsilon to your Ohloh stack</h3>
 		<div style="float:right">
-		<script type="text/javascript" src="http://www.ohloh.net/p/8615/widgets/project_users.js?style=blue"></script>
+<script type="text/javascript" src="http://www.ohloh.net/p/8615/widgets/project_users.js"></script>
 		</div>
 		<p>Ohloh is an increasingly popular social networking site that connects software with the people that develop and use it. You can click on the widget on the right to add Epsilon to the stack of applications you are using and let other developers looking in the MDE direction know that you are finding it useful.</p>
 		
