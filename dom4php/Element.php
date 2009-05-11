@@ -12,7 +12,7 @@
  * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
  * details.
  * 
- * $Id: Element.php,v 1.2 2009/02/27 15:08:53 dkolovos Exp $
+ * $Id: Element.php,v 1.3 2009/05/11 11:02:38 dkolovos Exp $
  */
 
 include_once("Node.php");
@@ -48,14 +48,7 @@ class Element extends Node {
         unset($this->attributes[$name]);
     }
 	
-		function getOneChild($name) {
-				foreach (array_keys($this->childNodes) as $key) {
-						$child = $this->childNodes[$key];
-            if ($child->nodeType == DOM_ELEMENT_NODE && $child->tagName === $name) {
-                return $child;
-            }
-        }		
-		}
+
 		
     function getElementsByTagName($name) {
         $result = array();

@@ -21,18 +21,25 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('common.php');
 	ob_start();
+	
+	include_once("dom4php/XmlParser.php");
+	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
+	$document = $parser->parse(file_get_contents("epic.xml"));
+	$votes = $document->getOneChild("epicItem")->getOneChild("votes")->childNodes[0]->data;
+	$rating = $document->getOneChild("epicItem")->getOneChild("rating")->childNodes[0]->data;
+	
 ?>
 
 	<div id="midcolumn">
-
-		<h3>Rate Epsilon at Eclipse Plugin Central</h3>
+		<div style="float:right"><h3 style="color:#C0C0C0"><i>Votes: <?=$votes?> (<?=number_format($rating,1)?>/10)</i></h3></div>
+		<h3>Rate Epsilon at EPIC</h3>
 		
 		<div style="float:right">
 			<form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
 
 			<select name="rating" style="width:67px">
-			<option selected>--</option>
-			<option>10</option>
+			<option>--</option>
+			<option selected>10</option>
 			<option>9</option>
 			<option>8</option>
 			<option>7</option>
@@ -50,13 +57,13 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<input type="submit" value="Vote!" style="width:67px; margin-top:5px">
 			</form>
 		</div>
-		<p>Eclipse Plugin Central is the most comprehensive source of Eclipse plugins. You can use the form on the right to rate Epsilon directly from this page without needing to have an account, login or anything (but please vote only once :)).</p>
+		<p>Eclipse Plugin Central is the most comprehensive source of Eclipse plugins. You can use the form on the right to rate <a href="http://www.eclipseplugincentral.com/Web_Links-index-req-viewlink-cid-887.html">Epsilon</a> directly from this page without needing to have an account, login or anything (but please vote only once :)).</p>
 		
 		<h3>Add Epsilon to your Ohloh stack</h3>
 		<div style="float:right">
 <script type="text/javascript" src="http://www.ohloh.net/p/8615/widgets/project_users.js"></script>
 		</div>
-		<p>Ohloh is an increasingly popular social networking site that connects software with the people that develop and use it. You can click on the widget on the right to add Epsilon to the stack of applications you are using and let other developers looking in the MDE direction know that you are finding it useful.</p>
+		<p>Ohloh is an increasingly popular social networking site that connects software with the people that develop and use it. You can click on the widget on the right to add <a href="http://www.ohloh.net/projects/8615">Epsilon</a> to the stack of applications you are using and let other developers looking in the MDE direction know that you are finding it useful.</p>
 		
 	</div>
 	

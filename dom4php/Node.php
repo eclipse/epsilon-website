@@ -12,7 +12,7 @@
  * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
  * details.
  * 
- * $Id: Node.php,v 1.1 2007/01/27 16:09:58 dkolovos Exp $
+ * $Id: Node.php,v 1.2 2009/05/11 11:02:38 dkolovos Exp $
  */
 
 define("DOM_ELEMENT_NODE",                    1);
@@ -49,6 +49,15 @@ class Node {
         $this->setGuid();
     }
 
+		function getOneChild($name) {
+				foreach (array_keys($this->childNodes) as $key) {
+						$child = $this->childNodes[$key];
+            if ($child->nodeType == DOM_ELEMENT_NODE && $child->tagName === $name) {
+                return $child;
+            }
+        }		
+		}
+		
     /** {{{insertBefore
      * @desc Inserts the node newChild before the existing child node refChild.
      * @param newChild Node

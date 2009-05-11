@@ -1,0 +1,30 @@
+<project default="main">
+	<target name="main">
+		
+		<!--
+		PHP scripts in Eclipse.org cannot access external URLs
+		Therefore this script downloads all exteral files locally 
+		so that PHP scripts can read them.
+		It should be run when one of the following files is updated
+		(e.g. a new article is posted in the blog or someone rates
+		Epsilon at EPIC)
+		-->
+		
+		<echo message="Getting Epsilon Blog RSS..."/>	
+		<copy todir=".">
+			<resources>
+				<url url="http://epsilonblog.wordpress.com/feed"/>
+			</resources>
+		</copy>
+		<rename dest="blogrss.xml" src="feed"/>
+		
+		<echo message="Getting EPIC xml"/>
+		<copy todir=".">
+			<resources>
+				<url url="http://www.eclipseplugincentral.com/Web_Links-index-req-viewlink-cid-887.xml"/>
+			</resources>
+		</copy>
+		<rename dest="epic.xml" src="Web_Links-index-req-viewlink-cid-887.xml"/>
+		
+	</target>
+</project>
