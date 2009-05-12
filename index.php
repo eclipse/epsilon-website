@@ -41,6 +41,12 @@
 	$faq_title = $faq->getOneChild("title")->childNodes[0]->data;
 	$faq_answer = $faq->getOneChild("answer")->childNodes[0]->data;
 	
+	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
+	$document = $parser->parse(file_get_contents("http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss"));
+	$guid = $document->getOneChild("rss")->getOneChild("channel")->getOneChild("item")->getOneChild("guid")->childNodes[0]->data;
+	
+	$messages = (int) substr($guid, 65, strlen($guid) - 69);
+	
 	ob_start();
 	?>
 	
@@ -147,7 +153,12 @@
 				<li><a href="download.php"><b>Download</b></a></li>
 				<li><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf">Get the book</a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
-				<li><a href="news://news.eclipse.org/eclipse.epsilon">Drop by the newsgroup</a> <a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">(how?)</a></li>
+				<li><a href="news://news.eclipse.org/eclipse.epsilon">Get help in the newsgroup</a>
+				<ul>
+					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Browse <?=$messages?> existing posts</a>
+					<li><a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">Learn how to connect</a>
+				</ul>
+				</li>
 			</ol>
 		</div>
 		
