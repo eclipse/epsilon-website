@@ -156,7 +156,7 @@
 				<li><a href="news://news.eclipse.org/eclipse.epsilon">Get help in the newsgroup</a>
 				<ul>
 					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Browse <?=$messages?> existing posts</a>
-					<li><a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">Learn how to connect</a>
+					<li><a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">Find out how to connect</a>
 				</ul>
 				</li>
 			</ol>
