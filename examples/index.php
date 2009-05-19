@@ -163,6 +163,12 @@
 		</ul>
 	</div>
 	
+	<div class="sideitem">
+		<h6>Even more examples...</h6>
+		<p> More examples are available in the <a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples">examples</a> folder of 
+		the SVN repository.</p>
+	</div>
+	
 	</div>
 	
 	<script type="text/javascript">
