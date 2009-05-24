@@ -8,8 +8,8 @@
 Epsilon also provides Eclipse-based tools for code profiling and monitoring, an ANT-based workflow for defining complex chains of model management operations, an extension of the built-in reflective EMF editor (Exeed) that enables users to customize its appearence (icons and labels) using EAnnotations attached to EClasses and EAttributes, a multi-tab editor (ModeLink) that enables users to establish arbitrary links between different EMF models (of potentially different ECore metamodels), support for defining and executing wizards - using a dedicated language (EWL) - for automating tasks (e.g. refactoring) in EMF/GMF editors, live validation in GMF-based editors, and a tool (EuGENia) that significantly speeds up the process of implementing a GMF-based editor.]]></description>
 	<dateCreated>2007-02-19 09:17:17</dateCreated>
 	<dateUpdated>2009-04-29 09:26:26</dateUpdated>
-	<rating>9.5333</rating>
-	<votes>15</votes>
+	<rating>9.5625</rating>
+	<votes>16</votes>
 	<version>0.8.5</version>
 	<eclipseVersion>3.3, 3.4</eclipseVersion>
 	<licenseType>Free EPL</licenseType>
