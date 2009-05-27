@@ -72,7 +72,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<div class="sideitem">
 			<h6>Spread the word</h6>
 			<p>
-If you're using Epsilon and are finding it useful, consider spreading the word using one or more of the options provided in this page. <br/><br/>After all, few things motivate a developer to get into the trouble of installing and evaluating a tool more than other developers' recommendations.
+If you're using Epsilon and are finding it useful, consider spreading the word using one or more of the options provided in this page. <!--<br/><br/>After all, few things motivate a developer to get into the trouble of installing and evaluating a tool more than other developers' recommendations.-->
 			</p>
 		</div>
 	

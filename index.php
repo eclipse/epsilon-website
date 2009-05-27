@@ -45,7 +45,7 @@
 	$document = $parser->parse(file_get_contents("http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss"));
 	$guid = $document->getOneChild("rss")->getOneChild("channel")->getOneChild("item")->getOneChild("guid")->childNodes[0]->data;
 	
-	$messages = (int) substr($guid, 65, strlen($guid) - 69);
+	$messages = (int) substr($guid, 65, strlen($guid) - 69) + 2;
 	
 	ob_start();
 	?>
@@ -155,7 +155,7 @@
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
 				<li><a href="news://news.eclipse.org/eclipse.epsilon">Get help in the newsgroup</a>
 				<ul>
-					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Browse existing posts (<?=$messages?>)</a>
+					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Browse <?=$messages?> previous posts</a>
 					<li><a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">Find out how to connect</a>
 				</ul>
 				</li>
