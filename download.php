@@ -142,7 +142,7 @@
 		</div>
 		
 		<div class="sideitem">
-			<?=r2h("Updates", "http://www.eclipse.org/gmt/epsilon/news/epsilonNewsArchive.rss", array('Version'), 6)?>
+			<?=r2h("Updates", "http://www.eclipse.org/gmt/epsilon/news/epsilonNewsArchive.rss", array(' '), 6)?>
 		</div>
 		
 	</div>

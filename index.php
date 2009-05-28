@@ -155,11 +155,11 @@
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
 				<li><a href="news://news.eclipse.org/eclipse.epsilon">Get help in the newsgroup</a>
 				<ul>
-					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Browse <?=$messages?> previous posts</a>
+					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Browse <?=$messages?> posts</a>
 					<li><a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">Find out how to connect</a>
 				</ul>
 				</li>
-				<li><a href="spreadtheword.php">Spread the word</a><font style="color:red"><b><i> (new!)</i></b></font>
+				<li style="position:relative;top:-10px"><a href="spreadtheword.php">Spread the word</a>
 			</ol>
 		</div>
 		
@@ -189,7 +189,7 @@
 			</center>
 		</div>	
 		-->
-		
+		<!--
 		<div class="sideitem">
 			<h6>Visitors</h6>
 			<center>
@@ -198,9 +198,10 @@
 			</a>
 			</center>
 		</div>
+		-->
 		
 		<div class="sideitem">
-			<?=r2h("Updates", "http://www.eclipse.org/gmt/epsilon/news/epsilonNewsArchive.rss", array('Version'), 6)?>
+			<?=r2h("Updates", "http://www.eclipse.org/gmt/epsilon/news/epsilonNewsArchive.rss", array(' '), 6)?>
 		</div>
 		
 	</div>
