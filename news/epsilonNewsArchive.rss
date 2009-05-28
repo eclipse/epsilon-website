@@ -5,6 +5,15 @@
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
     <item>
+		<title>Critical bug in EuGENia 0.8.5 under Linux fixed in the 0.8.5.200905281248 interim version</title>
+		<link>https://bugs.eclipse.org/bugs/show_bug.cgi?id=278190</link>
+		<description>
+		A regression that causes EuGENia to produce an error and not generate
+		any output models under Linux (and MacOX) has been fixed in the 0.8.5.200905281248 interim version.
+		</description>
+		<pubDate>Thu, 28 May 2009 13:34:00 CET</pubDate>
+	</item>
+    <item>
 		<title>Version 0.8.5 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
