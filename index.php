@@ -112,8 +112,7 @@
 					<!--h3>Welcome</h3-->
 	    <img style="float:right" src="resources/epsilonlogo.png" alt="Epsilon Logo" />
 			<p>Epsilon is a metamodel-agnostic component that supports programmatic creation, navigation, 
-			and modification of EMF models<br> <a href="examples">(see a quick example...)</a></p>
-	     
+			and modification of EMF models<br>(<a href="doc">read more</a> or <a href="examples">see a quick example</a>...)</p>
 
 		
 		<div class="homeitem">
@@ -151,12 +150,11 @@
 				<li><a href="examples">Go through the examples</a></li>
 				<li><a href="live">Run EOL in your browser</a><font style="color:red"><b><i> (new!)</i></b></font>
 				<li><a href="download.php"><b>Download</b></a></li>
-				<li><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf">Get the book</a></li>
+				<li><a href="doc/book">Get the book</a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
-				<li><a href="news://news.eclipse.org/eclipse.epsilon">Get help in the newsgroup</a>
+				<li><a href="newsgroup">Get help in the newsgroup</a>
 				<ul>
 					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Browse <?=$messages?> posts</a>
-					<li><a href="http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F">Find out how to connect</a>
 				</ul>
 				</li>
 				<li style="position:relative;top:-10px"><a href="spreadtheword.php">Spread the word</a>
@@ -165,7 +163,7 @@
 		
 		<div class="sideitem">
 			<h6>Get The Book</h6>
-			<div align="center"><a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf"><img align="center" src="images/book.png" border="0" alt="Incubation" /></a></div>
+			<div align="center"><a href="doc/book"><img align="center" src="images/book.png" border="0" alt="The Epsilon Book"/></a></div>
  		</div>
 	
 		<div class="sideitem">

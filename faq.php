@@ -31,6 +31,12 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 	<div id="midcolumn">
 		<h1><?=$pageTitle?></h1>
+		
+		<img style="float:right" src="http://dev.eclipse.org/huge_icons/apps/help-browser.png">
+		
+		In this page we provide asnwers to common questions about Epsilon. If your question is not answered here,
+		please feel free to <a href="newsgroup">ask in the newsgroup</a>.
+		
 		<?foreach ($faqs as $faq){?>
 		<h2><a style="color:black;text-decoration:none" name="<?=$faq->getOneChild("title")->childNodes[0]->data?>"><?=$faq->getOneChild("title")->childNodes[0]->data?></a></h2>
 		<?=$faq->getOneChild("answer")->childNodes[0]->data?>

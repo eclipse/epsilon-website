@@ -40,15 +40,17 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 		<h4>Examples and Screencasts</h4>
 		<ul>
-			<li><a href="../../cinema/#BuildOOInstance_part2">Screencast demonstrating writing and executing an EOL program</a>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.buildooinstance">A simple EOL program that constructs an OO model</a>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.shortestpath">Dijkstra's shortest path algorithm in EOL</a>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.calljava">Call Java from EOL</a>
+			<li><a href="../../cinema/#BuildOOInstance_part2">Screencast: Writing and executing an EOL program</a>
+			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.buildooinstance">Example: A simple EOL program that constructs an OO model</a>
+			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.shortestpath">Example: Dijkstra's shortest path algorithm in EOL</a>
+			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.calljava">Example: Call Java from EOL</a>
+			<li><a href="../EpsilonTools.pdf">Article: Epsilon Tools Documentation</a>
+			<li><a href="../EpsilonProfilingTools.pdf">Article: Epsilon Profiling Tools Documentation</a>
 		</ul>
 		
 		<h4>Reference</h4>
 		
-		Chapter 4 of the <a href="">Epsilon book</a> provides a complete 
+		Chapter 4 of the <a href="../book">Epsilon book</a> provides a complete 
 		reference of the syntax and semantics of EOL.
 		<!--
 While EOL can be used as a standalone language, its primary target is to be embedded as an expression language to task-specific model management languages such as ETL, EVL, EWL etc. 

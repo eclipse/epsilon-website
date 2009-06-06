@@ -18,34 +18,66 @@
 	$pageKeywords	= "";
 	$pageAuthor		= "Freddy Allilaire";
 	include ('../common.php');
+	include ('tools.php');
 	ob_start();
 	?>
 
 <!-- Main part -->
 	<div id="midcolumn">
 		<h1><?=$pageTitle?></h1>
-
-		<h3>Book</h3>
 		
-		<p>
-			<a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf" target="blank">The Epsilon Book</a>:
-			We have put together a PDF e-book that provides a complete reference of all the individual languages
-			provided by Epsilon. Like Epsilon, the book is also open-source. You can access the LaTeX sources using the instructions provided
-			<a href="http://epsilonlabs.wiki.sourceforge.net/Subversion">here</a>. 
-			Any feedback on omissions, errors or out-dated content is always highly appreciated!
-		</p>
+		<img style="float:right;padding:10px" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png"/>
+		
+		<p>Epsilon provides a family of metamodel-agnostic languages for creating, querying and modifying  EMF (<a href="emc">and other types of</a>) models in various ways.</p> 
+		<p>At the core of Epsilon is the <a href="eol">Epsilon Object Language (EOL)</a>, an imperative model-oriented language that combines the procedural style of Javascript with the powerful model querying capabilities of OCL. Epsilon also provides several task-specific languages, which use EOL as an expression language. Each task-specific language provides constructs and syntax that are tailored to the specific task.</p> 
+		
+		<p>The task-specific languages provided by Epsilon are:</p>
+		
+		<ul>
+		
+		<li><a href="etl">Epsilon Transformation Language (ETL)</a>: A rule-based model-to-model transformation language that supports transforming many input to many output models, rule inheritacne,  lazy and greedy rules, and the ability to query and modify both input and output models.
+		
+		<li><a href="evl">Epsilon Validation Language (EVL)</a>: A model validation language that supports both intra and inter-model consistency checking, constraint dependency management and specifying fixes that	users can invoke to repair identified inconsistencies. EVL is integrated with EMF/GMF and as such, EVL constraints can be evaluated from within EMF/GMF editors and generate error markers for failed constraints.
+		
+		<li><a href="egl">Epsilon Generation Language (EGL)</a>: A template-based model-to-text language for generating code, documentation and other textual artefacts from models. EGL supports content-destination decoupling, protected regions for mixing generated with hand-written code and template coordination.
+		
+		<li><a href="ewl">Epsilon Wizard Language (EWL)</a>: A language tailored to interactive in-place model transformations on model elements seleted by the user. EWL is integrated with EMF/GMF and as such, wizards can be executed from within EMF and GMF editors.
+		
+		<li><a href="ecl">Epsilon Comparison Language (ECL)</a>: A rule-based language for discovering  correspondences (matches) between elements of models of diverse metamodels.
+		
+		<li><a href="eml">Epsilon Merging Language (EML)</a>: A rule-based language for merging models of diverse metamodels, after first identifying their correspondences with <a href="ECL">ECL</a> (or otherwise).
+		
+		</ul>
+		
+		<h4>Tools</h4>
+		
+		<img style="float:right" src="http://dev.eclipse.org/huge_icons/categories/preferences-system.png"/>
+		<p>Apart from the languages above, Epsilon also contains several smaller tools and utilities.</p>
+		
+		<ul>
+		
+		<li><a href="eugenia">EuGENia</a>: EuGENia is a front-end for GMF. Its aim is to speed up
+		the process of developing a GMF editor and lower the entrance barrier for new developers.
+		To this end, EuGENia enables developers to generate a fully-functional GMF editor only by specifying
+		a few high-level annotations in the Ecore metamodel.
+		
+		<li><a href="exeed">Exeed</a>: Exeed is an enhanced version of the built-in EMF reflective
+		tree-based editor that enables developers to customize the labels and icons of model elements
+		simply by attaching a few simple annotations to the respective EClasses in the Ecore metamodel.
+		Exeed also supports setting the values of references using drag-and-drop instead of using the
+		combo boxes in the properties view.
+		
+		<li><a href="modelink">ModeLink</a>: ModeLink is an editor consisting of 2-3 side-by-side EMF
+		tree-based editors, and is very convenient for establishing (weaving) links 
+		between different models using drag-and-drop.
+		
+		<li><a href="workflow">Workflow</a>: Epsilon provides a set of ANT tasks to enable developers
+		assemble complex workflows that involve both MDE and non-MDE tasks. 
+		
+		<!--li><a href="concordance">Concordance</a>: Concordance is a toolkit that records and maintains
+		cross-model references in a consistent state when EMF models are moved in the workspace. -->
 		
 		<!--
-		<p>
-			<a href="mdd-tif-epsilon.pdf" target="blank">A complete case study using Epsilon</a>:
-			This article demonstrates how languages and tools from Epsilon have been used to implement
-			the <a href="http://www.dsmforum.org/events/MDD-TIF07/InteractiveTVApps.pdf" target="blank">Interactive TV Applications</a> 
-			case study proposed by the organizers of the Model-Driven Development Tools Implementers Forum 
-			(<a href="http://www.dsmforum.org/events/MDD-TIF07/" target="blank">MDD-TIF 2007</a>).
-			<i>(The complete source code and models/metamodels used in the case study will be soon available in the <a href="../examples">examples section</a>.
-			Until then, a temporary compressed archive can be found <a href="http://www-users.cs.york.ac.uk/~dkolovos/epsilon/mdd-tif/TVApps.zip">here</a>)</i>
-		</p>
-		-->
 		
 		<h3>Installing Epsilon</h3>
 		
@@ -53,17 +85,6 @@
 			Please see the <a href="../download.php">downloads</a> page for instructions on how to install Epsilon.
 		</p>
 		
-		<!--
-		<p>
-			<a href="PluginInstallation.pdf">Installing the Epsilon Plug-ins</a>: Provides instructions for
-			installing the Epsilon plug-ins
-		</p>
-		
-		<p>
-			<a href="EpsilonCVS.pdf">Accessing the source code of Epsilon from CVS</a>: Provides instructions for setting up a local
-			copy of the source code of Epsilon on your machine using Eclipse 3.2
-		</p>
-		-->
 		<h3>Technical Documents</h3>
 		
 		<p> 
@@ -108,18 +129,12 @@
 		<p>
 			<a href="Epsilon-Project-Description.doc">Epsilon Project Plan</a>: Project plan of Epsilon component
 		</p>
+		
+		-->
 	</div>
+
 	<div id="rightcolumn">
-	<div class="sideitem">
-	<h6>See also...</h6>
-	<ul>
-		<li><a href="../cinema">Screencasts</a>
-		<li><a href="../examples">Examples</a>
-		<li><a href="../live">Live</a>
-		<li><a href="../faq.php">Frequently Asked Questions</a>
-		<li><a href="../download.php">Download instructions</a>
-	</ul>
-	</div>
+	<?=toolsSideItem()?>
 	</div>
 <?
 	include('../stats.php');

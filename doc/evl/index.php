@@ -48,9 +48,11 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 		<h4>Examples and Screencasts</h4>
 		<ul>
-			<li><a href="../../cinema/#EVLGMFValidation">Screencast demonstrating the integration of EVL with GMF</a>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.validateoo">Validate an OO model with EVL</a>
-			<li><a href="../../cinema/#ModeLink_part2">Screencast demonstrating inter-model constraints with EVL</a>
+			<li><a href="../../cinema/#EVLGMFValidation">Screencast: Demonstrating the integration of EVL with GMF</a>
+			<li><a href="http://epsilonlabs.wiki.sourceforge.net/EVL-GMF+Integration">Tutorial: Integrating EVL with an EMF/GMF editor</a>
+			<li><a href="http://epsilonblog.wordpress.com/2008/11/09/error-markers-and-quick-fixes-in-gmf-editors-using-evl/">Article: Error markers and quick fixes in GMF editors using EVL</a>
+			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.validateoo">Example: Validate an OO model with EVL</a>
+			<li><a href="../../cinema/#ModeLink_part2">Screencast: Evaluting inter-model constraints with EVL</a>
 		</ul>
 		
 		<h4>Reference</h4>

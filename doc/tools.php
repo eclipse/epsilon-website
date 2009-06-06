@@ -24,6 +24,12 @@ function toolsSideItem () {
 	$html .= "	</ul>\r\n";
 	$html .= "</div>\r\n";
 	
+	$html .= seeAlsoSideItem();
+	
+	return $html;
+}
+
+function seeAlsoSideItem() {
 	$html .= <<<SEEALSO
 	<div class="sideitem">
 	<h6>See also...</h6>
@@ -37,7 +43,6 @@ function toolsSideItem () {
 	</ul>
 	</div>
 SEEALSO;
-	
 	return $html;
 }
 

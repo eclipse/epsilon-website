@@ -16,7 +16,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Epsilon Transformation Language";
+	$pageTitle 		= "Epsilon Generation Language";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../../common.php');
@@ -28,39 +28,31 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="midcolumn">
 
 		<h1><?=$pageTitle?></h1>
-		<p>ETL is a hybrid, rule-based model-to-model transformation language built on top of EOL.
-		ETL provides all the standard features of a transformation language but also 
-		provides enhanced flexibility as it can transform many input to many output models,
-		and can query/navigate/modify both source and target models.</p>
+		<p>EGL is a template-based model-to-text language for generating
+		code, documentation and other textual artefacts from models. EGL supports content-destination decoupling, protected regions for mixing generated with hand-written code, and template coordination</p>
 		
 		<h4>Features</h4>
 		
 		<ul>
-			<li>Transform many input to many output models
-			<li>Ability to query/navigate/modify both source and target models
-			<li>Declarative rules with imperative bodies
-			<li>Automated rule execution
-			<li>Lazy and greedy rules
-			<li>Multiple rule inheritance
-			<li>Guarded rules
+			<li>Decouple content from destination (can generate text to files, network sockets etc.)
+			<li>Call templates (with parameters) from other templates
+			<li>Define and call sub-templates
+			<li>Mix generated with hand-written code
 		</ul>
 		
 		<?=eolFeatures()?>
 
 		<h4>Examples and Screencasts</h4>
 		<ul>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.tree2graph">Transform a Tree model into a graph model with ETL</a>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.oo2db">Transform an OO model to a DB model with ETL</a>
+			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.egldoc">Example: Generate HTML from an Ecore metamodel</a>
+			<li>Screencast: Generating an HTML report (<a href="../../cinema/#EglIntroduction">part 1</a>, <a href="../../cinema/#EglVariables">part 2</a>)
 		</ul>
 		
 		<h4>Reference</h4>
 		
-		Chapter 6 of the <a href="../book">Epsilon book</a> provides a complete 
-		reference of the syntax and semantics of ETL.
-		<!--
-While EOL can be used as a standalone language, its primary target is to be embedded as an expression language to task-specific model management languages such as ETL, EVL, EWL etc. 
-Here are some more examples ...
--->
+		Chapter 8 of the <a href="../book">Epsilon book</a> provides a complete 
+		reference of the syntax and semantics of EGL.
+
 		<hr class="clearer" />
 	
 	</div>

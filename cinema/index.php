@@ -30,7 +30,7 @@
 
 	<div id="midcolumn">
 	<h1><?=$pageTitle?></h1>
-		<!--img style="float:right" src="../images/screencast.gif"-->
+		<img style="float:right" src="http://dev.eclipse.org/huge_icons/mimetypes/x-office-presentation.png">
 		This page contains several screencasts demonstrating different tools and languages in Epsilon. To watch the screencasts you must have a <a href="http://get.adobe.com/flashplayer/">Flash player</a> installed and enabled in your browser. All screencasts have been captured using <a href="http://www.debugmode.com/wink">Wink</a>.
 		
 		<br><br>

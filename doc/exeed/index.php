@@ -16,7 +16,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Epsilon Transformation Language";
+	$pageTitle 		= "Workflow";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../../common.php');
@@ -28,42 +28,27 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="midcolumn">
 
 		<h1><?=$pageTitle?></h1>
-		<p>ETL is a hybrid, rule-based model-to-model transformation language built on top of EOL.
-		ETL provides all the standard features of a transformation language but also 
-		provides enhanced flexibility as it can transform many input to many output models,
-		and can query/navigate/modify both source and target models.</p>
-		
-		<h4>Features</h4>
-		
-		<ul>
-			<li>Transform many input to many output models
-			<li>Ability to query/navigate/modify both source and target models
-			<li>Declarative rules with imperative bodies
-			<li>Automated rule execution
-			<li>Lazy and greedy rules
-			<li>Multiple rule inheritance
-			<li>Guarded rules
-		</ul>
-		
-		<?=eolFeatures()?>
+		<p>Exeed is an enhanced version of the built-in EMF reflective tree-based
+editor that enables developers to customize the labels and icons of
+model elements simply by attaching a few simple annotations to the
+respective EClasses in the Ecore metamodel. Exeed also supports setting
+the values of references using drag-and-drop instead of using the combo
+boxes in the properties view.</p>
 
-		<h4>Examples and Screencasts</h4>
+		<h4>Features</h4>
 		<ul>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.tree2graph">Transform a Tree model into a graph model with ETL</a>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.oo2db">Transform an OO model to a DB model with ETL</a>
+			<li>Customize the appearance of nodes in the reflective tree editor
+			without generating a dedicated editor</li>
+			<li>Specify the label and icon of each node using <a href="../eol">EOL</a></li>
+			<li>Labels and icons can reflect the status of an element (e.g.
+		different icon depending on whether a property is true/false)</li>
 		</ul>
-		
-		<h4>Reference</h4>
-		
-		Chapter 6 of the <a href="../book">Epsilon book</a> provides a complete 
-		reference of the syntax and semantics of ETL.
-		<!--
-While EOL can be used as a standalone language, its primary target is to be embedded as an expression language to task-specific model management languages such as ETL, EVL, EWL etc. 
-Here are some more examples ...
--->
-		<hr class="clearer" />
-	
-	</div>
+
+		<h4>Resources</h4>
+		<ul>
+			<li><a href="../Exeed.pdf">Tutorial: Editing EMF models with Exeed (slightly outdated)</a>
+		</ul>
+</div>
 
 	<div id="rightcolumn">
 		<?=toolsSideItem()?>

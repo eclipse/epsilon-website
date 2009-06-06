@@ -16,7 +16,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Epsilon Transformation Language";
+	$pageTitle 		= "Epsilon Merging Language";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../../common.php');
@@ -28,17 +28,17 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="midcolumn">
 
 		<h1><?=$pageTitle?></h1>
-		<p>ETL is a hybrid, rule-based model-to-model transformation language built on top of EOL.
-		ETL provides all the standard features of a transformation language but also 
-		provides enhanced flexibility as it can transform many input to many output models,
-		and can query/navigate/modify both source and target models.</p>
+		<p>EML is a hybrid, rule-based language for merging homogeneous or heterogeneous models. As a merging language requires all the features of a transformation language (merging model A with an empty model into model B is equivalent to transforming A->B), EML reuses the syntax and semantics of <a href="../etl">ETL</a> and extends it with concepts specific to model merging.</p>
+		<p>Before merging can be performed, correspondences between elements of the input models need to be established. This can be achieved using the <a href="../ecl">comparison language</a> of Epsilon (or using Java).
 		
 		<h4>Features</h4>
 		
 		<ul>
-			<li>Transform many input to many output models
-			<li>Ability to query/navigate/modify both source and target models
+			<li>Merge homegeneous models
+			<li>Merge heterogeneous models
+			<li>Complete specification of the merging logic
 			<li>Declarative rules with imperative bodies
+			<li>Export the merge trace to a custom model/format
 			<li>Automated rule execution
 			<li>Lazy and greedy rules
 			<li>Multiple rule inheritance
@@ -49,18 +49,14 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 		<h4>Examples and Screencasts</h4>
 		<ul>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.tree2graph">Transform a Tree model into a graph model with ETL</a>
-			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.oo2db">Transform an OO model to a DB model with ETL</a>
+			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.mergeentitywithvocabulary">Merge heterogeneous models with EML</a>
 		</ul>
 		
 		<h4>Reference</h4>
 		
-		Chapter 6 of the <a href="../book">Epsilon book</a> provides a complete 
-		reference of the syntax and semantics of ETL.
-		<!--
-While EOL can be used as a standalone language, its primary target is to be embedded as an expression language to task-specific model management languages such as ETL, EVL, EWL etc. 
-Here are some more examples ...
--->
+		Chapter 10 of the <a href="../book">Epsilon book</a> provides a complete 
+		reference of the syntax and semantics of EML.
+
 		<hr class="clearer" />
 	
 	</div>
