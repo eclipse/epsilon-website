@@ -34,7 +34,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<div style="float:right"><h3 style="color:#C0C0C0"><i>Votes: <?=$votes?> (<?=number_format($rating,1)?>/10)</i></h3></div>
 		<h3>Rate Epsilon at EPIC</h3>
 		
-		<div style="float:right">
+		<div style="float:right;padding-left:10px">
 			<form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
 
 			<select name="rating" style="width:67px">
@@ -60,13 +60,14 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<p>Eclipse Plugin Central is the most comprehensive source of Eclipse plugins. You can use the form on the right to rate <a href="http://www.eclipseplugincentral.com/Web_Links-index-req-viewlink-cid-887.html">Epsilon</a> directly from this page without needing to have an account, login or anything (but please vote only once :)).</p>
 		
 		<h3>Add Epsilon to your Ohloh stack</h3>
-		<div style="float:right">
+		<div style="float:right;padding-left:10px">
 <script type="text/javascript" src="http://www.ohloh.net/p/8615/widgets/project_users.js"></script>
 		</div>
 		<p>Ohloh is an increasingly popular social networking site that connects software with the people that develop and use it. You can click on the widget on the right to add <a href="http://www.ohloh.net/projects/8615">Epsilon</a> to the stack of applications you are using and let other developers looking in the MDE direction know that you are finding it useful.</p>
 		
 		<h3>Share your experiences</h3>
-		<p>Consider spending some time to share your experiences with Epsilon in your blog or in the <a href="/gmt/epsilon/newsgroup">newsgroup</a>. Here are some examples of blog articles that discuss different bits of Epsilon:
+		<img style="float:right;padding-left:10px;" src="http://dev.eclipse.org/huge_icons/status/audio-volume-high.png"/>
+		<p>Consider investing some time to share your experiences with Epsilon in your blog, website, or in the <a href="/gmt/epsilon/newsgroup">newsgroup</a>. Here are some examples of blog articles that discuss different bits of Epsilon:
 		<ul>
 			<li> <a href="http://www.randomice.net/2008/08/gmf-toolkits/">GMF Toolkits</a>
 			<li> <a href="http://kbm.blogspot.com/2009/05/cool-live-mda-via-google-app-engine.html">Cool - live MDE via Google App Engine</a>
@@ -84,7 +85,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<div class="sideitem">
 			<h6>Spread the word</h6>
 			<p>
-If you're using Epsilon and are finding it useful, consider spreading the word using one or more of the options provided in this page. <!--<br/><br/>After all, few things motivate a developer to get into the trouble of installing and evaluating a tool more than other developers' recommendations.-->
+If you're using Epsilon and are finding it useful, you may want to use one or more of the options in this page to let other developers know too. <!--<br/><br/>After all, few things motivate a developer to get into the trouble of installing and evaluating a tool more than other developers' recommendations.-->
 			</p>
 		</div>
 	

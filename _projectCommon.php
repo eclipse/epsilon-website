@@ -31,14 +31,14 @@ EOBRANDING;
 	# these are optional
 	$Nav->addNavSeparator("Epsilon", "/gmt/epsilon/");
 	$Nav->addCustomNav("Home", "/gmt/epsilon/", "_self", 1);
-	$Nav->addCustomNav("Live <i><span style='color:red'>(new!)</span></i>", "/gmt/epsilon/live", "_self", 1);
+	$Nav->addCustomNav("Live", "/gmt/epsilon/live", "_self", 1);
 	$Nav->addCustomNav("Download", "/gmt/epsilon/download.php", "_self", 1);
-	$Nav->addCustomNav("Source code", "http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON", "_self", 1);
-	$Nav->addNavSeparator("Documentation", "#");
+	//$Nav->addCustomNav("Source code", "http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON", "_self", 1);
+	$Nav->addNavSeparator("Resources", "#");
+	$Nav->addCustomNav("Documentation", "/gmt/epsilon/doc/", "_self", 1);
 	$Nav->addCustomNav("Screencasts", "/gmt/epsilon/cinema/", "_self", 1);
 	$Nav->addCustomNav("Examples", "/gmt/epsilon/examples", "_self", 1);
 	$Nav->addCustomNav("FAQs", "/gmt/epsilon/faq.php", "_self", 1);
-	$Nav->addCustomNav("Documentation", "/gmt/epsilon/doc/", "_self", 1);
 	$Nav->addCustomNav("Book", "/gmt/epsilon/doc/book", "_self", 1);
 	$Nav->addCustomNav("Blog", "http://epsilonblog.wordpress.com", "_self", 1);
 	$Nav->addNavSeparator("Getting help", "#");

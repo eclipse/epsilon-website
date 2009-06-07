@@ -568,8 +568,10 @@ Private method: controller
 		var controller = (el) ? el.empty() : new Element('div', {'class': this.classes.get('controller').substr(1)}).inject(this.slideshow);
 		var ul = new Element('ul').inject(controller);
 		$H({'first': 'Shift + Leftwards Arrow', 'prev': 'Leftwards Arrow', 'pause': 'P', 'next': 'Rightwards Arrow', 'last': 'Shift + Rightwards Arrow'}).each(function(accesskey, action){
+			// dkolovos: added list-style-image:none
 			var li = new Element('li', {
 				'class': (action == 'pause' && this.options.paused) ? this.classes.play + ' ' + this.classes[action] : this.classes[action]
+				, 'style' : 'list-style-image:none'
 			}).inject(ul);
 			var a = this.slideshow.retrieve(action, new Element('a', {
 				'title': ((action == 'pause') ? this.classes.play.capitalize() + ' / ' : '') + this.classes[action].capitalize() + ' [' + accesskey + ']'				

@@ -58,24 +58,24 @@
 	//<![CDATA[
 	  window.addEvent('domready', function(){
 	    var data = {
-						'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your ECore metamodel with EuGENia', href: 'cinema'},
-				'slideshow/images/EVL.png': { caption: 'Write constraints for your ECore metamodel with EVL', href: 'cinema' },
-				'slideshow/images/EVL-GMF.png': { caption: '... and see the errors/warnings in your GMF editor', href: 'cinema' },
-				'slideshow/images/EWL.png': { caption: 'Write wizards for your metamodel with EWL', href: 'cinema' },
-				'slideshow/images/InvokeWizard.png': { caption: '... invoke them in your GMF editor', href: 'cinema' },
-				'slideshow/images/InvokedWizard.png': { caption: '... and see the results live in your editor', href: 'cinema' },
-	      		'slideshow/images/EOL.png': { caption: 'Query and modify your models with EOL', href: 'cinema' }, 
-	      		'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages', href: 'cinema' },
-				'slideshow/images/RegistryView.png': { caption: 'Explore the registered EMF EPackages', href: 'cinema' }, 
-				'slideshow/images/Exeed.png': { caption: 'Customize icons and labels in the reflective EMF editor', href: 'cinema' }, 
-				'slideshow/images/HUTN.png': { caption: 'Construct your models with the OMG HUTN', href: 'cinema' }, 
-				'slideshow/images/EGL.png': { caption: 'Generate text from your models with EGL', href: 'cinema' },
-	      		'slideshow/images/ETL.png': { caption: 'Transform your models with ETL', href: 'cinema' },
-				'slideshow/images/ECL.png': { caption: 'Compare your models with ECL', href: 'cinema' },
-				'slideshow/images/EML.png': { caption: 'Merge your models with EML', href: 'cinema' },
-				'slideshow/images/ANT.png': { caption: 'Create complex workflows using the Epsilon ANT tasks', href: 'cinema' }
+						'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your ECore metamodel with EuGENia', href: 'doc/eugenia'},
+				'slideshow/images/EVL.png': { caption: 'Write constraints for your ECore metamodel with EVL', href: 'doc/evl' },
+				'slideshow/images/EVL-GMF.png': { caption: '... and see the errors/warnings in your GMF editor', href: 'doc/evl' },
+				'slideshow/images/EWL.png': { caption: 'Write wizards for your metamodel with EWL', href: 'doc/ewl' },
+				'slideshow/images/InvokeWizard.png': { caption: '... invoke them in your GMF editor', href: 'doc/ewl' },
+				'slideshow/images/InvokedWizard.png': { caption: '... and see the results live in your editor', href: 'doc/ewl' },
+	      		'slideshow/images/EOL.png': { caption: 'Query and modify your models with EOL', href: 'doc/eol' }, 
+	      		'slideshow/images/Native.png': { caption: 'Call Java code from all Epsilon languages', href: 'doc/eol' },
+				'slideshow/images/RegistryView.png': { caption: 'Explore the registered EMF EPackages', href: 'doc' }, 
+				'slideshow/images/Exeed.png': { caption: 'Customize icons and labels in the reflective EMF editor', href: 'doc/exeed' }, 
+				'slideshow/images/HUTN.png': { caption: 'Construct your models with the OMG HUTN', href: 'doc/hutn' }, 
+				'slideshow/images/EGL.png': { caption: 'Generate text from your models with EGL', href: 'doc/egl' },
+	      		'slideshow/images/ETL.png': { caption: 'Transform your models with ETL', href: 'doc/etl' },
+				'slideshow/images/ECL.png': { caption: 'Compare your models with ECL', href: 'doc/ecl' },
+				'slideshow/images/EML.png': { caption: 'Merge your models with EML', href: 'doc/eml' },
+				'slideshow/images/ANT.png': { caption: 'Create complex workflows using the Epsilon ANT tasks', href: 'doc/worlkflow' }
 	    };
-	    var myShow = new Slideshow('show', data, {captions: true, controller: false, height:281, width:495, thumbnails: false, delay:4000});
+	    var myShow = new Slideshow('show', data, {captions: true, controller: true, height:281, width:495, thumbnails: false, delay:6000});
 	  });
 	//]]>
 	</script>	
@@ -187,7 +187,7 @@
 			</center>
 		</div>	
 		-->
-		<!--
+		
 		<div class="sideitem">
 			<h6>Visitors</h6>
 			<center>
@@ -196,7 +196,6 @@
 			</a>
 			</center>
 		</div>
-		-->
 		
 		<div class="sideitem">
 			<?=r2h("Updates", "http://www.eclipse.org/gmt/epsilon/news/epsilonNewsArchive.rss", array(' '), 6)?>
@@ -209,7 +208,7 @@
 	$html = ob_get_contents();
 	ob_end_clean();
 	# Generate the web page
-	$App->AddExtraHtmlHeader("<link rel='alternate' type='application/rss+xml' title='Epsilon News' href='news/epsilonNewsArchive.rss'>");
 	$App->AddExtraHtmlHeader("<link rel='stylesheet' type='text/css' href='slideshow/css/slideshow.css' media='screen' />");
+	$App->AddExtraHtmlHeader("<link rel='alternate' type='application/rss+xml' title='Epsilon News' href='news/epsilonNewsArchive.rss'>");
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
