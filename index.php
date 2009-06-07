@@ -146,9 +146,10 @@
 		<div class="sideitem">
 			<h6 nostyle="background-color:#36354F;color:white">Getting Started</h6>
 			<ol>
+				<li><a href="doc">Learn more about Epsilon</a></li>
 				<li><a href="cinema">Watch the screencasts</a></li>
 				<li><a href="examples">Go through the examples</a></li>
-				<li><a href="live">Run EOL in your browser</a><font style="color:red"><b><i> (new!)</i></b></font>
+				<li><a href="live">Run EOL in your browser</a>
 				<li><a href="download.php"><b>Download</b></a></li>
 				<li><a href="doc/book">Get the book</a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>

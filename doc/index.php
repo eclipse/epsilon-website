@@ -74,6 +74,14 @@
 		<li><a href="workflow">Workflow</a>: Epsilon provides a set of ANT tasks to enable developers
 		assemble complex workflows that involve both MDE and non-MDE tasks. 
 		
+		</ul>
+		
+		<h4>Resources</h4>
+		<ul>
+			<li><a href="http://epsilonblog.wordpress.com/2007/11/15/positioning-epsilon-in-the-mdd-landscape/">Article: Positioning Epsilon in the MDD landscape</a>
+			<li><a href="http://epsilonblog.wordpress.com/2007/11/11/a-brief-history-of-epsilon/">Article: A brief history of Epsilon</a>
+		</ul>
+		
 		<!--li><a href="concordance">Concordance</a>: Concordance is a toolkit that records and maintains
 		cross-model references in a consistent state when EMF models are moved in the workspace. -->
 		
