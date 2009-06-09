@@ -56,7 +56,7 @@ function r2m($title, $feed, $posts, $heading=3, $limit = 5) {
 		$title = $item->getOneChild("title")->childNodes[0]->data;
 		foreach ($posts as $post) {
 			if (substr_count($title,$post) > 0 && $i < $limit) {
-				$html .= '<a href="'.$item->getOneChild("link")->childNodes[0]->data.'">'.$title.'</a><br/>';
+				$html .= '<a href="'.$item->getOneChild("link")->childNodes[0]->data.'">'.$title.'</a><p>';
 				//$html .= '   <span style="color:#C0C0C0"><i>('.$item->getOneChild("pubDate")->childNodes[0]->data.')</i></span>';
 				//$content = $item->getOneChild("description")->childNodes[0]->data;
 				//if (trim($content) == "") {
@@ -76,7 +76,7 @@ function r2m($title, $feed, $posts, $heading=3, $limit = 5) {
 					//$content = "nothing...";
 				//}
 				
-				$html .= $content.$more.'<br>';
+				$html .= $content.$more.'</p>';
 				//$html .= '<p><b>Posted: </b>'.$item->getOneChild("pubDate")->childNodes[0]->data.'</p>';
 				$i++;
 			}
