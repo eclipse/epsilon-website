@@ -23,9 +23,11 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	
 	# Create a parser and parse the examples.xml document.
 	include_once("../dom4php/XmlParser.php");
+	include_once("../examples/SyntaxHighlight.php");
 	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
 	$document = $parser->parse(file_get_contents("scripts.xml"));
 	$scripts = $document->getElementsByTagName("script");
+	
 	//include ('../examples/SyntaxHighlight.php');
 	ob_start();
 ?>
@@ -40,13 +42,18 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			$description = $script->getOneChild("description")->childNodes[0]->data;
 			$title = $script->getAttribute("title");
 			$source = $script->getOneChild("source")->childNodes[0]->data;
-			//$source = highlight($source, "eol");
-			$order   = array("\r\n", "\n", "\r");
-			$replace = '<br/>';
-			$source = str_replace($order, $replace, trim($source));
-			$order   = array(" ");
-			$replace = '&nbsp;';
-			$source = str_replace($order, $replace, trim($source));
+			$highlight = false;
+			if ($highlight) {
+				$source = highlight($source, "eol");
+			}
+			else {
+				$order   = array("\r\n", "\n", "\r");
+				$replace = '<br/>';
+				$source = str_replace($order, $replace, trim($source));
+				$order   = array(" ");
+				$replace = '&nbsp;';
+				$source = str_replace($order, $replace, trim($source));
+			}
 			?>
 			<h4><a name="<?=$title?>" style="color:black;text-decoration:none"><?=$title?></a></h4> 
 			<b>Description:</b> <?=$description?>

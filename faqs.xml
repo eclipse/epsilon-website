@@ -15,7 +15,7 @@
 	<faq>
 		<title>Who is using Epsilon?</title>
 		<answer><![CDATA[
-		<p>While we can't possibly have a precise answer to this, with more than 300 posts in the eclipse.epsilon newsgroup, it appears that quite a few people are currently using different bits of Epsilon.]]>
+		<p>While we can't possibly have a precise answer to this, with more than 400 posts in the eclipse.epsilon newsgroup, it seems that quite a few people are currently using different bits of Epsilon. Some of them have also <a href="spreadtheword.php">shared their experiences online</a>.]]>
 		</answer>
 	</faq>
 	<faq>
@@ -49,15 +49,15 @@
 		</answer>
 	</faq>
 	<faq>
-		<title>What is the difference between E*L and langage XYZ?</title>
+		<title>What is the difference between E*L and langage X?</title>
 		<answer><![CDATA[
-		<p>If the available <a href="doc/">documentation</a> and <a href="cinema/">screencasts</a> don't answer this, please feel free to post your question to the eclipse.epsilon newsgroup.]]>
+		<p>If the available <a href="doc/">documentation</a> doesn't provide enough information for figuring this out, please feel free to ask in the <a href="newsgroup">eclipse.epsilon newsgroup</a>.]]>
 		</answer>
 	</faq>
 	<faq>
 		<title>How can I contribute to Epsilon?</title>
 		<answer><![CDATA[
-		<p>A good way is to demonstrate your interest by submiting bug reports, feature requests - and hopefully patches that fix/implement them. This is required by the Eclipse Foundation in order to later on be nominated for a committer account.]]>
+		<p>There are several ways to contribute to Epsilon. In the first phase you can ask questions in the newsgroup and help with maintaining the vibrant community around Epsilon. You may also want to let other developers know about Epsilon by <a href="spreadtheword.php">sharing your experiences</a> online. If you are interested in contributing code to Epsilon, you should start by submiting bug reports, feature requests - and hopefully patches that fix/implement them. This will demonstrate your commitment and long-term interest in the project - which is required by the Eclipse Foundation in order to later on be nominated for a committer account.]]>
 		</answer>
 	</faq>
 </faqs>
