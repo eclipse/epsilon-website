@@ -71,6 +71,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<ul>
 			<li> <a href="http://www.randomice.net/2008/08/gmf-toolkits/">GMF Toolkits</a>
 			<li> <a href="http://kbm.blogspot.com/2009/05/cool-live-mda-via-google-app-engine.html">Cool - live MDE via Google App Engine</a>
+			<li> <a href="http://blog.pyramism.net/2008/01/blog-filter-epsilon-and-glimmer.html">Blog filter: Epsilon and Glimmer</a>
 			<li><a href="http://stephaneerard.wordpress.com/2009/06/03/les-epsilons-endoctrines/">Les Epsilons endoctrin&eacute;s</a> (in French)
 			<li><a href="http://stephaneerard.wordpress.com/2009/06/04/les-epsilons-endoctrines-generent-pour-se-liberer/">Les Epsilons endoctrin&eacute;s g&eacute;n&egrave;rent pour se lib&eacute;rer</a> (in French)
 			<li><a href="http://entwickler.com/itr/news/psecom,id,47401,nodeid,82.html">Neues bei Eclipse-Modeling: Projekt Epsilon</a> (in German)
