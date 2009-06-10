@@ -31,7 +31,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 ?>
 
 	<div id="midcolumn">
-		<div style="float:right"><h3 style="color:#C0C0C0"><i>Votes: <?=$votes?> (<?=number_format($rating,1)?>/10)</i></h3></div>
+		<div style="float:right"><h3 style="color:#C0C0C0"><i><?=number_format($rating,1)?>/10 (<?=$votes?> votes)</i></h3></div>
 		<h3>Rate Epsilon at EPIC</h3>
 		
 		<div style="float:right;padding-left:10px">
@@ -66,7 +66,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<p>Ohloh is an increasingly popular social networking site that connects software with the people that develop and use it. You can click on the widget on the right to add <a href="http://www.ohloh.net/projects/8615">Epsilon</a> to the stack of applications you are using and let other developers looking in the MDE direction know that you are finding it useful.</p>
 		
 		<h3>Share your experiences</h3>
-		<img style="float:right;padding-left:10px;" src="http://dev.eclipse.org/huge_icons/status/audio-volume-high.png"/>
+		<img style="float:right;padding-left:10px;" src="http://dev.eclipse.org/huge_icons/devices/network-wireless.png"/>
 		<p>Consider investing some time to share your experiences with Epsilon in your blog, website, or in the <a href="/gmt/epsilon/newsgroup">newsgroup</a>. Here are some examples of blog articles that discuss different bits of Epsilon:
 		<ul>
 			<li> <a href="http://www.randomice.net/2008/08/gmf-toolkits/">GMF Toolkits</a>
