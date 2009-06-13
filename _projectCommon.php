@@ -56,6 +56,7 @@ EOBRANDING;
 	$Nav->addCustomNav("Download", "/gmt/download/", "_self", 1);
 	$Nav->addCustomNav("Documentation", "/gmt/doc/", "_self", 1);
 	$Nav->addCustomNav("Wiki", "http://wiki.eclipse.org/index.php/GMT", "_self", 1);
-
+	
+	$App->SetGoogleAnalyticsTrackingCode("UA-1498421-2");
 	
 ?>
