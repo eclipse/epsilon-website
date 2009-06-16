@@ -14,7 +14,7 @@
 	<atom:link href="http://epsilonblog.wordpress.com/feed/" rel="self" type="application/rss+xml" />
 	<link>http://epsilonblog.wordpress.com</link>
 	<description>... new and noteworthy in the Epsilon Eclipse GMT component</description>
-	<lastBuildDate>Sun, 24 May 2009 05:43:34 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 15 Jun 2009 23:16:26 +0000</lastBuildDate>
 	<generator>http://wordpress.com/</generator>
 	<language>en</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
@@ -25,6 +25,113 @@
 		<link>http://epsilonblog.wordpress.com</link>
 	</image>
 			<item>
+		<title>EuGENia: Polishing your GMF editor</title>
+		<link>http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/</link>
+		<comments>http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/#comments</comments>
+		<pubDate>Mon, 15 Jun 2009 14:09:36 +0000</pubDate>
+		<dc:creator>Dimitris Kolovos</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://epsilonblog.wordpress.com/?p=136</guid>
+		<description><![CDATA[EuGENia is a front-end for GMF that enables developers to generate a fully functional GMF editor by attaching a few high-level annotations to the Ecore metamodel. The original aim of EuGENia was to lower the entrance barrier for new GMF users and enable people to quickly and easily develop the first version of their editor.
+However, [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=136&subd=epsilonblog&ref=&feed=1" />]]></description>
+			<content:encoded><![CDATA[<div class='snap_preview'><br /><p><a href="http://www.eclipse.org/gmt/epsilon/doc/eugenia" target="_blank">EuGENia</a> is a front-end for GMF that enables developers to generate a fully functional GMF editor by attaching a few high-level annotations to the Ecore metamodel. The original aim of EuGENia was to lower the entrance barrier for new GMF users and enable people to quickly and easily develop the first version of their editor.</p>
+<p>However, after the initial excitement of (at last) being able to get a working GMF editor with minimal effort and no cryptic error messages, all users (including ourselves) used to come to a dead-end. EuGENia could generate an editor that looked 90% similar to what we wanted but when we started polishing the .gmfgraph, .gmftool, .gmfmap and .gmfgen models manually to get to 100%, it meant we couldn&#8217;t use EuGENia any more as subsequent invocations of the tool would overwrite our manual changes. Obviously, providing support in EuGENia for all the options that GMF provides wouldn&#8217;t be reasonable either as this would progressively make EuGENia as complex as GMF itself.</p>
+<p>Our first thought was to try merging (instead of overwriting) the generated with the existing GMF models, but due to the complexity and inter-weaving of these models we’ve found no sensible way of doing this in an automated way. Therefore, we’ve come up with a different solution.</p>
+<p>Behind the scenes, EuGENia runs set of model-to-model transformations written in <a href="http://www.eclipse.org/gmt/epsilon/doc/eol" target="_blank">EOL</a> which generate the necessary GMF models from the annotated Ecore metamodel. In order to accommodate the need for persistent customizations, we’re now allowing developers to specify their own little EOL scripts next to the annotated Ecore metamodel, which are responsible for customizing the generated GMF models.</p>
+<p>Let’s go straight into a short example. We define this minimal flowchart metamodel using Emfatic.</p>
+<pre style="font-size:11px;">@namespace(uri="flowchart", prefix="flowchart")
+package flowchart;
+
+@gmf.diagram(foo="bar")
+class Flowchart {
+   val Node[*] nodes;
+   val Transition[*] transitions;
+}
+
+@gmf.node(label="name", label.icon="false")
+abstract class Node {
+   attr String name;
+   ref Transition[*]#source outgoing;
+   ref Transition[*]#target incoming;
+}
+
+@gmf.link(label="name", source="source",
+   target="target", target.decoration="arrow")
+class Transition {
+   attr String name;
+   ref Node#outgoing source;
+   ref Node#incoming target;
+}
+
+class Subflow extends Flowchart, Node{
+
+}
+
+@gmf.node(figure=
+	"org.eclipse...examples.flowchart.diagram.figures.SquareFigure")
+class Action extends Node {
+
+}
+
+@gmf.node(figure=
+	"org.eclipse...examples.flowchart.diagram.figures.DiamondFigure")
+class Decision extends Node {
+
+}</pre>
+<p>We then use EuGENia to generate a GMF editor out of it and here is what we get:</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2009/06/image.png"><img style="border-width:0;" src="http://epsilonblog.files.wordpress.com/2009/06/image_thumb.png?w=469&#038;h=442" border="0" alt="image" width="469" height="442" /></a></p>
+<p>However, what we’d really like to get is this (spot the differences?)</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2009/06/image1.png"><img src="http://epsilonblog.files.wordpress.com/2009/06/image_thumb1.png?w=469&#038;h=442" border="0" alt="image" width="469" height="442" /></a></p>
+<p>To achieve this we need to tweak a few things in the flowchart.gmfgraph model:</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2009/06/image2.png"><img style="border-width:0;" src="http://epsilonblog.files.wordpress.com/2009/06/image_thumb2.png?w=404&#038;h=528" border="0" alt="image" width="404" height="528" /></a></p>
+<p>We can either do these changes manually after every invocation of EuGENia (boring), or specify the changes in the following ECore2GMF.eol script next to our metamodel.</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2009/06/image3.png"><img style="border-width:0;" src="http://epsilonblog.files.wordpress.com/2009/06/image_thumb3.png?w=267&#038;h=323" border="0" alt="image" width="267" height="323" /></a></p>
+<p><strong>ECore2GMF.eol:</strong></p>
+<pre style="font-size:11px;">-- Set text of transitionLabel to empty string
+var transitionLabel = GmfGraph!Label.
+	selectOne(l|l.name='TransitionLabelLabel');
+transitionLabel.text = '';
+
+-- Add bold font to actionLabel
+var actionLabel = GmfGraph!Label.
+	selectOne(l|l.name='ActionLabelFigure');
+actionLabel.font = new GmfGraph!BasicFont;
+actionLabel.font.style = GmfGraph!FontStyle#BOLD.instance;
+
+-- Add italic font to actionLabel
+var decisionLabel = GmfGraph!Label.
+	selectOne(l|l.name='DecisionLabelFigure');
+decisionLabel.font = new GmfGraph!BasicFont;
+decisionLabel.font.style = GmfGraph!FontStyle#ITALIC.instance;</pre>
+<p>Now, each time we click <em>Eugenia-&gt;Generate GMF tool, graph and map models</em>, EuGENia will perform the built-in transformation and then it will also run our custom script on the generated models so that we can get the tailored output we need. Similarly, by specifying a transformation named FixGMFGen.eol we can customize the generated .gmfgen model (in this example we <a href="http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples/org.eclipse.epsilon.eugenia.examples.flowchart/model/FixGMFGen.eol" target="_blank">add a dependency</a> to the figures plugin).</p>
+<p>Except for enabling developers to now use EuGENia throughout the GMF editor development process, this extension also provides a good evolution mechanism for EuGENia itself. Reoccurring scripts will be good candidates for inclusion in the form of high-level annotations, that will be natively supported by future versions of the tool.</p>
+<p>The complete source code of this example is available (projects named org.eclipse.epsilon.eugenia.examples.flowchart.*) in the <a href="http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples" target="_blank">SVN</a>. You can also find another example, as well as more technical details about this extension <a href="http://epsilonlabs.wiki.sourceforge.net/EuGENia+Customization" target="_blank">here</a>.</p>
+  <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/136/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/136/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/136/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/136/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/136/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=136&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
+			<wfw:commentRss>http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+	
+		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D96&#38;r=G" medium="image">
+			<media:title type="html">Dimitris Kolovos</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/06/image_thumb.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/06/image_thumb1.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/06/image_thumb2.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+
+		<media:content url="http://epsilonblog.files.wordpress.com/2009/06/image_thumb3.png" medium="image">
+			<media:title type="html">image</media:title>
+		</media:content>
+	</item>
+		<item>
 		<title>New in Epsilon 0.8.5</title>
 		<link>http://epsilonblog.wordpress.com/2009/05/24/new-in-epsilon-0-8-5/</link>
 		<comments>http://epsilonblog.wordpress.com/2009/05/24/new-in-epsilon-0-8-5/#comments</comments>
@@ -338,7 +445,7 @@ context Sync {
 <p><a href="http://epsilonblog.files.wordpress.com/2008/11/quickfix.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="488" alt="QuickFix" src="http://epsilonblog.files.wordpress.com/2008/11/quickfix-thumb.png?w=412&#038;h=488" width="412" border="0"></a>&nbsp;
 <p>By clicking Finish, the fix is executed and the warning disappears.</p>
 <p><a href="http://epsilonblog.files.wordpress.com/2008/11/afterquickfix.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="322" alt="AfterQuickFix" src="http://epsilonblog.files.wordpress.com/2008/11/afterquickfix-thumb.png?w=438&#038;h=322" width="438" border="0"></a> </p>
-<p>A complete reference of the syntax and semantics of EVL can be found in Chapter 6 of the <a href="http://www.eclipse.org/gmt/epsilon/doc/book">Epsilon Book</a> (PDF). Also, instructions for binding EVL constraints with an existing GMF editor can be found <a href="http://epsilonlabs.wiki.sourceforge.net/EVL-GMF+Integration">here</a>. Finally, a Flash screencast of this example is available <a href="http://www.eclipse.org/gmt/epsilon/cinema/EVLGMFValidation.htm">here</a>.</p>
+<p>A complete reference of the syntax and semantics of EVL can be found in Chapter 6 of the <a href="http://epsilonlabs.svn.sourceforge.net/svnroot/epsilonlabs/org.eclipse.epsilon.book/EpsilonBook.pdf">Epsilon Book</a> (PDF). Also, instructions for binding EVL constraints with an existing GMF editor can be found <a href="http://epsilonlabs.wiki.sourceforge.net/EVL-GMF+Integration">here</a>. Finally, a Flash screencast of this example is available <a href="http://www.eclipse.org/gmt/epsilon/cinema/EVLGMFValidation.htm">here</a>.</p>
   <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/59/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/59/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/59/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/59/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/59/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/59/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=59&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
 			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/11/09/error-markers-and-quick-fixes-in-gmf-editors-using-evl/feed/</wfw:commentRss>
 		<slash:comments>2</slash:comments>
@@ -530,37 +637,6 @@ class File {
 		</media:content>
 
 		<media:content url="http://epsilonblog.files.wordpress.com/2008/08/image-thumb.png" medium="image">
-			<media:title type="html">image</media:title>
-		</media:content>
-	</item>
-		<item>
-		<title>Inspecting EMF models with Exeed</title>
-		<link>http://epsilonblog.wordpress.com/2008/07/17/inspecting-emf-models-with-exeed/</link>
-		<comments>http://epsilonblog.wordpress.com/2008/07/17/inspecting-emf-models-with-exeed/#comments</comments>
-		<pubDate>Thu, 17 Jul 2008 22:34:08 +0000</pubDate>
-		<dc:creator>Dimitris Kolovos</dc:creator>
-				<category><![CDATA[Uncategorized]]></category>
-
-		<guid isPermaLink="false">http://epsilonblog.wordpress.com/2008/07/17/inspecting-emf-models-with-exeed/</guid>
-		<description><![CDATA[Exeed is an extended version of the built-in EMF reflective editor that enables customisation of labels and icons by adding annotations to ECore metamodels. Another feature it provides is the ability to display structural information about the elements of an EMF model. To see the types of all elements in the editor tree as well [...]<img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=40&subd=epsilonblog&ref=&feed=1" />]]></description>
-			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Exeed is an extended version of the built-in EMF reflective editor that enables <a href="http://www.eclipse.org/gmt/epsilon/doc/Exeed.pdf">customisation of labels and icons</a> by adding annotations to ECore metamodels. Another feature it provides is the ability to display structural information about the elements of an EMF model. To see the types of all elements in the editor tree as well as the feature in which each element is contained, open your EMF model with Exeed and click Exeed-&gt;Show Structural Info.</p>
-<p><a href="http://epsilonblog.files.wordpress.com/2008/07/image.png"><img style="border-width:0;" height="282" alt="image" src="http://epsilonblog.files.wordpress.com/2008/07/image-thumb.png?w=173&#038;h=282" width="173" border="0"></a> </p>
-<p>By doing this, the structural information of each element appears next to its label. For example, selecting this option for a GMF .gmfgraph model will make it look like this:</p>
-<p><a href="http://epsilonblog.files.wordpress.com/2008/07/image1.png"><img style="border-width:0;" height="405" alt="image" src="http://epsilonblog.files.wordpress.com/2008/07/image-thumb1.png?w=392&#038;h=405" width="392" border="0"></a> </p>
-<p>The red-underlined text shows the <strong>type</strong> of the element (FigureGallery), the blue-underlined text shows the <strong>feature</strong> in which it is contained (figures), and the green-underlined text shows <strong>the EClass that owns the containing feature</strong> (Canvas). So next time you need to open an EMF model with a text editor to inspect its structure by reading the underlying XMI, you may want to consider giving Exeed a try instead.</p>
-<img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/40/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/40/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/40/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/40/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/40/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/40/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/40/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/40/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=40&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
-			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/07/17/inspecting-emf-models-with-exeed/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-	
-		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D96&#38;r=G" medium="image">
-			<media:title type="html">Dimitris Kolovos</media:title>
-		</media:content>
-
-		<media:content url="http://epsilonblog.files.wordpress.com/2008/07/image-thumb.png" medium="image">
-			<media:title type="html">image</media:title>
-		</media:content>
-
-		<media:content url="http://epsilonblog.files.wordpress.com/2008/07/image-thumb1.png" medium="image">
 			<media:title type="html">image</media:title>
 		</media:content>
 	</item>
