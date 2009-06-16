@@ -67,7 +67,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="rightcolumn">
 		<div class="sideitem">
 			<h6>Epsilon Live</h6>
-			<p>In the editor on the left, you can <b>write and execute EOL scripts</b> (EOL is the core language of Epsilon) from your browser, without needing to download or install anything in your computer.
+			<p>In the editor on the left, you can <b>write and execute EOL scripts</b> (<a href="../doc/eol/">what is EOL?</a>) from your browser, without needing to download or install anything in your computer.
 			<br><br>
 			Except for playing with the basic features of the language, you can also query and modify a real EMF model (which for simplicity, is Ecore itself). 
 			
