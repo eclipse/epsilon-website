@@ -57,7 +57,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<input type="submit" value="Vote!" style="width:67px; margin-top:5px">
 			</form>
 		</div>
-		<p>Eclipse Plugin Central is the most comprehensive source of Eclipse plugins. You can use the form on the right to rate <a href="http://www.eclipseplugincentral.com/Web_Links-index-req-viewlink-cid-887.html">Epsilon</a> directly from this page without needing to have an account, login or anything (but please vote only once :)).</p>
+		<p>Eclipse Plugin Central is the most comprehensive source of Eclipse plugins. You can use the form on the right to rate <a href="http://www.eclipseplugincentral.com/Web_Links-index-req-viewlink-cid-887.html">Epsilon</a> directly from this page without needing to have an account, login or anything.</p>
 		
 		<h3>Add Epsilon to your Ohloh stack</h3>
 		<div style="float:right;padding-left:10px">

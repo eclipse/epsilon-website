@@ -56,7 +56,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<p>You can use <a href="http://kolovos.wiki.sourceforge.net/Newsgroup+Watcher">this small utility</a> to monitor the newsgroup 
 		and get instant notifications about new answers to your questions (instead of checking manually every 2&quot;).</p>
 
-	<br><i>* If on the other hand you've found everything to be working well, a bit of positive feedback is equally welcome ;)</i>
+	<br><i>* If on the other hand you've found everything to be working well, positive feedback is equally welcome.</i>
 	
 		<hr class="clearer" />
 	
