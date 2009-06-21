@@ -123,11 +123,11 @@
 		</div>
 		
 		<div class="homeitem">
-			<?=r2h("Recent articles in the blog", "blogrss.xml", array(' '))?>
+			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'))?>
 		</div>
 		
 		<div class="homeitem">
-			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'))?>
+			<?=r2h("Recent articles in the blog", "blogrss.xml", array(' '))?>
 		</div>
 		
 		<?

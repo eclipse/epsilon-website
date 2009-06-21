@@ -27,7 +27,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 		<h1><?=$pageTitle?></h1>
 		<img style="float:right" src="http://dev.eclipse.org/huge_icons/actions/mail-send-receive.png">
-		<p>Epsilon has a dedicated newsgroup where you can report problems* and ask questions about the languages and tools it provides. Questions are typically answered within a couple of hours (often quite sooner than that), and no post has ever gone unanswered.</p>
+		<p>Epsilon has a dedicated newsgroup where you can report problems* and ask questions about the languages and tools it provides. Questions are typically answered within a couple of hours (often quite sooner than that), and <u>no post has ever gone unanswered</u>.</p>
 		
 		<h2>Connecting using a newsgroup reader <i style="color:#C0C0C0">(recommended)</i></h2>
 		
