@@ -74,7 +74,7 @@
 		<li><a href="workflow">Workflow</a>: Epsilon provides a set of ANT tasks to enable developers
 		assemble complex workflows that involve both MDE and non-MDE tasks. 
 		
-		<li><a href="concordance">Concordance</a>: Concordance is a tool that monitors selected projects and maintains and index of cross-resource EMF references. Concordance can automatically reconceile relative paths in references when models are moved and report broken references when models are updated/deleted. 
+		<li><a href="concordance">Concordance</a>: Concordance is a tool that monitors selected projects of the workspace and maintains an index of cross-resource EMF references. Concordance can then use this index to automatically reconcile references when models are moved, and report broken references when models are updated/deleted. 
 		
 		</ul>
 		
