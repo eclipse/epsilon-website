@@ -21,6 +21,7 @@ function toolsSideItem () {
 	$html .= "	<li><a href='/gmt/epsilon/doc/exeed'>Exeed</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/modelink'>ModeLink</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/workflow'>Workflow</a>\r\n";
+	$html .= "	<li><a href='/gmt/epsilon/doc/concordance'>Concordance</a>\r\n";
 	$html .= "	</ul>\r\n";
 	$html .= "</div>\r\n";
 	

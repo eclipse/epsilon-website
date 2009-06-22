@@ -28,8 +28,8 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="midcolumn">
 
 		<h1><?=$pageTitle?></h1>
-		<p>Concordance is a tool that monitors selected projects and maintains and index of cross-resource EMF references. Concordance can automatically reconceile relative paths in references when models are moved and report broken references when models are updated/deleted.</p>
-		<p>Concordance is the most recent part of Epsilon and its API is still volatile. We plan to have a first stable version of the API accompanied by exemplar tools in late July. Check back soon.</p>
+		<p>Concordance is a tool that monitors selected projects of the workspace and maintains an index of cross-resource EMF references. Concordance can then use this index to automatically reconcile references when models are moved, and report broken references when models are updated/deleted.</p>
+		<p>Concordance is the newest part of Epsilon and its API is still volatile. We plan to have a first stable version of the API accompanied by exemplar tools in late July. Check back soon.</p>
 		
 		<hr class="clearer" />
 	
