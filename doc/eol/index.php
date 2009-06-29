@@ -44,7 +44,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.buildooinstance">Example: A simple EOL program that constructs an OO model</a>
 			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.shortestpath">Example: Dijkstra's shortest path algorithm in EOL</a>
 			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.calljava">Example: Call Java from EOL</a>
-			<li><a href="../EpsilonTools.pdf">Article: Epsilon Tools Documentation</a>
+			<li><a href="../EpsilonTools.pdf">Article: Epsilon Tools Documentation (registering/accessing Java classes in Epsilon)</a>
 			<li><a href="../EpsilonProfilingTools.pdf">Article: Epsilon Profiling Tools Documentation</a>
 		</ul>
 		
