@@ -129,6 +129,7 @@
 				<li>select <b>Run as...</b> and click the first item in the menu that pops up
 				<?}?>
 			</ol>
+			or <a href="getit.php?example=<?=$example->getAttribute("src")?>">click here</a> to download it as a zip archive.
 			</div>
 	  </div>
 	</div>
