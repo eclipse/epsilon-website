@@ -41,6 +41,10 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<li>Can specify Epsilon code directly inside the tags of the task
 		</ul>
 		
+		<div class="warningbox">
+		<b>Important:</b> When running an ANT workflow that involves Epsilon tasks make sure you select the <b>Run in the same JRE as the workspace</b> option under the <b>JRE</b> tab of your launch configuration.
+		</div>
+		<br>
 		<h4>Examples and Screencasts</h4>
 		<ul>
 			<li><a href="http://epsilonblog.wordpress.com/2009/05/24/new-in-epsilon-0-8-5/">Article: New in Epsilon 0.8.5 (ANT tasks for EMF models)</a>
