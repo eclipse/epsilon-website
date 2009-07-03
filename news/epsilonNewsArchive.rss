@@ -4,7 +4,16 @@
     <title>Epsilon News</title>
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
-    <item>
+   <item>
+		<title>New examples added</title>
+		<link>http://www.eclipse.org/gmt/epsilon/examples/</link>
+		<description>
+		Five new examples that demonstrate using and extending the workflow 
+		and EuGENia are now available.
+		</description>
+		<pubDate>Fri, 03 Jul 2009 14:54:00 CET</pubDate>
+	</item> 
+ <item>
 		<title>Version 0.8.6 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download.php</link>
 		<description>
