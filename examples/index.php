@@ -129,7 +129,13 @@
 				<li>select <b>Run as...</b> and click the first item in the menu that pops up
 				<?}?>
 			</ol>
-			or <a href="getit.php?example=<?=$example->getAttribute("src")?>">click here</a> to download it as a zip archive.
+			or download the following zip archives<br/><br/>
+			<ol>
+				<li><a href="getit.php?example=<?=$example->getAttribute("src")?>"><?=$example->getAttribute("src")?>.zip</a>
+				<?if ($example->getAttribute("standalone") == "false"){?>
+				<li><a href="org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels</a>
+				<?}?>
+			</ol>
 			</div>
 	  </div>
 	</div>
