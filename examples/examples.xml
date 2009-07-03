@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <examples>
-	<example src="org.eclipse.epsilon.examples.buildooinstance" title="Create an OO model with EOL">
+	<example src="org.eclipse.epsilon.examples.buildooinstance" title="Create an OO model with EOL" standalone="false">
 		<description>
 		<![CDATA[In this example we use the Epsilon Object Language (EOL) to programmatically construct a model that conforms to the OO.emf metamodel.]]>
 		</description>
 		<file name="BuildOOInstance.eol"/>
 		<metamodel name="OO.emf"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.tree2graph" title="Transform a Tree model to a Graph model with ETL">
+	<example src="org.eclipse.epsilon.examples.tree2graph" title="Transform a Tree model to a Graph model with ETL" standalone="false">
 		<description>
 		<![CDATA[In this example, we use the Epsilon Transformation Language to transform a model that conforms to the Tree.emf metamodel to a model that conforms to the Graph.emf metamodel.]]>
 		</description>
@@ -15,14 +15,14 @@
 		<metamodel name="Tree.emf"/>
 		<metamodel name="Graph.emf"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.modelmodification" title="Modify a Tree model with EOL">
+	<example src="org.eclipse.epsilon.examples.modelmodification" title="Modify a Tree model with EOL" standalone="false">
 		<description>
 		<![CDATA[In this example we use the Epsilon Object Language (EOL) to programmatically modify a model that conforms to the Tree.emf metamodel and store the modified version as a new model.]]>
 		</description>
 		<file name="AddLeaves.eol"/>
 		<metamodel name="Tree.emf"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.oo2db" title="Transform an OO model to a DB model with ETL">
+	<example src="org.eclipse.epsilon.examples.oo2db" title="Transform an OO model to a DB model with ETL" standalone="false">
 		<description>
 		<![CDATA[In this example, we use the Epsilon Transformation Language to transform a model that conforms to the OO.emf metamodel to a model that conforms to the DB.emf metamodel.]]>
 		</description>
@@ -30,20 +30,20 @@
 		<metamodel name="OO.emf"/>
 		<metamodel name="DB.emf"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.calljava" title="Call Java code from Epsilon">
+	<example src="org.eclipse.epsilon.examples.calljava" title="Call Java code from Epsilon" standalone="true">
 		<description>
 		<![CDATA[In this example, we create a JFrame in EOL, set its bounds and title, and make it visible. The aim of this example is to show how to call Java code from within Epsilon languages.]]>
 		</description>
 		<file name="CreateJFrame.eol"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.validateoo" title="Validate an OO model with EVL">
+	<example src="org.eclipse.epsilon.examples.validateoo" title="Validate an OO model with EVL" standalone="false">
 		<description>
 		<![CDATA[In this example, we use the Epsilon Validation Language (EVL), to express constraints for models that conform to the OO.emf metamodel.]]>
 		</description>
 		<file name="ValidateOO.evl"/>
 		<metamodel name="OO.emf"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.egldoc" title="Generate HTML documentation from an ECore metamodel with EGL">
+	<example src="org.eclipse.epsilon.examples.egldoc" title="Generate HTML documentation from an ECore metamodel with EGL" standalone="false">
 		<description>
 		<![CDATA[In this example, we demonstrate how the template-based Epsilon Generation Language can be used to generate HTML documentation from an ECore metamodel.]]>
 		</description>
@@ -58,7 +58,7 @@
 		<file name="src/org/eclipse/epsilon/examples/standalone/eol/EolStandaloneExample.java"/>
 		<file name="src/org/eclipse/epsilon/examples/standalone/EpsilonStandaloneExample.java"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.mergeentitywithvocabulary" title="Heterogeneous Model Merging with ECL/EML">
+	<example src="org.eclipse.epsilon.examples.mergeentitywithvocabulary" title="Heterogeneous Model Merging with ECL/EML" standalone="false">
 		<description>
 		<![CDATA[In this example, we demonstrate merging heterogeneous models that conform to the Entity.emf and DomainVocabulary.emf metamodels using the Epsilon Comparison and Merging Languages.<br><br>In the first step, we use the Comparison.ecl ECL program to establish correspondences between the two models, and in the second step we use the Merging.eml EML program to merge the two models on the identified correspondences.]]>
 		</description>
@@ -75,4 +75,21 @@
 		<metamodel name="DirectedGraph.emf"/>
 		<file name="ValidateDirectedGraph.evl"/>
 	</example>
+	<example src="org.eclipse.epsilon.examples.mddtif" title="MDD-TIF complete case study" standalone="true">
+		<description>
+		<![CDATA[In this example, we implement the <a href="http://www.dsmforum.org/events/MDD-TIF07/InteractiveTVApps.pdf">requirements</a> set in the <a href="http://www.dsmforum.org/events/MDD-TIF07">MDD-TIF workshop</a>. This example demonstrates how different languages in Epsilon (EVL, EGL, EML, ETL and ECL) can be combined to implement more complex operations using the <a href="../doc/workflow">workflow</a>. A detailed discussion on this example is provided <a href="http://www.dsmforum.org/events/MDD-TIF07/Epsilon.2.pdf">here</a>.]]>
+		</description>
+		<file name="competitions/Competition2TVApp.xml"/>
+		<file name="competitions/Competition2TVApp.etl"/>
+		<file name="competitions/ValidateCompetition.evl"/>
+	</example>	
+	<example src="org.eclipse.epsilon.examples.oomerging" title="Compare, validate and merge OO models" standalone="true">
+		<description>
+		<![CDATA[In this example, we use ECL to compare two OO models, then use EVL to check the identified matches for consistency and finally EML to merge them. The three different programs are bound together and executed sequentially using the <a href="../doc/workflow">workflow</a>.]]>
+		</description>
+		<file name="CompareSimpleOO.ecl"/>
+		<file name="ValidateSimpleOO.evl"/>
+		<file name="MergeSimpleOO.eml"/>
+	</example>	
+	
 </examples>
