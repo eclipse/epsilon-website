@@ -90,6 +90,28 @@
 		<file name="CompareSimpleOO.ecl"/>
 		<file name="ValidateSimpleOO.evl"/>
 		<file name="MergeSimpleOO.eml"/>
-	</example>	
-	
+	</example>
+	<example src="org.eclipse.epsilon.eugenia.examples.friends" title="Implement a GMF editor with image nodes using EuGENia" standalone="true" runnable="false">
+		<description>
+		<![CDATA[In this example we use EuGENia to implement a GMF editor with images instead of shapes for nodes.]]>
+		</description>
+		<file name="model/friends.emf"/>
+		<file name="../org.eclipse.epsilon.eugenia.examples.friends.figures/src/figures/PersonFigure.java"/>
+	</example>
+	<example src="org.eclipse.epsilon.eugenia.examples.flowchart" title="Implement a flowchart GMF editor using EuGENia" standalone="true" runnable="false">
+		<description>
+		<![CDATA[In this example we use EuGENia to implement a flowchart GMF editor, and EOL to <a href="http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/">polish its appearance</a>.]]>
+		</description>
+		<file name="model/flowchart.emf"/>
+		<file name="model/ECore2GMF.eol"/>
+		<file name="model/FixGMFGen.eol"/>
+		<file name="../org.eclipse.epsilon.eugenia.examples.flowchart.diagram.figures/src/org/eclipse/epsilon/eugenia/examples/flowchart/diagram/figures/DiamondFigure.java"/>
+	</example>
+	<example src="org.eclipse.epsilon.workflow.extension.example" title="Provide custom/extended tasks for the workflow" standalone="true" runnable="false">
+		<description>
+		<![CDATA[In this example we demonstrate how you can define your own ANT tasks that extend the Epsilon workflow tasks.]]>
+		</description>
+		<file name="ant/org/eclipse/epsilon/workflow/extension/example/tasks/EolExtTask.java"/>
+		<file name="plugin.xml"/>
+	</example>
 </examples>

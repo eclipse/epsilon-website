@@ -124,8 +124,10 @@
 				<li> register all .ecore metamodels in the <b>org.eclipse.epsilon.examples.metamodels</b> project (select all of them and then right click and select <b>Register EPackages</b>)
 				<?}?>
 				<li> check out the <b><?=$example->getAttribute("src")?></b> project
+				<?if (!($example->getAttribute("runnable") == "false")){?>
 				<li> right click the .launch file in the <b><?=$example->getAttribute("src")?></b> project
 				<li>select <b>Run as...</b> and click the first item in the menu that pops up
+				<?}?>
 			</ol>
 			</div>
 	  </div>
