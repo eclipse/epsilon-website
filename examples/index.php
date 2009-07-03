@@ -133,7 +133,7 @@
 			<ol>
 				<li><a href="getit.php?example=<?=$example->getAttribute("src")?>"><?=$example->getAttribute("src")?>.zip</a>
 				<?if ($example->getAttribute("standalone") == "false"){?>
-				<li><a href="org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels</a>
+				<li><a href="getit.php?example=org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels.zip</a>
 				<?}?>
 			</ol>
 			</div>
