@@ -87,12 +87,12 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<?}?>
 			</ul>
 		</div>
-		<div class="sideitem">
+		<!--div class="sideitem">
 			<h6>Feedback</h6>
 			<p>
 			This is one of the most recent features we've implemented and as such, there are probably a few bugs lurking in it. Should you find one, please consider <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon">filing a bug report</a>.
 			</p>
-		</div>
+		</div-->
 </div>
 	
 <?
