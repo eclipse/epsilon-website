@@ -113,29 +113,41 @@
 			<?=highlight($content, "emf")?>
 			</div>
 			<?}?>
-			<div class="TabbedPanelsContent" style="height:520px">
+			<div class="TabbedPanelsContent" style="height:520px; margin:5px">
 			<p>
-			To get this example running in your Eclipse installation, you need to go through the following steps:
+			There are two ways to get the code of this example:
 			<ol>
-				<li> go to the <a href="../doc/EpsilonSVN.pdf">SVN repository</a> 
-				<li> navigate to <b>trunk/examples</b>
+				<li>download the following zip archive(s), extract them and import them as new Eclipse projects
+					<ul>
+						<li><a href="getit.php?example=<?=$example->getAttribute("src")?>"><?=$example->getAttribute("src")?>.zip</a>
+						<?if ($example->getAttribute("standalone") == "false"){?>
+						<li><a href="getit.php?example=org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels.zip</a>
+						<?}?>
+					</ul>					
+				</li>
+				<li><b>or</b> check out the code from the SVN
+					<ul>
+						<li> go to the <a href="../doc/EpsilonSVN.pdf">SVN repository</a> 
+						<li> navigate to <b>trunk/examples</b>
+						<?if ($example->getAttribute("standalone") == "false"){?>
+						<li> check out the <b>org.eclipse.epsilon.examples.metamodels</b> project
+						<?}?>
+						<li> check out the <b><?=$example->getAttribute("src")?></b> project
+					</ul>
+				</li>
+			</ol>
+			<?if (!($example->getAttribute("runnable") == "false")){?>
+			<p>Once you have checked out/imported the code, to run the example you need to go through the following steps:
+			<ol>
 				<?if ($example->getAttribute("standalone") == "false"){?>
-				<li> check out the <b>org.eclipse.epsilon.examples.metamodels</b> project
 				<li> register all .ecore metamodels in the <b>org.eclipse.epsilon.examples.metamodels</b> project (select all of them and then right click and select <b>Register EPackages</b>)
 				<?}?>
-				<li> check out the <b><?=$example->getAttribute("src")?></b> project
-				<?if (!($example->getAttribute("runnable") == "false")){?>
+				
 				<li> right click the .launch file in the <b><?=$example->getAttribute("src")?></b> project
 				<li>select <b>Run as...</b> and click the first item in the menu that pops up
-				<?}?>
+
 			</ol>
-			or download the following zip archives<br/><br/>
-			<ol>
-				<li><a href="getit.php?example=<?=$example->getAttribute("src")?>"><?=$example->getAttribute("src")?>.zip</a>
-				<?if ($example->getAttribute("standalone") == "false"){?>
-				<li><a href="getit.php?example=org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels.zip</a>
-				<?}?>
-			</ol>
+			<?}?>
 			</div>
 	  </div>
 	</div>
