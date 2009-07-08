@@ -141,9 +141,7 @@
 	<!-- Right Part -->
 	<div id="rightcolumn">
 
-
-		
-		<div class="sideitem">
+		<div class="sideitem" style="border-bottom:0px;margin-bottom:-10px">
 			<h6 nostyle="background-color:#36354F;color:white">Getting Started</h6>
 			<ol>
 				<li><a href="doc">Learn more about Epsilon</a></li>
@@ -161,6 +159,8 @@
 				<li style="position:relative;top:-10px"><a href="spreadtheword.php">Spread the word</a>
 			</ol>
 		</div>
+		
+		<a href="http://www.twitter.com/epsilonews"><img src="resources/twitter2.png" style="position:relative;top:5px;left:45px"></img></a>
 		
 		<div class="sideitem">
 			<h6>Get The Book</h6>
