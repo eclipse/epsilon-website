@@ -14,7 +14,7 @@
 	<atom:link href="http://epsilonblog.wordpress.com/feed/" rel="self" type="application/rss+xml" />
 	<link>http://epsilonblog.wordpress.com</link>
 	<description>... new and noteworthy in the Epsilon Eclipse GMT component</description>
-	<lastBuildDate>Mon, 15 Jun 2009 23:16:26 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 19 Jun 2009 14:22:08 +0000</lastBuildDate>
 	<generator>http://wordpress.com/</generator>
 	<language>en</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
@@ -109,7 +109,7 @@ decisionLabel.font.style = GmfGraph!FontStyle#ITALIC.instance;</pre>
 <p>The complete source code of this example is available (projects named org.eclipse.epsilon.eugenia.examples.flowchart.*) in the <a href="http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples" target="_blank">SVN</a>. You can also find another example, as well as more technical details about this extension <a href="http://epsilonlabs.wiki.sourceforge.net/EuGENia+Customization" target="_blank">here</a>.</p>
   <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/136/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/136/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/136/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/136/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/136/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/136/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=136&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
 			<wfw:commentRss>http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/feed/</wfw:commentRss>
-		<slash:comments>0</slash:comments>
+		<slash:comments>3</slash:comments>
 	
 		<media:content url="http://1.gravatar.com/avatar/7c3777a06d6d0861869ef58dbfe1e26c?s=96&#38;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D96&#38;r=G" medium="image">
 			<media:title type="html">Dimitris Kolovos</media:title>
@@ -146,7 +146,7 @@ As EOL builds on OCL, it (re)uses = for comparison (e.g. if (a = b) {&#8230;}) a
 			<content:encoded><![CDATA[<div class='snap_preview'><br /><p>Apart from adding support for <a href="http://epsilonblog.wordpress.com/2009/04/27/managing-inconsistent-models-with-hutn/" target="_blank">managing inconsistent EMF models with HUTN</a>, and fixing several <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&amp;component=Epsilon&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time" target="_blank">bugs</a>, version 0.8.5 of Epsilon also includes a few new and noteworthy features.</p>
 <p><strong>Use of = both for assignment and for comparison</strong></p>
 <p>As EOL builds on OCL, it (re)uses = for comparison (e.g. if (a = b) {&#8230;}) and := for assignment (e.g. a := b;). As <a href="http://epsilonblog.wordpress.com/2009/04/20/test-driven-development-for-epsilon/" target="_blank">Louis reported here</a>, this has been a source of confusion and well-camouflaged errors because when a mistyped a = b; assignment statement is executed, it will do nothing, but will not complain either. To deal with this we decided to follow the old <a href="http://en.wikipedia.org/wiki/Visual_Basic" target="_blank">VB6</a> paradigm and support = both for assignment (in addition to the := that of course still works) and for comparison. Therefore, since 0.8.5 the following code runs just fine:</p>
-<pre>var x = 2;
+<pre style="font-size:11px;">var x = 2;
 (x*x).println(); -- prints 4</pre>
 <p><strong>Support for additional options in EuGENia</strong></p>
 <p>We&#8217;ve added support for several more options to <a href="http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/" target="_blank">EuGENia</a> (the front-end provided by Epsilon for simplifying the development of GMF editors), such as for specifying if the model and the diagram are to be stored in the single file, for defining the extensions of the model and diagram files etc. A complete list of the supported options is available <a href="http://epsilonlabs.wiki.sourceforge.net/EuGENia" target="_blank">here</a>. Kudos to Michael Moser for putting in <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=265285" target="_blank">these</a> <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=265609" target="_blank">requests</a> for <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=268085" target="_blank">enhancement</a> in the bugzilla.</p>
@@ -154,7 +154,7 @@ As EOL builds on OCL, it (re)uses = for comparison (e.g. if (a = b) {&#8230;}) a
 <p>The EOL Real type now provides support both for Double and for Float numbers (only floats were supported up to 0.8.4). Kudos to Aleksander Bandelj for raising <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=270570" target="_blank">this issue</a> in the bugzilla.</p>
 <p><strong>ANT tasks for EMF models</strong></p>
 <p>The new epsilon.emf.loadModel task has been added to the list of Epsilon ANT tasks as an alternative for the generic &#8211; but more cumbersome &#8211; epsilon.loadModel task. Using the new task, a sample UML model can be loaded as follows:</p>
-<pre>&lt;project default="main"&gt;
+<pre style="font-size:11px;">&lt;project default="main"&gt;
   &lt;target name="main"&gt;
 
     &lt;epsilon.emf.loadModel
@@ -173,7 +173,7 @@ As EOL builds on OCL, it (re)uses = for comparison (e.g. if (a = b) {&#8230;}) a
   &lt;/target&gt;
 &lt;/project&gt;</pre>
 <p>We&#8217;ve also added two more EMF-specific tasks. The epsilon.emf.register task, which registers the EPackages of an Ecore file to the EPackage registry:</p>
-<pre>&lt;project default="main"&gt;
+<pre style="font-size:11px;">&lt;project default="main"&gt;
   &lt;target name="main"&gt;
 
     &lt;epsilon.emf.register
@@ -183,7 +183,7 @@ As EOL builds on OCL, it (re)uses = for comparison (e.g. if (a = b) {&#8230;}) a
   &lt;/target&gt;
 &lt;/project&gt;</pre>
 <p>and the epsilon.emf.loadRegisteredMetamodel which can load a registered EPackage as a model that can be then accessed by other Epsilon tasks:</p>
-<pre>&lt;project default="main"&gt;
+<pre style="font-size:11px;">&lt;project default="main"&gt;
   &lt;target name="main"&gt;
 
     &lt;epsilon.emf.loadRegisteredMetamodel
@@ -277,12 +277,12 @@ HUTN, an OMG standard, specifies [...]<img alt="" border="0" src="http://stats.w
 <p>In the past, we&#8217;ve been reluctant to construct automated unit tests for Epsilon, largely because we lacked structures and processes for constructing and checking models in the context of a testing framework, such as jUnit.</p>
 <p>Since developing HUTN, we&#8217;ve been discovering/inventing/hallucinating patterns for constructing and checking models that allowed us to construct tests that were readable and malleable. This week, we wanted to make an enhancement to EOL, and, using these patterns, I was able to do so in a (more) test-driven manner.</p>
 <p>EOL defines distinct operators for comparing expressions and for performing assignment. The concrete syntax is = for the former and := for the latter. We&#8217;ve found that we&#8217;ve had a few reports of  code like the following:</p>
-<pre>var a : Integer;
+<pre style="font-size:11px;">var a : Integer;
 a = 2;</pre>
 <p>EOL compares a and 2 in the second line, rather than assigning a to 2.</p>
 <p>We decided that we could change EOL to rewrite statements whose first operator was = to an equivalent statement whose first operator was :=</p>
 <p>I started by defining some tests that exercised the EOL execution engine with the old behaviour and with the new behaviour:</p>
-<pre>private static final EolEvaluator evaluator = new EolEvaluator();
+<pre style="font-size:11px;">private static final EolEvaluator evaluator = new EolEvaluator();
 
 @Test
 public void assignment() {
@@ -373,7 +373,7 @@ Using this view, one can browse through the EClasses contained in each registere
 <p>The following screenshot shows a file system model in a GMF-based editor (constructed <a href="http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/">here</a>).</p>
 <p><a href="http://epsilonblog.files.wordpress.com/2008/11/filesystem.png"><img style="border-width:0;" height="322" alt="FileSystem" src="http://epsilonblog.files.wordpress.com/2008/11/filesystem-thumb.png?w=438&#038;h=322" width="438" border="0"></a> </p>
 <p>We now specify the following EVL constraints and bind them to the editor (using the instructions provided <a href="http://epsilonlabs.wiki.sourceforge.net/EVL-GMF+Integration">here</a>):</p>
-<pre>context File {
+<pre style="font-size:11px;">context File {
 
     constraint HasName {
 
@@ -579,13 +579,13 @@ An error is now produced when enumerations, data types and abstract classes are 
 <p><strong>The Filesystem editor example</strong></p>
 <p>In this example we&#8217;ll construct a GMF editor for a filesystem metamodel. To generate a basic GMF editor from the metamodel, all we need to know is that:</p>
 <ul>
-<li>The root of the diagram is FileSystem
-<li>File and all of its subclasses (Drive, Folder, Shortcut etc) are nodes with a label that reflects the value of their name attribute
-<li>Shortcut.target is a link
+<li>The root of the diagram is FileSystem</li>
+<li>File and all of its subclasses (Drive, Folder, Shortcut etc) are nodes with a label that reflects the value of their name attribute</li>
+<li>Shortcut.target is a link</li>
 <li>Sync is also a link class with Sync.source as the one end, Sync.target as the other and lastSync as the label</li>
 </ul>
 <p>To capture the above, plus a bit of formatting information, we add the following @gmf.* annotations to the metamodel (in Emfatic):</p>
-<pre>@namespace(uri="filesystem", prefix="filesystem")
+<pre style="font-size:11px;">@namespace(uri="filesystem", prefix="filesystem")
 @gmf
 package filesystem;
 
@@ -620,14 +620,11 @@ class Sync {
 @gmf.node(label = "name")
 class File {
     attr String name;
-}
-</pre>
-<p>&nbsp;</p>
+}</pre>
 <p>Through the process demonstrated in <a href="http://www.eclipse.org/gmt/epsilon/cinema/Eugenia.htm" target="_blank">this screencast</a> EuGENia can generate the following editor without the user needing to touch any of the .gmfgraph, .gmfmap or .gmftool models manually.</p>
-<p><a href="http://epsilonblog.files.wordpress.com/2008/08/image.png"><img style="border-width:0;" height="348" alt="image" src="http://epsilonblog.files.wordpress.com/2008/08/image-thumb.png?w=442&#038;h=348" width="442" border="0"></a> </p>
-<p>Obviously EuGENia doesn&#8217;t support all the options the .gmfgraph and .gmfmap models do but only a small subset of commonly needed features. A complete list of the annotations EuGENia supports as well as instructions for obtaining it is available <a href="http://epsilonlabs.wiki.sourceforge.net/EuGENia" target="_blank">here</a>. </p>
-<p><strike>Currently, there is no binary build for the tool, so if you want to try it you&#8217;ll have to check out the code from the </strike><a href="http://epsilonlabs.wiki.sourceforge.net/Subversion" target="_blank"><strike>EpsilonLabs SVN</strike></a><strike>. Hopefully, the migration process of Epsilon to the Modeling/GMT project will be complete soon so that we can add EuGENia to the Eclipse CVS (which we&#8217;ve currently frozen for the ongoing IP review) and offer it through the Epsilon update site.</strike></p>
-<p><strong>[Update : 15 Sept 2008] </strong>Since 0.8.1, EuGENia has been integrated into Epsilon and is available from the Epsilon update site (<a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">http://download.eclipse.org/modeling/gmt/epsilon/updates/</a>). The source code is also available in the Eclipse SVN repository.</p>
+<p><a href="http://epsilonblog.files.wordpress.com/2008/08/image.png"><img style="border-width:0;" src="http://epsilonblog.files.wordpress.com/2008/08/image-thumb.png?w=442&#038;h=348" border="0" alt="image" width="442" height="348" /></a></p>
+<p>Obviously EuGENia doesn&#8217;t support all the options the .gmfgraph and .gmfmap models do but only a small subset of commonly needed features. A complete list of the annotations EuGENia supports as well as instructions for obtaining it is available <a href="http://epsilonlabs.wiki.sourceforge.net/EuGENia" target="_blank">here</a>.</p>
+<p><strong>Follow up: </strong><a href="http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/">EuGENia: Polishing your GMF editor</a></p>
 <img alt="" border="0" src="http://feeds.wordpress.com/1.0/categories/epsilonblog.wordpress.com/43/" /> <img alt="" border="0" src="http://feeds.wordpress.com/1.0/tags/epsilonblog.wordpress.com/43/" /> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gocomments/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/comments/epsilonblog.wordpress.com/43/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godelicious/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/delicious/epsilonblog.wordpress.com/43/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/gostumble/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/stumble/epsilonblog.wordpress.com/43/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/godigg/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/digg/epsilonblog.wordpress.com/43/" /></a> <a rel="nofollow" href="http://feeds.wordpress.com/1.0/goreddit/epsilonblog.wordpress.com/43/"><img alt="" border="0" src="http://feeds.wordpress.com/1.0/reddit/epsilonblog.wordpress.com/43/" /></a> <img alt="" border="0" src="http://stats.wordpress.com/b.gif?host=epsilonblog.wordpress.com&blog=2097844&post=43&subd=epsilonblog&ref=&feed=1" /></div>]]></content:encoded>
 			<wfw:commentRss>http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/feed/</wfw:commentRss>
 		<slash:comments>11</slash:comments>
