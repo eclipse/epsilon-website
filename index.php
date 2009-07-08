@@ -160,7 +160,7 @@
 			</ol>
 		</div>
 		
-		<a href="http://www.twitter.com/epsilonews"><img src="resources/twitter2.png" style="position:relative;top:5px;left:45px"></img></a>
+		<a href="http://www.twitter.com/epsilonews"><img src="resources/twitter2.png" style="position:relative;top:6px;left:45px"></img></a>
 		
 		<div class="sideitem">
 			<h6>Get The Book</h6>
