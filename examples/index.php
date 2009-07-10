@@ -123,6 +123,9 @@
 						<?if ($example->getAttribute("standalone") == "false"){?>
 						<li><a href="getit.php?example=org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels.zip</a>
 						<?}?>
+						<?foreach ($example->getElementsByTagName("project") as $project){?>
+						<li><a href="getit.php?example=<?=$project->getAttribute("src")?>"><?=$project->getAttribute("src")?>.zip</a>
+						<?}?>
 					</ul>					
 				</li>
 				<li><b>or</b> check out the code from the SVN
@@ -133,6 +136,9 @@
 						<li> check out the <b>org.eclipse.epsilon.examples.metamodels</b> project
 						<?}?>
 						<li> check out the <b><?=$example->getAttribute("src")?></b> project
+						<?foreach ($example->getElementsByTagName("project") as $project){?>
+						<li> check out the <b><?=$project->getAttribute("src")?></b> project
+						<?}?>
 					</ul>
 				</li>
 			</ol>

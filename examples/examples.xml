@@ -97,6 +97,7 @@
 		</description>
 		<file name="model/friends.emf"/>
 		<file name="../org.eclipse.epsilon.eugenia.examples.friends.figures/src/figures/PersonFigure.java"/>
+		<project src="org.eclipse.epsilon.eugenia.examples.friends.figures"/>
 	</example>
 	<example src="org.eclipse.epsilon.eugenia.examples.flowchart" title="Implement a flowchart GMF editor using EuGENia" standalone="true" runnable="false">
 		<description>
@@ -113,5 +114,6 @@
 		</description>
 		<file name="ant/org/eclipse/epsilon/workflow/extension/example/tasks/EolExtTask.java"/>
 		<file name="plugin.xml"/>
+		<project src="org.eclipse.epsilon.eugenia.examples.flowchart.diagram.figures"/>
 	</example>
 </examples>
