@@ -44,7 +44,7 @@
 	<faq>
 		<title>Is Epsilon a competitor to the Eclipse OCL/M2M/M2T projects?</title>
 		<answer><![CDATA[
-		<p>No. Epsilon is a component of the GMT <b>research</b> incubator and as such, it is predominately <b>research</b>-oriented. This means that in Epsilon, precedence is given to experimenting with interesting and novel features - as opposed to producing a comprehensive industrial-strength platform. By contrast, the OCL/M2M/M2T projects aim at providing industrial-strength tools that will fully implement the respective OMG standards.
+		<p>No. Epsilon is a component of the GMT <b>research</b> incubator and as such, it is predominately <b>research</b>-oriented. This means that in Epsilon, precedence is given to researching and providing solutions for interesting and novel aspects of MDE - as opposed to implementing existing standards. By contrast, the OCL/M2M/M2T projects aim at providing tools that will fully implement the respective OMG standards.
 		]]>
 		</answer>
 	</faq>
