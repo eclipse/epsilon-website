@@ -148,7 +148,7 @@
 				<li><a href="cinema">Watch the screencasts</a></li>
 				<li><a href="examples">Go through the examples</a></li>
 				<li><a href="live">Run EOL in your browser</a>
-				<li><a href="download.php"><b>Download</b></a></li>
+				<li><a href="download"><b>Download</b></a></li>
 				<li><a href="doc/book">Get the book</a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
 				<li><a href="newsgroup">Get help in the newsgroup</a>

@@ -32,7 +32,7 @@ EOBRANDING;
 	$Nav->addNavSeparator("Epsilon", "/gmt/epsilon/");
 	$Nav->addCustomNav("Home", "/gmt/epsilon/", "_self", 1);
 	$Nav->addCustomNav("Live", "/gmt/epsilon/live", "_self", 1);
-	$Nav->addCustomNav("Download", "/gmt/epsilon/download.php", "_self", 1);
+	$Nav->addCustomNav("Download", "/gmt/epsilon/download", "_self", 1);
 	//$Nav->addCustomNav("Source code", "http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON", "_self", 1);
 	$Nav->addNavSeparator("Resources", "#");
 	$Nav->addCustomNav("Documentation", "/gmt/epsilon/doc/", "_self", 1);

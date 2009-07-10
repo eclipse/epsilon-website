@@ -40,7 +40,7 @@ function seeAlsoSideItem() {
 		<li><a href="/gmt/epsilon/examples">Examples</a>
 		<li><a href="/gmt/epsilon/live">Live</a>
 		<li><a href="/gmt/epsilon/faq.php">Frequently Asked Questions</a>
-		<li><a href="/gmt/epsilon/download.php">Download instructions</a>
+		<li><a href="/gmt/epsilon/download">Download instructions</a>
 	</ul>
 	</div>
 SEEALSO;

@@ -92,7 +92,7 @@
 		<h3>Installing Epsilon</h3>
 		
 		<p>
-			Please see the <a href="../download.php">downloads</a> page for instructions on how to install Epsilon.
+			Please see the <a href="../download">downloads</a> page for instructions on how to install Epsilon.
 		</p>
 		
 		<h3>Technical Documents</h3>
