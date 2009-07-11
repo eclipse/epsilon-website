@@ -28,7 +28,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="midcolumn">
 
 		<h1><?=$pageTitle?></h1>
-		<p>Epsilon provides a set of <a href="http://ant.apache.org">ANT tasks</a> to enable developers to assemble complex workflows (build scripts) that involve both MDE (e.g. transformation, validation) and non-MDE (e.g. copying files, invoking compilers) tasks. Epsilon tasks are underpined by a communication mechanism that enables them to interact with each other by sharing models and variables.
+		<p>Epsilon provides a set of ANT tasks (<a href="http://ant.apache.org">what is ANT?</a>) to enable developers to assemble complex workflows (build scripts) that involve both MDE (e.g. transformation, validation) and non-MDE (e.g. copying files, invoking compilers) tasks. Epsilon tasks are underpined by a communication mechanism that enables them to interact with each other by sharing models and variables.
 		
 		<h4>Features</h4>
 		
@@ -42,7 +42,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		</ul>
 		
 		<div class="warningbox">
-		<b>Important:</b> When running an ANT workflow that involves Epsilon tasks make sure you select the <b>Run in the same JRE as the workspace</b> option under the <b>JRE</b> tab of your launch configuration.
+		<b>Important:</b> When running an ANT workflow that involves Epsilon tasks, please make sure you select the <b>Run in the same JRE as the workspace</b> option under the <b>JRE</b> tab of your launch configuration.
 		</div>
 		<br>
 		<h4>Examples and Screencasts</h4>
