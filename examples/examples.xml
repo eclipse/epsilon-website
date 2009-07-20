@@ -99,6 +99,14 @@
 		<file name="../org.eclipse.epsilon.eugenia.examples.friends.figures/src/figures/PersonFigure.java"/>
 		<project src="org.eclipse.epsilon.eugenia.examples.friends.figures"/>
 	</example>
+	<example src="org.eclipse.epsilon.eugenia.examples.endlabels" title="Implement a GMF editor with end labels in connections using EuGENia" standalone="true" runnable="false">
+		<description>
+		<![CDATA[In this example we use EuGENia to implement a GMF editor with end labels in connections.]]>
+		</description>
+		<file name="model/endlabels.emf"/>
+		<file name="model/ECore2GMF.eol"/>
+		<file name="resources/Screenshot.png" image="true"/>
+	</example>
 	<example src="org.eclipse.epsilon.eugenia.examples.flowchart" title="Implement a flowchart GMF editor using EuGENia" standalone="true" runnable="false">
 		<description>
 		<![CDATA[In this example we use EuGENia to implement a flowchart GMF editor, and EOL to <a href="http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/">polish its appearance</a>.]]>

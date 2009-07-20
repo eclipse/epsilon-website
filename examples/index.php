@@ -81,17 +81,23 @@
 				$url = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples/";
 				$url = $url.$example->getAttribute("src");
 				$url = $url."/".$file->getAttribute("name");
-				$content = '';
-				if ($fp = fopen($url, 'r')) {
-			   // keep reading until there's nothing left 
-			   while ($line = fread($fp, 1024)) {
-			      $content .= $line;
-			   }
-				} else {
-				   $content = "Unavailable"; 	
-				}
 			?>
-			<?=highlight($content, getExtension($url))?>
+			<?if ($file->getAttribute("image") == "true"){?>
+				<img src="<?=$url?>"/>
+			<?}else{?>
+				<?	
+					$content = '';
+					if ($fp = fopen($url, 'r')) {
+					 // keep reading until there's nothing left 
+					 while ($line = fread($fp, 1024)) {
+							$content .= $line;
+					 }
+					} else {
+						 $content = "Unavailable"; 	
+					}
+				?>
+				<?=highlight($content, getExtension($url))?>
+			<?}?>
 			</div>
 			<?}?>
 <?foreach ($example->getElementsByTagName("metamodel") as $file){?>
