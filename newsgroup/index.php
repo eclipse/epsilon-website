@@ -65,12 +65,14 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="rightcolumn">
 		<div class="sideitem">
 		<h6>Connection details</h6>
+		<div class='modal'>
 		<ul>
 		
 			<li><b>Server:</b> news.eclipse.org
 			<li><b>Newsgroup:</b> eclipse.epsilon
 			<li><a href="http://www.eclipse.org/newsgroups/register.php">Get a username and password</a> 
 		</ul>
+		</div>
 		</div>
 		<!--
 		<div class="sideitem">

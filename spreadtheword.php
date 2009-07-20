@@ -88,9 +88,11 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<div class="sideitem">
 			<h6>Spread the word</h6>
+			<div class='modal'>
 			<p>
 If you're using Epsilon and are finding it useful, you may want to use one or more of the options in this page to let other developers know too. <!--<br/><br/>After all, few things motivate a developer to get into the trouble of installing and evaluating a tool more than other developers' recommendations.-->
 			</p>
+			</div>
 		</div>
 	
 	</div>

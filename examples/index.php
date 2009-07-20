@@ -169,20 +169,25 @@
 	
 	<div class="sideitem">
 	<h6>What's this?</h6>
+	<div class="modal">
 	<p>
 		<?=$example->getOneChild("description")->childNodes[0]->data?>
 	</p>
 	</div>
+	</div>
 	
 	<div class="sideitem">
 	<h6>What are .emf files?</h6>
+	<div class="modal">
 	<p>
 		.emf files are ECore metamodels expressed using the <a href="http://wiki.eclipse.org/Emfatic">Emfatic</a> textual syntax.
 	</p>
 	</div>
+	</div>
 	
 	<div class="sideitem">
 	<h6>More examples...</h6>
+		<div class="modal">
 		<ul>
 		<?
 			foreach ($examples as $example) {
@@ -196,12 +201,15 @@
 		<li><a href="index.php?example=<?=$name?>"><?=$title?></a>
 		<?}?>
 		</ul>
+		</div>
 	</div>
 	
 	<div class="sideitem">
 		<h6>Even more examples...</h6>
+		<div class="modal">
 		<p> More examples are available in the <a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples">examples</a> folder of 
 		the SVN repository.</p>
+		</div>
 	</div>
 	
 	</div>

@@ -120,6 +120,7 @@
 	<div id="rightcolumn">
 		<div class="sideitem">
 			<h6>Quick Links</h6>
+			<div class="modal">
 			<ul>
 				<li><a href="#">Download Eclipse</a>
 						<ul>
@@ -140,6 +141,7 @@
 						<li><a href="http://www.scharf.gr/eclipse/emfatic/update/">Emfatic update site
 					</ul>
 			</ul>
+			</div>
 		</div>
 		
 		<div class="sideitem">

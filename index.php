@@ -143,6 +143,7 @@
 
 		<div class="sideitem" style="border-bottom:0px;margin-bottom:-10px">
 			<h6 nostyle="background-color:#36354F;color:white">Getting Started</h6>
+			<div class="modal">
 			<ol>
 				<li><a href="doc">Learn more about Epsilon</a></li>
 				<li><a href="cinema">Watch the screencasts</a></li>
@@ -158,6 +159,7 @@
 				</li>
 				<li style="position:relative;top:-10px"><a href="spreadtheword.php">Spread the word</a>
 			</ol>
+			</div>
 		</div>
 		
 		<a href="http://www.twitter.com/epsilonews"><img src="resources/twitter2.png" style="position:relative;top:6px;left:45px"></img></a>

@@ -64,6 +64,7 @@
 	<div id="rightcolumn">
 		<div class="sideitem">
 		<h6>Overview</h6>
+		<div class='modal'>
 		<ul>
 		<?
 		foreach ($screencasts as $screencast) {
@@ -74,6 +75,7 @@
 		<li><a href="#<?=$name?>"><?=$title?></a>
 		<?}?>
 		</ul>
+		</div>
 		</div>
 	</div>
 	

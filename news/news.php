@@ -8,7 +8,7 @@ function r2h($title, $feed, $posts, $heading=3, $limit = 5) {
 	$channel = $document->documentElement;
 	$html = '<h'.$heading.'>';
 	$html .= "<a href=\"$feed\" style=\"float:right\"><img src=\"/images/rss.gif\" alt=\"More...\" /></a>";
-	$html .= $title.'</h'.$heading.'>';
+	$html .= $title.'</h'.$heading.'><div class="modal">';
 	$html .= '<ul>';
 	$i = 0;
 	foreach ($channel->selectElements(array(),"item") as $item) {
@@ -41,7 +41,7 @@ function r2h($title, $feed, $posts, $heading=3, $limit = 5) {
 			}
 		}
 	}
-	$html .= '</ul>';
+	$html .= '</ul></div>';
 	return $html;
 }
 

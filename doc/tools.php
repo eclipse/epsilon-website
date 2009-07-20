@@ -2,7 +2,7 @@
 function toolsSideItem () {
 	$html = "<div class='sideitem'>\r\n";
 	$html .= "  <h6>Languages</h6>\r\n";
-	$html .= "	<ul>\r\n";
+	$html .= "	<div class='modal'><ul>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/eol'>Epsilon Object Language</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/etl'>Epsilon Transformation Language</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/evl'>Epsilon Validation Language</a>\r\n";
@@ -11,18 +11,18 @@ function toolsSideItem () {
 	$html .= "	<li><a href='/gmt/epsilon/doc/ecl'>Epsilon Comparison Language</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/eml'>Epsilon Merging Language</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/hutn'>Human Usable Textual Notation</a>\r\n";
-	$html .= "	</ul>\r\n";
+	$html .= "	</ul></div>\r\n";
 	$html .= "</div>\r\n";
 	
 	$html .= "<div class='sideitem'>\r\n";
 	$html .= "  <h6>Tools</h6>\r\n";
-	$html .= "	<ul>\r\n";
+	$html .= "	<div class='modal'><ul>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/eugenia'>EuGENia</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/exeed'>Exeed</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/modelink'>ModeLink</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/workflow'>Workflow</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/concordance'>Concordance</a>\r\n";
-	$html .= "	</ul>\r\n";
+	$html .= "	</ul></div>\r\n";
 	$html .= "</div>\r\n";
 	
 	$html .= seeAlsoSideItem();
@@ -34,6 +34,7 @@ function seeAlsoSideItem() {
 	$html .= <<<SEEALSO
 	<div class="sideitem">
 	<h6>See also...</h6>
+	<div class='modal'>
 	<ul>
 		<li><a href="/gmt/epsilon/doc">Documentation</a>
 		<li><a href="/gmt/epsilon/cinema">Screencasts</a>
@@ -42,6 +43,7 @@ function seeAlsoSideItem() {
 		<li><a href="/gmt/epsilon/faq.php">Frequently Asked Questions</a>
 		<li><a href="/gmt/epsilon/download">Download instructions</a>
 	</ul>
+	</div>
 	</div>
 SEEALSO;
 	return $html;

@@ -46,19 +46,23 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="rightcolumn">
 	<div class="sideitem">
 	<h6>Overview</h6>
+	<div class='modal'>
 	<ul>
 		<?foreach ($faqs as $faq){?>
 		<li><a href="#<?=$faq->getOneChild("title")->childNodes[0]->data?>"><?=$faq->getOneChild("title")->childNodes[0]->data?></a>
 		<?}?>
 	</ul>
 	</div>
+	</div>
 
 	
 	<div class="sideitem">
 	<h6>Links</h6>
+	<div class='modal'>
 	<ul>
 		<li> <a href="http://www.eclipse.org/gmt/faq.php">GMT Frequently Asked Questions</a>
 	</ul>
+	</div>
 	</div>
 	
 	</div>	

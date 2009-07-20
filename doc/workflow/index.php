@@ -48,6 +48,8 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<h4>Examples and Screencasts</h4>
 		<ul>
 			<li><a href="http://epsilonblog.wordpress.com/2009/05/24/new-in-epsilon-0-8-5/">Article: New in Epsilon 0.8.5 (ANT tasks for EMF models)</a>
+			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.mddtif">Example: MDD-TIF Case study</a>
+			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.workflow.extension.example">Example: Provide custom/extended tasks for the workflow</a>
 		</ul>
 		
 		<h4>Reference</h4>

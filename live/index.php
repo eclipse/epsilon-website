@@ -67,15 +67,18 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="rightcolumn">
 		<div class="sideitem">
 			<h6>Epsilon Live</h6>
+			<div class="modal">
 			<p>In the editor on the left, you can <b>write and execute EOL scripts</b> (<a href="../doc/eol/">what is EOL?</a>) from your browser, without needing to download or install anything in your computer.
 			<br><br>
 			Except for playing with the basic features of the language, you can also query and modify a real EMF model (which for simplicity, is Ecore itself). 
 			
 			<br><br>Below are several small EOL scripts which you can try. To try a script, copy/paste it in the editor on the left and then click the Run button to execute it and see its output in the console.
 			</p>
+			</div>
 		</div>
 		<div class="sideitem">
 			<h6>Live Scripts</h6>
+			<div class="modal">
 			<ul>
 			<?
 			foreach ($scripts as $script) {
@@ -86,6 +89,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<li><a href="#<?=$title?>"><?=$title?></a>
 			<?}?>
 			</ul>
+			</div>
 		</div>
 		<!--div class="sideitem">
 			<h6>Feedback</h6>
