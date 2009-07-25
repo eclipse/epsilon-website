@@ -67,7 +67,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<h3>Follow @epsilonews on Twitter</h3>
 		<img style="float:right;padding-left:10px;" src="images/twitter.png"/>
-		<p>Follow <a href="http://www.twitter.com/epsilonews">@epsilonews</a> on Twitter to find out the latest news and developments on Epsilon.
+		<p>Follow <a href="http://www.twitter.com/epsilonews">@epsilonews</a> on Twitter to keep in touch with the latest news and developments in Epsilon.
 		</p>
 
 		<h3>Share your experiences</h3>
