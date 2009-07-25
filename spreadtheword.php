@@ -65,6 +65,11 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		</div>
 		<p>Ohloh is an increasingly popular social networking site that connects software with the people that develop and use it. You can click on the widget on the right to add <a href="http://www.ohloh.net/projects/8615">Epsilon</a> to the stack of applications you are using and let other developers looking in the MDE direction know that you are finding it useful.</p>
 		
+		<h3>Follow @epsilonews on Twitter</h3>
+		<img style="float:right;padding-left:10px;" src="images/twitter.png"/>
+		<p>Follow <a href="http://www.twitter.com/epsilonews">@epsilonews</a> on Twitter to find out the latest news and developments on Epsilon.
+		</p>
+
 		<h3>Share your experiences</h3>
 		<img style="float:right;padding-left:10px;" src="http://dev.eclipse.org/huge_icons/devices/network-wireless.png"/>
 		<p>Consider investing some time to share your experiences with Epsilon in your blog, website, or in the <a href="/gmt/epsilon/newsgroup">newsgroup</a>. Here are some examples of blog articles that discuss different bits of Epsilon:

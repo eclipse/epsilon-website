@@ -150,7 +150,6 @@
 				<li><a href="examples">Go through the examples</a></li>
 				<li><a href="live">Run EOL in your browser</a>
 				<li><a href="download"><b>Download</b></a></li>
-				<li><a href="doc/book">Get the book</a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
 				<li><a href="newsgroup">Get help in the newsgroup</a>
 				<ul>
@@ -162,12 +161,23 @@
 			</div>
 		</div>
 		
-		<a href="http://www.twitter.com/epsilonews"><img src="resources/twitter2.png" style="position:relative;top:6px;left:45px"></img></a>
+		<!--a href="http://www.twitter.com/epsilonews"><img src="resources/twitter2.png" style="position:relative;top:6px;left:45px"></img></a-->
 		
 		<div class="sideitem">
 			<h6>Get The Book</h6>
 			<div align="center"><a href="doc/book"><img align="center" src="images/book.png" border="0" alt="The Epsilon Book"/></a></div>
  		</div>
+		
+		<div class="sideitem">
+			<h6><a href="http://twitter.com/epsilonews" style="color:black">@epsilonews</a> on Twitter</h6>
+			<div class="modal">
+				<ul id="twitter_update_list"></ul>
+			</div>
+			<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+			<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/epsilonews.json?callback=twitterCallback2&amp;count=5"></script>
+		</div>		
+		
+
 	
 		<div class="sideitem">
 			<h6>Frequently Asked Question</h6>
