@@ -41,6 +41,8 @@ EOBRANDING;
 	$Nav->addCustomNav("FAQs", "/gmt/epsilon/faq.php", "_self", 1);
 	$Nav->addCustomNav("Book", "/gmt/epsilon/doc/book", "_self", 1);
 	$Nav->addCustomNav("Blog", "http://epsilonblog.wordpress.com", "_self", 1);
+	$Nav->addCustomNav("Labs", "/gmt/epsilon/labs", "_self", 1);
+	
 	$Nav->addNavSeparator("Getting help", "#");
 	$Nav->addCustomNav("Newsgroup", "/gmt/epsilon/newsgroup", "_self", 1);
 	//$Nav->addCustomNav("Web interface", "http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon", "_self", 1);
