@@ -34,7 +34,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<h4>Features</h4>
 		
 		<ul>
-			<li>Decouple content from destination (can generate text to files, network sockets etc.)
+			<li>Decouple content from destination (can be used to generate text to files, <a href="http://code.google.com/p/epsilonlabs/wiki/EGLinTomcat">as a server-side scripting language</a> etc.)
 			<li>Call templates (with parameters) from other templates
 			<li>Define and call sub-templates
 			<li>Mix generated with hand-written code
@@ -44,6 +44,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 		<h4>Examples and Screencasts</h4>
 		<ul>
+			<li><a href="http://code.google.com/p/epsilonlabs/wiki/EGLinTomcat">Tutorial: Using EGL as a server-side scripting language in Tomcat</a>
 			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.egldoc">Example: Generate HTML from an Ecore metamodel</a>
 			<li>Screencast: Generating an HTML report (<a href="../../cinema/#EglIntroduction">part 1</a>, <a href="../../cinema/#EglVariables">part 2</a>)
 		</ul>
