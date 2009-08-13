@@ -115,6 +115,7 @@
 		<file name="model/ECore2GMF.eol"/>
 		<file name="model/FixGMFGen.eol"/>
 		<file name="../org.eclipse.epsilon.eugenia.examples.flowchart.diagram.figures/src/org/eclipse/epsilon/eugenia/examples/flowchart/diagram/figures/DiamondFigure.java"/>
+		<project src="org.eclipse.epsilon.eugenia.examples.flowchart.diagram.figures"/>
 	</example>
 	<example src="org.eclipse.epsilon.workflow.extension.example" title="Provide custom/extended tasks for the workflow" standalone="true" runnable="false">
 		<description>
@@ -122,6 +123,5 @@
 		</description>
 		<file name="ant/org/eclipse/epsilon/workflow/extension/example/tasks/EolExtTask.java"/>
 		<file name="plugin.xml"/>
-		<project src="org.eclipse.epsilon.eugenia.examples.flowchart.diagram.figures"/>
 	</example>
 </examples>
