@@ -34,7 +34,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<h4>Features</h4>
 		
 		<ul>
-			<li>Decouple content from destination (can be used to generate text to files, <a href="http://code.google.com/p/epsilonlabs/wiki/EGLinTomcat">as a server-side scripting language</a> etc.)
+			<li>Decouple content from destination (can be used to generate text to files, to the <a href="https://sourceforge.net/apps/mediawiki/kolovos/index.php?title=MiniGen">clipboard</a>, or as a <a href="http://code.google.com/p/epsilonlabs/wiki/EGLinTomcat">server-side scripting language</a> etc.)
 			<li>Call templates (with parameters) from other templates
 			<li>Define and call sub-templates
 			<li>Mix generated with hand-written code
