@@ -16,7 +16,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Workflow";
+	$pageTitle 		= "Exeed";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../../common.php');
