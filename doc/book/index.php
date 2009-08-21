@@ -30,7 +30,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 		<h1><?=$pageTitle?></h1>
 		<div style="float:right;padding-left:10px">
-			<a href="<?=$pdf?>"><img src="../../images/book.png"/></a><br>
+			<a href="<?=$pdf?>"><img src="../../images/book2.png"/></a><br>
 			<center><a href="<?=$pdf?>">Download PDF</a></center>
 		</div>
 		

@@ -165,7 +165,7 @@
 		
 		<div class="sideitem">
 			<h6>Get The Book</h6>
-			<div align="center"><a href="doc/book"><img align="center" src="images/book.png" border="0" alt="The Epsilon Book"/></a></div>
+			<div align="center"><a href="doc/book"><img align="center" src="images/book2.png" border="0" alt="The Epsilon Book"/></a></div>
  		</div>
 		
 		<div class="sideitem">
