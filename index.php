@@ -123,7 +123,7 @@
 		</div>
 		
 		<div class="homeitem">
-			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'))?>
+			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'), 3, 5, 500)?>
 		</div>
 		
 		<div class="homeitem">
@@ -156,7 +156,7 @@
 					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Browse <?=$messages?> posts</a>
 				</ul>
 				</li>
-				<li style="position:relative;top:-10px"><a href="spreadtheword.php">Spread the word</a>
+				<li style="position:relative;top:-10px"><a href="spreadtheword">Spread the word</a>
 			</ol>
 			</div>
 		</div>
@@ -211,7 +211,7 @@
 		</div>
 		
 		<div class="sideitem">
-			<?=r2h("Updates", "news/epsilonNewsArchive.rss", array(' '), 6)?>
+			<?=r2h("Updates", "news/epsilonNewsArchive.rss", array(' '), 6, 5, 2000)?>
 		</div>
 		
 	</div>

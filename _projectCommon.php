@@ -48,7 +48,7 @@ EOBRANDING;
 	//$Nav->addCustomNav("Web interface", "http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon", "_self", 1);
 	//$Nav->addCustomNav("Instructions", "http://wiki.eclipse.org/index.php/Webmaster_FAQ#How_do_I_access_the_Eclipse_newsgroups.3F", "_self", 2);
 	$Nav->addNavSeparator("Giving back", "#");
-	$Nav->addCustomNav("Spread the word", "/gmt/epsilon/spreadtheword.php", "_self", 1);
+	$Nav->addCustomNav("Spread the word", "/gmt/epsilon/spreadtheword/", "_self", 1);
 	$Nav->addNavSeparator("Bugzilla", "#");
 		$Nav->addCustomNav("Report a new bug", "https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon", "_self", 1);
 	$Nav->addCustomNav("View open bugs", "https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_status=VERIFIED", "_self", 1);

@@ -17,7 +17,7 @@
 	$pageTitle 		= "Download";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	$version = "0.8.6";
+	$version = "0.8.7";
 	chdir('..');
 	include ('common.php');
 	include ('news/news.php');
@@ -145,7 +145,7 @@
 		</div>
 		
 		<div class="sideitem">
-			<?=r2h("Updates", "http://www.eclipse.org/gmt/epsilon/news/epsilonNewsArchive.rss", array(' '), 6)?>
+			<?=r2h("Updates", "news/epsilonNewsArchive.rss", array(' '), 6, 5, 2000)?>
 		</div>
 		
 	</div>

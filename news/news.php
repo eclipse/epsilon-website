@@ -2,7 +2,7 @@
 
 include_once("dom4php/XmlParser.php");
 
-function r2h($title, $feed, $posts, $heading=3, $limit = 5) {
+function r2h($title, $feed, $posts, $heading=3, $limit = 5, $chopAt = 400) {
 	$parser   = new XmlParser($encoding = 'ISO-8859-1');
 	$document = $parser->parse(file_get_contents($feed));
 	$channel = $document->documentElement;
@@ -22,7 +22,7 @@ function r2h($title, $feed, $posts, $heading=3, $limit = 5) {
 					$content = strip_tags($item->getOneChild("content:encoded")->childNodes[0]->data);
 					$more = " [...]";
 					if (trim($content) == "") { $content = $item->getOneChild("description")->childNodes[0]->data; }
-					$chopAt = 400;
+
 					if (strlen($content) < $chopAt) {
 						$chopAt = strlen($content);
 						$more = "";
