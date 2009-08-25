@@ -110,11 +110,11 @@
 		<?include('noscript.html')?>
 		<h1><?=$pageTitle?></h1>
 					<!--h3>Welcome</h3-->
-	    <img style="float:right" src="resources/epsilonlogo.png" alt="Epsilon Logo" />
-			<p>Epsilon is a metamodel-agnostic component that supports programmatic creation, navigation, 
-			and modification of EMF models<br>(<a href="doc">read more</a> or <a href="examples">see a quick example</a>...)</p>
-
-		
+	    <img style="float:right" src="resources/epsilonlogo.png" alt="Epsilon Logo" /><p>Epsilon provides a set of interoperable task-specific programming languages through which you can interact with your EMF models to perform common MDE tasks.
+			(<a href="doc">read more</a> or <a href="examples">see a quick example</a>...)</p>
+	
+	<!--Epsilon is a metamodel-agnostic component that supports programmatic creation, navigation, and modification of EMF models.-->
+	
 		<div class="homeitem">
 			<h2>What can you do with Epsilon?</h2>
 			<div id="show" class="slideshow" style="width:495px">
