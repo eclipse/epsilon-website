@@ -25,6 +25,16 @@
 		</answer>
 	</faq>
 	<faq>
+		<title>How do I get notified when a new version of Epsilon becomes available?</title>
+		<answer><![CDATA[
+		<p>To get notified when a new version of Epsilon becomes available, please subscribe to Epsilon's <a href="news/epsilonNewsArchive.rss">RSS feed</a> (you can subscribe using a dedicated RSS client or an email client such as <a href="http://kb.mozillazine.org/RSS_basics_(Thunderbird)">Thunderbird</a>).</p> 
+		
+		<p> You can also configure Eclipse to check for updates automatically by going to Window->Preferences->Install/Update/Automatic Updates and checking the "Automatically find new updates and notify me" option.</p>
+		
+		]]>
+		</answer>
+	</faq>
+	<faq>
 		<title>Can I use Epsilon in a non-Eclipse-based standalone Java application?</title>
 		<answer><![CDATA[
 		<p>Yes. There are several examples of doing just that (for all languages provided by Epsilon) in <a href="http://dev.eclipse.org/viewsvn/index.cgi/trunk/examples/org.eclipse.epsilon.examples.standalone/?root=Modeling_EPSILON">this project in the SVN</a>.]]>
