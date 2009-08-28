@@ -67,7 +67,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<p>Ohloh is an increasingly popular social networking site that connects software with the people that develop and use it. You can click on the widget on the right to add <a href="http://www.ohloh.net/projects/8615">Epsilon</a> to the stack of applications you are using and let other developers looking in the MDE direction know that you are finding it useful.</p>
 		
 		<h3>Follow @epsilonews on Twitter</h3>
-		<img style="float:right;padding-left:10px;" src="images/twitter.png"/>
+		<img style="float:right;padding-left:10px;" src="../images/twitter.png"/>
 		<p>Follow <a href="http://www.twitter.com/epsilonews">@epsilonews</a> on Twitter to keep in touch with the latest news and developments in Epsilon.
 		</p>
 
