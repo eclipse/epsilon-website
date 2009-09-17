@@ -124,4 +124,11 @@
 		<file name="ant/org/eclipse/epsilon/workflow/extension/example/tasks/EolExtTask.java"/>
 		<file name="plugin.xml"/>
 	</example>
+		<example src="org.eclipse.epsilon.examples.workflow.transactions" title="Use model transactions in a workflow" standalone="true" runnable="false">
+		<description>
+		<![CDATA[In this example we demonstrate using the ant-contrib try/catch tasks and the Epsilon model transactions tasks to conditionally rollback changes in models modified in a workflow. To run this example you need to have the latest <b>interim</b> version of Epsilon and set up Eclipse with the ant-contrib ANT tasks]]>
+		</description>
+		<file name="build.xml"/>
+		<file name="tree.emf"/>
+	</example>
 </examples>
