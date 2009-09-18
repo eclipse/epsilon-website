@@ -25,7 +25,8 @@
 
 EOBRANDING;
 	$Menu->setProjectBranding($branding);
-
+	$Nav->addCustomNav("About This Project", "http://www.eclipse.org/projects/project_summary.php?projectid=modeling.gmt.epsilon", "", 1);
+	
 	# Define your project-wide Nav bars here.
 	# Format is Link text, link URL (can be http://www.someothersite.com/), target (_self, _blank), level (1, 2 or 3)
 	# these are optional

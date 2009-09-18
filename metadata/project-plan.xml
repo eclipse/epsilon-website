@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<?xml-stylesheet type="text/xsl" href="http://www.eclipse.org/projects/project-plan.xsl"?>
+<!--?xml-stylesheet type="text/xsl" href="http://www.eclipse.org/projects/project-plan.xsl"?-->
 <plan plan-format="1.0" xmlns="http://www.eclipse.org/project/plan"
 	xmlns:html="http://www.w3.org/1999/xhtml" name="Epsilon">
 	<release projectid="modeling.gmt.epsilon" version="0.9" />
 	<introduction>
-		<html:div>Epsilon provides a set of interoperable task-specific programming languages through which users can interact with your EMF models to perform common MDE tasks.
+		<html:div>Epsilon provides a set of interoperable task-specific programming languages through which users can interact with EMF models to perform common MDE tasks.
 		</html:div>
 	</introduction>
 	<release_deliverables>
@@ -12,13 +12,6 @@
 			Epsilon is an incubating component and no formal releases are currently planned.
 		</html:p>
 	</release_deliverables>
-	<release_milestones>
-		<preamble>
-			<html:p>
-				No milestones planned.
-			</html:p>
-		</preamble>
-	</release_milestones>
 	<target_environments>
 		<html:div>
 			Epsilon depends on the Platform and EMF projects and offers optional integration with GMF. Epsilon has been compiled using Java 1.5 and does not depend on any non-Java libraries.
