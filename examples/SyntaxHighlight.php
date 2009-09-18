@@ -3,6 +3,7 @@ include 'EpsilonSyntaxHighlight.php';
 include 'EmfaticSyntaxHighlight.php';
 include 'JavaSyntaxHighlight.php';
 include 'EglSyntaxHighlight.php';
+include 'XmlSyntaxHighlight.php';
 
 function highlight($text, $language) {
 
@@ -18,7 +19,11 @@ function highlight($text, $language) {
 	else if ($language == "java") {
 		return JavaSyntaxHighlight::process($text);
 	}
+	//else if ($language == "xml") {
+	//	return XmlSyntaxHighlight::process($text, $true);
+	//}
 	else {
+		$text = str_replace ("\t", "  ", $text);
 		return '<pre>'.htmlspecialchars($text).'<pre>';
 	}
 }
