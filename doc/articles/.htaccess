@@ -1,0 +1,4 @@
+Options +FollowSymlinks
+RewriteEngine on
+# time to get dynamic, see..
+RewriteRule (.*) article.php?id=$1
