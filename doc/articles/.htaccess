@@ -1,3 +1,3 @@
 RewriteEngine on
-# time to get dynamic, see..
-RewriteRule (.*) article.php?id=$1
+# RewriteRule ^([a-zA-Z0-9_-]+)\/$ article.php?articleId=$1 [L] WORKS
+RewriteRule ^([a-zA-Z0-9_-]+)\/$ article.php?articleId=$1 [L]

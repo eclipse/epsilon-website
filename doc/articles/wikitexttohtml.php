@@ -65,9 +65,9 @@ class WikiTextToHTML {
 			'/`(.+?)`/'
 				=>	'<tt>\1</tt>',
 			'/\[\[image:(.+?)\|(.+?)\]\]/'
-				=>	'<img src="\1" alt="\2" style="width:200px"/>',
+				=>	'<img src="\1" alt="\2" style="width:100%"/>',
 			'/\[\[image:(.+?)\]\]/'
-				=>	'<img src="\1" style="width:200px"/>',
+				=>	'<img src="\1" style="width:100%"/>',
 			'/\[\[(.+?)\|(.+?)\]\]/'
 				=>	'<a href="\1">\2</a>',
 			'/\[\[(.+?)\]\]/'
@@ -170,12 +170,13 @@ class WikiTextToHTML {
 			}
 			
 			// determine output format
-			if('' == $in) {
+			if('' == $in && CS_NONE == $codestate) {
+				$output[] = '<br/>';
 			} else if ('{{{' == trim($in)) {
-				$output[] = '<p><pre><code>';
+				$output[] = '<p><pre class="codebox">';
 				$codestate = CS_CODE;
 			} else if ('}}}' == trim($in)) {
-				$output[] = '</code></pre></p>';
+				$output[] = '</pre></p>';
 				$codestate = CS_NONE;
 			} else if (
 				$in[0] != '=' &&
@@ -184,14 +185,14 @@ class WikiTextToHTML {
 			{
 				// only output paragraphs when not in code
 				if(CS_NONE == $codestate) {
-					$output[] = '<p>';
+					//$output[] = '<p>';
 				}
 
 				$output[] = $out;
 
 				// only output paragraphs when not in code
 				if(CS_NONE == $codestate) {
-					$output[] = '</p>';
+					//$output[] = '</p>';
 				}
 			} else {
 				$output[] = $out;

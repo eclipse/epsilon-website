@@ -1,0 +1,23 @@
+= Manage the Epsilon web site locally =
+
+This article provides a step-by-step guide for obtaining a local copy of the Epsilon website.
+
+
+* Download and install [[http://portableapps.com/apps/development/xampp|XAMPP]]
+* The folder where web-content is placed is `htdocs`
+* Connect to the Eclipse CVS (using the CVS client of Eclipse)
+ * host: `dev.eclipse.org`
+ * repository: `/cvsroot/org.eclipse`
+ * connection type: `extssh`	
+* Create a folder named `gmt` under `htdocs`
+* Create a folder named epsilon under `gmt`
+* Check out `www/gmt/epsilon` as a project located under the gmt folder you just created
+ * Use check out as a project configured using the New Project Wizard
+ * Check out as a general Project
+ * Set the name to `epsilon` and the path to `htdocs/gmt/epsilon`
+* Similarly, check out `www/eclipse.org-common` to `/htdocs/eclipse.org-common`
+* Similarly, check out `www/gmt/news to` `/htdocs/gmt/news`
+* Finally, check out `www/gmt/resources` to `/htdocs/gmt/resources`
+* Start XAMPP and go to `http://localhost/gmt/epsilon`
+* You are now ready to start playing with the Epsilon site locally
+* Once you've happy with the changes you've made, go back to the epsilon project in Eclipse, refresh and then commit the changes to the CVS. The site should be updated within a few minutes.
