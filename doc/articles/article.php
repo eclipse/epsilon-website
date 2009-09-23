@@ -32,9 +32,11 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="rightcolumn">
 		<div class="sideitem">
 			<h6>Actions</h6>
+			<div class="modal">
 			<ul>
 				<li><a href="#">Print this article</a>
 			</ul>
+			</div>
 		</div>
 	</div>
 <?
@@ -42,6 +44,6 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	$html = ob_get_contents();
 	ob_end_clean();
 	# Generate the web page
-	$App->AddExtraHtmlHeader("<link href='../../epsilon.css' rel='stylesheet' type='text/css' />");
+	$App->AddExtraHtmlHeader("<link href='../../../epsilon.css' rel='stylesheet' type='text/css' />");
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
