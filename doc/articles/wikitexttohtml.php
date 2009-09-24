@@ -37,7 +37,6 @@ class WikiTextToHTML {
 	 */	 
 	private static $RULES =
 		array(
-			
 			'/^======(.*)======$/'
 				=> '<h6>\1</h6>',
 			'/^=====(.*)=====$/'
@@ -52,7 +51,7 @@ class WikiTextToHTML {
 				=>	'<h1>\1</h1>',
 			//'/\[\[(.*?)\]\]/'
 			//	=>	'<span class="keys">\1</span>',
-			'/^([ ]+)1 (.+)$/'
+			'/^([ ]*)\# (.+)$/'
 				=>	'<li>\2</li>',
 			'/^([ ]*)\* (.+)$/'
 				=>	'<li>\2</li>',
@@ -65,9 +64,9 @@ class WikiTextToHTML {
 			'/`(.+?)`/'
 				=>	'<tt>\1</tt>',
 			'/\[\[image:(.+?)\|(.+?)\]\]/'
-				=>	'<img src="\1" alt="\2" style="width:100%"/>',
+				=>	'<img src="\1" alt="\2"/>',
 			'/\[\[image:(.+?)\]\]/'
-				=>	'<img src="\1" style="width:100%"/>',
+				=>	'<img src="\1"/>',
 			'/\[\[(.+?)\|(.+?)\]\]/'
 				=>	'<a href="\1">\2</a>',
 			'/\[\[(.+?)\]\]/'
@@ -105,66 +104,70 @@ class WikiTextToHTML {
 			// read, htmlify and right-trim each input line
 			$in = htmlspecialchars(rtrim($in));
 			$out = $in;		
-
-			// match against Wiki text to HTML rules
-			foreach(self::$RULES as $pattern => $replacement) {
-				$out = preg_replace($pattern, $replacement,
-					$out);
-			}
-	
-			// determine list state based on leftmost character
-			$prevliststate = $liststate;
-			$prevlistdepth = $listdepth;
-			switch(substr(ltrim($in), 0, 1)) {
-				case '1':
-					$liststate = LS_ORDERED;
-					$listdepth = strpos($in, '1');
-					break;
-				case '*':
-					$liststate = LS_UNORDERED;
-					$listdepth = strpos($in, '*');
-					break;
-				default:
-					$liststate = LS_NONE;
-					$listdepth = 1;
-					break;
-			}
+			$out = preg_replace("/\t/", "  ",$out);	
 			
-			// check if list state has changed
-			if($liststate != $prevliststate) {
-				// close old list
-				if(LS_NONE != $prevliststate) {
-					$output[] =
-						self::$LT_CLOSE[$prevliststate];
+			if (CS_NONE == $codestate) {
+				// match against Wiki text to HTML rules
+				foreach(self::$RULES as $pattern => $replacement) {
+					$out = preg_replace($pattern, $replacement,
+						$out);
+				}
+			
+						
+				// determine list state based on leftmost character
+				$prevliststate = $liststate;
+				$prevlistdepth = $listdepth;
+				switch(substr(ltrim($in), 0, 1)) {
+					case '#':
+						$liststate = LS_ORDERED;
+						$listdepth = strpos($in, '1');
+						break;
+					case '*':
+						$liststate = LS_UNORDERED;
+						$listdepth = strpos($in, '*');
+						break;
+					default:
+						$liststate = LS_NONE;
+						$listdepth = 1;
+						break;
 				}
 				
-				// start new list
-				if(LS_NONE != $liststate) {
-					$output[] = self::$LT_OPEN[$liststate];
-				}
-			}
-			
-			// check if list depth has changed
-			if ($listdepth != $prevlistdepth) {
-				// calculate the depth difference
-				$depthdiff = abs($listdepth - $prevlistdepth);
-
-				// open or close tags based on difference
-				if($listdepth > $prevlistdepth) {
-					for($i = 0;
-						$i < $depthdiff;
-						$i++)
-					{
-						$output[] =
-							self::$LT_OPEN[$liststate];
-					}
-				} else {
-					for($i = 0;
-						$i < $depthdiff;
-						$i++)
-					{
+				// check if list state has changed
+				if($liststate != $prevliststate) {
+					// close old list
+					if(LS_NONE != $prevliststate) {
 						$output[] =
 							self::$LT_CLOSE[$prevliststate];
+					}
+					
+					// start new list
+					if(LS_NONE != $liststate) {
+						$output[] = self::$LT_OPEN[$liststate];
+					}
+				}
+				
+				// check if list depth has changed
+				if ($listdepth != $prevlistdepth) {
+					// calculate the depth difference
+					$depthdiff = abs($listdepth - $prevlistdepth);
+
+					// open or close tags based on difference
+					if($listdepth > $prevlistdepth) {
+						for($i = 0;
+							$i < $depthdiff;
+							$i++)
+						{
+							$output[] =
+								self::$LT_OPEN[$liststate];
+						}
+					} else {
+						for($i = 0;
+							$i < $depthdiff;
+							$i++)
+						{
+							$output[] =
+								self::$LT_CLOSE[$prevliststate];
+						}
 					}
 				}
 			}

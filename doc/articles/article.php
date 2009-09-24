@@ -25,20 +25,30 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	ob_start();
 ?>
 
-	<div id="midcolumn">
+	<div id="midcolumn" style="width:753px">
+		<div class="sideitem" style="float:right; margin-left:30px; margin-bottom:30px; width:238px;">
+			<h6>Actions</h6>
+			<div class="modal">
+			<ul>
+				<li><a href="#">Print this article</a>
+				<li><a href="../../../newsgroup/">Get help with this article</a>			
+			</ul>
+			</div>
+		</div>
 		<?=WikiTextToHTML::convertWikiTextToHTML(file_get_contents($_GET['articleId'].'/content.wiki'));?>
 	</div>
 	
-	<div id="rightcolumn">
-		<div class="sideitem">
+	<!--div id="rightcolumn"-->
+		<!--
+		<div class="sideitem" style="width:300px; float:right">
 			<h6>Actions</h6>
 			<div class="modal">
 			<ul>
 				<li><a href="#">Print this article</a>
 			</ul>
 			</div>
-		</div>
-	</div>
+		</div-->
+	<!--/div-->
 <?
 	include('../../stats.php');
 	$html = ob_get_contents();

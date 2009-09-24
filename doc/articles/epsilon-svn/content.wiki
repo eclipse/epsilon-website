@@ -1,0 +1,17 @@
+=Accessing the Source Code of Epsilon from SVN=
+
+The purpose of this article is to describe the process of setting up a local copy of
+the source code of Epsilon from the Eclipse SVN server (dev.eclipse.org) using
+Eclipse 3.3+.
+
+== Prerequisites ==
+Download and install Java 1.5+, Eclipse 3.3+, the Eclipse SVN client, the latest
+version of EMF and (optionally) the latest version of GMF.
+
+== Accessing the code == 
+* Switch to the SVN Repository Exploring perspective (from the `Window->Open Perspective->Other...` menu)
+* Click the New Repository Location on the SVN Repositories view and enter the following details
+ * URL: `http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/`
+ * User: `anonymous`
+* Open the `trunk` node
+* Select the sub-folders of `plugins` and `features`, right-click and check them out as displayed below
