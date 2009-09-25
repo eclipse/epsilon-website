@@ -37,6 +37,7 @@ EOBRANDING;
 	//$Nav->addCustomNav("Source code", "http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON", "_self", 1);
 	$Nav->addNavSeparator("Resources", "#");
 	$Nav->addCustomNav("Documentation", "/gmt/epsilon/doc/", "_self", 1);
+	$Nav->addCustomNav("Articles", "/gmt/epsilon/doc/articles/", "_self", 1);
 	$Nav->addCustomNav("Screencasts", "/gmt/epsilon/cinema/", "_self", 1);
 	$Nav->addCustomNav("Examples", "/gmt/epsilon/examples", "_self", 1);
 	$Nav->addCustomNav("FAQs", "/gmt/epsilon/faq.php", "_self", 1);
