@@ -1,7 +1,5 @@
-=EuGENia GMF Tutorial=
-
+=EuGENia GMF Tutorial= 
 EuGENia is a tool that automatically generates the `.gmfgraph`, `.gmftool` and `.gmfmap` models needed to implement a GMF editor from a single annotated ECore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic) it can generate a fully functional GMF editor, a screenshot of which is displayed below.
-
 
 '''The Filesystem metamodel:'''
 
@@ -44,19 +42,15 @@ class File {
 
 '''The generated editor:'''
 
-
 [[image:Filesystemscreenshot2.png]]
 
 ==Supported Annotations==
-
 EuGENia supports the following annotations on ECore elements.
 
 ===gmf===
-
 Applies to the top `EPackage` only and denotes that GMF-related annotations are expected in its elements. This doesn't affect the forthcoming model transformations, only the ECore validation process.
 
 ===gmf.diagram===
-
 Denotes the root object of the metamodel. Only one (non-abstract) `EClass` must be annotated as `gmf.diagram`. Accepts the following details
 * `onefile` (optional) : a value of `true` specifies that the domain model and the diagram should be stored in the same file
 * `model.extension` (optional) : the file extension for the domain model
@@ -64,12 +58,11 @@ Denotes the root object of the metamodel. Only one (non-abstract) `EClass` must 
 * `units` (optional) : the units for the diagram (e.g. `Pixels`)
 
 ===gmf.node===
- 
 Applies to an `EClass` and denotes that it should appear on the diagram as a node. Accepts the following details
 * `label` : the name(s) of the `EAttribute`(s) of the `EClass`, the value(s) of which will be displayed as the label of the node
 * `label.pattern` (optional): If more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. `{0} : {1}`)
 * `label.icon` (optional): If set to `true` (default) a small icon appears on the left of the label.
-* `label.placement` (optional) : Defines the placement of the label in relation to the node. Can be set to `internal` or `external`. ''(The default distance of an external label in GMF is 20pt which is a bit too far away for my taste. [[GMF Fix offset in external labels|Read more]] about fixing this without changing the generated code every time)''.
+* `label.placement` (optional) : Defines the placement of the label in relation to the node. Can be set to `internal` or `external`. ''(The default distance of an external label in GMF is 20pt which is a bit too far away for my taste. [[../gmf-fix-label-offset/|Read more]] about fixing this without changing the generated code every time)''.
 * `label.readOnly` (optional) : A value of `true` denotes that the label cannot be changed in the generated diagram editor.
 * figure (optional) : The figure that will represent the node. Can be set to `rectangle`, `ellipse`, `rounded` (default), or the fully qualified name of a Java class that implements Figure
 * `color` (optional) : an RGB color that will be set as the node's background color (e.g. `255,0,0`)
@@ -86,11 +79,9 @@ Applies to an `EClass` and denotes that it should appear on the diagram as a nod
 * `tool.large.bundle` (optional) : The bundle of the large icon of the creation tool
 
 ===gmf.link===
-
 Applies to `EClass`es that should appear on the diagram as links and to non-containment `EReference`s.
 
 ===gmf.link (for EClass)===
-
 It accepts the following details:
 * `label` (optional) : The names of the `EAttribute`s of the `EClass` the value of which will be displayed as the label of the link
 * `label.pattern` (optional) : If more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. `{0} : {1}`)
@@ -112,7 +103,6 @@ It accepts the following details:
 For an example see the `Sync` class in the `filesystem` metamodel
 
 ===gmf.link (for non-containment EReference)===
-
 It accepts the following details:
 * `label` (optional) : The static text that will be displayed as the label of the link. If no label is specified, the name of the reference is displayed instead.
 * `source.decoration` (optional) : The decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `rectangle`, `filledrectangle`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements an appropriate interface
@@ -128,28 +118,23 @@ It accepts the following details:
 * `tool.large.bundle` (optional) : The bundle of the large icon of the creation tool
 
 ===gmf.compartment (for containment EReference)===
-
 Defines that the containment reference will create a compartment where model elements that conform to the type of the reference can be placed. It accepts the following detail:
 * `layout` (optional) : The layout of the compartment. Can be set to free (default) or list
 * `collapsible` (optional) : Set to `false` to prevent the compartment from collapsing (default is `true`)
 
 ===gmf.affixed (for containment EReference)===
-
 Defines that the containment reference will create nodes which are affixed to the edges of the containing node. [[../eugenia-affixed-nodes|See an example]].
 
 ===gmf.label (for EAttribute)===
-
 Defines additional labels for the containing `EClass`. These labels will be displayed underneath the default label for the containing `EClass`. It accepts the following details:
 * `label.readOnly` (optional) : A value of `true` denotes that the label cannot be changed in the generated diagram editor.
 
 ==Installing EuGENia ''(New Instructions!)''==
-
 EuGENia is a part of the main Epsilon distribution. The update site of Epsilon is `http://download.eclipse.org/modeling/gmt/epsilon/updates`, and detailed instructions for installing it are available [[http://www.eclipse.org/gmt/epsilon/download|here]].
 
 Although not necessary, you should also install the Emfatic toolkit mentioned above through the following update site: `http://www.scharf.gr/eclipse/emfatic/update/`
 
 ==Running EuGENia==
-
 To run EuGENia you need to do the following:
 * Launch a new eclipse instance from the "Run->Eclipse Application" menu using "-XX:PermSize=64M -XX:MaxPermSize=128M -Xms512M -Xmx1024M" as VM arguments in the Run Configuration
 * Create a new GMF project in the new instance
@@ -164,7 +149,6 @@ To run EuGENia you need to do the following:
 * Run a new instance of Eclipse
 
 ==Re-running EuGENia==
-
 If you now change your metamodel you'll have to rerun EuGENia to generate your updated editor. Please follow the steps below in the exact order they are displayed:
 * Right-click your ECore metamodel and select Eugenia->Generate GMF graph, tool and map models
 * Right-click your .genmodel and select Reload...
@@ -177,7 +161,6 @@ If you now change your metamodel you'll have to rerun EuGENia to generate your u
 (Please note that any changes you have done manually to .gmfgraph, .gmftool and .gmfmap will be '''overwritten'''. Have a look [[../eugenia-polishing|here]] for an alternative way to customize these models)
 
 ==Troubleshooting==
-
 * Certain versions of Emfatic do not support annotations without details (e.g. `@gmf` or `@gmf.diagram`). You can use dummy details as a workaround (e.g. `@gmf(foo="bar")`)
 * Should you run across the "Node is referenced from multiple containers with different 'List Layout' values" message during validation please ignore it and proceed with the editor code generation.
 
@@ -186,15 +169,12 @@ If you now change your metamodel you'll have to rerun EuGENia to generate your u
 * [[../eugenia-nodes-with-runtime-images|Nodes with user defined images at runtime]]
 
 ==Customizing your editor==
-
 [[../eugenia-polishing|Click here]] to find out how you can further customize the generated `.gmfgraph`, `.gmfmap` and `.gmftool` models in ways that are not supported by the annotations provided by EuGENia, and still preserve the customizations when EuGENia is re-invoked.
 
 ==Adding Copyright==
-
 To add copyright information to your generated .gmfgen model, simply create a file named copyright.txt next to it. Next time you invoke '''Eugenia->Synchronize GMF gen model''', EuGENia will pick it up and place its contents in the root GenDiagramEditor of your .gmfgen model. If you have added the copyright.txt file, you can also inhect its contents to your .genmodel model (EMF generator model) by right-clicking it and invoking '''Eugenia->Synchronize EMF gen model'''.
 
 ==Next Steps==
-
 Now that you've learned how to generate a GMF-based editor using EuGENia, you may also want to add some constraints to your editor, which you can then evaluate (explicitly or on-save) to [[../evl-gmf-integration|check the correctness/consistency of your models]]:
 
 [[image:Filesystemwitherrorshighlighted.png]]

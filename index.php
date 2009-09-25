@@ -123,6 +123,7 @@
 		</div>
 		
 		<div class="homeitem">
+			<!-- http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10 -->
 			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'), 3, 5, 500)?>
 		</div>
 		

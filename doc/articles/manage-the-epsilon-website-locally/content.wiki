@@ -1,7 +1,5 @@
 = Manage the Epsilon web site locally =
-
 This article provides a step-by-step guide for obtaining a local copy of the Epsilon website.
-
 
 * Download and install [[http://portableapps.com/apps/development/xampp|XAMPP]]
 * The folder where web-content is placed is `htdocs`

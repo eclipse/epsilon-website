@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<articles>
+	<!--article name="call-java-from-epsilon" title="Call Java from Epsilon">
+		<description>
+		This article demonstrates how to create Java objects and call their methods from Epsilon languages.
+		</description>
+	</article-->
+	<article name="eugenia-gmf-tutorial" title="EuGENia GMF Tutorial">
+		<description>
+		This article provides a guide to using EuGENia for developing GMF editors, as well as its complete list of features and supported annotations.
+		</description>
+	</article>
+	<article name="eugenia-polishing" title="Customizing an editor generated with EuGENia">
+		<description>
+		This article demonstrates how a GMF editor generated with EuGENia can be polished in a systematic and reproducible way.
+		</description>
+	</article>
+	<article name="evl-gmf-integration" title="EVL-GMF Integration">
+		<description>
+		This article demonstrates evaluating EVL constraints from within a GMF-based editor.
+		</description>
+	</article>
+	<article name="eugenia-nodes-with-images" title="EuGENia: Nodes with images instead of shapes">
+		<description>
+		This article shows how to create nodes in your GMF editor that are represented with images (png, jpg etc.) instead of the standard GMF shapes (rectangle, ellipse etc.)
+		</description>
+	</article>
+	<article name="eugenia-nodes-with-runtime-images" title="EuGENia: Nodes with images defined at run-time">
+		<description>
+		This article addresses the case where the end-user needs to set an image for each node at runtime.
+		</description>
+	</article>	
+	<article name="eugenia-phantom-nodes" title="EuGENia: Phantom nodes in GMF editors">
+		<description>
+		This article demonstrates how to define GMF phantom nodes in EuGENia.
+		</description>
+	</article>
+	<article name="manage-the-epsilon-website-locally" title="Manage the Epsilon website locally">
+		<description>
+		This article demonstrates how to manage the Epsilon website in your machine.
+		</description>
+	</article>
+</articles>

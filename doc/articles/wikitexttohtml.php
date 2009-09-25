@@ -174,12 +174,12 @@ class WikiTextToHTML {
 			
 			// determine output format
 			if('' == $in && CS_NONE == $codestate) {
-				$output[] = '<br/>';
+				$output[] = '<br><br>';
 			} else if ('{{{' == trim($in)) {
-				$output[] = '<p><pre class="codebox">';
+				$output[] = '<pre class="codebox">';
 				$codestate = CS_CODE;
 			} else if ('}}}' == trim($in)) {
-				$output[] = '</pre></p>';
+				$output[] = '</pre>';
 				$codestate = CS_NONE;
 			} else if (
 				$in[0] != '=' &&

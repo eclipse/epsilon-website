@@ -37,6 +37,7 @@ function seeAlsoSideItem() {
 	<div class='modal'>
 	<ul>
 		<li><a href="/gmt/epsilon/doc">Documentation</a>
+		<li><a href="/gmt/epsilon/doc/articles/">Articles</a>		
 		<li><a href="/gmt/epsilon/cinema">Screencasts</a>
 		<li><a href="/gmt/epsilon/examples">Examples</a>
 		<li><a href="/gmt/epsilon/live">Live</a>

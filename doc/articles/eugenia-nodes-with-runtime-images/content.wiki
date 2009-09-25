@@ -2,11 +2,9 @@
 This recipe addresses the case where the end-user needs to set an image for each node at runtime (based on Thomas Beyer's solution presented in the GMF newsgroup). For our example, we'll use the Component class.
 
 ==Create an attribute to store the image path==
-
 First we need to create an '''imagePath''' attribute that will store the path of the image for each component.
 
 ==Set the figure of Component to a custom ComponentFigure==
-
 The next step is to set the figure of Component in EuGENia to a custom figure. After those two steps, our definition of Component looks like this:
 
 {{{
@@ -80,7 +78,6 @@ public class ComponentFigure extends ImageFigure  {
 }}}
 
 ==Create the image path property descriptor==
-
 The next step is to create the property descriptor for the image path so that we can eventually get a nice browse button in the properties view. To do this we need to create a new class named '''ComponentImagePathPropertyDescriptor'''.
 
 {{{
@@ -152,7 +149,6 @@ public class ComponentImagePathCellEditor extends DialogCellEditor  {
 }}}
 
 ==Update the XXXPropertySection under xxx.diagram.sheet==
-
 Update the getPropertySource method as follows:
 
 {{{
@@ -201,7 +197,6 @@ public IPropertySource getPropertySource(Object object) {
 }}}
 
 ==Modify the edit part==
-
 Modify the handleNotificationEvent so that the figure is updated every time the value of imagePath changes
 
 {{{

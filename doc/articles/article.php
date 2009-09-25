@@ -21,21 +21,34 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../../common.php');
 	require_once 'wikitexttohtml.php';
-	//chdir($_GET['articleId']);
+	$articleId =  $_GET['articleId'];
+	$contentFile = $articleId.'/content.wiki';
+	if (file_exists($contentFile)) {
+		$lines = file($contentFile);
+		$line = trim($lines[0]);
+		$pageTitle = substr($line, 1, strlen($line) - 2);
+	}
 	ob_start();
 ?>
-
 	<div id="midcolumn" style="width:753px">
+		<?if(file_exists($contentFile)){?>
 		<div class="sideitem" style="float:right; margin-left:30px; margin-bottom:30px; width:238px;">
 			<h6>Actions</h6>
 			<div class="modal">
 			<ul>
-				<li><a href="#">Print this article</a>
-				<li><a href="../../../newsgroup/">Get help with this article</a>			
+				<!--li><a href="#">Print this article</a-->
+				<li><a href="../../../newsgroup/">Get help with this article</a>
+				<li><a href="../">Back to the article index</a>
 			</ul>
 			</div>
 		</div>
-		<?=WikiTextToHTML::convertWikiTextToHTML(file_get_contents($_GET['articleId'].'/content.wiki'));?>
+		<?=WikiTextToHTML::convertWikiTextToHTML(file_get_contents($contentFile));?>
+		<?}
+		else {?>
+		<div class="warningbox">
+		Article <?=$articleId?> not found. Go back to the <a href="..">index of articles</a>.
+		</div>
+		<?}?>
 	</div>
 	
 	<!--div id="rightcolumn"-->
