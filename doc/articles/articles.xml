@@ -5,6 +5,11 @@
 		This article demonstrates how to create Java objects and call their methods from Epsilon languages.
 		</description>
 	</article-->
+	<article name="egl-server-side" title="EGL as a server-side language">
+		<description>
+		This article demonstrates using EGL (the model-to-text language of Epsilon) in Tomcat to produce HTML pages from EMF models on the fly.
+		</description>
+	</article>
 	<article name="eugenia-gmf-tutorial" title="EuGENia GMF Tutorial">
 		<description>
 		This article provides a guide to using EuGENia for developing GMF editors, as well as its complete list of features and supported annotations.

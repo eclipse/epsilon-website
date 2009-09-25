@@ -32,7 +32,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<div class="warningbox"><img style="float:right" src="http://dev.eclipse.org/huge_icons/status/dialog-warning.png"><b>Warning:</b> Please be aware that the code contributed under EpsilonLabs is <b>not</b> part of (or in any other way formally related to) Eclipse, and has <b>not</b> been IP-checked by the Eclipse legal team.<br><br></div>
 		<br>
-		<div class="warningbox"><img style="float:right" src="http://dev.eclipse.org/huge_icons/categories/applications-development.png"><b>Move in progress: </b> We are currently moving EpsilonLabs from its old Sourceforge site to its new Google Code site. Duplicate content, broken links and utter confusion are all to be expected during the move process.<br><br></div>
+		<!--div class="warningbox"><img style="float:right" src="http://dev.eclipse.org/huge_icons/categories/applications-development.png"><b>Move in progress: </b> We are currently moving EpsilonLabs from its old Sourceforge site to its new Google Code site. Duplicate content, broken links and utter confusion are all to be expected during the move process.<br><br></div-->
 		
 		<hr class="clearer" />
 
@@ -43,7 +43,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<h6>External Links</h6>
 			<div class="modal">
 				<ul>
-					<li><a href="http://code.google.com/p/epsilonlabs/">EpsilonLabs under Google Code</a>
+					<!--li><a href="http://code.google.com/p/epsilonlabs/">EpsilonLabs under Google Code</a-->
 					<li><a href="http://epsilonlabs.wiki.sourceforge.net/">EpsilonLabs under Sourceforge</a>
 				</ul>
 			</div>
