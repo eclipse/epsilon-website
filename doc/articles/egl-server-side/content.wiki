@@ -4,7 +4,7 @@ The original purpose of EGL was to enable batch generation of source code and ot
 In this article, we demonstrate using EGL as a server-side scripting language in Tomcat, to produce web pages from EMF models on the fly.
 
 == Setup ==
-* Download a fresh copy of Tomcat 6.0 [http://tomcat.apache.org/download-60.cgi here] and extract it
+* Download a fresh copy of Tomcat 6.0 [[http://tomcat.apache.org/download-60.cgi|here]] and extract it
 * Download [[http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/serverside/org.eclipse.epsilon.egl.servlet/egl-servlet-full.zip|egl-servlet-full.zip]]
 * Extract all .jar files from the zip into the `lib` folder of Tomcat
 * Open `web.xml` in the `conf` directory of Tomcat and add the following snippet

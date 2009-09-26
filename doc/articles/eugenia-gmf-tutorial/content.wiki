@@ -64,7 +64,7 @@ Applies to an `EClass` and denotes that it should appear on the diagram as a nod
 * `label.icon` (optional): If set to `true` (default) a small icon appears on the left of the label.
 * `label.placement` (optional) : Defines the placement of the label in relation to the node. Can be set to `internal` or `external`. ''(The default distance of an external label in GMF is 20pt which is a bit too far away for my taste. [[../gmf-fix-label-offset/|Read more]] about fixing this without changing the generated code every time)''.
 * `label.readOnly` (optional) : A value of `true` denotes that the label cannot be changed in the generated diagram editor.
-* figure (optional) : The figure that will represent the node. Can be set to `rectangle`, `ellipse`, `rounded` (default), or the fully qualified name of a Java class that implements Figure
+* `figure` (optional) : The figure that will represent the node. Can be set to `rectangle`, `ellipse`, `rounded` (default), or the fully qualified name of a Java class that implements Figure
 * `color` (optional) : an RGB color that will be set as the node's background color (e.g. `255,0,0`)
 * `border.color` (optional) : an RGB color that will be set as the node's border color
 * `border.width` (optional) : an integer that specifies the width of the node's border

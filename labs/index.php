@@ -28,7 +28,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<img style="float:right" src="epsilonlabs.png"/>
 		<h1><?=$pageTitle?></h1>
 		
-		<p>EpsilonLabs is a satellite project of Epsilon that hosts highly experimental stuff which may (or may not) end up being part of Epsilon at a later stage. It also hosts contributions that are incompatible with EPL and therefore cannot be hosted under eclipse.org.</p>
+		<p>EpsilonLabs is a satellite project of Epsilon that hosts experimental stuff which may (or may not) end up being part of Epsilon in the future. It also hosts contributions that are incompatible with EPL and therefore cannot be hosted under eclipse.org.</p>
 		
 		<div class="warningbox"><img style="float:right" src="http://dev.eclipse.org/huge_icons/status/dialog-warning.png"><b>Warning:</b> Please be aware that the code contributed under EpsilonLabs is <b>not</b> part of (or in any other way formally related to) Eclipse, and has <b>not</b> been IP-checked by the Eclipse legal team.<br><br></div>
 		<br>
