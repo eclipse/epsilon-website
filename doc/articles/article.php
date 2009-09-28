@@ -31,12 +31,13 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	ob_start();
 ?>
 	<div id="midcolumn" style="width:753px">
+		
 		<?if(file_exists($contentFile)){?>
 		<div class="sideitem" style="float:right; margin-left:30px; margin-bottom:30px; width:238px;">
 			<h6>Actions</h6>
 			<div class="modal">
+			<!--?=WikiTextToHTML::convertWikiTextToToc(file_get_contents($contentFile));?-->
 			<ul>
-				<!--li><a href="#">Print this article</a-->
 				<li><a href="../../../newsgroup/">Get help with this article</a>
 				<li><a href="../">Back to the article index</a>
 			</ul>

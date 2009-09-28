@@ -75,6 +75,79 @@ class WikiTextToHTML {
 				=>	'<hr />'
 		);
 	
+	
+	public static function convertWikiTextToToc($input) {
+		$input = explode("\n", $input);
+		
+		$output = "";
+		$codestate = CS_NONE;
+		$headingLevel = 0;
+		
+		// loop through the input
+		foreach($input as $in) {
+			
+			if ($in == "{{{") {
+				$codestate = CS_CODE;
+			}
+			else if ($in == "}}}") {
+				$codestate = CS_NONE;
+				continue;
+			}
+			
+			if ($codestate = CS_NONE) {
+				
+				$newHeadingLevel = WikiTextToHTML::getHeadingLevel($in);
+				
+				if ($newHeadingLevel > 0) {
+				
+					if ($newHeadingLevel > $headingLevel) {
+						$headingLevel = $newHeadingLevel;
+						$output .= "<ul>";
+					}
+					else if ($newHeadingLevel < $headingLevel) {
+						$headingLevel = $newHeadingLevel;
+						$output .= "</ul>";
+					}
+					
+					$output .= "<li>".WikiTextToHTML::getHeadingText($in);
+				
+				}
+			}
+			
+		}
+		
+		$output .= "</ul>";
+		return $output;
+	}
+	
+	public static function isHeading($line) {
+		return getHeadingLevel($line) > -1;
+	}
+	
+	public static function getHeadingText($line) {
+		$heading = trim($line);
+		$heading = preg_replace("/^=*/", "", $heading);
+		$heading = preg_replace("/=*$/", "", $heading);
+		return $heading;
+	}
+	
+	public static function getHeadingLevel($line) {
+		$line = trim($line);
+		if (preg_match("/^=(.*)=$/", $line)) {
+			$chars = str_split($line);
+			$level = 0;
+			foreach ($chars as $char) {
+				if ($char == "=") {
+					$level ++;
+				}
+				else {
+					return $level;
+				}
+			}
+		}
+		return -1;
+	}
+	
 	/**
 	 * Converts a Wiki text input string to HTML.
 	 * 
@@ -101,6 +174,12 @@ class WikiTextToHTML {
 
 		// loop through the input
 		foreach($input as $in) {
+			
+			// Ignore lines with just one space
+			if ($in == " \r" || $in == " ") {
+				continue;
+ 			}
+			
 			// read, htmlify and right-trim each input line
 			$in = htmlspecialchars(rtrim($in));
 			$out = $in;		
@@ -208,6 +287,8 @@ class WikiTextToHTML {
 		foreach($output as $line) {
 			$result.="${line}\n";
 		}
+		
+		//$result = preg_replace("/___TOC___/", WikiTextToHTML::convertWikiTextToToc($input), $result);
 		
 		// return the output
 		return $result;
