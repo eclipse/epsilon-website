@@ -60,13 +60,24 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	
 	<div id="rightcolumn">
 		<div class="sideitem">
-		<h6>Twitter</h6>
+		<h6>Where is the newsgroup?</h6>
 		<div class='modal'>
 		<ul>
-			<li>You can also tweet us your messages <a href="http://www.twitter.com/epsilonews">@epsilonews</a>
+			<li>The <a href="http://www.eclipse.org/forums/index.php?t=thread&frm_id=22">forum</a> is just a web-based front-end for the existing NNTP newsgroup, 
+			so if you are already reading/posting to the newsgroup via a newsgroup reader, there's no need to change anything.
 		</ul>
 		</div>
 		</div>
+		
+		<div class="sideitem">
+		<h6>Twitter</h6>
+		<div class='modal'>
+		<ul>
+			<li>You can also tweet us your feedback <a href="http://www.twitter.com/epsilonews">@epsilonews</a>
+		</ul>
+		</div>
+		</div>
+
 	</div>
 
 <?
