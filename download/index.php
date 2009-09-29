@@ -18,6 +18,13 @@
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	$version = "0.8.7";
+	
+	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-";
+	$modelingToolsWin = $modelingTools."win32.zip";
+	$modelingToolsMac = $modelingTools."macosx-carbon.tar.gz";
+	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
+	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
+	
 	chdir('..');
 	include ('common.php');
 	include ('news/news.php');
@@ -33,18 +40,18 @@
 		
 		<h2>Step 1: Download Eclipse</h2>
 		<div style="float:right"><img src="../images/modeling64.png"/></div>
-		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.5+</a> and Eclipse 3.3+ (including GMF and EMF) first. The Eclipse Modeling Tools distribution contains all the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
+		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.5+</a> and Eclipse (including GMF and EMF) first. The Eclipse Galileo Modeling Tools distribution contains all the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
 		
 		<ul>
-			<li><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR2/eclipse-modeling-ganymede-SR2-incubation-win32.zip" target="_blank">Windows</a>
-			<li><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR2/eclipse-modeling-ganymede-SR2-incubation-macosx-carbon.tar.gz" target="_blank">Mac OS X</a>
-			<li><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR2/eclipse-modeling-ganymede-SR2-incubation-linux-gtk.tar.gz" target="_blank">Linux 32bit</a>
-			<li><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR2/eclipse-modeling-ganymede-SR2-incubation-linux-gtk-x86_64.tar.gz" target="_blank">Linux 64bit</a>
+			<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows</a>
+			<li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X</a>
+			<li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a>
+			<li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a>
 		</ul>
 		
 		<h2>Step 2: Download Epsilon</h2>
 		<div style="float:right"><img src="http://dev.eclipse.org/huge_icons/actions/go-bottom.png"></div>
-		<div>Once you have installed Eclipse, there are three alternative options for installing Epsilon: you can install the binaries using the Eclipse Update Manager, download and install the binaries manually, or work directly with the source code from the Eclipse SVN server.</div>
+		<div>Once you have installed Eclipse, there are three alternative options for installing Epsilon: you can install the binaries using the Eclipse Update Manager / P2, download and install the binaries manually, or work directly with the source code from the Eclipse SVN server.</div>
 		<div>
 		<br/><br/>
 
@@ -70,8 +77,8 @@
 			for instructions on how to install Epsilon from this zip-file).
 			<br><br>
 		<li>
-			<a href="../doc/EpsilonSVN.pdf">Source code</a>:
-			This guide describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
+			<a href="../doc/articles/epsilon-source-svn/">Source code</a>:
+			This article describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
 			
 			<br><br>SVN Repository: <b>http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/</b>
 			
@@ -90,18 +97,18 @@
 			<div class="modal">
 			<ul>
 				<li><a href="#">Download Eclipse</a>
-						<ul>
-			<li><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR2/eclipse-modeling-ganymede-SR2-incubation-win32.zip" target="_blank">Windows</a>
-			<li><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR2/eclipse-modeling-ganymede-SR2-incubation-macosx-carbon.tar.gz" target="_blank">Mac OS X</a>
-			<li><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR2/eclipse-modeling-ganymede-SR2-incubation-linux-gtk.tar.gz" target="_blank">Linux 32bit</a>
-			<li><a href="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/ganymede/SR2/eclipse-modeling-ganymede-SR2-incubation-linux-gtk-x86_64.tar.gz" target="_blank">Linux 64bit</a>
-		</ul>
+				<ul>
+				<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows</a>
+				<li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X</a>
+				<li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a>
+				<li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a>
+				</ul>
 				<li><a href="#">Download Epsilon</a>
 				<ul>
 				<li> <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">Stable update site</a>
 				<li> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">Interim update site</a>
 				<li> <a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Zipped binaries</a>
-				<li> <a href="http://dev.eclipse.org/viewsvn/index.cgi/?root=Modeling_EPSILON">Source code</a>
+				<li> <a href="../doc/articles/epsilon-source-svn/">Source code</a>
 				</ul>
 				<li><a href="#">Download Emfatic</a>
 					<ul>

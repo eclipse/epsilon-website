@@ -140,7 +140,7 @@
 	<!-- Right Part -->
 	<div id="rightcolumn">
 
-		<div class="sideitem" style="border-bottom:0px;margin-bottom:-10px">
+		<div class="sideitem">
 			<h6 nostyle="background-color:#36354F;color:white">Getting Started</h6>
 			<div class="modal">
 			<ol>

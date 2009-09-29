@@ -40,6 +40,16 @@
 		This article demonstrates how to define GMF phantom nodes in EuGENia.
 		</description>
 	</article>
+	<article name="epackage-registry-view" title="The EMF EPackage Registry View">
+		<description>
+		This article demonstrates the EPackage Registry view which allows developers to inspect the contents of the registered EMF EPackages.
+		</description>
+	</article>
+	<article name="epsilon-source-svn" title="Getting the source code of Epsilon">
+		<description>
+		This article demonstrates how to obtain and run a local copy of the source code of Epsilon.
+		</description>
+	</article>
 	<article name="manage-the-epsilon-website-locally" title="Manage the Epsilon website locally">
 		<description>
 		This article demonstrates how to manage the Epsilon website in your machine.
