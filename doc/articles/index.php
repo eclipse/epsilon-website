@@ -31,7 +31,7 @@
 	<div id="midcolumn">
 	<h1><?=$pageTitle?></h1>
 		<img style="float:right" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png">
-		This page contains an index of articles presenting a range of tools and languages in Epsilon. Should you find that an article contains errors or is inconsistent with the current release of Epsilon, please <a href="../../newsgroup">let us know</a>.
+		This page contains an index of articles presenting a range of tools and languages in Epsilon. Should you find that an article contains errors or is inconsistent with the current release of Epsilon, please <a href="../../forum">let us know</a>.
 		<br><br>
 		<ul>
 		<?

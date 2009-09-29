@@ -33,7 +33,7 @@ To create a hello world web application and test your installation, you need to 
 }}}
 * Start Tomcat using `bin/startup.bat` (or `startup.sh` in Linux/MacOS)
 * Open your browser and go to [[http://localhost:8080/helloworld/index.egl]]
-* A web-page with the text `Hello World` should appear. If not, please make sure you've followed all the steps above and if it still doesn't work, please drop by the newsgroup and we'll be happy to help.
+* A web-page with the text `Hello World` should appear. If not, please make sure you've followed all the steps above and if it still doesn't work, please drop by the forum and we'll be happy to help.
 
 ==Accessing parameters from the URL==
 To access parameters from the URL (or fields of a submitted form) you can use the `request.getParameter('parameter-name')` method. For example, by modifying the source code of `index.egl` to the following

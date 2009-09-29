@@ -38,7 +38,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<div class="modal">
 			<!--?=WikiTextToHTML::convertWikiTextToToc(file_get_contents($contentFile));?-->
 			<ul>
-				<li><a href="../../../newsgroup/">Get help with this article</a>
+				<li><a href="../../../forum/">Get help with this article</a>
 				<li><a href="../">Back to the article index</a>
 			</ul>
 			</div>

@@ -124,7 +124,7 @@
 		
 		<div class="homeitem">
 			<!-- http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10 -->
-			<?=rdf2h("Recent newsgroup activity", "http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10", array(''), 3, 5, 500)?>
+			<?=rdf2h("Recent forum activity", "http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10", array(''), 3, 5, 500)?>
 		</div>
 		
 		<div class="homeitem">
@@ -150,7 +150,7 @@
 				<li><a href="live">Run EOL in your browser</a>
 				<li><a href="download"><b>Download</b></a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
-				<li><a href="newsgroup">Get help in the newsgroup</a>
+				<li><a href="forum">Get help in the forum</a>
 				<li><a href="spreadtheword">Spread the word</a>
 			</ol>
 			</div>

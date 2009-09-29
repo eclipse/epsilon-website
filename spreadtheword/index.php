@@ -73,7 +73,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 		<h3>Share your experiences</h3>
 		<img style="float:right;padding-left:10px;" src="http://dev.eclipse.org/huge_icons/devices/network-wireless.png"/>
-		<p>Consider investing some time to share your experiences with Epsilon in your blog, website, or in the <a href="/gmt/epsilon/newsgroup">newsgroup</a>. Here are some examples of blog articles that discuss different bits of Epsilon:
+		<p>Consider investing some time to share your experiences with Epsilon in your blog, website, or in the <a href="/gmt/epsilon/forum">forum</a>. Here are some examples of blog articles that discuss different bits of Epsilon:
 		<ul>
 			<li> <a href="http://www.randomice.net/2008/08/gmf-toolkits/">GMF Toolkits</a>
 			<li> <a href="http://kbm.blogspot.com/2009/05/cool-live-mda-via-google-app-engine.html">Cool - live MDE via Google App Engine</a>

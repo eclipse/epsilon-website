@@ -47,40 +47,7 @@
 		<div>Once you have installed Eclipse, there are three alternative options for installing Epsilon: you can install the binaries using the Eclipse Update Manager, download and install the binaries manually, or work directly with the source code from the Eclipse SVN server.</div>
 		<div>
 		<br/><br/>
-		<!--
-		<div id="TabbedPanels1" class="TabbedPanels">
-			<ul class="TabbedPanelsTabGroup" style="margin:0">	
-			<li class="TabbedPanelsTab" style="list-style: none; margin:0;margin-right:1px;font-size:12px;padding:5px" tabindex="0">Eclipse Update Manager (recommended)
-			<li class="TabbedPanelsTab" style="list-style: none; margin:0;margin-right:1px;font-size:12px;padding:5px" tabindex="0">Binaries
-			<li class="TabbedPanelsTab" style="list-style: none; margin:0;margin-right:1px;font-size:12px;padding:5px" tabindex="0">Source code			
-			</ul>
-			<div class="TabbedPanelsContentGroup">
-				<div class="TabbedPanelsContent" style="height:520px">
-			You can use the following update sites and <a href="doc/P2InstallationGuide.pdf">the instructions provided here</a> to install the Epsilon binaries through the Eclipse update manager.
-			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon. 
-			
-			<br><br><b><font color="green">Stable update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">http://download.eclipse.org/modeling/gmt/epsilon/updates/</a>
-			<br><b><font color="red">Interim update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">http://download.eclipse.org/modeling/gmt/epsilon/interim/</a> 
-			
-			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
-			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
-			time and try again. If problems seem to persist please let us know by sending a message to the Epsilon newsgroup.				
-				</div>
-				<div class="TabbedPanelsContent" style="font-family:Courier;height:520px">
-<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Binaries</a>: 
-			A zip-file containing the features and plugins of Epsilon (please refer to the <i>Installing Epsilon Offline</i> section of the 
-			<a href="doc/P2InstallationGuide.pdf">installation guide</a>
-			for instructions on how to install Epsilon from this zip-file).				
-				</div>
-				<div class="TabbedPanelsContent" style="font-family:Courier;height:520px">
-			<a href="doc/EpsilonSVN.pdf">Source code</a>:
-			This guide describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
-			
-			<br><br>SVN Repository: <b>http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/</b>				
-				</div>
-			</div>
-		</div>
-		-->
+
 		<ul>
 		
 		<li>
@@ -93,7 +60,7 @@
 			
 			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
 			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
-			time and try again. If problems seem to persist please let us know by sending a message to the Epsilon newsgroup.
+			time and try again. If problems seem to persist please let us know by sending a message to the Epsilon forum.
 			
 			<br><br>
 		<li>
