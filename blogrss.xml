@@ -19,7 +19,8 @@
 	<language>en</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
-	<image>
+	<cloud domain='epsilonblog.wordpress.com' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
 		<url>http://www.gravatar.com/blavatar/cb1a619b4d489ef5780b3b2543218f9e?s=96&#038;d=http://s.wordpress.com/i/buttonw-com.png</url>
 		<title>Epsilon Weblog</title>
 		<link>http://epsilonblog.wordpress.com</link>

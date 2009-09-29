@@ -41,11 +41,11 @@
 	$faq_title = $faq->getOneChild("title")->childNodes[0]->data;
 	$faq_answer = $faq->getOneChild("answer")->childNodes[0]->data;
 	
-	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	$document = $parser->parse(file_get_contents("http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss"));
-	$guid = $document->getOneChild("rss")->getOneChild("channel")->getOneChild("item")->getOneChild("guid")->childNodes[0]->data;
+	//$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
+	//$document = $parser->parse(file_get_contents("http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss"));
+	//$guid = $document->getOneChild("rss")->getOneChild("channel")->getOneChild("item")->getOneChild("guid")->childNodes[0]->data;
 	
-	$messages = (int) substr($guid, 65, strlen($guid) - 69) + 2;
+	//$messages = (int) substr($guid, 65, strlen($guid) - 69) + 2;
 	
 	ob_start();
 	?>
@@ -124,7 +124,7 @@
 		
 		<div class="homeitem">
 			<!-- http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10 -->
-			<?=r2h("Recent newsgroup activity", "http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss", array('epsilon'), 3, 5, 500)?>
+			<?=rdf2h("Recent newsgroup activity", "http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10", array(''), 3, 5, 500)?>
 		</div>
 		
 		<div class="homeitem">
@@ -136,8 +136,6 @@
 		?>
 		
 	</div>
-	
-
 	
 	<!-- Right Part -->
 	<div id="rightcolumn">
@@ -153,11 +151,7 @@
 				<li><a href="download"><b>Download</b></a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
 				<li><a href="newsgroup">Get help in the newsgroup</a>
-				<ul>
-					<li><a href="http://www.eclipse.org/newsportal/thread.php?group=eclipse.epsilon">Browse <?=$messages?> posts</a>
-				</ul>
-				</li>
-				<li style="position:relative;top:-10px"><a href="spreadtheword">Spread the word</a>
+				<li><a href="spreadtheword">Spread the word</a>
 			</ol>
 			</div>
 		</div>
