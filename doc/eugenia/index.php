@@ -28,7 +28,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="midcolumn">
 
 		<h1><?=$pageTitle?></h1>
-		<p>EuGENia is a tool that automatically generates the .gmfgraph, .gmftool and .gmfmap models needed to implement a GMF editor from a single annotated ECore metamodel. EuGENia provides high-level annotations that shield you from the complexity of GMF and <a href="http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/">lowers the entrance barrier</a> for creating your first GMF editor. While EuGENia is very useful for getting started with GMF, it doesn't stop there and can be used <a href="http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/">all the way to the final polished version</a> of your editor. </p>
+		<p>EuGENia is a tool that automatically generates the .gmfgraph, .gmftool and .gmfmap models needed to implement a GMF editor from a single annotated Ecore metamodel. EuGENia provides high-level annotations that shield you from the complexity of GMF and <a href="http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/">lowers the entrance barrier</a> for creating your first GMF editor. While EuGENia is very useful for getting started with GMF, it doesn't stop there and can be used <a href="http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/">all the way to the final polished version</a> of your editor. </p>
 		<p>For example, from the following metamodel (in <a href="http://wiki.eclipse.org/Emfatic">Emfatic</a> - a convenience textual syntax for Ecore)</p>
 		
 

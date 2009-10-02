@@ -8,8 +8,7 @@ First we need to create an '''imagePath''' attribute that will store the path of
 The next step is to set the figure of Component in EuGENia to a custom figure. After those two steps, our definition of Component looks like this:
 
 {{{
-@gmf.node(label="name", figure="ccdl.diagram.figures.ComponentFigure", 
-	label.placement="external")
+@gmf.node(label="name", figure="ccdl.diagram.figures.ComponentFigure", label.placement="external")
 class Component {
   attr String name;
   attr String imagePath;

@@ -88,7 +88,7 @@
 		</div>
 		<h2>Step 3 (optional): Download Emfatic</h2>
 		<div style="float:right"><img src="../images/download_optional.png"></div>
-		<div>The last (optional but <b>highly recommended</b>) step is to install <a href="http://wiki.eclipse.org/Emfatic">Emfatic</a>, a tool that provides a convenient textual notation for specifying ECore metamodels. To install Emfatic you can use the following update site: <br/><br/><ul><li><b>http://www.scharf.gr/eclipse/emfatic/update/</b></ul></div>
+		<div>The last (optional but <b>highly recommended</b>) step is to install <a href="http://wiki.eclipse.org/Emfatic">Emfatic</a>, a tool that provides a convenient textual notation for specifying Ecore metamodels. To install Emfatic you can use the following update site: <br/><br/><ul><li><b>http://www.scharf.gr/eclipse/emfatic/update/</b></ul></div>
 	</div>
 		
 	<div id="rightcolumn">

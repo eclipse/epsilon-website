@@ -34,7 +34,7 @@
 	#parse FAQs
 	include_once("dom4php/XmlParser.php");
 	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	$document = $parser->parse(file_get_contents("faqs.xml"));
+	$document = $parser->parse(file_get_contents("faq/faqs.xml"));
 	$faqs = $document->getElementsByTagName("faq");
 	$random_faq = rand(0,count($faqs)-1);
 	$faq = $faqs[$random_faq];
@@ -58,8 +58,8 @@
 	//<![CDATA[
 	  window.addEvent('domready', function(){
 	    var data = {
-						'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your ECore metamodel with EuGENia', href: 'doc/eugenia'},
-				'slideshow/images/EVL.png': { caption: 'Write constraints for your ECore metamodel with EVL', href: 'doc/evl' },
+						'slideshow/images/Eugenia.png': { caption: 'Generate a GMF editor from your Ecore metamodel with EuGENia', href: 'doc/eugenia'},
+				'slideshow/images/EVL.png': { caption: 'Write constraints for your Ecore metamodel with EVL', href: 'doc/evl' },
 				'slideshow/images/EVL-GMF.png': { caption: '... and see the errors/warnings in your GMF editor', href: 'doc/evl' },
 				'slideshow/images/EWL.png': { caption: 'Write wizards for your metamodel with EWL', href: 'doc/ewl' },
 				'slideshow/images/InvokeWizard.png': { caption: '... invoke them in your GMF editor', href: 'doc/ewl' },
@@ -177,7 +177,7 @@
 		<div class="sideitem">
 			<h6>Frequently Asked Question</h6>
 			<ul>
-				<a href="faq.php#<?=$faq_title?>"><?=$random_faq+1?>. <?=$faq_title?></a>
+				<a href="faq/index.php?#<?=$faq_title?>"><?=$random_faq+1?>. <?=$faq_title?></a>
 			</ul>
  		</div>
 		

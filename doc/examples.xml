@@ -25,7 +25,7 @@
 	<example title="Customizing Tree Editor Icons and Labels" src="org.eclipse.epsilon.examples.exeedoo">
 		<language name="Exeed"/>
 		<description>
-		In this example, an Object Oriented ECore metamodel is annotated with Exeed-specific
+		In this example, an Object Oriented Ecore metamodel is annotated with Exeed-specific
 		annotations so that instances of it can be visualized properly with the Exeed tree-based editor.
 		(Updated 28 Feb 2007)
 		</description>

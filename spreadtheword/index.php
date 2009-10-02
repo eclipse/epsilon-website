@@ -73,18 +73,18 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 		<h3>Share your experiences</h3>
 		<img style="float:right;padding-left:10px;" src="http://dev.eclipse.org/huge_icons/devices/network-wireless.png"/>
-		<p>Consider investing some time to share your experiences with Epsilon in your blog, website, or in the <a href="/gmt/epsilon/forum">forum</a>. Here are some examples of blog articles that discuss different bits of Epsilon:
+		<p>Please consider spending some time to share your experiences with Epsilon in your blog, website, or in the <a href="/gmt/epsilon/forum">forum</a>. Here are some examples of blog articles that discuss different bits of Epsilon:
 		<ul>
 			<li> <a href="http://www.randomice.net/2008/08/gmf-toolkits/">GMF Toolkits</a>
 			<li> <a href="http://kbm.blogspot.com/2009/05/cool-live-mda-via-google-app-engine.html">Cool - live MDE via Google App Engine</a>
 			<li> <a href="http://blog.pyramism.net/2008/01/blog-filter-epsilon-and-glimmer.html">Blog filter: Epsilon and Glimmer</a>
-			<li><a href="http://stephaneerard.wordpress.com/2009/06/09/symfony-model-editor/">Symphony Model Editor</a> (in French)
-			<li><a href="http://stephaneerard.wordpress.com/2009/06/04/les-epsilons-endoctrines-generent-pour-se-liberer/">Les Epsilons endoctrin&eacute;s g&eacute;n&egrave;rent pour se liberer</a> (in French)
-			<li><a href="http://stephaneerard.wordpress.com/2009/06/06/les-epsilons-transforment-pour-etre/">Les Epsilons transforment pour &Ecirc;tre</a> (in French)
-			<li><a href="http://stephaneerard.wordpress.com/2009/06/03/les-epsilons-endoctrines/">Les Epsilons endoctrin&eacute;s</a> (in French)
-			<li><a href="http://stephaneerard.wordpress.com/2009/06/04/les-epsilons-endoctrines-generent-pour-se-liberer/">Les Epsilons endoctrin&eacute;s g&eacute;n&egrave;rent pour se lib&eacute;rer</a> (in French)
-			<li><a href="http://entwickler.com/itr/news/psecom,id,47401,nodeid,82.html">Neues bei Eclipse-Modeling: Projekt Epsilon</a> (in German)
-			
+			<li> <a href="http://famelis.wordpress.com/2009/09/27/mmtf-heavy-model-types-made-a-bit-lighter/">MMTF heavy model types made a bit lighter</a>
+			<li> <a href="http://stephaneerard.wordpress.com/2009/06/09/symfony-model-editor/">Symphony Model Editor</a> (in French)
+			<li> <a href="http://stephaneerard.wordpress.com/2009/06/04/les-epsilons-endoctrines-generent-pour-se-liberer/">Les Epsilons endoctrin&eacute;s g&eacute;n&egrave;rent pour se liberer</a> (in French)
+			<li> <a href="http://stephaneerard.wordpress.com/2009/06/06/les-epsilons-transforment-pour-etre/">Les Epsilons transforment pour &Ecirc;tre</a> (in French)
+			<li> <a href="http://stephaneerard.wordpress.com/2009/06/03/les-epsilons-endoctrines/">Les Epsilons endoctrin&eacute;s</a> (in French)
+			<li> <a href="http://stephaneerard.wordpress.com/2009/06/04/les-epsilons-endoctrines-generent-pour-se-liberer/">Les Epsilons endoctrin&eacute;s g&eacute;n&egrave;rent pour se lib&eacute;rer</a> (in French)
+			<li> <a href="http://entwickler.com/itr/news/psecom,id,47401,nodeid,82.html">Neues bei Eclipse-Modeling: Projekt Epsilon</a> (in German)
 		</ul>
 		</p>
 	
@@ -96,7 +96,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<h6>Spread the word</h6>
 			<div class='modal'>
 			<p>
-				If you're using Epsilon and you are finding it useful, please consider using one or more of the options in this page to let other people know too.
+				If you are finding Epsilon useful, please use one (or more) of the options in this page to let other developers know too.
 			</p>
 			</div>
 		</div>

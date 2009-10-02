@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <cinema>
 	<screencast name="Eugenia" title="GMF Editor Development with EuGENia">
-		<description> <![CDATA[EuGENia is a tool that simplifies and speeds-up the development of fully functional GMF editors. From a few simple annotations embedded directly into your ECore metamodel, EuGENia can generate the required .gmftool, .gmfgraph and .gmfmap models automatically. This example demonstrates the implementation of a fully functional GMF editor with EuGENia in just a few minutes.]]>
+		<description> <![CDATA[EuGENia is a tool that simplifies and speeds-up the development of fully functional GMF editors. From a few simple annotations embedded directly into your Ecore metamodel, EuGENia can generate the required .gmftool, .gmfgraph and .gmfmap models automatically. This example demonstrates the implementation of a fully functional GMF editor with EuGENia in just a few minutes.]]>
 		</description>
 	</screencast>
 		<screencast name="EVLGMFValidation" title="Constraints in GMF editors with EVL">
@@ -14,7 +14,7 @@
 		</description>
 	</screencast>
 	<screencast name="BuildOOInstance_part1" title="Defining and instantiating an OO metamodel">
-		<description><![CDATA[In this example, we define a new ECore metamodel using the Emfatic textual notation. <p> We then register the metamodel and instantiate it manually using Exeed, an enhanced version of the built-in EMF reflective editor that - among other features - supports customizable labels and icons.]]>
+		<description><![CDATA[In this example, we define a new Ecore metamodel using the Emfatic textual notation. <p> We then register the metamodel and instantiate it manually using Exeed, an enhanced version of the built-in EMF reflective editor that - among other features - supports customizable labels and icons.]]>
 		</description>
 	</screencast>
 	<screencast name="BuildOOInstance_part2" title="Populating an OO model using EOL">

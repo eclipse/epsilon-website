@@ -1,0 +1,18 @@
+=Exeed Tutorial=
+ 
+Exeed (standing for '''Ex'''tended '''E'''MF '''Ed'''itor) is an extended version of the built-in tree-based reflective editor provided by EMF. The aim of Exeed is to enable developers to customize the appearance of the editor (labels and icons) by annotating Ecore metamodels. As a result, developers can enjoy the benefits of a customized editor for their models without needing to generate one and then customize it using Java. The following example presents an annotated OO metamodel (in Emfatic):
+
+{{{
+
+}}}
+
+Exeed recognizes the following annotation details for different Ecore constructs:
+
+==EClass==
+* `label`: EOL expression that specifies the label of the instance.
+* `classIcon`: String that specifies the icon of the instances that conform to the `EClass`.
+* `icon`: EOL expression that specifies the icon of the instance. If specified, it overrides the `classIcon` annotation.
+ 
+==EAttribute==
+
+==EReference==

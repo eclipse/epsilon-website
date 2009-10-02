@@ -40,7 +40,7 @@ EOBRANDING;
 	$Nav->addCustomNav("Articles", "/gmt/epsilon/doc/articles/", "_self", 1);
 	$Nav->addCustomNav("Screencasts", "/gmt/epsilon/cinema/", "_self", 1);
 	$Nav->addCustomNav("Examples", "/gmt/epsilon/examples", "_self", 1);
-	$Nav->addCustomNav("FAQs", "/gmt/epsilon/faq.php", "_self", 1);
+	$Nav->addCustomNav("FAQs", "/gmt/epsilon/faq", "_self", 1);
 	$Nav->addCustomNav("Book", "/gmt/epsilon/doc/book", "_self", 1);
 	$Nav->addCustomNav("Blog", "http://epsilonblog.wordpress.com", "_self", 1);
 	$Nav->addCustomNav("Labs", "/gmt/epsilon/labs", "_self", 1);

@@ -1,5 +1,5 @@
 =EuGENia GMF Tutorial= 
-EuGENia is a tool that automatically generates the `.gmfgraph`, `.gmftool` and `.gmfmap` models needed to implement a GMF editor from a single annotated ECore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic) it can generate a fully functional GMF editor, a screenshot of which is displayed below.
+EuGENia is a tool that automatically generates the `.gmfgraph`, `.gmftool` and `.gmfmap` models needed to implement a GMF editor from a single annotated Ecore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic) it can generate a fully functional GMF editor, a screenshot of which is displayed below.
 
 '''The Filesystem metamodel:'''
 
@@ -19,7 +19,7 @@ class Drive extends Folder {
 }
 
 class Folder extends File {
-    @gmf.compartment
+    @gmf.compartment(foo="bar")
     val File[*] contents;
 }
 
@@ -45,7 +45,7 @@ class File {
 [[image:Filesystemscreenshot2.png]]
 
 ==Supported Annotations==
-EuGENia supports the following annotations on ECore elements.
+EuGENia supports the following annotations on Ecore elements.
 
 ===gmf===
 Applies to the top `EPackage` only and denotes that GMF-related annotations are expected in its elements. This doesn't affect the forthcoming model transformations, only the ECore validation process.
@@ -139,9 +139,9 @@ To run EuGENia you need to do the following:
 * Launch a new eclipse instance from the "Run->Eclipse Application" menu using "-XX:PermSize=64M -XX:MaxPermSize=128M -Xms512M -Xmx1024M" as VM arguments in the Run Configuration
 * Create a new GMF project in the new instance
 * Tick the "Show Dashboard" option in the wizard
-* Create and annotate your ECore metamodel in the "model" folder of your GMF project
-* Right-click your ECore metamodel and select Eugenia->Generate GMF graph, tool and map models
-* Create a .genmodel from your ECore metamodel by selecting the .ecore in the "Domain Model" box of the dashbord and then follow the wizard to "derive" the "Domain Gen Model".
+* Create and annotate your Ecore metamodel in the "model" folder of your GMF project
+* Right-click your Ecore metamodel and select Eugenia->Generate GMF graph, tool and map models
+* Create a .genmodel from your Ecore metamodel by selecting the .ecore in the "Domain Model" box of the dashbord and then follow the wizard to "derive" the "Domain Gen Model".
 * Right click on the root of the Gen Model editor and "Generate All" to create the java code from the .genmodel
 * Right click the generated .gmfmap model and select Create generator model
 * Right click the generated .gmfgen model and select Eugenia->Synchronize GMF gen model
@@ -150,7 +150,7 @@ To run EuGENia you need to do the following:
 
 ==Re-running EuGENia==
 If you now change your metamodel you'll have to rerun EuGENia to generate your updated editor. Please follow the steps below in the exact order they are displayed:
-* Right-click your ECore metamodel and select Eugenia->Generate GMF graph, tool and map models
+* Right-click your Ecore metamodel and select Eugenia->Generate GMF graph, tool and map models
 * Right-click your .genmodel and select Reload...
 * Right click on the root of the Gen Model editor and "Generate All" to create the java code from the .genmodel
 * Right click the generated .gmfmap model and select Create generator model

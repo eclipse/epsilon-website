@@ -1,8 +1,5 @@
 =Create and instantiate your first EMF metamodel=
-This article shows how to create and instantiate a simple flowchart metamodel with EMF.
-
-==Prerequisites==
-Eclipse Modeling distribution, Emfatic, Epsilon (see [[../../../download|download page]])
+This article shows how to create and instantiate a simple flowchart metamodel with EMF. To follow this example you need to have [[../../../download|Eclipse, Epsilon and Emfatic]] in your machine.
 
 ==Defining the flowchart metamodel in Emfatic==
 There are several tools that allow you to define EMF metamodels including [[http://www.eclipse.org/modeling/emft/?project=ecoretools|EcoreTools]] (a graphical UML-like editor), the built-in tree-based EMF editor, and the [[http://wiki.eclipse.org/Emfatic|Emfatic]] textual notation. In this tutorial we will use the latter (Emfatic). 
@@ -52,4 +49,30 @@ Now we need to transfer the metamodel above in Eclipse. We create a new project 
 
 [[image:screenshot1.jpg]]
 
+== Generating an Ecore metamodel from flowchart.emf==
+ 
 Now we need to convert this textual specification into a proper Ecore metamodel. We can do this by right-clicking on `filesystem.emf` and selecting `Generate Ecore Model`. Once we do this, a `flowchart.ecore` file will appear next to `filesystem.emf`. This is the proper Ecore metamodel stored in XMI (you can see the XMI by right-clicking `flowchart.ecore` and selecting `Open with->Text editor`. 
+
+[[image:screenshot2.jpg]]
+
+[[image:screenshot3.jpg]]
+ 
+== Registering the Ecore metamodel ==
+ 
+The next step is to register `flowchart.ecore`. To do this, we need to right-click `flowchart.ecore` and select `Register EPackages`
+
+[[image:screenshot4.jpg]]
+
+== Creating a model that conforms to the flowchart.ecore metamodel ==
+ 
+Now we can create a model that conforms to our metamodel. To do this we right-click on the project and select `New->EMF Model`
+
+[[image:screenshot5.jpg]]
+
+In the dialog that pops up, we specify a name for our model (`sample.model`) and select the URI of the metamodel it will conform to (`flowchart`) and the type of the root element of our model (`Flowchart`)
+
+[[image:screenshot6.jpg]]
+
+== Editing the model == 
+ 
+Now `sample.model` has been created and 
