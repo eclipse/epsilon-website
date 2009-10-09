@@ -27,7 +27,7 @@
 	<faq>
 		<title>How do I get notified when a new version of Epsilon becomes available?</title>
 		<answer><![CDATA[
-		<p>To get notified when a new version of Epsilon becomes available, please subscribe to Epsilon's <a href="news/epsilonNewsArchive.rss">RSS feed</a> (you can subscribe using a dedicated RSS client or an email client such as <a href="http://kb.mozillazine.org/RSS_basics_(Thunderbird)">Thunderbird</a>).</p> 
+		<p>To get notified when a new version of Epsilon becomes available, please subscribe to Epsilon's <a href="../news/epsilonNewsArchive.rss">RSS feed</a> (you can subscribe using a dedicated RSS client or an email client such as <a href="http://kb.mozillazine.org/RSS_basics_(Thunderbird)">Thunderbird</a>).</p> 
 		
 		<p> You can also configure Eclipse to check for updates automatically by going to Window->Preferences->Install/Update/Automatic Updates and checking the "Automatically find new updates and notify me" option.</p>
 		
@@ -61,13 +61,13 @@
 	<faq>
 		<title>What is the difference between E*L and language X?</title>
 		<answer><![CDATA[
-		<p>If the available <a href="doc/">documentation</a> doesn't provide enough information for figuring this out, please feel free to ask in the <a href="forum">Epsilon forum</a>.]]>
+		<p>If the available <a href="../doc/">documentation</a> doesn't provide enough information for figuring this out, please feel free to ask in the <a href="../forum">Epsilon forum</a>.]]>
 		</answer>
 	</faq>
 	<faq>
 		<title>How can I contribute to Epsilon?</title>
 		<answer><![CDATA[
-		<p>There are several ways to contribute to Epsilon. In the first phase you can ask questions in the forum and help with maintaining the vibrant community around Epsilon. You may also want to let other developers know about Epsilon by <a href="spreadtheword.php">sharing your experiences</a> online. If you are interested in contributing code to Epsilon, you should start by submitting bug reports, feature requests - and hopefully patches that fix/implement them. This will demonstrate your commitment and long-term interest in the project - which is required by the Eclipse Foundation in order to later on be nominated for a committer account.]]>
+		<p>There are several ways to contribute to Epsilon. In the first phase you can ask questions in the forum and help with maintaining the vibrant community around Epsilon. You may also want to let other developers know about Epsilon by <a href="../spreadtheword">sharing your experiences</a> online. If you are interested in contributing code to Epsilon, you should start by submitting bug reports, feature requests - and hopefully patches that fix/implement them. This will demonstrate your commitment and long-term interest in the project - which is required by the Eclipse Foundation in order to later on be nominated for a committer account.]]>
 		</answer>
 	</faq>
 </faqs>
