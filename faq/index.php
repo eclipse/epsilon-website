@@ -35,7 +35,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<img style="float:right" src="http://dev.eclipse.org/huge_icons/apps/help-browser.png">
 		
 		<p>In this page we provide answers to common questions about Epsilon. If your question is not answered here,
-		please feel free to <a href="forum">ask in the forum</a>.</p>
+		please feel free to <a href="../forum">ask in the forum</a>.</p>
 		
 		<?foreach ($faqs as $faq){?>
 		<p>
