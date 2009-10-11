@@ -1,7 +1,8 @@
 <?
 function redirect() {
 	$serverName = $_SERVER['SERVER_NAME'];
-	if ($serverName != "localhost") {
+	if ($serverName == "eclipse.org") {
+		//FIX if server = eclipse.org it doesn't work
 		$serverName = $serverName = "www.eclipse.org";
 	}
 	$requestUrl = $_SERVER["REQUEST_URI"];
@@ -9,9 +10,9 @@ function redirect() {
 	$articleId = substr($requestUrl, strrpos($requestUrl,"/")+1);
 	$redirectUrl = "http://".$serverName."/gmt/epsilon/doc/articles/article.php?articleId=".$articleId;
 	echo file_get_contents($redirectUrl);
-	echo "v5";
+	echo "v6";
 	//echo "<b>Under maintenance. Please check back soon</b>";
-	//echo "<br>";
+	echo "<br>";
 	echo $redirectUrl;
 	//echo "<br>";
 	//echo "redirected";
