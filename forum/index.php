@@ -68,7 +68,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		</ul>
 		</div>
 		</div>
-		
+<!--		
 		<div class="sideitem">
 		<h6>Twitter</h6>
 		<div class='modal'>
@@ -77,7 +77,16 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		</ul>
 		</div>
 		</div>
-
+!-->
+		<div class="sideitem">
+			<h6>Twitter (<a href="http://twitter.com/epsilonews" style="color:black">@epsilonews</a>)</h6>
+			<div class="modal">
+				<ul id="twitter_update_list"></ul>
+			</div>
+			<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+			<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/epsilonews.json?callback=twitterCallback2&amp;count=5"></script>
+		</div>	
+		
 	</div>
 
 <?

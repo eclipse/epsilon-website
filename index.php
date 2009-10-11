@@ -111,7 +111,7 @@
 		<h1><?=$pageTitle?></h1>
 					<!--h3>Welcome</h3-->
 	    <img style="float:right" src="resources/epsilonlogo.png" alt="Epsilon Logo" /><p>Epsilon provides a set of interoperable task-specific programming languages through which you can interact with your EMF models to perform common MDE tasks.
-			(<a href="doc">read more</a> or <a href="examples">see a quick example</a>...)</p>
+			(<a href="doc">read more</a> or <a href="live">try it in your browser</a>...)</p>
 	
 	<!--Epsilon is a metamodel-agnostic component that supports programmatic creation, navigation, and modification of EMF models.-->
 	
@@ -141,13 +141,22 @@
 	<div id="rightcolumn">
 
 		<div class="sideitem">
+			<h6 style="background-color:#535776;color:white">Live</h6>
+			<div class="modal">
+			<ul>
+				<li><a href="live">Try EOL in your browser</a><i>(No need to download or install anything)</i>
+			</ul>
+			</div>
+		</div>
+		
+		<div class="sideitem">
 			<h6 nostyle="background-color:#36354F;color:white">Getting Started</h6>
 			<div class="modal">
 			<ol>
 				<li><a href="doc">Learn more about Epsilon</a></li>
 				<li><a href="cinema">Watch the screencasts</a></li>
 				<li><a href="examples">Go through the examples</a></li>
-				<li><a href="live">Run EOL in your browser</a>
+				<li><a href="live">Try EOL in your browser</a>
 				<li><a href="download"><b>Download</b></a></li>
 				<li><a href="http://epsilonblog.wordpress.com">Visit the blog</a></li>
 				<li><a href="forum">Get help in the forum</a>
@@ -157,14 +166,24 @@
 		</div>
 		
 		<!--a href="http://www.twitter.com/epsilonews"><img src="resources/twitter2.png" style="position:relative;top:6px;left:45px"></img></a-->
-		
+		<!--
 		<div class="sideitem">
 			<h6>Get The Book</h6>
 			<div align="center"><a href="doc/book"><img align="center" src="images/book2.png" border="0" alt="The Epsilon Book"/></a></div>
  		</div>
+		-->
 		
 		<div class="sideitem">
-			<h6><a href="http://twitter.com/epsilonews" style="color:black">@epsilonews</a> on Twitter</h6>
+			<h6>Visitors</h6>
+			<center>
+			<a href="http://www4.clustrmaps.com/user/50849c1d">
+				<img style="padding:5px;position:relative;left:7px" src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
+			</a>
+			</center>
+		</div>
+		
+		<div class="sideitem">
+			<h6>Twitter (<a href="http://twitter.com/epsilonews" style="color:black">@epsilonews</a>)</h6>
 			<div class="modal">
 				<ul id="twitter_update_list"></ul>
 			</div>
@@ -196,14 +215,7 @@
 		</div>	
 		-->
 		
-		<div class="sideitem">
-			<h6>Visitors</h6>
-			<center>
-			<a href="http://www4.clustrmaps.com/user/50849c1d">
-				<img src="http://www4.clustrmaps.com/stats/maps-no_clusters/www.eclipse.org-gmt-epsilon-thumb.jpg" />
-			</a>
-			</center>
-		</div>
+
 		
 		<div class="sideitem">
 			<?=r2h("Updates", "news/epsilonNewsArchive.rss", array(' '), 6, 5, 2000)?>
