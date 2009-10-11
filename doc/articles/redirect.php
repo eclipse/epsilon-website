@@ -6,10 +6,11 @@ function redirect() {
 	$articleId = substr($requestUrl, strrpos($requestUrl,"/")+1);
 	$redirectUrl = "http://".$_SERVER['SERVER_NAME']."/gmt/epsilon/doc/articles/article.php?articleId=".$articleId;
 	echo file_get_contents($redirectUrl);
-	echo "<b>Under maintenance. Please check back soon</b>";
-	echo "<br>";
-	echo $redirectUrl;
-	echo "<br>";
-	echo "redirected";
+	echo "v2";
+	//echo "<b>Under maintenance. Please check back soon</b>";
+	//echo "<br>";
+	//echo $redirectUrl;
+	//echo "<br>";
+	//echo "redirected";
 }
 ?>
