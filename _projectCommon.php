@@ -43,7 +43,7 @@ EOBRANDING;
 	$Nav->addCustomNav("FAQs", "/gmt/epsilon/faq", "_self", 1);
 	$Nav->addCustomNav("Book", "/gmt/epsilon/doc/book", "_self", 1);
 	$Nav->addCustomNav("Blog", "http://epsilonblog.wordpress.com", "_self", 1);
-	$Nav->addCustomNav("Labs", "/gmt/epsilon/labs", "_self", 1);
+	$Nav->addCustomNav("EpsilonLabs", "/gmt/epsilon/labs", "_self", 1);
 	
 	$Nav->addNavSeparator("Community", "#");
 	$Nav->addCustomNav("Forum", "/gmt/epsilon/forum", "_self", 1);

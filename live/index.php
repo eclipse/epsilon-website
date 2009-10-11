@@ -32,11 +32,12 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	ob_start();
 ?>
 
+
 	<div id="midcolumn">
 		<?include('../noscript.html')?>
 		<iframe src="http://epsilon-live.appspot.com/embedded.html" frameborder="0" scrolling="no" style="width:520px;height:600px;border:0px"></iframe>
 		<h3>Live Scripts</h3>
-			You can copy/paste any of the following scripts in the editor above, modify them if you want, and finally execute them.<br/><br/>
+			You can copy/paste any of the following scripts in the editor above, modify them if you want, and finally run them.<br/><br/>
 			<?
 			foreach ($scripts as $script) {
 			$description = $script->getOneChild("description")->childNodes[0]->data;
@@ -68,11 +69,11 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<div class="sideitem">
 			<h6>Epsilon Live</h6>
 			<div class="modal">
-			<p>In the editor on the left, you can <b>write and execute EOL scripts</b> (<a href="../doc/eol/">what is EOL?</a>) from your browser, without needing to download or install anything in your computer.
+			<p>In the editor on the left, you can <b>write and run EOL scripts</b> (<a href="../doc/eol/">what is EOL?</a>) from your browser, without needing to download or install anything in your computer.
 			<br><br>
 			Except for playing with the basic features of the language, you can also query and modify a real EMF model (which for simplicity, is Ecore itself). 
 			
-			<br><br>Below are several small EOL scripts which you can try. To try a script, copy/paste it in the editor on the left and then click the Run button to execute it and see its output in the console.
+			<br><br>Below are several small EOL scripts which you can try. To try a script, copy/paste it in the editor on the left and then click the Run button to run it and see its output in the console.
 			</p>
 			</div>
 		</div>
