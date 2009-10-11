@@ -1,7 +1,9 @@
 <?
 function redirect() {
 	$serverName = $_SERVER['SERVER_NAME'];
-	//$serverName = "www.eclipse.org";
+	if ($serverName != "localhost") {
+		$serverName = $serverName = "www.eclipse.org";
+	}
 	$requestUrl = $_SERVER["REQUEST_URI"];
 	$requestUrl = trim($requestUrl,"/");
 	$articleId = substr($requestUrl, strrpos($requestUrl,"/")+1);
@@ -10,7 +12,7 @@ function redirect() {
 	echo "v5";
 	//echo "<b>Under maintenance. Please check back soon</b>";
 	//echo "<br>";
-	//echo $redirectUrl;
+	echo $redirectUrl;
 	//echo "<br>";
 	//echo "redirected";
 }
