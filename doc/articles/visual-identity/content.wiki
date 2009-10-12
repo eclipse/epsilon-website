@@ -1,0 +1,9 @@
+=Visual identity=
+
+==Small logo==
+
+[[image:epsilonlogo.small.png]]
+
+==Big logo==
+
+[[image:epsilonlogo.big.png]]

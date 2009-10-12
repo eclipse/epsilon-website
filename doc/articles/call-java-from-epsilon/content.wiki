@@ -1,15 +1,24 @@
 =Call Java from Epsilon=
-
+ 
 Model management languages such as those provided by Epsilon are by design not general purpose languages. Therefore, there are features that such languages do not support
 inherently (mainly because such features are typically not needed in the context of model management).
 
-
 However, there are cases where a feature that is not built-in may be necessary for a specific task. As an example, consider the need to check for string similarity using advanced string matching algorithms during model comparison. While it is possible to implement such algorithms using an imperative language such as EOL, it is not really advisable since performance-wise the implementation in EOL will be at least one order of magnitude worse than, e.g. Java. Moreover, many such algorithms have already been implemented and are freely available and translating them into EOL would probably be misplaced effort.
 
+In a more elaborate scenario, one may need to access information stored in a database server during a model management operation. For instance, in the context of acceptance testing we may want to check that for each table in our live database, there is a class with the same name in our UML model that describes the system. Obviously, it is impossible to implement something like JDBC using a task-specific language such as EOL.
 
-In a more elaborate scenario, consider the need to access information stored in a database server during a model management operation. For instance, in the context of acceptance testing we may want to check that for each table in our live database, there is a class with the same name in our UML model that describes the system. Obviously, it is impossible to implement something like JDBC using a task-specific language such as EOL.
+== Creating Java objects in EOL ==
+ 
+EOL provides the `Native` type to allow developers instantiate Java objects. For example, the following EOL code creates a `JFrame`, sets its title and bounds and then makes it visible.
+
+{{{
+var frame = new Native('javax.swing.JFrame');
+frame.title = 'Opened from EOL'; -- invokes frame.setTitle('Opened from EOL')
+frame.setBounds(100, 100, 200, 200);
+frame.visible = true;
+}}}
 
 ==Epsilon Tools==
-
+ 
 To address such issues and enable developers to implement non-standard functionality,
 Epsilon supports the Tool1 concept. A tool is a normal Java class that (optionally) conforms to a specific interface (`org.eclipse.epsilon.eol.tools.ITool`) and which can be instantiated and accessed from the context of an EOL (or any other EOL-based language such as EML, ETL, EVL etc) program. After instantiation, EOL can be used to invoke methods and access properties of the object. In this document we show how to implement a new tool and use it from an EOL program.
