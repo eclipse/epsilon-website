@@ -144,7 +144,7 @@
 			<h6 style="background-color:#535776;color:white">Live</h6>
 			<div class="modal">
 			<ul>
-				<li><a href="live">Try EOL in your browser</a><i>(No need to download or install anything)</i>
+				<li><a href="live">Try EOL in your browser</a> <i>(No need to download or install anything)</i>
 			</ul>
 			</div>
 		</div>
