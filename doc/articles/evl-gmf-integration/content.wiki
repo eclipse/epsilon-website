@@ -105,7 +105,7 @@ The next step is to run a new Eclipse instance and create a new filesystem diagr
 
 [[image:Filesystemwitherrors.png]]
 
-To validate this we go to the `Diagram` menu and select `Validate`. The editor now looks like this:
+To validate this we go to the `Diagram` menu and select `Validate` (if you are running Galileo, the `Validate` option is under the `Edit` menu instead). The editor now looks like this:
 
 [[image:Filesystemwitherrorshighlighted.png]]
 
