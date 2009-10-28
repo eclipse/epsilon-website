@@ -5,6 +5,23 @@
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
    <item>
+		<title>Version 0.8.8 is now available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download/</link>
+		<description>
+		<![CDATA[
+		Fixes bugs and implements enhacnement requests 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=209365">#209365</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=289624">#289624</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=291586">#291586</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=291599">#291599</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=287756">#287756</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=255046">#255046</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281354">#281354</a>
+		]]>
+		</description>
+		<pubDate>Wed, 28 Oct 2009 16:34:00 CET</pubDate>
+	</item> 
+   <item>
 		<title>Version 0.8.7 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download/</link>
 		<description>
