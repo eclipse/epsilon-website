@@ -17,7 +17,7 @@
 	$pageTitle 		= "Download";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	$version = "0.8.7";
+	$version = "0.8.8";
 	
 	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-";
 	$modelingToolsWin = $modelingTools."win32.zip";
