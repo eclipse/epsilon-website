@@ -1,0 +1,30 @@
+=EOL Syntax Updates=
+ 
+In 0.8.8 we extended the syntax of EOL so that it looks a bit more like Java. As the majority of Eclipse/EMF audience are Java programmers, this will hopefully make their (and our) lives a bit easier. Of course all these changes also affect languages built on top of EOL (EVL, EGL, ETL, EML, ECL and EWL).
+
+More specifically, we have introduced:
+
+* double quotes (`" "`) for string literals, 
+* Java-like comments (`//` and `/**/`),
+* `==` as a comparison operator,
+* `=` as an assignment opperator (in 0.8.7)
+ 
+All these changes (except for the double quotes) are non-breaking: the old syntax (`''` for strings, `=` for comparison, `:=` for assignment and `--` and `-**-` for comments still work). Below is an example demonstrating the new syntax:
+
+{{{
+/*
+ This is a multi line comment
+*/
+// This is a single line comment
+var i = 1;
+if (i == 1) {
+	"Hello World".println();
+}
+
+i = 2; // Assigns the value 2 to i
+
+var `variable with spaces` = 3;
+`variable with spaces`.println(); // Prints 3
+}}}
+
+If you have suggestions for further Java-ifications of the EOL syntax, please post your comments to the [[../../../forum|Epsilon forum]] or add them to [[https://bugs.eclipse.org/bugs/show_bug.cgi?id=292403|bug 292403]].
