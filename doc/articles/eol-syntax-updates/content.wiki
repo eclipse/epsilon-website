@@ -1,6 +1,6 @@
 =EOL Syntax Updates=
  
-In 0.8.8 we extended the syntax of EOL so that it looks a bit more like Java. As the majority of Eclipse/EMF audience are Java programmers, this will hopefully make their (and our) lives a bit easier. Of course all these changes also affect languages built on top of EOL (EVL, EGL, ETL, EML, ECL and EWL).
+In 0.8.8 we extended the syntax of EOL so that it looks and feels a bit more like Java(script). As the majority of Eclipse/EMF audience are Java programmers, this will hopefully make their (and our) lives a bit easier. Of course all these changes also affect languages built on top of EOL (EVL, EGL, ETL, EML, ECL and EWL).
 
 More specifically, we have introduced:
 
