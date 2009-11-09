@@ -74,7 +74,7 @@ class WikiTextToHTML {
 			'/^----$/'
 				=>	'<hr />',
 			'/_backticks/'
-				=>	'``'
+				=>	'` `'
 		);
 	
 	

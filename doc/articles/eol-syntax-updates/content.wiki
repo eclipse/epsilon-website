@@ -5,7 +5,7 @@ In 0.8.8 we extended the syntax of EOL so that it looks and feels a bit more lik
 More specifically, we have introduced:
 
 * double quotes (`" "`) for string literals, 
-* backticks _backticks for reserved words,
+* backticks (_backticks) for reserved words,
 * Java-like comments (`//` and `/**/`),
 * `==` as a comparison operator,
 * `=` as an assignment opperator (in 0.8.7)
