@@ -39,7 +39,7 @@ public class SampleTool {
  
 ===Invoke the tool===
  
-To invoke the tool you have two optios: You can either run a new Eclipse instance, or export the plugin and place it in the `dropins` folder of your installation. Then you can invoke the tool using the following EOL program.
+To invoke the tool you have two options: You can either run a new Eclipse instance, or export the plugin and place it in the `dropins` folder of your installation. Then you can invoke the tool using the following EOL program.
 
 {{{
 var sampleTool = new Native("org.eclipse.epsilon.examples.tools.SampleTool");
