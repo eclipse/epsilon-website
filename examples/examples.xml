@@ -36,6 +36,14 @@
 		</description>
 		<file name="CreateJFrame.eol"/>
 	</example>
+	<example src="org.eclipse.epsilon.examples.tools" title="Creating custom Java tools for Epsilon" standalone="true">
+		<description>
+		<![CDATA[In this example, we create a custom tool for Epsilon.]]>
+		</description>
+		<file name="src/org/eclipse/epsilon/examples/tools/SampleTool.java"/>
+		<file name="plugin.xml"/>
+		<file name="build.properties"/>
+	</example>
 	<example src="org.eclipse.epsilon.examples.validateoo" title="Validate an OO model with EVL" standalone="false">
 		<description>
 		<![CDATA[In this example, we use the Epsilon Validation Language (EVL), to express constraints for models that conform to the OO.emf metamodel.]]>
