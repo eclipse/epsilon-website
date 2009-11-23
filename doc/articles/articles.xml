@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <articles>
-	<!--article name="call-java-from-epsilon" title="Call Java from Epsilon">
+	<article name="call-java-from-epsilon" title="Call Java from Epsilon">
 		<description>
-		This article demonstrates how to create Java objects and call their methods from Epsilon languages.
+		This article demonstrates how to create Java objects, access their properties and call their methods from Epsilon languages.
 		</description>
-	</article-->
+	</article>
 <article name="eol-syntax-updates" title="EOL syntax updates">
 		<description>
 		This article summarizes the changes introduced in 0.8.7 and 0.8.8 in the EOL concrete syntax. 
