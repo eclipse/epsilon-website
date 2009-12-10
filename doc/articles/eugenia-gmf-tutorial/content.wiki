@@ -87,7 +87,7 @@ It accepts the following details:
 * `label.pattern` (optional) : If more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. `{0} : {1}`)
 * `source` : The source non-containment `EReference` of the link
 * `target` : The target non-containment `EReference` of the link
-* `source.decoration` (optional) : The decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `rectangle`, `filledrectangle`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements an appropriate interface
+* `source.decoration` (optional) : The decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `square`, `filledsquare`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements an appropriate interface
 * `target.decoration` (optional) : As above.
 * `color` (optional) : the RGB color of the link
 * `width` (optional) : the width of the link
@@ -105,7 +105,7 @@ For an example see the `Sync` class in the `filesystem` metamodel
 ===gmf.link (for non-containment EReference)===
 It accepts the following details:
 * `label` (optional) : The static text that will be displayed as the label of the link. If no label is specified, the name of the reference is displayed instead.
-* `source.decoration` (optional) : The decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `rectangle`, `filledrectangle`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements an appropriate interface
+* `source.decoration` (optional) : The decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `square`, `filledsquare`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements an appropriate interface
 * `target.decoration` (optional) : As above.
 * `color` (optional) : the RGB color of the link
 * `width` (optional) : the width of the link
