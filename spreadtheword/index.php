@@ -22,43 +22,23 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	chdir('..');
 	include ('common.php');
 	ob_start();
-	
+	/*
 	include_once("dom4php/XmlParser.php");
 	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
 	$document = $parser->parse(file_get_contents("epic.xml"));
 	$votes = $document->getOneChild("epicItem")->getOneChild("votes")->childNodes[0]->data;
 	$rating = $document->getOneChild("epicItem")->getOneChild("rating")->childNodes[0]->data;
-	
+	*/
 ?>
 
 	<div id="midcolumn">
-		<div style="float:right"><h3 style="color:#C0C0C0"><i><?=number_format($rating,1)?>/10 (<?=$votes?> votes)</i></h3></div>
-		<h3>Rate Epsilon at EPIC</h3>
 		
-		<div style="float:right;padding-left:10px">
-			<form method="post" action="http://www.eclipseplugincentral.com/Web_Links.html">
-
-			<select name="rating" style="width:67px">
-			<option>--</option>
-			<option selected>10</option>
-			<option>9</option>
-			<option>8</option>
-			<option>7</option>
-			<option>6</option>
-			<option>5</option>
-			<option>4</option>
-			<option>3</option>
-			<option>2</option>
-			<option>1</option>
-			</select>
-			<br>
-			<input type="hidden" name="ratinglid" value="842">
-			<input type="hidden" name="ratinguser" value="outside">
-			<input type="hidden" name="req" value="addrating">
-			<input type="submit" value="Vote!" style="width:67px; margin-top:5px">
-			</form>
+		<h3>Epsilon at Eclipse Marketplace</h3>
+		
+		<div style="float:right;padding-left:25px;padding-right:25px;padding-top:10px;">
+			<img src="http://dev.eclipse.org/custom_icons/marketplace.png"/>
 		</div>
-		<p>Eclipse Plugin Central is the most comprehensive source of Eclipse plugins. You can use the form on the right to rate <a href="http://www.eclipseplugincentral.com/Web_Links-index-req-viewlink-cid-887.html">Epsilon</a> directly from this page without needing to have an account, login or anything.</p>
+		<p>The Eclipse Marketplace is the most comprehensive source of Eclipse plugins. You can help spread the word by <a href="http://marketplace.eclipse.org/content/epsilon">adding Epsilon</a> to your list of favorite Eclipse tools.</p>
 		
 		<h3>Add Epsilon to your Ohloh stack</h3>
 		<div style="float:right;padding-left:10px">
@@ -96,7 +76,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<h6>Spread the word</h6>
 			<div class='modal'>
 			<p>
-				If you are finding Epsilon useful, please use one (or more) of the options in this page to let other developers know too.
+				If you like Epsilon, you can use one (or more) of the options in this page to spread the word.
 			</p>
 			</div>
 		</div>
