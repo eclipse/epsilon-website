@@ -31,7 +31,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<h2>Connecting using a newsgroup reader</h2>
 		
-		<p>
+		<p> 
 		As an alternative to the <a href="http://www.eclipse.org/forums/index.php?t=thread&frm_id=22">web interface</a>, you can
 		use a newsgroup reader (e.g. Thunderbird, Outlook Express) to monitor the forum.
 		To do this, you need to first get a username and password by filling in 

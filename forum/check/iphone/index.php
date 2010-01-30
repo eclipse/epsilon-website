@@ -32,12 +32,10 @@
 	<ul class="autolist">
 		<li class="title">Recent messages</li>
 		<?for ($i=0;$i<10;$i++){?>
-		<li class="withimage">
-			<a class="menu" href="index.html">
-				<img alt="test" src="images/message.png">
-				<span class="name">Re: Eugenia problems</span>
-				<span class="comment">Dimitris Kolovos</span>
-				<span class="arrow"></span>
+		<li class="menu" style="height:100px">
+			<a href="foo.html">
+				<img alt="list" src="images/message32.png" />
+				<span class="name" style="position:absolute;top:0px;font-weight:bold;left:40px">Re: Eugenia</span>
 			</a>
 		</li>
 		<?}?>
