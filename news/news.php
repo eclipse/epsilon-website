@@ -129,4 +129,39 @@ function r2m($title, $feed, $posts, $heading=3, $limit = 5) {
 	$html .= '<br>';
 	return $html;
 }
+
+function r2i($title, $feed, $limit = 5) {
+	$parser   = new XmlParser($encoding = 'ISO-8859-1');
+	$document = $parser->parse(file_get_contents($feed));
+	$channel = $document->documentElement;
+	$html = '<ul id="home" title="'.$title.'" selected="true">';
+
+	$i = 0;
+	foreach ($channel->selectElements(array(),"item") as $item) {
+		$title = $item->getOneChild("title")->childNodes[0]->data;
+		$content = strip_tags($item->getOneChild("content:encoded")->childNodes[0]->data);
+		$date = $item->getOneChild("dc:date")->childNodes[0]->data;
+		if (trim($content) == "") { $content = $item->getOneChild("description")->childNodes[0]->data; }
+		$html.= '<li><a href="#article'.$i.'" style="font-size:16px">'.$title;
+		$html.= '<div style="font-size:12px;font-weight:normal">'.$date.'</div></a>';
+		$html.= '</li>';
+		$i++;
+	}
+	$html .= '</ul>';
+
+	$i = 0;
+	foreach ($channel->selectElements(array(),"item") as $item) {
+		$title = $item->getOneChild("title")->childNodes[0]->data;
+		$content = strip_tags($item->getOneChild("content:encoded")->childNodes[0]->data);
+		$date = $item->getOneChild("dc:date")->childNodes[0]->data;
+		if (trim($content) == "") { $content = $item->getOneChild("description")->childNodes[0]->data; }
+		$html.= '<ul id="article'.$i.'" title="Article">';
+		$html.= '<div style="font-size:16px;font-weight:bold">'.$title.'</div>';
+		$html.= '<span style="font-size:12px;font-weight:normal">'.$content.'</span>';
+		$html.= '</li></ul>';
+		$i++;
+	}
+
+	return $html;
+}
 ?>
