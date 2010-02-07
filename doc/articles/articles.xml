@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <articles>
+	<article name="extended-properties" title="Extended Properties">
+		<description>
+		This article demonstrates the extended properties mechanism in EOL (and by inheritance, in all languages in Epsilon).
+		</description>
+	</article>
 	<article name="call-java-from-epsilon" title="Call Java from Epsilon">
 		<description>
 		This article demonstrates how to create Java objects, access their properties and call their methods from Epsilon languages.
