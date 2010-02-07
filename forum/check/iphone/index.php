@@ -21,12 +21,12 @@ include_once('news/news.php');
 
 <body>
     <div class="toolbar">
-        <h1 id="pageTitle">Some other title</h1>
+        <h1 id="pageTitle">e.epsilon</h1>
         <a id="backButton" class="button" href="#"></a>
     </div>
 		
 		
-	<?=r2i("Epsilon Forum", "http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10")?>
+	<?=r2i("e.epsilon", "http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10")?>
 
 
 

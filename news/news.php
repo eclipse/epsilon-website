@@ -156,8 +156,7 @@ function r2i($title, $feed, $limit = 5) {
 		$date = $item->getOneChild("dc:date")->childNodes[0]->data;
 		if (trim($content) == "") { $content = $item->getOneChild("description")->childNodes[0]->data; }
 		$html.= '<div id="article'.$i.'" style="padding:10px" title="'.$title.'">';
-		//$html.= '<h3></h3>';
-		$html.= '<div style="font-size:12px;font-weight:normal">'.wordwrap($content,50, '<br>', true).'</div>';
+		$html.= ''.wordwrap($content,40, '<br>', true).'';
 		$html.= '</div>';
 		$i++;
 	}
