@@ -1,0 +1,502 @@
+=Emfatic=
+ 
+Emfatic is a language designed to represent EMF Ecore models in a textual form.  This document details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
+
+==Packages==
+ 
+In this article, Emfatic programs are shown in boxes as in the example below:
+
+{{{
+package test;
+class Foo { }
+}}}
+
+When compiled, the program above will produce a model with an EPackage named "test" containing a single EClass named "Foo".
+
+As is probably clear from the first Emfatic program above, the keyword `package` introduces an `Ecore` `EPackage` and the identifier following it maps to the `name` attribute of the generated `EPackage`.
+
+===Main Package===
+ 
+The only thing required in an Emfatic source file is a `package` declaration.  This required element is called the main package declaration and the `EPackage` it defines will contain (directly or indirectly) all of the other elements of the generated Ecore model.  Thus the simplist possible Emfatic program would look something like this:
+
+{{{
+package p;
+}}}
+
+Specifying values for the `EPackage` attributes `nsURI` and `nsPrefix` is done like this:
+
+{{{
+@namespace(uri="http://www.eclipse.org/emf/2002/Ecore", prefix="ecore")
+package ecore;
+}}}
+
+Note that Emfatic is case-sensitive in most contexts (reflecting the underlying case-sensitivity of Ecore), however the identifiers `namespace`, `uri` and `prefix` in the text above could be written in any case.  Also note that the order of declaration for `uri` and `prefix` is not important.  The syntax of the `@namespace` declaration is actually a special case of the more general syntax for declaring `EAnnotations`, which will be described in full detail below.
+
+===Sub-Packages===
+
+Ecore allows packages to be nested inside packages.  In Emfatic, the syntax for nested packages differs from that of the main package.  Nested package declarations are followed by a curly-brace bracketed region which encloses the nested package contents.  The example below demonstrates package nesting.  
+
+{{{
+package main;
+
+package sub1 {
+}
+
+package sub2 {
+  package sub2_1 { }
+  package sub2_2 { }
+}
+}}}
+
+In the Ecore model generated from the above program, the top-level package named "main" will contain two packages, "sub1" and "sub2", and package sub2 will contain the packages "sub2_1" and "sub2_2".
+
+===Main Package Imports===
+
+Import statements allow for types defined in external Ecore models to be referenced.  All import statements must immediately follow the main package declaration.  The example below demonstrates the basic syntax of import statements.  The double-quoted string literal following the import keyword must contain the URI of an Ecore model.
+
+{{{
+package main;
+
+import "platform:/resource/proj1/foo.ecore";
+import "http://www.eclipse.org/emf/2002/Ecore";
+
+package sub { }
+}}}
+
+Note that Ecore.ecore is automatically imported, so the second import in the program above is not really necessary.
+
+==Classifiers==
+
+===Classes===
+
+The Emfatic syntax for class declarations is very similar to Java, however a few quirks are required to allow for all of the possibilities of Ecore.  The example below containing four simple class declarations demonstrates the use of the keywords class, interface and abstract and also introduces Emfatic comments (Emfatic allows both styles of Java comments).  The comments detail the mapping from Emfatic to the EClass attributes interface and abstract.
+
+{{{
+package main;
+
+class C1 { }               // isInterface=false, isAbstract=false
+abstract class C2 { }      // isInterface=false, isAbstract=true
+interface I1 { }           // isInterface=true,  isAbstract=false
+abstract interface I2 { }  // isInterface=true,  isAbstract=true
+}}}
+
+Inheritance is specified with the keyword extends.  Unlike Java, there is no implements keyword to distinguish inheritance from interface implementation.  The example below defines an inheritance hierarchy.
+
+{{{
+package main;
+
+class A { }
+class B { }
+class C extends A, B { }
+class D extends C { }
+}}}
+
+If necessary, the value of the EClassifier attribute instanceClassName can be specified.  The class EStringToStringMapEntry from Ecore.ecore provides an example of this:
+
+{{{
+class EStringToStringMapEntry : java.util.Map$Entry {
+  // ... contents omitted ...
+}
+}}}
+
+Note that if the class both extends other classes and specifies a value for instanceClassName, the extends clause must precede the instanceClassName clause.
+
+===Data Types===
+
+Declaring an EDataType is fairly simple.  Here are some familiar examples from Ecore.ecore:
+
+{{{
+datatype EInt : int;
+datatype EIntegerObject : java.lang.Integer;
+transient datatype EJavaObject : java.lang.Object;
+datatype EFeatureMapEntry : org.eclipse.emf.ecore.util.FeatureMap$Entry;
+datatype EByteArray : "byte[]";  // Note: [ and ] are not legal identifier characters and must be in quotes
+}}}
+
+First note that as with classes, the value of the `EClassifier` attribute `instanceClassName` follows the colon after the name of the datatype.  However specifying `instanceClassName` is required for datatypes (while it is optional for classes).
+
+The keyword `transient` in the third datatype declaration above indicates that the value of the `EDataType` serializable attribute should be set to `false`.  This is a good time to point out that the modifier keywords introduced so far (abstract and interface) are applied to reverse the default Ecore attribute values (by default EClass attributes `abstract` and `interface` are both false).  In the case of the `EDataType` attribute `serializable`, the default value is true so Emfatic uses a keyword, `transient`, that means the opposite of `serializable`.
+
+The last two datatypes illustrate a subtle syntactic point.  The value specified for the `instanceClassName` attribute must either be a valid qualified identifier (a dot or dollar-sign separated list of identifiers such as `java.lang.Object` in the third datatype above) or it must be enclosed in double quotes.  The datatype EFeatureMapEntry contains the character '$' which, following Java syntactic rules, is a legal qualified identifier separator.  The datatype `EByteArray` contains the characters '[' and ']' which are not legal in a qualified identifier.
+
+The overall point to make about qualified identifier versus double-quoted syntax for `instanceClassName` is that the typical datatype declaration can use the former and thus should be easier to read and edit, while the latter is available when needed and allows for arbitrary string text to be placed in the generated Ecore model.  There are some other contexts where the Emfatic programmar has the option to use either a qualified identifier or double-quoted string (see the section on Annotations below for another example of this).
+
+===Enumerated Types===
+
+The example below demonstrates the Emfatic syntax that maps to `EEnum` and `EEnumLiteral`.  Note that the simple assignment expressions specify the value attribute of each generated `EEnumLiteral`.
+
+{{{
+enum E {
+  A=1;
+  B=2;
+  C=3;
+}
+}}}
+
+In fact, specifying enumeration literal values is optional and `Emfatic` generates reasonable values when they are left unspecified.  The code and comments below describe the rules for this.
+
+{{{
+enum E {
+  A;  // = 0 (if not specified, first literal has value 0)
+  B = 3;
+  C;  // = 4 (in general, unspecified values are 1 greater than previous value)
+  D;  // = 5
+}
+}}}
+
+===Map Entries===
+
+`MapEntry` classes (such as `EStringToStringMapEntry` in Ecore.ecore) can be specified in either of two ways.  The "longhand" way is to declare a class with features named key and value and with `[instanceClass=java.util.Map$Entry]` as suggested above.  But there is a convienent shorthand notation which achieves the same result:
+
+{{{
+mapentry EStringToStringMapEntry : String -> String;
+}}}
+
+The expression following the colon gives the type of the `MapEntry` key structural feature followed by the `->` operator, followed by the type of the value structural feature.  Type expressions can be more complex than shown in the example above and are detailed fully in the next section.
+
+==Type Expressions==
+The most basic Ecore elements that haven't yet been explored in Emfatic are the structural and behavioral class features represented by the Ecore classes EAttribute, EReference, EOperation and EParameter.  These four Ecore classes are all derived from ETypedElement which means that instances of them have some type (which is an EClassifier) and inherit the other characteristics of ETypedElement, like multiplicity.  Before we can describe each specific kind of class feature, we need to show how types are represented syntactically, because that applies (more or less) to all of them.
+
+Type expressions have two parts.  First is a simple identifier or a qualified identifier (a dot-separated list of simple identifiers like "a.b.c") that identifies some EClassifier.  The EClassifier identified may be defined in the same Emfatic source file as the type expression, or it may be in one of the imported Ecore models (specified in import statements).
+
+Let's skip ahead a little by looking at some attribute declarations so that we can talk about their type expressions:
+
+{{{
+package test;
+
+datatype D1 : int;
+
+package P {
+  datatype D2 : int;
+}
+
+class C {
+  attr D1 d1;
+  attr P.D2 d2;
+  attr ecore.EString s1;
+  attr String s2;
+}
+}}}
+
+The class named "C" above declares four attributes with the names "d1", "d2", "s1" and "s2".  Note that Emfatic follows Java syntactic style in placing type expression before the name.  However unlike Java field declarations, Emfatic uses a keyword - attr - to introduce an attribute.  (The keyword attr and similar keywords to introduce references and operations will explained in more detail in the following sub-sections).
+
+The type expression for d1 is "D1" which identifies the datatype D1.  Because C and D1 are in the same package (test), this simple expression is fine.
+
+The type expression for d2 is "P.D2".  In this case a qualified identifier expression is necessary to identify datatype D2 inside package P.
+
+The type expression for s1 is "ecore.EString".  This identifies the datatype EString in package ecore (recall that model Ecore.ecore is implicitly imported in all Emfatic programs).
+
+The type expression for s2 is "String".  The identifier String is actually a special shorthand for ecore.EString, so s1 and s2 have the same type.
+3.1 Basic Types
+
+A number of the types defined in Ecore.ecore have shorthand notation in Emfatic.  The table below lists the Emfatic shorthand and the corresponding Ecore.ecore type name for each of these basic types as well as the corresponding Java type or class (taken from table 5.1 in the EMF book).
+
+Table 3.1 - Basic Type Names
+Emfatic Keyword
+Ecore EClassifier name
+Java type name
+boolean
+EBoolean
+boolean
+Boolean
+EBooleanObject
+java.lang.Boolean
+byte
+EByte
+byte
+Byte
+EByteObject
+java.lang.Byte
+char
+EChar
+char
+Character
+ECharacterObject
+java.lang.Character
+double
+EDouble
+double
+Double
+EDoubleObject
+java.lang.Double
+float
+EFloat
+float
+Float
+EFloatObject
+java.lang.Float
+int
+EInt
+int
+Integer
+EIntegerObject
+java.lang.Integer
+long
+ELong
+long
+Long
+ELongObject
+java.lang.Long
+short
+EShort
+short
+Short
+EShortObject
+java.lang.Short
+Date
+EDate
+java.util.Date
+String
+EString
+java.lang.String
+Object
+EJavaObject
+java.lang.Object
+Class
+EJavaClass
+java.lang.Class
+EObject
+EObject	org.eclipse.emf.ecore.EObject
+EClass
+EClass
+org.eclipse.emf.ecore.EClass
+Remember that you can always reference these types, and the rest of the types in Ecore.ecore, by using their fully qualified name which begins with the package prefix "ecore".  For example ecore.EOperation and ecore.EBigInteger are also legal references to types in Ecore.ecore.
+
+3.2 Multiplicity Expressions
+
+The second part of a type expression is the multiplicity expression.  This maps to the lowerBound and upperBound attributes of ETypedElement.  Multiplicity expressions are optional, but when omitted the generated ETypedElement gets the defaults (lowerBound = 0 and upperBound = 1).  The example below shows some attribute declarations with multiplicity expressions:
+
+class C {
+  attr String[1] s1;
+  attr String[0..3] s2;
+  attr String[*] s3;
+  attr String[+] s4;
+}
+
+The mapping between various multiplicity expressions and the lowerBound and upperBound attributes of the generated ETypedElement is detailed more fully in the following table.
+
+Table 3.2 - Multiplicity Expressions
+Emfatic multiplicity expression
+ETypedElement lowerBound
+ETypedElement upperBound
+none
+0
+1
+[?]
+0
+1
+[]
+0
+unbounded (-1)
+[*]
+0
+unbounded (-1)
+[+]
+1
+unbounded (-1)
+[1]
+1
+1
+[n]
+n
+n
+[0..4]
+0
+4
+[m..n]
+m
+n
+[5..*]
+5
+unbounded (-1)
+[1..?]
+1
+unspecified (-2)
+
+
+3.3 Escaping Keywords
+
+Note: this doesn't really fit here, but I can't find a better place for it...
+
+Sometimes it's necessary or desirable to use a keyword as the name for some model element.  This can be acheived by prefixing the name identifier with the '~' symbol.  This ability was added primarily to make it possible to represent Ecore.ecore in Emfatic, so we'll show another example from Ecore.ecore here to illustrate:
+
+class EClass extends EClassifier {
+  // ...
+  ~abstract : EBoolean;
+  ~interface : EBoolean;
+  // ...
+}
+
+Recall that the abstract and interface keywords are used in class declarations.  The code above shows how they can be used as attribute names.  Emfatic removes the '~' symbol so names in the generated Ecore model do not contain it.
+
+4. Structural and Behavioral Features
+
+Now we are ready to show how the Ecore class features EAttribute, EReference, EOperation and EParameter are represented in Emfatic.  The example below is the class EPackage from Ecore.ecore and it was chosen to give a feel for the feature syntax because it contains a sample of each kind of class feature.  
+
+class EPackage extends ENamedElement {
+  op EClassifier getEClassifier(EString name);
+  attr EString nsURI;
+  attr EString nsPrefix;
+  transient !resolve ref EFactory[1]#ePackage eFactoryInstance;
+  val EClassifier[*]#ePackage eClassifiers;
+  val EPackage[*]#eSuperPackage eSubpackages;
+  readonly transient ref EPackage#eSubpackages eSuperPackage;
+}
+
+For now we just want to point out that the syntax for class features is based on the syntax of Java with one key difference.  In Java some elements are introduced with special keywords like class and interface, but type members like fields and methods have no such keywords to introduce them.  This works for Java because fields and methods can be distinguished by looking at other syntactic featues (methods have parenthesis and fields do not).  However the distinction between what EMF calls attributes and references doesn't really exist in Java, so there is no distinguishing syntax.  Because of this and because class features are such an essential element of EMF, a decision was made to use keywords to introduce and differentiate attributes, references and operations.  Thus in Emfatic the basic syntax for a class feature looks like this:
+
+modifiers   featureKind   typeExpression   name   ';'
+
+Where featureKind is one of the four keywords in the following table.
+
+Table 4.1 - Class Feature Kind Keywords
+Emfatic keyword
+introduces
+attr
+EAttribute
+op
+EOperation
+ref
+normal EReference (EReference.containment = false)
+val
+"by value" EReference (EReference.containment = true)
+
+4.1 Modifiers
+
+Look again at the Emfatic code above for EPackage and note in the last class feature declaration the keyword ref is preceded by the words readonly and transient.  These are modifiers similar in spirit to Java's modifiers such as public, private and abstract.  However these modifiers map to boolean attributes on the Ecore classes involved in defining structural and behavioral features.  These modifiers must appear directly before the feature's type expression.  The table below describes each modifier.
+
+Table 4.2 - Class Feature Modifiers
+modifier
+means
+applies to
+readonly
+EStructuralFeature.changeable = false
+attribute, reference
+volatile
+EStructuralFeature.volatile = true
+attribute, reference
+transient
+EStructuralFeature.transient = true
+attribute, reference
+unsettable
+EStructuralFeature.unsettable = true
+attribute, reference
+derived
+EStructuralFeature.derived = true
+attribute, reference
+unique
+ETypedElement.unique = true
+attribute, reference, operation, parameter
+ordered
+ETypedElement.ordered = true
+attribute, reference, operation, parameter
+resolve
+EReference.resolveProxies = true
+reference
+id
+EAttribute.iD = true
+attribute
+
+Note that the meaning of a modifier may be negated by prefixing the ! operator.  The example below demonstrates this with an non-ordered attribute:
+
+class X {
+  !ordered attr String[*] s;
+}
+
+Normally the only modifiers that you should see negated with ! are unique, ordered and resolve.  This is because these three are true by default, so reversing the Ecore default means using the ! operator.  Note also that EStructuralFeature.changeable is true by default, but the modifier keyword readonly means the opposite (EStructuralFeature.changeable = false).
+
+4.2 Attributes
+
+We've now seen attribute naming and type expressions.  Attributes may also be assigned default value expressions.  Below is an example showing the various forms of attribute syntax.
+
+class C {
+  attr String s;
+  attr int i = 1;
+  attr ecore.EBoolean b = true;
+}
+
+Again note that the declaration of attributes is basically identical to declaraing fields in Java except for the presence of the attr keyword.
+
+4.3 References
+
+The type expression syntax for references is slightly complicated by the fact that we need some way to identify the opposite of a reference.  Let's return again to the code for EPackage, but we'll just look at the last two feature declarations:
+
+class EPackage extends ENamedElement {
+  // ...
+  val EPackage[*]#eSuperPackage eSubpackages;
+  readonly transient ref EPackage#eSubpackages eSuperPackage;
+}
+Notice that the type expressions are followed by a # symbol and an identifer.  This identifier names the EReference which is the opposite of the reference being declared.  If a reference doesn't need to specify its opposite then that part (including the # symbol) is omitted.
+
+4.4 Operations
+
+The declaration syntax for operations is Java-like as described above, including use of the keyword void to identify operations which don't return a value.  Also a Java-like throws clause allows for the declaration of exception types:
+
+class X {
+  op String getFullName();
+  op void returnsNothing();
+  op int add(int a, int b);
+  op EObject doSomething(int a, ecore.EBoolean b) throws ExceptionA, ExceptionB;
+}
+
+
+5. Annotations
+
+Annotations can be attached to every kind of EMF element, however only the source and details features of the resulting EAnnotation can be specified in Emfatic.  The Emfatic syntax for representing EMF annotations was inspired by the syntax being introduced for Java annotations in Java 1.5 ("Tiger").  The @ symbol is followed by the value of the EAnnotation source attribute.  Key/value pairs for the annotation details may appear in parenthesis following the source value.  Multiple annotations can be attached to each element.  Usually the annotation appears just before its containing element (parameter and enum literal annotations may appear just after the declaration).  The example below gives some examples of annotations.
+
+@"http://source/uri"("key1"="value1", "key2"="value2")
+@sourceLabel(key.a="value1", key.b="value2")
+@simpleAttr
+package test;
+
+@"http://class/annotation"(k="v")
+class C {
+  @"http://attribute/annotation"(k="v")
+  attr int a;
+
+  op int Op(
+    @before(k=v) int a,
+    int b @after(k=v)
+  );
+}
+
+enum E {
+  @"http://before"(k=v)
+  A=1;
+  B=2 @"http://after"(k=v);
+}
+
+One subtle point to note is that double quotes are only required around the string value if it is not a valid simple or qualified identifier.  So an identifier like key or key.a.b.c need not be quoted, but most complex strings (such as urls) will need to be.
+
+5.1 Annotation Labels
+Emfatic allows for short labels to be defined that map to longer URI values for the source attribute of an EAnnotation.  The purpose of this feature is to simplify the Emfatic code, making it easier to read and edit.  Several annotation labels are available by default, as shown in the following table:
+
+Emfatic annotation label
+maps to EAnnotation.source value
+Ecore
+http://www.eclipse.org/emf/2002/Ecore
+GenModel
+http://www.eclipse.org/emf/2002/GenModel
+ExtendedMetaData
+http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+EmfaticAnnotationMap
+http://www.eclipse.org/emf/2004/EmfaticAnnotationMap
+
+The code below shows some examples:
+
+@EmfaticAnnotationMap(myLabel="http://foo/bar")
+@genmodel(documentation="model documentation")
+package test;
+
+@ecore(constraints="constraintA constraintB")
+@myLabel(key="value")
+class C {
+}
+
+There are several details to elaborate on in the example above.  First note that labels are not case sensitive (so Ecore and ecore and ECORE all work the same way).
+
+Second, note that declaring an annotation using the label EmfaticAnnotationMap has the side effect of creating a new label which can be used later in the program.  So the second annotation on class "C" will get the source value of "http://foo/bar".
+
+Finally, note that the code above shows how to introduce model documentation and constraints in a way that will later flow into generated Java code when working with an EMF genmodel.
+
+This article is based on work by by Chris Daly (cjdaly@us.ibm.com) Copyright IBM Corp. 2004

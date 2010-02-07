@@ -15,14 +15,14 @@ class Tree {
 Now, what we want to do is to traverse a model that conforms to this metamodel and calculate and print the depth of each Tree in it. We can do this using this simple EOL program:
 
 {{{
-var depths := new Map;
+var depths = new Map;
 
 for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
 	n.setDepth(0);
 }
 
 for (n in Tree.allInstances) {
-	(n.name + ' ' + depths.get(n)).println();
+	(n.name + " " + depths.get(n)).println();
 }
 
 operation Tree setDepth(depth : Integer) {
@@ -45,11 +45,11 @@ for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
 }
 
 for (n in Tree.allInstances) {
-	(n.name + ' ' + n.~depth).println();
+	(n.name + " " + n.~depth).println();
 }
 
 operation Tree setDepth(depth : Integer) {
-	self.~depth := depth;
+	self.~depth = depth;
 	for (c in self.children) {
 		c.setDepth(depth + 1);
 	}
