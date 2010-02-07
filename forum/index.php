@@ -68,6 +68,16 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		</ul>
 		</div>
 		</div>
+		
+		<div class="sideitem">
+		<h6>Quick Check</h6>
+		<div class='modal'>
+		<ul>
+			<li><a href="check/iphone">iPhone / iPod</a>
+			<li><a href="check">Minimal HTML</a>
+		</ul>
+		</div>
+		</div>		
 <!--		
 		<div class="sideitem">
 		<h6>Twitter</h6>

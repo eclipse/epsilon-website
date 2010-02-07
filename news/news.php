@@ -132,6 +132,7 @@ function r2m($title, $feed, $posts, $heading=3, $limit = 5) {
 
 function r2i($title, $feed, $limit = 5) {
 	$parser   = new XmlParser($encoding = 'ISO-8859-1');
+	$title = "Epsilon Forum";
 	$document = $parser->parse(file_get_contents($feed));
 	$channel = $document->documentElement;
 	$html = '<ul id="home" title="'.$title.'" selected="true">';
@@ -155,8 +156,10 @@ function r2i($title, $feed, $limit = 5) {
 		$content = strip_tags($item->getOneChild("content:encoded")->childNodes[0]->data);
 		$date = $item->getOneChild("dc:date")->childNodes[0]->data;
 		if (trim($content) == "") { $content = $item->getOneChild("description")->childNodes[0]->data; }
-		$html.= '<div id="article'.$i.'" style="padding:10px" title="'.$title.'">';
-		$html.= ''.wordwrap($content,40, '<br>', true).'';
+		$html.= '<div id="article'.$i.'" style="margin:10px" title="Article" backButtonLabel="Back" otherButtonLabel="Full"
+otherButtonHref="'.$item->getOneChild("link")->childNodes[0]->data.'">';
+		$html.= '<h3>'.$title.'</h3>';
+		$html.= ''.wordwrap($content,35, "\r\n", true).'';
 		$html.= '</div>';
 		$i++;
 	}

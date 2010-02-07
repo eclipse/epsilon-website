@@ -360,7 +360,23 @@ function updatePage(page, fromPage)
 		}
 		else
 			backButton.style.display = "none";
-	}	 
+	}
+	
+	// Next block is inserted according to issue #89 
+    var otherButton = $("otherButton");
+    if (otherButton)
+    {
+	var otherButtonValue = page.getAttribute("otherButtonLabel");
+        if (otherButtonValue)
+        {
+            otherButton.innerHTML = otherButtonValue;
+            otherButton.href = page.getAttribute("otherButtonHref");
+            otherButton.className = "button "+ page.getAttribute("otherButtonClass");
+            otherButton.style.display = "inline";
+        }
+        else
+            otherButton.style.display = "none";
+    }
 }
 
 function slidePages(fromPage, toPage, backwards)
