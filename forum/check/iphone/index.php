@@ -21,8 +21,9 @@ include_once('news/news.php');
 
 <body>
     <div class="toolbar">
-        <h1 id="pageTitle">e.epsilon</h1>
+        <h1 id="pageTitle">Epsilon Forum</h1>
         <a id="backButton" class="button" href="#"></a>
+		<a id="otherButton" class="button" href="#"></a>
     </div>
 		
 		
