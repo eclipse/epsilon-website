@@ -155,10 +155,10 @@ function r2i($title, $feed, $limit = 5) {
 		$content = strip_tags($item->getOneChild("content:encoded")->childNodes[0]->data);
 		$date = $item->getOneChild("dc:date")->childNodes[0]->data;
 		if (trim($content) == "") { $content = $item->getOneChild("description")->childNodes[0]->data; }
-		$html.= '<ul id="article'.$i.'" title="Article">';
-		$html.= '<div style="font-size:16px;font-weight:bold">'.$title.'</div>';
-		$html.= '<span style="font-size:12px;font-weight:normal">'.$content.'</span>';
-		$html.= '</li></ul>';
+		$html.= '<div id="article'.$i.'" style="padding-left:10px">';
+		$html.= '<h3>'.$title.'</h3>';
+		$html.= '<p>'.$content.'</p>';
+		$html.= '</div>';
 		$i++;
 	}
 
