@@ -156,10 +156,14 @@ function r2i($title, $feed, $limit = 5) {
 		$content = strip_tags($item->getOneChild("content:encoded")->childNodes[0]->data);
 		$date = $item->getOneChild("dc:date")->childNodes[0]->data;
 		if (trim($content) == "") { $content = $item->getOneChild("description")->childNodes[0]->data; }
-		$html.= '<div id="article'.$i.'" style="margin:10px" title="Article" backButtonLabel="Back" otherButtonLabel="Full"
+		$html.= '<div id="article'.$i.'" style="margin-left:10px" title="Article" backButtonLabel="Back" otherButtonLabel="Full"
 otherButtonHref="'.$item->getOneChild("link")->childNodes[0]->data.'">';
+
 		$html.= '<h3>'.$title.'</h3>';
-		$html.= ''.wordwrap($content,35, "\r\n", true).'';
+		$content = strip_tags($content);
+		$content = wordwrap($content, 30, "\n", 1);
+		//$html.= ''.wordwrap($content,35, "<break/>", 1).'';
+		$html.= '<pre>'.$content.'</pre>';
 		$html.= '</div>';
 		$i++;
 	}
