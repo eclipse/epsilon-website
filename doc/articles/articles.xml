@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <articles>
+	<article name="emfatic" title="Emfatic language reference" content="html">
+		<description>
+		This article provides a complete reference of the syntax of Emfatic, which is a textual language for specifying Ecore metamodels.
+		</description>
+	</article>
 	<article name="extended-properties" title="Extended Properties">
 		<description>
 		This article demonstrates the extended properties mechanism in EOL (and by inheritance, in all languages in Epsilon).
