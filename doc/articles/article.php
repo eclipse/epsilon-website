@@ -23,13 +23,19 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	require_once 'wikitexttohtml.php';
 	$articleId =  $_GET['articleId'];
 	$contentFile = $articleId.'/content.wiki';
-	$contentType = "wiki";
+	
 	if (file_exists($contentFile)) {
 		$lines = file($contentFile);
 		$line = trim($lines[0]);
 		$pageTitle = substr($line, 1, strlen($line) - 2);
+		$contentType = "wiki";
 	} else {
 		$contentFile = $articleId.'/content.html';
+		$lines = file($contentFile);
+		$matches = preg_grep("/^<h1>(.*?)<\/h1>/", $lines);
+		if (sizeof($matches) > 0) {
+			$pageTitle = substr($matches[0], 4, strlen($matches[0]) - 11);
+		}
 		$contentType = "html";
 	}
 	ob_start();

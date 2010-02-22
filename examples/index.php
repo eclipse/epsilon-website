@@ -180,7 +180,7 @@
 	<h6>What are .emf files?</h6>
 	<div class="modal">
 	<p>
-		.emf files are Ecore metamodels expressed using the <a href="http://wiki.eclipse.org/Emfatic">Emfatic</a> textual syntax.
+		.emf files are Ecore metamodels expressed using the <a href="../doc/articles/emfatic">Emfatic</a> textual syntax.
 	</p>
 	</div>
 	</div>

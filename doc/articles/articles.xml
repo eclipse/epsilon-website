@@ -2,7 +2,7 @@
 <articles>
 	<article name="emfatic" title="Emfatic language reference" content="html">
 		<description>
-		This article provides a complete reference of the syntax of Emfatic, which is a textual language for specifying Ecore metamodels.
+		Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
 		</description>
 	</article>
 	<article name="extended-properties" title="Extended Properties">
