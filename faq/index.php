@@ -39,7 +39,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<?foreach ($faqs as $faq){?>
 		<p>
-		<h2><a style="color:black;text-decoration:none" name="<?=$faq->getOneChild("title")->childNodes[0]->data?>"><?=$faq->getOneChild("title")->childNodes[0]->data?></a></h2>
+		<h2><a style="color:black;text-decoration:none" name="<?=$faq->getAttribute("id")?>"><?=$faq->getOneChild("title")->childNodes[0]->data?></a></h2>
 		<?=$faq->getOneChild("answer")->childNodes[0]->data?>
 		</p>
 		<?}?>
@@ -51,7 +51,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div class='modal'>
 	<ul>
 		<?foreach ($faqs as $faq){?>
-		<li><a href="#<?=$faq->getOneChild("title")->childNodes[0]->data?>"><?=$faq->getOneChild("title")->childNodes[0]->data?></a>
+		<li><a href="#<?=$faq->getAttribute("id")?>"><?=$faq->getOneChild("title")->childNodes[0]->data?></a>
 		<?}?>
 	</ul>
 	</div>

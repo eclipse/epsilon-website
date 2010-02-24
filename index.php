@@ -38,6 +38,7 @@
 	$faqs = $document->getElementsByTagName("faq");
 	$random_faq = rand(0,count($faqs)-1);
 	$faq = $faqs[$random_faq];
+	$faq_id = $faq->getAttribute("id");
 	$faq_title = $faq->getOneChild("title")->childNodes[0]->data;
 	$faq_answer = $faq->getOneChild("answer")->childNodes[0]->data;
 	
@@ -196,7 +197,7 @@
 		<div class="sideitem">
 			<h6>Frequently Asked Question</h6>
 			<ul>
-				<a href="faq/index.php?#<?=$faq_title?>"><?=$random_faq+1?>. <?=$faq_title?></a>
+				<a href="faq/#<?=$faq_id?>"><?=$random_faq+1?>. <?=$faq_title?></a>
 			</ul>
  		</div>
 		

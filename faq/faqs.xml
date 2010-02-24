@@ -1,30 +1,40 @@
 <?xml version="1.0"?>
 <faqs>
-	<faq>
+	<faq id="epsilon-and-emf">
 		<title>What is the relationship between Epsilon and EMF?</title>
 		<answer><![CDATA[
 		<p>To put it simply, with EMF you can specify metamodels and construct models that conform to these metamodels, while with Epsilon you can <i>do stuff</i> with these EMF models and metamodels (e.g. validate them, transform them, generate code from them etc.).]]>
 		</answer>
 	</faq>
-	<faq>
+	<faq id="is-epsilon-a-model-transformation-language">
 		<title>Is Epsilon a model transformation language?</title>
 		<answer><![CDATA[
 		<p>No. Epsilon is a component that facilitates the specification and tool-support of a range of task-specific model management languages, <b>one of which</b> targets model-to-model transformation (ETL).]]>
 		</answer>
 	</faq>
-	<faq>
+	<faq id="who-is-using-epsilon">
 		<title>Who is using Epsilon?</title>
 		<answer><![CDATA[
 		<p>While we can't possibly have a precise answer to this, with <b>more than 1000 posts</b> in the <a href="../forum">Epsilon forum</a>, it seems that quite a few people are currently using different parts of Epsilon.]]>
 		</answer>
 	</faq>
-	<faq>
+		<faq id="getting-help">
+		<title>How do I get help?</title>
+		<answer><![CDATA[
+		<p>Epsilon has a dedicated <a href="../forum">forum</a> where you can ask questions about the tools and languages it provides.
+		Whenever possible, please use the forum instead of direct email. We're monitoring the forum very closely and there is practically 
+		no difference in response time. Also, answered questions in the forum form a knowledge database which other people can search in
+		case they face similar issues in the future. Last but not least, an active forum is an indication of a healthy and actively maintained 
+		project (properties that the Eclipse Foundation takes very seriously).]]>
+		</answer>
+	</faq>
+	<faq id="no-bundle">
 		<title>Why don't you provide an all-in-one bundle?</title>
 		<answer><![CDATA[
 		<p>We'd very much like to be able to provide an one-in-all bundle which you could download and use straight away. However, due to space limitations, it is not possible for every Eclipse project/component to provide such a bundle.]]>
 		</answer>
 	</faq>
-	<faq>
+	<faq id="new-version-notification">
 		<title>How do I get notified when a new version of Epsilon becomes available?</title>
 		<answer><![CDATA[
 		<p>To get notified when a new version of Epsilon becomes available, please subscribe to Epsilon's <a href="../news/epsilonNewsArchive.rss">RSS feed</a> (you can subscribe using a dedicated RSS client or an email client such as <a href="http://kb.mozillazine.org/RSS_basics_(Thunderbird)">Thunderbird</a>).</p> 
@@ -34,13 +44,13 @@
 		]]>
 		</answer>
 	</faq>
-	<faq>
+	<faq id="epsilon-standalon">
 		<title>Can I use Epsilon in a non-Eclipse-based standalone Java application?</title>
 		<answer><![CDATA[
 		<p>Yes. There are several examples of doing just that (for all languages provided by Epsilon) in <a href="http://dev.eclipse.org/viewsvn/index.cgi/trunk/examples/org.eclipse.epsilon.examples.standalone/?root=Modeling_EPSILON">this project in the SVN</a>.]]>
 		</answer>
 	</faq>
-	<faq>
+	<faq id="epsilon-omg">
 		<title>How does Epsilon compare to the OMG family of languages?</title>
 		<answer><![CDATA[
 		<p>There are two main differences: 
@@ -51,20 +61,20 @@
 		]]>
 		</answer>
 	</faq>
-	<faq>
+	<faq id="epsilon-and-other-modeling-projects">
 		<title>Is Epsilon a competitor to the Eclipse OCL/M2M/M2T projects?</title>
 		<answer><![CDATA[
 		<p>No. In Epsilon, precedence is given to researching and providing solutions for interesting and novel aspects of MDE - as opposed to implementing existing standards. By contrast, the OCL/M2M/M2T projects aim at providing tools that will fully implement the respective OMG standards.
 		]]>
 		</answer>
 	</faq>
-	<faq>
+	<faq id="comparison-with-other-languages">
 		<title>What is the difference between E*L and language X?</title>
 		<answer><![CDATA[
 		<p>If the available <a href="../doc/">documentation</a> doesn't provide enough information for figuring this out, please feel free to ask in the <a href="../forum">Epsilon forum</a>.]]>
 		</answer>
 	</faq>
-	<faq>
+	<faq id="contributing-to-epsilon">
 		<title>How can I contribute to Epsilon?</title>
 		<answer><![CDATA[
 		<p>There are several ways to contribute to Epsilon. In the first phase you can ask questions in the forum and help with maintaining the vibrant community around Epsilon. You may also want to let other developers know about Epsilon by <a href="../spreadtheword">sharing your experiences</a> online. If you are interested in contributing code to Epsilon, you should start by submitting bug reports, feature requests - and hopefully patches that fix/implement them. This will demonstrate your commitment and long-term interest in the project - which is required by the Eclipse Foundation in order to later on be nominated for a committer account.]]>
