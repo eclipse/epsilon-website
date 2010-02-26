@@ -129,7 +129,7 @@
 		</div>
 		
 		<div class="homeitem">
-			<?=r2h("Recent articles in the blog", "blogrss.xml", array(' '))?>
+			<?=r2h("Recent articles in the blog", "remote/blogrss.xml", array(' '))?>
 		</div>
 		
 		<?
@@ -215,8 +215,6 @@
 			</center>
 		</div>	
 		-->
-		
-
 		
 		<div class="sideitem">
 			<?=r2h("Updates", "news/epsilonNewsArchive.rss", array(' '), 6, 5, 2000)?>
