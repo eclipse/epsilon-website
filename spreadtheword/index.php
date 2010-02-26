@@ -19,8 +19,10 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	$pageTitle 		= "Spread the word";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
+	include('twitter.php');
 	chdir('..');
 	include ('common.php');
+	
 	ob_start();
 	/*
 	include_once("dom4php/XmlParser.php");
@@ -81,6 +83,12 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			</div>
 		</div>
 	
+		<div class="sideitem">
+			<h6>Twitter Followers</h6>
+			<div class="modal">
+				<?=getTwitterFollowers()?>
+			</div>
+		</div>
 	</div>
 	
 <?

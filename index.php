@@ -182,7 +182,7 @@
 			</a>
 			</center>
 		</div>
-		
+				
 		<div class="sideitem">
 			<h6>Twitter (<a href="http://twitter.com/epsilonews" style="color:black">@epsilonews</a>)</h6>
 			<div class="modal">
