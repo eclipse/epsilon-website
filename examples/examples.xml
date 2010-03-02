@@ -139,12 +139,12 @@
 		<file name="build.xml"/>
 		<file name="tree.emf"/>
 	</example>
-		<example src="org.eclipse.epsilon.examples.mdr" title="Use Epsilon with MDR models" standalone="true" runnable="true">
+	<!--example src="org.eclipse.epsilon.examples.mdr" title="Use Epsilon with MDR models" standalone="true" runnable="true">
 		<description>
 		<![CDATA[In this example we demonstrate using EOL to query an MDR-based UML 1.4 model designed using <a href="http://argouml.tigris.org">ArgoUML</a> and exported to XMI 1.2. 
 		This example demonstrates how Epsilon can be used to manage not only EMF-based but also MDR-based models.]]>
 		</description>
 		<file name="queryuml14.eol"/>
 		<file name="bank-model.xmi"/>
-	</example>
+	</example-->
 </examples>
