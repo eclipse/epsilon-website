@@ -136,7 +136,7 @@
 				</li>
 				<li><b>or</b> check out the code from the SVN
 					<ul>
-						<li> go to the <a href="../doc/EpsilonSVN.pdf">SVN repository</a> 
+						<li> go to the <a href="../doc/articles/epsilon-source-svn/">SVN repository</a> 
 						<li> navigate to <b>trunk/examples</b>
 						<?if ($example->getAttribute("standalone") == "false"){?>
 						<li> check out the <b>org.eclipse.epsilon.examples.metamodels</b> project
