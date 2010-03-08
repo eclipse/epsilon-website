@@ -60,6 +60,12 @@
 		This article demonstrates the EPackage Registry view which allows developers to inspect the contents of the registered EMF EPackages.
 		</description>
 	</article>
+	<article name="inspect-models-exeed" title="Inspecting EMF models with Exeed">
+		<description>
+		This article demonstrates how you can use Exeed to inspect the structure of your EMF models.
+		</description>
+	</article>
+
 	<article name="epsilon-source-svn" title="Getting the source code of Epsilon">
 		<description>
 		This article demonstrates how to obtain and run a local copy of the source code of Epsilon.
