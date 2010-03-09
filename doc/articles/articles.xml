@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <articles>
+	<article name="reflective-emf-tutorial" title="Reflective EMF tutorial">
+		<description>
+		This tutorial demonstrates how to create an EMF Ecore metamodel and a sample model that conforms to it reflectively (i.e. without generating any code). 
+		</description>
+	</article>
 	<article name="emfatic" title="Emfatic language reference" content="html">
 		<description>
 		Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.

@@ -107,6 +107,6 @@ Then, in the '''Title''' field of the '''Properties''' view, you can type the na
 
 [[image:set-book-name.jpg]]
 
-'''Congratulations!''' You've just created your first EMF model from the ground up!
+'''Congratulations!''' You've just created your first EMF model!
 
 
