@@ -51,6 +51,14 @@
 		<file name="ValidateOO.evl"/>
 		<metamodel name="OO.emf"/>
 	</example>
+	<example src="org.eclipse.epsilon.examples.evl.intermodel" title="Validate an OO model versus a DB model with EVL" standalone="false">
+		<description>
+		<![CDATA[In this example, we use the Epsilon Validation Language (EVL) for expressing inter-model constraints that check a model that conforms to the OO.emf metamodel with a model that conforms to the DB.emf metamodel.]]>
+		</description>
+		<file name="checkoovsdb.evl"/>
+		<metamodel name="OO.emf"/>
+		<metamodel name="DB.emf"/>
+	</example>
 	<example src="org.eclipse.epsilon.examples.egldoc" title="Generate HTML documentation from an Ecore metamodel with EGL" standalone="false">
 		<description>
 		<![CDATA[In this example, we demonstrate how the template-based Epsilon Generation Language can be used to generate HTML documentation from an Ecore metamodel.]]>
