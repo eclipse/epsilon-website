@@ -154,7 +154,7 @@
 				<?if ($example->getAttribute("standalone") == "false"){?>
 				<li> register all .ecore metamodels in the <b>org.eclipse.epsilon.examples.metamodels</b> project (select all of them and then right click and select <b>Register EPackages</b>)
 				<?}?>
-				
+				<li> register any .ecore metamodels in the <b><?=$example->getAttribute("src")?></b> project
 				<li> right click the .launch file in the <b><?=$example->getAttribute("src")?></b> project
 				<li>select <b>Run as...</b> and click the first item in the menu that pops up
 
