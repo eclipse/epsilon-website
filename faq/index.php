@@ -16,17 +16,13 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	
 	#
 	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Frequently Asked Questions (FAQs)";
+	$pageTitle 		= "Frequently Asked Question (FAQs)";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../common.php');
 	ob_start();
 	
-	include_once("../dom4php/XmlParser.php");
-	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	$document = $parser->parse(file_get_contents("faqs.xml"));
-	$faqs = $document->getElementsByTagName("faq");
-	
+	$faqs = simplexml_load_file("faqs.xml")->faq;
 ?>
 
 	<div id="midcolumn">
@@ -39,8 +35,8 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<?foreach ($faqs as $faq){?>
 		<p>
-		<h2><a style="color:black;text-decoration:none" name="<?=$faq->getAttribute("id")?>"><?=$faq->getOneChild("title")->childNodes[0]->data?></a></h2>
-		<?=$faq->getOneChild("answer")->childNodes[0]->data?>
+		<h2><a style="color:black;text-decoration:none" name="<?=$faq->title?>"><?=$faq->title?></a></h2>
+		<?=$faq->answer?>
 		</p>
 		<?}?>
 	</div>
@@ -51,7 +47,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div class='modal'>
 	<ul>
 		<?foreach ($faqs as $faq){?>
-		<li><a href="#<?=$faq->getAttribute("id")?>"><?=$faq->getOneChild("title")->childNodes[0]->data?></a>
+		<li><a href="#<?=$faq->title?>"><?=$faq->title?></a>
 		<?}?>
 	</ul>
 	</div>
@@ -62,7 +58,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<h6>Links</h6>
 	<div class='modal'>
 	<ul>
-		<li> <a href="http://www.eclipse.org/gmt/faq.php">GMT Frequently Asked Questions</a>
+		<li> <a href="http://www.eclipse.org/gmt/faq.php">GMT Frequently Asked Questions.</a>
 	</ul>
 	</div>
 	</div>
