@@ -58,7 +58,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<h6>Links</h6>
 	<div class='modal'>
 	<ul>
-		<li> <a href="http://www.eclipse.org/gmt/faq.php">GMT Frequently Asked Questions.</a>
+		<li> <a href="http://www.eclipse.org/gmt/faq.php">GMT Frequently Asked Questions</a>
 	</ul>
 	</div>
 	</div>
