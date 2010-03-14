@@ -21,10 +21,7 @@
 	ob_start();
 	
 	# Create a parser and parse the examples.xml document.
-	include_once("../dom4php/XmlParser.php");
-	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	$document = $parser->parse(file_get_contents("cinema.xml"));
-	$screencasts = $document->getElementsByTagName("screencast");
+	$screencasts = simplexml_load_file("cinema.xml")->screencast;
 	
 ?>
 
@@ -37,19 +34,16 @@
 		
 		<?
 		foreach ($screencasts as $screencast) {
-			$description = $screencast->getOneChild("description")->childNodes[0]->data;
-			$name = $screencast->getAttribute("name");
-			$title = $screencast->getAttribute("title");
 		?>	
 		<div class="homeitem3col">
-			<div style="background-image:url('../images/paigeitem75.png')"><h3><a name="<?=$name?>" style="color:black;text-decoration:none">&nbsp;<?=$title?></a></h3></div>
+			<div style="background-image:url('../images/paigeitem75.png')"><h3><a name="<?=$screencast["name"]?>" style="color:black;text-decoration:none">&nbsp;<?=$screencast["title"]?></a></h3></div>
 			<div style="position:relative;top:-4px;background-color:#FAFAFA;border-left:1px solid #D7D7D7;border-right:1px solid #D7D7D7;border-bottom:1px solid #D7D7D7">
 			<table>
 				<tr>
-					<td><a href="<?=$name?>.htm"><img src="<?=$name?>.jpg"></img><img src="../images/play.png" style="position:relative;top:-110px;left:-240px"></a></td>
+					<td><a href="<?=$screencast["name"]?>.htm"><img src="<?=$screencast["name"]?>.jpg"></img><img src="../images/play.png" style="position:relative;top:-110px;left:-240px"></a></td>
 				</tr>
 				<tr>
-					<td style="padding-left:5px;vertical-align:top"><p><b>Plot: </b><?=$description?></td>
+					<td style="padding-left:5px;vertical-align:top"><p><b>Plot: </b><?=$screencast->description?></td>
 				</tr>
 			</table>
 			</div>
@@ -68,11 +62,8 @@
 		<ul>
 		<?
 		foreach ($screencasts as $screencast) {
-			$description = $screencast->getOneChild("description")->childNodes[0]->data;
-			$name = $screencast->getAttribute("name");
-			$title = $screencast->getAttribute("title");
 		?>
-		<li><a href="#<?=$name?>"><?=$title?></a>
+		<li><a href="#<?=$screencast["name"]?>"><?=$screencast["title"]?></a>
 		<?}?>
 		</ul>
 		</div>

@@ -22,11 +22,8 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	include ('../common.php');
 	
 	# Create a parser and parse the examples.xml document.
-	include_once("../dom4php/XmlParser.php");
 	include_once("../examples/SyntaxHighlight.php");
-	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	$document = $parser->parse(file_get_contents("scripts.xml"));
-	$scripts = $document->getElementsByTagName("script");
+	$scripts = simplexml_load_file("scripts.xml")->script;
 	
 	//include ('../examples/SyntaxHighlight.php');
 	ob_start();
@@ -40,9 +37,9 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			You can copy/paste any of the following scripts in the editor above, modify them if you want, and finally run them.<br/><br/>
 			<?
 			foreach ($scripts as $script) {
-			$description = $script->getOneChild("description")->childNodes[0]->data;
-			$title = $script->getAttribute("title");
-			$source = $script->getOneChild("source")->childNodes[0]->data;
+			$description = $script->description;
+			$title = $script["title"];
+			$source = $script->source;
 			$highlight = false;
 			if ($highlight) {
 				$source = highlight($source, "eol");
@@ -83,9 +80,9 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<ul>
 			<?
 			foreach ($scripts as $script) {
-			$description = $script->getOneChild("description")->childNodes[0]->data;
-			$title = $script->getAttribute("title");
-			$source = $script->getOneChild("source")->childNodes[0]->data;
+			$description = $script->description;
+			$title = $script["title"];
+			$source = $script->source;
 			?>
 			<li><a href="#<?=$title?>"><?=$title?></a>
 			<?}?>

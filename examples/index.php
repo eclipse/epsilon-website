@@ -22,10 +22,7 @@
 	ob_start();
 	
 	# Create a parser and parse the examples.xml document.
-	include_once("../dom4php/XmlParser.php");
-	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	$document = $parser->parse(file_get_contents("examples.xml"));
-	$examples = $document->getElementsByTagName("example");
+	$examples = simplexml_load_file("examples.xml")->example;
 	
 	$currentExampleName = $_REQUEST['example'];
 	$example = null;
@@ -35,7 +32,7 @@
 		$i = 0;
 		foreach ($examples as $ex) {
 			$i++;
-			if ($ex->getAttribute("src") == $currentExampleName) {
+			if ($ex["src"] == $currentExampleName) {
 				$example = $ex;
 				$exampleIndex = $i;
 				break;
@@ -52,13 +49,13 @@
 	
 	<div id="midcolumn">
 		<?include('../noscript.html')?>
-		<h1>Example: <?=$example->getAttribute("title")?></h1><br>
+		<h1>Example: <?=$example["title"]?></h1><br>
 	<div id="TabbedPanels1" class="TabbedPanels">	
 		<ul class="TabbedPanelsTabGroup" style="margin:0">	
-			<?foreach ($example->getElementsByTagName("file") as $file){?>
+			<?foreach ($example->file as $file){?>
 			<li class="TabbedPanelsTab" style="list-style: none; margin:0;margin-right:1px;font-size:12px;padding:5px" tabindex="0">
 				<?
-				$path = $file->getAttribute("name");
+				$path = $file["name"];
 				$slashIndex = strrpos($path, '/');
 				if ($slashIndex > -1) {
 					$name = substr($path, $slashIndex + 1);
@@ -69,20 +66,20 @@
 				?><?=$name?>
 			</li>
 			<?}?>
-			<?foreach ($example->getElementsByTagName("metamodel") as $file){?>
-			<li class="TabbedPanelsTab" style="list-style: none; margin:0;margin-right:1px;font-size:12px;padding:5px" tabindex="0"><?=$file->getAttribute("name")?></li>
+			<?foreach ($example->metamodel as $file){?>
+			<li class="TabbedPanelsTab" style="list-style: none; margin:0;margin-right:1px;font-size:12px;padding:5px" tabindex="0"><?=$file["name"]?></li>
 			<?}?>
 			<li class="TabbedPanelsTab" style="list-style: none; margin:0;margin-right:1px;font-size:12px;padding:5px" tabindex="0">Get it!</li>
 		</ul>
 		<div class="TabbedPanelsContentGroup">
-	    <?foreach ($example->getElementsByTagName("file") as $file){?>
+	    <?foreach ($example->file as $file){?>
 			<div class="TabbedPanelsContent" style="font-family:Courier;height:520px;overflow:scroll">
 			<?
 				$url = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples/";
-				$url = $url.$example->getAttribute("src");
-				$url = $url."/".$file->getAttribute("name");
+				$url = $url.$example["src"];
+				$url = $url."/".$file["name"];
 			?>
-			<?if ($file->getAttribute("image") == "true"){?>
+			<?if ($file["image"] == "true"){?>
 				<img src="<?=$url?>"/>
 			<?}else{?>
 				<?	
@@ -100,12 +97,12 @@
 			<?}?>
 			</div>
 			<?}?>
-<?foreach ($example->getElementsByTagName("metamodel") as $file){?>
+<?foreach ($example->metamodel as $file){?>
 			<div class="TabbedPanelsContent" style="font-family:Courier;height:520px;overflow:scroll">
 			<?
 				$url = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples/";
 				$url = $url."org.eclipse.epsilon.examples.metamodels";
-				$url = $url."/".$file->getAttribute("name");
+				$url = $url."/".$file["name"];
 				$content = '';
 				if ($fp = fopen($url, 'r')) {
 			   // keep reading until there's nothing left 
@@ -125,12 +122,12 @@
 			<ol>
 				<li>download the following zip archive(s), extract them and import them as new Eclipse projects
 					<ul>
-						<li><a href="getit.php?example=<?=$example->getAttribute("src")?>"><?=$example->getAttribute("src")?>.zip</a>
-						<?if ($example->getAttribute("standalone") == "false"){?>
+						<li><a href="getit.php?example=<?=$example["src"]?>"><?=$example["src"]?>.zip</a>
+						<?if ($example["standalone"] == "false"){?>
 						<li><a href="getit.php?example=org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels.zip</a>
 						<?}?>
-						<?foreach ($example->getElementsByTagName("project") as $project){?>
-						<li><a href="getit.php?example=<?=$project->getAttribute("src")?>"><?=$project->getAttribute("src")?>.zip</a>
+						<?foreach ($example->project as $project){?>
+						<li><a href="getit.php?example=<?=$project["src"]?>"><?=$project["src"]?>.zip</a>
 						<?}?>
 					</ul>					
 				</li>
@@ -138,24 +135,24 @@
 					<ul>
 						<li> go to the <a href="../doc/articles/epsilon-source-svn/">SVN repository</a> 
 						<li> navigate to <b>trunk/examples</b>
-						<?if ($example->getAttribute("standalone") == "false"){?>
+						<?if ($example["standalone"] == "false"){?>
 						<li> check out the <b>org.eclipse.epsilon.examples.metamodels</b> project
 						<?}?>
-						<li> check out the <b><?=$example->getAttribute("src")?></b> project
-						<?foreach ($example->getElementsByTagName("project") as $project){?>
-						<li> check out the <b><?=$project->getAttribute("src")?></b> project
+						<li> check out the <b><?=$example["src"]?></b> project
+						<?foreach ($example->project as $project){?>
+						<li> check out the <b><?=$project["src"]?></b> project
 						<?}?>
 					</ul>
 				</li>
 			</ol>
-			<?if (!($example->getAttribute("runnable") == "false")){?>
+			<?if (!($example["runnable"] == "false")){?>
 			<p>Once you have checked out/imported the code, to run the example you need to go through the following steps:
 			<ol>
-				<?if ($example->getAttribute("standalone") == "false"){?>
+				<?if ($example["standalone"] == "false"){?>
 				<li> register all .ecore metamodels in the <b>org.eclipse.epsilon.examples.metamodels</b> project (select all of them and then right click and select <b>Register EPackages</b>)
 				<?}?>
-				<li> register any .ecore metamodels in the <b><?=$example->getAttribute("src")?></b> project
-				<li> right click the .launch file in the <b><?=$example->getAttribute("src")?></b> project
+				<li> register any .ecore metamodels in the <b><?=$example["src"]?></b> project
+				<li> right click the .launch file in the <b><?=$example["src"]?></b> project
 				<li>select <b>Run as...</b> and click the first item in the menu that pops up
 
 			</ol>
@@ -171,7 +168,7 @@
 	<h6>What's this?</h6>
 	<div class="modal">
 	<p>
-		<?=$example->getOneChild("description")->childNodes[0]->data?>
+		<?=$example->description?>
 	</p>
 	</div>
 	</div>
@@ -191,14 +188,8 @@
 		<ul>
 		<?
 			foreach ($examples as $example) {
-			$descriptionNodes = $example->selectElements(array(),"description");
-			$descriptionNode = $descriptionNodes[0];
-			$description = $descriptionNode->childNodes[0]->data;
-			$name = $example->getAttribute("src");
-			$title = $example->getAttribute("title");
-			$files = $example->selectElements(array(),"file");
 		?>
-		<li><a href="index.php?example=<?=$name?>"><?=$title?></a>
+		<li><a href="index.php?example=<?=$example["src"]?>"><?=$example["title"]?></a>
 		<?}?>
 		</ul>
 		</div>

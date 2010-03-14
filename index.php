@@ -32,21 +32,12 @@
 	$epsilonnews = get_epsilonnews(6);
 	
 	#parse FAQs
-	include_once("dom4php/XmlParser.php");
-	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	$document = $parser->parse(file_get_contents("faq/faqs.xml"));
-	$faqs = $document->getElementsByTagName("faq");
+	$faqs = simplexml_load_file("faq/faqs.xml")->faq;
 	$random_faq = rand(0,count($faqs)-1);
 	$faq = $faqs[$random_faq];
-	$faq_id = $faq->getAttribute("id");
-	$faq_title = $faq->getOneChild("title")->childNodes[0]->data;
-	$faq_answer = $faq->getOneChild("answer")->childNodes[0]->data;
-	
-	//$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	//$document = $parser->parse(file_get_contents("http://dev.eclipse.org/newslists/news.eclipse.epsilon/maillist.rss"));
-	//$guid = $document->getOneChild("rss")->getOneChild("channel")->getOneChild("item")->getOneChild("guid")->childNodes[0]->data;
-	
-	//$messages = (int) substr($guid, 65, strlen($guid) - 69) + 2;
+	$faq_id = $faq["id"];
+	$faq_title = $faq->title;
+	$faq_answer = $faq->answer;
 	
 	ob_start();
 	?>

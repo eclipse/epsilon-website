@@ -24,13 +24,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	include ('common.php');
 	
 	ob_start();
-	/*
-	include_once("dom4php/XmlParser.php");
-	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	$document = $parser->parse(file_get_contents("epic.xml"));
-	$votes = $document->getOneChild("epicItem")->getOneChild("votes")->childNodes[0]->data;
-	$rating = $document->getOneChild("epicItem")->getOneChild("rating")->childNodes[0]->data;
-	*/
+
 ?>
 
 	<div id="midcolumn">

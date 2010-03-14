@@ -21,10 +21,7 @@
 	ob_start();
 	
 	# Create a parser and parse the examples.xml document.
-	include_once("../../dom4php/XmlParser.php");
-	$parser   = new XmlParser($encoding = 'ISO-8859-1'); # encoding is optional
-	$document = $parser->parse(file_get_contents("articles.xml"));
-	$articles = $document->getElementsByTagName("article");
+	$articles = simplexml_load_file("articles.xml")->article;
 	
 ?>
 
@@ -36,11 +33,8 @@
 		<ul>
 		<?
 		foreach ($articles as $article) {
-			$description = $article->getOneChild("description")->childNodes[0]->data;
-			$name = $article->getAttribute("name");
-			$title = $article->getAttribute("title");
 		?>	
-		<li><a href="<?=$name?>/"><?=$title?></a>: <?=$description?>
+		<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>: <?=$article->description?>
 		<?
 		}
 		?>
@@ -56,11 +50,8 @@
 		<ul>
 		<?
 		foreach ($articles as $article) {
-			$description = $article->getOneChild("description")->childNodes[0]->data;
-			$name = $article->getAttribute("name");
-			$title = $article->getAttribute("title");
 		?>
-		<li><a href="<?=$name?>/"><?=$title?></a>
+		<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>
 		<?}?>
 		</ul>
 		</div>
