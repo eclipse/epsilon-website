@@ -63,7 +63,7 @@ class WikiTextToHTML {
 				=>	'<i>\1</i>',
 			'/`(.+?)`/'
 				=>	'<tt>\1</tt>',
-			'/\[\[image:(.+?)\|(.+?)\]\]/'
+			'/\[\[imageimage:(.+?)\|(.+?)\]\]/'
 				=>	'<img src="\1" alt="\2"/>',
 			'/\[\[image:(.+?)\]\]/'
 				=>	'<img src="\1"/>',
@@ -150,6 +150,29 @@ class WikiTextToHTML {
 		return -1;
 	}
 	
+	public static function convertWikiTextToHTML($input) {
+	
+		$lines = explode("\n", $input);
+		$output = "";
+		
+		foreach ($lines as $line) {
+		
+			if (strpos($line,"[[file:") === 0) {
+				$file = substr($line, 7, strlen($line)-9);
+				$output = $output."{{{\n".file_get_contents($file)."\n}}}\n";
+			}
+			else if (strpos($line,"[[svn:") === 0) {
+				$file = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/".substr($line, 6, strlen($line)-8);
+				$output = $output."{{{\n".file_get_contents($file)."\n}}}\n";
+			}
+			else {
+				$output = $output.$line."\n";
+			}
+		}
+		
+		return WikiTextToHTML::convertWikiTextToHTMLImpl($output);
+	}
+	
 	/**
 	 * Converts a Wiki text input string to HTML.
 	 * 
@@ -158,7 +181,7 @@ class WikiTextToHTML {
 	 * @return	array	An array of strings containing the output
 	 * 			in HTML.	
 	 */
-	public static function convertWikiTextToHTML($input) {
+	public static function convertWikiTextToHTMLImpl($input) {
 	
 		$input = explode("\n", $input);
 		
