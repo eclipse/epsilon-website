@@ -163,7 +163,7 @@ class WikiTextToHTML {
 			}
 			else if (strpos($line,"[[svn:") === 0) {
 				$file = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/".substr($line, 6, strlen($line)-9);
-				$output = $output."{{{\n".file_get_contents($file)."\n}}}\n";
+				$output = $output."[[".$file."]]\n"."{{{\n".file_get_contents($file)."\n}}}\n";
 			}
 			else {
 				$output = $output.$line."\n";
