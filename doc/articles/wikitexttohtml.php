@@ -63,7 +63,7 @@ class WikiTextToHTML {
 				=>	'<i>\1</i>',
 			'/`(.+?)`/'
 				=>	'<tt>\1</tt>',
-			'/\[\[imageimage:(.+?)\|(.+?)\]\]/'
+			'/\[\[image:(.+?)\|(.+?)\]\]/'
 				=>	'<img src="\1" alt="\2"/>',
 			'/\[\[image:(.+?)\]\]/'
 				=>	'<img src="\1"/>',
@@ -162,7 +162,7 @@ class WikiTextToHTML {
 				$output = $output."{{{\n".file_get_contents($file)."\n}}}\n";
 			}
 			else if (strpos($line,"[[svn:") === 0) {
-				$file = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/".substr($line, 6, strlen($line)-8);
+				$file = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/".substr($line, 6, strlen($line)-9);
 				$output = $output."{{{\n".file_get_contents($file)."\n}}}\n";
 			}
 			else {
