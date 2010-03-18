@@ -158,12 +158,15 @@ class WikiTextToHTML {
 		foreach ($lines as $line) {
 		
 			if (strpos($line,"[[file:") === 0) {
-				$file = substr($line, 7, strlen($line)-9);
+				$file = substr(trim($line), 7);
+				$file = substr($file, 0, strlen($file) - 2);
 				$output = $output."{{{\n".file_get_contents($file)."\n}}}\n";
 			}
 			else if (strpos($line,"[[svn:") === 0) {
-				$file = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/".substr($line, 6, strlen($line)-9);
-				$output = $output."[[".$file."]]\n"."{{{\n".file_get_contents($file)."\n}}}\n";
+				$s = substr(trim($line), 6);
+				$s = substr($s, 0, strlen($s) - 2);
+				$file = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/".$s;
+				$output = $output."{{{\n".file_get_contents($file)."\n}}}\n";
 			}
 			else {
 				$output = $output.$line."\n";
