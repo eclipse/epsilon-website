@@ -30,7 +30,7 @@ We define a custom figure for Person (`figure="figures.PersonFigure"`) and also 
 package figures;
 
 import org.eclipse.draw2d.ImageFigure;
-import org.eclipse.epsilon.eugenia.examples.friends.figures.activator.PluginActivator;
+import activator.PluginActivator;
 
 /**
  * @generated
@@ -44,6 +44,42 @@ public class PersonFigure extends ImageFigure {
 
 }
 }}}
+
+The PluginActivator extends AbstractUIPlugin, which provides methods for loading images from within our plug-in:
+
+{{{
+package activator;
+
+import org.eclipse.core.runtime.Plugin;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.BundleContext;
+
+
+public class PluginActivator extends AbstractUIPlugin {
+
+	public static final String ID = "friends.figures"; //$NON-NLS-1$
+
+
+	private static PluginActivator ourInstance;
+
+	public PluginActivator() {}
+
+	public void start(BundleContext context) throws Exception {
+		super.start(context);
+		ourInstance = this;
+	}
+
+	public void stop(BundleContext context) throws Exception {
+		ourInstance = null;
+		super.stop(context);
+	}
+
+	public static PluginActivator getDefault() {
+		return ourInstance;
+	}
+}
+}}}
+
 
 The result looks like this:
 
