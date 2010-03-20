@@ -80,7 +80,6 @@ public class PluginActivator extends AbstractUIPlugin {
 }
 }}}
 
-
 The result looks like this:
 
 [[image:Friends.png]]
