@@ -1,6 +1,6 @@
 =Using the Human-Usable Textual Notation (HUTN) in Epsilon=
  
-In this article we demonstrate how you can use a textual notation to create models using the Epsilon Human-Usable Textual Notation (HUTN). Please note that, currently, HUTN works only with EMF, and cannot be used to create models for other modelling technologies, such as MDR or plain XML.
+In this article we demonstrate how you can use a textual notation to create models using the Human-Usable Textual Notation (HUTN) implementation provided by Epsilon. Please note that, currently, HUTN works only with EMF, and cannot be used to create models for other modelling technologies, such as MDR or plain XML.
 
 ==Getting started==
 
@@ -8,7 +8,9 @@ To create a model with HUTN, we first need to define our metamodel. In this exam
 
 [[image:families.png]]
 
-Once we have created your metamodel and registered it with Epsilon, we create a new HUTN document by clicking File | New | Other and select HUTN File. The metamodel nsuri field should contain the namespace URI of our metamodel: families
+Once we have created your metamodel and registered it with Epsilon, we create a new HUTN document by clicking '''File->New->Other...''' and selecting '''HUTN File'''. The metamodel nsuri field should contain the namespace URI of our metamodel: families
+
+[[image:create.png]]
 
 Epsilon will initialise a HUTN file for our metamodel (as shown below). We can now specify and then generate our model.
 
@@ -114,11 +116,16 @@ Family "smiths" {} familyFriends Family "bloggs" {}
  
 ==Generating a model from HUTN==
 
-When we finished specifying HUTN, we can generate a corresponding model. Right-click the HUTN document and select HUTN | Generate model. 
- 
-If you wish for Epsilon to automatically generate a model whenever you change your HUTN file, right-click your project and select HUTN | Enable HUTN Project Nature.
+When we finished specifying HUTN, we can generate a corresponding model. Right-click the HUTN document and select '''HUTN->Generate Model''', as shown below
+
+[[image:generate.png]]
+
+If you wish for Epsilon to automatically generate a model whenever you change your HUTN file, right-click your project and select '''HUTN->Enable HUTN Project Nature'''. This is illustrated in the following screenshot:
+
+[[image:nature.png]]
+
 
 ==Additional resources==
  
 * [[http://www.omg.org/spec/HUTN/]]: The OMG HUTN specification.
-* [[http://dx.doi.org/10.1007/978-3-540-87875-9_18]]: Our paper on Epsilon HUTN at MoDELS/UML 2008.
+* [[http://dx.doi.org/10.1007/978-3-540-87875-9_18]]: Our MoDELS/UML 2008 paper on the HUTN implementation provided by Epsilon.
