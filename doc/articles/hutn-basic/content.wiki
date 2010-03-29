@@ -3,7 +3,6 @@
 In this article we demonstrate how you can use a textual notation to create models using the Human-Usable Textual Notation (HUTN) implementation provided by Epsilon. Please note that, currently, HUTN works only with EMF, and cannot be used to create models for other modelling technologies, such as MDR or plain XML.
 
 ==Getting started==
-
 To create a model with HUTN, we first need to define our metamodel. In this example, we'll use the Families metamodel shown below:
 
 [[image:families.png]]
@@ -24,7 +23,7 @@ Epsilon will initialise a HUTN file for our metamodel (as shown below). We can n
 families {
 	// Place your model element specifications here
 }
-}}} 
+}}}
  
 ==HUTN Syntax==
  
@@ -61,10 +60,9 @@ Family "smiths" {
 }
 
 Family "bloggs" {}
-}}}
+ }}}
 
 ==Shortcuts==
-
 There are some syntactic shortcuts in HUTN, which we now demonstrate. Although boolean-valued attributes can be specified using true or false values, they can also be specified as a prefix on the model element definition:
 
 {{{
@@ -115,12 +113,11 @@ Family "smiths" {} familyFriends Family "bloggs" {}
 
  
 ==Generating a model from HUTN==
-
 When we finished specifying HUTN, we can generate a corresponding model. Right-click the HUTN document and select '''HUTN->Generate Model''', as shown below
 
 [[image:generate.png]]
 
-If you wish for Epsilon to automatically generate a model whenever you change your HUTN file, right-click your project and select '''HUTN->Enable HUTN Project Nature'''. This is illustrated in the following screenshot:
+Epsilon can automatically generate a model whenever you change your HUTN file. Right-click your project and select '''HUTN->Enable HUTN Project Nature'''. This is illustrated in the following screenshot:
 
 [[image:nature.png]]
 
