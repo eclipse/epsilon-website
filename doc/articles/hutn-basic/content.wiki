@@ -60,7 +60,8 @@ Family "smiths" {
 }
 
 Family "bloggs" {}
- }}}
+}}}
+
 
 ==Shortcuts==
 There are some syntactic shortcuts in HUTN, which we now demonstrate. Although boolean-valued attributes can be specified using true or false values, they can also be specified as a prefix on the model element definition:
@@ -113,7 +114,7 @@ Family "smiths" {} familyFriends Family "bloggs" {}
 
  
 ==Generating a model from HUTN==
-When we finished specifying HUTN, we can generate a corresponding model. Right-click the HUTN document and select '''HUTN->Generate Model''', as shown below
+When we have finished specifying HUTN, we can generate a corresponding model. Right-click the HUTN document and select '''HUTN->Generate Model''', as shown below
 
 [[image:generate.png]]
 
