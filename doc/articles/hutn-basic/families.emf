@@ -1,0 +1,18 @@
+@namespace(uri="hutnArticleFamilies", prefix="hutnArticleFamilies")
+package hutnArticleFamilies;
+
+class Family {
+   attr String[0..1] name;
+   attr boolean[0..1] nuclear;
+   attr boolean[0..1] migrant;
+   attr int[6] lotteryNumbers;
+   
+   val Person[*] members;
+   ref Family[*] familyFriends;
+}
+
+class Person {
+	attr String[0..1] name;
+   
+}
+

@@ -1,0 +1,124 @@
+=Using the Human-Usable Textual Notation (HUTN) in Epsilon=
+ 
+In this article we demonstrate how you can use a textual notation to create models using the Epsilon Human-Usable Textual Notation (HUTN). Please note that, currently, HUTN works only with EMF, and cannot be used to create models for other modelling technologies, such as MDR or plain XML.
+
+==Getting started==
+
+To create a model with HUTN, we first need to define our metamodel. In this example, we'll use the Families metamodel shown below:
+
+[[image:families.png]]
+
+Once we have created your metamodel and registered it with Epsilon, we create a new HUTN document by clicking File | New | Other and select HUTN File. The metamodel nsuri field should contain the namespace URI of our metamodel: families
+
+Epsilon will initialise a HUTN file for our metamodel (as shown below). We can now specify and then generate our model.
+
+{{{
+@Spec {
+	metamodel "families" {
+		nsUri: "families"
+	}
+}
+
+families {
+	// Place your model element specifications here
+}
+}}} 
+ 
+==HUTN Syntax==
+ 
+We now briefly describe the HUTN syntax. We can specify an instance of Family using the following HUTN:
+
+{{{
+Family "smiths" {
+	name: "The Smiths"
+	lotteryNumbers: 10, 24, 26, 32, 45, 49
+}
+}}}
+
+Note that multi-valued features can be specified using a comma separated list.
+
+Containment references are specified by nesting model element definitions. For example, the following HUTN specifies two members, John and Jane of the Smiths:
+
+{{{
+Family "smiths" {
+	name: "The Smiths"
+	lotteryNumbers: 10, 24, 26, 32, 45, 49
+	members: Person "john" {
+	         	name: "John Smith"
+	         }, Person "jane" {
+	         	name: "Jane Smith"
+	         }
+}
+}}}
+
+Non-containment references are specified using the HUTN identifier of a model element (the string appearing in double-quotes, such as "smiths", "john", or "jane", above). In the following HUTN, The first family, The Smiths, has one familyFriends, The Bloggs:
+
+{{{
+Family "smiths" {
+	familyFriends: Family "bloggs"
+}
+
+Family "bloggs" {}
+}}}
+
+==Shortcuts==
+
+There are some syntactic shortcuts in HUTN, which we now demonstrate. Although boolean-valued attributes can be specified using true or false values, they can also be specified as a prefix on the model element definition:
+
+{{{
+Family "smiths" {
+	nuclear: true
+}
+
+Family "bloggs" {
+	nuclear: false
+	migrant: true
+}
+
+// is equivalent to:
+
+nuclear Family "smiths" {}
+
+~nuclear migrant Family "bloggs" {}
+}}}
+
+Non-containment references can be specified using association blocks or even with an infix notation:
+
+{{{
+Family "smiths" {
+	familyFriends: Family "bloggs"
+}
+
+Family "bloggs" {}
+
+
+// is equivalent to the following association block
+
+Family "smiths" {}
+Family "bloggs" {}
+
+familyFriends {
+	"smiths" "bloggs"
+	// More familyFriends can be specified here
+}
+
+
+// is equivalent to the following infix notation:
+
+Family "smiths" {}
+Family "bloggs" {}
+
+Family "smiths" {} familyFriends Family "bloggs" {}
+}}}
+
+ 
+==Generating a model from HUTN==
+
+When we finished specifying HUTN, we can generate a corresponding model. Right-click the HUTN document and select HUTN | Generate model. 
+ 
+If you wish for Epsilon to automatically generate a model whenever you change your HUTN file, right-click your project and select HUTN | Enable HUTN Project Nature.
+
+==Additional resources==
+ 
+* [[http://www.omg.org/spec/HUTN/]]: The OMG HUTN specification.
+* [[http://dx.doi.org/10.1007/978-3-540-87875-9_18]]: Our paper on Epsilon HUTN at MoDELS/UML 2008.
