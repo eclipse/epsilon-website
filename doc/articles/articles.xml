@@ -81,4 +81,9 @@
 		This article demonstrates how to manage the Epsilon website in your machine.
 		</description>
 	</article>
+	<article name="hutn-basic" title="Using the Human-Usable Textual Notation (HUTN) in Epsilon">
+		<description>
+		This article demonstrates how to specify models using a textual notation.
+		</description>
+	</article>
 </articles>
