@@ -29,23 +29,27 @@
 		<img style="float:right;padding:10px" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png"/>
 		
 		<p>Epsilon provides a family of metamodel-agnostic languages for creating, querying and modifying  EMF (<a href="emc">and other types of</a>) models in various ways.</p> 
-		<p>At the core of Epsilon is the <a href="eol">Epsilon Object Language (EOL)</a>, an imperative model-oriented language that combines the procedural style of Javascript with the powerful model querying capabilities of OCL. Epsilon also provides several task-specific languages, which use EOL as an expression language. Each task-specific language provides constructs and syntax that are tailored to the specific task.</p> 
+		<p>At the core of Epsilon is the <a href="eol">Epsilon Object Language (EOL)</a>, an imperative model-oriented language that combines the procedural style of Javascript with the powerful model querying capabilities of OCL.</p>
 		
-		<p>The task-specific languages provided by Epsilon are:</p>
+		<h4>Task-Specific Languages</h4>
+		
+		<p>Epsilon also provides several task-specific languages, which use EOL as an expression language. Each task-specific language provides constructs and syntax that are tailored to the specific task. The task-specific languages provided by Epsilon are:</p>
 		
 		<ul>
 		
-		<li><a href="etl">Epsilon Transformation Language (ETL)</a>: A rule-based model-to-model transformation language that supports transforming many input to many output models, rule inheritacne,  lazy and greedy rules, and the ability to query and modify both input and output models.
+		<li><a href="etl">Epsilon Transformation Language (ETL)</a>: A rule-based model-to-model transformation language that supports transforming many input to many output models, rule inheritance,  lazy and greedy rules, and the ability to query and modify both input and output models.
 		
 		<li><a href="evl">Epsilon Validation Language (EVL)</a>: A model validation language that supports both intra and inter-model consistency checking, constraint dependency management and specifying fixes that	users can invoke to repair identified inconsistencies. EVL is integrated with EMF/GMF and as such, EVL constraints can be evaluated from within EMF/GMF editors and generate error markers for failed constraints.
 		
 		<li><a href="egl">Epsilon Generation Language (EGL)</a>: A template-based model-to-text language for generating code, documentation and other textual artefacts from models. EGL supports content-destination decoupling, protected regions for mixing generated with hand-written code and template coordination.
 		
-		<li><a href="ewl">Epsilon Wizard Language (EWL)</a>: A language tailored to interactive in-place model transformations on model elements seleted by the user. EWL is integrated with EMF/GMF and as such, wizards can be executed from within EMF and GMF editors.
+		<li><a href="ewl">Epsilon Wizard Language (EWL)</a>: A language tailored to interactive in-place model transformations on model elements selected by the user. EWL is integrated with EMF/GMF and as such, wizards can be executed from within EMF and GMF editors.
 		
 		<li><a href="ecl">Epsilon Comparison Language (ECL)</a>: A rule-based language for discovering  correspondences (matches) between elements of models of diverse metamodels.
 		
 		<li><a href="eml">Epsilon Merging Language (EML)</a>: A rule-based language for merging models of diverse metamodels, after first identifying their correspondences with <a href="ECL">ECL</a> (or otherwise).
+		
+		<li><a href="flock">Epsilon Flock</a>: A rule-based transformation language for updating models in response to metamodel changes.</li> 
 		
 		</ul>
 		
@@ -72,7 +76,10 @@
 		between different models using drag-and-drop.
 		
 		<li><a href="workflow">Workflow</a>: Epsilon provides a set of ANT tasks to enable developers
-		assemble complex workflows that involve both MDE and non-MDE tasks. 
+		assemble complex workflows that involve both MDE and non-MDE tasks.
+		
+		<li><a href="hutn">Human Usable Textual Notation</a>: An implementation of the OMG standard for representing models in a human understandable format. HUTN allows models to be
+	    written using a text editor in a C-like syntax.</li>
 		
 		<li><a href="concordance">Concordance</a>: Concordance is a tool that monitors selected projects of the workspace and maintains an index of cross-resource EMF references. Concordance can then use this index to automatically reconcile references when models are moved, and report broken references when models are updated/deleted. 
 		
