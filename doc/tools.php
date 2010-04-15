@@ -10,7 +10,7 @@ function toolsSideItem () {
 	$html .= "	<li><a href='/gmt/epsilon/doc/ewl'>Epsilon Wizard Language</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/ecl'>Epsilon Comparison Language</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/eml'>Epsilon Merging Language</a>\r\n";
-	$html .= "	<li><a href='/gmt/epsilon/doc/hutn'>Human Usable Textual Notation</a>\r\n";
+	$html .= "	<li><a href='/gmt/epsilon/doc/flock'>Epsilon Flock</a>\r\n";
 	$html .= "	</ul></div>\r\n";
 	$html .= "</div>\r\n";
 	
@@ -21,6 +21,7 @@ function toolsSideItem () {
 	$html .= "	<li><a href='/gmt/epsilon/doc/exeed'>Exeed</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/modelink'>ModeLink</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/workflow'>Workflow</a>\r\n";
+	$html .= "	<li><a href='/gmt/epsilon/doc/hutn'>Human Usable Textual Notation</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/concordance'>Concordance</a>\r\n";
 	$html .= "	</ul></div>\r\n";
 	$html .= "</div>\r\n";
