@@ -41,5 +41,8 @@
 		<description> <![CDATA[In this example, we present a more advanced solution for the problem above that also makes use of the template coordination and delegation mechanism featured by EGL in order to split the code generation logic into more than one reusable templates.]]>
 		</description>
 	</screencast>
-
+	<screencast name="FlockPetrinets" title="Migrate a model with Epsilon Flock">
+		<description> <![CDATA[In this example, we show the way in which models are affected when their metamodel changes. We use Epsilon Flock to specify a migration strategy for updating models in response to metamodel changes, and show how the migration strategy can be distributed to metamodel users.]]>
+		</description>
+	</screencast>
 	</cinema>
