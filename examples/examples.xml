@@ -147,6 +147,14 @@
 		<file name="ant/org/eclipse/epsilon/workflow/extension/example/tasks/EolExtTask.java"/>
 		<file name="plugin.xml"/>
 	</example>
+	<example src="org.eclipse.epsilon.examples.flock.petrinets" title="Migrate Petri net models with Epsilon Flock" standalone="true">
+		<description>
+		<![CDATA[In this example we demonstrate how to migrate a model in response to metamodel changes with Epsilon Flock.]]>
+		</description>
+		<file name="Petrinets.mig"/>
+		<metamodel name="metamodels/Original.emf"/>
+		<metamodel name="metamodels/Evolved.emf"/>
+	</example>
 	<example src="org.eclipse.epsilon.examples.workflow.transactions" title="Use model transactions in a workflow" standalone="true" runnable="false">
 		<description>
 		<![CDATA[In this example we demonstrate using the ant-contrib try/catch tasks and the Epsilon model transactions tasks to conditionally rollback changes in models modified in a workflow. To run this example you need to have the latest <b>interim</b> version of Epsilon and set up Eclipse with the ant-contrib ANT tasks]]>
