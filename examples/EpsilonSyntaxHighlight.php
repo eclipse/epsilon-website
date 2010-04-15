@@ -88,6 +88,10 @@ class EpsilonSyntaxHighlight {
 				$keywords .= "|wizard|title|guard|pre|post|do";
 			}
 			
+			if ($language == "mig") {
+				$keywords .= "|original|migrated|migrate|when|to";
+			}
+			
 			return $keywords;
 		}
 		
