@@ -100,10 +100,10 @@
 	<!-- Middle part -->
 	<div id="midcolumn">
 		<?include('noscript.html')?>
-		<h1><?=$pageTitle?></h1>
+		<!--h1><?=$pageTitle?></h1-->
 					<!--h3>Welcome</h3-->
-	    <img style="float:right" src="resources/epsilonlogo.png" alt="Epsilon Logo" /><p>Epsilon provides a set of interoperable task-specific programming languages through which you can interact with your EMF models to perform common MDE tasks.
-			(<a href="doc">read more</a> or <a href="live">try it in your browser</a>...)</p>
+	    <img style="float:right" src="resources/epsilonlogo.big.png" alt="Epsilon Logo" /><p><b>Epsilon</b> is a family of consistent and interoperable task-specific programming languages which you can use to interact with your <a href="http://www.eclipse.org/emf">EMF</a> models to perform common Model Driven Engineering tasks such as <a href="doc/egl">code generation</a>, <a href="doc/etl">model-to-model transformation</a>, <a href="doc/evl">model validation</a>, <a href="doc/flock"> migration</a>, <a href="doc/ecl">comparison</a>, <a href="doc/eml">merging</a> and <a href="doc/ewl">refactoring</a>.</p>
+			<p>Epsilon also contains several tools and utilities that complement your EMF/GMF experience such as a wizard for generating GMF editors (<a href="doc/eugenia">EuGENia</a>), an implementation of the <a href="doc/hutn">Human Usable Textual Notation (HUTN)</a>, an <a href="#">EPackage registry view</a>, a customizable tree-based EMF model editor (<a href="doc/exeed">Exeed</a>), and a multi-view editor for establishing cross-model references (<a href="doc/modelink">Modelink</a>).</p>
 	
 	<!--Epsilon is a metamodel-agnostic component that supports programmatic creation, navigation, and modification of EMF models.-->
 	
