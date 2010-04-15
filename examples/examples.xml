@@ -152,8 +152,8 @@
 		<![CDATA[In this example we demonstrate how to migrate a model in response to metamodel changes with Epsilon Flock.]]>
 		</description>
 		<file name="Petrinets.mig"/>
-		<metamodel name="metamodels/Original.emf"/>
-		<metamodel name="metamodels/Evolved.emf"/>
+		<metamodel name="../org.eclipse.epsilon.examples.flock.petrinets/metamodels/Original.emf"/>
+		<metamodel name="../org.eclipse.epsilon.examples.flock.petrinets/metamodels/Evolved.emf"/>
 	</example>
 	<example src="org.eclipse.epsilon.examples.workflow.transactions" title="Use model transactions in a workflow" standalone="true" runnable="false">
 		<description>
