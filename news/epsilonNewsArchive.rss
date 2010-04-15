@@ -4,6 +4,30 @@
     <title>Epsilon News</title>
     <link>http://eclipse.org/gmt/epsilon/</link>
     <description>Epsilon News</description>
+
+   <item>
+		<title>Version 0.8.9 is now available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download/</link>
+		<description>
+		<![CDATA[
+		Fixes bugs and implements enhacnement requests 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=297012">#297012</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=308627">#308627</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=306894">#306894</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=305665">#305665</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=305665">#305665</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=302872">#302872</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=296930">#296930</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=287543">#287543</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286050">#286050</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286001">#286001</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285977">#285977</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283547">#283547</a>, 
+		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=291584">#291584</a>
+		]]>
+		</description>
+		<pubDate>Thu, 15 Apr 2010 11:30:00 CET</pubDate>
+	</item>   
    <item>
 		<title>Version 0.8.8 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download/</link>
