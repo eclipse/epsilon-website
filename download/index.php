@@ -28,7 +28,11 @@
 	$fixedbugs = simplexml_load_file("fixedbugs.xml")->bug;
 	$buglinks = "";
 	foreach ($fixedbugs as $bug) {
-		$buglinks.="<a href='https://bugs.eclipse.org/bugs/show_bug.cgi?".$bug."'>#".$bug."</a> ";
+		$buglinks.="<a href='https://bugs.eclipse.org/bugs/show_bug.cgi?id=".$bug."'>#".$bug."</a>, ";
+	}
+	
+	if (strlen($buglinks) > 0) {
+		$buglinks = substr($buglinks, 0, -2);
 	}
 	
 	chdir('..');
