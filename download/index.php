@@ -72,7 +72,7 @@
 			<br><b><font color="red">Interim update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">http://download.eclipse.org/modeling/gmt/epsilon/interim/</a> 
 			<?if (count($fixedbugs) > 0){?>
 			<br/><br/><div class="warningbox">
-			The interim release fixes bug(s) <?=$buglinks?> that have been identified after the last stable version was released.
+			<b>Note:</b> The interim release fixes <?=count($fixedbugs)?> bug(s) (<?=$buglinks?>) that have been reported after the last stable version was released.
 			</div>
 			<?}?>
 			<!--
