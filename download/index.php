@@ -25,6 +25,12 @@
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 	
+	$fixedbugs = simplexml_load_file("fixedbugs.xml")->bug;
+	$buglinks = "";
+	foreach ($fixedbugs as $bug) {
+		$buglinks.="<a href='https://bugs.eclipse.org/bugs/show_bug.cgi?".$bug."'>#".$bug."</a> ";
+	}
+	
 	chdir('..');
 	include ('common.php');
 	include ('news/news.php');
@@ -62,14 +68,19 @@
 			You can use the following update sites and <a href="../doc/P2InstallationGuide.pdf">the instructions provided here</a> to install the Epsilon binaries through the Eclipse update manager.
 			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon. 
 			
-			<br><br><b><font color="green">Stable update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">http://download.eclipse.org/modeling/gmt/epsilon/updates/</a>
+			<br><br><b><font color="green">Stable update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">http://download.eclipse.org/modeling/gmt/epsilon/updates/</a> <br>
 			<br><b><font color="red">Interim update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">http://download.eclipse.org/modeling/gmt/epsilon/interim/</a> 
-			
+			<?if (count($fixedbugs) > 0){?>
+			<br/><br/><div class="warningbox">
+			The interim release fixes bug(s) <?=$buglinks?> that have been identified after the last stable version was released.
+			</div>
+			<?}?>
+			<!--
 			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
 			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
 			time and try again. If problems seem to persist please let us know by sending a message to the Epsilon forum.
 			
-			<br><br>
+			<br><br>-->
 		<li>
 			<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Binaries</a>: 
 			A zip-file containing the features and plugins of Epsilon (please refer to the <i>Installing Epsilon Offline</i> section of the 
@@ -136,5 +147,6 @@
 	# Generate the web page
 	$App->AddExtraHtmlHeader("<script src='../examples/SpryTabbedPanels.js' type='text/javascript'></script>");
 	$App->AddExtraHtmlHeader("<link href='../examples/SpryTabbedPanels.css' rel='stylesheet' type='text/css' />");
+	$App->AddExtraHtmlHeader("<link href='../epsilon.css' rel='stylesheet' type='text/css' />");
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
 ?>
