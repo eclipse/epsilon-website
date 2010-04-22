@@ -35,6 +35,14 @@
 		$buglinks = substr($buglinks, 0, -2);
 	}
 	
+	$bugtext = "";
+	if (count($fixedbugs) > 1) {
+		$bugtext = "The interim release contains fixes for ".count($fixedbugs)." bugs (".$buglinks.") that have been reported after the last stable version was released.";
+	}
+	else {
+		$bugtext = "The interim release contains a fix for a bug (".$buglinks.") that has been reported after the last stable version was released.";
+	}
+	
 	chdir('..');
 	include ('common.php');
 	include ('news/news.php');
@@ -76,7 +84,7 @@
 			<br><b><font color="red">Interim update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">http://download.eclipse.org/modeling/gmt/epsilon/interim/</a> 
 			<?if (count($fixedbugs) > 0){?>
 			<br/><br/><div class="warningbox">
-			<b>Note:</b> The interim release contains fixes for <?=count($fixedbugs)?> bug(s) (<?=$buglinks?>) that have been reported after the last stable version was released.
+			<b>Note:</b> <?=$bugtext?>
 			</div>
 			<?}?>
 			<!--
