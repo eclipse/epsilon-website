@@ -4,6 +4,10 @@
 		<description> <![CDATA[EuGENia is a tool that simplifies and speeds-up the development of fully functional GMF editors. From a few simple annotations embedded directly into your Ecore metamodel, EuGENia can generate the required .gmftool, .gmfgraph and .gmfmap models automatically. This example demonstrates the implementation of a fully functional GMF editor with EuGENia in just a few minutes.]]>
 		</description>
 	</screencast>
+	<screencast name="eugenia-genmodel" title="Generating GenModels with EuGENia">
+		<description> <![CDATA[In this example, we demonstrate how annotations in an Ecore metamodel can control the contents of the produced GenModel.]]>
+		</description>
+	</screencast>
 		<screencast name="EVLGMFValidation" title="Constraints in GMF editors with EVL">
 		<description><![CDATA[In this example we present how the Epsilon Validation Language (EVL) can be used to specify constraints for a metamodel, and how its integration with GMF allows failed constraints to appear as error/warning markers directly on GMF editors. 
 .]]>
