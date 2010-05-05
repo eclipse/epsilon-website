@@ -55,6 +55,11 @@
 		This article addresses the case where the end-user needs to set an image for each node at runtime.
 		</description>
 	</article>	
+	<article name="eugenia-nodes-with-centred-layout" title="EuGENia: Nodes with a centred layout">
+		<description>
+		This article shows how to create nodes in your GMF editor whose contents are centred both vertically and horizontally.
+		</description>
+	</article>
 	<article name="eugenia-phantom-nodes" title="EuGENia: Phantom nodes in GMF editors">
 		<description>
 		This article demonstrates how to define GMF phantom nodes in EuGENia.
