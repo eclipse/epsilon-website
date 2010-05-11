@@ -133,6 +133,15 @@
 	<div id="rightcolumn">
 
 		<div class="sideitem">
+			<center>
+				<script type="text/javascript">
+		          url_site = 'http://marketplace.eclipse.org/node/400'
+		        </script>
+		        <script src="http://marketplace.eclipse.org/sites/all/modules/drigg_external/js/button.js" type="text/javascript"></script>
+			</center>
+		</div>
+		
+		<div class="sideitem">
 			<h6 style="background-color:#535776;color:white">Live</h6>
 			<div class="modal">
 			<ul>
@@ -164,7 +173,7 @@
 			<div align="center"><a href="doc/book"><img align="center" src="images/book2.png" border="0" alt="The Epsilon Book"/></a></div>
  		</div>
 		-->
-		
+				        
 		<div class="sideitem">
 			<h6>Visitors</h6>
 			<center>
