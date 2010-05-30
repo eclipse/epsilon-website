@@ -25,22 +25,15 @@
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 	
-	$fixedbugs = simplexml_load_file("fixedbugs.xml")->bug;
-	$buglinks = "";
-	foreach ($fixedbugs as $bug) {
-		$buglinks.="<a href='https://bugs.eclipse.org/bugs/show_bug.cgi?id=".$bug."'>#".$bug."</a>, ";
-	}
-	
-	if (strlen($buglinks) > 0) {
-		$buglinks = substr($buglinks, 0, -2);
-	}
+	$fixedbugsUrl = "https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&bug_status=VERIFIED&component=Epsilon&product=gmt&query_format=advanced&title=Bug%20List";
+	$fixedbugs = simplexml_load_file($fixedbugsUrl."&ctype=atom")->entry;
 	
 	$bugtext = "";
 	if (count($fixedbugs) > 1) {
-		$bugtext = "The interim release contains fixes for ".count($fixedbugs)." bugs (".$buglinks.") that have been reported after the last stable version was released.";
+		$bugtext = "The interim release contains fixes for <a href='$fixedbugsUrl'>".count($fixedbugs)." bugs</a> that have been reported after the last stable version was released.";
 	}
 	else {
-		$bugtext = "The interim release contains a fix for a bug (".$buglinks.") that has been reported after the last stable version was released.";
+		$bugtext = "The interim release contains fixes for <a href='$fixedbugsUrl'> 1 bug</a> that has been reported after the last stable version was released.";
 	}
 	
 	chdir('..');
