@@ -25,6 +25,11 @@
 		This article summarizes the changes introduced in 0.8.7 and 0.8.8 in the EOL concrete syntax. 
 		</description>
 	</article>
+	<article name="egl-template-operations" title="Using template operations in EGL">
+		<description>
+		This article demonstrates template operations for writing re-usable code in EGL (the model-to-text language of Epsilon).
+		</description>
+	</article>
 	<article name="egl-server-side" title="EGL as a server-side language">
 		<description>
 		This article demonstrates using EGL (the model-to-text language of Epsilon) in Tomcat to produce HTML pages from EMF models on the fly.
