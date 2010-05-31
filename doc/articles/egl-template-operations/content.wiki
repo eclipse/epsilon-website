@@ -64,6 +64,6 @@ Template operations are annotated with `@template` and can mix dynamic and stati
 == Common issues ==
 '''Issue: my template operation produces no output.'''
 
-Resolution: ensure that the call to the template operation is placed in a dynamic output section (e.g. `[%=thing.op()%]`) rather than in a plain dynamic section (e.g. `[% thing.op(); %]`). Template operations return a value, that must then be emitted to the main template using a dynamic output section.
+Resolution: ensure that the call to the template operation is placed in a dynamic output section (e.g. `[%=thing.op()%]`) rather than in a plain dynamic section (e.g. `[% thing.op(); %]`). Template operations return a value, which must then be emitted to the main template using a dynamic output section.
 
 Thanks to Mark Tippetts for [[http://www.eclipse.org/forums/index.php?t=msg&th=168976&start=0&|reporting this issue via the Epsilon forum]].
