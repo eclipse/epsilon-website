@@ -162,6 +162,14 @@
 		<file name="build.xml"/>
 		<file name="tree.emf"/>
 	</example>
+	<example src="org.eclipse.epsilon.examples.xsdxml" title="Manage XSD-backed XML files with EOL" standalone="true" runnable="true">
+		<description>
+		<![CDATA[In this example we demonstrate using EOL to query an XSD-backed XML file.]]>
+		</description>
+		<file name="note.eol"/>
+		<file name="note.xml"/>
+		<file name="note.xsd"/>
+	</example>
 	<!--example src="org.eclipse.epsilon.examples.mdr" title="Use Epsilon with MDR models" standalone="true" runnable="true">
 		<description>
 		<![CDATA[In this example we demonstrate using EOL to query an MDR-based UML 1.4 model designed using <a href="http://argouml.tigris.org">ArgoUML</a> and exported to XMI 1.2. 
