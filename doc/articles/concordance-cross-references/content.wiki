@@ -20,6 +20,7 @@ To use Concordance it must be enabled for your project. To enable Concordance, r
 ==Reports of dangling cross-references==
 When a model element is removed, Concordance determines whether any other model elements reference the deleted element. References to deleted elements are reported as dangling, and an error marker is shown on the referencing resource. For example, suppose we delete GraphTwo (shown in the diagram above). Concordance reports the following errors on GraphOne:
 
+[[image:DanglingErrors.png]]
 
 ==Reconciliation of cross-references==
 When a model is moved in the workspace, Concordance automatically updates references to elements of the moved model. For example, suppose GraphTwo (shown above is moved into a different folder):
