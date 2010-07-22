@@ -77,6 +77,13 @@ EMFATIC;
 
 		<img src="http://epsilonblog.files.wordpress.com/2008/08/image-thumb.png?w=442&h=348"/>
 		<br/><br/>
+		
+		<h4>Presentation</h4>
+		<div style="width:425px" id="__ss_1873516">
+			<object id="__sse1873516" width="425" height="355">
+				<param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=eugenia-090817160440-phpapp01&stripped_title=eugenia" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed name="__sse1873516" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=eugenia-090817160440-phpapp01&stripped_title=eugenia" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object>
+		</div>
+		
 		<h4>Resources</h4>
 		<ul>
 			<li><a href="../../cinema/#Eugenia">Screencast: GMF Editor Development with EuGENia</a>
