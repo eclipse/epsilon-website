@@ -44,6 +44,14 @@
 		<file name="plugin.xml"/>
 		<file name="build.properties"/>
 	</example>
+	<example src="org.eclipse.epsilon.examples.plainxml" title="Building and querying plain XML documents with EOL" standalone="true">
+		<description>
+		<![CDATA[In this example, we use <a href="../doc/articles/plain-xml">the plain XML driver of Epsilon</a> to build and query an XML document that is not backed by a XSD/DTD.]]>
+		</description>
+		<file name="builddocument.eol"/>
+		<file name="builddocument.xml"/>
+		<file name="library.xml"/>
+	</example>
 	<example src="org.eclipse.epsilon.examples.clone" title="Cloning EMF model elements with EOL" standalone="true">
 		<description>
 		<![CDATA[In this example, we demonstrate how the EmfTool built-in tool can be used to perform deep-copy (cloning) of EMF model elements using EOL.]]>

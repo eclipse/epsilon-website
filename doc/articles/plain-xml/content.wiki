@@ -137,7 +137,7 @@ var b = t_book.all.random();
 
 // Get its <author> children using the 
 // .children property
-var authors = b.children.select(a|a.tagName = 'author);
+var authors = b.children.select(a|a.tagName = "author");
 
 // Do the same using the shorthand
 authors = b.c_author;
@@ -145,7 +145,7 @@ authors = b.c_author;
 // Get its <published> child and print
 // its text using the
 // .children property
-b.children.selectOne(p|p.tagName = 'published').text.println();
+b.children.selectOne(p|p.tagName = "published").text.println();
 
 // Do the same using the shorthand
 // (e_ instead of c_ this time as 
@@ -186,6 +186,14 @@ var lib = t_library.all.first();
 lib.appendChild(b);
 }}}
 
+===How can I set the root element of an XML document?===
+ 
+You can use the `.root` property for this.
+
+{{{
+XMLDoc.root = new t_library;
+}}}
+
 ==Adding an XML document to your launch configuration==
  
 To add an XML document to your Epsilon launch configuration, you need to select "Plain XML document" from the list of available model types.
@@ -204,11 +212,9 @@ The following ANT build file demonstrates how you can use ANT to load/store and 
 <project default="main">
 	<target name="main">
 		
-		<epsilon.loadModel name="XMLDoc" type="PlainXML">
-			<parameter name="file" file="library.xml"/>
-			<parameter name="readOnLoad" value="true"/>
-			<parameter name="storeOnDisposal" value="false"/>
-		</epsilon.loadModel>
+		<epsilon.xml.loadModel name="XMLDoc" file="library.xml"
+			read="true" store="false"/>
+		</epsilon.xml.loadModel>
 		
 		<epsilon.eol src="my.eol">
 			<model ref="XMLDoc"/>
