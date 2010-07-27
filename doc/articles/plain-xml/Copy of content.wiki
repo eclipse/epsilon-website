@@ -1,0 +1,59 @@
+=Working with plain XML documents in Epsilon=
+ 
+In this article we demonstrate how you can create, query and modify plain standalone (i.e. no XSD/DTD needed) XML documents in Epsilon programs using the  PlainXML driver added in version 0.8.9. All the examples in this article demonstrate using EOL to script XML documents. However, it's worth stressing that XML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - XML or EMF-based -, or to text), compare and merge your XML documents.
+ 
+==Querying an XML document==
+ 
+We use the following `library.xml` as a base for demonstrating the EOL syntax for querying XML documents.
+
+[[svn:examples/org.eclipse.epsilon.examples.plainxml/library.xml]]
+ 
+Each XML document in Epsilon is a collection of Elements. To retrieve the collection of all elements with an `xyz` tag, `t_xyz.all` can be used. If `e` is an XML element, we can use the `e.a_x` shorthand expression to get the value of its `x` attribute. For example the following excerpt prints the titles of all books in the library:
+
+{{{
+// Print the titles of all books in the library
+for (book in t_book.all) {
+	book.a_title.println();
+}
+}}} 
+
+The same shorthand can be used to access children of an element by tag name. For example the following excerpt prints the publication years of all books in the library:
+
+{{{
+// Print the publication year of each book
+for (book in t_book.all) {
+	book.e_published.text.println();
+}
+}}}
+
+Below is a set of more complex queries on the XML document:
+
+[[svn:examples/org.eclipse.epsilon.examples.plainxml/complexqueries.eol]]
+ 
+==Building/modifying an XML document==
+ 
+Epsilon supports read/write access to XML documents. The following EOL script programmatically builds an exact copy of the `library.xml` document displayed above.
+
+[[svn:examples/org.eclipse.epsilon.examples.plainxml/builddocument.eol]]
+
+==Adding an XML document to your launch configuration==
+ 
+To add an XML document to your Epsilon launch configuration, you need to select "Plain XML document" from the list of available model types.
+
+[[image:select.png]]
+
+Then you can configure the details of your document (name, file etc.) in the screen that pops up. To load an XML document that is not in the Eclipse workspace, untick the "Workspace file" check box and provide a full uri for your document (e.g. `http://api.twitter.com/1/statuses/followers/epsilonews.xml` or `file:/c:/myxml.xml`). 
+
+[[image:configure.png]]
+
+==Loading an XML document in your ANT buildfile==
+ 
+The following ANT build files demonstrate how you can use ANT to load/store and process XML documents with Epsilon.
+
+[[svn:examples/org.eclipse.epsilon.examples.plainxml/complexqueries.xml]]
+
+[[svn:examples/org.eclipse.epsilon.examples.plainxml/builddocument.xml]]
+
+==Additional resources==
+ 
+* [[http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html]]: Complete list of the operations that are applicable to XML elements
