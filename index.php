@@ -114,10 +114,9 @@
 			</div>
 		</div>
 		
-		<div class="homeitem">
-			<!-- http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10 -->
-			<?=rdf2h("Recent forum posts", "http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10", array(''), 3, 5, 500)?>
-		</div>
+		<!--div class="homeitem">
+			<rdf2h("Recent forum posts", "http://www.eclipse.org/forums/rdf.php?mode=m&l=1&basic=1&frm=22&n=10", array(''), 3, 5, 500)>
+		</div-->
 		
 		<div class="homeitem">
 			<?=r2h("Recent articles in the blog", "remote/blogrss.xml", array(' '))?>
