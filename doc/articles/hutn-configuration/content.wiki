@@ -57,7 +57,6 @@ Identifier rules are used to specify an attribute that will be used to identify 
 [[image:identifier_rule_properties.png]]
 
 ==Using a HUTN configuration model==
-
 To make use of the configuration model, the preamble of the HUTN document must be changed to the following:
 
 {{{
@@ -68,7 +67,6 @@ To make use of the configuration model, the preamble of the HUTN document must b
 	}
 }
 }}}
-
 Note the extra line that references the configuration model. The value of the configFile attribute is a path relative to the HUTN document.
 
 The body of the HUTN document shown at the start of the article can now be rewritten as follows:
@@ -86,7 +84,6 @@ families {
 	Family "The Bloggs" {}
 }
 }}}
-
 The identifiers specified for the last two families also specify the value of their name attribute, and so there's no need to explicitly set the name attribute in the body of the Family element. Conversely, the first Family specifies a name (The Smiths), and no identifier. A reference to the first family can use The Smiths as an identifier.
 
 Notice also that the migrant attribute values have been removed from the The Does and The Bloggs, as the default value is now true. However, The Smiths must now explicitly state that its migrant value should be false.
