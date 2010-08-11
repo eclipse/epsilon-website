@@ -43,6 +43,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<h4>Examples and Screencasts</h4>
 		<ul>
+		    <li><a href="../articles/hutn-basic/">Article: Using the Human-Usable Textual Notation (HUTN) in Epsilon</a>
 			<li><a href="../../cinema/#HUTN">Screencast: The Human Usable Textual Notation (HUTN)</a>
 			<li><a href="http://epsilonblog.wordpress.com/2008/01/16/using-hutn-for-t2m-transformation/">Article: Using HUTN for T2M transformation</a>
 			<li><a href="http://epsilonblog.wordpress.com/2008/09/15/new-in-hutn-071/">Article: New in HUTN 0.7.1</a>
