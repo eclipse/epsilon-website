@@ -101,6 +101,11 @@
 		This article demonstrates how to specify models using a textual notation.
 		</description>
 	</article>
+	<article name="hutn-configuration" title="Customising Epsilon HUTN documents with configuration">
+		<description>
+		This article demonstrates how to customise Epsilon HUTN documents with a configuration model.
+		</description>
+	</article>
 	<article name="concordance-cross-references" title="Using Concordance to manage and reconcile cross-model references">
 		<description>
 		This article demonstrates how to use Concordance to automatically maintain the integrity of cross-model references.
