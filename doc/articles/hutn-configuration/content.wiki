@@ -90,4 +90,4 @@ Notice also that the migrant attribute values have been removed from the The Doe
 
 ==Additional resources==
  
-* Article: [[../hutn-basics|Using HUTN in Epsilon]]
+* Article: [[../hutn-basic|Using HUTN in Epsilon]]
