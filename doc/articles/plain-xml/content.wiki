@@ -54,7 +54,7 @@ b.isTypeOf(t_library).println();
 
 ===How can I get the tag name of an element?===
  
-You can use the `.tag` property for this purpose. For instance, if `b` is an element tagged as `<book>`, `b.tag` shall return `book`. The `tag` property is read-only.
+You can use the `.tagName` property for this purpose. For instance, if `b` is an element tagged as `<book>`, `b.tagName` shall return `book`. The `tagName` property is read-only.
 
 {{{
 // Get a random <book> element
@@ -67,7 +67,7 @@ b.tagName.println();
 
 ===How can I get/set the attributes of an element?===
  
-You can use the attribute name as a property of the element object, preffixed by `a_`. For example, if `b` is the first book of `library.xml`, `b.a_title` will return `EMF Eclipse Modeling Framework`. Attribute properties are read/write.
+You can use the attribute name as a property of the element object, prefixed by `a_`. For example, if `b` is the first book of `library.xml`, `b.a_title` will return `EMF Eclipse Modeling Framework`. Attribute properties are read/write.
 
 In this example, `b.a_pages` will return `744` as a string. For `744` to be returned as an integer instead, the `i_` prefix should be used instead (i.e. `b.i_pages`. The driver also supports the following preffixes: `b_` for boolean, `s_` for string (alias of `a_`) and `r_` for real values. 
 
