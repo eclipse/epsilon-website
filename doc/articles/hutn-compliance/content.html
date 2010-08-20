@@ -1,0 +1,168 @@
+<h1>Compliance of Epsilon HUTN to the OMG Standard</h1>
+
+<style>
+	.listing {
+		width: 100%; 
+		text-align: left; 
+		font-family: monospace; 
+		background-color: rgb(240, 237, 248);
+	}
+	.firstcolumn {
+		vertical-align: top; 
+		font-family: monospace; 
+		background-color: rgb(240, 237, 248);
+	}
+</style>
+
+<p>Epsilon HUTN is an implementation of the <a href="http://www.omg.org/spec/HUTN/">OMG HUTN standard</a>. Epsilon HUTN implements most of the OMG standard, but there are some differences between the two. This article summaries the similarities and differences between Epsilon HUTN and the OMG HUTN standard.</p> 
+
+<table>
+	<thead>
+		<tr>
+			<th>Feature</th>
+			<th>Section of the OMG HUTN Standard</th>
+			<th>Supported in Epsilon HUTN?</th>
+			<th>Details of support in Epsilon HUTN</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Package Representation</td>
+			<td>Section 6.2</td>
+			<td>Yes</td>
+		</tr>
+		<tr>
+			<td>Class Representation</td>
+			<td>Section 6.3</td>
+			<td>Yes</td>
+			<td>Not yet supported: <a href="#parametric">parametric attributes</a> and <a href="#enumeration">enumeration adjectives</a>.</td>
+		</tr>
+		<tr>
+			<td>Attribute Representation</td>
+			<td>Section 6.4</td>
+			<td>Yes</td>
+			<td>Epsilon HUTN <a href="#correction">corrects a mistake</a> in the HUTN standard.</td>
+		</tr>
+		<tr>
+			<td>Reference Representation</td>
+			<td>Section 6.5</td>
+			<td>Yes.</td>
+		</tr>
+		<tr>
+			<td>Reference Representation</td>
+			<td>Section 6.5</td>
+			<td>Yes</td>
+			<td>Limitation: Epsilon HUTN only allows <a href="#absolute">absolute references</a> for non-containment features.</td>
+		</tr>
+		<tr>
+			<td>Classifier-Level Attributes</td>
+			<td>Section 6.6</td>
+			<td>Yes.</td>
+		</tr>
+		<tr>
+			<td>Data values</td>
+			<td>Section 6.7</td>
+			<td>Yes.</td>
+			<td>Epsilon HUTN supports Ecore (EMF) types, rather than MOF types.</td>
+		</tr>
+		<tr>
+			<td>Alternative association representations</td>
+			<td>Section 6.8</td>
+			<td>Yes.</td>
+		</tr>
+		<tr>
+			<td>Inline configuration</td>
+			<td>Section 6.9</td>
+			<td>No.</td>
+			<td>A <a href="../hutn-configuration">configuration model</a> is used instead.</td>
+		</tr>
+		<tr>
+			<td>Configuration</td>
+			<td>Section 5</td>
+			<td>Partial.</td>
+			<td>Currently supported: <a href="../hutn-configuration">IdentifierConfig and DefaultValueConfig</a> rules.</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<h2 name="parametric">Parametric Attributes</h2>
+
+The HUTN specification allows classes to be instantiated with arguments, for example:
+
+<pre class="codebox">
+Coordinate (3.5, 7.3) {}
+</pre>
+
+The above code assumes that configuration rules have been specified for the parameters of Coordinate.
+
+Epsilon HUTN does not currently support this form. Instead, the following code can be used:
+
+<pre class="codebox">
+Coordinate { 
+	x: 3.5
+	y: 7.3 
+}
+</pre>
+
+
+<h2 name="enumerations">Enumeration Adjectives</h2>
+
+The HUTN specification allows objects to be prefixed with enumeration values as adjectives, for example:
+
+<pre class="codebox">
+poodle Dog {}
+</pre>
+
+The above code assumes that configuration rules have been specified to configure Dog to accept a feature, "breed," as an enumeration adjective.
+
+Epsilon HUTN does not currently support this form. Instead, the following code can be used:
+
+<pre class="codebox">
+Dog { 
+	breed: poodle 
+}
+</pre>
+
+
+<h2 name="correction">Potential error in the OMG HUTN Specification</h2>
+
+Section 6.4 of the OMG HUTN specification appears to contain an error. Grammar rule [20] implies that AttributeName is optional in specifying a KeywordAttribute. However, the semantics of an empty KeywordAttribute or a single tilde as a KeywordAttribute are not defined.
+
+Epsilon HUTN ensures that an AttributeName is specified for every KeywordAttribute.
+
+
+<h2 name="absolute">Absolute References</h2>
+
+The HUTN specification allows relative referencing for non-containment references. For example:
+
+<pre class="codebox">
+ShapePackage "triangles" {
+	Polygon "my_triangle" {
+		Coordinate (3.6, 7.3) {}
+		Coordinate (5.2, 7.6) {}
+		Coordinate (9.4, 13) {}
+	}
+}
+
+ShapePackage "lines" {
+	Polygon "my_line" {
+		Coordinate (4.6, 78.3) {}
+		Coordinate (10.4, 1.5) {}
+	}
+	
+	Diagram "my_diagram" {
+	  shapes: "//triangles/my_triangle", "/my_line"
+	}
+}
+</pre>
+
+The Diagram object references two Polygons: "my_triangle" and "my line". The first is referenced with respect to the root of the document ("//"), while the second is referenced with respect to the current package ("/").
+
+Epsilon HUTN does not support relative referencing, and all references are resolved with respect to the diagram root. The "//" prefix is omitted:
+
+<pre class="codebox">
+	Diagram "my_diagram" {
+	  shapes: "my_triangle", "my_line"
+	}
+</pre>
