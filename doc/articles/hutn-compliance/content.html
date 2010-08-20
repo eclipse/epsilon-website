@@ -94,9 +94,9 @@
 Coordinate (3.5, 7.3) {}
 </pre>
 
-The above code assumes that configuration rules have been specified for the parameters of Coordinate.
+<p>The above code assumes that configuration rules have been specified for the parameters of Coordinate.</p>
 
-Epsilon HUTN does not currently support this form. Instead, the following code can be used:
+<p>Epsilon HUTN does not currently support this form. Instead, the following code can be used:</p>
 
 <pre class="codebox">
 Coordinate { 
@@ -108,61 +108,61 @@ Coordinate {
 
 <h2 name="enumerations">Enumeration Adjectives</h2>
 
-The HUTN specification allows objects to be prefixed with enumeration values as adjectives, for example:
+<p>The HUTN specification allows objects to be prefixed with enumeration values as adjectives, for example:</p>
 
 <pre class="codebox">
 poodle Dog {}
 </pre>
 
-The above code assumes that configuration rules have been specified to configure Dog to accept a feature, "breed," as an enumeration adjective.
+<p>The above code assumes that configuration rules have been specified to configure Dog to accept a feature, "breed," as an enumeration adjective.</p>
 
-Epsilon HUTN does not currently support this form. Instead, the following code can be used:
+<p>Epsilon HUTN does not currently support this form. Instead, the following code can be used:</p>
 
 <pre class="codebox">
 Dog { 
-	breed: poodle 
+  breed: poodle 
 }
 </pre>
 
 
 <h2 name="correction">Potential error in the OMG HUTN Specification</h2>
 
-Section 6.4 of the OMG HUTN specification appears to contain an error. Grammar rule [20] implies that AttributeName is optional in specifying a KeywordAttribute. However, the semantics of an empty KeywordAttribute or a single tilde as a KeywordAttribute are not defined.
+<p>Section 6.4 of the OMG HUTN specification appears to contain an error. Grammar rule [20] implies that AttributeName is optional in specifying a KeywordAttribute. However, the semantics of an empty KeywordAttribute or a single tilde as a KeywordAttribute are not defined.</p>
 
-Epsilon HUTN ensures that an AttributeName is specified for every KeywordAttribute.
+<p>Epsilon HUTN ensures that an AttributeName is specified for every KeywordAttribute.</p>
 
 
 <h2 name="absolute">Absolute References</h2>
 
-The HUTN specification allows relative referencing for non-containment references. For example:
+<p>The HUTN specification allows relative referencing for non-containment references. For example:</p>
 
 <pre class="codebox">
 ShapePackage "triangles" {
-	Polygon "my_triangle" {
-		Coordinate (3.6, 7.3) {}
-		Coordinate (5.2, 7.6) {}
-		Coordinate (9.4, 13) {}
-	}
+  Polygon "my_triangle" {
+    Coordinate (3.6, 7.3) {}
+    Coordinate (5.2, 7.6) {}
+    Coordinate (9.4, 13) {}
+  }
 }
 
 ShapePackage "lines" {
-	Polygon "my_line" {
-		Coordinate (4.6, 78.3) {}
-		Coordinate (10.4, 1.5) {}
-	}
+  Polygon "my_line" {
+     Coordinate (4.6, 78.3) {}
+     Coordinate (10.4, 1.5) {}
+  }
 	
-	Diagram "my_diagram" {
-	  shapes: "//triangles/my_triangle", "/my_line"
-	}
+  Diagram "my_diagram" {
+    shapes: "//triangles/my_triangle", "/my_line"
+  }
 }
 </pre>
 
-The Diagram object references two Polygons: "my_triangle" and "my line". The first is referenced with respect to the root of the document ("//"), while the second is referenced with respect to the current package ("/").
+<p>The Diagram object references two Polygons: "my_triangle" and "my line". The first is referenced with respect to the root of the document ("//"), while the second is referenced with respect to the current package ("/").</p>
 
-Epsilon HUTN does not support relative referencing, and all references are resolved with respect to the diagram root. The "//" prefix is omitted:
+<p>Epsilon HUTN does not support relative referencing, and all references are resolved with respect to the diagram root. The "//" prefix is omitted:<p>
 
 <pre class="codebox">
-	Diagram "my_diagram" {
-	  shapes: "my_triangle", "my_line"
-	}
+  Diagram "my_diagram" {
+    shapes: "my_triangle", "my_line"
+  }
 </pre>
