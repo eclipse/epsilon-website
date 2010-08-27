@@ -31,7 +31,7 @@ families {
 We now briefly describe the HUTN syntax. We can specify an instance of Family using the following HUTN:
 
 {{{
-Family "smiths" {
+Family {
 	name: "The Smiths"
 	lotteryNumbers: 10, 24, 26, 32, 45, 49
 }
@@ -42,21 +42,21 @@ Note that multi-valued features can be specified using a comma separated list.
 Containment references are specified by nesting model element definitions. For example, the following HUTN specifies two members, John and Jane of the Smiths:
 
 {{{
-Family "smiths" {
+Family {
 	name: "The Smiths"
 	lotteryNumbers: 10, 24, 26, 32, 45, 49
-	members: Person "john" {
+	members: Person {
 	         	name: "John Smith"
-	         }, Person "jane" {
+	         }, Person {
 	         	name: "Jane Smith"
 	         }
 }
 }}}
 
-Non-containment references are specified using the HUTN identifier of a model element (the string appearing in double-quotes, such as "smiths", "john", or "jane", above). In the following HUTN, The first family, The Smiths, has one familyFriends, The Bloggs:
+Non-containment references are specified using a HUTN identifier, which is the string appearing in double-quotes as part of an object's declaraton. Below, the second Family has the identifier "bloggs." In the following HUTN, The first family references the second family, using the familyFriends reference:
 
 {{{
-Family "smiths" {
+Family {
 	familyFriends: Family "bloggs"
 }
 
@@ -64,39 +64,45 @@ Family "bloggs" {}
 }}}
 
 ==Shortcuts==
-There are some syntactic shortcuts in HUTN, which we now demonstrate. Although boolean-valued attributes can be specified using true or false values, they can also be specified as a prefix on the model element definition:
+There are some syntactic shortcuts in HUTN, which we now demonstrate.
+
+Objects do not have to specify a body, and can instead be terminated with a semi-colon:
 
 {{{
-Family "smiths" {
-	nuclear: true
-}
+Family {}
 
-Family "bloggs" {
+// is equivalent to:
+
+Family;
+}}}
+
+Although boolean-valued attributes can be specified using true or false values, they can also be specified as a prefix on the model element definition:
+
+{{{
+Family {
 	nuclear: false
 	migrant: true
 }
 
 // is equivalent to:
 
-nuclear Family "smiths" {}
-
-~nuclear migrant Family "bloggs" {}
+~nuclear migrant Family;
 }}}
 
 Non-containment references can be specified using association blocks or even with an infix notation:
 
 {{{
-Family "smiths" {
+Family {
 	familyFriends: Family "bloggs"
 }
 
-Family "bloggs" {}
+Family "bloggs";
 
 
 // is equivalent to the following association block
 
-Family "smiths" {}
-Family "bloggs" {}
+Family "smiths";
+Family "bloggs";
 
 familyFriends {
 	"smiths" "bloggs"
@@ -106,10 +112,10 @@ familyFriends {
 
 // is equivalent to the following infix notation:
 
-Family "smiths" {}
-Family "bloggs" {}
+Family "smiths";
+Family "bloggs";
 
-Family "smiths" {} familyFriends Family "bloggs" {}
+Family "smiths" familyFriends Family "bloggs";
 }}}
 
  
