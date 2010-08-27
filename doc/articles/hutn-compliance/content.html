@@ -39,7 +39,8 @@
 			<td>Classes</td>
 			<td>Section 6.3</td>
 			<td>Partial.</td>
-			<td>Not yet supported: <a href="#parametric">parametric attributes</a> and <a href="#enumeration">enumeration adjectives</a>.</td>
+			<td>Epsilon HUTN provides <a href="#shortcuts">an extra syntactic shortcut</a>.<br/>
+			    Not yet supported: <a href="#parametric">parametric attributes</a> and <a href="#enumeration">enumeration adjectives</a>.</td>
 		</tr>
 		<tr>
 			<td>Attributes</td>
@@ -79,6 +80,18 @@
 		</tr>
 	</tbody>
 </table>
+
+
+<h2 name="parametric">Parametric Attributes</h2>
+
+<p>Epsilon HUTN allows classes with no body to be terminated with a semi-colon rather than with a pair of empty brackets, for example the following are equivalent in Epsilon HUTN:</p>
+
+<pre class="codebox">
+Family "The Smiths" {}
+Family "The Smiths";
+</pre>
+
+<p>This form appears in Figure 6.5 of the HUTN specification, but oddly is not supported in the grammar provided by the HUTN specification.</p>
 
 
 <h2 name="parametric">Parametric Attributes</h2>
