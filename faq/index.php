@@ -35,7 +35,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<?foreach ($faqs as $faq){?>
 		<p>
-		<h2><a style="color:black;text-decoration:none" name="<?=$faq->title?>"><?=$faq->title?></a></h2>
+		<h2><a style="color:black;text-decoration:none" name="<?=$faq["id"]?>"><?=$faq->title?></a></h2>
 		<?=$faq->answer?>
 		</p>
 		<?}?>
@@ -47,7 +47,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div class='modal'>
 	<ul>
 		<?foreach ($faqs as $faq){?>
-		<li><a href="#<?=$faq->title?>"><?=$faq->title?></a>
+		<li><a href="#<?=$faq["id"]?>"><?=$faq->title?></a>
 		<?}?>
 	</ul>
 	</div>

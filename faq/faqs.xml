@@ -44,7 +44,7 @@
 		]]>
 		</answer>
 	</faq>
-	<faq id="epsilon-standalon">
+	<faq id="epsilon-standalone">
 		<title>Can I use Epsilon in a non-Eclipse-based standalone Java application?</title>
 		<answer><![CDATA[
 		<p>Yes. There are several examples of doing just that (for all languages provided by Epsilon) in <a href="http://dev.eclipse.org/viewsvn/index.cgi/trunk/examples/org.eclipse.epsilon.examples.standalone/?root=Modeling_EPSILON">this project in the SVN</a>.]]>
