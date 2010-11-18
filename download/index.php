@@ -25,9 +25,9 @@
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 	
-	$fixedbugsUrl = "https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&bug_status=VERIFIED&component=Epsilon&product=gmt&query_format=advanced&title=Bug%20List";
-	$fixedbugs = simplexml_load_file($fixedbugsUrl."&ctype=atom")->entry;
-	
+	$fixedbugsUrl = "https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&bug_status=VERIFIED&component=Epsilon&product=gmt&query_format=advanced&title=Bug%20List"."&ctype=atom";
+	$fixedbugs = simplexml_load_file($fixedbugsUrl)->entry;
+		
 	$bugtext = "";
 	if (count($fixedbugs) > 1) {
 		$bugtext = "The interim release contains fixes for <a href='$fixedbugsUrl'>".count($fixedbugs)." bugs</a> that have been reported after the last stable version was released.";
@@ -77,11 +77,9 @@
 			
 			<br><br><b><font color="green">Stable update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">http://download.eclipse.org/modeling/gmt/epsilon/updates/</a> <br>
 			<br><b><font color="red">Interim update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">http://download.eclipse.org/modeling/gmt/epsilon/interim/</a> 
-			<?if (count($fixedbugs) > 0){?>
 			<br/><br/><div class="warningbox">
-			<b>Note:</b> <?=$bugtext?>
+			<b>Note:</b> If you're using the latest Eclipse distribution (Helios), please use the interim update site to install Epsilon, as the latest stable version is not compatible with Helios. This shall be fixed in the upcoming 0.9.0 stable release.
 			</div>
-			<?}?>
 			<!--
 			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
 			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
