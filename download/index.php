@@ -17,7 +17,7 @@
 	$pageTitle 		= "Download";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	$version = "0.8.9";
+	$version = "0.9.0";
 	
 	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-";
 	$modelingToolsWin = $modelingTools."win32.zip";
@@ -77,9 +77,10 @@
 			
 			<br><br><b><font color="green">Stable update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">http://download.eclipse.org/modeling/gmt/epsilon/updates/</a> <br>
 			<br><b><font color="red">Interim update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">http://download.eclipse.org/modeling/gmt/epsilon/interim/</a> 
-			<br/><br/><div class="warningbox">
+			<br/><br/>
+			<!--div class="warningbox">
 			<b>Note:</b> If you're using the latest Eclipse distribution (Helios), please use the interim update site to install Epsilon, as the latest stable version is not compatible with Helios. This shall be fixed in the upcoming 0.9.0 stable release.
-			</div>
+			</div-->
 			<!--
 			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
 			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
