@@ -191,8 +191,6 @@
 			<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/epsilonews.json?callback=twitterCallback2&amp;count=5"></script>
 		</div>		
 		
-
-	
 		<div class="sideitem">
 			<h6>Frequently Asked Question</h6>
 			<ul>
