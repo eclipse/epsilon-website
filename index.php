@@ -216,7 +216,7 @@
 		-->
 		
 		<div class="sideitem">
-			<?=r2h("Updates", "news/epsilonNewsArchive.rss", array(' '), 6, 5, 2000)?>
+			<?=r2h("Updates", "news/epsilonNewsArchive.rss", array(' '), 6, 5, 3000)?>
 		</div>
 		
 	</div>
