@@ -48,7 +48,7 @@ class Drive extends Folder {
 }
  
 class Folder extends File {
-    @gmf.compartment
+    @gmf.compartment(foo="bar")
     val File[*] contents;
 }
  
