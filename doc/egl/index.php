@@ -51,7 +51,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		
 		<h4>Reference</h4>
 		
-		Chapter 8 of the <a href="../book">Epsilon book</a> provides a complete 
+		Chapter 7 of the <a href="../book">Epsilon book</a> provides a complete 
 		reference of the syntax and semantics of EGL.
 
 		<hr class="clearer" />
