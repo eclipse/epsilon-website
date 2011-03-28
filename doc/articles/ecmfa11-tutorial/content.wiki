@@ -1,0 +1,33 @@
+=Integrated Model Management with Epsilon=
+ 
+On '''June 7 2011''' we're organising a tutorial on model management with Epsilon collocated with the [[http://www.ecmfa-2011.org/|7th European Conference on Modelling, Foundations and Applications]] in Birmingham, UK.
+
+Early registration (before May 3rd) for the tutorial costs £100 (£70 for students). To register for the entire conference or just for the Epsilon tutorial, please visit the [[http://www.ecmfa-2011.org/register.html|conference registration website]]. In order for the tutorial to take place, the conference organisers require a minimum number of participants to register in advance. Therefore, if you plan to attend, please register as soon as possible (and also receive the early bird discount).
+
+The tutorial will consist of several parts of increasing difficulty/specialisation and as such it is suitable both for new and for existing users that wish to extend their knowledge of Epsilon. It will also provide an excellent opportunity to meet the Epsilon developers in person and buy them beer.
+
+== Parts 1 & 2: Concepts and Core Technologies==
+The tutorial will start by introducing basic MDE concepts (modelling, metamodelling, and automated model management) and provide a brief overview of core Eclipse modelling technologies such as EMF and GMF. [[../../hutn/|HUTN]] (a general purpose textual syntax for defining EMF models) and [[../../eugenia/|EuGENia]] (a tool for automating the construction of GMF-based editors) will also be discussed in this part.
+
+== Part 3: Basic Epsilon ==
+The tutorial will then proceed to its main part where it will concentrate on the languages and tools provided by Epsilon including:
+ 
+* [[../../eol/|Epsilon Object Language]]: The core language of Epsilon.
+* [[../../evl/|Epsilon Validation Language]]
+* [[../../etl/|Epsilon Transformation Language]]: The model-to-model transformation language of Epsilon.
+* [[../../egl/|Epsilon Generation Language]]: The model-to-text transformation language of Epsilon.
+* [[../../ecl/|Epsilon Comparison Language]]
+* [[../../eml/|Epsilon Merging Language]]
+* [[../../ewl/|Epsilon Wizard Language]]: A language for interactive in-place model transformation, integrated with EMF/GMF editors.
+* [[../../flock/|Epsilon Flock]]: A language for model evolution/migration.
+ 
+== Part 4: Advanced Epsilon==
+In this part, more advanced components of Epsilon will be discussed including:
+ 
+* [[../../workflow/|Epsilon Workflow]]: ANT-based solution for composing individual model management tasks into automated workflows. 
+* [[../../workflow/|Epsilon Model Connectivity]]: Abstraction framework that allows  Epsilon to interact with models of diverse modelling technologies. In this part, a driver for accessing plain XML documents within Epsilon will be demonstrated and discussed.
+* Advanced EuGENia: In this part we will discuss the polishing transformation mechanism provided by EuGENia, which allows developers to fine-tune aspects of the generated GMF editor in a reproducible way.
+ 
+== Part 5: Current and Future Work ==
+In this part we will discuss the new features we're currently adding to Epsilon and will reveal bits of our cunning grand plan to take over the world. 
+ 
