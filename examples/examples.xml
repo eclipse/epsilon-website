@@ -178,6 +178,30 @@
 		<file name="note.xml"/>
 		<file name="note.xsd"/>
 	</example>
+	<example src="org.eclipse.epsilon.eunit.examples.eol" title="Test EOL scripts with EUnit" standalone="true" runnable="true">
+		<description>
+		<![CDATA[In this example we show the basic structure of an EUnit test, some useful assertions for the basic types and how to test for errors and define our own assertions.]]>
+		</description>
+		<file name="tests.eunit"/>
+		<file name="eunit.xml"/>
+	</example>
+	<example src="org.eclipse.epsilon.eunit.examples.evl" title="Test a model validation script with EUnit" standalone="true" runnable="true">
+		<description>
+		<![CDATA[In this example we show how a model validation script written in EVL can be tested with EUnit, using the <em>exportAsModel</em> attribute of the EVL workflow task.]]>
+		</description>
+		<file name="tree-constraints.evl"/>
+		<file name="tree-export-as-model.eunit"/>
+		<file name="eunit.xml"/>
+	</example>
+	<example src="org.eclipse.epsilon.eunit.examples.egl.files" title="Test a model-to-text transformation with EUnit" standalone="true" runnable="true">
+		<description>
+		<![CDATA[In this example we show how a model-to-text transformation written in EGL can be tested with EUnit. We also show how <em>loadHutn</em> can be used to inline a model into the test suite definition.]]>
+		</description>
+		<file name="tree2text.egl"/>
+		<file name="tests.eunit"/>
+		<file name="expected.txt"/>
+		<file name="eunit.xml"/>
+	</example>
 	<!--example src="org.eclipse.epsilon.examples.mdr" title="Use Epsilon with MDR models" standalone="true" runnable="true">
 		<description>
 		<![CDATA[In this example we demonstrate using EOL to query an MDR-based UML 1.4 model designed using <a href="http://argouml.tigris.org">ArgoUML</a> and exported to XMI 1.2. 

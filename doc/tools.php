@@ -23,6 +23,7 @@ function toolsSideItem () {
 	$html .= "	<li><a href='/gmt/epsilon/doc/workflow'>Workflow</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/hutn'>Human Usable Textual Notation</a>\r\n";
 	$html .= "	<li><a href='/gmt/epsilon/doc/concordance'>Concordance</a>\r\n";
+	$html .= "	<li><a href='/gmt/epsilon/doc/eunit'>EUnit</a>\r\n";
 	$html .= "	</ul></div>\r\n";
 	$html .= "</div>\r\n";
 	

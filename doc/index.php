@@ -82,7 +82,8 @@
 	    written using a text editor in a C-like syntax.</li>
 		
 		<li><a href="concordance">Concordance</a>: Concordance is a tool that monitors selected projects of the workspace and maintains an index of cross-resource EMF references. Concordance can then use this index to automatically reconcile references when models are moved, and report broken references when models are updated/deleted. 
-		
+
+		<li><a href="eunit">EUnit</a>: EUnit is a unit testing framework specialized on testing model management tasks, such as model-to-model transformations, model-to-text transformations or model validation. It is based on Epsilon, but it can be used for model technologies external to Epsilon. Tests are written by combining an EOL script and an <a href="workflow">ANT</a> buildfile.</li>		
 		</ul>
 		
 		<h4>Resources</h4>
