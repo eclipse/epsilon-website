@@ -6,10 +6,10 @@ This article provides a step-by-step guide for obtaining a local copy of the Eps
 * Connect to the Eclipse CVS (using the CVS client of Eclipse)
  * host: `dev.eclipse.org`
  * repository: `/cvsroot/org.eclipse`
- * connection type: `extssh`	
+ * connection type: `extssh`
 * Create a folder named `gmt` under `htdocs`
 * Create a folder named `epsilon` under `gmt`
-* Check out `www/gmt/epsilon` as a project located under the gmt folder you just created
+* Check out `www/gmt/epsilon` as a project located under the `epsilon` folder you just created
  * Use check out as a project configured using the New Project Wizard
  * Check out as a general Project
  * Set the name to `epsilon` and the path to `htdocs/gmt/epsilon`
@@ -20,3 +20,18 @@ This article provides a step-by-step guide for obtaining a local copy of the Eps
 * Start XAMPP and go to `http://localhost/gmt/epsilon`
 * You are now ready to start playing with the Epsilon site locally
 * Once you've happy with the changes you've made, go back to the epsilon project in Eclipse, refresh and then commit the changes to the CVS. The site should be updated within a few minutes.
+
+You can also use [[http://www.lighttpd.net/|lighttpd]] with PHP instead of XAMPP, following [[[[http://redmine.lighttpd.net/wiki/1/TutorialLighttpdAndPHP|this tutorial]] and pointing `server.document-root` to your `htdocs` directory, checked out as above. Alternatively, in most Debian-based GNU/Linux distributions, installing the `lighttpd` and `php5-cgi` packages and adapting this minimal configuration should be enough:
+
+{{{
+server.document-root = "/path/to/htdocs"
+server.port          = 8080
+index-file.names    += ( "index.html", "index.htm", "index.php" )
+
+mimetype.assign = ( ".html" => "text/html", ".htm" => "text/html",
+                    ".css" => "text/css",   ".txt" => "text/plain",
+                    ".jpg" => "image/jpeg", ".png" => "image/png" )
+
+server.modules += ( "mod_cgi" )
+cgi.assign      = ( ".php" => "/path/to/php-cgi" )
+}}}
