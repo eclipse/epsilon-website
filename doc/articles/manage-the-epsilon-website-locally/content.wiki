@@ -20,7 +20,7 @@ This article provides a step-by-step guide for obtaining a local copy of the Eps
 * Start XAMPP and go to `http://localhost/gmt/epsilon`
 * You are now ready to start playing with the Epsilon site locally
 * Once you've happy with the changes you've made, go back to the epsilon project in Eclipse, refresh and then commit the changes to the CVS. The site should be updated within a few minutes.
-
+ 
 == Using lighttpd instead of XAMPP ==
 You can also use [[http://www.lighttpd.net/|lighttpd]] with PHP instead of XAMPP, following [[http://redmine.lighttpd.net/wiki/1/TutorialLighttpdAndPHP|this tutorial]] and pointing `server.document-root` to your `htdocs` directory, checked out as above. Alternatively, in most Debian-based GNU/Linux distributions, installing the `lighttpd` and `php5-cgi` packages and adapting this minimal configuration should be enough:
 
