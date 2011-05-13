@@ -49,4 +49,8 @@
 		<description> <![CDATA[In this example, we show the way in which models are affected when their metamodel changes. We use Epsilon Flock to specify a migration strategy for updating models in response to metamodel changes, and show how the migration strategy can be distributed to metamodel users.]]>
 		</description>
 	</screencast>
+	<screencast name="eunit-etl" title="Test an ETL model transformation with EUnit">
+		<description> <![CDATA[In this example, we first show how an ETL transformation would be normally tested with JUnit. After this, we show several ways to test it with EUnit, and explain some of the benefits of using this tool instead of JUnit.]]>
+		</description>
+	</screencast>
 	</cinema>
