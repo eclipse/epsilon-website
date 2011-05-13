@@ -53,4 +53,8 @@
 		<description> <![CDATA[In this example, we first show how an ETL transformation would be normally tested with JUnit. After this, we show several ways to test it with EUnit, and explain some of the benefits of using this tool instead of JUnit.]]>
 		</description>
 	</screencast>
-	</cinema>
+	<screencast name="eunit-atl" title="Test an ATL model transformation with EUnit">
+		<description> <![CDATA[In this example, we show that EUnit is not limited to testing Epsilon model management tasks, by testing an ATL model-to-model transformation through its Ant tasks.]]>
+		</description>
+	</screencast>
+</cinema>
