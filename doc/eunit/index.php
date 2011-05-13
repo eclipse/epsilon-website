@@ -52,6 +52,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<h4>Examples and Screencasts</h4>
 		<ul>
 			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.eunit.examples.eol">Example: Test EOL scripts with EUnit</a>
+			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.eunit.examples.bindings">Example: Reuse EUnit tests with model and data bindings</a>
 			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.eunit.examples.evl">Example: Test a model validation script with EUnit</a>
 			<li><a href="../../examples/index.php?example=org.eclipse.epsilon.eunit.examples.egl.files">Example: Test a model-to-text transformation with EUnit</a>
 			<li><a href="../../cinema/#eunit-etl">Screencast: Test an ETL model transformation with EUnit</a>

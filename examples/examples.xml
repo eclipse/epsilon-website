@@ -185,6 +185,15 @@
 		<file name="tests.eunit"/>
 		<file name="eunit.xml"/>
 	</example>
+	<example src="org.eclipse.epsilon.eunit.examples.bindings" title="Reuse EUnit tests with model and data bindings" standalone="true" runnable="true">
+		<description>
+		<![CDATA[In this example we show how the same EUnit test can be reused for several models, and how EUnit supports several levels of parametric tests.]]>
+		</description>
+		<file name="loops.eol"/>
+		<file name="bind-data.eunit"/>
+		<file name="bind-model.eunit"/>
+		<file name="eunit.xml"/>
+	</example>
 	<example src="org.eclipse.epsilon.eunit.examples.evl" title="Test a model validation script with EUnit" standalone="true" runnable="true">
 		<description>
 		<![CDATA[In this example we show how a model validation script written in EVL can be tested with EUnit, using the <em>exportAsModel</em> attribute of the EVL workflow task.]]>
