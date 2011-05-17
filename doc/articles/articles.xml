@@ -75,6 +75,11 @@
 		This article demonstrates how to define GMF phantom nodes in EuGENia.
 		</description>
 	</article>
+	<article name="eugenia-ant" title="EuGENia: Automated Invocation with Ant">
+		<description>
+		This article demonstrates how to run Eugenia from Ant, and some of the additional features offered through the Ant task.
+		</description>
+	</article>
 	<article name="epackage-registry-view" title="The EMF EPackage Registry View">
 		<description>
 		This article demonstrates the EPackage Registry view which allows developers to inspect the contents of the registered EMF EPackages.
