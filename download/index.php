@@ -18,9 +18,12 @@
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	$version = "0.9.0";
+
+	//$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-";
+	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/helios/SR2/eclipse-modeling-helios-SR2-incubation-";
 	
-	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-";
 	$modelingToolsWin = $modelingTools."win32.zip";
+	$modelingToolsWin64 = $modelingTools."win32-x86_64.zip";
 	$modelingToolsMac = $modelingTools."macosx-carbon.tar.gz";
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
@@ -55,7 +58,8 @@
 		
 		<table width="100%">
 			<tr>
-				<td><li><a href="<?=$modelingToolsWin?>" target="_blank">Windows</a></td>
+				<td><li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a></td>
+				<td><li><a href="<?=$modelingToolsWin64?>" target="_blank">Windows 64bit</a></td>
 				<td><li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X</a></td>
 				<td><li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a></td>
 				<td><li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a></td>
