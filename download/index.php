@@ -119,7 +119,8 @@
 			<ul>
 				<li><a href="#">Download Eclipse</a>
 				<ul>
-				<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows</a>
+				<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a>
+				<li><a href="<?=$modelingToolsWin64?>" target="_blank">Windows 64bit</a>
 				<li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X</a>
 				<li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a>
 				<li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a>
