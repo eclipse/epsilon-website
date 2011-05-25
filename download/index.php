@@ -56,15 +56,13 @@
 		<div style="float:right"><img src="../images/modeling64.png"/></div>
 		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.5+</a> and Eclipse (including GMF and EMF) first. The Eclipse Galileo Modeling Tools distribution contains all the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
 		
-		<table width="100%">
-			<tr>
-				<td><li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a></td>
-				<td><li><a href="<?=$modelingToolsWin64?>" target="_blank">Windows 64bit</a></td>
-				<td><li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X</a></td>
-				<td><li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a></td>
-				<td><li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a></td>
-			</tr>
-		</table>
+		<ul>
+			<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a>
+			<li><a href="<?=$modelingToolsWin64?>" target="_blank">Windows 64bit</a>
+			<li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X</a>
+			<li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a>
+			<li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a>
+		</ul>
 		
 		<h2>Step 2: Download Epsilon</h2>
 		<div style="float:right"><img src="http://dev.eclipse.org/huge_icons/actions/go-bottom.png"></div>
