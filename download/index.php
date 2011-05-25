@@ -54,7 +54,7 @@
 		
 		<h2>Step 1: Download Eclipse</h2>
 		<div style="float:right"><img src="../images/modeling64.png"/></div>
-		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.5+</a> and Eclipse (including GMF and EMF) first. The Eclipse Galileo Modeling Tools distribution contains all the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
+		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.5+</a> and Eclipse (including GMF and EMF) first. The Eclipse Helios Modeling Tools distribution contains all the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
 		
 		<ul>
 			<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a>
