@@ -1,0 +1,76 @@
+=Requesting help and reporting bugs=
+From time to time, you may run into a problem when using Epsilon or find a bug. In these instances, we're happy to provide technical support and we endeavour to ensure that no question on our forum goes unanswered. When requesting help, there are a few steps that you can take that make a huge difference to us, and enable us to send a quick and accurate response.  
+
+==A minimal example that reproduces the problem==
+In some cases, we ask users to supply an example that we can use to reproduce the problem on our machine. A high quality example often allows us to identify the source of a problem very quickly. In particular, please include the following:
+
+* The version of Epsilon that you're running.
+* An Eclipse project containing the '''minimal''' version of all of the artefacts needed to reproduce the problem:
+** Models
+** Metamodels (e.g. .ecore files)
+** Epsilon programs (e.g. .eol, .evl, .etl, .egl files)
+* Instructions for reproducing the problem
+* Where applicable, Eclipse launch configurations or Ant build files for your Epsilon programs.
+
+=== Finding the version of Epsilon ===
+We are often working on several versions of Epsilon at once: we maintain separate interim and stable versions, and we often use separate development branches for experimental features. Consequently, we need to ensure that we're running the same version of Epsilon as you in order to reproduce your problem. To identify which version of Epsilon you have:
+
+# Click '''Help->About Eclipse''' (on Mac OS X click '''Eclipse->About Eclipse''').
+# Click the '''Installation Details''' button
+# Depending on how Epsilon has been installed, its version number may appear on the list of '''Installed Software'''.
+
+[[image:versionfrominstalledsoftware.png]]
+
+# If not, click '''Plug-ins''.
+# Sort the list by the '''Plug-in id''' column by clicking the column title.
+# Locate the row with '''org.eclipse.epsilon.eol.engine''' as its plug-in id, as shown below.
+
+[[image:versionfrominstalledplugins.png]]
+
+=== A minimal version ===
+Often, Epsilon users are manipulating large models with many thousands of elements, or executing Epsilon programs with many hundreds of lines of code. When investigating a problem or fixing a bug, it is extremely helpful for us to receive a minimal project that focuses exactly on the problem that you are encountering. In particular, please provide:
+
+# A small number of models, metamodels and Epsilon programs (ideally 1 of each).
+# Small models and metamodels (ideally with very few model elements).
+# Small programs (ideally containing only the code required to reproduce the problem).
+
+Although it can take a little extra time for you to produce a minimal example, we really appreciate it. A minimal example allows us to spend more time fixing the problem and providing advice, and much less time trying to reproduce the problem on our computer. In some cases, building a minimal example is a great way to troubleshoot the problem that you're experiencing, and you may even find a solution to the problem while doing so.
+
+=== Instructions for reproducing the problem ===
+When reproducing the problem requires more than one or two steps, a short set of instructions is a great help for us. Please try to provide a list of steps that we can follow to reproduce the problem. For example:
+
+# Open Example.model, and add a new Node with name "foo"
+# Run the Foo2Bar.etl transformation with the supplied launch configuration
+# Open Example.model.
+# Note that the Node that you added has not changed: it has not been transformed!
+
+=== Epsilon launch configurations ===
+When launching an Epsilon program from within Eclipse, it is common to produce a launch configuration, which defines the models on which an Epsilon program is executed. By default, Eclipse does not store these launch configurations in your workspace and hence they are not included in projects that are exported from your workspace.
+
+To store an existing launch configuration in your workspace:
+
+# Click '''Run->Run Configurations'''.
+# Select the Epsilon program for which you wish to store a launch configuration from the left-hand pane. 
+# Select the '''Common''' tab.
+# By default, under '''Save as''' the '''Local''' option is selected. Click '''Shared file''' and then '''Browse'''.
+# Select the project that contains the Epsilon program from the dialogue box, and then click '''Ok''', as shown below.
+# Click '''Apply'''.
+# Close the '''Run Configurations''' dialogue box.
+
+[[image:commontab.png]]
+
+Eclipse will create a new '''.launch''' file in your project, which contains all of the information needed to launch your Epsilon program, as shown below.
+
+[[image:savedlaunchconfig.png]]
+
+=== Exporting an Eclipse project from your workspace === 
+
+Once you have created a project containing a minimal example (and launch configurations or Ant scripts), you can create an archive file which can be emailed to us:
+
+# Right-click your Project
+# Click '''Export...'''
+# Under the '''General''' category, select '''Archive File''' and click '''Next'''.
+# Ensure that the project(s) that you wish to export are checked in the left-hand pane.
+# Supply a file name in the '''To archive file''' text box.
+# Click '''Finish'''.
+
