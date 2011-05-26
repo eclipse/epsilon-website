@@ -1,6 +1,6 @@
 =Bugzilla Conventions=
  
-Below are the conventions used by the Epsilon committers to characterise reporting bugs according to their status.
+Below are the conventions used by the Epsilon committers to characterise reported bugs according to their status.
  
 * New bug: Status -> New
 * Assigned bug: Status -> Assigned
