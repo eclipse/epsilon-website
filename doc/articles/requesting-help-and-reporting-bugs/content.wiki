@@ -12,7 +12,7 @@ Please include the following:
 * An Eclipse project containing the minimal artefacts (and launch configurations or Ant build files).
 The remainder of this article contains hints and tips for each of the above.
 
-Once you have a minimal example, please <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#112;&#115;&#105;&#108;&#111;&#110;&#46;&#100;&#101;&#118;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">email</a> it to us.
+Once you have a minimal example, please [[&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#112;&#115;&#105;&#108;&#111;&#110;&#46;&#100;&#101;&#118;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;|email]] it to us.
 
 === Finding the version of Epsilon ===
 When developing and maintaining Epsilon, we often work on several versions of Epsilon at once: we maintain separate interim and stable versions, and we often use separate development branches for experimental features. Consequently, we need to ensure that we're running the same version of Epsilon as you in order to reproduce your problem. To identify which version of Epsilon you have:
@@ -73,4 +73,4 @@ Once you have created a project containing a minimal example (and launch configu
 # Supply a file name in the '''To archive file''' text box.
 # Click '''Finish'''.
 
-Please <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#112;&#115;&#105;&#108;&#111;&#110;&#46;&#100;&#101;&#118;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">email</a> the resulting archive file to us.
+Please [[&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#112;&#115;&#105;&#108;&#111;&#110;&#46;&#100;&#101;&#118;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;|email]] the resulting archive file to us.
