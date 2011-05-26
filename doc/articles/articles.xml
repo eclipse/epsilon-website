@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <articles>
-	<category title="Epsilon Object Language">
+	<category name="eol" title="Epsilon Object Language">
 	  	<article name="eol-syntax-updates" title="EOL syntax updates">
 	  		<description>
 	  		This article summarizes the changes introduced in 0.8.7 and 0.8.8 in the EOL concrete syntax. 
@@ -17,14 +17,14 @@
 	  		</description>
 	  	</article>
 	</category>
-	<category title="Epsilon Validation Language">
+	<category name="evl" title="Epsilon Validation Language">
 	  	<article name="evl-gmf-integration" title="EVL-GMF Integration">
 	  		<description>
 	  		This article demonstrates evaluating EVL constraints from within a GMF-based editor.
 	  		</description>
 	  	</article>
 	</category>
-	<category title="Epsilon Generation Language">
+	<category name="egl" title="Epsilon Generation Language">
 	  	<article name="egl-template-operations" title="Using template operations in EGL">
 	  		<description>
 	  		This article demonstrates template operations for writing re-usable code in EGL (the model-to-text language of Epsilon).
@@ -36,7 +36,7 @@
 	  		</description>
 	  	</article>
 	</category>
-	<category title="Epsilon and EMF">
+	<category name="emf" title="Epsilon and EMF">
 		<article name="emfatic" title="Emfatic language reference" content="html">
 	  		<description>
 	  		Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
@@ -58,14 +58,14 @@
 	  		</description>
 	  	</article>
 	</category>
-	<category title="Epsilon and XML">
+	<category name="xml" title="Epsilon and XML">
 		<article name="plain-xml" title="Scripting XML documents using Epsilon">
 	  		<description>
 	  		In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver.
 	  		</description>
 	  	</article>
 	</category>
-	<category title="EuGENia">
+	<category name="eugenia" title="EuGENia">
 	  	<article name="eugenia-gmf-tutorial" title="EuGENia GMF Tutorial">
 	  		<description>
 	  		This article provides a guide to using EuGENia for developing GMF editors, as well as its complete list of features and supported annotations.
@@ -102,7 +102,7 @@
 	  		</description>
 	  	</article>
 	</category>
-	<category title="Human-Usable Textual Notation">
+	<category name="hutn" title="Human-Usable Textual Notation">
 	  	<article name="hutn-basic" title="Using the Human-Usable Textual Notation (HUTN) in Epsilon">
 	  		<description>
 	  		This article demonstrates how to specify models using a textual notation.
@@ -124,7 +124,7 @@
 	  		</description>
 		</article>
 	</category>
-	<category title="Epsilon Developers">
+	<category name="dev" title="Epsilon Developers">
 	  	<article name="epsilon-source-svn" title="Getting the source code of Epsilon">
 	  		<description>
 	  		This article demonstrates how to obtain and run a local copy of the source code of Epsilon.

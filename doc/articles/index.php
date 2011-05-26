@@ -31,11 +31,10 @@
 		<img style="float:right" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png">
 		This page contains an index of articles presenting a range of tools and languages in Epsilon. Should you find that an article contains errors or is inconsistent with the current release of Epsilon, please <a href="../../forum">let us know</a>.
 		<br><br>
-		<ul>
 		<?
 		foreach ($categories as $category) {
 		?>
-		<li><?=$category["title"]?></li>
+		<h2 id="<?=$category["name"]?>"><?=$category["title"]?></h2>
 		<ul>
   		<?
   		foreach ($category->article as $article) {
@@ -44,9 +43,8 @@
   		<?
   		}
   		?>
-  	</li>
-    <?}?>
   	</ul>
+    <?}?>
   	<hr class="clearer" />
 
 	</div>
@@ -59,14 +57,7 @@
 		<?
 		foreach ($categories as $category) {
 		?>
-		<li><?=$category["title"]?></li>
-		<ul>
-		  <?
-  		foreach ($category->article as $article) {
-  		?>
-  				<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>
-  		<?}?>
-		</ul>
+		  <li><a href="#<?=$category["name"]?>"><?=$category["title"]?></a></li>
 		<?}?>
 		</ul>
 		</div>
