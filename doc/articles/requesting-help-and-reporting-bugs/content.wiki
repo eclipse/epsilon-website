@@ -18,13 +18,11 @@ When developing and maintaining Epsilon, we often work on several versions of Ep
 # Click '''Help->About Eclipse''' (on Mac OS X click '''Eclipse->About Eclipse''').
 # Click the '''Installation Details''' button
 # Depending on how Epsilon has been installed, its version number may appear on the list of '''Installed Software''':
-
 [[image:versionfrominstalledsoftware.png]]
 
 # If not, click '''Plug-ins'''.
 # Sort the list by the '''Plug-in id''' column by clicking the column title.
 # Locate the row with '''org.eclipse.epsilon.eol.engine''' as its plug-in id, as shown below.
-
 [[image:versionfrominstalledplugins.png]]
 
 === Instructions for reproducing the problem ===
@@ -41,7 +39,6 @@ Often, Epsilon users are manipulating large models with many thousands of elemen
 * A small number of models, metamodels and Epsilon programs (ideally 1 of each).
 * Small models and metamodels (ideally with very few model elements).
 * Small programs (ideally containing only the code required to reproduce the problem).
-
 Although it can take a little extra time for you to produce a minimal example, we really appreciate it. A minimal example allows us to spend more time fixing the problem and providing advice, and much less time trying to reproduce the problem on our computer.
 
 In some cases, building a minimal example is a great way to troubleshoot the problem that you're experiencing, and you may even find a solution to the problem while doing so.
@@ -58,7 +55,6 @@ To store an existing launch configuration in your workspace:
 # Select the project that contains the Epsilon program from the dialogue box, and then click '''Ok''', as shown below.
 # Click '''Apply'''.
 # Close the '''Run Configurations''' dialogue box.
-
 [[image:commontab.png]]
 
 Eclipse will create a new '''.launch''' file in your project, which contains all of the information needed to launch your Epsilon program, as shown below.
