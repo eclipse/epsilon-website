@@ -51,7 +51,7 @@
 	
 	<div id="rightcolumn">
 		<div class="sideitem">
-		<h6>Overview</h6>
+		<h6>Categories</h6>
 		<div class='modal'>
 		<ul>
 		<?
