@@ -21,6 +21,7 @@
 	ob_start();
 	
 	# Create a parser and parse the examples.xml document.
+	$categories = simplexml_load_file("articles.xml")->category;
 	$articles = simplexml_load_file("articles.xml")->article;
 	
 ?>
@@ -32,14 +33,21 @@
 		<br><br>
 		<ul>
 		<?
-		foreach ($articles as $article) {
-		?>	
-		<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>: <?=$article->description?>
-		<?
-		}
+		foreach ($categories as $category) {
 		?>
-		</ul>
-		<hr class="clearer" />
+		<li><?=$category["title"]?></li>
+		<ul>
+  		<?
+  		foreach ($category->article as $article) {
+  		?>
+  		<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>: <?=$article->description?>
+  		<?
+  		}
+  		?>
+  	</li>
+    <?}?>
+  	</ul>
+  	<hr class="clearer" />
 
 	</div>
 	
@@ -49,9 +57,16 @@
 		<div class='modal'>
 		<ul>
 		<?
-		foreach ($articles as $article) {
+		foreach ($categories as $category) {
 		?>
-		<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>
+		<li><?=$category["title"]?></li>
+		<ul>
+		  <?
+  		foreach ($category->article as $article) {
+  		?>
+  				<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>
+  		<?}?>
+		</ul>
 		<?}?>
 		</ul>
 		</div>
