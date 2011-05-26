@@ -1,14 +1,9 @@
 <?xml version="1.0"?>
 <articles>
-	<category title="Epsilon">
-	    <article name="reflective-emf-tutorial" title="Reflective EMF tutorial">
+	<category title="Epsilon Object Language">
+	  	<article name="eol-syntax-updates" title="EOL syntax updates">
 	  		<description>
-	  		This tutorial demonstrates how to create an EMF Ecore metamodel and a sample model that conforms to it reflectively (i.e. without generating any code). 
-	  		</description>
-	  	</article>
-	  	<article name="emfatic" title="Emfatic language reference" content="html">
-	  		<description>
-	  		Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
+	  		This article summarizes the changes introduced in 0.8.7 and 0.8.8 in the EOL concrete syntax. 
 	  		</description>
 	  	</article>
 	  	<article name="extended-properties" title="Extended Properties">
@@ -21,16 +16,15 @@
 	  		This article demonstrates how to create Java objects, access their properties and call their methods from Epsilon languages.
 	  		</description>
 	  	</article>
-	  	<article name="plain-xml" title="Scripting XML documents using Epsilon">
+	</category>
+	<category title="Epsilon Validation Language">
+	  	<article name="evl-gmf-integration" title="EVL-GMF Integration">
 	  		<description>
-	  		In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver.
+	  		This article demonstrates evaluating EVL constraints from within a GMF-based editor.
 	  		</description>
 	  	</article>
-	  	<article name="eol-syntax-updates" title="EOL syntax updates">
-	  		<description>
-	  		This article summarizes the changes introduced in 0.8.7 and 0.8.8 in the EOL concrete syntax. 
-	  		</description>
-	  	</article>
+	</category>
+	<category title="Epsilon Generation Language">
 	  	<article name="egl-template-operations" title="Using template operations in EGL">
 	  		<description>
 	  		This article demonstrates template operations for writing re-usable code in EGL (the model-to-text language of Epsilon).
@@ -41,6 +35,37 @@
 	  		This article demonstrates using EGL (the model-to-text language of Epsilon) in Tomcat to produce HTML pages from EMF models on the fly.
 	  		</description>
 	  	</article>
+	</category>
+	<category title="Epsilon and EMF">
+		<article name="emfatic" title="Emfatic language reference" content="html">
+	  		<description>
+	  		Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
+	  		</description>
+	  	</article>
+	    <article name="reflective-emf-tutorial" title="Reflective EMF tutorial">
+	  		<description>
+	  		This tutorial demonstrates how to create an EMF Ecore metamodel and a sample model that conforms to it reflectively (i.e. without generating any code). 
+	  		</description>
+	  	</article>
+	  	<article name="epackage-registry-view" title="The EMF EPackage Registry View">
+	  		<description>
+	  		This article demonstrates the EPackage Registry view which allows developers to inspect the contents of the registered EMF EPackages.
+	  		</description>
+	  	</article>
+	  	<article name="inspect-models-exeed" title="Inspecting EMF models with Exeed">
+	  		<description>
+	  		This article demonstrates how you can use Exeed to inspect the structure of your EMF models.
+	  		</description>
+	  	</article>
+	</category>
+	<category title="Epsilon and XML">
+		<article name="plain-xml" title="Scripting XML documents using Epsilon">
+	  		<description>
+	  		In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver.
+	  		</description>
+	  	</article>
+	</category>
+	<category title="EuGENia">
 	  	<article name="eugenia-gmf-tutorial" title="EuGENia GMF Tutorial">
 	  		<description>
 	  		This article provides a guide to using EuGENia for developing GMF editors, as well as its complete list of features and supported annotations.
@@ -49,11 +74,6 @@
 	  	<article name="eugenia-polishing" title="Customizing an editor generated with EuGENia">
 	  		<description>
 	  		This article demonstrates how a GMF editor generated with EuGENia can be polished in a systematic and reproducible way.
-	  		</description>
-	  	</article>
-	  	<article name="evl-gmf-integration" title="EVL-GMF Integration">
-	  		<description>
-	  		This article demonstrates evaluating EVL constraints from within a GMF-based editor.
 	  		</description>
 	  	</article>
 	  	<article name="eugenia-nodes-with-images" title="EuGENia: Nodes with images instead of shapes">
@@ -81,27 +101,8 @@
 	  		This article demonstrates how to run Eugenia from Ant, and some of the additional features offered through the Ant task.
 	  		</description>
 	  	</article>
-	  	<article name="epackage-registry-view" title="The EMF EPackage Registry View">
-	  		<description>
-	  		This article demonstrates the EPackage Registry view which allows developers to inspect the contents of the registered EMF EPackages.
-	  		</description>
-	  	</article>
-	  	<article name="inspect-models-exeed" title="Inspecting EMF models with Exeed">
-	  		<description>
-	  		This article demonstrates how you can use Exeed to inspect the structure of your EMF models.
-	  		</description>
-	  	</article>
-	
-	  	<article name="epsilon-source-svn" title="Getting the source code of Epsilon">
-	  		<description>
-	  		This article demonstrates how to obtain and run a local copy of the source code of Epsilon.
-	  		</description>
-	  	</article>
-	  	<article name="manage-the-epsilon-website-locally" title="Manage the Epsilon website locally">
-	  		<description>
-	  		This article demonstrates how to manage the Epsilon website in your machine.
-	  		</description>
-	  	</article>
+	</category>
+	<category title="Human-Usable Textual Notation">
 	  	<article name="hutn-basic" title="Using the Human-Usable Textual Notation (HUTN) in Epsilon">
 	  		<description>
 	  		This article demonstrates how to specify models using a textual notation.
@@ -122,5 +123,17 @@
 	  		This article demonstrates how to use Concordance to automatically maintain the integrity of cross-model references.
 	  		</description>
 		</article>
+	</category>
+	<category title="Epsilon Developers">
+	  	<article name="epsilon-source-svn" title="Getting the source code of Epsilon">
+	  		<description>
+	  		This article demonstrates how to obtain and run a local copy of the source code of Epsilon.
+	  		</description>
+	  	</article>
+	  	<article name="manage-the-epsilon-website-locally" title="Manage the Epsilon website locally">
+	  		<description>
+	  		This article demonstrates how to manage the Epsilon website in your machine.
+	  		</description>
+	  	</article>
 	</category>
 </articles>
