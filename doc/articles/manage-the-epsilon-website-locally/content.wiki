@@ -41,7 +41,7 @@ cgi.assign      = ( ".php" => "/path/to/php-cgi" )
 `wget` and `grep` can be used to find broken links in the Epsilon website. First, we will traverse the website using `wget` with this command:
 
 {{{
-wget --spider -r --no-parent -o wget_errors.txt http://eclipse.org/gmt/epsilon/
+wget --spider -r --no-parent -o wget_errors.txt http://localhost:8080/gmt/epsilon/
 }}}
 
 We have used these options:
