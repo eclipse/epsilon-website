@@ -36,3 +36,23 @@ mimetype.assign = ( ".html" => "text/html", ".htm" => "text/html",
 server.modules += ( "mod_cgi" )
 cgi.assign      = ( ".php" => "/path/to/php-cgi" )
 }}}
+
+== Finding broken links ==
+`wget` and `grep` can be used to find broken links in the Epsilon website. First, we will traverse the website using `wget` with this command:
+
+{{{
+wget --spider -r --no-parent -o wget_errors.txt http://eclipse.org/gmt/epsilon/
+}}}
+
+We have used these options:
+* `--spider` prevents wget from loading the full page and requisites
+* `-r` makes wget traverse through links
+* `--no-parent prevents `wget` from leaving `/gmt/epsilon/`
+* `-o wget_errors.txt` collects all messages in the `wget_errors.txt` file
+
+Once it's done, we can simply search for the word "404" in the log, with:
+{{{
+grep -B2 -w 404 wget_errors.txt
+}}}
+
+We will get a list of all the URLs which reported 404 (Not Found) HTTP error codes.
