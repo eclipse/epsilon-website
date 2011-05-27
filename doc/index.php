@@ -47,7 +47,7 @@
 		
 		<li><a href="ecl">Epsilon Comparison Language (ECL)</a>: A rule-based language for discovering  correspondences (matches) between elements of models of diverse metamodels.
 		
-		<li><a href="eml">Epsilon Merging Language (EML)</a>: A rule-based language for merging models of diverse metamodels, after first identifying their correspondences with <a href="ECL">ECL</a> (or otherwise).
+		<li><a href="eml">Epsilon Merging Language (EML)</a>: A rule-based language for merging models of diverse metamodels, after first identifying their correspondences with <a href="ecl">ECL</a> (or otherwise).
 		
 		<li><a href="flock">Epsilon Flock</a>: A rule-based transformation language for updating models in response to metamodel changes.</li> 
 		

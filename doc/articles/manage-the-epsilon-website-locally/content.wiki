@@ -41,13 +41,14 @@ cgi.assign      = ( ".php" => "/path/to/php-cgi" )
 `wget` and `grep` can be used to find broken links in the Epsilon website. First, we will traverse the website using `wget` with this command:
 
 {{{
-wget --spider -r --no-parent -o wget_errors.txt http://localhost:8080/gmt/epsilon/
+wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8080/gmt/epsilon/
 }}}
 
 We have used these options:
-* `--spider` prevents wget from loading the full page and requisites
-* `-r` makes wget traverse through links
-* `--no-parent prevents `wget` from leaving `/gmt/epsilon/`
+* `-e robots=off` makes `wget` ignore `robots.txt`. This is OK in this case, as we're running the spider on our own local server. 
+* `--spider` prevents `wget` from downloading page requisites that do not contain links
+* `-r` makes `wget` traverse through links
+* `--no-parent` prevents `wget` from leaving `/gmt/epsilon/`
 * `-o wget_errors.txt` collects all messages in the `wget_errors.txt` file
 
 Once it's done, we can simply search for the word "404" in the log, with:
