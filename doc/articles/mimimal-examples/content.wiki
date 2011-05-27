@@ -1,4 +1,4 @@
-=Requesting help and reporting bugs=
+=Constructing a helpful minimal example=
 From time to time, you may run into a problem when using Epsilon or find a bug. In these instances, we're happy to provide technical support and we endeavour to ensure that no question on our [[http://www.eclipse.org/gmt/epsilon/forum|forum]] goes unanswered.
 
 We often ask users to supply a '''minimal example''' that we can use to reproduce the problem on our machine. A high quality example often allows to send a much quicker and more accurate response. This article describes how to put together a useful example.

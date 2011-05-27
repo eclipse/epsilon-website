@@ -124,6 +124,13 @@
 	  		</description>
 		</article>
 	</category>
+	<category name="tech-support" title="Technical Support">
+	  	<article name="minimal-examples" title="Constructing a helpful minimal example">
+	  		<description>
+	  		From time to time, you may run into a problem when using Epsilon or find a bug. This article describes how to construct a minimal example that we can use to reproduce the problem on our machine.
+	  		</description>
+	  	</article>
+	</category>
 	<category name="dev" title="Epsilon Developers">
 	  	<article name="epsilon-source-svn" title="Getting the source code of Epsilon">
 	  		<description>
