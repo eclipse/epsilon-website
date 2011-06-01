@@ -4,6 +4,6 @@ Below are the conventions used by the Epsilon committers to characterise reporte
  
 * New bug: Status -> New
 * Assigned bug: Status -> Assigned
-* Bug fixed in the SVN: Status -> Resolved/Fixed, Whiteboard -> svn
-* Bug fixed in an interim version: Status -> Resolved/Fixed, Whiteboard -> interim (the latter is optional)
+* Bug fixed in the SVN: Status -> Resolved/Fixed
+* Bug fixed in an interim version: Status -> Resolved/Fixed, Whiteboard -> interim
 * Bug fixed in a stable version: Status -> Closed/Fixed 
