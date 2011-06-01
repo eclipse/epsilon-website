@@ -1,9 +1,0 @@
-=Bugzilla Conventions=
- 
-Below are the conventions used by the Epsilon committers to characterise reported bugs according to their status.
- 
-* New bug: Status -> New
-* Assigned bug: Status -> Assigned
-* Bug fixed in the SVN: Status -> Resolved/Fixed
-* Bug fixed in an interim version: Status -> Resolved/Fixed, Whiteboard -> interim
-* Bug fixed in a stable version: Status -> Closed/Fixed 
