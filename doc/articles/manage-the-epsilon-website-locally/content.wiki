@@ -20,7 +20,6 @@ This article provides a step-by-step guide for obtaining a local copy of the Eps
 * Start XAMPP and go to `http://localhost/gmt/epsilon`
 * You are now ready to start playing with the Epsilon site locally
 * Once you've happy with the changes you've made, go back to the epsilon project in Eclipse, refresh and then commit the changes to the CVS. The site should be updated within a few minutes.
-Note: if the HTML output seems to be mixed with PHP code, make sure that `short_open_tag` is set to `On` in your `php.ini` file. It seems to be set to `Off` by default in the latest distributions of XAMPP and PHP.
  
 == Using lighttpd instead of XAMPP ==
 You can also use [[http://www.lighttpd.net/|lighttpd]] with PHP instead of XAMPP, following [[http://redmine.lighttpd.net/wiki/1/TutorialLighttpdAndPHP|this tutorial]] and pointing `server.document-root` to your `htdocs` directory, checked out as above. Alternatively, in most Debian-based GNU/Linux distributions, installing the `lighttpd` and `php5-cgi` packages and adapting this minimal configuration should be enough:
@@ -38,6 +37,11 @@ server.modules += ( "mod_cgi" )
 cgi.assign      = ( ".php" => "/path/to/php-cgi" )
 }}}
 
+If you use lighttpd in Windows, use Windows-style paths (`c:\...`) instead of Cygwin-style (`/cygdrive/c/...`) paths. Otherwise, PHP will not work correctly.  
+
+== Troubleshooting ==
+* The HTML output includes bits of PHP code: make sure that `short_open_tag` is set to `On` in your `php.ini` file. It seems to be set to `Off` by default in the latest distributions of XAMPP and PHP.
+* All you get is `No input file specified`: make sure that `doc_root` is set to the path to the `htdocs` folder in your `php.ini` file.
 == Finding broken links ==
 `wget` and `grep` can be used to find broken links in the Epsilon website. First, we will traverse the website using `wget` with this command:
 
