@@ -13,10 +13,10 @@ This article provides a step-by-step guide for obtaining a local copy of the Eps
  * Use check out as a project configured using the New Project Wizard
  * Check out as a general Project
  * Set the name to `epsilon` and the path to `htdocs/gmt/epsilon`
-* Similarly, check out `www/eclipse.org-common` to `/htdocs/eclipse.org-common`
 * Similarly, check out `www/gmt/news to` `/htdocs/gmt/news`
-* Similarly, check out `www/images to` `/htdocs/images`
-* Finally, check out `www/gmt/resources` to `/htdocs/gmt/resources`
+* Similarly, check out `www/gmt/resources` to `/htdocs/gmt/resources`
+* Similarly, check out `www/eclipse.org-common` to `/htdocs/eclipse.org-common`
+* Finally, check out `www/images to` `/htdocs/images`
 * Start XAMPP and go to `http://localhost/gmt/epsilon`
 * You are now ready to start playing with the Epsilon site locally
 * Once you've happy with the changes you've made, go back to the epsilon project in Eclipse, refresh and then commit the changes to the CVS. The site should be updated within a few minutes.
@@ -57,3 +57,5 @@ grep -B2 -w 404 wget_errors.txt
 }}}
 
 We will get a list of all the URLs which reported 404 (Not Found) HTTP error codes.
+
+To find broken links in the [[http://epsilonblog.wordpress.com|Epsilon blog]], it is better to use `-l 3` (3 levels of recursion for the spider) rather than `--no-parent`, as we might want to check if external links are broken as well. We use three levels so we can go to the month in the "Archives", then to the full article, and finally to the external link itself. 

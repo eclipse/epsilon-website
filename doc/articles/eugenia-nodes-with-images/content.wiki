@@ -5,7 +5,7 @@ This recipe shows how to create nodes in your GMF editor that are represented wi
 @namespace(uri="friends", prefix="")
 package friends;
 
-@gmf.diagram
+@gmf.diagram(foo="bar")
 class World {
     val Person[*] people;
 }
@@ -83,3 +83,5 @@ public class PluginActivator extends AbstractUIPlugin {
 The result looks like this:
 
 [[image:Friends.png]]
+
+For more details, please check the [[../../../examples/index.php?example=org.eclipse.epsilon.eugenia.examples.friends|full example]].

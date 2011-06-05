@@ -7,7 +7,7 @@ We've come across this situation many times and decided to do something about it
 @namespace(uri="classdiagram", prefix="classdiagram")
 package classdiagram;
 
-@gmf.diagram
+@gmf.diagram(foo="bar")
 class Model {
    val Clazz[*] classes;
 }
