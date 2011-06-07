@@ -231,7 +231,7 @@ class WikiTextToHTML {
 				switch(substr(ltrim($in), 0, 1)) {
 					case '#':
 						$liststate = LS_ORDERED;
-						$listdepth = strpos($in, '1');
+						$listdepth = strpos($in, '#');
 						break;
 					case '*':
 						$liststate = LS_UNORDERED;
