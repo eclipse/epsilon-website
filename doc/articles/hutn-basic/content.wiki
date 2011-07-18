@@ -27,7 +27,6 @@ families {
  
 
 ==HUTN Syntax==
- 
 We now briefly describe the HUTN syntax. We can specify an instance of Family using the following HUTN:
 
 {{{
@@ -40,7 +39,6 @@ Family {
 Note that multi-valued features can be specified using a comma separated list.
 
 ===Containment references===
-
 Containment references are specified by nesting model element definitions. For example, the following HUTN specifies two members, John and Jane of the Smiths:
 
 {{{
