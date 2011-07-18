@@ -118,6 +118,7 @@
 	  		This article summarises the similarities and differences between the Epsilon HUTN implementation and the OMG HUTN standard.
 	  		</description>
 	  	</article>
+	<category name="concordance" title="Concordance">
 	  	<article name="concordance-cross-references" title="Using Concordance to manage and reconcile cross-model references">
 	  		<description>
 	  		This article demonstrates how to use Concordance to automatically maintain the integrity of cross-model references.
