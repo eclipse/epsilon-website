@@ -52,6 +52,14 @@
 		<file name="builddocument.xml"/>
 		<file name="library.xml"/>
 	</example>
+	<example src="org.eclipse.epsilon.examples.plainxml.copyfromtemplate" title="Cloning and copying XML elements across documents with EOL" standalone="true">
+		<description>
+		<![CDATA[In this example, we use <a href="../doc/articles/plain-xml">the plain XML driver of Epsilon</a> to clone and copy XML elements across different documents with EOL.]]>
+		</description>
+		<file name="copyfromtemplate.eol"/>
+		<file name="templates.xml"/>
+		<file name="contacts.xml"/>
+	</example>
 	<example src="org.eclipse.epsilon.examples.clone" title="Cloning EMF model elements with EOL" standalone="true">
 		<description>
 		<![CDATA[In this example, we demonstrate how the EmfTool built-in tool can be used to perform deep-copy (cloning) of EMF model elements using EOL.]]>
