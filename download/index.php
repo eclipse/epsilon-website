@@ -17,7 +17,7 @@
 	$pageTitle 		= "Download";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	$version = "0.9.0";
+	$version = "0.9.1";
 
 	//$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-";
 	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/helios/SR2/eclipse-modeling-helios-SR2-incubation-";
