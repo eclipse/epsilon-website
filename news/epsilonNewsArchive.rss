@@ -6,6 +6,13 @@
     <description>Epsilon News</description>
 
    <item>
+		<title>Version 0.9.1 is now available</title>
+		<link>http://www.eclipse.org/gmt/epsilon/download/</link>
+		<description> Fixes 29 bugs.
+		</description>
+		<pubDate>Thu, 25 Jul 2011 12:23:00 CET</pubDate>
+	</item> 		
+   <item>
 		<title>Version 0.9.0 is now available</title>
 		<link>http://www.eclipse.org/gmt/epsilon/download/</link>
 		<description>
