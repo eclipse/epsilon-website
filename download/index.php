@@ -62,7 +62,7 @@
 		is not straightforward either. Until we get this sorted, please stick
 		to the Helios version (links for individual platforms are provided below).
 		<br/><br/>
-		<b>Update: </b> To manually install GMF in Indigo, you can use the following update site: <a href="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/">http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/</a>.
+		<b><a href="http://www.eclipse.org/forums/index.php/mv/msg/215445/697232/#msg_697232">Update:</a> </b> To manually install GMF in Indigo, you can use the following update site: <a href="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/">http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/</a>.
 		</div>
 		<br/>
 		
