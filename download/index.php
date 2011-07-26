@@ -82,9 +82,9 @@
 		<div class="greenbox"><h3>New Eclipse users</h3> <a href="../cinema/player.php?screencast=Installation">Click here</a> to watch a screencast that demonstrates how to install Epsilon on a fresh Eclipse Indigo Modelling distribution.
 		</div>
 		
-		<div class="bluebox" style="margin-top:20px"><h3>Experienced Eclipse users</h3> The update sites you will need are:
+		<div class="bluebox" style="margin-top:10px"><h3>Experienced Eclipse users</h3> The update sites you will need are:
 		<ul>
-			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmt/epsilon/updates/")?>
+			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/")?>
 			<li>Epsilon: <?=linkify("http://download.eclipse.org/modeling/gmt/epsilon/updates/")?>
 			<li>Emfatic: <?=linkify("http://www.scharf.gr/eclipse/emfatic/update/")?>
 		</ul>

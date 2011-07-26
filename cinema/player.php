@@ -42,12 +42,23 @@
 	<html>
 	<head>
 		<title>Screencast: <?=$screencast_title?></title>
+		<style>
+			.container {
+				width:<?=$width?>;
+				background-color:white;
+				border:1px solid #D9D9D9;
+				padding:20px;
+				-moz-border-radius: 15px;
+				-webkit-border-radius: 15px;
+				border-radius: 15px;
+			}
+		</style>
 	</head>
-	<body style="font-family:Arial, sans-serif; background-color: #EFEFEF; font-size:12px">
+	<body style="font-family:Arial, sans-serif; font-size:12px; background: #EFEFEF url('/eclipse.org-common/themes/Nova/images/bg.png') repeat-x scroll;">
 	<center>
-	<div style="width:<?=$width?>;background-color:white;border:1px solid #D9D9D9; padding:20px">
+	<div class="container">
 	<a href="."><img alt="Close" src="close-button.png" style="float:right"/></a>
-	<h1><?=$screencast_title?></h1>
+	<h1>Screencast: <?=$screencast_title?></h1>
 	<div align="left" style="padding-bottom:20px"><b>Plot:</b> <?=$screencast_description?></div>
 	<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" WIDTH="<?=$width?>" HEIGHT="<?=$height?>" CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=7,0,0,0">
 	<PARAM NAME=movie VALUE="<?=$screencast_name?>.swf">

@@ -36,8 +36,7 @@
 		foreach ($screencasts as $screencast) {
 		?>	
 		<div class="homeitem3col">
-			<div style="background-image:url('../images/paigeitem75.png')"><h3><a name="<?=$screencast["name"]?>" style="color:black;text-decoration:none">&nbsp;<?=$screencast["title"]?></a></h3></div>
-			<div style="position:relative;top:-4px;background-color:#FAFAFA;border-left:1px solid #D7D7D7;border-right:1px solid #D7D7D7;border-bottom:1px solid #D7D7D7">
+			<h3><a name="<?=$screencast["name"]?>" style="color:black;text-decoration:none">&nbsp;<?=$screencast["title"]?></a></h3>
 			<table>
 				<tr>
 					<td><a href="player.php?screencast=<?=$screencast["name"]?>"><img src="<?=$screencast["name"]?>.jpg"></img><img src="../images/play.png" style="position:relative;top:-110px;left:-240px"></a></td>
@@ -46,8 +45,8 @@
 					<td style="padding-left:5px;vertical-align:top"><p><b>Plot: </b><?=$screencast->description?></td>
 				</tr>
 			</table>
-			</div>
-			</div>
+
+		</div>
 		<?
 		}
 		?>

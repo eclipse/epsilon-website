@@ -3,7 +3,7 @@
 	<screencast name="Installation" title="Installing Epsilon" width="796" height="718">
 		<description> <![CDATA[This screencast demonstrates installing Epsilon, GMF and Emfatic on top of an Eclipse 3.7 (Indigo) Modelling distribution. The update sites you will need are: 
 		<ul>
-			<li>GMF Tooling: http://download.eclipse.org/modeling/gmt/epsilon/updates/
+			<li>GMF Tooling: http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/
 			<li>Epsilon: http://download.eclipse.org/modeling/gmt/epsilon/updates/
 			<li>Emfatic: http://www.scharf.gr/eclipse/emfatic/update/
 		</ul>]]>
