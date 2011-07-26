@@ -56,7 +56,7 @@
 		
 		<h2>Step 1: Download Eclipse</h2>
 		<div style="float:right"><img src="../images/modeling64.png"/></div>
-		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.6+</a> and Eclipse (including GMF and EMF) first. The Eclipse Indigo Modeling Tools distribution contains all the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
+		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.6+</a> and Eclipse (including GMF and EMF) first. The Eclipse Indigo Modeling Tools distribution contains most of the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
 		
 		<!--
 		<div class="warningbox"> <b>Important:</b> The latest version of the Eclipse Modeling 
@@ -79,7 +79,7 @@
 		
 		<h2>Step 2: Install Epsilon, GMF and Emfatic</h2>
 		
-		<div class="greenbox"><h3>New Eclipse users</h3> <a href="../cinema/player.php?screencast=Installation">Click here</a> to watch a screencast that demonstrates how to install Epsilon on a fresh Eclipse Indigo Modelling distribution.
+		<div class="bluebox"><h3>New Eclipse users</h3> <a href="../cinema/player.php?screencast=Installation">Click here</a> to watch a screencast that demonstrates how to install Epsilon on a fresh Eclipse Indigo Modelling distribution.
 		</div>
 		
 		<div class="bluebox" style="margin-top:10px"><h3>Experienced Eclipse users</h3> The update sites you will need are:
