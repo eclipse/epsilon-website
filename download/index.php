@@ -20,7 +20,8 @@
 	$version = "0.9.1";
 
 	//$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-";
-	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/helios/SR2/eclipse-modeling-helios-SR2-incubation-";
+	//$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/helios/SR2/eclipse-modeling-helios-SR2-incubation-";
+	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/indigo/R/eclipse-modeling-indigo-";
 	
 	$modelingToolsWin = $modelingTools."win32.zip";
 	$modelingToolsWin64 = $modelingTools."win32-x86_64.zip";
@@ -55,8 +56,9 @@
 		
 		<h2>Step 1: Download Eclipse</h2>
 		<div style="float:right"><img src="../images/modeling64.png"/></div>
-		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.5+</a> and Eclipse (including GMF and EMF) first. The Eclipse Helios Modeling Tools distribution contains all the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
+		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.6+</a> and Eclipse (including GMF and EMF) first. The Eclipse Indigo Modeling Tools distribution contains all the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
 		
+		<!--
 		<div class="warningbox"> <b>Important:</b> The latest version of the Eclipse Modeling 
 		Distribution (Indigo - 3.7) does not contain GMF and installing it manually
 		is not straightforward either. Until we get this sorted, please stick
@@ -65,6 +67,7 @@
 		<b><a href="http://www.eclipse.org/forums/index.php/mv/msg/215445/697232/#msg_697232">Update:</a> </b> To manually install GMF in Indigo, you can use the following update site: <a href="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/">http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/</a>.
 		</div>
 		<br/>
+		-->
 		
 		<ul>
 			<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a>
@@ -74,50 +77,35 @@
 			<li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a>
 		</ul>
 		
-		<h2>Step 2: Download Epsilon</h2>
-		<div style="float:right"><img src="http://dev.eclipse.org/huge_icons/actions/go-bottom.png"></div>
-		<div>Once you have installed Eclipse, there are three alternative options for installing Epsilon: you can install the binaries using the Eclipse Update Manager / P2, download and install the binaries manually, or work directly with the source code from the Eclipse SVN server.</div>
-		<div>
-		<br/><br/>
-
-		<ul>
+		<h2>Step 2: Install Epsilon, GMF and Emfatic</h2>
 		
-		<li>
-			<b>Eclipse Update Manager</b>:
-			You can use the following update sites and <a href="../doc/P2InstallationGuide.pdf">the instructions provided here</a> to install the Epsilon binaries through the Eclipse update manager.
-			This is the <b>recommended</b> option as it allows you to easily update to the latest version of Epsilon. 
-			
-			<br><br><b><font color="green">Stable update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">http://download.eclipse.org/modeling/gmt/epsilon/updates/</a> <br>
-			<br><b><font color="red">Interim update site </font>:</b> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">http://download.eclipse.org/modeling/gmt/epsilon/interim/</a> 
-			<br/><br/>
-			<!--div class="warningbox">
-			<b>Note:</b> If you're using the latest Eclipse distribution (Helios), please use the interim update site to install Epsilon, as the latest stable version is not compatible with Helios. This shall be fixed in the upcoming 0.9.0 stable release.
-			</div-->
-			<!--
-			<br><br> <b>Note:</b> It typically takes anything from 30mins to 2hrs from the time a new version is uploaded until
-			it becomes available for download. During that time you may encounter errors in the Update Manager so please allow some 
-			time and try again. If problems seem to persist please let us know by sending a message to the Epsilon forum.
-			
-			<br><br>-->
-		<li>
+		<div class="greenbox"><h3>New Eclipse users</h3> <a href="../cinema/player.php?screencast=Installation">Click here</a> to watch a screencast that demonstrates how to install Epsilon on a fresh Eclipse Indigo Modelling distribution.
+		</div>
+		
+		<div class="bluebox" style="margin-top:20px"><h3>Experienced Eclipse users</h3> The update sites you will need are:
+		<ul>
+			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmt/epsilon/updates/")?>
+			<li>Epsilon: <?=linkify("http://download.eclipse.org/modeling/gmt/epsilon/updates/")?>
+			<li>Emfatic: <?=linkify("http://www.scharf.gr/eclipse/emfatic/update/")?>
+		</ul>
+		The bleeding edge version of Epsilon is available in the interim update site
+		<ul>
+			<li><?=linkify("http://download.eclipse.org/modeling/gmt/epsilon/updates/")?>
+		</ul>
+		
 			<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Binaries</a>: 
 			A zip-file containing the features and plugins of Epsilon (please refer to the <i>Installing Epsilon Offline</i> section of the 
 			<a href="../doc/P2InstallationGuide.pdf">installation guide</a>
 			for instructions on how to install Epsilon from this zip-file).
 			<br><br>
-		<li>
+		
 			<a href="../doc/articles/epsilon-source-svn/">Source code</a>:
 			This article describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
 			
-			<br><br>SVN Repository: <b>http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/</b>
-			
-		</ul>
+			<br><br>SVN Repository: <b><?=linkify("http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/")?></b>	
 		
-		<hr class="clearer" />
 		</div>
-		<h2>Step 3 (optional): Download Emfatic</h2>
-		<div style="float:right"><img src="../images/download_optional.png"></div>
-		<div>The last (optional but <b>highly recommended</b>) step is to install <a href="http://wiki.eclipse.org/Emfatic">Emfatic</a>, a tool that provides a convenient textual notation for specifying Ecore metamodels. To install Emfatic you can use the following update site: <br/><br/><ul><li><b>http://www.scharf.gr/eclipse/emfatic/update/</b></ul></div>
+		
 	</div>
 		
 	<div id="rightcolumn">
@@ -168,4 +156,8 @@
 	$App->AddExtraHtmlHeader("<link href='../examples/SpryTabbedPanels.css' rel='stylesheet' type='text/css' />");
 	$App->AddExtraHtmlHeader("<link href='../epsilon.css' rel='stylesheet' type='text/css' />");
 	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+	
+	function linkify($str) {
+		return "<a href='".$str."'>".$str."</a>";
+	}
 ?>

@@ -40,7 +40,7 @@
 			<div style="position:relative;top:-4px;background-color:#FAFAFA;border-left:1px solid #D7D7D7;border-right:1px solid #D7D7D7;border-bottom:1px solid #D7D7D7">
 			<table>
 				<tr>
-					<td><a href="<?=$screencast["name"]?>.htm"><img src="<?=$screencast["name"]?>.jpg"></img><img src="../images/play.png" style="position:relative;top:-110px;left:-240px"></a></td>
+					<td><a href="player.php?screencast=<?=$screencast["name"]?>"><img src="<?=$screencast["name"]?>.jpg"></img><img src="../images/play.png" style="position:relative;top:-110px;left:-240px"></a></td>
 				</tr>
 				<tr>
 					<td style="padding-left:5px;vertical-align:top"><p><b>Plot: </b><?=$screencast->description?></td>
@@ -63,7 +63,7 @@
 		<?
 		foreach ($screencasts as $screencast) {
 		?>
-		<li><a href="#<?=$screencast["name"]?>"><?=$screencast["title"]?></a>
+		<li><a href="#<?=$screencast["name"]?>"><?=$screencast["title"]?></a> <a href="player.php?screencast=<?=$screencast["name"]?>">(play)</a>
 		<?}?>
 		</ul>
 		</div>

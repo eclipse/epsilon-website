@@ -9,3 +9,17 @@
 	padding:10px;
 	border:1px solid #D7D7D7
 }
+
+.greenbox  {
+	background-color1:rgb(210,231,145);
+	background-color:rgb(221, 240, 197);
+	padding:10px;
+	border:1px solid rgb(145,203,38);
+}
+
+.bluebox  {
+	background-color1:rgb(160,206,241);
+	background-color:rgb(213,230,255);
+	padding:10px;
+	border:1px solid rgb(79,154,219)
+}
