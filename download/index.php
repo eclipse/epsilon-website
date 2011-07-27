@@ -87,7 +87,7 @@
 		
 		<div class="bluebox"><h3>New Eclipse users</h3> 
 		<a href="../cinema/player.php?screencast=Installation">Click here</a> to watch a screencast that demonstrates installing Epsilon 
-		on a fresh copy of the Eclipse Indigo Modelling distribution.
+		on a fresh copy of the Eclipse Indigo Modelling distribution and running a "hello world" example.
 		</div>
 		
 		<div class="whitebox">
