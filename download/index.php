@@ -25,8 +25,8 @@
 	
 	$modelingToolsWin = $modelingTools."win32.zip";
 	$modelingToolsWin64 = $modelingTools."win32-x86_64.zip";
-	$modelingToolsMac = $modelingTools."macosx-carbon.tar.gz";
-	$modelingToolsMac64 = $modelingTools."macosx-carbon.tar-x86_64.gz";
+	$modelingToolsMac = $modelingTools."macosx-cocoa.tar.gz";
+	$modelingToolsMac64 = $modelingTools."macosx-cocoa-x86_64.tar.gz";
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 	
