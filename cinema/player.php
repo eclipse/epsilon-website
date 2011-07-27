@@ -57,7 +57,7 @@
 	<body style="font-family:Arial, sans-serif; font-size:12px; background: #EFEFEF url('/eclipse.org-common/themes/Nova/images/bg.png') repeat-x scroll;">
 	<center>
 	<div class="container">
-	<a href="."><img alt="Close" src="close-button.png" style="float:right"/></a>
+	<a href="javascript:history.go(-1)"><img alt="Close" src="close-button.png" style="float:right"/></a>
 	<h1>Screencast: <?=$screencast_title?></h1>
 	<div align="left" style="padding-bottom:20px"><b>Plot:</b> <?=$screencast_description?></div>
 	<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" WIDTH="<?=$width?>" HEIGHT="<?=$height?>" CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=7,0,0,0">

@@ -7,27 +7,23 @@
 .warningbox  {
 	background-color:#FFF6B5;
 	padding:10px;
-	border:1px solid #D7D7D7
+	border:1px solid #D7D7D7;
+	margin-top:10px
 }
 
-.greenbox  {
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	background-color1:rgb(210,231,145);
-	background-color:rgb(232, 231, 220);
+.whitebox  {
 	padding-bottom:10px;
 	padding-left:10px;
 	padding-right:10px;
-	border:1px solid rgb(192,190,179);
+	margin-top:10px
 }
 
 .bluebox  {
-	-moz-border-radius: 15px;
-	border-radius: 15px;
 	background-color1:rgb(160,206,241);
-	background-color:rgb(240, 237, 249);
+	background-color:rgb(207, 228, 155);
 	padding-bottom:10px;
 	padding-left:10px;
 	padding-right:10px;
-	border:1px solid rgb(215,215,215)
+	border:1px solid rgb(139,197,61);
+	margin-top:10px
 }

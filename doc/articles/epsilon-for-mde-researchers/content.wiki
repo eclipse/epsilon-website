@@ -1,0 +1,21 @@
+=Epsilon for MDE researchers=
+ 
+This article explains why we think it's a good idea to use Epsilon in your MDE research/PhD project.
+ 
+==It's open and extensible==
+Epsilon has been designed with extensibility as one of its primary concerns. Implementing a new language on top of the infrastructure provided by Epsilon will allow you to concentrate on your own novel features while getting most of the difficult and boring stuff (parsers, editors, debuggers) for free. Integrating Epsilon in your application is also straightforward as it provides a clean and tested Java API.
+ 
+==It's supported by an active community==
+Epsilon is being widely used and is supported by a very active community of researchers and practitioners. Don't take our word for it; visit the forum and browse through more than 2300 questions and answers that have been posted there so far.
+ 
+==There's documentation==
+There's plenty of documentation, including examples, articles, screencasts and a regularly updated free PDF book that discusses all the languages of Epsilon. No need to scavenge for outdated and incomplete documentation any more.
+ 
+==You can get on-site help==
+The developers of Epsilon are all members of the academic community and as such, we're always happy to arrange research visits to other institutions, deliver invited talks and help users get started with using Epsilon.
+ 
+==It's not going anywhere anytime soon==
+A major concern with some open-source software is that it's the work of a single person - often a PhD student - and as such there's no guarantee that the software will be maintained after the developer graduates / gets a job. By contrast, two of the main developers of Epsilon have been involved with the project for more than 5 years now and hold permanent academic positions - which ensures the continuity of the project for the foreseeable future.
+ 
+==It's mature software==
+Epsilon has been actively developed since 2006. So far, more than 250 bugs have been submitted and fixed - what's more, for every bug that we fix we add automated tests to our test suite (which currently consists of more than 1500 tests) so that we can preempt regressions. 

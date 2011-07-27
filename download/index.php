@@ -26,6 +26,7 @@
 	$modelingToolsWin = $modelingTools."win32.zip";
 	$modelingToolsWin64 = $modelingTools."win32-x86_64.zip";
 	$modelingToolsMac = $modelingTools."macosx-carbon.tar.gz";
+	$modelingToolsMac64 = $modelingTools."macosx-carbon.tar-x86_64.gz";
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 	
@@ -56,33 +57,41 @@
 		
 		<h2>Step 1: Download Eclipse</h2>
 		<div style="float:right"><img src="../images/modeling64.png"/></div>
-		<div>The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.6+</a> and Eclipse (including GMF and EMF) first. The Eclipse Indigo Modeling Tools distribution contains most of the necessary prerequisites for Epsilon and is available for the following platforms:</div><br/>
+		<div class="whitebox">The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.6+</a> and Eclipse (including GMF and EMF) first. The Eclipse Indigo Modeling Tools distribution contains most of the necessary prerequisites for Epsilon and is available for the following platforms:</div>
 		
-		<!--
-		<div class="warningbox"> <b>Important:</b> The latest version of the Eclipse Modeling 
-		Distribution (Indigo - 3.7) does not contain GMF and installing it manually
-		is not straightforward either. Until we get this sorted, please stick
-		to the Helios version (links for individual platforms are provided below).
-		<br/><br/>
-		<b><a href="http://www.eclipse.org/forums/index.php/mv/msg/215445/697232/#msg_697232">Update:</a> </b> To manually install GMF in Indigo, you can use the following update site: <a href="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/">http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/</a>.
-		</div>
-		<br/>
-		-->
-		
-		<ul>
-			<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a>
-			<li><a href="<?=$modelingToolsWin64?>" target="_blank">Windows 64bit</a>
-			<li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X</a>
-			<li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a>
-			<li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a>
-		</ul>
+		<table>
+			<tr>
+			<td>
+				<ul>
+					<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a>
+					<li><a href="<?=$modelingToolsWin64?>" target="_blank">Windows 64bit</a>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a>
+					<li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X 32bit</a>
+					<li><a href="<?=$modelingToolsMac64?>" target="_blank">Mac OS X 64bit</a>
+
+				</ul>
+			</td>
+			</tr>
+		</table>
 		
 		<h2>Step 2: Install Epsilon, GMF and Emfatic</h2>
 		
-		<div class="bluebox"><h3>New Eclipse users</h3> <a href="../cinema/player.php?screencast=Installation">Click here</a> to watch a screencast that demonstrates how to install Epsilon on a fresh Eclipse Indigo Modelling distribution.
+		<div class="bluebox"><h3>New Eclipse users</h3> 
+		<a href="../cinema/player.php?screencast=Installation">Click here</a> to watch a screencast that demonstrates installing Epsilon 
+		on a fresh copy of the Eclipse Indigo Modelling distribution.
 		</div>
 		
-		<div class="bluebox" style="margin-top:10px"><h3>Experienced Eclipse users</h3> The update sites you will need are:
+		<div class="whitebox">
+		<h3>Experienced Eclipse users</h3> The update sites you will need are:
 		<ul>
 			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/")?>
 			<li>Epsilon: <?=linkify("http://download.eclipse.org/modeling/gmt/epsilon/updates/")?>
@@ -94,9 +103,8 @@
 		</ul>
 		
 			<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Binaries</a>: 
-			A zip-file containing the features and plugins of Epsilon (please refer to the <i>Installing Epsilon Offline</i> section of the 
-			<a href="../doc/P2InstallationGuide.pdf">installation guide</a>
-			for instructions on how to install Epsilon from this zip-file).
+			A zip-file containing the features and plugins of Epsilon (you can use this to create a local update site or you can just
+			copy all the plugins and features to the dropins folder of your Eclipse installation).
 			<br><br>
 		
 			<a href="../doc/articles/epsilon-source-svn/">Source code</a>:
@@ -104,6 +112,13 @@
 			
 			<br><br>SVN Repository: <b><?=linkify("http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/")?></b>	
 		
+		</div>
+		
+		<div class="warningbox" style="margin-top:10px">
+		<b>Warning:</b> Epsilon can also be installed through the Eclipse Marketplace client, but unless you have manually
+		installed GMF from the update site provided above, Eugenia will not work as the Marketplace client will only
+		install a part of GMF. We're investigating this but until we've come up with a good solution, we recommend not using
+		this option to install Epsilon - particularly so if you plan to use Eugenia. 
 		</div>
 		
 	</div>
