@@ -151,7 +151,7 @@ Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further r
 * Bug fix: Internal exceptions are now reported to the user.
 
 ====Epsilon Wizard Language (EWL):====
-* Enhancement: EWL programs that are integrated with EMF and GMF editors can now operate on models that instantiate classes from more than one EPackage (See bug <a title="The bug report for the EWL enhancement" href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=335522" target="_blank">#335522</a>).
+* Enhancement: EWL programs that are integrated with EMF and GMF editors can now operate on models that instantiate classes from more than one EPackage. (See [[https://bugs.eclipse.org/bugs/show_bug.cgi?id=335522|#335522]] for details and usage instructions).
 
 ====Epsilon Flock:====
 * Enhancement: Support for re-use of migration logic between subtypes
