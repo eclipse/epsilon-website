@@ -123,12 +123,10 @@ EuGENia is an Epsilon tool for automatically generating graphical model editors 
 Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further reducing memory usage and execution times across all of the Epsilon languages and tools. Epsilon v0.9.1 provides incremental performance improvements to EOL Collection types, and to the assertion operations used in the Epsilon unit testing framework, EUnit.
 
 ==Complete list of changes in Epsilon v0.9.1==
-
 ====Epsilon Model Connectivity (EMC):====
 * Enhancement: Added re-usable CachedModel class to support memoization of all EMC drivers.
 * Enhancement: Most built-in drivers now support memoization to speed up model querying. EMC developers should refer to CachedModel for more details.
 * Bug fix: Standardised the way in which the EMF driver uses URIs.
-
 ====Epsilon Object Language (EOL):====
 * Enhancement: Support for map and real literals.
 * Enhancement: Return types from user-defined operations are now checked.
@@ -138,10 +136,8 @@ Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further r
 * Bug fix: Accessing an ambiguous metamodel type now issues a warning.
 * Bug fix: Different instances of an empty sequence no longer share extended properties.
 * Bug fix: The EOL editor now correctly syntax highlights multiline comments.
-
 ====Epsilon Validation Language (EVL):====
 * Bug fix: The EVL development tools no longer wait for the application of fixes when the EVL program contains no fixes.
-
 ====Epsilon Generation Language (EGL):====
 * Enhancement: Majority of the EGL book chapter has been updated.
 * Enhancement: Operations in EGL programs can now use static and dynamic output sections.
@@ -149,23 +145,18 @@ Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further r
 * Enhancement: Added support for provided custom text formatters and template factories.
 * Bug fix: EOL's built-in variables are now available for use in EGL programs.
 * Bug fix: Internal exceptions are now reported to the user.
-
 ====Epsilon Wizard Language (EWL):====
 * Enhancement: EWL programs that are integrated with EMF and GMF editors can now operate on models that instantiate classes from more than one EPackage. (See [[https://bugs.eclipse.org/bugs/show_bug.cgi?id=335522|#335522]] for details and usage instructions).
-
 ====Epsilon Flock:====
 * Enhancement: Support for re-use of migration logic between subtypes
 * Enhancement: Support for specifying feature values to ignore during automatic copying
-
 ====EUnit:====
 * Bug fix: Comparing large numbers no longer fails.
 * Bug fix: Arguments to assertion operations are no longer evaluated twice.
-
 ====EuGENia:====
 * Enhancement: support for generating RCP apps.
 * Enhancement: support for metamodels that extend Ecore.
 * Bug fix: fixed a race condition during code generation.
-
 ====Workflow:====
 * Bug fix: The EVL ANT task now respects the failOnWarnings property.
 * Bug fix: The storeModel ANT task no longer fails for some valid types of path.
