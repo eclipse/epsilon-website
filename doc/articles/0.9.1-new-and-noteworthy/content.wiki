@@ -34,6 +34,17 @@ To make it easier to navigate Epsilon programs, we've added support for jumping 
 
 We've also made some smaller improvements to the content assistance and syntax highlighting features of all of the Epsilon editors.
 
+==Enhancements to EUnit==
+EUnit, the unit testing framework for model management operations provided by Epsilon has been significantly enhanced in Epsilon v0.9.1. We've added many new features and improved existing functionality to EUnit, some of the highlights include:
+
+* A new, dedicated EUnit GUI, with a style that is consistent with Eclipse's JUnit GUI.
+* Several new types of assertion tailored for testing model management operations such as, `assertEqualModels` and `assertEqualFiles` for comparing models and files to expected values.
+* Data and model bindings for performing parameterised testing.
+* Exporting of JUnit-style reports for integration with JUnit tools, such as the Jenkins continuous integration server.
+* Support for extending EUnit for use with other model management languages, such as the Atlas Transformation Language (ATL).
+
+These are just a few of the most significant changes to EUnit. Much more detail can be found in the new EUnit chapter of the free [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon book]].
+
 ==Enhancements to Flock==
 Epsilon v0.9.1 also includes enhancements to the newest Epsilon language, Flock.
 
