@@ -1,5 +1,7 @@
 =New and Noteworthy in Epsilon v0.9.1=
-We've just released Epsilon v0.9.1, which contains many enhancements and new features, particularly to the core language (EOL), as well as the model-to-text (EGL) and model migration languages (Flock). Here's a summary of the changes.
+We've just released Epsilon v0.9.1, which contains many enhancements and new features, particularly to the core language (EOL), as well as the model-to-text (EGL) and model migration languages (Flock). We've also made significant improvements to the unit testing framework, EUnit. 
+
+Here's a summary of the changes.
 
 ==Enhancements to EOL==
 As ever, this release of Epsilon contributes several incremental improvements to the core language, EOL, and its development tools. The new features in EOL, are also available in all of the other Epsilon languages.
@@ -42,7 +44,6 @@ EUnit, the unit testing framework for model management operations provided by Ep
 * Data and model bindings for performing parameterised testing.
 * Exporting of JUnit-style reports for integration with JUnit tools, such as the Jenkins continuous integration server.
 * Support for extending EUnit for use with other model management languages, such as the Atlas Transformation Language (ATL).
-
 These are just a few of the most significant changes to EUnit. Much more detail can be found in the new EUnit chapter of the free [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon book]].
 
 ==Enhancements to Flock==
