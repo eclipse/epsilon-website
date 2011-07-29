@@ -1,11 +1,10 @@
 =New and Noteworthy in Epsilon v0.9.1=
-
 We've just released Epsilon v0.9.1, which contains many enhancements and new features, particularly to the core language (EOL), as well as the model-to-text and model migration languages (EGL) and (Flock). Here's a summary of the changes.
 
 ==Enhancements to EOL==
 As ever, this release of Epsilon contributes several incremental improvements to the core language, EOL.
 
-===More literals for built-in types===
+====More literals for built-in types====
 We've added support for more styles of literal values. For example, `Map`s can now be created using a more concise syntax. The following EOL v0.9.0 code:
 
 {{{
@@ -22,7 +21,6 @@ var m = Map {"a" = 1, "b" = 2, "c" = 3}
 }}}
 
 There's also support for different forms of literal for `Real`s (Java-like suffixes and exponents). See Section 3.4 of the free [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon Book]] for more details.
-
 
 ==Enhancements to Flock==
 Epsilon v0.9.1 also includes enhancements to the newest Epsilon language, Flock.
@@ -42,7 +40,7 @@ class Cat extends Animal {}
 class Dog extends Animal {}
 }}}
 
-===Re-using migration logic over subtypes===
+====Re-using migration logic over subtypes====
 In previous versions of Flock, zero or one migrate rules were executed for each model element in the original (unmigrated) model. Furthermore, migrate rules were applicable only for direct instances of the type specified by the rule. For example, in the following Flock migration strategy, the second and third rules would be applied for all instances of Dog and Cat, respectively. The first rule, however, would not be applied for instances of Dog and Cat, even though Dog and Cat are subtypes of Animal.
 
 {{{
@@ -98,7 +96,7 @@ migrate Dog {
 
 The most immediate benefit of these changes is that migration logic can be more easily shared between related metamodel types. For example, the migration logic specified for an Animal is also re-used for and applied to all subtypes, such as Cat and Dog.
 
-===Customising automatic copying behaviour with the ignoring keyword===
+====Customising automatic copying behaviour with the ignoring keyword====
 Flock automatically copies from original to migrated model elements any values that conform to both the source (original) and target (evolved) metamodel. In the majority of cases, this is precisely what is required during model migration.
 
 However, in some cases values need not be copied from source to target (perhaps they are going to be immediately overwritten). Flock v0.9.1 adds the `ignoring` keyword for specifying a set of features that should not be copied automatically. For example, the following rule will not automatically copy the values of the id and owner features of Animals. Note that the values for other features (such as name) will be automatically copied.
@@ -106,14 +104,12 @@ migrate Animal ignoring id, owner {
   // migration logic omitted
 }
 
-
 ==Enhancements to EGL==
 The model-to-text language of Epsilon, EGL, provides mechanisms for controlling the appearance and destination of generated text. In Epsilon v0.9.1, we have made it significantly easier to define custom formatters (for applying consistent formatting conventions to generated text) and custom template factories (for controlling the text generation process, including its eventual destination).
 
 The most noticeable result of these changes are that the EGL launch configuration settings and EGL ANT task now allow users to specify default values for formatters and template factories. For example, the screenshot below shows a new tab that has been added to the EGL launch configuration delegate.
 
 The [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon book]] chapter on EGL has been largely rewritten for this release, and includes much more detail on defining and using custom formatters and template factories.
-
 
 ==Enhancements to EuGENia==
 EuGENia is an Epsilon tool for automatically generating graphical model editors from metamodels. Currently, EuGENia targets the Graphical Modeling Framework (GMF). In Epsilon v0.9.1, we've added support to EuGENia for generating standalone ("RCP") Eclipse applications. This means that you don't need to have your users download and install Eclipse, GMF and the plugins of your graphical editor. Instead, you can build an all-in-one package, which contains everything that your users need to use your EuGENia-generated graphical editors.
@@ -123,12 +119,12 @@ Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further r
 
 ==Complete list of changes in Epsilon v0.9.1==
 
-===Epsilon Model Connectivity (EMC):===
+====Epsilon Model Connectivity (EMC):====
 * Enhancement: Added re-usable CachedModel class to support memoization of all EMC drivers.
 * Enhancement: Most built-in drivers now support memoization to speed up model querying. EMC developers should refer to CachedModel for more details.
 * Bug fix: Standardised the way in which the EMF driver uses URIs.
 
-===Epsilon Object Language (EOL):===
+====Epsilon Object Language (EOL):====
 * Enhancement: Support for map and real literals.
 * Enhancement: Return types from user-defined operations are now checked.
 * Enhancement: All EOL types now support the format(pattern : String) operation.
@@ -138,10 +134,10 @@ Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further r
 * Bug fix: Different instances of an empty sequence no longer share extended properties.
 * Bug fix: The EOL editor now correctly syntax highlights multiline comments.
 
-===Epsilon Validation Language (EVL):===
+====Epsilon Validation Language (EVL):====
 * Bug fix: The EVL development tools no longer wait for the application of fixes when the EVL program contains no fixes.
 
-===Epsilon Generation Language (EGL):===
+====Epsilon Generation Language (EGL):====
 * Enhancement: Majority of the EGL book chapter has been updated.
 * Enhancement: Operations in EGL programs can now use static and dynamic output sections.
 * Enhancement: Support for default text formatters.
@@ -149,22 +145,22 @@ Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further r
 * Bug fix: EOL's built-in variables are now available for use in EGL programs.
 * Bug fix: Internal exceptions are now reported to the user.
 
-===Epsilon Wizard Language (EWL):===
+====Epsilon Wizard Language (EWL):====
 * Enhancement: EWL programs that are integrated with EMF and GMF editors can now operate on models that instantiate classes from more than one EPackage (See bug <a title="The bug report for the EWL enhancement" href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=335522" target="_blank">#335522</a>).
 
-===Epsilon Flock:===
+====Epsilon Flock:====
 * Enhancement: Support for re-use of migration logic between subtypes
 * Enhancement: Support for specifying feature values to ignore during automatic copying
 
-===EUnit:===
+====EUnit:====
 * Bug fix: Comparing large numbers no longer fails.
 * Bug fix: Arguments to assertion operations are no longer evaluated twice.
 
-===EuGENia:===
+====EuGENia:====
 * Enhancement: support for generating RCP apps.
 * Enhancement: support for metamodels that extend Ecore.
 * Bug fix: fixed a race condition during code generation.
 
-===Workflow:===
+====Workflow:====
 * Bug fix: The EVL ANT task now respects the failOnWarnings property.
 * Bug fix: The storeModel ANT task no longer fails for some valid types of path.
