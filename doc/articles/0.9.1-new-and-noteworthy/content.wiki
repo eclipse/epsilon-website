@@ -117,7 +117,9 @@ The most noticeable result of these changes are that the EGL launch configuratio
 The [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon book]] chapter on EGL has been largely rewritten for this release, and includes much more detail on defining and using custom formatters and template factories.
 
 ==Enhancements to EuGENia==
-EuGENia is an Epsilon tool for automatically generating graphical model editors from metamodels. Currently, EuGENia targets the Graphical Modeling Framework (GMF). In Epsilon v0.9.1, we've added support to EuGENia for generating standalone ("RCP") Eclipse applications. This means that you don't need to have your users download and install Eclipse, GMF and the plugins of your graphical editor. Instead, you can build an all-in-one package, which contains everything that your users need to use your EuGENia-generated graphical editors.
+EuGENia is an Epsilon tool for automatically generating graphical model editors from metamodels. Currently, EuGENia targets the Graphical Modeling Framework (GMF).
+
+In Epsilon v0.9.1, we've added support to EuGENia for generating standalone ("RCP") Eclipse applications. This means that you don't need to have your users download and install Eclipse, GMF and the plugins of your graphical editor. Instead, you can build an all-in-one package, which contains everything that your users need to use your EuGENia-generated graphical editors. Simply add the `rcp="true"` annotation value to the `gmf.diagram` annotation, and the next time EuGENia is invoked, the generated code will contain an RCP application.
 
 ==General Performance Improvements==
 Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further reducing memory usage and execution times across all of the Epsilon languages and tools. Epsilon v0.9.1 provides incremental performance improvements to EOL Collection types, and to the assertion operations used in the Epsilon unit testing framework, EUnit.
