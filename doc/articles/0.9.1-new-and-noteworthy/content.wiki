@@ -23,7 +23,7 @@ var m = Map {"a" = 1, "b" = 2, "c" = 3}
 There's also support for different forms of literal for `Reals` (Java-like suffixes and exponents). See Section 3.4 of the free [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon Book]] for more details.
 
 ====Debugger====
-Epsilon v0.9.1 provides one of our most requested features: an interactive debugger for all of the Epsilon languages. The Epsilon debugger can be used to step through your program, while displaying the stack trace and the values of variables. Below is a screenshot of the debugger in action.
+Epsilon v0.9.1 includes an implementation of one of our most requested features: an interactive debugger for all of the Epsilon languages. The Epsilon debugger can be used to step through your program, while displaying the stack trace and the values of variables. Below is a screenshot of the debugger in action.
 
 [[image:debugger.png]]
 
