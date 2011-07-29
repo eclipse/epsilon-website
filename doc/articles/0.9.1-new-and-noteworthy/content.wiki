@@ -154,6 +154,8 @@ Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further r
 * Enhancement: Most built-in drivers now support memoization to speed up model querying. EMC developers should refer to CachedModel for more details.
 * Bug fix: Standardised the way in which the EMF driver uses URIs.
 ====Epsilon Object Language (EOL):====
+* Enhancement: Added an interactive debugger.
+* Enhancement: Added "open declaration" support for the EOL editor.
 * Enhancement: Support for map and real literals.
 * Enhancement: Return types from user-defined operations are now checked.
 * Enhancement: All EOL types now support the format(pattern : String) operation.
@@ -177,6 +179,10 @@ Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further r
 * Enhancement: Support for re-use of migration logic between subtypes
 * Enhancement: Support for specifying feature values to ignore during automatic copying
 ====EUnit:====
+* Enhancement: New book chapter on EUnit.
+* Enhancement: Added a JUnit-like GUI, and support for exporting JUnit style reports.
+* Enhancement: Several new assertions for comparing models, files and directories.
+* Enhancement: Support for parameteric testing via data and model bindings. 
 * Bug fix: Comparing large numbers no longer fails.
 * Bug fix: Arguments to assertion operations are no longer evaluated twice.
 ====EuGENia:====
