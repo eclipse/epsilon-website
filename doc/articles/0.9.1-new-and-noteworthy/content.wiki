@@ -1,11 +1,11 @@
 =New and Noteworthy in Epsilon v0.9.1=
-We've just released Epsilon v0.9.1, which contains many enhancements and new features, particularly to the core language (EOL), as well as the model-to-text and model migration languages (EGL) and (Flock). Here's a summary of the changes.
+We've just released Epsilon v0.9.1, which contains many enhancements and new features, particularly to the core language (EOL), as well as the model-to-text (EGL) and model migration languages (Flock). Here's a summary of the changes.
 
 ==Enhancements to EOL==
 As ever, this release of Epsilon contributes several incremental improvements to the core language, EOL.
 
 ====More literals for built-in types====
-We've added support for more styles of literal values. For example, `Map`s can now be created using a more concise syntax. The following EOL v0.9.0 code:
+We've added support for more styles of literal values. For example, `Maps` can now be created using a more concise syntax. The following EOL v0.9.0 code:
 
 {{{
 var m = new Map;
@@ -20,7 +20,7 @@ can now be written as:
 var m = Map {"a" = 1, "b" = 2, "c" = 3}
 }}}
 
-There's also support for different forms of literal for `Real`s (Java-like suffixes and exponents). See Section 3.4 of the free [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon Book]] for more details.
+There's also support for different forms of literal for `Reals` (Java-like suffixes and exponents). See Section 3.4 of the free [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon Book]] for more details.
 
 ==Enhancements to Flock==
 Epsilon v0.9.1 also includes enhancements to the newest Epsilon language, Flock.
@@ -100,14 +100,19 @@ The most immediate benefit of these changes is that migration logic can be more 
 Flock automatically copies from original to migrated model elements any values that conform to both the source (original) and target (evolved) metamodel. In the majority of cases, this is precisely what is required during model migration.
 
 However, in some cases values need not be copied from source to target (perhaps they are going to be immediately overwritten). Flock v0.9.1 adds the `ignoring` keyword for specifying a set of features that should not be copied automatically. For example, the following rule will not automatically copy the values of the id and owner features of Animals. Note that the values for other features (such as name) will be automatically copied.
+
+{{{
 migrate Animal ignoring id, owner {
   // migration logic omitted
 }
+}}}
 
 ==Enhancements to EGL==
 The model-to-text language of Epsilon, EGL, provides mechanisms for controlling the appearance and destination of generated text. In Epsilon v0.9.1, we have made it significantly easier to define custom formatters (for applying consistent formatting conventions to generated text) and custom template factories (for controlling the text generation process, including its eventual destination).
 
 The most noticeable result of these changes are that the EGL launch configuration settings and EGL ANT task now allow users to specify default values for formatters and template factories. For example, the screenshot below shows a new tab that has been added to the EGL launch configuration delegate.
+
+[[image:egl-generated-text-tab.png]]
 
 The [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon book]] chapter on EGL has been largely rewritten for this release, and includes much more detail on defining and using custom formatters and template factories.
 
