@@ -2,7 +2,7 @@
 We've just released Epsilon v0.9.1, which contains many enhancements and new features, particularly to the core language (EOL), as well as the model-to-text (EGL) and model migration languages (Flock). Here's a summary of the changes.
 
 ==Enhancements to EOL==
-As ever, this release of Epsilon contributes several incremental improvements to the core language, EOL.
+As ever, this release of Epsilon contributes several incremental improvements to the core language, EOL, and its development tools. The new features in EOL, are also available in all of the other Epsilon languages.
 
 ====More literals for built-in types====
 We've added support for more styles of literal values. For example, `Maps` can now be created using a more concise syntax. The following EOL v0.9.0 code:
@@ -21,6 +21,18 @@ var m = Map {"a" = 1, "b" = 2, "c" = 3}
 }}}
 
 There's also support for different forms of literal for `Reals` (Java-like suffixes and exponents). See Section 3.4 of the free [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon Book]] for more details.
+
+====Debugger====
+Epsilon v0.9.1 provides one of our most requested features: an interactive debugger for all of the Epsilon languages. The Epsilon debugger can be used to step through your program, while displaying the stack trace and the values of variables. Below is a screenshot of the debugger in action.
+
+[[image:debugger.png]]
+
+To invoke the debugger, ensure that a breakpoint is set somewhere in your Epsilon program (right-click a line in the editor and select Toggle Breakpoint), and then launch your program via Eclipse's Run > Debug menu. 
+
+====Improvements to the Editors====
+To make it easier to navigate Epsilon programs, we've added support for jumping to the declaration of an operation from an invocation. Simply hold down the control key (or command key on Mac OS X) while hovering over an operation invocation, and click the hyperlink that appears.
+
+We've also made some smaller improvements to the content assistance and syntax highlighting features of all of the Epsilon editors.
 
 ==Enhancements to Flock==
 Epsilon v0.9.1 also includes enhancements to the newest Epsilon language, Flock.
