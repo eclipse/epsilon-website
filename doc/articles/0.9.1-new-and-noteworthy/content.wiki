@@ -29,7 +29,7 @@ Epsilon v0.9.1 includes an implementation of one of our most requested features:
 
 [[image:debugger.png]]
 
-To invoke the debugger, ensure that a breakpoint is set somewhere in your Epsilon program (right-click a line in the editor and select Toggle Breakpoint), and then launch your program via Eclipse's Run > Debug menu. 
+To invoke the debugger, ensure that a breakpoint is set somewhere in your Epsilon program (right-click a line in the editor and select Toggle Breakpoint), and then launch your program via Eclipse's Run -> Debug menu. 
 
 ====Improvements to the Editors====
 To make it easier to navigate Epsilon programs, we've added support for jumping to the declaration of an operation from an invocation. Simply hold down the control key (or command key on Mac OS X) while hovering over an operation invocation, and click the hyperlink that appears.
