@@ -12,9 +12,9 @@
 		</description>	
 		<source>
 <![CDATA[
-var i : Integer := 5;
+var i : Integer = 5;
 if (i > 3) {
-    for (j in Sequence{1..i}) {
+    for (j in 1.to(i)) {
       j.print();
       if (hasMore) ','.print();
     }
@@ -27,21 +27,21 @@ if (i > 3) {
 		</description>	
 		<source>
 <![CDATA[
--- In this script, we query Ecore to find out:
+// In this script, we query Ecore to find out:
 
--- ... how many classes it has
-EClass.all.size().println('All classes: ');
+// ... how many classes it has
+EClass.all.size().println("All classes: ");
 
--- ... how many abstract classes it has
+// ... how many abstract classes it has
 EClass.all.select(c|c.abstract)
-    .size().println('Abstract classes: ');
+    .size().println("Abstract classes: ");
 
--- ... the names of its classes and how many 
--- features each one has
-'Class names: '.println();
+// ... the names of its classes and how many 
+// features each one has
+"Class names: ".println();
 for (c in EClass.all) {
-    var toPrint := ' ' + c.name;
-    toPrint := toPrint + '->' + 
+    var toPrint = " " + c.name;
+    toPrint = toPrint + "->" + 
         c.eStructuralFeatures.size();
 
     toPrint.println();
@@ -52,10 +52,10 @@ for (c in EClass.all) {
 		<![CDATA[This script defines and invokes an addHello() operation on strings.]]>
 		</description>	
 		<source><![CDATA[
-'John'.addHello().println();
+"John".addHello().println();
 
 operation String addHello() {
-    return 'Hello ' + self;
+    return "Hello " + self;
 }
 		]]></source>	
 	</script>
@@ -66,7 +66,7 @@ The script demonstrates defining a collection (sequence) and then filtering and 
 		]]>
 		</description>	
 		<source><![CDATA[
-var seq := Sequence{1..10};
+var seq = Sequence{1..10};
 
 seq.size().println();
 
@@ -94,10 +94,10 @@ for (i in Sequence{1..5}) {
 		<![CDATA[This script demonstrates deleting model elements.]]>
 		</description>	
 		<source><![CDATA[
-var randomClass := EClass.all.random();
-EClass.all.size().println('Before delete: ');
+var randomClass = EClass.all.random();
+EClass.all.size().println("Before delete: ");
 delete randomClass;
-EClass.all.size().println('After delete: ');
+EClass.all.size().println("After delete: ");
 		]]></source>	
 	</script>
 </scripts>

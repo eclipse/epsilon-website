@@ -32,7 +32,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 
 	<div id="midcolumn">
 		<?include('../noscript.html')?>
-		<iframe src="http://epsilon-live.appspot.com/embedded.html" frameborder="0" scrolling="no" style="width:520px;height:600px;border:0px"></iframe>
+		<iframe src="http://epsilon-live.appspot.com/embedded2.html" frameborder="0" scrolling="no" style="width:520px;height:600px;border:0px"></iframe>
 		<h3>Live Scripts</h3>
 			You can copy/paste any of the following scripts in the editor above, modify them if you want, and finally run them.<br/><br/>
 			<?
