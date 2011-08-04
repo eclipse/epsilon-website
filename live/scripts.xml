@@ -4,7 +4,7 @@
 		<description>
 		<![CDATA[The ubiquitous hello world script.]]>
 		</description>	
-		<source><![CDATA['Hello World'.println();]]></source>	
+		<source><![CDATA["Hello World".println();]]></source>	
 	</script>
 	<script title="Variables and Control Flow">
 		<description>
@@ -16,7 +16,7 @@ var i : Integer = 5;
 if (i > 3) {
     for (j in 1.to(i)) {
       j.print();
-      if (hasMore) ','.print();
+      if (hasMore) ",".print();
     }
 }
 ]]></source>
