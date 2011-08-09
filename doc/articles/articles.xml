@@ -126,6 +126,13 @@
 	  		</description>
 		</article>
 	</category>
+	<category name="releases" title="Release Notes">
+	  	<article name="0.9.1-new-and-noteworthy" title="New and Noteworthy in Epsilon v0.9.1">
+	  		<description>
+	  		Epsilon v0.9.1 included several major improvements to EUnit, Flock and the Epsilon development tools, as well as significant enhancements for EOL, EGL and EuGENia. This article provides a summary of the changes in Epsilon v0.9.1. 
+	  		</description>
+		</article>
+	</category>
 	<category name="tech-support" title="Technical Support">
 	  	<article name="minimal-examples" title="Constructing a helpful minimal example">
 	  		<description>
