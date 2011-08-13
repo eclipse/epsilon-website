@@ -20,8 +20,16 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../../common.php');
-	require_once 'wikitexttohtml.php';
+	include ("ArticleReader.php");
+	
+	//require_once 'wikitexttohtml.php';
 	$articleId =  $_GET['articleId'];
+	
+	$articleReader = new ArticleReader();
+	$article = $articleReader->readArticle($articleId);
+	$pageTitle = $article->getTitle();
+	
+	/*
 	$contentFile = $articleId.'/content.wiki';
 	
 	if (file_exists($contentFile)) {
@@ -37,28 +45,23 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			$pageTitle = substr($matches[0], 4, strlen($matches[0]) - 11);
 		}
 		$contentType = "html";
-	}
+	}*/
 	ob_start();
 ?>
 	<div id="midcolumn" style="width:753px">
 		
-		<?if(file_exists($contentFile)){?>
+		<?if($article){?>
 		<div class="sideitem" style="float:right; margin-left:30px; margin-bottom:30px; width:238px;">
 			<h6>Actions</h6>
 			<div class="modal">
-			<!--?=WikiTextToHTML::convertWikiTextToToc(file_get_contents($contentFile));?-->
 			<ul>
+				<li><a target="_blank" href="../print.php?articleId=<?=$articleId?>">Printer-friendly version</a>
 				<li><a href="../../../forum/">Get help with this article</a>
 				<li><a href="../">Back to the article index</a>
 			</ul>
 			</div>
 		</div>
-		<?if ($contentType == "wiki") {
-				echo WikiTextToHTML::convertWikiTextToHTML(file_get_contents($contentFile));
-			} else {
-				echo file_get_contents($contentFile);
-			}
-		?>
+		<?=$article->getContent()?>
 		<?}
 		else {?>
 		<div class="warningbox">
