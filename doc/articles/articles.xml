@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <articles>
 	<category name="eol" title="Epsilon Object Language">
-	  	<article name="eol-syntax-updates" title="EOL syntax updates" date="1313245064">
+	  	<article name="eol-syntax-updates" title="EOL syntax updates">
 	  		<description>
 	  		This article summarizes the changes introduced in 0.8.7 and 0.8.8 in the EOL concrete syntax. 
 	  		</description>
 	  	</article>
-	  	<article name="extended-properties" title="Extended Properties" date="1313244672">
+	  	<article name="extended-properties" title="Extended Properties">
 	  		<description>
 	  		This article demonstrates the extended properties mechanism in EOL (and by inheritance, in all languages in Epsilon).
 	  		</description>
@@ -25,7 +25,7 @@
 	  	</article>
 	</category>
 	<category name="egl" title="Epsilon Generation Language">
-	  	<article name="egl-template-operations" title="Using template operations in EGL" date="1313244892">
+	  	<article name="egl-template-operations" title="Using template operations in EGL">
 	  		<description>
 	  		This article demonstrates template operations for writing re-usable code in EGL (the model-to-text language of Epsilon).
 	  		</description>
@@ -127,7 +127,7 @@
 		</article>
 	</category>
 	<category name="releases" title="Release Notes">
-	  	<article name="0.9.1-new-and-noteworthy" title="New and Noteworthy in Epsilon v0.9.1">
+	  	<article name="0.9.1-new-and-noteworthy" title="New and Noteworthy in Epsilon v0.9.1" date="Sat, 13 Aug 2011 19:47:44 BST">
 	  		<description>
 	  		Epsilon v0.9.1 included several major improvements to EUnit, Flock and the Epsilon development tools, as well as significant enhancements for EOL, EGL and EuGENia. This article provides a summary of the changes in Epsilon v0.9.1. 
 	  		</description>

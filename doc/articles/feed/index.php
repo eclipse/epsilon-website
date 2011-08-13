@@ -23,7 +23,7 @@
 					$newsItem->setTitle($article->getTitle());
 					$newsItem->setLink("http://eclipse.org/gmt/epsilon/doc/articles/".$articleElement["name"]);
 					$newsItem->setDescription($article->getContent());
-					$newsItem->setDate(intval($articleElement["date"]));
+					$newsItem->setDate(strtotime($articleElement["date"]));
 					$feed->addItem($newsItem);
 				}
 			}

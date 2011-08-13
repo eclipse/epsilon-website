@@ -1,1 +1,1 @@
-<?=time()?>
+<?=strtotime("Sat, 13 Aug 2011 10:17:44 BST")?>
