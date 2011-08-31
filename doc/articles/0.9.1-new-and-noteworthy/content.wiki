@@ -176,13 +176,13 @@ Continuing our efforts from the v0.9.0 and v0.8.x releases, we've been further r
 ====Epsilon Wizard Language (EWL):====
 * Enhancement: EWL programs that are integrated with EMF and GMF editors can now operate on models that instantiate classes from more than one EPackage. (See [[https://bugs.eclipse.org/bugs/show_bug.cgi?id=335522|#335522]] for details and usage instructions).
 ====Epsilon Flock:====
-* Enhancement: Support for re-use of migration logic between subtypes
-* Enhancement: Support for specifying feature values to ignore during automatic copying
+* Enhancement: Support for re-use of migration logic between subtypes.
+* Enhancement: Support for specifying feature values to ignore during automatic copying.
 ====EUnit:====
 * Enhancement: New book chapter on EUnit.
 * Enhancement: Added a JUnit-like GUI, and support for exporting JUnit style reports.
 * Enhancement: Several new assertions for comparing models, files and directories.
-* Enhancement: Support for parameteric testing via data and model bindings. 
+* Enhancement: Support for parametric testing via data and model bindings. 
 * Bug fix: Comparing large numbers no longer fails.
 * Bug fix: Arguments to assertion operations are no longer evaluated twice.
 ====EuGENia:====
