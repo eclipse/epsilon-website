@@ -17,7 +17,6 @@
 	$pageTitle 		= "Download";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	$version = "0.9.1";
 
 	//$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-";
 	//$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/helios/SR2/eclipse-modeling-helios-SR2-incubation-";
@@ -30,17 +29,8 @@
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 	
-	$fixedbugsUrl = "https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&bug_status=VERIFIED&component=Epsilon&product=gmt&query_format=advanced&title=Bug%20List"."&ctype=atom";
-	$fixedbugs = simplexml_load_file($fixedbugsUrl)->entry;
-		
-	$bugtext = "";
-	if (count($fixedbugs) > 1) {
-		$bugtext = "The interim release contains fixes for <a href='$fixedbugsUrl'>".count($fixedbugs)." bugs</a> that have been reported after the last stable version was released.";
-	}
-	else {
-		$bugtext = "The interim release contains fixes for <a href='$fixedbugsUrl'> 1 bug</a> that has been reported after the last stable version was released.";
-	}
 	
+	require_once ('../Epsilon.php');
 	chdir('..');
 	include ('common.php');
 	include ('news/news.php');
@@ -94,15 +84,15 @@
 		<h3>Experienced Eclipse users</h3> The update sites you will need are:
 		<ul>
 			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/")?>
-			<li>Epsilon: <?=linkify("http://download.eclipse.org/modeling/gmt/epsilon/updates/")?>
+			<li>Epsilon: <?=linkify(Epsilon::getUpdateSite())?>
 			<li>Emfatic: <?=linkify("http://www.scharf.gr/eclipse/emfatic/update/")?>
 		</ul>
 		The bleeding edge version of Epsilon is available in the interim update site
 		<ul>
-			<li><?=linkify("http://download.eclipse.org/modeling/gmt/epsilon/updates/")?>
+			<li><?=linkify(Epsilon::getInterimUpdateSite())?>
 		</ul>
 		
-			<a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Binaries</a>: 
+			<a href="<?=Epsilon::getBinariesLocation()?>">Binaries</a>: 
 			A zip-file containing the features and plugins of Epsilon (you can use this to create a local update site or you can just
 			copy all the plugins and features to the dropins folder of your Eclipse installation).
 			<br><br>
@@ -110,7 +100,7 @@
 			<a href="../doc/articles/epsilon-source-svn/">Source code</a>:
 			This article describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
 			
-			<br><br>SVN Repository: <b><?=linkify("http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/")?></b>	
+			<br><br>SVN Repository: <b><?=linkify(Epsilon::getSVNLocation())?></b>	
 		
 		</div>
 		
@@ -138,9 +128,9 @@
 				</ul>
 				<li><a href="#">Download Epsilon</a>
 				<ul>
-				<li> <a href="http://download.eclipse.org/modeling/gmt/epsilon/updates/">Stable update site</a>
-				<li> <a href="http://download.eclipse.org/modeling/gmt/epsilon/interim/">Interim update site</a>
-				<li> <a href="http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_<?=$version?>_incubation.zip">Zipped binaries</a>
+				<li> <a href="<?=Epsilon::getUpdateSite()?>">Stable update site</a>
+				<li> <a href="<?=Epsilon::getInterimUpdateSite()?>">Interim update site</a>
+				<li> <a href="<?=Epsilon::getBinariesLocation()?>">Zipped binaries</a>
 				<li> <a href="../doc/articles/epsilon-source-svn/">Source code</a>
 				</ul>
 				<li><a href="#">Download Emfatic</a>

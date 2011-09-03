@@ -1,5 +1,6 @@
 <?
 	include("FeedWriter.php");
+	require_once("../../../Epsilon.php");
 	
 	chdir("..");
 	include("ArticleReader.php");
@@ -7,21 +8,21 @@
 		
 	$feed = new FeedWriter(RSS2);
 	$feed->setTitle("Epsilon Articles");
-	$feed->setLink("http://www.eclipse.org/gmt/epsilon/doc/articles/");
+	$feed->setLink(Epsilon::getAbsoluteLocation("doc/articles/"));
 	
 	$articleReader = new ArticleReader();
-	
+
 	foreach ($categories as $category) {
 		foreach ($category->article as $articleElement) {
 			
 			if ($articleElement["date"]) {
 			
-				$article = $articleReader->readArticle($articleElement["name"]);
+				$article = $articleReader->readArticle($articleElement["name"], true);
 				
 				if ($article) {
 					$newsItem = $feed->createNewItem();
 					$newsItem->setTitle($article->getTitle());
-					$newsItem->setLink("http://eclipse.org/gmt/epsilon/doc/articles/".$articleElement["name"]);
+					$newsItem->setLink(Epsilon::getAbsoluteLocation("doc/articles/").$articleElement["name"]);
 					$newsItem->setDescription($article->getContent());
 					$newsItem->setDate(strtotime($articleElement["date"]));
 					$feed->addItem($newsItem);
@@ -40,5 +41,5 @@
 		}
 	}
 	
+	echo $feed->genarateFeed();
 ?>
-<?=$feed->genarateFeed()?>

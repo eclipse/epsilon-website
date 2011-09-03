@@ -19,11 +19,13 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	$pageTitle 		= "The Epsilon Book";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-	include ('../../common.php');
+	require_once ('../../common.php');
 	include ('../../examples/SyntaxHighlight.php');
-	include ('../tools.php');
+	require ('../tools.php');
+	require_once ('../../Epsilon.php');
+	
 	ob_start();
-	$pdf = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/doc/org.eclipse.epsilon.book/EpsilonBook.pdf";
+	$pdf = Epsilon::getSVNLocation()."trunk/doc/org.eclipse.epsilon.book/EpsilonBook.pdf";
 ?>
 
 	<div id="midcolumn">
@@ -42,9 +44,6 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	
 	</div>
 
-	<div id="rightcolumn">
-		<?=seeAlsoSideItem()?>
-	</div>
 <?
 	include('../../stats.php');
 	$html = ob_get_contents();

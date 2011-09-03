@@ -1,9 +1,10 @@
 <?
 include("zipstream/phpHTMLParser.php");
+include("../Epsilon.php");
 require("zipstream/zipstream.php");
 
 $files = array();
-$examples = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples/";
+$examples = Epsilon::getSVNExamplesLocation();
 $example = $_REQUEST['example'];
 
 if (!isset($example)) die;

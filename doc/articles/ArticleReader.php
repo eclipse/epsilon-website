@@ -5,7 +5,7 @@ require_once 'wikitexttohtml.php';
 class ArticleReader {
 	
 	// Returns an Article
-	function readArticle($articleId) {
+	function readArticle($articleId, $absoluteLinks = false) {
 		$contentFile = $articleId.'/content.wiki';
 		$contentType = "wiki";
 		$content = "";
@@ -25,15 +25,17 @@ class ArticleReader {
 			$contentType = "html";
 		}
 		
-		if ($contentType == "wiki") {
-				$content = WikiTextToHTML::convertWikiTextToHTML(file_get_contents($contentFile));
-			} else {
-				$content = file_get_contents($contentFile);
-			}
+		$content = file_get_contents($contentFile);
 		
-		//Replace relative img src- a hrefs
-		$content=preg_replace('#(href|src)="([^:"]*)("|(?:(?:%20|\s|\+)[^"]*"))#','$1="http://eclipse.org/gmt/epsilon/doc/articles/'.$articleId.'/$2$3',$content);
-
+		if ($contentType == "wiki") {
+			$converter = new WikiTextToHTML();
+			$content = $converter->convertWikiTextToHTML($content);
+		}
+		
+		if ($absoluteLinks) {
+			//Replace relative img src- a hrefs
+			$content=preg_replace('#(href|src)="([^:"]*)("|(?:(?:%20|\s|\+)[^"]*"))#','$1="http://eclipse.org/gmt/epsilon/doc/articles/'.$articleId.'/$2$3',$content);
+		}
 		
 		$article = new Article();
 		$article->setTitle($title);

@@ -75,7 +75,7 @@
 	    <?foreach ($example->file as $file){?>
 			<div class="TabbedPanelsContent" style="font-family:Courier;height:520px;overflow:scroll">
 			<?
-				$url = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples/";
+				$url = Epsilon::getSVNExamplesLocation();
 				$url = $url.$example["src"];
 				$url = $url."/".$file["name"];
 			?>
@@ -100,7 +100,7 @@
 <?foreach ($example->metamodel as $file){?>
 			<div class="TabbedPanelsContent" style="font-family:Courier;height:520px;overflow:scroll">
 			<?
-				$url = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples/";
+				$url = Epsilon::getSVNExamplesLocation();
 				$url = $url."org.eclipse.epsilon.examples.metamodels";
 				$url = $url."/".$file["name"];
 				$content = '';
@@ -198,7 +198,7 @@
 	<div class="sideitem">
 		<h6>Even more examples...</h6>
 		<div class="modal">
-		<p> More examples are available in the <a href="https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/examples">examples</a> folder of 
+		<p> More examples are available in the <a href="<?=Epsilon::getSVNExamplesLocation()?>">examples</a> folder of 
 		the SVN repository.</p>
 		</div>
 	</div>

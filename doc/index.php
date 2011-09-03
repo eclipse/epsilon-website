@@ -18,7 +18,7 @@
 	$pageKeywords	= "";
 	$pageAuthor		= "Freddy Allilaire";
 	include ('../common.php');
-	include ('tools.php');
+	require ('tools.php');
 	ob_start();
 	?>
 

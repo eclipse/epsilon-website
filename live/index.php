@@ -20,6 +20,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../common.php');
+	require_once ("../Epsilon.php");
 	
 	# Create a parser and parse the examples.xml document.
 	include_once("../examples/SyntaxHighlight.php");
@@ -92,7 +93,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 		<!--div class="sideitem">
 			<h6>Feedback</h6>
 			<p>
-			This is one of the most recent features we've implemented and as such, there are probably a few bugs lurking in it. Should you find one, please consider <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon">filing a bug report</a>.
+			This is one of the most recent features we've implemented and as such, there are probably a few bugs lurking in it. Should you find one, please consider <a href="<?=Epsilon::getOpenBugLocation()?>">filing a bug report</a>.
 			</p>
 		</div-->
 </div>
