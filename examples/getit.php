@@ -5,7 +5,7 @@ require("zipstream/zipstream.php");
 
 $files = array();
 $examples = Epsilon::getSVNExamplesLocation();
-$example = $_REQUEST['example'];
+$example = strip_tags($_REQUEST['example']);
 
 if (!isset($example)) die;
 

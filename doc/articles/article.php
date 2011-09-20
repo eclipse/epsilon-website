@@ -23,7 +23,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	include ("ArticleReader.php");
 	
 	//require_once 'wikitexttohtml.php';
-	$articleId =  $_GET['articleId'];
+	$articleId =  strip_tags($_GET['articleId']);
 	
 	$articleReader = new ArticleReader();
 	$article = $articleReader->readArticle($articleId);

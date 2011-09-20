@@ -119,7 +119,7 @@
 		</div-->
 		
 		<div class="homeitem">
-			<?=r2h("Recent articles in the blog", "remote/blogrss.xml", array(' '))?>
+			<?=r2h("Recent articles", "http://www.eclipse.org/gmt/epsilon/doc/articles/feed/", array(' '))?>
 		</div>
 		
 		<?

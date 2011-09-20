@@ -21,7 +21,7 @@ function r2h($title, $feed, $posts, $heading=3, $limit = 5, $chopAt = 400) {
 				//if (trim($content) == "") {
 					$content = strip_tags($item->getOneChild("content:encoded")->childNodes[0]->data);
 					$more = " [...]";
-					if (trim($content) == "") { $content = $item->getOneChild("description")->childNodes[0]->data; }
+					if (trim($content) == "") { $content = strip_tags($item->getOneChild("description")->childNodes[0]->data); }
 
 					if (strlen($content) < $chopAt) {
 						$chopAt = strlen($content);

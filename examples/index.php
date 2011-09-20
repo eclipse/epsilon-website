@@ -24,7 +24,7 @@
 	# Create a parser and parse the examples.xml document.
 	$examples = simplexml_load_file("examples.xml")->example;
 	
-	$currentExampleName = $_REQUEST['example'];
+	$currentExampleName = strip_tags($_REQUEST['example']);
 	$example = null;
 	$exampleIndex = 0;
 	
