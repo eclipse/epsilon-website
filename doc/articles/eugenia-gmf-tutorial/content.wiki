@@ -52,75 +52,78 @@ Applies to the top `EPackage` only and denotes that GMF-related annotations are 
 
 ===gmf.diagram===
 Denotes the root object of the metamodel. Only one (non-abstract) `EClass` must be annotated as `gmf.diagram`. Accepts the following details
-* `onefile` (optional) : a value of `true` specifies that the domain model and the diagram should be stored in the same file
-* `model.extension` (optional) : the file extension for the domain model
 * `diagram.extension` (optional) : the file extension for the diagram file
+* `model.extension` (optional) : the file extension for the domain model
+* `onefile` (optional) : a value of `true` specifies that the domain model and the diagram should be stored in the same file
 * `units` (optional) : the units for the diagram (e.g. `Pixels`)
 
 ===gmf.node===
 Applies to an `EClass` and denotes that it should appear on the diagram as a node. Accepts the following details
-* `label` : the name(s) of the `EAttribute`(s) of the `EClass`, the value(s) of which will be displayed as the label of the node
-* `label.pattern` (optional): If more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. `{0} : {1}`)
+* `border.color` (optional) : an RGB color that will be set as the node's border color.
+* `border.style` (optional) : the style of the node's border. Can be set to `solid` (default), `dash` or `dot`.
+* `border.width` (optional) : an integer that specifies the width of the node's border.
+* `color` (optional) : an RGB color that will be set as the node's background color (e.g. `255,0,0`).
+* `figure` (optional) : The figure that will represent the node. Can be set to `rectangle`, `ellipse`, `rounded` (default), `svg` (see `svg.uri`), `polygon` (see `polygon.x` and `polygon.y`) or the fully qualified name of a Java class that implements Figure.
+* `label`: the name(s) of the `EAttribute`(s) of the `EClass`, the value(s) of which will be displayed as the label of the node. If `label.placement` is set to `none`, this detail is not required.
 * `label.icon` (optional): If set to `true` (default) a small icon appears on the left of the label.
-* `label.placement` (optional) : Defines the placement of the label in relation to the node. Can be set to `internal` or `external`. ''(The default distance of an external label in GMF is 20pt which is a bit too far away for my taste. [[../gmf-fix-label-offset/|Read more]] about fixing this without changing the generated code every time)''.
+* `label.pattern` (optional): If more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. `{0} : {1}`).
+* `label.placement` (optional) : Defines the placement of the label in relation to the node. Can be set to `internal`, `external` or `none` (no label will be shown). ''(The default distance of an external label in GMF is 20pt which is a bit too far away for my taste. [[../gmf-fix-label-offset/|Read more]] about fixing this without changing the generated code every time)''.
 * `label.readOnly` (optional) : A value of `true` denotes that the label cannot be changed in the generated diagram editor.
-* `figure` (optional) : The figure that will represent the node. Can be set to `rectangle`, `ellipse`, `rounded` (default), or the fully qualified name of a Java class that implements Figure
-* `color` (optional) : an RGB color that will be set as the node's background color (e.g. `255,0,0`)
-* `border.color` (optional) : an RGB color that will be set as the node's border color
-* `border.width` (optional) : an integer that specifies the width of the node's border
-* `border.style` (optional) : the style of the node's border. Can be set to `solid` (default), `dash` or `dot`
-* `phantom` (optional) : Defines if the node is phantom (`true`/`false`). Phantom nodes are particularly useful in order to visualize containment references using links instead of spatial containment ([[../eugenia-phantom-nodes|read more...]])
+* `phantom` (optional) : Defines if the node is phantom (`true`/`false`). Phantom nodes are particularly useful in order to visualize containment references using links instead of spatial containment ([[../eugenia-phantom-nodes|read more...]]).
+* `polygon.x` (when `figure` is set to `polygon`): list of space-separated integers with the X coordinates of the polygon used as figure. 
+* `polygon.y` (when `figure` is set to `polygon`): list of space-separated integers with the Y coordinates of the polygon used as figure. 
 * `size` (optional) : a GMF dimension that will be used as the node's preferred size (e.g. `10,5`). Width is specified before height.
-* `tool.name` (optional) : the name of the creation tool
-* `tool.description` (optional) : the description of the creation tool
-* `tool.small.path` (optional) : The path of the small icon of the creation tool
-* `tool.small.bundle` (optional) : The bundle of the small icon of the creation tool
-* `tool.large.path` (optional) : The path of the large icon of the creation tool
-* `tool.large.bundle` (optional) : The bundle of the large icon of the creation tool
+* `svg.uri` (when `figure` is set to `svg`): URI of the `.svg` file to be used as figure for the node. For instance `platform:/plugin/my.plugin/my.svg` will access the `my.svg` file in the `my.plugin` plugin loaded in the current workspace. Note: in Indigo, using SVG figures requires the experimental GMF components.
+* `tool.description` (optional) : the description of the creation tool.
+* `tool.large.bundle` (optional) : The bundle of the large icon of the creation tool.
+* `tool.large.path` (optional) : The path of the large icon of the creation tool.
+* `tool.name` (optional) : the name of the creation tool.
+* `tool.small.bundle` (optional) : The bundle of the small icon of the creation tool.
+* `tool.small.path` (optional) : The path of the small icon of the creation tool.
 
 ===gmf.link===
 Applies to `EClass`es that should appear on the diagram as links and to non-containment `EReference`s.
 
 ===gmf.link (for EClass)===
 It accepts the following details:
+* `color` (optional) : the RGB color of the link
+* `incoming` (optional) : Boolean value which specifies whether the generated editor should allow links to be created from target to source. Defaults to `false`.
 * `label` (optional) : The names of the `EAttribute`s of the `EClass` the value of which will be displayed as the label of the link
 * `label.pattern` (optional) : If more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. `{0} : {1}`)
 * `source` : The source non-containment `EReference` of the link
-* `target` : The target non-containment `EReference` of the link
 * `source.decoration` (optional) : The decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `square`, `filledsquare`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements an appropriate interface
-* `target.decoration` (optional) : As above.
-* `color` (optional) : the RGB color of the link
-* `width` (optional) : the width of the link
 * `style` (optional) : the style of the link (see `border.style` above)
-* `incoming` (optional) : Boolean value which specifies whether the generated editor should allow links to be created from target to source. Defaults to `false`.
-* `tool.name` (optional) : the name of the creation tool
+* `target` : The target non-containment `EReference` of the link
+* `target.decoration` (optional) : As above.
 * `tool.description` (optional) : the description of the creation tool
-* `tool.small.path` (optional) : The path of the small icon of the creation tool
-* `tool.small.bundle` (optional) : The bundle of the small icon of the creation tool
-* `tool.large.path` (optional) : The path of the large icon of the creation tool
 * `tool.large.bundle` (optional) : The bundle of the large icon of the creation tool
+* `tool.large.path` (optional) : The path of the large icon of the creation tool
+* `tool.name` (optional) : the name of the creation tool
+* `tool.small.bundle` (optional) : The bundle of the small icon of the creation tool
+* `tool.small.path` (optional) : The path of the small icon of the creation tool
+* `width` (optional) : the width of the link
 
 For an example see the `Sync` class in the `filesystem` metamodel
 
 ===gmf.link (for non-containment EReference)===
 It accepts the following details:
+* `color` (optional) : the RGB color of the link
 * `label` (optional) : The static text that will be displayed as the label of the link. If no label is specified, the name of the reference is displayed instead.
 * `source.decoration` (optional) : The decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `square`, `filledsquare`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements an appropriate interface
-* `target.decoration` (optional) : As above.
-* `color` (optional) : the RGB color of the link
-* `width` (optional) : the width of the link
 * `style` (optional) : the style of the link (see `border.style` above)
-* `tool.name` (optional) : the name of the creation tool
+* `target.decoration` (optional) : As above.
 * `tool.description` (optional) : the description of the creation tool
-* `tool.small.path` (optional) : The path of the small icon of the creation tool
-* `tool.small.bundle` (optional) : The bundle of the small icon of the creation tool
-* `tool.large.path` (optional) : The path of the large icon of the creation tool
 * `tool.large.bundle` (optional) : The bundle of the large icon of the creation tool
+* `tool.large.path` (optional) : The path of the large icon of the creation tool
+* `tool.name` (optional) : the name of the creation tool
+* `tool.small.bundle` (optional) : The bundle of the small icon of the creation tool
+* `tool.small.path` (optional) : The path of the small icon of the creation tool
+* `width` (optional) : the width of the link
 
 ===gmf.compartment (for containment EReference)===
 Defines that the containment reference will create a compartment where model elements that conform to the type of the reference can be placed. It accepts the following detail:
-* `layout` (optional) : The layout of the compartment. Can be set to free (default) or list
 * `collapsible` (optional) : Set to `false` to prevent the compartment from collapsing (default is `true`)
+* `layout` (optional) : The layout of the compartment. Can be set to free (default) or list
 
 ===gmf.affixed (for containment EReference)===
 Defines that the containment reference will create nodes which are affixed to the edges of the containing node. [[../eugenia-affixed-nodes|See an example]].
