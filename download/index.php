@@ -17,20 +17,46 @@
 	$pageTitle 		= "Download";
 	$pageKeywords	= "";
 	$pageAuthor		= "Dimitrios Kolovos";
-
-	//$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/galileo/SR1/eclipse-modeling-galileo-SR1-incubation-";
-	//$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/helios/SR2/eclipse-modeling-helios-SR2-incubation-";
-	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/indigo/R/eclipse-modeling-indigo-";
 	
-	$modelingToolsWin = $modelingTools."win32.zip";
-	$modelingToolsWin64 = $modelingTools."win32-x86_64.zip";
-	$modelingToolsMac = $modelingTools."macosx-cocoa.tar.gz";
-	$modelingToolsMac64 = $modelingTools."macosx-cocoa-x86_64.tar.gz";
-	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
-	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
+	function getVisitorPlatform() 
+	{ 
+	    $u_agent = $_SERVER['HTTP_USER_AGENT']; 
 	
+	    if (preg_match('/linux/i', $u_agent)) {
+	        return 'linux';
+	    }
+	    elseif (preg_match('/macintosh|mac os x/i', $u_agent)) {
+	        return 'mac';
+	    }
+	    elseif (preg_match('/windows|win32/i', $u_agent)) {
+	        return 'windows';
+	    }
+	    else {
+	    	return 'unknown';
+	    }
+	}
+	
+	function getStyle($os) {
+		$platform = getVisitorPlatform();
+		if ($platform == "unknown" || $platform==$os) {
+			return "";
+		}
+		else {
+			return "color:#C0C0C0";
+		}
+	}
 	
 	require_once ('../Epsilon.php');
+	
+	$downloadUrl = "http://www.epsilon-project.org/download.php?version=".Epsilon::getVersion()."&distribution=";
+	
+	$downloadWin = $downloadUrl."win32";
+	$downloadWin64 = $downloadUrl."win32-x86_64";
+	$downloadMac = $downloadUrl."macosx-cocoa";
+	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64";
+	$downloadLinux = $downloadUrl."linux-gtk";
+	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64";
+	
 	chdir('..');
 	include ('common.php');
 	include ('news/news.php');
@@ -43,106 +69,39 @@
 		
 		<h1><?=$pageTitle?></h1>
 		
-		To download and install Epsilon in your machine please follow the steps below:
+		<img style="float:right;padding:10px" src="http://dev.eclipse.org/huge_icons/mimetypes/package-x-generic.png"/>
+				
+		You can download a <b>ready-to-run</b> Eclipse distribution that includes the latest stable version of Epsilon (<?=Epsilon::getVersion()?>) and all its dependencies 
+		(EMF, Emfatic, GMF etc.) for your operating system using the links below.
 		
-		<h2>Step 1: Download Eclipse</h2>
-		<div style="float:right"><img src="../images/modeling64.png"/></div>
-		<div class="whitebox">The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install <a href="http://java.sun.com">Java 1.6+</a> and Eclipse (including GMF and EMF) first. The Eclipse Indigo Modeling Tools distribution contains most of the necessary prerequisites for Epsilon and is available for the following platforms:</div>
-		
-		<table>
-			<tr>
-			<td>
-				<ul>
-					<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a>
-					<li><a href="<?=$modelingToolsWin64?>" target="_blank">Windows 64bit</a>
-				</ul>
-			</td>
-			<td>
-				<ul>
-					<li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a>
-					<li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a>
-				</ul>
-			</td>
-			<td>
-				<ul>
-					<li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X 32bit</a>
-					<li><a href="<?=$modelingToolsMac64?>" target="_blank">Mac OS X 64bit</a>
+			<ul style="padding-top:10px">
+					<li><a href="<?=$downloadWin?>" style="<?=getStyle('windows')?>">Windows 32bit</a>
+					<li><a href="<?=$downloadWin64?>"  style="<?=getStyle('windows')?>">Windows 64bit</a>
+
+					<li><a href="<?=$downloadMac?>" style="<?=getStyle('mac')?>">Mac OS X 32bit</a>
+					<li><a href="<?=$downloadMac64?>" style="<?=getStyle('mac')?>">Mac OS X 64bit</a>
+					
+					<li><a href="<?=$downloadLinux?>" style="<?=getStyle('linux')?>">Linux 32bit</a>
+					<li><a href="<?=$downloadLinux64?>" style="<?=getStyle('linux')?>">Linux 64bit</a>
 
 				</ul>
-			</td>
-			</tr>
-		</table>
 		
-		<h2>Step 2: Install Epsilon, GMF and Emfatic</h2>
-		
-		<div class="bluebox"><h3>New Eclipse users</h3> 
-		<a href="../cinema/player.php?screencast=Installation">Click here</a> to watch a screencast that demonstrates installing Epsilon 
-		on a fresh copy of the Eclipse Indigo Modelling distribution and running a "hello world" example.
-		</div>
-		
-		<div class="whitebox">
-		<h3>Experienced Eclipse users</h3> The update sites you will need are:
-		<ul>
-			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/")?>
-			<li>Epsilon: <?=linkify(Epsilon::getUpdateSite())?>
-			<li>Emfatic: <?=linkify("http://www.scharf.gr/eclipse/emfatic/update/")?>
-		</ul>
-		The bleeding edge version of Epsilon is available in the interim update site
-		<ul>
-			<li><?=linkify(Epsilon::getInterimUpdateSite())?>
-		</ul>
-		
-			<a href="<?=Epsilon::getBinariesLocation()?>">Binaries</a>: 
-			A zip-file containing the features and plugins of Epsilon (you can use this to create a local update site or you can just
-			copy all the plugins and features to the dropins folder of your Eclipse installation).
-			<br><br>
-		
-			<a href="../doc/articles/epsilon-source-svn/">Source code</a>:
-			This article describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
-			
-			<br><br>SVN Repository: <b><?=linkify(Epsilon::getSVNLocation())?></b>	
-		
-		</div>
-		
-		<div class="warningbox" style="margin-top:10px">
-		<b>Warning:</b> Epsilon can also be installed through the Eclipse Marketplace client, but unless you have manually
-		installed GMF from the update site provided above, Eugenia will not work as the Marketplace client will only
-		install a part of GMF. We're investigating this but until we've come up with a good solution, we recommend not using
-		this option to install Epsilon - particularly so if you plan to use Eugenia. 
-		</div>
-		
+		Alternatively, you can <a href="manual.php">install Epsilon manually on top of an existing Eclipse distribution</a>.
 	</div>
 		
 	<div id="rightcolumn">
-		<div class="sideitem">
-			<h6>Quick Links</h6>
-			<div class="modal">
-			<ul>
-				<li><a href="#">Download Eclipse</a>
-				<ul>
-				<li><a href="<?=$modelingToolsWin?>" target="_blank">Windows 32bit</a>
-				<li><a href="<?=$modelingToolsWin64?>" target="_blank">Windows 64bit</a>
-				<li><a href="<?=$modelingToolsMac?>" target="_blank">Mac OS X</a>
-				<li><a href="<?=$modelingToolsLinux?>" target="_blank">Linux 32bit</a>
-				<li><a href="<?=$modelingToolsLinux64?>" target="_blank">Linux 64bit</a>
-				</ul>
-				<li><a href="#">Download Epsilon</a>
-				<ul>
-				<li> <a href="<?=Epsilon::getUpdateSite()?>">Stable update site</a>
-				<li> <a href="<?=Epsilon::getInterimUpdateSite()?>">Interim update site</a>
-				<li> <a href="<?=Epsilon::getBinariesLocation()?>">Zipped binaries</a>
-				<li> <a href="../doc/articles/epsilon-source-svn/">Source code</a>
-				</ul>
-				<li><a href="#">Download Emfatic</a>
-					<ul>
-						<li><a href="http://www.scharf.gr/eclipse/emfatic/update/">Emfatic update site</a>
-					</ul>
-			</ul>
-			</div>
-		</div>
 		
 		<div class="sideitem">
 			<?=r2h("Updates", "../news/epsilonNewsArchive.rss", array(' '), 6, 5, 2000)?>
+		</div>
+		
+		<div class="sideitem">
+			<h6>Kudos</h6>
+			<div class="modal">
+			The pre-bundled distributions of Epsilon offered in this page are stored in web-space provided
+			by the <a href="http://www.cs.york.ac.uk">Department of Computer Science</a> 
+			of the <a href="http://www.york.ac.uk">University of York</a>.
+			</div>
 		</div>
 		
 	</div>
