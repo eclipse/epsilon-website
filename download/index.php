@@ -86,7 +86,7 @@
 
 				</ul>
 		
-		Alternatively, you can <a href="manual.php">install Epsilon manually on top of an existing Eclipse distribution</a>.
+		Alternatively, you can <a href="manual.php">install Epsilon manually on top of an existing Eclipse instance</a>.
 	</div>
 		
 	<div id="rightcolumn">
