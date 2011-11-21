@@ -32,16 +32,16 @@ Consider the class diagram below.
 The Office Management System (OMS) is used to manage the rooms available to a company. It keeps track of who is assigned to occupy a room, along with their position in the company. It facilitates providing newly hired employees with offices, and assists employees who are to move from one office to another. Employees have positions, an office (offices are never shared), and know when they started work at the company and when they ended their employment. The OMS keeps track of all employees and rooms. Rooms are either occupied or unoccupied. 
 <br/>
 With the OMS, it is possible to:
-<ul>
+<ol>
 <li>hire a new employee and assign them to a room
 <li>fire an employee and remove them from their office
 <li>move an employee from one room to another, unoccupied room
 <li>calculate the set of rooms that are unoccupied (useful for planning)
-</ul>
+</ol>
 With this scenario in mind you need to do the following:
 <ul>
 <li>Write an Ecore metamodel for the system above
-<li>Write the body of the following EOL operations that implement 1-4
+<li>Write the body of the following EOL operations that implement 1-4 above
 <ol>
 <li>operation Employee hire() { ... }
 <li>operation Employee fire() { ... }
