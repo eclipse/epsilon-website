@@ -126,6 +126,13 @@
 	  		</description>
 		</article>
 	</category>
+	<category name="teaching" title="Teaching Material">
+	  	<article name="exercises" title="MDE Exercises" date="Sat, 13 Aug 2011 19:47:44 BST">
+	  		<description>
+	  		This article provides a number of exercises which enable you to test your knowledge on MDE, EMF and Epsilon.
+	  		</description>
+		</article>
+	</category>
 	<category name="releases" title="Release Notes">
 	  	<article name="0.9.1-new-and-noteworthy" title="New and Noteworthy in Epsilon v0.9.1" date="Sat, 13 Aug 2011 19:47:44 BST">
 	  		<description>

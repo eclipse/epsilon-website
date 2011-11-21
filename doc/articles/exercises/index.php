@@ -1,0 +1,4 @@
+<?
+include ("../redirect.php");
+redirect();
+?>

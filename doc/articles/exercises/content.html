@@ -1,0 +1,54 @@
+<h1>MDE Exercises</h1>
+ 
+This article provides a number of exercises which enable you to test your knowledge on MDE, EMF and Epsilon.
+<h2>Exercise 1</h2>
+ 
+Create Ecore metamodels and exemplar models for the following scenarios:
+<ol>
+<li> All school rooms have a buzzer triggered by a central clock to signal the end of the school day.
+<li> Political parties, such as the Labour Party, the Conservative party, and the Liberal Democrat party, have both voters and supporters.
+<li> An undirected graph consists of a set of vertices and a set of edges. Edges connect pairs of vertices.
+<li> A football league has a set of teams, where each team has a manager and a set of players. A player is a forward, defender, or goalkeeper. The manager cannot be a player.
+<li> A student is awarded a prize. Each prize is donated by at least one sponsor, e.g., IBM. A prize may be jointly awarded. Each student must write a letter thanking the sponsors of their prize
+</ol>
+
+<h2>Exercise 2</h2>
+Consider the class diagram below.
+
+<img src="Exercise2classdiagram.png">
+
+<ul>
+<li>Rewrite the class diagram above as an Ecore metamodel and create a sample model that conforms to it
+<li>Write the following EVL constraints
+<ol>
+<li>In the context of class Student, write a constraint stating that a student takes up to 6 modules
+<li>In the context of class Grade, write a constraint stating that the mark must always be non-negative.
+<li>In the context of Module, write a constraint stating that every student must have a unique name.
+<li>In the context of Student, write a constraint that states that the grades for the modules taken by a student must be identical to the grades that the student knows about directly
+</ol>
+</ul>
+
+<h2>Exercise 3</h2>
+The Office Management System (OMS) is used to manage the rooms available to a company. It keeps track of who is assigned to occupy a room, along with their position in the company. It facilitates providing newly hired employees with offices, and assists employees who are to move from one office to another. Employees have positions, an office (offices are never shared), and know when they started work at the company and when they ended their employment. The OMS keeps track of all employees and rooms. Rooms are either occupied or unoccupied. 
+<br/>
+With the OMS, it is possible to:
+<ul>
+<li>hire a new employee and assign them to a room
+<li>fire an employee and remove them from their office
+<li>move an employee from one room to another, unoccupied room
+<li>calculate the set of rooms that are unoccupied (useful for planning)
+</ul>
+With this scenario in mind you need to do the following:
+<ul>
+<li>Write an Ecore metamodel for the system above
+<li>Write the body of the following EOL operations that implement 1-4
+<ol>
+<li>operation Employee hire() { ... }
+<li>operation Employee fire() { ... }
+<li>operation Employee move(to:Room) { ... }
+<li>operation Company getFreeRooms() : Sequence(Room) { ... }
+</ol>
+</ul>
+
+<h2>Exercise 4</h2>
+Create GMF editors for the metamodels you have written in Exercises 1,2 and 3 using EuGENia.
