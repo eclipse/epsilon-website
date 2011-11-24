@@ -85,6 +85,7 @@ b.title = "On the Criteria To Be Used in Decomposing Systems into Modules"
 
 Note that the current version of the BibTeX driver does not support saving changes to disk. Any changes made to properties are volatile (and persist only during the duration of the Epsilon program's execution).
 
+
 ==Adding a BibTeX file to your launch configuration==
 To add a BibTeX file to your Epsilon launch configuration, you need to select "Show all model types" and then choose "BibTeX model" from the list of available model types.
 
@@ -93,6 +94,7 @@ To add a BibTeX file to your Epsilon launch configuration, you need to select "S
 Then you can configure the details of your BibTeX (name, file etc.) in the screen that pops up. 
 
 [[image:configure.png]]
+
 
 ==Unsupported features==
 The current version of the BibTeX driver for Epsilon is not yet a complete implementation. In particular, the following features are not yet supported:
