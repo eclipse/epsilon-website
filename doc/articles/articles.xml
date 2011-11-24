@@ -58,10 +58,15 @@
 	  		</description>
 	  	</article>
 	</category>
-	<category name="xml" title="Epsilon and XML">
+	<category name="xml" title="Epsilon and XML, CSV or BibTeX">
 		<article name="plain-xml" title="Scripting XML documents using Epsilon">
 	  		<description>
 	  		In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver.
+	  		</description>
+	  	</article>
+	  	<article name="bibtex" title="Scripting BibTeX files using Epsilon">
+	  		<description>
+	  		In this article we demonstrate how you can query a list of references stored in BibTeX files with Epsilon programs using the BibTeX driver.
 	  		</description>
 	  	</article>
 	</category>
