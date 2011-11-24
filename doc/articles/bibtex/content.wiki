@@ -34,9 +34,7 @@ We use the following `eclipse.bib` as a base for demonstrating the EOL syntax fo
 }
 }}}
 
-
 ==How can I access all publications?==
-
 Presuming that we have specified the name `MyPubs` when loading the BibTeX file as a model, the `allContents` method can be used to access all of the entries in the BibTeX file: 
 
 {{{
@@ -46,8 +44,7 @@ var publications = MyPubs.allContents();
 
 
 ==How can I access a publication?==
- 
-Publications (entries) in a BibTeX file can be accessed by type:
+ Publications (entries) in a BibTeX file can be accessed by type:
 
 {{{
 // Get all @book elements
@@ -61,7 +58,6 @@ Note that the BibTeX driver recognises only those types defined in your BibTeX f
 
 
 ==How can I access and change the properties of a particular publication?==
-
 Properties are accessed via the dot notation:
 
 {{{
@@ -90,7 +86,6 @@ b.title = "On the Criteria To Be Used in Decomposing Systems into Modules"
 Note that the current version of the BibTeX driver does not support saving changes to disk. Any changes made to properties are volatile (and persist only during the duration of the Epsilon program's execution).
 
 ==Adding a BibTeX file to your launch configuration==
- 
 To add a BibTeX file to your Epsilon launch configuration, you need to select "Show all model types" and then choose "BibTeX model" from the list of available model types.
 
 [[image:select.png]]
@@ -99,9 +94,7 @@ Then you can configure the details of your BibTeX (name, file etc.) in the scree
 
 [[image:configure.png]]
 
-
 ==Unsupported features==
-
 The current version of the BibTeX driver for Epsilon is not yet a complete implementation. In particular, the following features are not yet supported:
 
 * Storing changes to BibTeX models to disk.
