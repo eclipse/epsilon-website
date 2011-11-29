@@ -83,7 +83,7 @@
 		<div class="whitebox">
 		<h3>Experienced Eclipse users</h3> The update sites you will need are:
 		<ul>
-			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/dev-snapshots/")?>
+			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/")?>
 			<li>Epsilon: <?=linkify(Epsilon::getUpdateSite())?>
 			<li>Emfatic: <?=linkify("http://www.scharf.gr/eclipse/emfatic/update/")?>
 		</ul>
