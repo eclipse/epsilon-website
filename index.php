@@ -133,10 +133,14 @@
 
 		<div class="sideitem">
 			<center>
+				<!--
 				<script type="text/javascript">
 		          url_site = 'http://marketplace.eclipse.org/node/400'
 		        </script>
-		        <script src="http://marketplace.eclipse.org/sites/all/modules/drigg_external/js/button.js" type="text/javascript"></script>
+		        <script src="http://marketplace.eclipse.org/sites/all/modules/drigg_external/js/button.js" type="text/javascript"></script>-->
+		        <a href="forum">
+		        <img src="resources/forum-messages.png"/>
+		        </a>
 			</center>
 		</div>
 		
