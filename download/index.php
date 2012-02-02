@@ -42,12 +42,15 @@
 	<div id="midcolumn">
 		
 		<h1><?=$pageTitle?></h1>
-
+		<!--
 		<div class="bluebox"><h3>Ready to use Epsilon distributions</h3> 
 		<a href="http://www.epsilon-project.org/download/index.php?version=<?=Epsilon::getVersion()?>">Click here</a> to download ready to use Eclipse distributions containing EMF, GMF, Epsilon and Emfatic. Please note that these distributions are not hosted under eclipse.org and contain a fork of Emfatic that has not been IP-checked.
 		</div>
 		<br/>
 		If on the other hand you prefer to download and install Epsilon manually please follow the steps below:
+		-->
+		
+		To download and install Epsilon please follow the steps below:
 		
 		<h2>Step 1: Download Eclipse</h2>
 		<div style="float:right"><img src="../images/modeling64.png"/></div>
