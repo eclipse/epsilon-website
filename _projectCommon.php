@@ -51,10 +51,10 @@ EOBRANDING;
 	$Nav->addCustomNav("Spread the word", Epsilon::getRelativeLocation("spreadtheword"), "_self", 1);
 	$Nav->addCustomNav("Wiki", "http://wiki.eclipse.org/Epsilon", "_self", 1);
 	$Nav->addNavSeparator("Bugzilla", "#");
-		$Nav->addCustomNav("Report a new bug", "https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon", "_self", 1);
-	$Nav->addCustomNav("View open bugs", "https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED", "_self", 1);
+		$Nav->addCustomNav("Report a new bug", "https://bugs.eclipse.org/bugs/enter_bug.cgi?product=EMFT.Epsilon", "_self", 1);
+	$Nav->addCustomNav("View open bugs", "https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED", "_self", 1);
 	$Nav->addCustomNav("View resolved bugs", Epsilon::getRelativeLocation("doc/articles/resolved-bugs"), "_self", 1);
-	$Nav->addCustomNav("View all bugs", "https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time", "_self", 1);
+	$Nav->addCustomNav("View all bugs", "https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time", "_self", 1);
 	
 	$App->SetGoogleAnalyticsTrackingCode("UA-1498421-2");
 	

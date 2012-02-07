@@ -1,9 +1,9 @@
 =Resolved Bugs=
  
 There are three types of resolved bugs in Epsilon.
-# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=notequals;value0-0-0=interim;component=Epsilon|Bugs that have been fixed in the SVN, but have not been yet integrated in an interim version]]
-# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=equals;value0-0-0=interim;component=Epsilon|Bugs that have been fixed in the SVN and in the latest interim version but have not been yet integrated in the latest stable version]]
-# [[https://bugs.eclipse.org/bugs/buglist.cgi?product=gmt&component=Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=CLOSED|Bugs that have been fixed in the latest stable version]]
+# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=notequals;value0-0-0=interim;product=EMFT.Epsilon|Bugs that have been fixed in the SVN, but have not been yet integrated in an interim version]]
+# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=equals;value0-0-0=interim;product=EMFT.Epsilon|Bugs that have been fixed in the SVN and in the latest interim version but have not been yet integrated in the latest stable version]]
+# [[https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=CLOSED|Bugs that have been fixed in the latest stable version]]
 
 ==Bugzilla Conventions==
  
