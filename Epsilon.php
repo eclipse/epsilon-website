@@ -2,11 +2,11 @@
 class Epsilon {
 	
 	static function getProjectId() {
-		return "modeling.gmt.epsilon";
+		return "modeling.emft.epsilon";
 	}
 	
 	static function getRelativeLocation($path) {
-		return "/gmt/epsilon/".$path;
+		return "/epsilon/".$path;
 	}
 	
 	static function getAbsoluteLocation($path) {
@@ -30,7 +30,7 @@ class Epsilon {
 	}
 	
 	static function getSVNLocation() {
-		return "http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/";
+		return "http://dev.eclipse.org/svnroot/org.eclipse.epsilon/";
 	}
 	
 	static function getSVNExamplesLocation() {
@@ -38,19 +38,19 @@ class Epsilon {
 	}
 	
 	static function getBinariesLocation() {
-		return "http://www.eclipse.org/downloads/download.php?file=/modeling/gmt/epsilon/org.eclipse.epsilon_".Epsilon::getVersion()."_incubation.zip";
+		return "http://www.eclipse.org/downloads/download.php?file=/epsilon/org.eclipse.epsilon_".Epsilon::getVersion()."_incubation.zip";
 	}
 	
 	static function getUpdateSite() {
-		return "http://download.eclipse.org/modeling/gmt/epsilon/updates/";
+		return "http://download.eclipse.org/epsilon/updates/";
 	}
 	
 	static function getInterimUpdateSite() {
-		return "http://download.eclipse.org/modeling/gmt/epsilon/interim/";
+		return "http://download.eclipse.org/epsilon/interim/";
 	}
 	
 	static function getParentPath() {
-		return "gmt";
+		return "";
 		// will return "modeling/emft"
 	}
 	

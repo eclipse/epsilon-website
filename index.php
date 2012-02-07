@@ -27,9 +27,9 @@
 	# End: page-specific settings
 	#
 	
-	include('../news/scripts/news.php');
-	include('news/news.php');
-	$epsilonnews = get_epsilonnews(6);
+	//include('../news/scripts/news.php');
+	//include('news/news.php');
+	//$epsilonnews = get_epsilonnews(6);
 	
 	#parse FAQs
 	$faqs = simplexml_load_file("faq/faqs.xml")->faq;
@@ -100,6 +100,13 @@
 	<!-- Middle part -->
 	<div id="midcolumn">
 		<?include('noscript.html')?>
+		
+		<div class="warningbox" style="margin-top:10px">
+		<b>Important:</b> Epsilon is in the process of moving from the <a href="gmt">GMT</a> to the <a href="modeling/emft">EMFT</a> project of Eclipse modelling. 
+		In the context of this process Epsilon's website, SVN directory and update sites have all been moved elsewhere in the Eclipse infrastructure and as a result
+		some things may not work until we've tidied up everything again.
+		</div>
+		
 		<!--h1><?=$pageTitle?></h1-->
 					<!--h3>Welcome</h3-->
 	    <img style="float:right" src="resources/epsilonlogo.big.png" alt="Epsilon Logo" /><p><b>Epsilon</b> is a family of consistent and interoperable task-specific programming languages which you can use to interact with your <a href="http://www.eclipse.org/emf">EMF</a> models to perform common Model Driven Engineering tasks such as <a href="doc/egl">code generation</a>, <a href="doc/etl">model-to-model transformation</a>, <a href="doc/evl">model validation</a>, <a href="doc/ecl">comparison</a>, <a href="doc/flock">migration</a>, <a href="doc/eml">merging</a> and <a href="doc/ewl">refactoring</a>.</p>
@@ -119,7 +126,7 @@
 		</div-->
 		
 		<div class="homeitem">
-			<?=r2h("Recent articles", "http://www.eclipse.org/gmt/epsilon/doc/articles/feed/", array(' '))?>
+			<?//r2h("Recent articles", "http://www.eclipse.org/gmt/epsilon/doc/articles/feed/", array(' '))?>
 		</div>
 		
 		<?
@@ -218,7 +225,7 @@
 		-->
 		
 		<div class="sideitem">
-			<?=r2h("Updates", "news/epsilonNewsArchive.rss", array(' '), 6, 5, 3000)?>
+			<?//=r2h("Updates", "news/epsilonNewsArchive.rss", array(' '), 6, 5, 3000)?>
 		</div>
 		
 	</div>
