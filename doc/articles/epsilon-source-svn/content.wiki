@@ -10,8 +10,8 @@ Once you have installed an SVN client you need to go through the following steps
 
 * Switch to the `SVN Repository Exploring` perspective (from the `Window->Open Perspective->Other...` menu)
 * Click on the `New Repository Location` button on the `SVN Repositories` view and enter the following details 	 
- * URL: `http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/`
-* (If you have committer rights you should set the URL to `https://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/` instead ''- note https vs. http'')
+ * URL: `http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/`
+* (If you have committer rights you should set the URL to `https://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/` instead ''- note https vs. http'')
  
 [[image:configurerepository.png]]
 

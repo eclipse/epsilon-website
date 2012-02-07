@@ -52,16 +52,6 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	</ul>
 	</div>
 	</div>
-
-	
-	<div class="sideitem">
-	<h6>Links</h6>
-	<div class='modal'>
-	<ul>
-		<li> <a href="http://www.eclipse.org/gmt/faq.php">GMT Frequently Asked Questions</a>
-	</ul>
-	</div>
-	</div>
 	
 	</div>	
 <?

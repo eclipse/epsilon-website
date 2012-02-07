@@ -103,7 +103,7 @@
 		
 		<div class="warningbox" style="margin-bottom:15px">
 		<b>Important:</b> Epsilon is in the process of moving from the <a href="gmt">GMT</a> to the <a href="modeling/emft">EMFT</a> project of Eclipse modelling. 
-		In the context of this process, Epsilon's website, SVN repository and update sites have all been moved elsewhere in the Eclipse infrastructure and as a result
+		In the context of this process, Epsilon's website, SVN repository, bug reports and update sites have all been moved elsewhere in the Eclipse infrastructure and as a result
 		some things may not work until we've tidied up everything again.
 		</div>
 		

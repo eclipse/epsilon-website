@@ -133,9 +133,9 @@ Defines additional labels for the containing `EClass`. These labels will be disp
 * `label.readOnly` (optional) : A value of `true` denotes that the label cannot be changed in the generated diagram editor.
 
 ==Installing EuGENia ''(New Instructions!)''==
-EuGENia is a part of the main Epsilon distribution. The update site of Epsilon is `http://download.eclipse.org/modeling/gmt/epsilon/updates`, and detailed instructions for installing it are available [[http://www.eclipse.org/gmt/epsilon/download|here]].
+EuGENia is a part of the main Epsilon distribution. The update site of Epsilon is `http://download.eclipse.org/epsilon/updates`, and detailed instructions for installing it are available [[http://www.eclipse.org/gmt/epsilon/download|here]].
 
-Although not necessary, you should also install the Emfatic toolkit mentioned above through the following update site: `http://www.scharf.gr/eclipse/emfatic/update/`
+Although not necessary, you should also install the Emfatic toolkit mentioned above through the following update site: `http://download.eclipse.org/emfatic/update/`
 
 ==Running EuGENia==
 To run EuGENia you need to do the following:

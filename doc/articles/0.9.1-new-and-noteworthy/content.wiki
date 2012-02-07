@@ -22,7 +22,7 @@ can now be written as:
 var m = Map {"a" = 1, "b" = 2, "c" = 3}
 }}}
 
-There's also support for different forms of literal for `Reals` (Java-like suffixes and exponents). See Section 3.4 of the free [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon Book]] for more details.
+There's also support for different forms of literal for `Reals` (Java-like suffixes and exponents). See Section 3.4 of the free [[http://www.eclipse.org/epsilon/doc/book|Epsilon Book]] for more details.
 
 ====Debugger====
 Epsilon v0.9.1 includes an implementation of one of our most requested features: an interactive debugger for all of the Epsilon languages. The Epsilon debugger can be used to step through your program, while displaying the stack trace and the values of variables. Below is a screenshot of the debugger in action.
@@ -44,7 +44,7 @@ EUnit, the unit testing framework for model management operations provided by Ep
 * Data and model bindings for performing parameterised testing.
 * Exporting of JUnit-style reports for integration with JUnit tools, such as the Jenkins continuous integration server.
 * Support for extending EUnit for use with other model management languages, such as the Atlas Transformation Language (ATL).
-These are just a few of the most significant changes to EUnit. Much more detail can be found in the new EUnit chapter of the free [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon book]].
+These are just a few of the most significant changes to EUnit. Much more detail can be found in the new EUnit chapter of the free [[http://www.eclipse.org/epsilon/doc/book|Epsilon book]].
 
 ==Enhancements to Flock==
 Epsilon v0.9.1 also includes enhancements to the newest Epsilon language, Flock.
@@ -138,7 +138,7 @@ The most noticeable result of these changes are that the EGL launch configuratio
 
 [[image:egl-generated-text-tab.png]]
 
-The [[http://www.eclipse.org/gmt/epsilon/doc/book|Epsilon book]] chapter on EGL has been largely rewritten for this release, and includes much more detail on defining and using custom formatters and template factories.
+The [[http://www.eclipse.org/epsilon/doc/book|Epsilon book]] chapter on EGL has been largely rewritten for this release, and includes much more detail on defining and using custom formatters and template factories.
 
 ==Enhancements to EuGENia==
 EuGENia is an Epsilon tool for automatically generating graphical model editors from metamodels. Currently, EuGENia targets the Graphical Modeling Framework (GMF).

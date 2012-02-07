@@ -11,7 +11,7 @@ version of EMF and (optionally) the latest version of GMF.
 == Accessing the code == 
 * Switch to the SVN Repository Exploring perspective (from the `Window->Open Perspective->Other...` menu)
 * Click the New Repository Location on the SVN Repositories view and enter the following details
- * URL: `http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/`
+ * URL: `http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/`
  * User: `anonymous`
 * Open the `trunk` node
 * Select the sub-folders of `plugins` and `features`, right-click and check them out as displayed below

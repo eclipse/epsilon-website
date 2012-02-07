@@ -135,7 +135,7 @@ function r2i($title, $feed, $limit = 5) {
 	$title = "Epsilon Forum";
 	$document = $parser->parse(file_get_contents($feed));
 	$channel = $document->documentElement;
-	$html = '<ul id="home" title="'.$title.'" selected="true" otherButtonLabel="Home" otherButtonHref="http://www.eclipse.org/gmt/epsilon/">';
+	$html = '<ul id="home" title="'.$title.'" selected="true" otherButtonLabel="Home" otherButtonHref="http://www.eclipse.org/epsilon/">';
 
 	$i = 0;
 	foreach ($channel->selectElements(array(),"item") as $item) {

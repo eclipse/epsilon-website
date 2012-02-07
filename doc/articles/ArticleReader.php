@@ -34,7 +34,7 @@ class ArticleReader {
 		
 		if ($absoluteLinks) {
 			//Replace relative img src- a hrefs
-			$content=preg_replace('#(href|src)="([^:"]*)("|(?:(?:%20|\s|\+)[^"]*"))#','$1="http://eclipse.org/gmt/epsilon/doc/articles/'.$articleId.'/$2$3',$content);
+			$content=preg_replace('#(href|src)="([^:"]*)("|(?:(?:%20|\s|\+)[^"]*"))#','$1="http://eclipse.org/epsilon/doc/articles/'.$articleId.'/$2$3',$content);
 		}
 		
 		$article = new Article();
