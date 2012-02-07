@@ -143,7 +143,7 @@
 				</ul>
 				<li><a href="#">Download Emfatic</a>
 					<ul>
-						<li><a href="http://www.scharf.gr/eclipse/emfatic/update/">Emfatic update site</a>
+						<li><a href="http://download.eclipse.org/emfatic/update">Emfatic update site</a>
 					</ul>
 			</ul>
 			</div>
