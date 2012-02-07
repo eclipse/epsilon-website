@@ -30,7 +30,7 @@ class Epsilon {
 	}
 	
 	static function getSVNLocation() {
-		return "http://dev.eclipse.org/svnroot/org.eclipse.epsilon/";
+		return "http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/";
 	}
 	
 	static function getSVNExamplesLocation() {

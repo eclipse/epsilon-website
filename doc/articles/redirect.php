@@ -12,7 +12,7 @@ function redirect() {
 	$requestUrl = $_SERVER["REQUEST_URI"];
 	$requestUrl = trim($requestUrl,"/");
 	$articleId = substr($requestUrl, strrpos($requestUrl,"/")+1);
-	$redirectUrl = "http://".$serverName."/gmt/epsilon/doc/articles/article.php?articleId=".$articleId;
+	$redirectUrl = "http://".$serverName."/epsilon/doc/articles/article.php?articleId=".$articleId;
 	echo file_get_contents($redirectUrl);
 	//echo "v6";
 	//echo "<b>Under maintenance. Please check back soon</b>";
