@@ -42,15 +42,20 @@
 	<div id="midcolumn">
 		
 		<h1><?=$pageTitle?></h1>
-		<!--
+		
 		<div class="bluebox"><h3>Ready to use Epsilon distributions</h3> 
-		<a href="http://www.epsilon-project.org/download/index.php?version=<?=Epsilon::getVersion()?>">Click here</a> to download ready to use Eclipse distributions containing EMF, GMF, Epsilon and Emfatic. Please note that these distributions are not hosted under eclipse.org and contain a fork of Emfatic that has not been IP-checked.
+		<a href="http://www.epsilon-project.org/download/index.php?version=<?=Epsilon::getVersion()?>">Click here</a> to download ready to use Eclipse 
+		distributions containing EMF, GMF, Epsilon and Emfatic. Please note that these distributions are not hosted under eclipse.org and contain a 
+		fork of Emfatic that has not been IP-checked.
 		</div>
 		<br/>
-		If on the other hand you prefer to download and install Epsilon manually please follow the steps below:
-		-->
 		
-		To download and install Epsilon please follow the steps below:
+		If on the other hand you prefer to download and install Epsilon manually please follow the steps below:
+		
+		<div class="warningbox" style="margin-top:10px">
+		<b>Warning:</b>The instructions below don't work at the minute as the GMF update site has changed and the new site also includes a dependency to OCL 
+		which we haven't figured out a way to satisfy (sigh...). Until we get around this, please stick to the ready to use distributions above. 
+		</div>
 		
 		<h2>Step 1: Download Eclipse</h2>
 		<div style="float:right"><img src="../images/modeling64.png"/></div>
