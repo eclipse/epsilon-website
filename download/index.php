@@ -52,10 +52,10 @@
 		
 		If on the other hand you prefer to download and install Epsilon manually please follow the steps below:
 		
-		<div class="warningbox" style="margin-top:10px">
+		<!--div class="warningbox" style="margin-top:10px">
 		<b>Warning:</b>The instructions below don't work at the minute as the GMF update site has changed and the new site also includes a dependency to OCL 
 		which we haven't figured out a way to satisfy (sigh...). Until we get around this, please stick to the ready to use distributions above. 
-		</div>
+		</div-->
 		
 		<h2>Step 1: Download Eclipse</h2>
 		<div style="float:right"><img src="../images/modeling64.png"/></div>
@@ -98,7 +98,7 @@
 		<ul>
 			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/")?>
 			<li>Epsilon: <?=linkify(Epsilon::getUpdateSite())?>
-			<li>Emfatic: <?=linkify("http://www.scharf.gr/eclipse/emfatic/update/")?>
+			<li>Emfatic: <?=linkify(Epsilon::getEmfaticUpdateSite())?>
 		</ul>
 		The bleeding edge version of Epsilon is available in the interim update site
 		<ul>
@@ -148,7 +148,7 @@
 				</ul>
 				<li><a href="#">Download Emfatic</a>
 					<ul>
-						<li><a href="http://download.eclipse.org/emfatic/update">Emfatic update site</a>
+						<li><a href="<?=Epsilon::getEmfaticUpdateSite()?>">Emfatic update site</a>
 					</ul>
 			</ul>
 			</div>

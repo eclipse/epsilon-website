@@ -49,6 +49,10 @@ class Epsilon {
 		return "http://download.eclipse.org/epsilon/interim/";
 	}
 	
+	static function getEmfaticUpdateSite() {
+		return "http://download.eclipse.org/emfatic/update";
+	}
+	
 	static function getParentPath() {
 		return "";
 		// will return "modeling/emft"
