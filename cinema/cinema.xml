@@ -23,7 +23,7 @@
 		</description>
 	</screencast>
 	<screencast name="GMFWizards2" title="In-place Model Transformation in GMF with EWL" width="800" height="620">
-		<description><![CDATA[In this example, we demonstrate how the Epsilon Wizard Language (EWL) can be used to define in-place model transformations (wizards) that can then be executed from within the GMF-based UML 2 Class Diagram Editor.]]>
+		<description><![CDATA[In this example, we demonstrate how the Epsilon Wizard Language (EWL) can be used to define in-place model transformations (wizards) that can then be executed from within the GMF-based UML 2 Class Diagram Editor. Please note that in the current version of EWL, in the "Configure Wizards" step of the process you need to provide the nsURI of your Ecore metamodel instead of the extension of your diagram files.]]>
 		</description>
 	</screencast>
 	<screencast name="BuildOOInstance_part1" title="Defining and instantiating an OO metamodel" width="800" height="620">
