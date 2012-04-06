@@ -22,7 +22,7 @@
 	</release_milestones>
 	<target_environments>
 		<html:div>
-			Epsilon depends on the Platform and EMF projects and offers optional integration with GMF. Epsilon has been compiled using Java 1.5 and does not depend on any non-Java libraries.
+			Epsilon depends on the Platform and EMF projects and offers optional integration with GMF. Epsilon has been compiled using Java 1.6 and does not depend on any non-Java libraries.
 		</html:div>
 		<internationalization>
 			<html:div>
