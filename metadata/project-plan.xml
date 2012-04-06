@@ -36,7 +36,7 @@
 				<html:div>
 					We are working on enhancing the performance of Epsilon by optimizing the execution 
 					engines and the underlying model connectivity framework of Epsilon using big/complex 
-					models provided by industrial peers. 
+					models provided by industrial collaborators. 
 				</html:div>
 			</description>
 		</theme>
@@ -52,7 +52,8 @@
 		<theme name="Community building">
 			<description>
 				<html:div>
-					Epsilon already has a substantial user community as depicted by the activity in the eclipse.epsilon newsgroup. We are constantly working on extending the Epsilon community by publishing examples and tutorials online. 
+					Epsilon already has a substantial user community as depicted by the activity in the eclipse.epsilon newsgroup. 
+					We are constantly working on extending the Epsilon community by publishing examples and tutorials online. 
 				</html:div>
 			</description>
 		</theme>
