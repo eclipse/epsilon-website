@@ -43,6 +43,7 @@
 		
 		<h1><?=$pageTitle?></h1>
 		
+		<!--
 		<div class="bluebox"><h3>Ready to use Epsilon distributions</h3> 
 		<a href="http://www.epsilon-project.org/download/index.php?version=<?=Epsilon::getVersion()?>">Click here</a> to download ready to use Eclipse 
 		distributions containing EMF, GMF, Epsilon and Emfatic. Please note that these distributions are not hosted under eclipse.org and contain a 
@@ -51,6 +52,9 @@
 		<br/>
 		
 		If on the other hand you prefer to download and install Epsilon manually please follow the steps below:
+		-->
+		
+		To install Epsilon please follow the steps below:
 		
 		<!--div class="warningbox" style="margin-top:10px">
 		<b>Warning:</b>The instructions below don't work at the minute as the GMF update site has changed and the new site also includes a dependency to OCL 
