@@ -139,20 +139,33 @@
 	<div id="rightcolumn">
 
 		<div class="sideitem">
+			<h6 style="background-color:#535776;color:white">ACME Workshop</h6>
+			<div class="modal">
+			<ul>
+				<li>Submit a short paper to the Academics Modelling with Eclipse workshop 
+				of ECMFA 2012 and let the world know about the awesome 
+				Eclipse-based MDE tools you are developing
+				<a href="http://www.acme-workshop.org">(read more)</a>
+			
+			</ul>
+			</div>
+		</div>
+		<!-- 
+		<div class="sideitem">
 			<center>
-				<!--
 				<script type="text/javascript">
 		          url_site = 'http://marketplace.eclipse.org/node/400'
 		        </script>
-		        <script src="http://marketplace.eclipse.org/sites/all/modules/drigg_external/js/button.js" type="text/javascript"></script>-->
+		        <script src="http://marketplace.eclipse.org/sites/all/modules/drigg_external/js/button.js" type="text/javascript"></script>
 		        <a href="forum">
 		        <img src="resources/forum-messages.png"/>
 		        </a>
 			</center>
 		</div>
-		
+		 -->
+		 
 		<div class="sideitem">
-			<h6 style="background-color:#535776;color:white">Live</h6>
+			<h6>Live</h6>
 			<div class="modal">
 			<ul>
 				<li><a href="live">Try EOL in your browser</a> <i>(No need to download or install anything)</i>
