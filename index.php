@@ -144,7 +144,7 @@
 			<ul>
 				<li>Submit a short paper to the Academics Modelling with Eclipse workshop 
 				of ECMFA 2012 and let the world know about the awesome 
-				Eclipse-based MDE tools you are developing
+				Eclipse-based MDE tools you are working on
 				<a href="http://www.acme-workshop.org">(read more)</a>
 			
 			</ul>
