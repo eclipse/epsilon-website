@@ -137,7 +137,7 @@
 	
 	<!-- Right Part -->
 	<div id="rightcolumn">
-
+		<!-- 
 		<div class="sideitem">
 			<h6 style="background-color:#535776;color:white">ACME Workshop</h6>
 			<div class="modal">
@@ -150,6 +150,7 @@
 			</ul>
 			</div>
 		</div>
+		 -->
 		<!-- 
 		<div class="sideitem">
 			<center>
