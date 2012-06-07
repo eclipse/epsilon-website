@@ -41,6 +41,7 @@
 		<![CDATA[In this example, we create a custom tool for Epsilon.]]>
 		</description>
 		<file name="src/org/eclipse/epsilon/examples/tools/SampleTool.java"/>
+		<file name="CallSampleTool.eol"/>
 		<file name="plugin.xml"/>
 		<file name="build.properties"/>
 	</example>
