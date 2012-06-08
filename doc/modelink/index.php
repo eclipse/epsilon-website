@@ -26,10 +26,15 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 ?>
 
 	<div id="midcolumn">
-
 		<h1><?=$pageTitle?></h1>
-		<p>ModeLink is an editor consisting of 2-3 side-by-side EMF tree-based editors, and is very convenient for establishing links between different models using drag-and-drop. Modelink uses native EMF cross-resource references to capture links between different models and as such, models constructed with it can be then used by any EMF-compliant tool/language.
-		
+		<p>
+		  ModeLink is an editor consisting of 2-3 side-by-side EMF tree-based editors, and in
+		  combination with the reflective <a href="../exeed">Exeed</a> editor, it is very
+		  convenient for establishing links between different models using drag-and-drop. ModeLink
+		  uses native EMF cross-resource references to capture links between different models and
+		  as such, models constructed with it can be then used by any EMF-compliant tool/language.
+		</p>
+
 		<h4>Screenshots</h4>
 		<img src="images/modelink.png"/>
 		<br/><br/>

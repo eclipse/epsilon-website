@@ -1,0 +1,40 @@
+=Exeed Reference=
+ 
+Exeed (standing for '''Ex'''tended '''E'''MF '''Ed'''itor) is an extended version of the built-in tree-based reflective editor provided by EMF. The aim of Exeed is to enable developers to customize the appearance of the editor (labels and icons) by annotating Ecore metamodels. As a result, developers can enjoy the benefits of a customized editor for their models without needing to generate one and then customize it using Java.
+
+The following example presents an annotated OO metamodel (in Emfatic):
+
+{{{
+package PersonHouseRelationship;
+
+import "Houses";
+import "Persons";
+
+class PersonHouseRelationshipGroup {
+  val PersonHouseRelationship[*] personHouseRelationships;
+}
+
+@exeed(label="return self.person.name + ' ' + self.type + ' ' + self.house.address;")
+class PersonHouseRelationship {
+  ref Persons.Person person;
+  ref Houses.House house;
+  attr PersonHouseRelationshipType type;
+}
+
+enum PersonHouseRelationshipType {
+  Owns;
+  Lets;
+}
+}}}
+
+Exeed recognizes the following annotation details for different Ecore constructs:
+
+==EClass==
+* `label`: EOL expression that returns the label of the instance.
+* `referenceLabel`: EOL expression that returns the label for a reference to an objec tof this `EClass`.
+* `classIcon`: EOL expression that returns the icon of the instances that conform to the `EClass`.
+* `icon`: EOL expression that returns the icon of the instance. If specified, it overrides the `classIcon` annotation.
+==EEnumLiteral==
+* `label`: EOL expression that returns the label of the enumeration literal.
+==EEnumLiteral==
+* `featureLabel`: EOL expression that returns the label for the structural feature.

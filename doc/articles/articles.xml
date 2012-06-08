@@ -52,6 +52,11 @@
 	  		This article demonstrates the EPackage Registry view which allows developers to inspect the contents of the registered EMF EPackages.
 	  		</description>
 	  	</article>
+	  	<article name="exeed-reference" title="Exeed annotation reference">
+	  		<description>
+	  		This article lists the annotations you can use on your metamodels to customize the look of the Exeed model editor.
+	  		</description>
+	  	</article>
 	  	<article name="inspect-models-exeed" title="Inspecting EMF models with Exeed">
 	  		<description>
 	  		This article demonstrates how you can use Exeed to inspect the structure of your EMF models.

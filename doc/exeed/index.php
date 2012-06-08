@@ -28,12 +28,15 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="midcolumn">
 
 		<h1><?=$pageTitle?></h1>
-		<p>Exeed is an enhanced version of the built-in EMF reflective tree-based
-editor that enables developers to customize the labels and icons of
-model elements simply by attaching a few simple annotations to the
-respective EClasses in the Ecore metamodel. Exeed also supports setting
-the values of references using drag-and-drop instead of using the combo
-boxes in the properties view.</p>
+		<p>
+		  Exeed is an enhanced version of the built-in EMF reflective tree-based
+		  editor that enables developers to customize the labels and icons of
+		  model elements simply by attaching a few simple annotations to the
+		  respective EClasses in the Ecore metamodel. Exeed also supports setting
+		  the values of references using drag-and-drop instead of using the combo
+		  boxes in the properties view. In combination with <a href="../modelink">ModeLink</a>,
+		  Exeed editors can be used to weave two models using a third <emph>weaving model</emph>.
+		</p>
 
 		<h4>Features</h4>
 		<ul>
@@ -46,7 +49,8 @@ boxes in the properties view.</p>
 
 		<h4>Resources</h4>
 		<ul>
-			<li><a href="../Exeed.pdf">Tutorial: Editing EMF models with Exeed (slightly outdated)</a>
+			<li><a href="../articles/exeed-reference">Article: Exeed annotation reference</a>
+			<li><a href="../articles/inspect-models-exeed">Tutorial: Inspecting EMF models with Exeed</a>
 		</ul>
 </div>
 
