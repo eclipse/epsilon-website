@@ -1,0 +1,30 @@
+=Epsilon Development Principles=
+
+This article describes the guiding principles that the committers of Epsilon follow.
+
+In-keeping with agile development principles, we don't use a strict/heavy-weight development process. We also take slightly different approaches to software development. We aim to follow the following principles to ensure that there is a basic level of consistency across the Epsilon platform and its development.
+
+== General ==
+# *Be mindful of different use cases*: design, implementation and evolution of the platform respects that Epsilon can be used in different environments (from Eclipse or stand-alone) and on different operating systems (Windows, Linux, Mac OS); and that Epsilon programs can be invoked in different manners (Eclipse launch configurations, Ant tasks, programmatically).    
+# *Maintain backwards-compatibility*: the APIs exposed by Epsilon should be stable. Changes should not break client code. We use deprecation to warn users that an API has changed, and might be changed in a breaking manner in a future version of Epsilon.   
+
+== Source code ==
+# *Collectively own the code*: all of the code is owned by the entire team, and anybody can make changes anywhere. Often, we work together on changes to the core of the platform, or to languages that a particular committer has developed initially (e.g., we might work closely with Antonio on a change to EUnit, because Antonio has done most of the recent work on EUnit).
+# *Collaborate on design*: although we do not often practice pair programming, we do share patches and discuss important design decisions internally.
+# *Trace changes using Bugzilla*: we use Bugzilla to document and discuss design and implementation changes. We often raise our own bugs. We use bug numbers in commit messages to maintain trace links between the code and discussions about the code.  
+# *Adhere to code conventions*: we do not place opening brackets on their own line.
+
+== Testing ==
+# *Favour automated testing*: to provide some assurance that we are shipping working code, we include automated tests along with feature code.
+# *Favour testing over testing-first*: although we appreciate the benefits of test-first and test-driven development, we do not always develop tests first, often preferring peer review to make design decisions.
+# *Testing frameworks*: currently we favour JUnit 4 and Mockito for testing and mocking, respectively. Older code may use other libraries (e.g. JUnit 3 and JMock), and we aim to replace these when we encounter them.  
+
+==Source Code Management==
+# *Describe commits with meaningful messages*: to ensure that the history of the code can be understood by every member of the team, we endeavour to make our commit messages understandable and traceable. Metadata is often include in commit messages, for example: "[EOL] Fixes bug #123456, which prevented the creation of widgets." 
+# *Avoid large commits*: to ensure that the history of the code can be understood by every member of the team, we favour breaking large commits into smaller consecutive commits. 
+# *Favour distributed version control*: to make use of 2-stage commits and cheap local branching, we recommend using git-svn as a client for the Subversion repository. 
+# *Avoid branching on the server*: when using git-svn, we typically use local branching rather than remote branching, because branching is costly with Subversion for the Subversion repository.   
+
+==Technical Support==
+# *No forum post goes unanswered*: we answer every question on the Epsilon forum, to maintain and foster the community around Epsilon 
+# *Encourage users to produce minimal examples*: if we need to reproduce a user's issue, we will often ask for a minimal example to aid in debugging. We have found this to be effective because it allows us to focus most of our time on fixing issues, and because users sometimes discover the solution to their issue while producing the minimal example.
