@@ -29,4 +29,4 @@ In-keeping with agile development principles, we don't use a strict/heavy-weight
 
 ==Technical Support==
 # '''No forum post goes unanswered''': to maintain and foster the community around Epsilon, we answer every question on the user forum. 
-# '''Encourage users to produce minimal examples''': if we need to reproduce a user's issue, we will often ask for a minimal example to aid in debugging. We have found this to be effective because it allows us to focus most of our time on fixing issues, and because users sometimes discover the solution to their issue while producing the minimal example.
+# '''Encourage users to produce minimal examples''': if we need to reproduce a user's issue, we will often ask for [[../minimal-examples|a minimal example]] to aid in debugging. We have found this to be effective because it allows us to focus most of our time on fixing issues, and because users sometimes discover the solution to their issue while producing the minimal example.
