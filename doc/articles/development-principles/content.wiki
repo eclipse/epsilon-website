@@ -17,9 +17,9 @@ In-keeping with agile development principles, we don't use a strict/heavy-weight
 # '''Favour testing over testing-first''': although we appreciate the benefits of test-first and test-driven development, we do not always develop tests first, often preferring peer review to make design decisions.
 # '''Everyone uses the same testing frameworks''': currently we favour JUnit 4 and Mockito for testing and mocking, respectively. Older code might still use other libraries (e.g. JUnit 3 and JMock), and we aim to replace these when we encounter them.
 
-== Development Planning ==
+==Bug/Feature Tracking==
 # '''Trace changes using Bugzilla''': we use Bugzilla to document and discuss design and implementation changes. We often raise our own bugs. We use bug numbers in commit messages to maintain trace links between the code and discussions about the code.
-# '''Adhere to Bugzilla conventions''': we follow a small set of [[../resolved-bugs|Bugzilla conventions|]].  
+# '''Adhere to Bugzilla conventions''': we follow a small set of [[../resolved-bugs|Bugzilla conventions]].  
 
 ==Source Code Management==
 # '''Describe commits with meaningful messages''': to ensure that the history of the code can be understood by every member of the team, we endeavour to make our commit messages understandable and traceable. Metadata is often include in commit messages, for example: "[EOL] Fixes bug #123456, which prevented the creation of widgets." 
