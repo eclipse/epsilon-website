@@ -18,7 +18,7 @@
 		<milestone date="04/15/2010" milestone="0.8.9"></milestone>
 		<milestone date="11/25/2010" milestone="0.9.0"></milestone>		
 		<milestone date="08/25/2011" milestone="0.9.1"></milestone>	
-		<milestone date="06/01/2012" milestone="0.9.2"><html:b>(planned)</html:b></milestone>
+		<milestone date="09/01/2012" milestone="0.9.2"><html:b>(planned)</html:b></milestone>
 	</release_milestones>
 	<target_environments>
 		<html:div>
