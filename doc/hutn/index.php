@@ -63,7 +63,7 @@ Here are some more examples ...
 	</div>
 
 	<div id="rightcolumn">
-		<?=toolsSideItem()?>
+		<?=toolsSideItem('hutn')?>
 	</div>
 <?
 	include('../../stats.php');

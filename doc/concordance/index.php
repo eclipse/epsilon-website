@@ -37,7 +37,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	</div>
 
 	<div id="rightcolumn">
-		<?=toolsSideItem()?>
+		<?=toolsSideItem('concordance')?>
 	</div>
 <?
 	include('../../stats.php');

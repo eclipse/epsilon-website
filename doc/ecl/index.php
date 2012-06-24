@@ -65,7 +65,7 @@ Here are some more examples ...
 	</div>
 
 	<div id="rightcolumn">
-		<?=toolsSideItem()?>
+		<?=toolsSideItem('ecl')?>
 	</div>
 <?
 	include('../../stats.php');

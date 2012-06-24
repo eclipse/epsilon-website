@@ -51,6 +51,11 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	<div id="midcolumn" style="width:753px">
 		
 		<?if($article){?>
+		<?
+		$publications = $articleReader->getArticle($articleId)->publication;
+		foreach ($publications as $publication){ ?>
+			<?=PublicationsManager::getPublicationSideItem(trim($publication),'style="float:right; margin-left:30px; margin-bottom:30px; width:238px;"')?>
+		<?}?>
 		<div class="sideitem" style="float:right; margin-left:30px; margin-bottom:30px; width:238px;">
 			<h6>Actions</h6>
 			<div class="modal">
@@ -62,12 +67,6 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			</ul>
 			</div>
 		</div>
-		<?
-		echo $articleReader->getArticle($articleId);
-		$publications = $articleReader->getArticle($articleId)->publication;
-		foreach ($publications as $publication){ ?>
-		<?=PublicationsManager::getPublicationSideItem(trim($publication),'style="float:right; margin-left:30px; margin-bottom:30px; width:238px;"')?>
-		<?}?>
 		<?=$article->getContent()?>
 		<?}
 		else {?>

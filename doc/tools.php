@@ -1,12 +1,15 @@
 <?
 
 include_once ('../Epsilon.php');
+include_once ('publications/PublicationsManager.php');
 
-function toolsSideItem () {
+function toolsSideItem($tool="epsilon") {
 	
 	$parentPath = Epsilon::getParentPath();
-
-	$html = "<div class='sideitem'>\r\n";
+	
+	$html = PublicationsManager::getPublicationSideItem($tool);
+	
+	$html .= "<div class='sideitem'>\r\n";
 	$html .= "  <h6>Languages</h6>\r\n";
 	$html .= "	<div class='modal'><ul>\r\n";
 	$html .= "	<li><a href='".Epsilon::getRelativeLocation("doc/eol")."'>Epsilon Object Language</a>\r\n";

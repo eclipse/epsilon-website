@@ -99,7 +99,7 @@ EMFATIC;
 	</div>
 
 	<div id="rightcolumn">
-		<?=toolsSideItem()?>
+		<?=toolsSideItem('eugenia')?>
 	</div>
 <?
 	include('../../stats.php');
