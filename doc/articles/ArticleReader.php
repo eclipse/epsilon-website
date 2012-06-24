@@ -1,7 +1,8 @@
 <?
 
 require_once 'wikitexttohtml.php';
-		
+require_once '../../Epsilon.php';
+
 class ArticleReader {
 	
 	// Returns an Article
@@ -41,6 +42,20 @@ class ArticleReader {
 		$article->setTitle($title);
 		$article->setContent($content);
 		return $article;
+	}
+	
+	function getArticle($articleId) {
+		$categories = simplexml_load_file(Epsilon::getAbsoluteLocation("doc/articles/articles.xml"))->category;
+		
+		foreach ($categories as $category) {
+			$articles = $category->article;
+		
+			foreach ($articles as $article) {
+				if ($article["name"] == $articleId) {
+					return $article;
+				}
+			}
+		}
 	}
 }
 

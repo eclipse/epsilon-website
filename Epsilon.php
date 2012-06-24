@@ -10,7 +10,12 @@ class Epsilon {
 	}
 	
 	static function getAbsoluteLocation($path) {
-		return "http://www.eclipse.org".Epsilon::getRelativeLocation($path);
+		if ($_SERVER["SERVER_NAME"] == "localhost") {
+			return "http://localhost".Epsilon::getRelativeLocation($path);
+		}
+		else {
+			return "http://www.eclipse.org".Epsilon::getRelativeLocation($path);
+		}
 	}
 	
 	static function getVersion() {

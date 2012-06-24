@@ -21,7 +21,7 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 	$pageAuthor		= "Dimitrios Kolovos";
 	include ('../../common.php');
 	include ("ArticleReader.php");
-	
+	include ("../publications/PublicationsManager.php");
 	//require_once 'wikitexttohtml.php';
 	$articleId =  strip_tags($_GET['articleId']);
 	
@@ -62,6 +62,12 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			</ul>
 			</div>
 		</div>
+		<?
+		echo $articleReader->getArticle($articleId);
+		$publications = $articleReader->getArticle($articleId)->publication;
+		foreach ($publications as $publication){ ?>
+		<?=PublicationsManager::getPublicationSideItem(trim($publication),'style="float:right; margin-left:30px; margin-bottom:30px; width:238px;"')?>
+		<?}?>
 		<?=$article->getContent()?>
 		<?}
 		else {?>
