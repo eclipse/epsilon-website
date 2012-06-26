@@ -92,42 +92,43 @@
 		
 		<h2>Step 2: Install Epsilon, GMF and Emfatic</h2>
 		
+		<!-- 
 		<div class="whitebox">
 		<h3>New Eclipse users</h3>
 		<a href="../cinema/player.php?screencast=Installation">Click here</a> to watch a screencast that demonstrates installing Epsilon 
 		on a fresh copy of the Eclipse Indigo Modelling distribution and running a "hello world" example.
 		</div>
+		 -->
 		
-		<div class="whitebox">
-		<h3>Experienced Eclipse users</h3> The update sites you will need are:
 		<ul>
-			<li>GMF Tooling: <?=linkify("http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/")?>
-			<li>Epsilon: <?=linkify(Epsilon::getUpdateSite())?>
-			<li>Emfatic: <?=linkify(Epsilon::getEmfaticUpdateSite())?>
-		</ul>
+			<li>Install <b>GMF Tooling</b> through the <i>Help->Install Modeling Components</i> menu
+			<li>Install <b>Emfatic</b> through the following update site <?=linkify(Epsilon::getUpdateSite())?> (optional)
+			<li>Install <b>Epsilon</b> through the following update site <?=linkify(Epsilon::getEmfaticUpdateSite())?>
+		</ul> 
+		
+		<div class="warningbox" style="margin-top:10px">
+		If GMF cannot be installed following these instructions, 
+		or Epsilon fails to install after installing GMF, please download one of the pre-bundled 
+		distributions above and <a href="../forum">let us know</a> so that we can investigate.
+		</div>
+		
+		<h2>Interim update site, binaries and source code</h2>
+		
 		The bleeding edge version of Epsilon is available in the interim update site
 		<ul>
 			<li><?=linkify(Epsilon::getInterimUpdateSite())?>
 		</ul>
 		
-			<a href="<?=Epsilon::getBinariesLocation()?>">Binaries</a>: 
-			A zip-file containing the features and plugins of Epsilon (you can use this to create a local update site or you can just
-			copy all the plugins and features to the dropins folder of your Eclipse installation).
-			<br><br>
+		<a href="<?=Epsilon::getBinariesLocation()?>">Binaries</a>: 
+		A zip-file containing the features and plugins of Epsilon (you can use this to create a local update site or you can just
+		copy all the plugins and features to the dropins folder of your Eclipse installation).
+		<br><br>
+	
+		<a href="../doc/articles/epsilon-source-svn/">Source code</a>:
+		This article describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
 		
-			<a href="../doc/articles/epsilon-source-svn/">Source code</a>:
-			This article describes how you can obtain the latest version of the source code of Epsilon from the Eclipse SVN server.
-			
-			<br><br>SVN Repository: <b><?=linkify(Epsilon::getSVNLocation())?></b>	
+		<br><br>SVN Repository: <b><?=linkify(Epsilon::getSVNLocation())?></b>	
 		
-		</div>
-		
-		<div class="warningbox" style="margin-top:10px">
-		<b>Warning:</b> Epsilon can also be installed through the Eclipse Marketplace client, but unless you have manually
-		installed GMF from the update site provided above, Eugenia will not work as the Marketplace client will only
-		install a part of GMF. We're investigating this but until we've come up with a good solution, we recommend not using
-		this option to install Epsilon - particularly so if you plan to use Eugenia. 
-		</div>
 		
 	</div>
 		
