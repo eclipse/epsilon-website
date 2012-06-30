@@ -182,5 +182,8 @@
 	    <article name="resolved-bugs" title="Resolved bugs">
 	  		<description>This article discusses the different types of resolved bugs in Epsilon.</description>
 	  	</article>
+	    <article name="building-an-interim-release" title="Building an interim release">
+	  		<description>This article outlines the process of building and uploading an interim release of Epsilon.</description>
+	  	</article>
 	</category>
 </articles>
