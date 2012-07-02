@@ -102,8 +102,8 @@
 		
 		<ul>
 			<li>Install <b>GMF Tooling</b> through the <i>Help->Install Modeling Components</i> menu
-			<li>Install <b>Emfatic</b> through the following update site <?=linkify(Epsilon::getUpdateSite())?> (optional)
-			<li>Install <b>Epsilon</b> through the following update site <?=linkify(Epsilon::getEmfaticUpdateSite())?>
+			<li>Install <b>Emfatic</b> through the following update site <?=linkify(Epsilon::getEmfaticUpdateSite())?> (optional)
+			<li>Install <b>Epsilon</b> through the following update site <?=linkify(Epsilon::getUpdateSite())?>
 		</ul> 
 		
 		<div class="warningbox" style="margin-top:10px">
