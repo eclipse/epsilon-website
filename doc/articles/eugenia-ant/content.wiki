@@ -21,11 +21,11 @@ Normally, EuGENia runs all these steps:
 
 # Clean the models from the previous run (the `clean` step)
 # If `src` is an Emfatic source file (with the `.emf` extension), generate the Ecore model from it (`ecore`)
-# Generate the EMF GenModel from the Ecore model and polish it with `FixGMFGen.eol` if available (`genmodel`)
+# Generate the EMF GenModel from the Ecore model and polish it with `Ecore2GenModel.eol` if available (`genmodel`)
 # Generate the GmfGraph, GmfTool and GmfMap models and polish them with `Ecore2GMF.eol` if available (`gmf`)
 # Generate the GmfGen model and polish it with `FixGMFGen.eol` if available (`gmfgen`)
 # Generate the EMF code from the EMF GenModel model (`emfcode`)
-# Generate the GMF code fro mthe GMFGen model (`gmfcode`)
+# Generate the GMF code from the GMFGen model (`gmfcode`)
 Optionally, the Ant task can run only some of these steps. The `firstStep` attribute can be used to specify the first step to be run, and the `lastStep` can be used to specify the last step to be run. For example:
 
 {{{

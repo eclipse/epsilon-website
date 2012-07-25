@@ -73,7 +73,10 @@ attributeFigure.preferredSize = preferredSize;
 Similarly, if we needed to customize the logic behind the `Synchronize GMF Gen model` action, we'd need to define a `FixGMFGen.eol` transformation next to `classdiagram.ecore`.
 
 ==What models can I access from the ECore2GMF.eol and FixGMFGen.eol transformations?==
-In the `ECore2GMF.eol` transformation you can access the Ecore metamodel (named `ECore`), the tool model (named `GmfTool`), the graph model (named `GmfGraph`) and the map model (named `GmfMap`).
+
+In the `Ecore2GenModel.eol` transformation you can access the ECore metamodel (named `Ecore`) and the EMF GenModel model (named `GenModel`).
+
+In the `ECore2GMF.eol` transformation you can access the ECore metamodel (named `ECore`), the tool model (named `GmfTool`), the graph model (named `GmfGraph`) and the map model (named `GmfMap`).
 
 In the `FixGMFGen.eol` transformation you can access the ECore metamodel (named `ECore`), and the generator model (named `GmfGen`).
 
