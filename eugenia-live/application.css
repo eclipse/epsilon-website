@@ -1,0 +1,28 @@
+@import 'css/bootstrap.min.css';
+@import 'css/bootstrap-responsive.min.css';
+.container-fluid {
+  padding-top: 50px;
+}
+#toolbox {
+  padding: 8px 0;
+  text-align: center;
+}
+#toolbox ul {
+  text-align: left;
+}
+#canvas {
+  border: 1px solid #ccc;
+}
+#selection {
+  margin-top: 2em;
+  padding: 1em;
+}
+#selection h6 {
+  padding-bottom: 0.5em;
+}
+#selection #restore {
+  margin-left: 1em;
+}
+#palette-export {
+  margin-top: 2em;
+}
