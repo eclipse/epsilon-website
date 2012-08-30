@@ -18,6 +18,7 @@ class ArticleReader {
 			$title = substr($line, 1, strlen($line) - 2);
 		} else {
 			$contentFile = $articleId.'/content.html';
+			if (!file_exists($contentFile)) {$contentFile = $articleId.'/contents.html';}
 			$lines = file($contentFile);
 			$matches = preg_grep("/^<h1>(.*?)<\/h1>/", $lines);
 			if (sizeof($matches) > 0) {
