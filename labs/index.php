@@ -43,8 +43,8 @@ $App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProj
 			<h6>External Links</h6>
 			<div class="modal">
 				<ul>
-					<!--li><a href="http://code.google.com/p/epsilonlabs/">EpsilonLabs under Google Code</a-->
-					<li><a href="http://epsilonlabs.wiki.sourceforge.net/">EpsilonLabs under Sourceforge</a>
+					<li><a href="http://code.google.com/p/epsilonlabs/">EpsilonLabs under Google Code</a>
+					<li><del><a href="http://epsilonlabs.wiki.sourceforge.net/">EpsilonLabs under Sourceforge</del></a>
 				</ul>
 			</div>
 		</div>
