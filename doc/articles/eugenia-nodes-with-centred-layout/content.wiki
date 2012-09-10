@@ -22,7 +22,7 @@ We'll use a custom layout manager to achieve the centring. We need to add a poli
 {{{
 findShape('WidgetFigure').layout = createCentredLayout();
 
-operation findShape(name : String) : GmfGraph!Label {
+operation findShape(name : String) : GmfGraph!Shape {
 	return GmfGraph!Shape.all.selectOne(s|s.name = name);
 }
 
