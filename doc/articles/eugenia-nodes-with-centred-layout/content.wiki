@@ -12,7 +12,7 @@ class System {
 }
 
 @gmf.node(label="name", label.icon="false")
-class System {
+class Widget {
    attr String[1] name;
 }
 }}}
