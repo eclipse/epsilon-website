@@ -2,22 +2,12 @@
 This article outlines the process of building and uploading an interim release of Epsilon.
 
 * Check out the interim update site project from the SVN: `org.eclipse.epsilon.updatesite.interim`
-* Delete the folders `features` and `plugins`, and the files `artifacts.jar` and `content.jar` under it (if they already exist)
+* Run the clean target of the build.xml file, to delete any previous build.
 * Open `site.xml` and click the `Build All` button
-* Run the P2 category publisher to update the generated `content.jar` with the category information from `site.xml`:
-
-{{{
-./eclipse -console -consolelog \
--application org.eclipse.equinox.p2.publisher.CategoryPublisher \
--metadataRepository file:/<epsilon-path>/plugins/org.eclipse.epsilon.updatesite.interim \
--categoryDefinition file:/<epsilon-path>/plugins/org.eclipse.epsilon.updatesite.interim/site.xml \
--categoryQualifier \
--compress
-}}}
-
+* Wait for the resulting Ant build to complete (which can take a few minutes). The Ant build injects categories into the P2 repository, compresses it using pack200, and generates the index page for the update site.
 * Connect via SFTP to `build.eclipse.org` and go to directory `/home/data/httpd/download.eclipse.org/epsilon`
 * Create a new folder named `interim-new`
-* Upload the folders `features` and `plugins`, and the files `artifacts.jar`, `content.jar`, `site.xml` and `index.html` under the `interim-new` remote folder
+* Upload the folders `features` and `plugins`, and the files `artifacts.jar`, `artifacts.jar.pack.gz`, `content.jar`, `content.jar.pack.gz`, `site.xml` and `index.html` under the `interim-new` remote folder
 * When uploading is complete, rename the `interim` remote folder to `interim-old` and the `interim-new` folder to `interim`
 * Try to install the new interim version on a clean Eclipse Modelling distribution through the interim update site: [[http://download.eclipse.org/epsilon/interim/]]
 * If everything seems to be working fine, update any resolved bug reports as discussed in the Release Process section of [[../resolved-bugs|this article]]
