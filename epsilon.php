@@ -10,7 +10,9 @@ class Epsilon {
 	// call this function with an empty string in order to get the path without the trailing "/"
 	static function getRelativeLocation($path) {
 		// extract the main Epsilon directory part
-		$main = substr(dirname(__FILE__), strlen($_SERVER['DOCUMENT_ROOT']));
+		//$main = substr(dirname(__FILE__), strlen($_SERVER['DOCUMENT_ROOT']));
+		
+		$main = "/epsilon";
 		
 		if($path != '') {
 			return $main.'/'.$path;
