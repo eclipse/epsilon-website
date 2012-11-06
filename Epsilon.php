@@ -43,15 +43,15 @@ class Epsilon {
 	}
 	
 	static function getBinariesLocation() {
-		return "http://www.eclipse.org/downloads/download.php?file=/epsilon/org.eclipse.epsilon_".Epsilon::getVersion()."_incubation.zip";
+		return "http://www.eclipse.org/downloads/download.php?file=/epsilon/0.x/org.eclipse.epsilon_".Epsilon::getVersion()."_incubation.zip";
 	}
 	
 	static function getUpdateSite() {
-		return "http://download.eclipse.org/epsilon/updates/";
+		return "http://download.eclipse.org/epsilon/0.x/updates/";
 	}
 	
 	static function getInterimUpdateSite() {
-		return "http://download.eclipse.org/epsilon/interim/";
+		return "http://download.eclipse.org/epsilon/0.x/interim/";
 	}
 	
 	static function getEmfaticUpdateSite() {
