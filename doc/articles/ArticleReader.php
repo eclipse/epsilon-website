@@ -1,7 +1,6 @@
 <?
 
 require_once 'wikitexttohtml.php';
-require_once '../../Epsilon.php';
 
 class ArticleReader {
 	

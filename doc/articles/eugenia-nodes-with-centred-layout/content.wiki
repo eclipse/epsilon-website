@@ -12,7 +12,7 @@ class System {
 }
 
 @gmf.node(label="name", label.icon="false")
-class Widget {
+class System {
    attr String[1] name;
 }
 }}}
@@ -22,7 +22,7 @@ We'll use a custom layout manager to achieve the centring. We need to add a poli
 {{{
 findShape('WidgetFigure').layout = createCentredLayout();
 
-operation findShape(name : String) : GmfGraph!Shape {
+operation findShape(name : String) : GmfGraph!Label {
 	return GmfGraph!Shape.all.selectOne(s|s.name = name);
 }
 

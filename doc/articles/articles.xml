@@ -166,6 +166,11 @@
 	  	</article>
 	</category>
 	<category name="dev" title="Epsilon Developers">
+		<article name="call-for-user-stories" title="Call for User Stories">
+	  		<description>
+	  		This is a kind request to all Epsilon Users.
+	  		</description>
+	  	</article>
 	  	<article name="epsilon-source-svn" title="Getting the source code of Epsilon">
 	  		<description>
 	  		This article demonstrates how to obtain and run a local copy of the source code of Epsilon.

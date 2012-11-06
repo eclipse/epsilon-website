@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <cinema>
-	<screencast name="Installation" title="Installing Epsilon" width="796" height="718">
+	<!--screencast name="Installation" title="Installing Epsilon" width="796" height="718">
 		<description> <![CDATA[This screencast demonstrates installing Epsilon, GMF and Emfatic on top of an Eclipse 3.7 (Indigo) Modelling distribution. The update sites you will need are: 
 		<ul>
 			<li>GMF Tooling: http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/ 
@@ -8,8 +8,8 @@
 			<li>Emfatic: http://download.eclipse.org/emfatic/update/
 		</ul>]]>
 		</description>
-	</screencast>
-	<screencast name="Eugenia" title="GMF Editor Development with EuGENia">
+	</screencast-->
+	<screencast name="Eugenia" title="GMF Editor Development with EuGENia" width="1164" height="887">
 		<description> <![CDATA[EuGENia is a tool that simplifies and speeds-up the development of fully functional GMF editors. From a few simple annotations embedded directly into your Ecore metamodel, EuGENia can generate the required .gmftool, .gmfgraph and .gmfmap models automatically. This example demonstrates the implementation of a fully functional GMF editor with EuGENia in just a few minutes.]]>
 		</description>
 	</screencast>

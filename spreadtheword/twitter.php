@@ -1,6 +1,8 @@
 <?
 function getTwitterFollowers() {
-	$twitters = new SimpleXMLElement(file_get_contents('remote/epsilonews.xml'));
+	$twitters = new SimpleXMLElement(
+		file_get_contents(Epsilon::getIncludeLocation().'/remote/epsilonews.xml')
+	);
 	$result = "";
 	$i = 0;	
 	$max = 27;

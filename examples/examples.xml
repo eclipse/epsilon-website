@@ -50,6 +50,7 @@
 		<![CDATA[In this example, we use <a href="../doc/articles/plain-xml">the plain XML driver of Epsilon</a> to build and query an XML document that is not backed by a XSD/DTD.]]>
 		</description>
 		<file name="builddocument.eol"/>
+		<file name="complexqueries.eol"/>
 		<file name="builddocument.xml"/>
 		<file name="library.xml"/>
 	</example>
@@ -87,7 +88,7 @@
 		<description>
 		<![CDATA[In this example, we demonstrate how the template-based Epsilon Generation Language can be used to generate HTML documentation from an Ecore metamodel.]]>
 		</description>
-		<file name="src/org/epsilon/egl/doc/egl/html/Class.egl"/>
+		<file name="src/org/epsilon/egl/doc/egl/html/DataType.egl"/>
 		<file name="src/org/epsilon/egl/doc/egl/html/Packages.egl"/>
 		<file name="src/org/epsilon/egl/doc/egl/Emf2Html.egl"/>
 	</example>

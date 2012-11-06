@@ -17,7 +17,7 @@ class WikiTextToHTML {
 			'/^==(.*)==$/'
 				=>	'<h2>\1</h2>',
 			'/^=(.*)=$/'
-				=>	'<h1>\1</h1>',
+				=>	'<h1 class="page-header">\1</h1>',
 			'/^([ ]*)\# (.+)$/'
 				=>	'<li>\2</li>',
 			'/^([ ]*)\* (.+)$/'
@@ -182,7 +182,7 @@ class WikiTextToHTML {
 			if('' == $in && (!$this->incode)) {
 				$output[] = '<br><br>';
 			} else if ('{{{' == trim($in)) {
-				$output[] = '<pre class="codebox">';
+				$output[] = '<pre>';
 				$this->incode = true;
 			} else if ('}}}' == trim($in)) {
 				$output[] = '</pre>';

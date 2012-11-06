@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<components>
+	<language title="Epsilon Object Language (EOL)" id="eol" img="./img/thumbnails/EOL.png">
+		An imperative model-oriented scripting language that combines the procedural style of Javascript with the powerful model querying capabilities of OCL
+	</language>
+	<language title="Epsilon Transformation Language (ETL)" id="etl" img="./img/thumbnails/ETL.png">
+		A rule-based model-to-model transformation language that supports transforming many input to many output models, rule inheritance,lazy and greedy rules<!-- , and the ability to query and modify both input and output models -->
+	</language>
+	<language title="Epsilon Validation Language (EVL)" id="evl" img="./img/thumbnails/EVL.png">
+		A model validation language that supports both intra and inter-model consistency checking<!-- constraint dependency management and specifying fixes that users can invoke to repair identified inconsistencies.  -->, and provides out-of-the-box integration with EMF &amp; GMF editors.
+	</language>
+	<language title="Epsilon Generation Language (EGL)" id="egl" img="./img/thumbnails/EGL.png">
+		A template-based model-to-text language for generating code, documentation and other textual artefacts from models. 
+		<!--    EGL supports content-destination decoupling, protected regions for mixing generated with hand-written code and template coordination -->
+	</language>
+	<language title="Epsilon Wizard Language (EWL)" id="ewl" img="./img/thumbnails/EWL.png">
+		A language tailored for interactive in-place transformations on model elements selected by the user. EWL provides out-of-the-box integration with EMF &amp; GMF editors.
+		<!-- EWL is integrated with EMF/GMF and as such, wizards can be executed from within EMF and GMF editors -->
+	</language>
+	<language title="Epsilon Comparison Language (ECL)" id="ecl" img="./img/thumbnails/ECL.png">
+		A rule-based language for discovering  correspondences (matches) between elements of models of diverse metamodels
+	</language>
+	<language title="Epsilon Merging Language (EML)" id="eml" img="./img/thumbnails/EML.png">
+		A rule-based language for merging models of diverse metamodels, after first identifying their correspondences with <a href="ecl">ECL</a> (or otherwise)
+	</language>
+	<language title="Epsilon Flock" id="flock" img="./img/thumbnails/Flock.png">
+		A rule-based transformation language for updating models in response to metamodel changes
+	</language>
+	<tool title="EuGENia" id="eugenia" img="./img/thumbnails/Eugenia.png">
+		EuGENia is a front-end for GMF. Its aim is to speed up the process of developing a GMF editor and lower the entrance barrier for new developers.
+		<!-- To this end, EuGENia enables developers to generate a fully-functional GMF editor only by specifying a few high-level annotations in the Ecore metamodel -->
+	</tool>
+	<tool title="Exeed" id="exeed" img="./img/thumbnails/Exeed.png">
+		Exeed is an enhanced version of the built-in EMF reflective tree-based editor that enables developers to customize the labels and icons of model elements 
+		<!-- simply by attaching a few simple annotations to the respective EClasses in the Ecore metamodel. Exeed also supports setting the values of references using drag-and-drop instead 
+		    of using the combo boxes in the properties view -->
+	</tool>
+	<tool title="ModeLink" id="modelink" img="./img/thumbnails/Modelink.png">
+		ModeLink comprises 2 or 3 side-by-side EMF tree-based editors, and is very convenient for establishing (weaving) links between different models using drag-and-drop
+	</tool>
+	<tool id="workflow" title="Workflow" img="./img/thumbnails/Workflow.png">
+		Epsilon provides a set of ANT tasks to enable developers to assemble complex workflows that involve both MDE and non-MDE tasks
+	</tool>
+	<tool title="Human Usable Textual Notation" id="hutn" img="./img/thumbnails/HUTN.png">
+		Epsilon HUTN is our implementation of the OMG standard for representing models in a human understandable format. Write models using a text editor with a Java-like syntax
+	</tool>
+	<tool title="Concordance" id="concordance" img="./img/thumbnails/Concordance.png">
+		Concordance monitors and maintains an index of cross-model EMF references, and a platform for exploiting that index. We provide Concordance clients that report and reconcile broken cross-model references.
+	</tool>
+	<tool title="EUnit" id="eunit" img="./img/thumbnails/EUnit.png">
+		EUnit is a unit testing framework for model management tasks.	Tests are written by combining an EOL script and an <a href="workflow">ANT</a> buildfile, and can be used to test Epsilon and non-Epsilon model management programs.
+	</tool>		
+</components>

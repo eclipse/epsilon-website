@@ -1,107 +1,73 @@
-<?php  																														
-require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); 	
-$App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProjectCommon());    # All on the same line to unclutter the user's desktop'
-
-	#*****************************************************************************
-	#
-	# template.php
-	#
-	# Author: 		Freddy Allilaire
-	# Date:			2006-05-29
-	#
-	# Description: Type your page comments here - these are not sent to the browser
-	#
-	#
-	#****************************************************************************
-	
-	#
-	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Live";
-	$pageKeywords	= "";
-	$pageAuthor		= "Dimitrios Kolovos";
-	include ('../common.php');
-	require_once ("../Epsilon.php");
-	
-	# Create a parser and parse the examples.xml document.
-	include_once("../examples/SyntaxHighlight.php");
+<?php
+	require_once('../template.php');
 	$scripts = simplexml_load_file("scripts.xml")->script;
-	
-	//include ('../examples/SyntaxHighlight.php');
-	ob_start();
+	h();
 ?>
+<div class="row">
+	<!-- main part -->
+	<div class="span8">
+		<h1 class="page-header">Live</h1>
 
-
-	<div id="midcolumn">
-		<?include('../noscript.html')?>
-		<iframe src="http://epsilon-live.appspot.com/embedded2.html" frameborder="0" scrolling="no" style="width:520px;height:600px;border:0px"></iframe>
-		<h3>Live Scripts</h3>
-			You can copy/paste any of the following scripts in the editor above, modify them if you want, and finally run them.<br/><br/>
-			<?
-			foreach ($scripts as $script) {
-			$description = $script->description;
-			$title = $script["title"];
-			$source = $script->source;
-			$highlight = false;
-			if ($highlight) {
-				$source = highlight($source, "eol");
-			}
-			else {
-				$order   = array("\r\n", "\n", "\r");
-				$replace = '<br/>';
-				$source = str_replace($order, $replace, trim($source));
-				$order   = array(" ");
-				$replace = '&nbsp;';
-				$source = str_replace($order, $replace, trim($source));
-			}
-			?>
-			<h4><a name="<?=$title?>" style="color:black;text-decoration:none"><?=$title?></a></h4> 
-			<b>Description:</b> <?=$description?>
-			<div style="padding:5px; border:1px dotted #C0C0C0; font-family:monospace; font-size:14px">
-			<?=$source?>
+		<div class="row">
+			<div class="span8">
+				<iframe src="http://epsilon-live.appspot.com/embedded2.html" frameborder="0" scrolling="no" style="height:600px;" class="span8"></iframe>
+				<h2>Live Scripts</h2>
+				<p>You can copy/paste any of the following scripts in the editor above, modify them if you want, and finally run them.</p>
 			</div>
-			<br>
+		</div>
+
+		<div class="row">
+			<?php
+			foreach ($scripts as $script) {
+				$description = $script->description;
+				$title = $script["title"];
+				$source = (string)$script->source;
+				$source = trim($source);
+				?>
+				<div class="span8">
+					<h3 id="<?=$title?>"><?=$title?></h3>
+					<p><strong>Description:</strong> <?=$description?></p>
+					<pre class="prettyprint lang-eol"><?=$source?></pre>
+				</div>
 			<?}?>
+		</div>
+	</div>	
+	<!-- end main part -->
+
+	<!-- sidebar -->
+	<div class="span4 sidebar">
+		<!-- first element -->
+		<? sB('Epsilon Live'); ?>
+					<p>In the editor on the left, you can <strong>write and run EOL scripts</strong> (<a href="../doc/eol/">what is EOL?</a>) from your browser, without needing to download or install anything in your computer.</p>
+					<p>Except for playing with the basic features of the language, you can also query and modify a real EMF model (which for simplicity, is Ecore itself).</p>
+					<p>Below are several small EOL scripts which you can try. To try a script, copy/paste it in the editor on the left and then click the Run button to run it and see its output in the console.</p>
+		<? sE(); ?>
+		<!-- end first element -->
+
+		<? sB('Live Scripts'); ?>
+					<ul>
+						<?
+						foreach ($scripts as $script) {
+							$title = $script["title"];
+							?>
+							<li><a href="#<?=$title?>"><?=$title?></a>
+						<?}?>
+					</ul>
+		<? sE(); ?>
+
 	</div>
-	
-	<div id="rightcolumn">
-		<div class="sideitem">
-			<h6>Epsilon Live</h6>
-			<div class="modal">
-			<p>In the editor on the left, you can <b>write and run EOL scripts</b> (<a href="../doc/eol/">what is EOL?</a>) from your browser, without needing to download or install anything in your computer.
-			<br><br>
-			Except for playing with the basic features of the language, you can also query and modify a real EMF model (which for simplicity, is Ecore itself). 
-			
-			<br><br>Below are several small EOL scripts which you can try. To try a script, copy/paste it in the editor on the left and then click the Run button to run it and see its output in the console.
-			</p>
-			</div>
-		</div>
-		<div class="sideitem">
-			<h6>Live Scripts</h6>
-			<div class="modal">
-			<ul>
-			<?
-			foreach ($scripts as $script) {
-			$description = $script->description;
-			$title = $script["title"];
-			$source = $script->source;
-			?>
-			<li><a href="#<?=$title?>"><?=$title?></a>
-			<?}?>
-			</ul>
-			</div>
-		</div>
-		<!--div class="sideitem">
-			<h6>Feedback</h6>
-			<p>
-			This is one of the most recent features we've implemented and as such, there are probably a few bugs lurking in it. Should you find one, please consider <a href="<?=Epsilon::getOpenBugLocation()?>">filing a bug report</a>.
-			</p>
-		</div-->
+	<!-- end sidebar -->
 </div>
-	
-<?
-	include('../stats.php');
-	$html = ob_get_contents();
-	ob_end_clean();
-	# Generate the web page
-	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+<?php
+	f(array(
+		'<script>
+			prettyPrint();
+			var $sidebar = $(".sidebar");
+			$sidebar.find("> div").eq(1).find("div").eq(0).affix({
+				offset: {
+					top: 410
+				}
+			});
+		</script>'
+	));
 ?>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<whyepsilon>
+	<reason title="One syntax to rule them all" icon="star">
+	  <![CDATA[
+	  All languages in Epsilon build on top of a <a href="doc/eol">common expression language</a> which means that you can reuse code 
+	  across your model-to-model transformations, code generators, validation constraints etc.
+	  ]]>
+	</reason>
+	<reason title="Integrated development tools" icon="tools">
+	  All languages in Epsilon are supported by editors providing syntax and error highlighting, code templates,
+	   and graphical tools for configuring, running, debugging and profiling Epsilon programs.
+	</reason>
+	<reason title="Documentation, Documentation, Documentation" icon="pages">
+	  <![CDATA[
+	  More than 30 <a href="doc/articles">articles</a>, 15 <a href="cinema">screencasts</a>, 20 <a href="examples">examples</a>, 
+	  and a 238-page free <a href="doc/book">e-book</a> are available to help you get from novice to expert.
+	  ]]>
+	</reason>
+	<reason title="Strong support for EMF" icon="key">
+	  <![CDATA[
+	  Epsilon supports all flavours of EMF, including reflective, generated and non-XMI (textual) models such as these specified using <a href="http://www.xtext.org">Xtext or <a href="http://www.emftext.org">EMFText</a>-based DSLs.
+	  ]]>
+	</reason>
+	<reason title="No EMF? No problem" icon="checkmark">
+      <![CDATA[ 
+	  While Epsilon provides strong support for EMF, it is not bound to EMF at all. 
+	  In fact, support for EMF is implemented as a driver for the <a href="doc/emc">model connectivity layer</a> of Epsilon.
+	  Other drivers provide support for <a href="doc/articles/plain-xml">XML</a>, CSV, Bibtex and you can even roll out your own driver!
+	  ]]>
+	</reason>
+	<reason title="Mix and match" icon="refresh">
+	  <![CDATA[
+	  Epsilon poses no constraints on the number/type of models you can use in the same program. 
+	  For example, you can write a transformation that transforms an XML-based and an EMF-based model 
+	  into a MetaEdit+-based model and also modifies the source EMF model.
+	  ]]>
+	</reason>
+	<reason title="Plumbing included" icon="magic_wand">
+	  <![CDATA[
+	  You can use the ANT Epsilon tasks to compose Epsilon programs into complex workflows. 
+	  Programs executed in the same workflow can share models and even pass parameters to each other. 
+	  ]]>
+	</reason>
+	<reason title="Extensible" icon="puzzle">
+	 <![CDATA[
+	  Almost every aspect of Epsilon is extensible. 
+	  You can add support for your <a href="doc/emc">own type of models</a>, extend the Eclipse-based development tools, add a new method to the String type,
+	  or even implement your own model management language on top of EOL.
+	  ]]>
+	</reason>
+	<reason title="Java is your friend" icon="process">
+	  You can call methods of Java classes from all Epsilon programs to reuse code you have already written or to perform tasks that Epsilon languages do not support natively.
+	</reason>
+	<reason title="All questions answered" icon="mail">
+	  <![CDATA[
+	  The Epsilon forum contains more than <a href="forum">3000 messages</a> and we're proud that no question has ever gone unanswered.
+	  ]]>
+	</reason>
+	<reason title="We're working on it" icon="chart">
+	  We've been developing Epsilon since 2006 and it's not going away anytime soon.
+	</reason>
+	<reason title="Ready to use distributions" icon="monitor">
+	   <![CDATA[
+	  Configuring Eclipse can be a pain. That's why we provide <a href="download">complete Eclipse distributions</a> which contain Epsilon and all its dependencies.
+	  ]]>
+	</reason>
+	
+</whyepsilon>

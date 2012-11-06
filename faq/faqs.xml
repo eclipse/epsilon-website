@@ -9,13 +9,13 @@
 	<faq id="is-epsilon-a-model-transformation-language">
 		<title>Is Epsilon a model transformation language?</title>
 		<answer><![CDATA[
-		<p>No. Epsilon is a component that facilitates the specification and tool-support of a range of task-specific model management languages, <b>one of which</b> targets model-to-model transformation (ETL).]]>
+		<p>No. Epsilon is a family of task-specific model management languages, <b>one of which</b> targets model-to-model transformation (ETL).]]>
 		</answer>
 	</faq>
 	<faq id="who-is-using-epsilon">
 		<title>Who is using Epsilon?</title>
 		<answer><![CDATA[
-		<p>While we can't possibly have a precise answer to this, with <b>more than 1000 posts</b> in the <a href="../forum">Epsilon forum</a>, it seems that quite a few people are currently using different parts of Epsilon.]]>
+		<p>While we can't possibly have a precise answer to this, with <b>more than 3000 posts</b> in the <a href="../forum">Epsilon forum</a>, it seems that quite a few people are currently using different parts of Epsilon.]]>
 		</answer>
 	</faq>
 		<faq id="getting-help">
@@ -26,12 +26,6 @@
 		no difference in response time. Also, answered questions in the forum form a knowledge database which other people can search in
 		case they face similar issues in the future. Last but not least, an active forum is an indication of a healthy and actively maintained 
 		project (properties that the Eclipse Foundation takes very seriously).]]>
-		</answer>
-	</faq>
-	<faq id="no-bundle">
-		<title>Why don't you provide an all-in-one bundle?</title>
-		<answer><![CDATA[
-		<p>We'd very much like to be able to provide an one-in-all bundle which you could download and use straight away. However, due to space limitations, it is not possible for every Eclipse project/component to provide such a bundle.]]>
 		</answer>
 	</faq>
 	<faq id="new-version-notification">

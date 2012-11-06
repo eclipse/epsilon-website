@@ -2,12 +2,11 @@
 This article outlines the process of building and uploading an interim release of Epsilon.
 
 * Check out the interim update site project from the SVN: `org.eclipse.epsilon.updatesite.interim`
-* Run the clean target of the build.xml file, to delete any previous build.
+* Delete the folders `features` and `plugins`, and the files `artifacts.jar` and `content.jar` under it (if they already exist)
 * Open `site.xml` and click the `Build All` button
-* Wait for the resulting Ant build to complete (which can take a few minutes). The Ant build injects categories into the P2 repository, compresses it using pack200, and generates the index page for the update site.
 * Connect via SFTP to `build.eclipse.org` and go to directory `/home/data/httpd/download.eclipse.org/epsilon`
 * Create a new folder named `interim-new`
-* Upload the folders `features` and `plugins`, and the files `artifacts.jar`, `artifacts.jar.pack.gz`, `content.jar`, `content.jar.pack.gz`, `site.xml` and `index.html` under the `interim-new` remote folder
+* Upload the folders `features` and `plugins`, and the files `site.xml` and `index.html` under the `interim-new` remote folder
 * When uploading is complete, rename the `interim` remote folder to `interim-old` and the `interim-new` folder to `interim`
 * Try to install the new interim version on a clean Eclipse Modelling distribution through the interim update site: [[http://download.eclipse.org/epsilon/interim/]]
 * If everything seems to be working fine, update any resolved bug reports as discussed in the Release Process section of [[../resolved-bugs|this article]]

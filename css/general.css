@@ -1,0 +1,72 @@
+/* Make the navbar taller 
+.navbar .brand { padding: 10px 20px 7px; }
+.navbar .nav > li > a {	padding: 26px 15px 24px; font-size: 15px; }*/
+body { padding-top: 40px; padding-bottom: 40px; }
+
+/* Fix the carousel in the hero unit of the index page */
+.hero-unit .carousel-caption h4 { color: white; font-size: 14px; line-height: 15px; }
+.hero-unit .carousel-caption p { color: white; font-size: 12px; line-height: 15px; }
+.hero-unit .carousel-inner { border: 1px solid black; }
+.hero-unit .carousel-caption { background-color: rgba(95, 57, 116, 0.75); }
+
+/* Homepage images for each language / tool */
+#languages img.orb, #tools img.orb {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+#languages h5, #tools h5 {
+  margin-bottom: 2px;
+}
+
+p {text-align:justify;}
+
+div.alert-info {
+	background-color:rgb(136,104,150);
+	border-color:rgb(136,104,150);
+	color:white;
+}
+
+div.alert-info a {
+	color:white;
+	text-decoration:underline;
+}
+
+.well h4 {
+	border-bottom: 1px solid #F0EDF8;
+	margin-bottom: .4em;
+	padding-bottom: .2em;
+}
+
+.center {
+	text-align: center;
+}
+
+#bookPreview {
+	margin-top: 20px;
+	width: 100%;
+	height: 1200px;
+	border: none;
+}
+
+.span8 > img {
+	margin-bottom: 1em;
+}
+
+/**
+this rule is used to display named anchors correctly (due to fixed navbar)
+used mainly in FAQs
+**/
+h3[id], div.thumb-pic[id] {
+	margin-top: -45px;
+	padding-top: 45px;
+}
+
+.nav-header {
+	font-size: inherit;
+}
+
+.sidebar .affix {
+	top: 60px;
+}

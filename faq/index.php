@@ -1,63 +1,69 @@
-<?php  																														
-require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); 	
-$App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProjectCommon());    # All on the same line to unclutter the user's desktop'
-
-	#*****************************************************************************
-	#
-	# template.php
-	#
-	# Author: 		Freddy Allilaire
-	# Date:			2006-05-29
-	#
-	# Description: Type your page comments here - these are not sent to the browser
-	#
-	#
-	#****************************************************************************
-	
-	#
-	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Frequently Asked Question (FAQs)";
-	$pageKeywords	= "";
-	$pageAuthor		= "Dimitrios Kolovos";
-	include ('../common.php');
-	ob_start();
-	
+<?php
+	require_once('../template.php');
 	$faqs = simplexml_load_file("faqs.xml")->faq;
+	h('Frequently Asked Questions (FAQs)');
 ?>
+<div class="row">
+	<!-- main part -->
+	<div class="span8">
+		<h1 class="page-header">Frequently Asked Questions</h1>
 
-	<div id="midcolumn">
-		<h1><?=$pageTitle?></h1>
+		<!-- first row of content - change loop to div -->
+		<div class="row">
+			<div class="span8">
+				<img class="pull-right" src="http://dev.eclipse.org/huge_icons/apps/help-browser.png" alt="">
+				<p>In this page we provide answers to common questions about Epsilon. If your question is not answered here, please feel free to <a href="../forum">ask in the forum</a>.</p>
 		
-		<img style="float:right" src="http://dev.eclipse.org/huge_icons/apps/help-browser.png">
-		
-		<p>In this page we provide answers to common questions about Epsilon. If your question is not answered here,
-		please feel free to <a href="../forum">ask in the forum</a>.</p>
-		
+			</div>
+		</div>
+		<!-- end first row of content -->
+
 		<?foreach ($faqs as $faq){?>
-		<p>
-		<h2><a style="color:black;text-decoration:none" name="<?=$faq["id"]?>"><?=$faq->title?></a></h2>
-		<?=$faq->answer?>
-		</p>
+		<div class="row">
+			<div class="span8">
+				<h3 id="<?=$faq["id"]?>"><?=$faq->title?></h3>
+				<p>
+					<?=$faq->answer?>
+				</p>
+			</div>
+		</div>
+		
 		<?}?>
-	</div>
-	
-	<div id="rightcolumn">
-	<div class="sideitem">
-	<h6>Overview</h6>
-	<div class='modal'>
-	<ul>
-		<?foreach ($faqs as $faq){?>
-		<li><a href="#<?=$faq["id"]?>"><?=$faq->title?></a>
-		<?}?>
-	</ul>
-	</div>
-	</div>
-	
+
 	</div>	
-<?
-	include('../stats.php');
-	$html = ob_get_contents();
-	ob_end_clean();
-	# Generate the web page
-	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+	<!-- end main part -->
+
+	<!-- sidebar -->
+	<div class="span4">
+		<!-- first element -->
+		<div class="row">
+			<div id="faqs" class="span4 affix">
+				<div class="well" style="padding: 8px 0;">
+      				<ul class="nav nav-list">
+      					<li class="nav-header">Overview</li>
+						<?php
+						$first = true;
+						foreach ($faqs as $faq){
+							if($first) {
+								$first = false;?>
+								<li class="active"><a href="#<?=$faq["id"]?>"><?=$faq->title?></a></li>
+							<?} else {?>
+							<li><a href="#<?=$faq["id"]?>"><?=$faq->title?></a></li>
+						<?}}?>
+					</ul>
+		<? sE(); ?>
+		<!-- end first element -->
+
+	</div>
+	<!-- end sidebar -->
+</div>
+<?php
+$script = array(
+	'<script>
+		$("body").scrollspy({
+			offset: 46
+		});
+	</script>
+');
+	f($script);
 ?>

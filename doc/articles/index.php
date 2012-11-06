@@ -1,73 +1,70 @@
-<?php  																														require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/app.class.php");	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/nav.class.php"); 	require_once($_SERVER['DOCUMENT_ROOT'] . "/eclipse.org-common/system/menu.class.php"); 	$App 	= new App();	$Nav	= new Nav();	$Menu 	= new Menu();		include($App->getProjectCommon());    # All on the same line to unclutter the user's desktop'
-
-	#*****************************************************************************
-	#
-	# template.php
-	#
-	# Author: 		Freddy Allilaire
-	# Date:			2006-05-29
-	#
-	# Description: Type your page comments here - these are not sent to the browser
-	#
-	#
-	#****************************************************************************
-	
-	#
-	# Begin: page-specific settings.  Change these. 
-	$pageTitle 		= "Articles";
-	$pageKeywords	= "";
-	$pageAuthor		= "Dimitrios Kolovos";
-	include ('../../common.php');
-	ob_start();
-	
-	# Create a parser and parse the examples.xml document.
+<?php
+	require_once('../../template.php');
+	// Create a parser and parse the articles.xml document.
 	$categories = simplexml_load_file("articles.xml")->category;
 	$articles = simplexml_load_file("articles.xml")->article;
-	
+
+	h('Articles');
 ?>
+<div class="row">
+	<!-- main part -->
+	<div class="span8">
+		<h1 class="page-header">Articles</h1>
 
-	<div id="midcolumn">
-	<h1><?=$pageTitle?></h1>
-		<img style="float:right" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png">
-		This page contains an index of articles presenting a range of tools and languages in Epsilon. Should you find that an article contains errors or is inconsistent with the current release of Epsilon, please <a href="../../forum">let us know</a>.
-		<br><br>
-		<?
-		foreach ($categories as $category) {
-		?>
-		<h2 id="<?=$category["name"]?>"><?=$category["title"]?></h2>
-		<ul>
-  		<?
-  		foreach ($category->article as $article) {
-  		?>
-  		<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>: <?=$article->description?>
-  		<?
-  		}
-  		?>
-  	</ul>
-    <?}?>
-  	<hr class="clearer" />
+		<div class="row">
+			<div class="span8">
+				<img class="pull-right" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png" alt="">
+				<p>This page contains an index of articles presenting a range of tools and languages in Epsilon. Should you find that an article contains errors or is inconsistent with the current release of Epsilon, please <a href="../../forum">let us know</a>.</p>
+			</div>
+		</div>
+
+		<? foreach ($categories as $category) { ?>
+		<!--  style="border-bottom: 1px solid #AAA; margin-bottom: .5em; margin-top: .5em;" -->
+			<h3 id="<?=$category["name"]?>"><?= $category["title"] ?></h3>
+			<div class="row">
+				<div class="span8">
+					<ul>
+				  		<? foreach ($category->article as $article) { ?>
+				  			<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>: <?=$article->description?>
+				  		<? } ?>
+			  		</ul>
+		  		</div>
+			</div>
+	    <?}?>
+
+	</div>	
+	<!-- end main part -->
+
+	<!-- sidebar -->
+	<div class="span4">
+		<!-- first element -->
+		<div class="row">
+			<div id="articleCategories" class="span4 affix">
+				<div class="well" style="padding: 8px 0;">
+					<ul class="nav nav-list">
+						<li class="nav-header">Categories</li>
+						<?php
+						$first = true;
+						foreach ($categories as $category) {
+							if($first) {
+								$first = false; ?>
+						  		<li class="active"><a href="#<?=$category["name"]?>"><?=$category["title"]?></a></li>
+						  	<?} else {?>
+						  		<li><a href="#<?=$category["name"]?>"><?=$category["title"]?></a></li>
+						<?}}?>
+					</ul>
+		<? sE(); ?>
+		<!-- end first element -->
 
 	</div>
-	
-	<div id="rightcolumn">
-		<div class="sideitem">
-		<h6>Categories</h6>
-		<div class='modal'>
-		<ul>
-		<?
-		foreach ($categories as $category) {
-		?>
-		  <li><a href="#<?=$category["name"]?>"><?=$category["title"]?></a></li>
-		<?}?>
-		</ul>
-		</div>
-		</div>
-	</div>
-	
-<?
-	include('../../stats.php');
-	$html = ob_get_contents();
-	ob_end_clean();
-	# Generate the web page
-	$App->generatePage($theme, $Menu, $Nav, $pageAuthor, $pageKeywords, $pageTitle, $html);
+	<!-- end sidebar -->
+</div>
+<?php
+	f(array(
+	'<script>
+		$("body").scrollspy({
+			offset: 46
+		});
+	</script>
+'));
 ?>
