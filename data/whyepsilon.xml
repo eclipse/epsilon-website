@@ -37,7 +37,7 @@
 	</reason>
 	<reason title="Plumbing included" icon="magic_wand">
 	  <![CDATA[
-	  You can use the ANT Epsilon tasks to compose Epsilon programs into complex workflows. 
+	  You can use the <a href="doc/workflow">ANT Epsilon tasks</a> to compose Epsilon programs into complex workflows. 
 	  Programs executed in the same workflow can share models and even pass parameters to each other. 
 	  ]]>
 	</reason>
@@ -49,7 +49,9 @@
 	  ]]>
 	</reason>
 	<reason title="Java is your friend" icon="process">
-	  You can call methods of Java classes from all Epsilon programs to reuse code you have already written or to perform tasks that Epsilon languages do not support natively.
+	  <![CDATA[
+	  You can <a href="doc/articles/call-java-from-epsilon/">call methods of Java classes</a> from all Epsilon programs to reuse code you have already written or to perform tasks that Epsilon languages do not support natively.
+	  ]]>
 	</reason>
 	<reason title="All questions answered" icon="mail">
 	  <![CDATA[
@@ -61,7 +63,7 @@
 	</reason>
 	<reason title="Ready to use distributions" icon="monitor">
 	   <![CDATA[
-	  Configuring Eclipse can be a pain. That's why we provide <a href="download">complete Eclipse distributions</a> which contain Epsilon and all its dependencies.
+	  Configuring Eclipse can be a pain, particularly for new users. That's why we provide <a href="download">complete Eclipse distributions</a> which contain Epsilon and all its dependencies.
 	  ]]>
 	</reason>
 	

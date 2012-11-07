@@ -12,7 +12,7 @@
 
 	$version = Epsilon::getVersion();
 	
-	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/distributions/".$version."/epsilon-".$version."-";
+	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/distributions/eclipse-epsilon-".$version."-";
 	
 	$downloadWin = $downloadUrl."win32.zip";
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
@@ -67,15 +67,12 @@
 			<div class="span12">
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
-				    <!--
 				    <li class="active"><a href="#distributions" data-toggle="tab"><h4>Eclipse Distributions</h4></a></li>
-				     -->
-				    <li class="active"><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
+				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source Code</h4></a></li>
 				  </ul>
 				    <div class="tab-content">
-				    	<!--
-  						<div id="distributions" class="tab-pane">
+  						<div id="distributions" class="tab-pane active">
   							<p>
   							Ready to use Eclipse distributions containing Epsilon, EMF, GMF, and Emfatic. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.
   							</p>
@@ -84,18 +81,20 @@
 							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin64?>">Windows 64bit</a>
 							<a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac?>">Mac OS X 32bit</a>
 							<a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac64?>">Mac OS X 64bit</a>
-							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux?>">Linux 32bit</a>
-							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux64?>">Linux 64bit</a>
+							
+							<a class="btn <?=getStyle('linux')?> disabled" href1="<?=$downloadLinux?>">Linux 32bit*</a>
+							<a class="btn <?=getStyle('linux')?> disabled" href1="<?=$downloadLinux64?>">Linux 64bit*</a>
+							
 							</p>
 							<?if (onWindows()){?>
 							<p><b>Note for Windows users:</b> Please make sure that you extract the downloaded distributions close to the root of a drive (e.g. C:/D:) as
 							the maximum path length on Windows may not exceed 256 characters.
 							</p>
 							<?}?>
+							<p>* Linux distributions coming up soon</p>
 
   						</div>
-  						-->
-  						<div id="updatesites" class="tab-pane active">
+  						<div id="updatesites" class="tab-pane">
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
 	  							<div class="input-prepend input-append">

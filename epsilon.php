@@ -53,7 +53,7 @@ class Epsilon {
 	}
 	
 	static function getVersion() {
-		return "0.9.1";
+		return "1.0";
 	}
 	
 	static function getServer() {
