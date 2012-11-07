@@ -4,7 +4,7 @@
 	xmlns:html="http://www.w3.org/1999/xhtml" name="Epsilon">
 	<release projectid="modeling.emft.epsilon" version="1.0.0" />
 	<introduction>
-		<html:div>Epsilon provides a set of interoperable task-specific programming languages through which users can interact with EMF models to perform common MDE tasks.
+		<html:div>Epsilon is a family of languages and tools for code generation, model-to-model transformation, model validation, comparison, migration and refactoring that work out-of-the-box with EMF and other types of models.
 		</html:div>
 	</introduction>
 	<release_deliverables>
