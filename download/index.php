@@ -67,12 +67,12 @@
 			<div class="span12">
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
-				    <li class="active"><a href="#distributions" data-toggle="tab"><h4>Eclipse Distributions</h4></a></li>
-				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
+				    <!--li class="active"><a href="#distributions" data-toggle="tab"><h4>Eclipse Distributions</h4></a></li-->
+				    <li class="active"><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source Code</h4></a></li>
 				  </ul>
 				    <div class="tab-content">
-  						<div id="distributions" class="tab-pane active">
+  						<!--div id="distributions" class="tab-pane active">
   							<p>
   							Ready to use Eclipse distributions containing the latest stable version of Epsilon (v<?=Epsilon::getVersion()?>), EMF, GMF, and Emfatic. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.
   							</p>
@@ -93,8 +93,8 @@
 							<?}?>
 							<p>* Linux distributions coming up soon</p>
 
-  						</div>
-  						<div id="updatesites" class="tab-pane">
+  						</div-->
+  						<div id="updatesites" class="tab-pane active">
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
 	  							<div class="input-prepend input-append">
