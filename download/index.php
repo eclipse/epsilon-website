@@ -18,8 +18,8 @@
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
 	$downloadMac = $downloadUrl."macosx-cocoa.zip";
 	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.zip";
-	$downloadLinux = $downloadUrl."linux-gtk.zip";
-	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.zip";
+	$downloadLinux = $downloadUrl."linux-gtk.tar.gz";
+	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.tar.gz";
 	
 	function getVisitorPlatform() 
 	{ 
@@ -89,8 +89,8 @@
 							<a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac?>">Mac OS X 32bit</a>
 							<a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac64?>">Mac OS X 64bit</a>
 							
-							<a class="btn <?=getStyle('linux')?> disabled" href1="<?=$downloadLinux?>">Linux 32bit*</a>
-							<a class="btn <?=getStyle('linux')?> disabled" href1="<?=$downloadLinux64?>">Linux 64bit*</a>
+							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux?>">Linux 32bit</a>
+							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux64?>">Linux 64bit</a>
 							
 							</p>
 							<?if (onWindows()){?>
@@ -98,8 +98,7 @@
 							the maximum path length on Windows may not exceed 256 characters.
 							</p>
 							<?}?>
-							<p>* Linux distributions coming up soon</p>
-
+							
   						</div>
   						<div id="updatesites" class="tab-pane">
   							<form class="form-horizontal" style="padding-left:1px">
