@@ -17,4 +17,4 @@ Below are the conventions used by the Epsilon committers to characterise reporte
  
 ==Release Process==
 * When releasing a new interim version, go through all bugs of type [1] and set their whiteboard field to '''interim'''.
-* When releasing a new stable version, go through all bugs of type [1] and [2] and set their status to Closed/Fixed 
+* When releasing a new stable version, go through all bugs of type [1] and [2], set their status to Closed/Fixed, and record the closed bug numbers in [[https://docs.google.com/spreadsheet/ccc?key=0AhVF3EZ8Xel-dGU0SmJiWjlieExMMDVZeGZZNF9IaFE|this Google spreadsheet]].
