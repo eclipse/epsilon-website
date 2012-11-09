@@ -33,6 +33,21 @@
 
 		<!-- first row of content -->
 		<div class="row">
+			
+			<div class="span8">
+			<?if ($example["interim"] == "true"){?>
+				<div class="alert alert-info alert-block">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					This example uses features which are only available in the <a href="../download">latest interim version</a> of Epsilon.
+				</div>
+			<?} else if ($example["interim"] == "false"){?>
+				<div class="alert alert-info alert-block">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					This example uses features which are only available if you are running Epsilon from the <a href="../doc/articles/epsilon-source-svn">latest version of its source code</a>.
+				</div>
+			<?}?>
+			</div>
+		
 			<div class="span8 tabbable">
 				<ul class="nav nav-tabs">
   					<?php
