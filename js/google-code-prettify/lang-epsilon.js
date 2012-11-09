@@ -27,8 +27,10 @@ registerEpsilonLanguageHandler("egl", "");
 
 var erlKeywords = "pre|post|guard|extends";
 var etlKeywords = erlKeywords + "|transform|rule|to";
+var egxKeywords = erlKeywords + "|rule|transform|target|parameters|template";
 
 registerEpsilonLanguageHandler("etl", etlKeywords);
+registerEpsilonLanguageHandler("egx", egxKeywords);
 registerEpsilonLanguageHandler("evl", erlKeywords + "|context|constraint|critique|check|do|message|title|fix|guard");
 registerEpsilonLanguageHandler("eml", etlKeywords + "|with|merge");
 registerEpsilonLanguageHandler("ecl", erlKeywords + "|rule|compare|match|with");
