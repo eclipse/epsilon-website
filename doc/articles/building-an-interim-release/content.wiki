@@ -10,3 +10,4 @@ This article outlines the process of building and uploading an interim release o
 * When uploading is complete, rename the `interim` remote folder to `interim-old` and the `interim-new` folder to `interim`
 * Try to install the new interim version on a clean Eclipse Modelling distribution through the interim update site: [[http://download.eclipse.org/epsilon/interim/]]
 * If everything seems to be working fine, update any resolved bug reports as discussed in the Release Process section of [[../resolved-bugs|this article]]
+* Go to `examples/examples.xml` on the website and update the values of `interim` attributes to `true`
