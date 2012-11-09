@@ -67,8 +67,9 @@
 			<div class="span12">
 			
 				<div class="alert alert-info alert-block">
-					If you downloaded one of the 1.0 distributions or installed 1.0 from the main update site before Friday Nov 9,
+					If you've downloaded one of the 1.0 distributions or installed 1.0 from the main update site before Friday Nov 9,
 					please update Epsilon from the stable update site to pick up a fix for <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=393941">bug 393941</a>.
+					Updated distributions that contain a fix for the bug will appear here shortly.
 				</div>
 				
 				<div class="tabbable" style="margin-bottom: 0px;">
