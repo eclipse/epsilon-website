@@ -9,9 +9,11 @@
 			<a class="brand" href="<?= Epsilon::getRelativeLocation('') ?>">Epsilon</a>
 			<div class="nav-collapse">
 				<ul class="nav">
+				<!-- 
 					<li>
 						<a href="<?= Epsilon::getRelativeLocation('live') ?>">Live</a>
 					</li>
+				 -->
 					<li>
 						<a href="<?= Epsilon::getRelativeLocation('download'); ?>">Download</a>
 					</li>
