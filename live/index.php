@@ -10,7 +10,7 @@
 
 		<div class="row">
 			<div class="span8">
-				<iframe src="http://epsilon-live.appspot.com/embedded2.html" src1="http://localhost:8080/embedded2.html" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
+				<iframe src="http://epsilon-live.appspot.com/embedded.jsp?source=<?=urlencode(trim($scripts[2]->source))?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
 				<h2>Live Scripts</h2>
 				<p>You can copy/paste any of the following scripts in the editor above, modify them if you want, and finally run them.</p>
 			</div>
