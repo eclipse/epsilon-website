@@ -76,6 +76,7 @@
 				  <ul class="nav nav-tabs">
 				    <li class="active"><a href="#distributions" data-toggle="tab"><h4>Eclipse Distributions</h4></a></li>
 				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
+				    <li><a href="#marketplace" data-toggle="tab"><h4>Eclipse Marketplace</h4></a></li>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source Code</h4></a></li>
 				  </ul>
 				    <div class="tab-content">
@@ -149,6 +150,10 @@
 							
 							<p>If you are not familiar with Eclipse/plugin installation, <a href="http://www.vogella.com/articles/Eclipse/article.html#install">this tutorial</a> provides an excellent crash course.</p>
 							
+  						</div>
+  						<div id="marketplace" class="tab-pane">
+  							Drag and drop into a running Eclipse Indigo workspace to 
+  							<a style="position:relative;top:-2px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="http://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> the latest stable version (v <?=Epsilon::getVersion()?>) of Epsilon.
   						</div>
   						<div id="sourcecode" class="tab-pane">
   							<p>

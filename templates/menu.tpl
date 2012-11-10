@@ -88,6 +88,11 @@
 					</li>
 				</ul>
 				<ul class="nav pull-right">
+					<li>
+						<a style="position:relative;top:2px;padding:6px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="Drag and drop into a running Eclipse Indigo workspace to install Epsilon">
+						  <img src="http://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/>
+						</a>
+					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Eclipse
