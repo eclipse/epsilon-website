@@ -6,5 +6,5 @@ class House {
 }
 
 class Person {
-   
+   attr String name; //level1
 }

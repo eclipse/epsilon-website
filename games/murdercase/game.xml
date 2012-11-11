@@ -3,16 +3,7 @@
 	<description>
 	Find the murderer
 	</description>
-	<metamodel>
-		package murdercase;
-		
-		class House {
-			val Person[*] people;
-		}
-		
-		class Person {}
-	</metamodel>
-	<level>
+	<level id="1">
 		<description>
 		How many people are in the house?
 		</description>
@@ -21,5 +12,8 @@
 			house.?.size().println();
 		</hint>
 		<answer>6</answer>
+	</level>
+	<level id="2">
+		
 	</level>
 </game>
