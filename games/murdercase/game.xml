@@ -7,7 +7,10 @@
 	version="5">
 	
 	<description>
-	It's a cold winter night in Villa Emfatica. A group of people is scattered across the rooms of the villa but not all of them are alive. Answer the questions below and help discover the murderer!
+	It's a cold winter night in Villa Emfatica. A group of people is scattered across the rooms of the villa but not all of them are alive. 
+	The solution to the mystery hides in a model that conforms to the metamodel below. As you progress through the levels of the game, 
+	more details of the metamodel will be revealed to you. Use the Model Explorer to query the mystery model, answer the questions below 
+	and help find the murderer!
 	</description>
 	<level id="1">
 		<description>
