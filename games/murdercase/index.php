@@ -1,6 +1,7 @@
 <?php
 	require_once('../../template.php');
 	require_once('../../util.php');
+	require_once('util.php');
 	$game = simplexml_load_file("game.xml");
 	
 	$levelId = isset($_REQUEST['level']) ? strip_tags($_REQUEST['level']) : 1;
@@ -81,7 +82,7 @@
 					<div class="tab-content">
 	  					<div id="metamodel" class="tab-pane active">
 	  					<?
-	  						$content = readUrlContent($emfatic);
+	  						$content = readEmfaticContent($emfatic, $levelId, $levelCount);
 						?>
 						<pre class="prettyprint lang-emf"><?=$content?></pre>
 	  					</div>

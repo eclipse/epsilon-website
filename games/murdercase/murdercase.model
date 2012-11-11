@@ -3,6 +3,9 @@
   <people xmi:id="_MpRZ8CuZEeKxmp0-9bXsnw" name="Jo" age="19" profession="Plumber" alive="true"/>
   <people xmi:id="_NOu3cCuZEeKxmp0-9bXsnw" name="Judith" age="41" profession="Butcher" alive="true"/>
   <people xmi:id="_iKsc8Cv6EeKxmp0-9bXsnw" name="Heston" age="32" profession="Chef" alive="true"/>
+  <people xmi:id="_Y63SgCwJEeKxmp0-9bXsnw" name="Tony" alive="true"/>
+  <people xmi:id="_anRxACwJEeKxmp0-9bXsnw" name="James" alive="true"/>
+  <people xmi:id="_bxEqoCwJEeKxmp0-9bXsnw" name="Enid"/>
   <rooms xmi:id="_eFL78CwBEeKxmp0-9bXsnw" name="Kitchen"/>
   <rooms xmi:id="_fZ3P4CwBEeKxmp0-9bXsnw" name="Study"/>
   <rooms xmi:id="_gX_FACwBEeKxmp0-9bXsnw" name="Library"/>
