@@ -20,6 +20,9 @@ function readEmfaticContent($url, $level, $levelCount) {
       				}
       				$line = substr($line, 0, strlen($line) - strlen($levelTag) - 1);
       			}
+      			if (endswith(trim($line), "//hide")) {
+      				$includeLine = false;
+      			}
       		}
       		if ($includeLine) {
       			$filteredContent .= $line."\n";

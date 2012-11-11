@@ -2,9 +2,9 @@
 <game name="Murder Case" 
 	metamodel="http://www.eclipse.org/epsilon/games/murdercase/murdercase.ecore" 
 	model="http://www.eclipse.org/epsilon/games/murdercase/murdercase.model"
-	emfatic1="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
-	emfatic="http://localhost:8888/epsilon/games/murdercase/murdercase.emf"
-	version="4">
+	emfatic="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
+	emfatic1="http://localhost:8888/epsilon/games/murdercase/murdercase.emf"
+	version="5">
 	
 	<description>
 	It's a cold winter night in Villa Emfatica. A group of people is scattered across the rooms of the villa but not all of them are alive. Answer the questions below and help discover the murderer!
@@ -34,18 +34,62 @@ house.?.size().println();
 		<hint>
 for (person in Person.all){
 	if (person.alive == false) {
-		?
+		?.?.println();
 	}
 }		
 		</hint>
 		<answer>Enid</answer>
 	</level>
-	<level>
+	<level id="3">
 		<description>Let's find out a bit more about the house.</description>
 		<question>How many rooms are there in the house?</question>
 		<hint>
 Room.all.?().println();		
 		</hint>
 		<answer>6</answer>
+	</level>
+	<level id="4">
+		<description>People are scattered around the house, but one room is empty.</description>
+		<question>Which room is empty?</question>
+		<hint>
+Room.all.selectOne(r|r.?.size() == 0).name.println();		
+		</hint>
+		<answer>Library</answer>
+	</level>
+	<level id="5">
+		<description>Let's concentrate on the room with the dead body, shall we?</description>
+		<question>What is the name of the room with the dead body?</question>
+		<hint>
+var body = Person.all.selectOne(p|p.alive = false);
+var room = Room.all.selectOne(r|r.people.includes(?));
+?.println();		
+		</hint>
+		<answer>Study</answer>
+	</level>
+	<level id="6">
+		<description>Unsurprisningly, here are doors connecting the rooms of the house. The murderer is not in a room next to the room where the body lies.</description>
+		<question>What is the name of the person that is definitely not the murderer (or the dead body)?</question>
+		<hint>
+var study = Room.all.selectOne(r|r.name = "Study");
+for (room in Room.all) {
+	if (not room.isConnectedTo(?)) {
+		?.people.first().?.println();
+	}
+}
+
+operation Room isConnectedTo(other : Room) {
+	return Door.all.exists(door|door.rooms.includes(self)
+		and door.rooms.includes(other));
+}
+		</hint>
+		<answer>James</answer>
+	</level>
+	<level id="6">
+		<description>There are certain suspicious objects in each room.</description>
+		<question>How many objects are there in total?</question>
+		<hint>
+Object.?.?().size().println();	
+		</hint>
+		<answer>0</answer>
 	</level>
 </game>

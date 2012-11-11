@@ -58,7 +58,7 @@
 		</form>
 		
 		<div class="row">
-			<div class="span6">
+			<div class="span7">
 				<div class="tabbable" style="margin-bottom: 0px;">
 					<ul class="nav nav-tabs">
 					    <li class="active"><a href="#editor" data-toggle="tab"><h4>Model Explorer</h4></a></li>
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="span6">
+			<div class="span5">
 				<div class="tabbable" style="margin-bottom: 0px;">
 					<ul class="nav nav-tabs">
 					    <li class="active"><a href="#metamodel" data-toggle="tab"><h4>Metamodel</h4></a></li>
