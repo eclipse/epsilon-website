@@ -70,7 +70,10 @@
 						<iframe src="http://epsilon-live.appspot.com/embedded.jsp?source=&button=search&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
 					</div>
 					<div id="hints" class="tab-pane">
-						<pre class="prettyprint lang-eol"><?=trim(htmlentities($level->hint))?></pre>
+						<div class="alert alert-info">
+						Copy and paste the hint below into the Model Explorer and replace ? with the missing code.
+						</div>
+						<pre class="prettyprint lang-eol"><?=str_replace("\t", "  ", trim(htmlentities($level->hint)))?></pre>
 					</div>
 				</div>
 			</div>

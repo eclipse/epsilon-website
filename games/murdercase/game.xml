@@ -2,8 +2,9 @@
 <game name="Murder Case" 
 	metamodel="http://www.eclipse.org/epsilon/games/murdercase/murdercase.ecore" 
 	model="http://www.eclipse.org/epsilon/games/murdercase/murdercase.model"
-	emfatic="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
-	version="3">
+	emfatic1="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
+	emfatic="http://localhost:8888/epsilon/games/murdercase/murdercase.emf"
+	version="4">
 	
 	<description>
 	It's a cold winter night in Villa Emfatica. A group of people is scattered across the rooms of the villa but not all of them are alive. Answer the questions below and help discover the murderer!
@@ -30,7 +31,21 @@ house.?.size().println();
 		<question>
 		What is the name of the victim?
 		</question>
-		<hint></hint>
+		<hint>
+for (person in Person.all){
+	if (person.alive == false) {
+		?
+	}
+}		
+		</hint>
 		<answer>Enid</answer>
+	</level>
+	<level>
+		<description>Let's find out a bit more about the house.</description>
+		<question>How many rooms are there in the house?</question>
+		<hint>
+Room.all.?().println();		
+		</hint>
+		<answer>6</answer>
 	</level>
 </game>
