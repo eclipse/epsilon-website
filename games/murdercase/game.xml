@@ -1,19 +1,31 @@
 <?xml version="1.0"?>
 <game name="Murder Case" metamodel="murdercase.ecore" model="murdercase.model">
 	<description>
-	Find the murderer
+	It's a cold winter night in Villa Emfatica. Six people are scattered across the rooms of the house but not all of them are alive. Answer the questions below and help discover the murderer!
 	</description>
 	<level id="1">
 		<description>
-		How many people are in the house?
+		Let's start by getting to know more about the murder setting.
 		</description>
+		<question>
+		How many people are in the house?
+		</question>
 		<hint>
-			var house = House.all.first();
-			house.?.size().println();
+var house = House.all.first();
+house.?.size().println();
 		</hint>
 		<answer>6</answer>
 	</level>
 	<level id="2">
-		
+		<description>
+		<![CDATA[
+		Each <code>Person</code> has an <code>alive</code> Boolean property and a <code>name</code> property.
+		]]>
+		</description>
+		<question>
+		What is the name of the victim?
+		</question>
+		<hint></hint>
+		<answer>Enid</answer>
 	</level>
 </game>

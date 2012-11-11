@@ -3,8 +3,23 @@ package murdercase;
 
 class House {
    val Person[*] people;
+   val Room[*] rooms;
 }
 
 class Person {
-   attr String name; //level1
+   attr String name;
+   attr int age;
+   attr String profession;
+   attr boolean alive;
+   ref Object[*] tools;
+}
+
+class Room {
+   attr String name;
+   ref Room#next next;
+   val Object[*] objects;
+}
+
+class Object {
+   attr String name;
 }
