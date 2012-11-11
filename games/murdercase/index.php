@@ -31,10 +31,10 @@
 <div class="row">
 	<!-- main part -->
 	<div class="span12">
-		<h1 class="page-header"><?=$game["name"]?></h1>
-		<p><?=$game->description?></p>
 		
 		<?if ($levelId <= $levelCount){?>
+		<h1 class="page-header"><?=$game["name"]?></h1>
+		<p><?=$game->description?></p>
 		<form action="." method="get">
   			<fieldset>
   				<legend>Level <?=$levelId?></legend>
@@ -94,7 +94,7 @@
 			</div>
 		</div>
 		<?}else{?>
-		<h2>Congratulations!</h2>
+		<h1>Congratulations!</h1>
 		You can now download the <a href="<?=$metamodel?>">metamodel</a> and the <a href="<?=$model?>">model</a> of 
 		<?=$game["name"]?> and practice more with EOL <a href="/epsilon/download">offline</a>!
 		<?}?>

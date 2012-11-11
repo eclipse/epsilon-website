@@ -27,9 +27,7 @@ house.?.size().println();
 	</level>
 	<level id="2">
 		<description>
-		<![CDATA[
-		Each <code>Person</code> has an <code>alive</code> Boolean property and a <code>name</code> property.
-		]]>
+		Each person has a name, and an attribute that indicates whether they are alive.
 		</description>
 		<question>
 		What is the name of the victim?
@@ -121,9 +119,9 @@ for (room in ?.all.select(r|r.?.size() = 0)) {
 		<description>The murderer is in a room without any suspicious objects.</description>
 		<question>How many suspects does this leave us with?</question>
 		<hint>
-for (room in Room.all.select(r|r.objects.size() = 0)) {
-    for (person in room.people) {
-    	person.name.println();
+for (room in ?.all.select(r|r.objects.?() = 0)) {
+    for (person in ?.people) {
+    	person.?.println();
     }
 }
 // Remember that James is not the murderer (Level 6)
@@ -135,10 +133,10 @@ for (room in Room.all.select(r|r.objects.size() = 0)) {
 		<question>Who is the murderer?</question>
 		<hint>
 <![CDATA[
-for (room in Room.all.select(r|r.objects.size() = 0)) {
-    for (person in room.people) {
-    	if (person.name <> "James" && person.age < 30) {
-    		person.name.println();
+for (room in ?.all.select(room|room.objects.size() = 0)) {
+    for (person in room.?) {
+    	if (person.? <> "James" && person.? < 30) {
+    		?.name.println();
     	}
     }
 }

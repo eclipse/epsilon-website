@@ -9,10 +9,9 @@ class House {
 
 class Person {
    attr String name; //level2
-   attr int age; //hide
-   attr String profession; //hide
+   attr int age; //level10
+   attr String profession; //level10
    attr boolean alive; //level2
-   ref Object[*] tools; //hide
 }
 
 class Room { //level3

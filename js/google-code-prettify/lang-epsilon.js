@@ -60,7 +60,7 @@ PR['registerLangHandler'](
          // A character literal has single quotes on either side
          [PR['PR_STRING'],      /^'(?:[^\r\n\\']|\\(?:'|[^\r\n']+))'/],
          [PR['PR_LITERAL'],     /^'[a-zA-Z_$][\w$]*(?!['$\w])/],
-         [PR['PR_KEYWORD'],     new RegExp("^(?:delete|import|for|while|in|and|or|operation|return|var|throw|if|new|else|transaction|abort|break|continue|assert|assertError|not" + keywords + ")\\b")],
+         [PR['PR_KEYWORD'],     new RegExp("^(?:not|delete|import|for|while|in|and|or|operation|return|var|throw|if|new|else|transaction|abort|break|continue|assert|assertError|not" + keywords + ")\\b")],
          [PR['PR_LITERAL'],     /^(?:true|false|null|this)\b/],
          [PR['PR_LITERAL'],     /^(?:(?:0(?:[0-7]+|X[0-9A-F]+))L?|(?:(?:0|[1-9][0-9]*)(?:(?:\.[0-9]+)?(?:E[+\-]?[0-9]+)?F?|L?))|\\.[0-9]+(?:E[+\-]?[0-9]+)?F?)/i],
          // Treat upper camel case identifiers as types.
