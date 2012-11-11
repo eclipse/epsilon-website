@@ -3,13 +3,12 @@
 	metamodel="http://www.eclipse.org/epsilon/games/murdercase/murdercase.ecore" 
 	model="http://www.eclipse.org/epsilon/games/murdercase/murdercase.model"
 	emfatic="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
-	emfatic1="http://localhost:8888/epsilon/games/murdercase/murdercase.emf"
-	version="8">
+	version="9">
 	
 	<description>
 	It's a cold winter night in Villa Emfatica. A group of people is scattered across the rooms of the villa but not all of them are alive. 
 	The solution to the mystery hides in a model that conforms to the metamodel below. As you progress through the levels of the game, 
-	more details of the metamodel will be revealed to you. Use the Model Explorer to query the mystery model, answer the questions below 
+	more details of the metamodel will be revealed to you. Use the Model Explorer to query the mystery model with EOL, answer the questions below 
 	and find the murderer!
 	</description>
 	<level id="1">
@@ -20,10 +19,10 @@
 		How many people are in the house?
 		</question>
 		<hint>
-var house = House.all.first();
-house.?.size().println();
+// We'll give you this one
+Person.all.size().println();
 		</hint>
-		<answer>6</answer>
+		<answer>7</answer>
 	</level>
 	<level id="2">
 		<description>
@@ -63,7 +62,7 @@ Room.all.selectOne(r|r.?.size() == 0).name.println();
 		<hint>
 var body = Person.all.selectOne(p|p.alive = false);
 var room = Room.all.selectOne(r|r.people.includes(?));
-?.println();		
+?.?.println();		
 		</hint>
 		<answer>Study</answer>
 	</level>
@@ -89,17 +88,18 @@ operation Room isConnectedTo(other : Room) {
 		<description>There are certain suspicious scattered across the rooms of the house.</description>
 		<question>How many objects are there in total?</question>
 		<hint>
-Object.?.?().size().println();	
+Object.?.?().println();	
 		</hint>
-		<answer>0</answer>
+		<answer>4</answer>
 	</level>
 	<level id="8">
 		<description>The murder weapon is not in the room with the body.</description>
 		<question>Which object is definitely not the murder weapon?</question>
 		<hint>
 var study = Room.all.selectOne(r|r.name="Study");
-var object = study.?.first();
-object.?.println();
+for (object in study.?) {
+	object.?.println();
+}
 		</hint>
 		<answer>Gun</answer>
 	</level>
@@ -129,13 +129,13 @@ for (room in ?.all.select(r|r.objects.?() = 0)) {
 		<answer>2</answer>
 	</level>
 	<level id="11">
-		<description>The murderer is younger than 30.</description>
+		<description>The murderer is younger than 30 years old.</description>
 		<question>Who is the murderer?</question>
 		<hint>
 <![CDATA[
 for (room in ?.all.select(room|room.objects.size() = 0)) {
     for (person in room.?) {
-    	if (person.? <> "James" && person.? < 30) {
+    	if (person.? <> "James" and person.? < 30) {
     		?.name.println();
     	}
     }
