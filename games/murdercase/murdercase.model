@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
 <House xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="murdercase" xmi:id="_K8a2kCuZEeKxmp0-9bXsnw">
   <rooms xmi:id="_eFL78CwBEeKxmp0-9bXsnw" name="Kitchen">
-    <people xmi:id="_iKsc8Cv6EeKxmp0-9bXsnw" name="Heston" age="32" profession="Chef" alive="true"/>
+    <people xmi:id="_iKsc8Cv6EeKxmp0-9bXsnw" name="Heston" age="32" profession="Chef" alive="true" tools="_QZlRUCwyEeKxmp0-9bXsnw"/>
   </rooms>
   <rooms xmi:id="_fZ3P4CwBEeKxmp0-9bXsnw" name="Study">
+    <objects xmi:id="_MBDx4CwyEeKxmp0-9bXsnw" name="Gun"/>
     <people xmi:id="_bxEqoCwJEeKxmp0-9bXsnw" name="Enid" profession="Lawyer"/>
   </rooms>
-  <rooms xmi:id="_gX_FACwBEeKxmp0-9bXsnw" name="Library"/>
+  <rooms xmi:id="_gX_FACwBEeKxmp0-9bXsnw" name="Library">
+    <objects xmi:id="_QZlRUCwyEeKxmp0-9bXsnw" name="Knife"/>
+  </rooms>
   <rooms xmi:id="_omz14CwoEeKxmp0-9bXsnw" name="Bedroom">
+    <objects xmi:id="_TRX90CwyEeKxmp0-9bXsnw" name="Rope"/>
     <people xmi:id="_anRxACwJEeKxmp0-9bXsnw" name="James" profession="Buttler" alive="true"/>
   </rooms>
   <rooms xmi:id="_18Z-ACwoEeKxmp0-9bXsnw" name="Dining Room">
@@ -15,8 +19,9 @@
     <people xmi:id="_K2aSwCwpEeKxmp0-9bXsnw" name="Emma" profession="Doctor" alive="true"/>
   </rooms>
   <rooms xmi:id="_9S974CwoEeKxmp0-9bXsnw" name="Basement">
+    <objects xmi:id="_jYGJwCwyEeKxmp0-9bXsnw" name="Wrench"/>
     <people xmi:id="_MpRZ8CuZEeKxmp0-9bXsnw" name="Jo" age="19" profession="Plumber" alive="true"/>
-    <people xmi:id="_NOu3cCuZEeKxmp0-9bXsnw" name="Judith" age="41" profession="Butcher" alive="true"/>
+    <people xmi:id="_NOu3cCuZEeKxmp0-9bXsnw" name="Judith" age="41" profession="Butcher" alive="true" tools="_QZlRUCwyEeKxmp0-9bXsnw"/>
   </rooms>
   <doors xmi:id="_gGP4ICwqEeKxmp0-9bXsnw" rooms="_omz14CwoEeKxmp0-9bXsnw _18Z-ACwoEeKxmp0-9bXsnw"/>
   <doors xmi:id="_jablsCwqEeKxmp0-9bXsnw" rooms="_18Z-ACwoEeKxmp0-9bXsnw _fZ3P4CwBEeKxmp0-9bXsnw"/>

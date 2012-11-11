@@ -4,13 +4,13 @@
 	model="http://www.eclipse.org/epsilon/games/murdercase/murdercase.model"
 	emfatic="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
 	emfatic1="http://localhost:8888/epsilon/games/murdercase/murdercase.emf"
-	version="5">
+	version="6">
 	
 	<description>
 	It's a cold winter night in Villa Emfatica. A group of people is scattered across the rooms of the villa but not all of them are alive. 
 	The solution to the mystery hides in a model that conforms to the metamodel below. As you progress through the levels of the game, 
 	more details of the metamodel will be revealed to you. Use the Model Explorer to query the mystery model, answer the questions below 
-	and help find the murderer!
+	and find the murderer!
 	</description>
 	<level id="1">
 		<description>
@@ -87,12 +87,34 @@ operation Room isConnectedTo(other : Room) {
 		</hint>
 		<answer>James</answer>
 	</level>
-	<level id="6">
-		<description>There are certain suspicious objects in each room.</description>
+	<level id="7">
+		<description>There are certain suspicious scattered across the rooms of the house.</description>
 		<question>How many objects are there in total?</question>
 		<hint>
 Object.?.?().size().println();	
 		</hint>
 		<answer>0</answer>
+	</level>
+	<level id="8">
+		<description>The murder weapon is not in the room with the body.</description>
+		<question>Which object is definitely not the murder weapon?</question>
+		<hint>
+var study = Room.all.selectOne(r|r.name="Study");
+var object = study.?.first();
+object.?.println();
+		</hint>
+		<answer>Gun</answer>
+	</level>
+	<level id="9">
+		<description>The murder weapon is in a room empty of people.</description>
+		<question>Which object is the murder weapon?</question>
+		<hint>
+for (room in ?.all.select(r|r.?.size() = 0)) {
+    for (object in room.?) {
+    	object.?.println();
+    }
+}
+		</hint>
+		<answer>Knife</answer>
 	</level>
 </game>
