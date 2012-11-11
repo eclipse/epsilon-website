@@ -2,7 +2,7 @@
 <game name="Murder Case" 
 	metamodel="http://www.eclipse.org/epsilon/games/murdercase/murdercase.ecore" 
 	model="http://www.eclipse.org/epsilon/games/murdercase/murdercase.model"
-	emfatic="http://localhost:8888/epsilon/games/murdercase/murdercase.emf"
+	emfatic="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
 	version="3">
 	
 	<description>
