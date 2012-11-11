@@ -1,0 +1,10 @@
+@namespace(uri="murdercase", prefix="")
+package murdercase;
+
+class House {
+   val Person[*] people;
+}
+
+class Person {
+   
+}

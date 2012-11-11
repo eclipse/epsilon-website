@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<game name="Murder Case" metamodel="murdercase.ecore" model="murdercase.model">
+	<description>
+	Find the murderer
+	</description>
+	<metamodel>
+		package murdercase;
+		
+		class House {
+			val Person[*] people;
+		}
+		
+		class Person {}
+	</metamodel>
+	<level>
+		<description>
+		How many people are in the house?
+		</description>
+		<hint>
+			var house = House.all.first();
+			house.?.size().println();
+		</hint>
+		<answer>6</answer>
+	</level>
+</game>
