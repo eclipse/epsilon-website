@@ -4,7 +4,7 @@
 	model="http://www.eclipse.org/epsilon/games/murdercase/murdercase.model"
 	emfatic="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
 	emfatic1="http://localhost:8888/epsilon/games/murdercase/murdercase.emf"
-	version="6">
+	version="7">
 	
 	<description>
 	It's a cold winter night in Villa Emfatica. A group of people is scattered across the rooms of the villa but not all of them are alive. 
@@ -116,5 +116,18 @@ for (room in ?.all.select(r|r.?.size() = 0)) {
 }
 		</hint>
 		<answer>Knife</answer>
+	</level>
+	<level id="10">
+		<description>The murderer is in a room without any suspicious objects.</description>
+		<question>How many suspects does this leave us with?</question>
+		<hint>
+for (room in Room.all.select(r|r.objects.size() = 0)) {
+    for (person in room.people) {
+    	person.name.println();
+    }
+}
+// Remember that James is not the murderer (Level 6)
+		</hint>
+		<answer>2</answer>
 	</level>
 </game>

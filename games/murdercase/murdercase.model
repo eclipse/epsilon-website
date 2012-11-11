@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <House xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="murdercase" xmi:id="_K8a2kCuZEeKxmp0-9bXsnw">
   <rooms xmi:id="_eFL78CwBEeKxmp0-9bXsnw" name="Kitchen">
+    <objects xmi:id="_TRX90CwyEeKxmp0-9bXsnw" name="Rope"/>
     <people xmi:id="_iKsc8Cv6EeKxmp0-9bXsnw" name="Heston" age="32" profession="Chef" alive="true" tools="_QZlRUCwyEeKxmp0-9bXsnw"/>
   </rooms>
   <rooms xmi:id="_fZ3P4CwBEeKxmp0-9bXsnw" name="Study">
@@ -11,7 +12,6 @@
     <objects xmi:id="_QZlRUCwyEeKxmp0-9bXsnw" name="Knife"/>
   </rooms>
   <rooms xmi:id="_omz14CwoEeKxmp0-9bXsnw" name="Bedroom">
-    <objects xmi:id="_TRX90CwyEeKxmp0-9bXsnw" name="Rope"/>
     <people xmi:id="_anRxACwJEeKxmp0-9bXsnw" name="James" profession="Buttler" alive="true"/>
   </rooms>
   <rooms xmi:id="_18Z-ACwoEeKxmp0-9bXsnw" name="Dining Room">
