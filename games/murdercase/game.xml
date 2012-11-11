@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
-<game name="Murder Case" metamodel="murdercase.ecore" model="murdercase.model">
+<game name="Murder Case" 
+	metamodel="http://eclipse.org/epsilon/games/murdercase/murdercase.ecore" 
+	model="http://eclipse.org/epsilon/games/murdercase/murdercase.model"
+	emfatic="http://eclipse.org/epsilon/games/murdercase/murdercase.emf"
+	version="2">
+	
 	<description>
 	It's a cold winter night in Villa Emfatica. Six people are scattered across the rooms of the house but not all of them are alive. Answer the questions below and help discover the murderer!
 	</description>

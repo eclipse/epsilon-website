@@ -19,8 +19,9 @@
 		}
 	}
 	
-	$model = "http://eclipse.org/epsilon/games/murdercase/murdercase.model";
-	$metamodel = "http://eclipse.org/epsilon/games/murdercase/murdercase.ecore";
+	$metamodel = $game["metamodel"]."?version=".$game["version"];
+	$model = $game["model"]."?version=".$game["version"];
+	$emfatic = $game["emfatic"];
 	
 	$level = $game->level[$levelId-1];
 	
@@ -80,7 +81,7 @@
 					<div class="tab-content">
 	  					<div id="metamodel" class="tab-pane active">
 	  					<?
-	  						$content = readUrlContent(Epsilon::getAbsoluteLocation("/games/murdercase/murdercase.emf"));
+	  						$content = readUrlContent($emfatic);
 						?>
 						<pre class="prettyprint lang-emf"><?=$content?></pre>
 	  					</div>
