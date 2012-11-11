@@ -83,7 +83,9 @@
 	  					<?
 	  						$content = readUrlContent($emfatic);
 						?>
-						<pre class="prettyprint lang-emf"><?=$content?></pre>
+						<pre class="prettyprint lang-emf">
+<?=$emfatic?>
+<?=$content?></pre>
 	  					</div>
 	  				</div>
 				</div>		

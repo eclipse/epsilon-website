@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <game name="Murder Case" 
-	metamodel="http://eclipse.org/epsilon/games/murdercase/murdercase.ecore" 
-	model="http://eclipse.org/epsilon/games/murdercase/murdercase.model"
-	emfatic="http://eclipse.org/epsilon/games/murdercase/murdercase.emf"
+	metamodel="http://www.eclipse.org/epsilon/games/murdercase/murdercase.ecore" 
+	model="http://www.eclipse.org/epsilon/games/murdercase/murdercase.model"
+	emfatic="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
 	version="2">
 	
 	<description>
