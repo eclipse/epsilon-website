@@ -11,10 +11,18 @@
 		<div class="row">
 			<div class="span8">
 				
-				  <a class="btn btn-primary pull-right" href="../../live">Try EOL in your browser! »</a>
+				  
 				
+				<p>EOL is an imperative programming language for creating, querying and modifying EMF models. 
+				You can think of it as a mixture of Javascript and OCL, combining the best of both worlds. 
+				As such, it provides all the usual imperative features found in Javascript (e.g. statement sequencing, 
+				variables, for and while loops, if branches etc.) and all the nice features of OCL such as those handy 
+				collection querying functions (e.g. <code>Sequence{1..5}.select(x|x>3)</code>).</p>
 				
-				<p>EOL is an imperative programming language for creating, querying and modifying EMF models. You can think of it as a mixture of Javascript and OCL, combining the best of both worlds. As such, it provides all the usual imperative features found in Javascript (e.g. statement sequencing, variables, for and while loops, if branches etc.) and all the nice features of OCL such as those handy collection querying functions (e.g. <code>Sequence{1..5}.select(x|x>3))</code>.</p>
+				<p>
+				<a class="btn" href="../../live" >Try EOL in your browser »</a>
+				<a class="btn btn-primary" href="../../games" >Learn EOL through a game »</a>
+				
 			</div>
 
 		</div>

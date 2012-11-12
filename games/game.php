@@ -41,7 +41,12 @@
 	<div class="span5">
 		<form action="/epsilon/games/game.php" method="get">
   			<fieldset>
-  				<legend>Level <?=$levelId?></legend>
+  				<?if ($levelId < $levelCount){?>
+  				<legend>Level <?=$levelId?> of <?=$levelCount?></legend>
+  				<?}else{?>
+  				<legend>Final level</legend>
+  				<?}?>
+  				
   				<p>
   					<?=$level->description?>
   				</p>

@@ -41,6 +41,7 @@
 					<p>In the editor on the left, you can <strong>write and run EOL scripts</strong> (<a href="../doc/eol/">what is EOL?</a>) from your browser, without needing to download or install anything in your computer.</p>
 					<p>Except for playing with the basic features of the language, you can also query and modify a real EMF model (which for simplicity, is Ecore itself).</p>
 					<p>Below are several small EOL scripts which you can try. To try a script, copy/paste it in the editor on the left and then click the Run button to run it and see its output in the console.</p>
+					<p>Querying Ecore too boring? Try a <a href="../games">game instead</a>!</p>
 		<? sE(); ?>
 		<!-- end first element -->
 
