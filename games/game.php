@@ -39,11 +39,11 @@
 	</div>
 	</div>
 	<div class="row">
-	<div class="span6">
+	<div class="span7">
 		<legend>The game</legend>
 		<p><?=$game->description?></p>
 	</div>
-	<div class="span6">
+	<div class="span5">
 		<form action="/epsilon/games/game.php" method="get">
   			<fieldset>
   				<legend>Level <?=$levelId?></legend>
@@ -56,7 +56,7 @@
 	  				<div class="input-append">
 	  					<input type="hidden" name="level" value="<?=$levelId+1?>"/>
 						<input type="hidden" name="game" value="<?=$gameId?>"/>
-						<input class="span5" name="answer" type="text" placeholder="Find the answer using EOL and type it here.">
+						<input class="span4" name="answer" type="text" placeholder="Find the answer using EOL and type it here.">
 					 	<button class="btn" type="submit">Go!</button>
 				 	</div>
 				 	<?if ($wrongAnswer){?>
