@@ -81,7 +81,7 @@
 	  					</div>
 					<div id="solution" class="tab-pane">
 						<div class="alert alert-info">
-						Copy and paste the hint below into the Model Explorer and click on the magnifying glass to reveal the answer.
+						Copy and paste the solution below into the Model Explorer and click on the magnifying glass to reveal the answer.
 						</div>
 						<pre class="prettyprint lang-eol"><?=str_replace("\t", "  ", trim(htmlentities($level->solution)))?></pre>
 					</div>

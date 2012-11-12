@@ -126,9 +126,9 @@ operation Room isConnectedTo(other : Room) {
 		<hint>
 Object.?.?().println();	
 		</hint>
-		<hint>
+		<solution>
 Object.all.size().println();	
-		</hint>
+		</solution>
 		<answer>4</answer>
 	</level>
 	<level id="8">
@@ -205,7 +205,7 @@ for (room in ?.all.select(room|room.objects.size() = 0)) {
 		<solution>
 <![CDATA[
 for (room in Room.all.select(room|room.objects.size() = 0)) {
-    for (person in room.?) {
+    for (person in room.people) {
     	if (person.name <> "James" and person.age < 30) {
     		person.name.println();
     	}
