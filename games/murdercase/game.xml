@@ -3,11 +3,12 @@
 	metamodel="http://www.eclipse.org/epsilon/games/murdercase/murdercase.ecore" 
 	model="http://www.eclipse.org/epsilon/games/murdercase/murdercase.model"
 	emfatic="http://www.eclipse.org/epsilon/games/murdercase/murdercase.emf"
+	emfatic1="http://localhost:8888/epsilon/games/murdercase/murdercase.emf"
 	version="9">
 	
 	<description>
 	It's a cold winter night in Villa Emfatica. A group of people is scattered across the rooms of the villa but not all of them are alive. 
-	The solution to the mystery hides in a model that conforms to the metamodel below. As you progress through the levels of the game, 
+	The solution to the mystery hides in a model that conforms to the metamodel on the right. As you progress through the levels of the game, 
 	more details of the metamodel will be revealed to you. Use the Model Explorer to query the mystery model with EOL, answer the questions below 
 	and find the murderer!
 	</description>
@@ -22,6 +23,10 @@
 // We'll give you this one
 Person.all.size().println();
 		</hint>
+		<solution>
+// We'll give you this one
+Person.all.size().println();
+		</solution>
 		<answer>7</answer>
 	</level>
 	<level id="2">
@@ -38,6 +43,13 @@ for (person in Person.all){
 	}
 }		
 		</hint>
+		<solution>
+for (person in Person.all){
+	if (person.alive == false) {
+		person.name.println();
+	}
+}		
+		</solution>
 		<answer>Enid</answer>
 	</level>
 	<level id="3">
@@ -46,6 +58,9 @@ for (person in Person.all){
 		<hint>
 Room.all.?().println();		
 		</hint>
+		<solution>
+Room.all.size().println();		
+		</solution>
 		<answer>6</answer>
 	</level>
 	<level id="4">
@@ -54,6 +69,9 @@ Room.all.?().println();
 		<hint>
 Room.all.selectOne(r|r.?.size() == 0).name.println();		
 		</hint>
+		<solution>
+Room.all.selectOne(r|r.people.size() == 0).name.println();		
+		</solution>
 		<answer>Library</answer>
 	</level>
 	<level id="5">
@@ -64,6 +82,11 @@ var body = Person.all.selectOne(p|p.alive = false);
 var room = Room.all.selectOne(r|r.people.includes(?));
 ?.?.println();		
 		</hint>
+		<solution>
+var body = Person.all.selectOne(p|p.alive = false);
+var room = Room.all.selectOne(r|r.people.includes(body));
+room.name.println();		
+		</solution>
 		<answer>Study</answer>
 	</level>
 	<level id="6">
@@ -82,6 +105,19 @@ operation Room isConnectedTo(other : Room) {
 		and door.rooms.includes(other));
 }
 		</hint>
+		<solution>
+var study = Room.all.selectOne(r|r.name = "Study");
+for (room in Room.all) {
+	if (not room.isConnectedTo(study)) {
+		room.people.first().name.println();
+	}
+}
+
+operation Room isConnectedTo(other : Room) {
+	return Door.all.exists(door|door.rooms.includes(self)
+		and door.rooms.includes(other));
+}
+		</solution>		
 		<answer>James</answer>
 	</level>
 	<level id="7">
@@ -89,6 +125,9 @@ operation Room isConnectedTo(other : Room) {
 		<question>How many objects are there in total?</question>
 		<hint>
 Object.?.?().println();	
+		</hint>
+		<hint>
+Object.all.size().println();	
 		</hint>
 		<answer>4</answer>
 	</level>
@@ -101,6 +140,12 @@ for (object in study.?) {
 	object.?.println();
 }
 		</hint>
+		<solution>
+var study = Room.all.selectOne(r|r.name="Study");
+for (object in study.objects) {
+	object.name.println();
+}
+		</solution>
 		<answer>Gun</answer>
 	</level>
 	<level id="9">
@@ -113,6 +158,13 @@ for (room in ?.all.select(r|r.?.size() = 0)) {
     }
 }
 		</hint>
+		<solution>
+for (room in Room.all.select(r|r.people.size() = 0)) {
+    for (object in room.objects) {
+    	object.name.println();
+    }
+}
+		</solution>
 		<answer>Knife</answer>
 	</level>
 	<level id="10">
@@ -126,6 +178,14 @@ for (room in ?.all.select(r|r.objects.?() = 0)) {
 }
 // Remember that James is not the murderer (Level 6)
 		</hint>
+		<solution>
+for (room in Room.all.select(r|r.objects.size() = 0)) {
+    for (person in room.people) {
+    	person.name.println();
+    }
+}
+// Remember that James is not the murderer (Level 6)
+		</solution>
 		<answer>2</answer>
 	</level>
 	<level id="11">
@@ -142,6 +202,17 @@ for (room in ?.all.select(room|room.objects.size() = 0)) {
 }
 ]]>
 		</hint>
+		<solution>
+<![CDATA[
+for (room in Room.all.select(room|room.objects.size() = 0)) {
+    for (person in room.?) {
+    	if (person.name <> "James" and person.age < 30) {
+    		person.name.println();
+    	}
+    }
+}
+]]>
+		</solution>
 		<answer>Tony</answer>
 	</level>
 </game>
