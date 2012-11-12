@@ -70,7 +70,7 @@
 				</div>
 				<div class="tab-content">
   					<div id="editor" class="tab-pane active">
-						<iframe src="http://epsilon-live.appspot.com/embedded.jsp?source=&button=search&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
+						<iframe src="http://epsilon-live.appspot.com/embedded.jsp?source=<?if ($level["giveaway"]){?><?=urlencode($level->hint)?><?}?>&button=search&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
 					</div>
 					<div id="hints" class="tab-pane">
 						<div class="alert alert-info">
