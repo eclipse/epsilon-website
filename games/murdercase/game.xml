@@ -121,7 +121,7 @@ operation Room isConnectedTo(other : Room) {
 		<answer>James</answer>
 	</level>
 	<level id="7">
-		<description>There are certain suspicious scattered across the rooms of the house.</description>
+		<description>There are certain objects of interest scattered across the rooms of the house.</description>
 		<question>How many objects are there in total?</question>
 		<hint>
 Object.?.?().println();	
