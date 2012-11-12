@@ -34,13 +34,8 @@
 	<!-- main part -->
 	<?if ($levelId <= $levelCount){?>
 	
-	<div class="span12">	
-		<h1 class="page-header"><?=$game["name"]?></h1>
-	</div>
-	</div>
-	<div class="row">
 	<div class="span7">
-		<legend>The game</legend>
+		<legend><?=$game["name"]?></legend>
 		<p><?=$game->description?></p>
 	</div>
 	<div class="span5">
