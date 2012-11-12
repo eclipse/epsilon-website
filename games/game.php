@@ -33,10 +33,17 @@
 <div class="row">
 	<!-- main part -->
 	<?if ($levelId <= $levelCount){?>
-	<div class="span5">
-		
+	
+	<div class="span12">	
 		<h1 class="page-header"><?=$game["name"]?></h1>
+	</div>
+	</div>
+	<div class="row">
+	<div class="span6">
+		<legend>The game</legend>
 		<p><?=$game->description?></p>
+	</div>
+	<div class="span6">
 		<form action="/epsilon/games/game.php" method="get">
   			<fieldset>
   				<legend>Level <?=$levelId?></legend>
@@ -49,7 +56,7 @@
 	  				<div class="input-append">
 	  					<input type="hidden" name="level" value="<?=$levelId+1?>"/>
 						<input type="hidden" name="game" value="<?=$gameId?>"/>
-						<input class="span4" name="answer" type="text" placeholder="Find the answer using EOL and type it here.">
+						<input class="span5" name="answer" type="text" placeholder="Find the answer using EOL and type it here.">
 					 	<button class="btn" type="submit">Go!</button>
 				 	</div>
 				 	<?if ($wrongAnswer){?>
@@ -60,12 +67,12 @@
 			</fieldset>
 		</form>
 	</div>	
-
-			<div class="span7">
+	</div>
+	<div class="row">
+			<div class="span6">
 				<div class="tabbable" style="margin-bottom: 0px;">
 					<ul class="nav nav-tabs">
 					    <li class="active"><a href="#editor" data-toggle="tab"><h4>Model Explorer</h4></a></li>
-					    <li><a href="#metamodel" data-toggle="tab"><h4>Metamodel</h4></a></li>
 					    <li><a href="#solution" data-toggle="tab"><h4>Solution</h4></a></li>
 					</ul>
 				</div>
@@ -73,12 +80,6 @@
   					<div id="editor" class="tab-pane active">
 						<iframe src="http://epsilon-live.appspot.com/embedded.jsp?source=<?=urlencode(str_replace("\t", "  ", trim($level->hint)))?>&button=search&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
 					</div>
-	  					<div id="metamodel" class="tab-pane">
-	  					<?
-	  						$content = readEmfaticContent($emfatic, $levelId, $levelCount);
-						?>
-						<pre class="prettyprint lang-emf"><?=$content?></pre>
-	  					</div>
 					<div id="solution" class="tab-pane">
 						<div class="alert alert-info">
 						Copy and paste the solution below into the Model Explorer and click on the magnifying glass to reveal the answer.
@@ -88,6 +89,22 @@
 				</div>
 			</div>
 
+			<div class="span6">
+				<div class="tabbable" style="margin-bottom: 0px;">
+					<ul class="nav nav-tabs">
+					    <li class="active"><a href="#metamodel" data-toggle="tab"><h4>Metamodel</h4></a></li>
+					</ul>
+				</div>
+				<div class="tab-content">
+	  				<div id="metamodel" class="tab-pane active">
+	  				<?
+	  					$content = readEmfaticContent($emfatic, $levelId, $levelCount);
+					?>
+					<pre class="prettyprint lang-emf"><?=$content?></pre>
+	  				</div>
+				</div>
+			</div>
+		
 		<?}else{?>
 		<div class="span12">
 		<h1>Congratulations!</h1>
