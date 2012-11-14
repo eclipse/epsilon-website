@@ -18,7 +18,7 @@
 	</reason>
 	<reason title="Strong support for EMF" icon="key">
 	  <![CDATA[
-	  Epsilon supports all flavours of EMF, including reflective, generated and non-XMI (textual) models such as these specified using <a href="http://www.xtext.org">Xtext or <a href="http://www.emftext.org">EMFText</a>-based DSLs.
+	  Epsilon supports all flavours of EMF, including reflective, generated and non-XMI (textual) models such as these specified using <a href="http://www.xtext.org">Xtext</a> or <a href="http://www.emftext.org">EMFText</a>-based DSLs.
 	  ]]>
 	</reason>
 	<reason title="No EMF? No problem" icon="checkmark">
