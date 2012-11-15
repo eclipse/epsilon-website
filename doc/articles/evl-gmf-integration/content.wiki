@@ -97,8 +97,8 @@ Next, we add the `org.eclipse.ui.ide.markerResolution` extension and below it we
 
 and
 
-* `class` : org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator`
-* `markerType` : org.eclipse.emf.ecore.diagnostic`
+* `class` : `org.eclipse.epsilon.evl.emf.validation.EvlMarkerResolutionGenerator`
+* `markerType` : `org.eclipse.emf.ecore.diagnostic`
 
 ==Step 5: Ready to go!==
 The next step is to run a new Eclipse instance and create a new filesystem diagram that looks like this:
