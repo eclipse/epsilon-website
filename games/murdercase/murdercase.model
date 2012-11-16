@@ -12,7 +12,7 @@
     <objects xmi:id="_QZlRUCwyEeKxmp0-9bXsnw" name="Knife"/>
   </rooms>
   <rooms xmi:id="_omz14CwoEeKxmp0-9bXsnw" name="Bedroom">
-    <people xmi:id="_anRxACwJEeKxmp0-9bXsnw" name="James" age="42" profession="Buttler" alive="true"/>
+    <people xmi:id="_anRxACwJEeKxmp0-9bXsnw" name="James" age="42" profession="Butler" alive="true"/>
   </rooms>
   <rooms xmi:id="_18Z-ACwoEeKxmp0-9bXsnw" name="Dining Room">
     <people xmi:id="_Y63SgCwJEeKxmp0-9bXsnw" name="Tony" age="22" profession="Intern" alive="true"/>
