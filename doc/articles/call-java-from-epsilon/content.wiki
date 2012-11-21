@@ -46,5 +46,14 @@ var sampleTool = new Native("org.eclipse.epsilon.examples.tools.SampleTool");
 sampleTool.name = "George";
 sampleTool.sayHello().println(); // Prints Hello George
 }}}
+ 
+===Standalone setup===
+ 
+To use tools contributed via extensions in a standalone Java setup within Eclipse you'll need to add the following line of code.
+
+{{{
+context.getNativeTypeDelegates().
+	add(new ExtensionPointToolNativeTypeDelegate());
+}}}
 
 You can get the source code of this example [[../../../examples/index.php?example=org.eclipse.epsilon.examples.tools|here]].
