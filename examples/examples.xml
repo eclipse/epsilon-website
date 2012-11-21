@@ -78,6 +78,12 @@
 		<file name="clone.eol"/>
 		<file name="clone.emf"/>
 	</example>
+	<example src="org.eclipse.epsilon.examples.profiling" title="Profiling and Caching in EOL" standalone="true">
+		<description>
+		<![CDATA[This example demonstrates the caching capabilities and the profiling tools provided by Epsilon.]]>
+		</description>
+		<file name="fibonacci.eol"/>
+	</example>
 	<example src="org.eclipse.epsilon.examples.validateoo" title="Validate an OO model with EVL" standalone="false">
 		<description>
 		<![CDATA[In this example, we use the Epsilon Validation Language (EVL), to express constraints for models that conform to the OO.emf metamodel.]]>
