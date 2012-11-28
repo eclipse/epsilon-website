@@ -71,7 +71,7 @@
 	<faq id="contributing-to-epsilon">
 		<title>How can I contribute to Epsilon?</title>
 		<answer><![CDATA[
-		<p>There are several ways to contribute to Epsilon. In the first phase you can ask questions in the forum and help with maintaining the vibrant community around Epsilon. You may also want to let other developers know about Epsilon by <a href="../spreadtheword">sharing your experiences</a> online. If you are interested in contributing code to Epsilon, you should start by submitting bug reports, feature requests - and hopefully patches that fix/implement them. This will demonstrate your commitment and long-term interest in the project - which is required by the Eclipse Foundation in order to later on be nominated for a committer account.]]>
+		<p>There are several ways to contribute to Epsilon. In the first phase you can ask questions in the forum and help with maintaining the vibrant community around Epsilon. You may also want to let other developers know about Epsilon by <a href="../spreadtheword">sharing your experiences</a> online. If you are interested in contributing code to Epsilon, you should start by submitting bug reports, feature requests - and hopefully patches that fix/implement them. This will demonstrate your commitment and long-term interest in the project - which is required by the Eclipse Foundation in order to later on be nominated for a committer account]]>
 		</answer>
 	</faq>
 </faqs>
