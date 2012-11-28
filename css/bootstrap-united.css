@@ -151,7 +151,8 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #5f3974;
+  color1: #5f3974;
+  color: rgb(132, 79, 161);
   text-decoration: none;
 }
 a:hover {
