@@ -14,10 +14,10 @@
 	
 	<level id="1">
 		<description>
-		Let's get warmed up. The world consists of countries, many countries.
+		Let's get warmed up. The are many countries in the world.
 		</description>
 		<question>
-		How many countries are there really in the world?
+		How many countries are there exactly?
 		</question>
 		<hint>
 // We'll give you this one
@@ -51,7 +51,7 @@ Country.all.select(c|c.name.startsWith("A")).size().println();
 		Let's play a bit more with names.
 		</description>
 		<question>
-		How many countries have names which start and end with the same letter?
+		How many countries have names that start and end with the same letter?
 		</question>
 		<hint>
 var count = 0;
@@ -154,10 +154,10 @@ Country.all.sortBy(c|c.total_area).first().name.println();
 		Which is the most densely populated country?
 		</question>
 		<hint>
-Country.all.sortBy(c|c.?).first().name.println();
+Country.all.sortBy(c|c.?).last().name.println();
 		</hint>
 		<solution>
-Country.all.sortBy(c|c.population/c.total_area).first().name.println();
+Country.all.sortBy(c|c.population/c.total_area).last().name.println();
 		</solution>
 		<answer>Macau</answer>
 	</level>
@@ -167,7 +167,7 @@ Country.all.sortBy(c|c.population/c.total_area).first().name.println();
 		Most countries have land borders with other countries.
 		</description>
 		<question>
-		How many countries do not have land borders with any other countries?
+		How many countries do not have land borders with other countries?
 		</question>
 		<hint>
 Country.all.select(c|c.?.size() == 0).size().println();
@@ -175,7 +175,7 @@ Country.all.select(c|c.?.size() == 0).size().println();
 		<solution>
 Country.all.select(c|c.borders.size() == 0).size().println();
 		</solution>
-		<answer>Macau</answer>
+		<answer>76</answer>
 	</level>
 	
 	<level id="10">
@@ -183,7 +183,7 @@ Country.all.select(c|c.borders.size() == 0).size().println();
 		Then there are some countries with many neighbours.
 		</description>
 		<question>
-		Which country has the most neighbours?
+		Which country has the largest number of neighbours?
 		</question>
 		<hint>
 Country.all.sortBy(c|c.?.size()).last().name.println();
