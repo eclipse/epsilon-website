@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<game name="Mondial" 
+	metamodel="http://www.eclipse.org/epsilon/games/mondial/mondial.ecore" 
+	model="http://www.eclipse.org/epsilon/games/mondial/mondial.model"
+	emfatic="http://www.eclipse.org/epsilon/games/mondial/mondial.emf"
+	version="1">
+	
+	<description>
+	Explore the world with EOL!
+	</description>
+	<level id="1">
+		<description>
+		Let's start by getting to know more about the murder setting.
+		</description>
+		<question>
+		How many people are in the house?
+		</question>
+		<hint>
+// We'll give you this one
+Person.all.size().println();
+		</hint>
+		<solution>
+// We'll give you this one
+Person.all.size().println();
+		</solution>
+		<answer>7</answer>
+	</level>
+</game>

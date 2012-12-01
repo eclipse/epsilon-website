@@ -1,0 +1,26 @@
+@namespace(uri="mondial", prefix="")
+package mondial;
+
+class Mondial {
+   val Continent[*] continents;
+   val Country[*] countries;
+}
+
+class Continent {
+    id attr String ~id;
+   attr String name;
+}
+
+class Country {
+    id attr String ~id;
+   attr String name;
+   attr int population;
+   ref Continent continent;
+   attr float total_area;
+   attr float gdp_total;
+   val Border[*] borders;
+}
+
+class Border {
+   ref Country[*] country;
+}
