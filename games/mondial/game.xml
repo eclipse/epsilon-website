@@ -94,20 +94,38 @@ count.println();
 		<answer>18</answer>
 	</level>
 
-	<level id="5">
+	<level id="4">
 		<description>
-		Countries belong to continents.
+		Countries are encompassed in continents. Some countries are encompassed in more than one continents (for example Russia belongs both to Europe and to Asia).
 		</description>
 		<question>
-		How many countries belong to Asia?
+		How many countries belong to more than 1 continents?
 		</question>
 		<hint>
-Country.all.select(c|c.?.startsWith("A")).size().println();
+Country.all.select(c|c.?.size() > 1).size().println();
 		</hint>
 		<solution>
-Country.all.select(c|c.name.startsWith("A")).size().println();
+Country.all.select(c|c.encompassed.size() > 1).size().println();
 		</solution>
-		<answer>14</answer>
+		<answer>3</answer>
+	</level>	
+
+	<level id="6">
+		<description>
+		Countries are encompassed in continents.
+		</description>
+		<question>
+		How many countries belong (even partly) to Asia?
+		</question>
+		<hint>
+Country.all.select(c|c.encompassed.exists(
+	e|e.?.? = "Asia")).size().println();
+		</hint>
+		<solution>
+Country.all.select(c|c.encompassed.exists(
+	e|e.continent.name = "Asia")).size().println();
+		</solution>
+		<answer>49</answer>
 	</level>	
 	
 </game>
