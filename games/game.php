@@ -4,6 +4,8 @@
 	require_once('util.php');
 	
 	$gameId = isset($_REQUEST['game']) ? strip_tags($_REQUEST['game']) : "";
+	$cheat = isset($_REQUEST['cheat']) ? strip_tags($_REQUEST['cheat']) : "false";
+	
 	$game = simplexml_load_file($gameId."/game.xml");
 	
 	$levelId = isset($_REQUEST['level']) ? strip_tags($_REQUEST['level']) : 1;
@@ -16,7 +18,7 @@
 		$levelId = min($levelId, $levelCount+1);
 		$previousLevel = $game->level[$levelId - 2];
 		$correctAnswer = trim($previousLevel->answer);
-		if (strcmp($correctAnswer,$answer)!=0) {
+		if (strcmp($correctAnswer,$answer)!=0 && strcmp($cheat,"true")!=0) {
 			$wrongAnswer = true;
 			$levelId = $levelId-1;
 		}

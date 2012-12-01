@@ -162,19 +162,35 @@ Country.all.sortBy(c|c.population/c.total_area).first().name.println();
 		<answer>Macau</answer>
 	</level>
 	
-	<level id="8">
+	<level id="9">
 		<description>
-		Most countries have borders with other countries.
+		Most countries have land borders with other countries.
 		</description>
 		<question>
-		Which is the most densely populated country?
+		How many countries do not have land borders with any other countries?
 		</question>
 		<hint>
-Country.all.sortBy(c|c.?).first().name.println();
+Country.all.select(c|c.?.size() == 0).size().println();
 		</hint>
 		<solution>
-Country.all.sortBy(c|c.population/c.total_area).first().name.println();
+Country.all.select(c|c.borders.size() == 0).size().println();
 		</solution>
 		<answer>Macau</answer>
-	</level>	
+	</level>
+	
+	<level id="10">
+		<description>
+		Then there are some countries with many neighbours.
+		</description>
+		<question>
+		Which country has the most neighbours?
+		</question>
+		<hint>
+Country.all.sortBy(c|c.?.size()).last().name.println();
+		</hint>
+		<solution>
+Country.all.sortBy(c|c.borders.size()).last().name.println();
+		</solution>
+		<answer>China</answer>
+	</level>
 </game>
