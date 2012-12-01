@@ -2,9 +2,9 @@
 <game name="Mondial" 
 	metamodel="http://www.eclipse.org/epsilon/games/mondial/mondial.ecore" 
 	model="http://www.eclipse.org/epsilon/games/mondial/mondial.model"
-	emfatic1="http://www.eclipse.org/epsilon/games/mondial/mondial.emf"
-	emfatic="http://localhost:8888/epsilon/games/mondial/mondial.emf"
-	version="2">
+	emfatic="http://www.eclipse.org/epsilon/games/mondial/mondial.emf"
+	emfatic1="http://localhost:8888/epsilon/games/mondial/mondial.emf"
+	version="3">
 	
 	<description>
 	Explore the world with EOL!
