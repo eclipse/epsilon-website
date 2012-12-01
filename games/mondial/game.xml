@@ -7,15 +7,17 @@
 	version="3">
 	
 	<description>
-	Explore the world with EOL!
+	Discover interesting facts about countries of the world by exploring a model that that conforms to the metamodel below. 
+	As you progress through the levels of the game,  more details of the metamodel will be revealed to you. Use the Model Explorer to query 
+	the model with EOL and answer the questions on the right!
 	</description>
 	
 	<level id="1">
 		<description>
-		Let's get started. Shockingly, the world consists of countries.
+		Let's get warmed up. The world consists of countries, many countries.
 		</description>
 		<question>
-		How many countries are there in the world?
+		How many countries are there really in the world?
 		</question>
 		<hint>
 // We'll give you this one
@@ -30,23 +32,7 @@ Country.all.size().println();
 
 	<level id="2">
 		<description>
-		Yet another surprise. Each country has a name.
-		</description>
-		<question>
-		How many countries' name starts with the letter "A"?
-		</question>
-		<hint>
-Country.all.select(c|c.?.startsWith("A")).size().println();
-		</hint>
-		<solution>
-Country.all.select(c|c.name.startsWith("A")).size().println();
-		</solution>
-		<answer>14</answer>
-	</level>
-
-	<level id="2">
-		<description>
-		Yet another surprise. Each country has a name.
+		As you probably already know, each country has a name.
 		</description>
 		<question>
 		How many countries have names that start with the letter "A"?
@@ -112,7 +98,7 @@ Country.all.select(c|c.encompassed.size() > 1).size().println();
 
 	<level id="6">
 		<description>
-		Countries are encompassed in continents.
+		Let's focus on Asia.
 		</description>
 		<question>
 		How many countries belong (even partly) to Asia?
