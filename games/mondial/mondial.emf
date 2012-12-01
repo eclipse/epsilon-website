@@ -14,10 +14,10 @@ class Continent { //level4
 class Country {
    id attr String ~id; //hide
    attr String name; //level2
-   attr int population; //hide
-   attr float total_area; //hide
+   attr int population; //level6
+   attr float total_area; //level7
    attr float gdp_total; //hide
-   val Border[*] borders; //hide
+   val Border[*] borders; //level8
    val Encompassed[*] encompassed; //level4
 }
 
@@ -26,6 +26,6 @@ class Encompassed { //level4
    attr float percentage; //level4
 } //level4
 
-class Border { //hide
-   ref Country[*] country; //hide
-} //hide
+class Border { //level8
+   ref Country country; //level8
+} //level8

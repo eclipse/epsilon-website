@@ -181,7 +181,7 @@
     <borders country="f0_220"/>
     <encompassed continent="f0_119" percentage="100.0"/>
   </countries>
-  <countries id="f0_300" name="FYROM" population="2104035" total_area="25333.0" gdp_total="1900.0">
+  <countries id="f0_300" name="Macedonia" population="2104035" total_area="25333.0" gdp_total="1900.0">
     <borders country="f0_136"/>
     <borders country="f0_174"/>
     <borders country="f0_232"/>

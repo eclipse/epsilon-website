@@ -4,7 +4,7 @@
 	model="http://www.eclipse.org/epsilon/games/mondial/mondial.model"
 	emfatic="http://www.eclipse.org/epsilon/games/mondial/mondial.emf"
 	emfatic1="http://localhost:8888/epsilon/games/mondial/mondial.emf"
-	version="3">
+	version="4">
 	
 	<description>
 	Discover interesting facts about countries of the world by exploring a model that conforms to the metamodel below. 
@@ -96,7 +96,7 @@ Country.all.select(c|c.encompassed.size() > 1).size().println();
 		<answer>3</answer>
 	</level>	
 
-	<level id="6">
+	<level id="5">
 		<description>
 		Let's focus on Asia.
 		</description>
@@ -113,5 +113,68 @@ Country.all.select(c|c.encompassed.exists(
 		</solution>
 		<answer>49</answer>
 	</level>	
+
+	<level id="6">
+		<description>
+		Let's focus on populations now.
+		</description>
+		<question>
+		Which country has the fewest inhabitants?
+		</question>
+		<hint>
+Country.all.sortBy(c|c.?).first().name.println();
+		</hint>
+		<solution>
+Country.all.sortBy(c|c.population).first().name.println();
+		</solution>
+		<answer>Pitcairn Islands</answer>
+	</level>	
+
+	<level id="7">
+		<description>
+		Let's focus on areas now.
+		</description>
+		<question>
+		Which country occupies the smallest area?
+		</question>
+		<hint>
+Country.all.sortBy(c|c.?).first().name.println();
+		</hint>
+		<solution>
+Country.all.sortBy(c|c.total_area).first().name.println();
+		</solution>
+		<answer>Holy See</answer>
+	</level>
 	
+	<level id="8">
+		<description>
+		Let's combine areas and populations.
+		</description>
+		<question>
+		Which is the most densely populated country?
+		</question>
+		<hint>
+Country.all.sortBy(c|c.?).first().name.println();
+		</hint>
+		<solution>
+Country.all.sortBy(c|c.population/c.total_area).first().name.println();
+		</solution>
+		<answer>Macau</answer>
+	</level>
+	
+	<level id="8">
+		<description>
+		Most countries have borders with other countries.
+		</description>
+		<question>
+		Which is the most densely populated country?
+		</question>
+		<hint>
+Country.all.sortBy(c|c.?).first().name.println();
+		</hint>
+		<solution>
+Country.all.sortBy(c|c.population/c.total_area).first().name.println();
+		</solution>
+		<answer>Macau</answer>
+	</level>	
 </game>
