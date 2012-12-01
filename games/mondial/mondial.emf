@@ -1,26 +1,31 @@
-@namespace(uri="mondial", prefix="")
+@namespace(uri="mondial", prefix="") 
 package mondial;
 
 class Mondial {
-   val Continent[*] continents;
+   val Continent[*] continents; //level3
    val Country[*] countries;
 }
 
-class Continent {
-    id attr String ~id;
-   attr String name;
-}
+class Continent { //level4
+   id attr String ~id; //hide
+   attr String name; //level4
+} //level4
 
 class Country {
-    id attr String ~id;
-   attr String name;
-   attr int population;
-   ref Continent continent;
-   attr float total_area;
-   attr float gdp_total;
-   val Border[*] borders;
+   id attr String ~id; //hide
+   attr String name; //level2
+   attr int population; //hide
+   attr float total_area; //hide
+   attr float gdp_total; //hide
+   val Border[*] borders; //hide
+   val Encompassed[*] encompassed; //level4
 }
 
-class Border {
-   ref Country[*] country;
-}
+class Encompassed { //level4
+   ref Continent continent; //level4
+   attr float percentage; //level4
+} //level4
+
+class Border { //hide
+   ref Country[*] country; //hide
+} //hide

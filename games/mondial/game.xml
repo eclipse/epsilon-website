@@ -2,27 +2,112 @@
 <game name="Mondial" 
 	metamodel="http://www.eclipse.org/epsilon/games/mondial/mondial.ecore" 
 	model="http://www.eclipse.org/epsilon/games/mondial/mondial.model"
-	emfatic="http://www.eclipse.org/epsilon/games/mondial/mondial.emf"
-	version="1">
+	emfatic1="http://www.eclipse.org/epsilon/games/mondial/mondial.emf"
+	emfatic="http://localhost:8888/epsilon/games/mondial/mondial.emf"
+	version="2">
 	
 	<description>
 	Explore the world with EOL!
 	</description>
+	
 	<level id="1">
 		<description>
-		Let's start by getting to know more about the murder setting.
+		Let's get started. Shockingly, the world consists of countries.
 		</description>
 		<question>
-		How many people are in the house?
+		How many countries are there in the world?
 		</question>
 		<hint>
 // We'll give you this one
-Person.all.size().println();
+Country.all.size().println();
 		</hint>
 		<solution>
 // We'll give you this one
-Person.all.size().println();
+Country.all.size().println();
 		</solution>
-		<answer>7</answer>
+		<answer>231</answer>
 	</level>
+
+	<level id="2">
+		<description>
+		Yet another surprise. Each country has a name.
+		</description>
+		<question>
+		How many countries' name starts with the letter "A"?
+		</question>
+		<hint>
+Country.all.select(c|c.?.startsWith("A")).size().println();
+		</hint>
+		<solution>
+Country.all.select(c|c.name.startsWith("A")).size().println();
+		</solution>
+		<answer>14</answer>
+	</level>
+
+	<level id="2">
+		<description>
+		Yet another surprise. Each country has a name.
+		</description>
+		<question>
+		How many countries have names that start with the letter "A"?
+		</question>
+		<hint>
+Country.all.select(c|c.?.startsWith("A")).size().println();
+		</hint>
+		<solution>
+Country.all.select(c|c.name.startsWith("A")).size().println();
+		</solution>
+		<answer>14</answer>
+	</level>	
+
+	<level id="3">
+		<description>
+		Let's play a bit more with names.
+		</description>
+		<question>
+		How many countries have names which start and end with the same letter?
+		</question>
+		<hint>
+var count = 0;
+
+for (c in ?.all) {
+  var firstLetter = c.?.substring(0,1).toLowerCase();
+    if (c.?.endsWith(?)) {
+    	//c.name.println();
+        count = count + 1;
+    }
+}
+count.println();
+		</hint>
+		<solution>
+var count = 0;
+
+for (c in Country.all) {
+  var firstLetter = c.name.substring(0,1).toLowerCase();
+    if (c.name.endsWith(firstLetter)) {
+    	//c.name.println();
+        count = count + 1;
+    }
+}
+count.println();
+		</solution>
+		<answer>18</answer>
+	</level>
+
+	<level id="5">
+		<description>
+		Countries belong to continents.
+		</description>
+		<question>
+		How many countries belong to Asia?
+		</question>
+		<hint>
+Country.all.select(c|c.?.startsWith("A")).size().println();
+		</hint>
+		<solution>
+Country.all.select(c|c.name.startsWith("A")).size().println();
+		</solution>
+		<answer>14</answer>
+	</level>	
+	
 </game>
