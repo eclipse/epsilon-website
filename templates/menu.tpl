@@ -12,7 +12,10 @@
 					<li>
 						<a href="<?= Epsilon::getRelativeLocation('live') ?>">Live</a>
 					</li>
-					<li class="dropdown">
+					<li>
+						<a href="<?= Epsilon::getRelativeLocation('games') ?>">Games</a>
+					</li>
+					<!--li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Games
 							<b class="caret"></b>
@@ -25,7 +28,7 @@
 								<a href="<?= Epsilon::getRelativeLocation('games/mondial'); ?>">Mondial</a>
 							</li>
 						</ul>
-					</li>
+					</li-->
 					<li>
 						<a href="<?= Epsilon::getRelativeLocation('download'); ?>">Download</a>
 					</li>
