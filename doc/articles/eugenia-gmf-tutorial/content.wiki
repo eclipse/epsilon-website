@@ -90,10 +90,10 @@ It accepts the following details:
 * `incoming` (optional) : Boolean value which specifies whether the generated editor should allow links to be created from target to source. Defaults to `false`.
 * `label` (optional) : The names of the `EAttribute`s of the `EClass` the value of which will be displayed as the label of the link
 * `source` : The source non-containment `EReference` of the link
-* `source.decoration` (optional) : The decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `square`, `filledsquare`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements an appropriate interface
+* `source.decoration` (optional) : The decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `square`, `filledsquare`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements the `org.eclipse.draw2d.RotatableDecoration` interface
 * `style` (optional) : the style of the link (see `border.style` above)
 * `target` : The target non-containment `EReference` of the link
-* `target.decoration` (optional) : As above.
+* `target.decoration` (optional) : See `source.decoration`.
 * `tool.description` (optional) : the description of the creation tool
 * `tool.large.bundle` (optional) : The bundle of the large icon of the creation tool
 * `tool.large.path` (optional) : The path of the large icon of the creation tool
