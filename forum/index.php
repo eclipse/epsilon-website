@@ -5,12 +5,15 @@
 <div class="row">
 	<!-- main part -->
 	<div class="span8">
-		<h1 class="page-header">Forum</h1>
-		<h3>Epsilon Forum</h3>
+		<h1 class="page-header">Epsilon Forum</h1>
 		<div class="row">
 			<div class="span8">
 				<img class="pull-right" src="http://dev.eclipse.org/huge_icons/actions/mail-send-receive.png" alt="">
-				<p>Epsilon has a <a href="http://www.eclipse.org/forums/index.php?t=thread&frm_id=22">dedicated forum</a> where you can report problems* and ask questions about the languages and tools it provides. Questions are typically answered within a few minutes, and <u>no post has ever gone unanswered</u>.</p>
+				<p>Epsilon has a <a href="http://www.eclipse.org/forums/index.php?t=thread&frm_id=22">dedicated forum</a> where you can report problems and ask questions about the languages and tools it provides. Questions are typically answered within a few hours, and <u>no post has ever gone unanswered</u>.</p>
+				<br/>
+				<div class="alert alert-info alert-block">
+				<p><b>Important:</b> If you're encountering unexpected behaviour (e.g. runtime errors, unexpected output) with one of your Epsilon programs, we strongly encourage you to submit a <a href="../doc/articles/minimal-examples">minimal example</a> alongside your post which will enable us to reproduce the problem and provide a timely response.</p>
+				</div>
 			</div>
 			
 		</div>
@@ -34,14 +37,6 @@
 					<li><b>Server:</b> news.eclipse.org
 					<li><b>Newsgroup:</b> eclipse.epsilon
 				</ul>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="span8">
-				<h3>Monitor the newsgroup for new questions/answers</h3>
-				<p>You can use <a href="http://kolovos.wiki.sourceforge.net/Newsgroup+Watcher">Newsgroup Watcher</a> to monitor the forum and get instant notifications about new answers to your questions.</p>
-				<p><i>* If on the other hand you've found everything to be working well, positive feedback is equally welcome ;)</i></p>
 			</div>
 		</div>
 	</div>
