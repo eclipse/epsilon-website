@@ -7,17 +7,17 @@
 	version="6">
 	
 	<description>
-	Discover interesting facts about countries of the world by exploring a model that conforms to the metamodel below. 
-	As you progress through the levels of the game, more details of the metamodel will be revealed to you. Use the Model Explorer to query 
+	Discover interesting facts about countries of the world by exploring a world map model that conforms to the metamodel below. 
+	As you progress through the levels of the game, more details of the map metamodel will be revealed to you. Use the Model Explorer to query 
 	the model with EOL and answer the questions on the right!
 	</description>
 	
 	<level id="1">
 		<description>
-		Let's get warmed up. The are many countries in the world.
+		Let's get warmed up.
 		</description>
 		<question>
-		How many countries are there exactly?
+		How many countries are there in the world?
 		</question>
 		<hint>
 // We'll give you this one
@@ -32,10 +32,10 @@ Country.all.size().println();
 
 	<level id="2">
 		<description>
-		As you probably already know, each country has a name.
+		To avoid confusion, each country has a unique name.
 		</description>
 		<question>
-		How many countries have names that start with the letter "A"?
+		The name of how many countries starts with the letter "A"?
 		</question>
 		<hint>
 Country.all.select(c|c.?.startsWith("A")).size().println();
@@ -82,7 +82,7 @@ count.println();
 
 	<level id="4">
 		<description>
-		Countries are encompassed in continents. Some countries are encompassed in more than one continents (for example Russia belongs both to Europe and to Asia).
+		Some countries are encompassed in more than one continents (for example Russia belongs both to Europe and to Asia).
 		</description>
 		<question>
 		How many countries belong to more than 1 continents?
@@ -116,7 +116,7 @@ Country.all.select(c|c.encompassed.exists(
 
 	<level id="6">
 		<description>
-		Let's focus on populations now.
+		Let's talk populations now.
 		</description>
 		<question>
 		Which country has the fewest inhabitants?
@@ -132,7 +132,7 @@ Country.all.sortBy(c|c.population).first().name.println();
 
 	<level id="7">
 		<description>
-		Let's focus on areas now.
+		Let's shift focus on areas now.
 		</description>
 		<question>
 		Which country occupies the smallest area?
