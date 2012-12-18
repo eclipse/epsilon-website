@@ -35,7 +35,7 @@ Country.all.size().println();
 		To avoid confusion, each country has a unique name.
 		</description>
 		<question>
-		The name of how many countries starts with the letter "A"?
+		How many countries' names start with the letter "A"?
 		</question>
 		<hint>
 Country.all.select(c|c.?.startsWith("A")).size().println();
@@ -51,7 +51,7 @@ Country.all.select(c|c.name.startsWith("A")).size().println();
 		Let's play a bit more with names.
 		</description>
 		<question>
-		How many countries have names that start and end with the same letter?
+		How many countries' names start and end with the same letter?
 		</question>
 		<hint>
 var count = 0;
@@ -116,7 +116,7 @@ Country.all.select(c|c.encompassed.exists(
 
 	<level id="6">
 		<description>
-		Let's talk populations now.
+		Let's talk about populations now.
 		</description>
 		<question>
 		Which country has the fewest inhabitants?
@@ -132,7 +132,7 @@ Country.all.sortBy(c|c.population).first().name.println();
 
 	<level id="7">
 		<description>
-		Let's shift focus on areas now.
+		Let's focus on areas.
 		</description>
 		<question>
 		Which country occupies the smallest area?
