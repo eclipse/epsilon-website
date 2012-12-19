@@ -12,7 +12,8 @@
 	more details of the metamodel will be revealed to you. Use the Model Explorer to query the mystery model with EOL, answer the questions on the right 
 	and find the murderer!
 	</description>
-	<level id="1" giveaway="true">
+	
+	<level id="1">
 		<description>
 		Let's start by getting to know more about the murder setting.
 		</description>
