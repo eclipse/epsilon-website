@@ -176,6 +176,12 @@
 	  		This article demonstrates how to obtain and run a local copy of the source code of Epsilon.
 	  		</description>
 	  	</article>
+	  	<article name="creating-a-game" title="Creating an Epsilon Game">
+	  		<contributor name="James Williams" url="http://www.jamesrobertwilliams.co.uk"/>
+	  		<description>
+	  		This article explains how to create an Epsilon game from scratch.
+	  		</description>
+	  	</article>
 	  	<article name="manage-the-epsilon-website-locally" title="Manage the Epsilon website locally">
 	  		<description>
 	  		This article demonstrates how to manage the Epsilon website in your machine.

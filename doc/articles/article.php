@@ -40,15 +40,18 @@
 					echo PublicationsManager::getPublicationSideItem(trim($publication));
 			}
 		}
-		sB('Actions', true); ?>
+		?>
+
+		<?sB('Actions', true); ?>
 					<ul>
 						<li><a target="_blank" href="../print.php?articleId=<?=$articleId?>">Printer-friendly version</a>
 						<li><a href="../../../forum/">Get help with this article</a>
 						<li><a href="../">Back to the article index</a>
 						<!--li><a href="../feed">RSS feed</a-->
 					</ul>
-		<? sE();
-		} ?>
+		<? sE();?>
+		
+		<? } ?>
 
 	</div>
 	<!-- end sidebar -->
