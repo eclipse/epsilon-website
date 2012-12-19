@@ -24,6 +24,9 @@
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('games/mondial'); ?>">Mondial</a>
 							</li>
+							<li>
+								<a href="<?= Epsilon::getRelativeLocation('games/xmas'); ?>">Santa's Christmas Adventure</a>
+							</li>
 						</ul>
 					</li>
 					<li>
