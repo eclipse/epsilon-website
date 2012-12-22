@@ -2,7 +2,7 @@
  
 This article demonstrates the extended properties mechanism in EOL (and by inheritance, in all languages in Epsilon). We present the rationale and semantics of extended properties using the following simple metamodel (in Emfatic):
 
-{{{
+{{{emf
 package SimpleTree;
 
 class Tree {
@@ -14,7 +14,7 @@ class Tree {
 
 Now, what we want to do is to traverse a model that conforms to this metamodel and calculate and print the depth of each Tree in it. We can do this using this simple EOL program:
 
-{{{
+{{{eol
 var depths = new Map;
 
 for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
@@ -39,7 +39,7 @@ We've often come across similar situations where we needed to attach some kind o
 
 An extended property is a property that starts with the `~` character. It's semantics are quite straightforward: the first time a value is assigned to an extended property of an object (e.g. `x.~a := b;`), the property is created and associated to the object and the value is assigned to it. Similarly, `x.~a` returns the value of the property or undefined if the property has not been set on the particular object yet. Using extended properties, we can rewrite the above code (without needing to use a `Map`) as follows:
 
-{{{
+{{{eol
 for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
 	n.setDepth(0);
 }
