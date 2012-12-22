@@ -5,7 +5,7 @@ This recipe shows how to create nodes in your GMF editor whose contents are cent
 
 We'll start with the following metamodel and EuGENia annotations:
 
-{{{
+{{{emf
 @gmf.diagram(foo="bar")
 class System {
    val Widget[*] widgets;
@@ -19,7 +19,7 @@ class System {
 
 We'll use a custom layout manager to achieve the centring. We need to add a polishing transformation to our project (described in more detail in [[../eugenia-polishing/|this article]]), which adds the custom layout to our widget figure. In a file named ECore2GMF.eol, place the following code: 
 
-{{{
+{{{eol
 findShape('WidgetFigure').layout = createCentredLayout();
 
 operation findShape(name : String) : GmfGraph!Label {

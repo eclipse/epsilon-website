@@ -3,7 +3,7 @@ EuGENia is a tool that automatically generates the `.gmfgraph`, `.gmftool` and `
 
 '''The Filesystem metamodel:'''
 
-{{{
+{{{emf
 @namespace(uri="filesystem", prefix="filesystem")
 @gmf(foo="bar")
 package filesystem;

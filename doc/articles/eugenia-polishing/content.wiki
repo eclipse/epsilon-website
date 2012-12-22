@@ -3,7 +3,7 @@ So now you have created the first version of your GMF editor with EuGENia and it
 
 We've come across this situation many times and decided to do something about it. Since merging such complex models sensibly is virtually impossible, we've implemented support for user-defined transformations that complement the built-in transformations provided by EuGENia. Let's go straight to an example. We have the following '''classdiagram''' metamodel:
 
-{{{
+{{{emf
 @namespace(uri="classdiagram", prefix="classdiagram")
 package classdiagram;
 
@@ -45,7 +45,7 @@ so that we can get this:
 
 To perform these changes automatically every time EuGENia is executed on `classdiagram.ecore`, we can create a new EOL transformation called `ECore2GMF.eol` and place it in the same folder with `classdiagram.ecore`. EuGENia will then pick it up and execute it after the built-in transformation every time we invoke `Generate GMF tool, graph and map models` action. In our case, the `ECore2GMF.eol` customization transformation looks like this:
 
-{{{
+{{{eol
 -- Find the compartment figure
 var clazzAttributesCompartmentFigure = GmfGraph!Rectangle.all.
     selectOne(r|r.name = 'ClazzAttributesCompartmentFigure');

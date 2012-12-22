@@ -9,10 +9,12 @@ In this article, we demonstrate using [[../../egl|EGL]] as a server-side scripti
 * Extract all .jar files from the zip into the `lib` folder of Tomcat
 * Open `web.xml` in the `conf` directory of Tomcat and add the following snippet
 
-{{{
+{{{xml
 <servlet>
 	<servlet-name>egl</servlet-name>
-	<servlet-class>org.eclipse.epsilon.egl.servlet.EglServlet</servlet-class>
+	<servlet-class>
+		org.eclipse.epsilon.egl.servlet.EglServlet
+	</servlet-class>
 	<load-on-startup>1</load-on-startup>
 </servlet>
 <servlet-mapping>
@@ -28,8 +30,8 @@ To create a hello world web application and test your installation, you need to 
 
 * Go to the `webapps` folder and create a new directory named `helloworld`
 * Inside `helloworld`, create a new file called `index.egl` and add to it the following code
-{{{
-[%='Hello World'%]
+{{{egl
+[%="Hello World"%]
 }}}
 * Start Tomcat using `bin/startup.bat` (or `startup.sh` in Linux/MacOS)
 * Open your browser and go to [[http://localhost:8080/helloworld/index.egl]]
@@ -38,8 +40,8 @@ To create a hello world web application and test your installation, you need to 
 ==Accessing parameters from the URL==
 To access parameters from the URL (or fields of a submitted form) you can use the `request.getParameter('parameter-name')` method. For example, by modifying the source code of `index.egl` to the following
 
-{{{
-[%='Hello '+request.getParameter('visitor')%]
+{{{egl
+[%="Hello "+request.getParameter("visitor")%]
 }}}
 
 and navigating to [[http://localhost:8080/helloworld/index.egl?visitor=John]], you should get a page reading `Hello John` as a result.
@@ -59,20 +61,20 @@ EGL provides the built-in `cache` object to facilitate two types of caching. Pag
 
 For example, the following code is used to ensure that repeated requests for pages matching the regular expression `index.*` are served from the page cache:
 
-{{{
-[% cache.pages('index.*'); %]
+{{{egl
+[% cache.pages("index.*"); %]
 }}}
 
 The page cache can be expired programmatically, as shown below, or by restarting the Tomcat server.
 
-{{{
-[% cache.expirePages('index.*'); %]
+{{{egl
+[% cache.expirePages("index.*"); %]
 }}} 
 
 In addition to page caching, EGL supports fragment caching which allows the contents of a sub-template to be cached. For example, the following code processes `sidebar.egl` only the first time that the template is executed:
 
-{{{
-[% var sidebarTemplate = TemplateFactory.load('Sidebar.egl'); %]
+{{{egl
+[% var sidebarTemplate = TemplateFactory.load("Sidebar.egl"); %]
 [%=cache.fragment(sidebarTemplate) %]
 }}}
  
@@ -80,7 +82,7 @@ In addition to page caching, EGL supports fragment caching which allows the cont
  
  Like pages, fragments can be expired programmatically (or by restarting the Tomcat server):
  
-{{{
+{{{egl
 [% cache.expireFragment(sidebarTemplate); %]
 }}} 
 
@@ -91,10 +93,10 @@ The main motivation for turning EGL into a server-side scripting language is its
 
 To experiment with `modelManager`, download the [[http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/trunk/serverside/org.eclipse.epsilon.egl.servlet/Graph.ecore|Graph.ecore]] and [[http://dev.eclipse.org/svnroot/modeling/org.eclipse.gmt.epsilon/trunk/serverside/org.eclipse.epsilon.egl.servlet/Ecore.ecore|Ecore.ecore]] models and place them in your helloworld directory. Then, change your `index.egl` to look like this
 
-{{{
+{{{egl
 [%
-modelManager.registerMetamodel('Ecore.ecore');
-modelManager.loadModel('Sample', 'Graph.ecore', 'http://www.eclipse.org/emf/2002/Ecore');
+modelManager.registerMetamodel("Ecore.ecore");
+modelManager.loadModel("Sample", "Graph.ecore", "http://www.eclipse.org/emf/2002/Ecore");
 %]
 
 The metamodel has [%=EClass.all.size()%] classes
@@ -119,18 +121,18 @@ The `modelManager` built-in object provides the following methods:
 ==Sharing models between templates==
 Currently, each model is only loaded once (the first time the `loadModel()` or `loadModelByFile()` is called). If multiple pages need to access the same model, add the model loading logic in an operation in a separate `models.eol` file:
 
-{{{
+{{{egl
 operation loadModels() {
-  modelManager.registerMetamodel('Ecore.ecore');
-  modelManager.loadModel('Sample', 'Graph.ecore', 'http://www.eclipse.org/emf/2002/Ecore');
+  modelManager.registerMetamodel("Ecore.ecore");
+  modelManager.loadModel("Sample", "Graph.ecore", "http://www.eclipse.org/emf/2002/Ecore");
 }
 }}}
 
 and then import and call it from each one of your pages:
 
-{{{
+{{{egl
 [%
-import 'models.eol';
+import "models.eol";
 loadModels();
 %]
 

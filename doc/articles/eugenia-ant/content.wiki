@@ -6,7 +6,7 @@ In this article, we will show how to invoke the EuGENia Ant task and offer some 
 ==Basic usage==
 The EuGENia Ant task only requires specifying the source [[../emfatic|Emfatic]] description or Ecore model through the `src` attribute:
 
-{{{
+{{{xml
 <!-- Generate myfile.ecore from myfile.emf and then proceed -->
 <epsilon.eugenia src="myfile.emf"/>
 
@@ -28,7 +28,7 @@ Normally, EuGENia runs all these steps:
 # Generate the GMF code from the GMFGen model (`gmfcode`)
 Optionally, the Ant task can run only some of these steps. The `firstStep` attribute can be used to specify the first step to be run, and the `lastStep` can be used to specify the last step to be run. For example:
 
-{{{
+{{{xml
 <!-- Skips the clean, ecore and genmodel steps -->
 <epsilon.eugenia src="myfile.ecore" firstStep="gmf"/>
 
@@ -46,7 +46,7 @@ Additional models to be used in a polishing transformation can be specified thro
 * `step` (mandatory) is the identifier of the EuGENia step to which we will add the model reference.
 As an example, consider the following fragment:
 
-{{{
+{{{xml
 <epsilon.emf.loadModel name="Labels"
   modelfile="my.model" metamodeluri="mymetamodelURI"
   read="true" store="false"/>

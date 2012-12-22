@@ -4,7 +4,7 @@ Exeed (standing for '''Ex'''tended '''E'''MF '''Ed'''itor) is an extended versio
 
 The following example presents an annotated OO metamodel (in Emfatic):
 
-{{{
+{{{emf
 package PersonHouseRelationship;
 
 import "Houses";

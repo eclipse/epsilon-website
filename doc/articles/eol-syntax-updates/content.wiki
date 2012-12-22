@@ -12,7 +12,7 @@ More specifically, we have introduced:
  
 All these changes (except for the double quotes which have now been replaced by _backticks) are non-breaking: the old syntax (`''` for strings, `=` for comparison, `:=` for assignment and `--` and `-**-` for comments still work). Below is an example demonstrating the new syntax:
 
-{{{
+{{{eol
 /*
  This is a multi line comment
 */

@@ -24,7 +24,7 @@ This is where we'll specify our Ecore metamodel using the Emfatic textual syntax
  
 Now '''library.emf''' should be open and you can copy-paste the following text into it (our sample metamodel) and save.
 
-{{{
+{{{emf
 @namespace(uri="library", prefix="")
 package library;
 

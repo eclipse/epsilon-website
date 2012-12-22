@@ -1,7 +1,7 @@
 =EuGENia: Affixed Nodes in GMF=
 From the following annotated Ecore metamodel (in Emfatic)
 
-{{{
+{{{emf
 @namespace(uri="components", prefix="components")
 package components;
 

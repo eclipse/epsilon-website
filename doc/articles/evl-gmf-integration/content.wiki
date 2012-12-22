@@ -14,7 +14,7 @@ We create a new .evl file in the plugin. In our case we've created it under `val
 
 In our example we define the following constraints:
 
-{{{
+{{{evl
 context File {
 
 	constraint HasName {
@@ -134,6 +134,6 @@ While errors/warnings are persisted across sessions, quick-fixes are not. Theref
 ==Recipes==
 If you need validation to be performed whenever your diagram is saved add the following line in the `doSaveDocument(IProgressMonitor monitor, Object element, IDocument document, boolean overwrite)` method of your `XXXDocumentProvider` class (located in the `.diagram.part` package) in your diagram plugin.
 
-{{{
+{{{java
 ValidateAction.runValidation((View) document.getContent());
 }}}

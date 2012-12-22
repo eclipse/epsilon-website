@@ -1,7 +1,7 @@
 =EuGENia: Nodes with images instead of shapes=
 This recipe shows how to create nodes in your GMF editor that are represented with images (png, jpg etc.) instead of the standard GMF shapes (rectangle, ellipse etc.). We'll use the simple `friends` metamodel as demonstration:
 
-{{{
+{{{emf
 @namespace(uri="friends", prefix="")
 package friends;
 
@@ -26,7 +26,7 @@ class Person {
 
 We define a custom figure for Person (`figure="figures.PersonFigure"`) and also specify that the label should be placed externally to the node (`label.placement="external"`). Once we have generated our diagram code we need to go and define the `figure.PersonFigure` class. An example of an png image-based implementation is available below:
 
-{{{
+{{{java
 package figures;
 
 import org.eclipse.draw2d.ImageFigure;
@@ -47,7 +47,7 @@ public class PersonFigure extends ImageFigure {
 
 The PluginActivator extends AbstractUIPlugin, which provides methods for loading images from within our plug-in:
 
-{{{
+{{{java
 package activator;
 
 import org.eclipse.core.runtime.Plugin;

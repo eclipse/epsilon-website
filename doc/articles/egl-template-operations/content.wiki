@@ -3,7 +3,7 @@ Template operations provide a way to re-use small fragments of [[../../egl|EGL]]
 
 Suppose we are writing a code generator for plain-old Java objects, and we have the following EGL code (which assumes the presence of a class object):
 
-{{{
+{{{egl
 class [%=class.name%] {
 [% for (feature in class.features) { %]
   /**
@@ -27,7 +27,7 @@ While the above code will work, it has a couple of drawbacks. Firstly, the code 
 
 Using EGL template operations, the above code becomes:
 
-{{{
+{{{egl
 class [%=class.name%] {
 [% for (feature in class.features) { %]
   [%=feature.getter()%]

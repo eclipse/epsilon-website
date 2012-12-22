@@ -7,7 +7,7 @@ First we need to create an '''imagePath''' attribute that will store the path of
 ==Set the figure of Component to a custom ComponentFigure==
 The next step is to set the figure of Component in EuGENia to a custom figure. After those two steps, our definition of Component looks like this:
 
-{{{
+{{{emf
 @gmf.node(label="name", figure="ccdl.diagram.figures.ComponentFigure", label.placement="external")
 class Component {
   attr String name;
@@ -17,7 +17,7 @@ class Component {
 
 Once we generate the diagram code, we'll get an error because '''ComponentFigure''' has not been found. We need to create the '''ComponentFigure''' class and set its code to the following:
 
-{{{
+{{{java
 import java.io.File;
 import java.util.HashMap;
 
@@ -79,7 +79,7 @@ public class ComponentFigure extends ImageFigure  {
 ==Create the image path property descriptor==
 The next step is to create the property descriptor for the image path so that we can eventually get a nice browse button in the properties view. To do this we need to create a new class named '''ComponentImagePathPropertyDescriptor'''.
 
-{{{
+{{{java
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.gmf.runtime.emf.ui.properties.descriptors.EMFCompositeSourcePropertyDescriptor;
@@ -108,7 +108,7 @@ public class ComponentImagePathPropertyDescriptor  extends
 
 ==Create the image path property cell editor==
 
-{{{
+{{{java
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -150,7 +150,7 @@ public class ComponentImagePathCellEditor extends DialogCellEditor  {
 ==Update the XXXPropertySection under xxx.diagram.sheet==
 Update the getPropertySource method as follows:
 
-{{{
+{{{java
 public IPropertySource getPropertySource(Object object) {
 	if (object instanceof IPropertySource) {
 		return (IPropertySource) object;
@@ -198,7 +198,7 @@ public IPropertySource getPropertySource(Object object) {
 ==Modify the edit part==
 Modify the handleNotificationEvent so that the figure is updated every time the value of imagePath changes
 
-{{{
+{{{java
 protected void handleNotificationEvent(Notification event) {
 	if (event.getNotifier() == getModel()
 			&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations()
@@ -224,7 +224,7 @@ protected void handleNotificationEvent(Notification event) {
 
 Modify the createNodeShape so that the figure is initialized from the existing imagePath the first time
 
-{{{
+{{{java
 protected IFigure createNodeShape() {
 	primaryShape = new ComponentFigure();
 	Component component = (Component) ((Node)getNotationView()).getElement();
