@@ -7,7 +7,7 @@ To address such issues and enable developers to implement non-standard functiona
 ===Create the tool===
 The first step is to create a new plugin project named `org.eclipse.epsilon.examples.tools`. Then create a class named `SampleTool` with the following content.
 
-{{{
+{{{java
 package org.eclipse.epsilon.examples.tools;
 
 public class SampleTool {
@@ -41,8 +41,9 @@ public class SampleTool {
  
 To invoke the tool you have two options: You can either run a new Eclipse instance, or export the plugin and place it in the `dropins` folder of your installation. Then you can invoke the tool using the following EOL program.
 
-{{{
-var sampleTool = new Native("org.eclipse.epsilon.examples.tools.SampleTool");
+{{{eol
+var sampleTool = 
+	new Native("org.eclipse.epsilon.examples.tools.SampleTool");
 sampleTool.name = "George";
 sampleTool.sayHello().println(); // Prints Hello George
 }}}
@@ -51,7 +52,7 @@ sampleTool.sayHello().println(); // Prints Hello George
  
 To use tools contributed via extensions in a standalone Java setup within Eclipse you'll need to add the following line of code.
 
-{{{
+{{{java
 context.getNativeTypeDelegates().
 	add(new ExtensionPointToolNativeTypeDelegate());
 }}}

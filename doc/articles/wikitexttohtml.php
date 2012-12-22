@@ -58,7 +58,7 @@ class WikiTextToHTML {
 		// loop through the input
 		foreach($input as $in) {
 			
-			if ($in == "{{{") {
+			if (startsWith(trim($in), '{{{')) {
 				$this->incode = true;
 			}
 			else if ($in == "}}}") {
@@ -131,13 +131,13 @@ class WikiTextToHTML {
 			if (strpos($line,"[[file:") === 0) {
 				$file = substr(trim($line), 7);
 				$file = substr($file, 0, strlen($file) - 2);
-				$output = $output."{{{\n".file_get_contents($file)."\n}}}\n";
+				$output = $output."{{{".pathinfo($s, PATHINFO_EXTENSION)."\n".file_get_contents($file)."\n}}}\n";
 			}
 			else if (strpos($line,"[[svn:") === 0) {
 				$s = substr(trim($line), 6);
 				$s = substr($s, 0, strlen($s) - 2);
 				$file = "http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/trunk/".$s;
-				$output = $output."{{{\n".file_get_contents($file)."\n}}}\n";
+				$output = $output."{{{".pathinfo($s, PATHINFO_EXTENSION)."\n".file_get_contents($file)."\n}}}\n";
 			}
 			else {
 				$output = $output.$line."\n";
@@ -181,8 +181,14 @@ class WikiTextToHTML {
 			// determine output format
 			if('' == $in && (!$this->incode)) {
 				$output[] = '<br><br>';
-			} else if ('{{{' == trim($in)) {
-				$output[] = '<pre>';
+			} else if (startsWith(trim($in), '{{{')) {
+				if (trim($in) == '{{{') {
+					$output[] = '<pre>';
+				}
+				else {
+					$lang = substr(trim($in), 3);
+					$output[] = '<pre class="prettyprint lang-'.$lang.'">';
+				}
 				$this->incode = true;
 			} else if ('}}}' == trim($in)) {
 				$output[] = '</pre>';
@@ -215,5 +221,19 @@ class WikiTextToHTML {
 		// convert Wiki text to HTML and return result
 		return $this->convertWikiTextToHTML($input);
 	}
+
+}
+
+function startsWith($haystack, $needle) {
+    return !strncmp($haystack, $needle, strlen($needle));
+}
+
+function endsWith($haystack, $needle) {
+    $length = strlen($needle);
+    if ($length == 0) {
+        return true;
+    }
+
+    return (substr($haystack, -$length) === $needle);
 }
 ?>

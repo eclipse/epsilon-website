@@ -9,7 +9,7 @@ As ever, this release of Epsilon contributes several incremental improvements to
 ====More literals for built-in types====
 We've added support for more styles of literal values. For example, `Maps` can now be created using a more concise syntax. The following EOL v0.9.0 code:
 
-{{{
+{{{eol
 var m = new Map;
 m.put("a", 1);
 m.put("b", 2);
@@ -18,7 +18,7 @@ m.put("c", 3);
 
 can now be written as:
 
-{{{
+{{{eol
 var m = Map {"a" = 1, "b" = 2, "c" = 3}
 }}}
 
@@ -53,7 +53,7 @@ Flock is a language tailored for model migration: a special kind of model transf
 
 To illustrate these changes to Flock, suppose that we have the following source (original) metamodel, specified in Emfatic.
 
-{{{
+{{{emf
 class Animal {
 	attr String name;
 	attr Integer id;
@@ -67,7 +67,7 @@ class Dog extends Animal {}
 ====Re-using migration logic over subtypes====
 In previous versions of Flock, zero or one migrate rules were executed for each model element in the original (unmigrated) model. Furthermore, migrate rules were applicable only for direct instances of the type specified by the rule. For example, in the following Flock migration strategy, the second and third rules would be applied for all instances of Dog and Cat, respectively. The first rule, however, would not be applied for instances of Dog and Cat, even though Dog and Cat are subtypes of Animal.
 
-{{{
+{{{mig
 migrate Animal {
 	// migration logic omitted
 }
@@ -85,7 +85,7 @@ In Flock v0.9.1, migrate rules are now applied to model elements that instantiat
 
 A further consequence of this change is that the way in retypings are specified has changed. Previous versions of Flock used the syntax shown in the example below to change the type of model elements.
 
-{{{
+{{{mig
 migrate Animal {
 	// migration logic omitted
 }
@@ -101,7 +101,7 @@ migrate Dog to Perro {
 
 In Flock v0.9.1, retypings are specified with a dedicated construct, as illustrated in the following example.
 
-{{{
+{{{mig
 retype Cat to Gato
 retype Dog to Perro
 
@@ -125,7 +125,7 @@ Flock automatically copies from original to migrated model elements any values t
 
 However, in some cases values need not be copied from source to target (perhaps they are going to be immediately overwritten). Flock v0.9.1 adds the `ignoring` keyword for specifying a set of features that should not be copied automatically. For example, the following rule will not automatically copy the values of the id and owner features of Animals. Note that the values for other features (such as name) will be automatically copied.
 
-{{{
+{{{mig
 migrate Animal ignoring id, owner {
   // migration logic omitted
 }

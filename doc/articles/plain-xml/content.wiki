@@ -8,7 +8,7 @@ In this article we demonstrate how you can create, query and modify plain standa
  
 We use the following `library.xml` as a base for demonstrating the EOL syntax for querying XML documents.
 
-{{{
+{{{xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <library>
 	<book title="EMF Eclipse Modeling Framework" pages="744">
@@ -38,7 +38,7 @@ The PlainXML driver uses predefined naming conventions to allow developers to pr
  
 The `t_` prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, `t_book.all` can be used to get all elements tagged as `<book>` in the document, `t_author.all` to retrieve all `<author>` elements etc. Also, if `b` is an element with a `<book>` tag, then `b.isTypeOf(t_book)` shall return true.
 
-{{{
+{{{eol
 // Get all <book> elements
 var books = t_book.all;
 
@@ -58,7 +58,7 @@ b.isTypeOf(t_library).println();
  
 You can use the `.tagName` property for this purpose. For instance, if `b` is an element tagged as `<book>`, `b.tagName` shall return `book`. The `tagName` property is read-only.
 
-{{{
+{{{eol
 // Get a random <book> element
 var b = t_book.all.random();
 
@@ -73,7 +73,7 @@ You can use the attribute name as a property of the element object, prefixed by 
 
 In this example, `b.a_pages` will return `744` as a string. For `744` to be returned as an integer instead, the `i_` prefix should be used instead (i.e. `b.i_pages`. The driver also supports the following preffixes: `b_` for boolean, `s_` for string (alias of `a_`) and `r_` for real values. 
 
-{{{
+{{{eol
 // Print all the titles of the books in the library
 for (b in t_book.all) {
 	b.a_title.println();
@@ -95,7 +95,7 @@ t_book.all.collect(b|b.i_pages).sum();
  
 You can use the `.text` read-write property for this.
 
-{{{
+{{{eol
 for (author in t_author.all) {
 	author.text.println();
 }
@@ -105,7 +105,7 @@ for (author in t_author.all) {
  
 You can use the `.parentNode` read-only property for this.
 
-{{{
+{{{eol
 // Get a random book
 var b = t_book.all.random();
 
@@ -118,7 +118,7 @@ b.parentNode.tagName.println();
  
 You can use the `.children` read-only property for this.
 
-{{{
+{{{eol
 // Get the <library> element
 var lib = t_library.all.first();
 
@@ -133,7 +133,7 @@ for (b in lib.children) {
  
 Using what you've learned so far, you can do this using a combination of the `.children` property and the select/selectOne() operations. However, the driver also supports `e_` and `c_`-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. `e_` and `c_` properties are read-only.
 
-{{{
+{{{eol
 // Get a random book
 var b = t_book.all.random();
 
@@ -160,7 +160,7 @@ b.e_published.text.println();
  
 You can use the `new` operator for this. 
 
-{{{
+{{{eol
 // Check how many <books> are in the library
 // Prints '3'
 t_book.all.size().println();
@@ -177,7 +177,7 @@ t_book.all.size().println();
  
 You can use the `.appendChild(child)` operation for this.
 
-{{{
+{{{eol
 // Create a new book
 var b = new t_book;
 
@@ -192,7 +192,7 @@ lib.appendChild(b);
  
 You can use the `.root` property for this.
 
-{{{
+{{{eol
 XMLDoc.root = new t_library;
 }}}
 
@@ -210,7 +210,7 @@ Then you can configure the details of your document (name, file etc.) in the scr
  
 The following ANT build file demonstrates how you can use ANT to load/store and process XML documents with Epsilon.
 
-{{{
+{{{xml
 <project default="main">
 	<target name="main">
 		

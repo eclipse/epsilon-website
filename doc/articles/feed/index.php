@@ -5,7 +5,7 @@
 	chdir("..");
 	include("ArticleReader.php");
 	$categories = simplexml_load_file("articles.xml")->category;
-		
+	
 	$feed = new FeedWriter(RSS2);
 	$feed->setTitle("Epsilon Articles");
 	$feed->setLink(Epsilon::getAbsoluteLocation("doc/articles/"));
