@@ -14,47 +14,26 @@
 	<div class="span8">
 
 		<div class="row">
-			<div class="span8">
+			<div class="span12">
 				<?if($article){?>
 					<?=$article->getContent()?>
+					<p>
+					<div style="float:right"><i class="icon-print"></i>&nbsp;<a target="_blank" href="../print.php?articleId=<?=$articleId?>">Printer-friendly version</a></div>
+					</p>
 				<?} else {?>
 					<div class="alert alert-block">
                       <h4 class="alert-heading">Warning</h4>
                       Article <?=$articleId?> not found. Go back to the <a href="..">index of articles</a>.
                   </div>
 				<?}?>
+				
 			</div>
 		</div>
 
 	</div>	
 	<!-- end main part -->
 
-	<!-- sidebar -->
-	<div class="span4">
-		<!-- first element -->
-		<?if($article){
-			$publications = $articleReader->getArticle($articleId);
-			if($publications) {
-				$publications = $publications->publication;
-				foreach ($publications as $publication){
-					echo PublicationsManager::getPublicationSideItem(trim($publication));
-			}
-		}
-		?>
-
-		<?sB('Actions', true); ?>
-					<ul>
-						<li><a target="_blank" href="../print.php?articleId=<?=$articleId?>">Printer-friendly version</a>
-						<li><a href="../../../forum/">Get help with this article</a>
-						<li><a href="../">Back to the article index</a>
-						<!--li><a href="../feed">RSS feed</a-->
-					</ul>
-		<? sE();?>
-		
-		<? } ?>
-
-	</div>
-	<!-- end sidebar -->
+	
 </div>
 <?php
 	f(array(
