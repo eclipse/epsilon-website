@@ -31,7 +31,7 @@
         for <a href="doc/egl">code generation</a>, <a href="doc/etl">model-to-model transformation</a>, <a href="doc/evl">model validation</a>, <a href="doc/ecl">comparison</a>,
         <a href="doc/flock">migration</a> and <a href="doc/ewl">refactoring</a> that work out-of-the-box with <a href="http://www.eclipse.org/emf">EMF</a> and <a href="doc/emc/">other types of</a> models.</p>
         <p>
-         <a class="btn btn-large" href="cinema">Screencasts &raquo;</a>
+         <a class="btn btn-large" href="games/murdercase">Learn through a game &raquo;</a>
          <a class="btn btn-primary btn-large" href="download">Download &raquo;</a>
         </p>
 		</div>
