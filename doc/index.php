@@ -13,7 +13,10 @@
 				<img class="pull-right" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png" alt="">
 				
 				<p>Epsilon provides a family of metamodel-agnostic languages for creating, querying and modifying  EMF (<a href="emc">and other types of</a>) models in various ways.</p> 
+
 				<p>At the core of Epsilon is the <a href="eol">Epsilon Object Language (EOL)</a>, an imperative model-oriented language that combines the procedural style of Javascript with the powerful model querying capabilities of OCL.</p>
+
+				<img src="epsilon-architecture.png" style="padding-top:10px"/>
 			</div>
 
 		</div>
