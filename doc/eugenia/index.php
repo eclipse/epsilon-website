@@ -10,15 +10,14 @@
 
 		<div class="row">
 			<div class="span8">
-				<p>EuGENia is a tool that automatically generates the .gmfgraph, .gmftool and .gmfmap models needed to implement a GMF editor from a single annotated Ecore metamodel. EuGENia provides high-level annotations that shield you from the complexity of GMF and <a href="http://epsilonblog.wordpress.com/2008/08/04/eugenia-kick-start-your-gmf-editor-development/">lowers the entrance barrier</a> for creating your first GMF editor. While EuGENia is very useful for getting started with GMF, it doesn't stop there and can be used <a href="http://epsilonblog.wordpress.com/2009/06/15/eugenia-polishing-your-gmf-editor/">all the way to the final polished version</a> of your editor. </p>
-				<p>For example, from the following metamodel (in <a href="http://wiki.eclipse.org/Emfatic">Emfatic</a> - a convenience textual syntax for Ecore)</p>
+				<p>EuGENia is a tool that automatically generates the .gmfgraph, .gmftool and .gmfmap models needed to implement a GMF editor from a single annotated Ecore metamodel. EuGENia provides high-level annotations that shield you from the complexity of GMF and <a href="../articles/eugenia-gmf-tutorial/">lowers the entrance barrier</a> for creating your first GMF editor. While EuGENia is very useful for getting started with GMF, it doesn't stop there and can be used <a href="../articles/eugenia-polishing/">all the way to the final polished version</a> of your editor. </p>
+				<p>For example, from the following metamodel (in <a href="../articles/emfatic">Emfatic</a> - a convenience textual syntax for Ecore)</p>
 		
-				<pre class="pre-scrollable prettyprint">
+				<pre class="prettyprint lang-emf">
 @namespace(uri="filesystem", prefix="filesystem")
-@gmf(foo="bar")
 package filesystem;
  
-@gmf.diagram(foo="bar")
+@gmf.diagram
 class Filesystem {
     val Drive[*] drives;
     val Sync[*] syncs;
@@ -29,7 +28,7 @@ class Drive extends Folder {
 }
  
 class Folder extends File {
-    @gmf.compartment(foo="bar")
+    @gmf.compartment
     val File[*] contents;
 }
  
