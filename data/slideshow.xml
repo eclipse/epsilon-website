@@ -3,18 +3,6 @@
 	<item title="" img="img/slideshow/images/epsilon.png" href="doc">
 		
 	</item>
-	<item title="Epsilon EuGENia" img="img/slideshow/images/Eugenia.png" href="doc/eugenia">
-		Add GMF annotations to your Ecore metamodel
-	</item>
-	<item title="Epsilon EuGENia" img="img/slideshow/images/Eugenia2.png" href="doc/eugenia">
-		... and generate a fully-functional GMF editor
-	</item>
-	<item title="Epsilon Validation Language" img="img/slideshow/images/EVL.png" href="doc/evl">
-		Write constraints for your Ecore metamodel with EVL
-	</item>
-	<item title="Epsilon Validation Language" img="img/slideshow/images/EVL-GMF.png" href="doc/evl">
-    ... and see the errors/warnings in your GMF editor
-  </item>
   <item title="Epsilon Object Language" img="img/slideshow/images/EOL.png" href="doc/eol">
     Query and modify your EMF models with EOL
   </item> 
@@ -26,19 +14,7 @@
   </item>  
   <item title="Epsilon Object Language" img="img/slideshow/images/XML-EOL.png" href="doc/eol">
     ... and process them programmatically with EOL
-  </item>  
-  <item title="EPackage Registry Browser" img="img/slideshow/images/RegistryView.png" href="doc">
-    Explore the registered EMF EPackages
-  </item> 
-  <item title="Exeed" img="img/slideshow/images/Exeed.png" href="doc/exeed">
-    Customize icons and labels in the reflective EMF editor
-  </item> 
-  <item title="ModeLink" img="img/slideshow/images/Modelink.png" href="doc/modelink">
-    Establish links between your models with ModeLink
-  </item> 
-  <item title="Human Usable Textual Notation" img="img/slideshow/images/HUTN.png" href="doc/hutn">
-    Construct your models with the OMG HUTN
-  </item> 
+  </item>
   <item title="Epsilon Generation Language" img="img/slideshow/images/EGL.png" href="doc/egl">
     Generate text from your models with EGL
   </item>
@@ -59,5 +35,29 @@
   </item>
   <item title="Epsilon Workflows" img="img/slideshow/images/ANT.png" href="doc/workflow">
     Create complex workflows using the Epsilon ANT tasks
-  </item>
+  </item>  
+	<item title="Epsilon EuGENia" img="img/slideshow/images/Eugenia.png" href="doc/eugenia">
+		Add GMF annotations to your Ecore metamodel
+	</item>
+	<item title="Epsilon EuGENia" img="img/slideshow/images/Eugenia2.png" href="doc/eugenia">
+		... and generate a fully-functional GMF editor
+	</item>
+	<item title="Epsilon Validation Language" img="img/slideshow/images/EVL.png" href="doc/evl">
+		Write constraints for your Ecore metamodel with EVL
+	</item>
+	<item title="Epsilon Validation Language" img="img/slideshow/images/EVL-GMF.png" href="doc/evl">
+    ... and see the errors/warnings in your GMF editor
+  </item>  
+  <item title="EPackage Registry Browser" img="img/slideshow/images/RegistryView.png" href="doc">
+    Explore the registered EMF EPackages
+  </item> 
+  <item title="Exeed" img="img/slideshow/images/Exeed.png" href="doc/exeed">
+    Customize icons and labels in the reflective EMF editor
+  </item> 
+  <item title="ModeLink" img="img/slideshow/images/Modelink.png" href="doc/modelink">
+    Establish links between your models with ModeLink
+  </item> 
+  <item title="Human Usable Textual Notation" img="img/slideshow/images/HUTN.png" href="doc/hutn">
+    Construct your models with the OMG HUTN
+  </item> 
 </slideshow>
