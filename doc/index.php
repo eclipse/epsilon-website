@@ -10,9 +10,9 @@
 
 		<div class="row">
 			<div class="span8">
-				<img class="pull-right" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png" alt="">
+				<!--img class="pull-right" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png" alt=""-->
 				
-				<p>Epsilon provides a family of metamodel-agnostic languages for creating, querying and modifying  EMF (<a href="emc">and other types of</a>) models in various ways.</p> 
+				<p>Epsilon is a family of languages and tools for code generation, model-to-model transformation, model validation, comparison, migration and refactoring that work out-of-the-box with EMF <a href="emc">and other types of</a> of models.</p>
 
 				<p>At the core of Epsilon is the <a href="eol">Epsilon Object Language (EOL)</a>, an imperative model-oriented language that combines the procedural style of Javascript with the powerful model querying capabilities of OCL.</p>
 
@@ -24,7 +24,7 @@
 		<h3>Task-Specific Languages</h3>
 		<div class="row">
 			<div class="span8">
-				<p>Epsilon also provides several task-specific languages, which use EOL as an expression language. Each task-specific language provides constructs and syntax that are tailored to the specific task. The task-specific languages provided by Epsilon are:</p>
+				<p>Epsilon provides several task-specific languages, which use EOL as an expression language. Each task-specific language provides constructs and syntax that are tailored to the specific task. The task-specific languages provided by Epsilon are:</p>
 		
 				<ul>
 					<li><a href="etl">Epsilon Transformation Language (ETL)</a>: A rule-based model-to-model transformation language that supports transforming many input to many output models, rule inheritance,  lazy and greedy rules, and the ability to query and modify both input and output models.
@@ -41,9 +41,9 @@
 		<h3>Tools</h3>
 		<div class="row">
 			<div class="span8">
-				<img class="pull-right" src="http://dev.eclipse.org/huge_icons/categories/preferences-system.png" alt="">
+				<!--img class="pull-right" src="http://dev.eclipse.org/huge_icons/categories/preferences-system.png" alt=""-->
 
-				<p>Apart from the languages above, Epsilon also contains several smaller tools and utilities.</p>
+				<p>In addition to the languages above, Epsilon also provides several tools and utilities for working with models.</p>
 				<ul>
 					<li>
 						<a href="eugenia">EuGENia</a>: EuGENia is a front-end for GMF. Its aim is to speed up the process of developing a GMF editor and lower the entrance barrier for new developers. To this end, EuGENia enables developers to generate a fully-functional GMF editor only by specifying a few high-level annotations in the Ecore metamodel.
