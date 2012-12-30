@@ -109,7 +109,7 @@
 		
 		<?}else{?>
 		<div class="span12">
-		<h1>Congratulations!</h1>
+		<h1>Well done!</h1>
 		You can now download the <a href="<?=$metamodel?>">metamodel</a> and the <a href="<?=$model?>">model</a> of 
 		<?=$game["name"]?> and practice more with EOL <a href="/epsilon/download">offline</a>!
 		</div>
