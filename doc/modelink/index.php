@@ -17,7 +17,7 @@
 		<h3>Screenshots</h3>
 		<div class="row">
 			<div class="span8">
-				<img src="img/modelink.png" alt="">
+				<img src="images/modelink.png" alt="">
 			</div>
 		</div>
 
