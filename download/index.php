@@ -111,9 +111,17 @@
 								</div>
 								
 	  							<div class="input-prepend input-append" style="padding-top:25px">
-								  <span class="add-on"><div class="span2">Bleeding edge</div></span>
+								  <span class="add-on"><div class="span2">Interim*</div></span>
 								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>">
 								</div>
+								<p>
+								
+								<br>
+								*<a href="https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=equals;value0-0-0=interim;product=EMFT.Epsilon">
+								Bugs fixed in the latest interim version (compared to the latest stable version)
+								</a>
+								
+								</p>
 								
 								<h4 style="padding-top:10px;padding-bottom:10px">Dependencies (optional)</h4>
 								
