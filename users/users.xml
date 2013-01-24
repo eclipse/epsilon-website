@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<users>
+	<project name="melanie">
+		<description>Multi-level modeling and ontology engineering environment.</description>
+		<url>http://code.google.com/a/eclipselabs.org/p/melanie/</url>
+	</project>
+	<project name="NASA CertWare">
+		<description>Eclipse-based, open source tools for safety, assurance, or dependability cases.</description>
+		<icon>http://nasa.github.com/CertWare/images/cwlogo.png</icon>
+		<url></url>
+	</project>
+	<project name="Mosskit">
+		<description>Modeling Software KIT (MOSKitt) is a free CASE tool, built on Eclipse.</description>
+		<icon>http://www.moskitt.org/fileadmin/conselleria/images/cabecera/logo_moskitt_home.png</icon>
+		<url>http://www.moskitt.org/eng/</url>
+	</project>
+	<project name="GenGMF">
+		<description>GMF model generator</description>
+		<url>http://gengmf.randomice.net/</url>
+	</project>
+	<project name="Brics">
+		<url>http://www.best-of-robotics.org/</url>
+	</project>
+	<project name="Design Framework for Embedded Systems">
+		<url>http://df.esi.nl/</url>
+	</project>
+	<project name="unicaneer2sql">
+		<url>http://code.google.com/p/unicaneer2sql/</url>
+	</project>
+	<project name="Event-B">
+		<url>http://wiki.event-b.org/index.php/Transformation_patterns</url>
+	</project>
+	<project name="reflo">
+		<url>http://code.google.com/a/eclipselabs.org/p/reflo/</url>
+	</project>
+	<project name="mbdois">
+		<url>http://code.google.com/p/mbdois</project>
+	</project>
+	<project name="kybele gmf gen">
+		<url>kybelegmfgen.googlecode.com</url>
+	</project>
+</users>
