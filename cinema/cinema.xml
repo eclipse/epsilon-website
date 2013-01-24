@@ -59,11 +59,11 @@
 		</description>
 	</screencast>
 	<screencast name="eunit-etl" title="Test an ETL model transformation with EUnit" width="1024" height="690">
-		<description> <![CDATA[In this example, we first show how an ETL transformation would be normally tested with JUnit. After this, we show several ways to test it with EUnit, and explain some of the benefits of using this tool instead of JUnit.]]>
+		<description> <![CDATA[In this example, we first show how an ETL transformation would be normally tested with JUnit. After this, we show several ways to test it with EUnit, and explain some of the benefits of using this tool instead of JUnit. NOTE: when trying to reproduce this example, please remember to install the EUnit comparator for EMF models in the "Epsilon Development Tools for EMF" feature.]]>
 		</description>
 	</screencast>
 	<screencast name="eunit-atl" title="Test an ATL model transformation with EUnit"  width="1024" height="690">
-		<description> <![CDATA[In this example, we show that EUnit is not limited to testing Epsilon model management tasks, by testing an ATL model-to-model transformation through its Ant tasks.]]>
+		<description> <![CDATA[In this example, we show that EUnit is not limited to testing Epsilon model management tasks, by testing an ATL model-to-model transformation through its Ant tasks. NOTE: when trying to reproduce this example, please remember to install the EUnit comparator for EMF models in the "Epsilon Development Tools for EMF" feature.]]>
 		</description>
 	</screencast>
 </cinema>
