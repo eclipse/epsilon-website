@@ -54,7 +54,7 @@
 		<file name="builddocument.xml"/>
 		<file name="library.xml"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.egl.library" title="Generating HTML pages from an XML document" standalone="true" interim="false">
+	<example src="org.eclipse.epsilon.examples.egl.library" title="Generating HTML pages from an XML document" standalone="true" interim="true">
 		<description>
 		<![CDATA[In this example, we use <a href="../doc/articles/plain-xml">the plain XML driver of Epsilon</a> in the context of an EGL model-to-text transformation.]]>
 		</description>
