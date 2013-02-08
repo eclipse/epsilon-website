@@ -8,8 +8,6 @@
 	$article = $articleReader->readArticle($articleId);
 
 	h($article->getTitle());
-	echo "foo";
-	print_r(error_get_last());
 ?>
 <div class="row">
 	<!-- main part -->
