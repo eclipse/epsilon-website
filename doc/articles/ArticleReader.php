@@ -26,6 +26,8 @@ class ArticleReader {
 			$contentType = "html";
 		}
 		
+		return $contentFile;
+		
 		$content = file_get_contents($contentFile);
 		
 		if ($contentType == "wiki") {
