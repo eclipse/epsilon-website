@@ -6,7 +6,7 @@ class ArticleReader {
 	
 	// Returns an Article
 	function readArticle($articleId, $absoluteLinks = false) {
-		$contentFile = $articleId.'content.wiki';
+		$contentFile = $articleId.'/content.wiki';
 		$contentType = "wiki";
 		$content = "";
 		$title = "Article ".$articleId." not found";
