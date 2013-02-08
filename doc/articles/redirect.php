@@ -13,7 +13,7 @@ function redirect() {
 	$requestUrl = $_SERVER["REQUEST_URI"];
 	$requestUrl = trim($requestUrl,"/");
 	$articleId = substr($requestUrl, strrpos($requestUrl,"/")+1);
-	$redirectUrl = "../article.php?articleId=".$articleId;
+	$redirectUrl = 'http://'.$serverName.Epsilon::getRelativeLocation('')."/doc/articles/article.php?articleId=".$articleId;
 
 	// in case there are spaces in the URL (probably only on local servers)
 	$redirectUrl = str_replace(" ","%20",$redirectUrl);
