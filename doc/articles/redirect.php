@@ -20,5 +20,6 @@ function redirect() {
 
 	echo file_get_contents($redirectUrl);
 
+	print_r(error_get_last());
 }
 ?>
