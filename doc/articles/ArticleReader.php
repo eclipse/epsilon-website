@@ -5,8 +5,9 @@ require_once 'wikitexttohtml.php';
 class ArticleReader {
 	
 	// Returns an Article
-	function readArticle($articleId, $absoluteLinks = false) {
-		$contentFile = $articleId.'/content.wiki';
+	function readArticle($articleId, $absoluteLinks = false, $print = false) {
+		$contentFile = 'content.wiki';
+		if ($print) { $contentFile = $articleId."/".$contentFile; } 
 		$contentType = "wiki";
 		$content = "";
 		$title = "Article ".$articleId." not found";
@@ -16,7 +17,8 @@ class ArticleReader {
 			$line = trim($lines[0]);
 			$title = substr($line, 1, strlen($line) - 2);
 		} else {
-			$contentFile = $articleId.'/content.html';
+			$contentFile = 'content.html';
+			if ($print) { $contentFile = $articleId."/".$contentFile; } 
 			if (!file_exists($contentFile)) {$contentFile = $articleId.'/contents.html';}
 			$lines = file($contentFile);
 			$matches = preg_grep("/^<h1>(.*?)<\/h1>/", $lines);
