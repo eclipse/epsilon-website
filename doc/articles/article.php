@@ -3,7 +3,7 @@
 	require_once('ArticleReader.php');
 	require_once(Epsilon::getIncludeLocation().'/doc/publications/PublicationsManager.php');
 	
-	$articleId = strip_tags($_GET['articleId']);
+	$articleId =  strip_tags($_GET['articleId']);
 	$articleReader = new ArticleReader();
 	$article = $articleReader->readArticle($articleId);
 
