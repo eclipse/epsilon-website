@@ -110,13 +110,12 @@
 							<?}?>
 							</p>
 							<?if (onMac()){?>
-							<div class="alert alert-info alert-block">
-							<button type="button" class="close" data-dismiss="alert">×</button>
-							<b>Note for Mac OSX Snow Leopard users:</b> The above distributions require Java 1.7 which is not 
+
+							<p><b>Note for Mac OSX Snow Leopard users:</b> The above distributions require Java 1.7 which is not 
 							available for Mac OSX Snow Leopard. To assemble a 1.6-compatible version of the Epsilon distribution,
 							please download one of the distributions above, and re-install Emfatic from the following update site:
-							<code><?=Epsilon::getEmfaticUpdateSite()?></code>
-							</div>
+							<?=Epsilon::getEmfaticUpdateSite()?>
+							</p>
 							<?}?>
 							
 							
