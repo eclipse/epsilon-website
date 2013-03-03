@@ -79,6 +79,9 @@
 								<a href="<?= Epsilon::getRelativeLocation('spreadtheword'); ?>">Spread the word</a>
 							</li>
 							<li>
+								<a href="http://twitter.com/epsilonews">@epsilonews</a>
+							</li>
+							<li>
 								<a href="http://wiki.eclipse.org/Epsilon">Wiki</a>
 							</li>
 							<li>
