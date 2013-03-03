@@ -74,11 +74,11 @@ Similarly, if we needed to customize the logic behind the `Synchronize GMF Gen m
 
 ==What models can I access from the ECore2GMF.eol and FixGMFGen.eol transformations?==
 
-In the `Ecore2GenModel.eol` transformation you can access the ECore metamodel (named `Ecore`) and the EMF GenModel model (named `GenModel`).
+In the `Ecore2GenModel.eol` transformation and the later `FixGenModel.eol` transformation you can access the ECore metamodel (named `Ecore`) and the EMF GenModel model (named `GenModel`). You can run `Ecore2GenModel.eol` or `FixGenModel.eol` manually by right-clicking on the `.ecore` file and selecting "Generate EMF GenModel" or "Synchronize EMF GenModel", respectively.  
 
-In the `ECore2GMF.eol` transformation you can access the ECore metamodel (named `ECore`), the tool model (named `GmfTool`), the graph model (named `GmfGraph`) and the map model (named `GmfMap`).
+In the `ECore2GMF.eol` transformation you can access the ECore metamodel (named `ECore`), the tool model (named `GmfTool`), the graph model (named `GmfGraph`) and the map model (named `GmfMap`). You can regenerate the GMF models and run `ECore2GMF.eol` manually by right-clicking on the `.ecore` file and selecting "Generate GMF tool, graph and map models". 
 
-In the `FixGMFGen.eol` transformation you can access the ECore metamodel (named `ECore`), and the generator model (named `GmfGen`).
+In the `FixGMFGen.eol` transformation you can access the ECore metamodel (named `ECore`), and the generator model (named `GmfGen`). You can run `FixGMFGen.eol` manually by right-clicking on the `.gmfgen` model (which should have been created previously from the `.gmfmap` using standard GMF tools) and selecting "Synchronize GMFGen".
 
 ==How do I customize the generated code?==
 GMF generates code in two steps:
