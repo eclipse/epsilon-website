@@ -68,6 +68,7 @@
     <li><a href="#languages" data-toggle="tab"><h4>Languages</h4></a></li>
     <li><a href="#tools" data-toggle="tab"><h4>Tools</h4></a></li>
     <li class="active"><a href="#whyepsilon" data-toggle="tab"><h4>Why Epsilon?</h4></a></li>
+    <li><a href="#twitter" data-toggle="tab"><h4>@epsilonews</h4></a></li>
     <!--
     <a style="position:relative;top:19px;left:521px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="Drag and drop into a running Eclipse Indigo workspace to install Epsilon">
 	  <img src="/epsilon/img/installbutton.png"/>
@@ -111,6 +112,11 @@
   <?$i++;?>
   <?}?>
   <p style="text-align:right">* Icons by <a href="http://dryicons.com">http://dryicons.com</a></p>
+  </div>
+  
+  <div class="tab-pane" id="twitter">
+  <a class="twitter-timeline" href="https://twitter.com/epsilonews" data-widget-id="308297319382654976">Tweets by @epsilonews</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </div>
 </div>
 
