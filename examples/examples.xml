@@ -242,7 +242,7 @@
 		</description>
 		<file name="src/org/eclipse/epsilon/examples/eunit/junit/JUnitIntegrationExampleSuite.java"/>
 		<file name="resources/tests/example.eunit"/>
-		<file name="resources/tests/Tree2Graph.etl"/>
+		<file name="resources/etl/Tree2Graph.etl"/>
 	</example>
 	<!--example src="org.eclipse.epsilon.examples.mdr" title="Use Epsilon with MDR models" standalone="true" runnable="true">
 		<description>
