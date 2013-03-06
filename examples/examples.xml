@@ -236,6 +236,14 @@
 		<file name="expected.txt"/>
 		<file name="eunit.xml"/>
 	</example>
+	<example src="org.eclipse.epsilon.eunit.examples.junit" title="Integrate EUnit into a standard JUnit plug-in test" standalone="true" runnable="true">
+		<description>
+		<![CDATA[In this example we show how to write a JUnit plug-in test of a ETL transformation, in which tests are written in EUnit and additional operations are contributed by regular Java code.]]>
+		</description>
+		<file name="src/org/eclipse/epsilon/examples/eunit/junit/JUnitIntegrationExampleSuite.java"/>
+		<file name="resources/tests/example.eunit"/>
+		<file name="resources/tests/Tree2Graph.etl"/>
+	</example>
 	<!--example src="org.eclipse.epsilon.examples.mdr" title="Use Epsilon with MDR models" standalone="true" runnable="true">
 		<description>
 		<![CDATA[In this example we demonstrate using EOL to query an MDR-based UML 1.4 model designed using <a href="http://argouml.tigris.org">ArgoUML</a> and exported to XMI 1.2. 
