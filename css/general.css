@@ -74,3 +74,7 @@ h3[id], div.thumb-pic[id] {
 .sidebar .affix {
 	top: 60px;
 }
+
+.nav-collapse .nav .dropdown-menu li > a {
+	color: #5f3974;
+}
