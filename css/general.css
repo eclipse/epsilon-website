@@ -78,3 +78,7 @@ h3[id], div.thumb-pic[id] {
 .nav-collapse .nav .dropdown-menu li > a {
 	color: #5f3974;
 }
+
+.nav-collapse .nav .dropdown-menu li > a:hover {
+	color: white;
+}
