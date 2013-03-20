@@ -6,6 +6,7 @@
   $components = simplexml_load_file("data/components.xml")->children();
   $reasons = simplexml_load_file("data/whyepsilon.xml")->children();
   $faqs = simplexml_load_file("faq/faqs.xml")->faq;
+
   
   $random_faq = rand(0,count($faqs)-1);
   $faq = $faqs[$random_faq];
@@ -23,6 +24,15 @@
 
 	h('', $styles);
 ?>
+
+<div class="row">
+	<div class="span12">
+	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
+		<b>Event:</b> <a href="http://www.acme-workshop.org" style1="color: rgb(24,136,173)">Academics Tooling with Eclipse</a> ECMFA/ECOOP/ECSA workshop. Best paper prize (Google Nexus 7) sponsored by <a href="http://www.develop-group.de" style1="color: rgb(24,136,173)">develop group</a>.
+		<button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>   
+    </div>
+    </div>
+</div>
 
 <div class="hero-unit" style="padding: 35px; padding-bottom:0px; background-color:rgb(232,232,232)">
 	<div class="row">
@@ -113,7 +123,8 @@
   <?}?>
   <p style="text-align:right">* Icons by <a href="http://dryicons.com">http://dryicons.com</a></p>
   </div>
-  
+
+    
   <div class="tab-pane" id="twitter">
   <a class="twitter-timeline" href="https://twitter.com/epsilonews" data-widget-id="308297319382654976">Tweets by @epsilonews</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
