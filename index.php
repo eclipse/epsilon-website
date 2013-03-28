@@ -28,8 +28,11 @@
 <div class="row">
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
-		<b>Event:</b> <a href="http://www.acme-workshop.org" style1="color: rgb(24,136,173)">Academics Tooling with Eclipse</a> ECMFA/ECOOP/ECSA workshop. Best paper prize (Google Nexus 7) sponsored by <a href="http://www.develop-group.de" style1="color: rgb(24,136,173)">develop group</a>.
-		<button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>   
+		<b>Upcoming events</b><button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>   
+    <br/>
+    &raquo; <a href="http://www.acme-workshop.org">Academics Tooling with Eclipse</a> ECMFA/ECOOP/ECSA workshop. Best paper prize (Google Nexus 7) sponsored by <a href="http://www.develop-group.de" style1="color: rgb(24,136,173)">develop group</a>.
+		<br>
+    &raquo; <a href="http://www.big-mde.eu">BigMDE</a> STAF/ICMT workshop on scalable Model Driven Engineering.
     </div>
     </div>
 </div>
