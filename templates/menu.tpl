@@ -79,14 +79,14 @@
 								<a href="<?= Epsilon::getRelativeLocation('spreadtheword'); ?>">Spread the word</a>
 							</li>
 							<li>
-								<a href="http://twitter.com/epsilonews">@epsilonews</a>
-							</li>
-							<li>
 								<a href="http://wiki.eclipse.org/Epsilon">Wiki</a>
 							</li>
 							<li>
 								<a href="http://statcounter.com/p2185757/summary/?postback=1&timerange=custom&range_or_period=period&period_yearly=0&yearFrom=2007&yearTo=2012&show_page_loads=1&show_unique=1&show_returning=1&graph_type_selection=area_graph">Stats</a>
 							</li>
+							<li>
+								<a href="http://twitter.com/epsilonews">@epsilonews</a>
+							</li>							
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -99,11 +99,14 @@
 								<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=EMFT.Epsilon">Report a new bug</a>
 							</li>
 							<li>
-								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED">View open bugs</a>
+								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial">View open bugs</a>
 							</li>
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('doc/articles/resolved-bugs') ?>">View resolved bugs</a>
-							</li>
+							</li>							
+							<li>
+								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement">View enhancement requests</a>
+							</li>							
 							<li>
 								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time">View all bugs</a>
 							</li>
