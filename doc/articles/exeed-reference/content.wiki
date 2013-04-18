@@ -32,7 +32,7 @@ Exeed recognizes the following annotation details for different Ecore constructs
 ==EClass==
 * `label`: EOL expression that returns the label of the instance.
 * `referenceLabel`: EOL expression that returns the label for a reference to an objec tof this `EClass`.
-* `classIcon`: EOL expression that returns the icon of the instances that conform to the `EClass`.
+* `classIcon`: the name of the icon of the instances that conform to the `EClass`.
 * `icon`: EOL expression that returns the icon of the instance. If specified, it overrides the `classIcon` annotation.
 ==EEnumLiteral==
 * `label`: EOL expression that returns the label of the enumeration literal.
