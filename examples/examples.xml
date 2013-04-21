@@ -47,7 +47,7 @@
 	</example>
 	<example src="org.eclipse.epsilon.examples.plainxml" title="Building and querying plain XML documents with EOL" standalone="true">
 		<description>
-		<![CDATA[In this example, we use the plain XML driver of Epsilon< to build and query an XML document that is not backed by a XSD/DTD.]]>
+		<![CDATA[In this example, we use the plain XML driver of Epsilon to build and query an XML document that is not backed by a XSD/DTD.]]>
 		</description>
 		<file name="builddocument.eol"/>
 		<file name="complexqueries.eol"/>
