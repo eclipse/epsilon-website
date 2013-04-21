@@ -117,7 +117,7 @@
 					<? $i++; }?>
 					<div class="tab-pane" id="tab<?=$i?>">
 						<p>
-						    <!--
+						    
 							There are two ways to get the code of this example:
 							<ol>
 								<li>download the following zip archive(s), extract them and import them as new Eclipse projects
@@ -131,7 +131,7 @@
 										<?}?>
 									</ul>					
 								</li>
-								<li><strong>or</strong> --> Check out the code from the SVN:
+								<li><strong>or</strong>  Check out the code from the SVN:
 									<ul>
 										<li> go to the <a href="../doc/articles/epsilon-source-svn/">SVN repository</a> 
 										<li> navigate to <strong>trunk/examples</strong>
@@ -143,9 +143,9 @@
 										<li> check out the <strong><?=$project["src"]?></strong> project
 										<?}?>
 									</ul>
-								<!-- 
+								
 								</li>
-							</ol> -->
+							</ol>
 						</p>
 						<?if (!($example["runnable"] == "false")){?>
 						<p>Once you have checked out/imported the code, to run the example you need to go through the following steps:
