@@ -2,7 +2,8 @@
 include("zipstream/phpHTMLParser.php");
 include("../Epsilon.php");
 require("zipstream/zipstream.php");
-error_reporting(-1);
+//error_reporting(-1);
+error_reporting( error_reporting() & ~E_NOTICE );
 
 $files = array();
 $examples = Epsilon::getSVNExamplesLocation();
