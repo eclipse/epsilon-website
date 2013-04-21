@@ -124,7 +124,7 @@
   <?if($i%2==1){?></div><?}?>
   <?$i++;?>
   <?}?>
-  <p style="text-align:right">* Icons by <a href="http://dryicons.com">http://dryicons.com</a></p>
+  <p style="text-align:right">* Icons by <a href="http://dryicons.com/">http://dryicons.com</a></p>
   </div>
 
     
