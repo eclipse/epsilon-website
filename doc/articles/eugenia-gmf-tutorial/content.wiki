@@ -47,7 +47,7 @@ class File {
 ==Supported Annotations==
 EuGENia supports the following annotations on Ecore elements.
 
-'''Note:''' some of the annotations may only be available in interim builds or when working directly with SVN. Please check the [[https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&list_id=4395997|current list of open bugs]] for details. These new annotations will be made available on subsequent interim and stable releases.
+'''Note:''' some of the annotations may only be available in interim builds or when working directly with SVN. Please check the [[https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&list_id=4395997|current list of open bugs]] for details. These new annotations will be made available on subsequent interim and stable releases.
 
 ===gmf===
 Applies to the top `EPackage` only and denotes that GMF-related annotations are expected in its elements. This doesn't affect the forthcoming model transformations, only the ECore validation process.

@@ -45,7 +45,7 @@ class Epsilon {
  	**/
 
 	static function getProjectId() {
-		return "modeling.emft.epsilon";
+		return "modeling.epsilon";
 	}
 	
 	static function getAbsoluteLocation($path) {
@@ -98,11 +98,10 @@ class Epsilon {
 	
 	static function getParentPath() {
 		return "";
-		// will return "modeling/emft"
 	}
 	
 	static function getOpenBugLocation() {
-		return "https://bugs.eclipse.org/bugs/enter_bug.cgi?product=GMT&component=Epsilon";
+		return "https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon";
 	}
 }
 

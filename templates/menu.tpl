@@ -62,7 +62,7 @@
 								<a href="<?= Epsilon::getRelativeLocation('labs') ?>">EpsilonLabs</a>
 							</li>
 							<li>
-								<a href="http://www.eclipse.org/projects/project_summary.php?projectid=modeling.emft.epsilon">About</a>
+								<a href="http://www.eclipse.org/projects/project_summary.php?projectid=modeling.epsilon">About</a>
 							</li>
 						</ul>
 					</li>
@@ -96,19 +96,19 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=EMFT.Epsilon">Report a new bug</a>
+								<a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon">Report a new bug</a>
 							</li>
 							<li>
-								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial">View open bugs</a>
+								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial">View open bugs</a>
 							</li>
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('doc/articles/resolved-bugs') ?>">View resolved bugs</a>
 							</li>							
 							<li>
-								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement">View enhancement requests</a>
+								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement">View enhancement requests</a>
 							</li>							
 							<li>
-								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=EMFT.Epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time">View all bugs</a>
+								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time">View all bugs</a>
 							</li>
 						</ul>
 					</li>

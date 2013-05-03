@@ -135,7 +135,7 @@
 								<p>
 								
 								<br>
-								*<a href="https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=equals;value0-0-0=interim;product=EMFT.Epsilon">
+								*<a href="https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=equals;value0-0-0=interim;product=epsilon">
 								Bugs fixed in the latest interim version (compared to the latest stable version)
 								</a>
 								

@@ -2,7 +2,7 @@
 <!--?xml-stylesheet type="text/xsl" href="http://www.eclipse.org/projects/project-plan.xsl"?-->
 <plan plan-format="1.0" xmlns="http://www.eclipse.org/project/plan"
 	xmlns:html="http://www.w3.org/1999/xhtml" name="Epsilon">
-	<release projectid="modeling.emft.epsilon" version="1.0.0" />
+	<release projectid="modeling.epsilon" version="1.0.0" />
 	<introduction>
 		<html:div>Epsilon is a family of languages and tools for code generation, model-to-model transformation, model validation, comparison, migration and refactoring that work out-of-the-box with EMF and other types of models.
 		</html:div>
