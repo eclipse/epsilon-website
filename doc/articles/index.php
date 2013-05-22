@@ -19,15 +19,23 @@
 		</div>
 
 		<? foreach ($categories as $category) { ?>
-		<!--  style="border-bottom: 1px solid #AAA; margin-bottom: .5em; margin-top: .5em;" -->
-			<h3 id="<?=$category["name"]?>"><?= $category["title"] ?></h3>
-			<div class="row">
+			<h3 id="<?=$category["name"]?>" style="margin-bottom: 0"><?= $category["title"] ?></h3>
+			<div class="row" style="margin-bottom: 25px">
 				<div class="span8">
 					<ul>
 				  		<? foreach ($category->article as $article) { ?>
 				  			<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>: <?=$article->description?>
 				  		<? } ?>
 			  		</ul>
+			  		
+			  		<? foreach ($category->subcategory as $subcategory) { ?>
+			  			<h5><?= $subcategory["title"] ?></h5>
+			  			<ul>
+			  				<? foreach ($subcategory->article as $article) { ?>
+			  					<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>: <?=$article->description?>
+			  				<? } ?>
+			  			</ul>
+			  		<? } ?>
 		  		</div>
 			</div>
 	    <?}?>
