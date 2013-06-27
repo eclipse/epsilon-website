@@ -25,7 +25,7 @@
 	h('', $styles);
 ?>
 
-<div class="row">
+<!--div class="row">
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
 		<b>Upcoming events</b><button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>   
@@ -35,7 +35,7 @@
     &raquo; <a href="http://www.big-mde.eu">BigMDE</a> STAF/ICMT workshop on scalable Model Driven Engineering.
     </div>
     </div>
-</div>
+</div-->
 
 <div class="hero-unit" style="padding: 35px; padding-bottom:0px; background-color:rgb(232,232,232)">
 	<div class="row">
