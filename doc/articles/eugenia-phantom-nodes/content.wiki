@@ -5,7 +5,7 @@ Containment references in Ecore metamodels are usually depicted in GMF as spatia
 @namespace(uri="phantom", prefix="phantom")
 package phantom;
 
-@gmf.diagram(foo="bar")
+@gmf.diagram
 class Model extends NamedElement {
    val Group[*] groups;
 }

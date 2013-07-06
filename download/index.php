@@ -91,7 +91,7 @@
 				    <div class="tab-content">
   						<div id="distributions" class="tab-pane active">
   							<p>
-  							Ready to use Eclipse distributions containing the latest stable version of Epsilon (v<?=Epsilon::getVersion()?>), EMF, GMF, and Emfatic. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.  
+  							Ready to use Eclipse Juno (4.2) distributions containing the latest stable version of Epsilon (v<?=Epsilon::getVersion()?>), EMF, GMF, and Emfatic. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.  
   							</p>
   							<p style="padding-top:15px;padding-bottom:15px">
 							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin?>">Windows 32bit</a>
@@ -124,14 +124,20 @@
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
 	  							<div class="input-prepend input-append">
-								  <span class="add-on"><div class="span2">Stable (v<?=Epsilon::getVersion()?>)</div></span>
+								  <span class="add-on"><div class="span2">Stable (Juno)</div></span>
 								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getUpdateSite()?>">
 								</div>
 								
+								<div class="input-prepend input-append" style="padding-top:25px">
+								  <span class="add-on"><div class="span2">Interim (Juno)</div></span>
+								  <input class="span9" id="appendedPrependedInput" type="text" value="http://download.eclipse.org/epsilon/juno/interim/">
+								</div>
+								
 	  							<div class="input-prepend input-append" style="padding-top:25px">
-								  <span class="add-on"><div class="span2">Interim*</div></span>
+								  <span class="add-on"><div class="span2">Interim (Kepler)*</div></span>
 								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>">
 								</div>
+
 								<p>
 								
 								<br>

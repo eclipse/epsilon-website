@@ -5,7 +5,7 @@ From the following annotated Ecore metamodel (in Emfatic)
 @namespace(uri="components", prefix="components")
 package components;
 
-@gmf.diagram(foo="bar")
+@gmf.diagram
 class ComponentDiagram {
    val Component[*] components;
    val Connector[*] connectors;
@@ -17,7 +17,7 @@ abstract class NamedElement {
 
 @gmf.node(label="name")
 class Component extends NamedElement {
-   @gmf.affixed(foo="bar")
+   @gmf.affixed
    val Port[*] ports;
 }
 

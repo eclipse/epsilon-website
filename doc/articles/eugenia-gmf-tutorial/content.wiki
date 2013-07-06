@@ -5,10 +5,10 @@ EuGENia is a tool that automatically generates the `.gmfgraph`, `.gmftool` and `
 
 {{{emf
 @namespace(uri="filesystem", prefix="filesystem")
-@gmf(foo="bar")
+@gmf
 package filesystem;
 
-@gmf.diagram(foo="bar")
+@gmf.diagram
 class Filesystem {
     val Drive[*] drives;
     val Sync[*] syncs;
@@ -19,7 +19,7 @@ class Drive extends Folder {
 }
 
 class Folder extends File {
-    @gmf.compartment(foo="bar")
+    @gmf.compartment
     val File[*] contents;
 }
 

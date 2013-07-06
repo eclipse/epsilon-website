@@ -5,7 +5,7 @@ This recipe shows how to create nodes in your GMF editor that are represented wi
 @namespace(uri="friends", prefix="")
 package friends;
 
-@gmf.diagram(foo="bar")
+@gmf.diagram
 class World {
     val Person[*] people;
 }
