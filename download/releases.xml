@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <releases>
 	<release version="1.1">
-		<eclipse name="Kepler" version="4.3" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/R/eclipse-rcp-kepler-R-"/>
+		<eclipse name="Kepler" version="4.3" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-"/>
 	</release>
 	<release version="1.0">
 		<eclipse name="Juno" version="4.2" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR1/eclipse-modeling-juno-SR1-"/>
