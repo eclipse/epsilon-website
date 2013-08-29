@@ -20,6 +20,7 @@
 	
 	$latest = ($release == $releases[0]);
 	
+	$fixedBugs = simplexml_load_file("fixed-bugs/".$release["version"].".xml")->bug;
 	
 	$modelingTools = $release->eclipse["distribution"];
 
@@ -98,9 +99,8 @@
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
 		We are currently in the process of releasing a new stable version of Epsilon (v1.1). 
-		Until we're done, links and update sites on this page may not work as expected.
+		Update sites should now work fine but Windows and Linux distributions are not yet available (we're working on it).
 		We apologise for any inconvenience caused.
-		
     </div>
     </div>
 </div>
@@ -121,12 +121,13 @@
 				 
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
-				    <li class="active"><a href="#distributions" data-toggle="tab"><h4>Eclipse Distributions</h4></a></li>
+				    <li class="active"><a href="#distributions" data-toggle="tab"><h4>Distributions</h4></a></li>
 				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
 				    <?if ($latest){?>
-				    <li><a href="#marketplace" data-toggle="tab"><h4>Eclipse Marketplace</h4></a></li>
+				    <li><a href="#marketplace" data-toggle="tab"><h4>Marketplace</h4></a></li>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source Code</h4></a></li>
 				    <?}?>
+				    <li><a href="#releasenotes" data-toggle="tab"><h4>Release Notes</h4></a></li>
 				    <li><a href="#versions" data-toggle="tab"><h4>All Versions</h4></a></li>
 				  </ul>
 				    <div class="tab-content">
@@ -265,11 +266,56 @@
 							</form>  							
   						</div>
   						<?}?>
+  						<div id="releasenotes" class="tab-pane">
+  						<p>
+  						Version <?=$version?> fixes the bugs and implements the enhancement requests below.
+  						</p>
+  						<table class="table table-striped">
+  							<thead>
+  								<tr>
+  									<th>#</th>
+  									<th>Description</th>
+  									<th>Reporter</th>
+  								</tr>
+  							</thead>
+  							<tbody>
+	  							<?foreach ($fixedBugs as $fixedBug){?>
+	  							<tr>
+	  								<td><?=$fixedBug->bug_id?></td>
+	  								<td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=<?=$fixedBug->bug_id?>"><?=$fixedBug->short_desc?></a></td>
+	  								<td><?=$fixedBug->reporter?></td>
+	  								
+	  							</tr>
+	  							<?}?>	
+  							</tbody>						
+						</table>
+
+  						</div>
   						<div id="versions" class="tab-pane">
-  						<ul>
+  						<table class="table table-striped">
+  							<thead>
+  								<tr>
+  									<th>Version</th>
+  									<th>Eclipse</th>
+  									<th>Released</th>
+  								</tr>
+  							</thead>
+  							<tbody>
   							<?foreach ($releases as $r){?>
-  							<li><a href="?version=<?=$r["version"]?>">Version <?=$r["version"]?></a> - Eclipse <?=$r->eclipse["version"]?> (<?=$r->eclipse["name"]?>)
+  							<tr>
+  								<td>
+  									<a href="?version=<?=$r["version"]?>"><?=$r["version"]?></a>
+  								</td>
+  								<td>
+  									<?=$r->eclipse["version"]?> (<?=$r->eclipse["name"]?>)
+  								</td> 
+  								<td>
+  									<?=$r["released"]?>
+  								</td>
+  							</tr>
   							<?}?>
+  							</tbody>
+  						</table>
   						</ul>
   						</div>
   					</div>
