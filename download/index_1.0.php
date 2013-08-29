@@ -1,27 +1,7 @@
 <?php
 	require_once('../template.php');
 	
-	$releases = simplexml_load_file("releases.xml")->release;
-	$release = null;
-	
-	if (isset($_GET["version"])) {
-		$version = $_GET["version"];
-		foreach ($releases as $r) {
-			if (strcmp($r["version"], $version) == 0) {
-				$release = $r;
-				break;
-			}
-		}
-	}
-	
-	if (!isset($release)) {
-		$release = $releases[0];
-	}
-	
-	$latest = ($release == $releases[0]);
-	
-	
-	$modelingTools = $release->eclipse["distribution"];
+	$modelingTools = "http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR1/eclipse-modeling-juno-SR1-";
 
 	$modelingToolsWin = $modelingTools."win32.zip";
 	$modelingToolsWin64 = $modelingTools."win32-x86_64.zip";
@@ -30,13 +10,9 @@
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 
-	$version = $release["version"];
-	$breadCrumb = "";
-	if (!$latest) {
-		$breadCrumb = $version."/";
-	}
+	$version = Epsilon::getVersion();
 	
-	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."distributions/eclipse-epsilon-".$version."-";
+	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/distributions/eclipse-epsilon-".$version."-";
 	
 	$downloadWin = $downloadUrl."win32.zip";
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
@@ -44,8 +20,6 @@
 	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.zip";
 	$downloadLinux = $downloadUrl."linux-gtk.tar.gz";
 	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.tar.gz";
-	
-	$updateSite = "http://download.eclipse.org/epsilon/".$breadCrumb."updates/";
 	
 	function getVisitorPlatform() 
 	{ 
@@ -93,18 +67,6 @@
 	
 	h();
 ?>
-
-<div class="row">
-	<div class="span12">
-	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
-		We are currently in the process of releasing a new stable version of Epsilon (v1.1). 
-		Until we're done, links and update sites on this page may not work as expected.
-		We apologise for any inconvenience caused.
-		
-    </div>
-    </div>
-</div>
-
 <div class="row">
 	<!-- main part -->
 	<div class="span8">
@@ -123,16 +85,13 @@
 				  <ul class="nav nav-tabs">
 				    <li class="active"><a href="#distributions" data-toggle="tab"><h4>Eclipse Distributions</h4></a></li>
 				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
-				    <?if ($latest){?>
 				    <li><a href="#marketplace" data-toggle="tab"><h4>Eclipse Marketplace</h4></a></li>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source Code</h4></a></li>
-				    <?}?>
-				    <li><a href="#versions" data-toggle="tab"><h4>All Versions</h4></a></li>
 				  </ul>
 				    <div class="tab-content">
   						<div id="distributions" class="tab-pane active">
   							<p>
-  							Ready-to-use Eclipse <?=$release->eclipse["name"]?> (<?=$release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$version?>), EMF, GMF, and Emfatic. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.  
+  							Ready to use Eclipse Juno (4.2) distributions containing the latest stable version of Epsilon (v<?=Epsilon::getVersion()?>), EMF, GMF, and Emfatic. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.  
   							</p>
   							<p style="padding-top:15px;padding-bottom:15px">
 							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin?>">Windows 32bit</a>
@@ -150,7 +109,8 @@
 							</p>
 							<?}?>
 							</p>
-							<?if (onMac() && strcmp($version, "1.0") == 0){?>
+							<?if (onMac()){?>
+
 							<p><b>Note for Mac OSX Snow Leopard users:</b> The above distributions require Java 1.7 which is not 
 							available for Mac OSX Snow Leopard. To assemble a 1.6-compatible version of the Epsilon distribution,
 							please download one of the distributions above, and re-install Emfatic from the following update site:
@@ -164,16 +124,20 @@
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
 	  							<div class="input-prepend input-append">
-								  <span class="add-on"><div class="span2">Stable</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=$updateSite?>"/>
+								  <span class="add-on"><div class="span2">Stable (Juno)</div></span>
+								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getUpdateSite()?>">
 								</div>
 								
-								<?if ($latest){?>
+								<div class="input-prepend input-append" style="padding-top:25px">
+								  <span class="add-on"><div class="span2">Interim (Juno)</div></span>
+								  <input class="span9" id="appendedPrependedInput" type="text" value="http://download.eclipse.org/epsilon/juno/interim/">
+								</div>
+								
 	  							<div class="input-prepend input-append" style="padding-top:25px">
-								  <span class="add-on"><div class="span2">Interim *</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
+								  <span class="add-on"><div class="span2">Interim (Kepler)*</div></span>
+								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>">
 								</div>
-								
+
 								<p>
 								
 								<br>
@@ -182,7 +146,6 @@
 								</a>
 								
 								</p>
-								<?}?>
 								
 								<h4 style="padding-top:10px;padding-bottom:10px">Dependencies (optional)</h4>
 								
@@ -239,7 +202,6 @@
 							    <li><i>Epsilon <a href="../doc/concordance/">Concordance</a>:</i> provides a tool that detects, reconciles and reports broken cross-resource EMF references.
 							</ul>
   						</div>
-  						<?if ($latest){?>
   						<div id="marketplace" class="tab-pane">
   							Drag and drop into a running Eclipse Indigo workspace to 
   							<a style="position:relative;top:-2px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="http://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> the latest stable version (v <?=Epsilon::getVersion()?>) of Epsilon.
@@ -263,14 +225,6 @@
 								</div>
 							</div>
 							</form>  							
-  						</div>
-  						<?}?>
-  						<div id="versions" class="tab-pane">
-  						<ul>
-  							<?foreach ($releases as $r){?>
-  							<li><a href="?version=<?=$r["version"]?>">Version <?=$r["version"]?></a> - Eclipse <?=$r->eclipse["version"]?> (<?=$r->eclipse["name"]?>)
-  							<?}?>
-  						</ul>
   						</div>
   					</div>
 				</div>
