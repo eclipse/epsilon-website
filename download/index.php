@@ -95,7 +95,7 @@
 	h();
 ?>
 
-<div class="row">
+<!--div class="row">
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
 		We are currently in the process of releasing a new stable version of Epsilon (v1.1). 
@@ -104,7 +104,7 @@
 		We apologise for any inconvenience caused.
     </div>
     </div>
-</div>
+</div-->
 
 <div class="row">
 	<!-- main part -->
