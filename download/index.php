@@ -114,7 +114,7 @@
 			<div class="span12">
 				<!--
 				<div class="alert alert-info alert-block">
-					<button type="button" class="close" data-dismiss="alert">×</button>
+					<button type="button" class="close" data-dismiss="alert">��</button>
 					If you've downloaded one of the 1.0 distributions or installed 1.0 from the main update site before Friday Nov 9,
 					please update Epsilon from the stable update site (or download a fresh copy of the distributiuon) to pick up a fix for <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=393941">bug 393941</a>.
 				</div>
@@ -203,7 +203,7 @@
 							<p>
 							The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a> and Eclipse 
 							(including EMF, GMF and Emfatic in order to use the full range of its capabilities) first. 
-							The Eclipse Juno Modeling Tools distribution contains most of the necessary prerequisites for Epsilon and is available for the following platforms.
+							The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon and is available for the following platforms.
 							</p>
 							<p style="padding-top:15px;padding-bottom:15px">
 							<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin?>">Windows 32bit</a>
