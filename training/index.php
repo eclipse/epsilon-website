@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="span12">
 				<p>
-				In response to unprecedented levels of unverifiable requests, we plan to start offering hands-on training courses
+				In response to an unprecedented number of unverifiable requests, we plan to start offering hands-on training courses
 				on Epsilon and on supporting Eclipse modeling technologies. Each course will consist of short lectures, live demonstrations 
 				and hands-on sessions spread over 2 days and will cover the following topics.
 				</p>
