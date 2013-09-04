@@ -17,7 +17,7 @@
 				<p>
 				Following unprecedented levels of unverifiable requests, we plan to start offering hands-on training courses
 				on Epsilon and on supporting Eclipse modeling technologies. Each course will consist of short lectures, live demonstrations 
-				and hand-on sessions spread over 2 days and will cover the following topics.
+				and hands-on sessions spread over 2 days and will cover the following topics.
 				</p>
 
 				<table class="table table-striped">
