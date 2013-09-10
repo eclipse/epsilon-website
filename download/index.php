@@ -247,7 +247,7 @@
   						<?if ($latest){?>
   						<div id="marketplace" class="tab-pane">
   							Drag and drop into a running Eclipse Indigo workspace to 
-  							<a style="position:relative;top:-2px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="http://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> the latest stable version (v <?=Epsilon::getVersion()?>) of Epsilon.
+  							<a style="position:relative;top:-2px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="http://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> the latest stable version (v <?=$version?>) of Epsilon.
   						</div>
   						<div id="sourcecode" class="tab-pane">
   							<p>
