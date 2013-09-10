@@ -1,12 +1,22 @@
 <?xml version="1.0"?>
 <releases>
+	<!-- 
+	Lazy man's schema follows
+	<release version="version number" released="date of release" distributions="yes/no">
+		<eclipse name="Kepler/Juno/..." version="4.2/4.3/..." distribution="base URL for the modeling distribution"/>
+		<notes>...</notes>
+	</release>
+	 -->
 	<release version="1.1_SR1" released="10 Sept 2013" distributions="no">
 		<eclipse name="Kepler" version="4.3" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-"/>
+		<notes>Service release</notes>
 	</release>
-	<release version="1.1" released="29 Aug 2013" distributions="no">
+	<release version="1.1" released="29 Aug 2013">
 		<eclipse name="Kepler" version="4.3" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-"/>
+		<notes>Scheduled release</notes>
 	</release>
 	<release version="1.0" released="12 Nov 2012">
 		<eclipse name="Juno" version="4.2" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR1/eclipse-modeling-juno-SR1-"/>
+		<notes>Scheduled release</notes>
 	</release>
 </releases>

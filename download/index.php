@@ -129,8 +129,8 @@
 				    <li <?if(!$distributions){ echo 'class="active"';}?>><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
 				    <?if ($latest){?>
 				    <li><a href="#marketplace" data-toggle="tab"><h4>Marketplace</h4></a></li>
-				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source Code</h4></a></li>
 				    <?}?>
+				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source Code</h4></a></li>
 				    <li><a href="#releasenotes" data-toggle="tab"><h4>Release Notes</h4></a></li>
 				    <li><a href="#versions" data-toggle="tab"><h4>All Versions</h4></a></li>
 				  </ul>
@@ -246,9 +246,10 @@
   						</div>
   						<?if ($latest){?>
   						<div id="marketplace" class="tab-pane">
-  							Drag and drop into a running Eclipse Indigo workspace to 
+  							Drag and drop into a running Eclipse <?=$release->eclipse["name"]?> workspace to 
   							<a style="position:relative;top:-2px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="http://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> the latest stable version (v <?=$version?>) of Epsilon.
   						</div>
+  						<?}?>
   						<div id="sourcecode" class="tab-pane">
   							<p>
   							The source code of Epsilon is stored in the following SVN repository. 
@@ -257,19 +258,23 @@
   							</p>
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
+  								<?if ($latest){?>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Users</div></span>
 								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getSVNLocation()?>">
 								</div>
-								
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Committers</div></span>
 								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getCommittersSVNLocation()?>">
 								</div>
+								<?}?>
+	  							<div class="input-prepend input-append" style="padding-top:25px">
+								  <span class="add-on"><div class="span2">Release tag</div></span>
+								  <input class="span9" id="appendedPrependedInput" type="text" value="http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/tags/<?=$version?>">
+								</div>								
 							</div>
 							</form>  							
   						</div>
-  						<?}?>
   						<div id="releasenotes" class="tab-pane">
   						<p>
   						Version <?=$version?> fixes the bugs and implements the enhancement requests below.
@@ -302,6 +307,7 @@
   									<th>Version</th>
   									<th>Eclipse</th>
   									<th>Released</th>
+  									<th>Notes</th>
   								</tr>
   							</thead>
   							<tbody>
@@ -316,6 +322,9 @@
   								<td>
   									<?=$r["released"]?>
   								</td>
+  								<td>
+  									<?=$r->notes?>
+  								</td>  								
   							</tr>
   							<?}?>
   							</tbody>
