@@ -98,9 +98,9 @@
 <div class="row">
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
-		If you have recently installed v1.1 from the stable update site or have downloaded one of the pre-bundled distributions, 
-		please update to the version provided in the interim update site as 
-		v1.1 contains two <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416920">critical</a> <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416918">bugs</a> related to Eugenia. 
+		If you have recently installed v1.1 or have downloaded one of the pre-bundled distributions, 
+		please update again from the stable update site as the previous release of
+		v1.1 contained two <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416920">critical</a> <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416918">bugs</a> related to Eugenia. 
 		We apologise for any inconvenience caused.
     </div>
     </div>
