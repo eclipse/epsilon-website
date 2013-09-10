@@ -25,17 +25,21 @@
 	h('', $styles);
 ?>
 
-<!--div class="row">
+<div class="row">
 	<div class="span12">
-	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
-		<b>Upcoming events</b><button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>   
+	<div class="alert alert-info" style="background-color: rgb(116, 67, 140)">
+		<b>We're hiring!</b><button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>   
     <br/>
-    &raquo; <a href="http://www.acme-workshop.org">Academics Tooling with Eclipse</a> ECMFA/ECOOP/ECSA workshop. Best paper prize (Google Nexus 7) sponsored by <a href="http://www.develop-group.de" style1="color: rgb(24,136,173)">develop group</a>.
-		<br>
-    &raquo; <a href="http://www.big-mde.eu">BigMDE</a> STAF/ICMT workshop on scalable Model Driven Engineering.
+    <p style="padding-top:10px">
+    	Two 30-month research posts on scalable Model Driven Engineering are now open at the University of York.
+      <ul style="list-style:none;margin-left:0px;padding-left:5px">
+          <li>&raquo; <a href="https://jobs.york.ac.uk/wd/plsql/wd_portal.show_job?p_web_site_id=3885&p_web_page_id=170663">Research associate in Model Driven Engineering</a>
+          <li>&raquo; <a href="https://jobs.york.ac.uk/wd/plsql/wd_portal.show_job?p_web_site_id=3885&p_web_page_id=170874">Senior research associate in Model Driven Engineering</a>
+      </ul>
+    </p>
     </div>
     </div>
-</div-->
+</div>
 
 <div class="hero-unit" style="padding: 35px; padding-bottom:0px; background-color:rgb(232,232,232)">
 	<div class="row">
