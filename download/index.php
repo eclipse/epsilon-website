@@ -37,6 +37,7 @@
 		$breadCrumb = $version."/";
 	}
 	
+	$distributions = (strcmp($release["distributions"], "no") != 0);
 	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."distributions/eclipse-epsilon-".$version."-";
 	
 	$downloadWin = $downloadUrl."win32.zip";
@@ -98,8 +99,8 @@
 <div class="row">
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
-		If you have recently installed v1.1 or have downloaded one of the pre-bundled distributions, 
-		please update again from the stable update site as the previous release of
+		If you have installed v1.1 or have downloaded one of the pre-bundled distributions, 
+		please install version 1.1_SR1 from the stable update site as 
 		v1.1 contained two <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416920">critical</a> <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416918">bugs</a> related to Eugenia. 
 		We apologise for any inconvenience caused.
     </div>
@@ -122,8 +123,10 @@
 				 
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
+				  	<?if($distributions){?>
 				    <li class="active"><a href="#distributions" data-toggle="tab"><h4>Distributions</h4></a></li>
-				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
+				    <?}?>
+				    <li <?if(!$distributions){ echo 'class="active"';}?>><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
 				    <?if ($latest){?>
 				    <li><a href="#marketplace" data-toggle="tab"><h4>Marketplace</h4></a></li>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source Code</h4></a></li>
@@ -132,6 +135,7 @@
 				    <li><a href="#versions" data-toggle="tab"><h4>All Versions</h4></a></li>
 				  </ul>
 				    <div class="tab-content">
+				    	<?if($distributions){?>
   						<div id="distributions" class="tab-pane active">
   							<p>
   							Ready-to-use Eclipse <?=$release->eclipse["name"]?> (<?=$release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$version?>), EMF, GMF, and Emfatic. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.  
@@ -159,10 +163,9 @@
 							<?=Epsilon::getEmfaticUpdateSite()?>
 							</p>
 							<?}?>
-							
-							
   						</div>
-  						<div id="updatesites" class="tab-pane">
+  						<?}?>
+  						<div id="updatesites" class="tab-pane <?if(!$distributions){ echo "active";}?>">
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
 	  							<div class="input-prepend input-append">

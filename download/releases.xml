@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <releases>
-	<release version="1.1" released="29 Aug 2013">
+	<release version="1.1_SR1" released="10 Sept 2013" distributions="no">
+		<eclipse name="Kepler" version="4.3" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-"/>
+	</release>
+	<release version="1.1" released="29 Aug 2013" distributions="no">
 		<eclipse name="Kepler" version="4.3" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-"/>
 	</release>
 	<release version="1.0" released="12 Nov 2012">
