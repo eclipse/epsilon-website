@@ -95,16 +95,16 @@
 	h();
 ?>
 
-<!--div class="row">
+<div class="row">
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
-		We are currently in the process of releasing a new stable version of Epsilon (v1.1). 
-		Update sites and Mac OS X / Windows distributions should now work 
-		fine but Linux distributions are not yet available (we're working on it).
+		If you have recently installed v1.1 from the stable update site or have downloaded one of the pre-bundled distributions, 
+		please update to the version provided in the interim update site as 
+		v1.1 contains two <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416920">critical</a> <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416918">bugs</a> related to Eugenia. 
 		We apologise for any inconvenience caused.
     </div>
     </div>
-</div-->
+</div>
 
 <div class="row">
 	<!-- main part -->
