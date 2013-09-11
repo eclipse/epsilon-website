@@ -2,7 +2,7 @@
 
       <footer style="padding-top:20px">
         <ul class="nav nav-pills">
-        <li><a href="#">Home</a>
+        <li><a href="/epsilon">Home</a>
         <li><a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a>
         <li><a href="http://www.eclipse.org/legal/termsofuse.php">Terms of Use</a>
         <li><a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a>
