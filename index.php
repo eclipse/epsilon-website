@@ -7,7 +7,6 @@
   $reasons = simplexml_load_file("data/whyepsilon.xml")->children();
   $faqs = simplexml_load_file("faq/faqs.xml")->faq;
 
-  
   $random_faq = rand(0,count($faqs)-1);
   $faq = $faqs[$random_faq];
   $faq_id = $faq["id"];
@@ -27,14 +26,14 @@
 
 <div class="row">
 	<div class="span12">
-	<div class="alert alert-info" style="background-color: rgb(116, 67, 140)">
+	<div class="alert alert-info" style1="background-color: rgb(116, 67, 140)">
 		<b>We're hiring!</b><button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>   
     <br/>
     <p style="padding-top:10px">
     	Two 30-month research posts on scalable Model Driven Engineering are now open at the University of York.
       <ul style="list-style:none;margin-left:0px;padding-left:5px">
           <li>&raquo; <a href="https://jobs.york.ac.uk/wd/plsql/wd_portal.show_job?p_web_site_id=3885&p_web_page_id=170663">Research associate in Model Driven Engineering</a>
-          <li>&raquo; <a href="https://jobs.york.ac.uk/wd/plsql/wd_portal.show_job?p_web_site_id=3885&p_web_page_id=170874">Senior research associate in Model Driven Engineering</a>
+          &amp; <a href="https://jobs.york.ac.uk/wd/plsql/wd_portal.show_job?p_web_site_id=3885&p_web_page_id=170874">Senior research associate in Model Driven Engineering</a>
       </ul>
     </p>
     </div>
@@ -48,7 +47,8 @@
         for <a href="doc/egl">code generation</a>, <a href="doc/etl">model-to-model transformation</a>, <a href="doc/evl">model validation</a>, <a href="doc/ecl">comparison</a>,
         <a href="doc/flock">migration</a> and <a href="doc/ewl">refactoring</a> that work out-of-the-box with <a href="http://www.eclipse.org/emf">EMF</a> and <a href="doc/emc/">other types of</a> models.</p>
         <p>
-         <a class="btn btn-large" href="games/murdercase">Learn through a game &raquo;</a>
+         <!--a class="btn btn-large" href="games/murdercase">Learn through a game &raquo;</a-->
+         <a class="btn btn-large" href="users">Who is using Epsilon?</a>
          <a class="btn btn-primary btn-large" href="download">Download &raquo;</a>
         </p>
 		</div>
