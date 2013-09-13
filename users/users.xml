@@ -32,6 +32,10 @@
 		<description>The Design Framework is a tool that helps you to link all design activities to concrete design artifacts and to track consistency of these artefacts</description>
 		<url>http://df.esi.nl/</url>
 	</project>
+	<project name="metaDepth">
+		<description>metaDepth is a framework for deep meta-modelling that provide supports for an arbitrary number of ontological meta-levels. This makes MetaDepth especially useful to define multi-level languages.</description>
+		<url>http://astreo.ii.uam.es/~jlara/metaDepth/</url>
+	</project>
 	<project name="UNC Chapel Hill Libraries">
 		<description>University of North Carolina at Chapel Hill Libraries open-source project. Library metadata models and mapping tools implemented in Eclipse Modelling Framework (EMF).</description>
 		<url>https://github.com/UNC-Libraries/</url>
@@ -47,6 +51,14 @@
 	<project name="MIDE">
 		<description>MIDE is an IDE for working with UML Class Diagrams. It extends the Eclipse UML2 Editor and enables carrying out complex tasks in one click, and provides a pattern-matching engine for detecting design errors as soon as they are made</description>
 		<url>http://sourceforge.net/projects/mide-bgu/</url>
+	</project>
+	<project name="PhpNoDB">
+		<description>While having a database is essential for any large-scale website, it can be an overkill for smaller projects/prototypes where read-only access to a small dataset would be sufficient. To save you the trouble of setting up and managing a database if you don't really need one, phpnodb lets you capture your data in a Google Spreadsheet and then generate from it a standalone PHP class that contains an embedded copy of your data.</description>
+		<url>https://code.google.com/p/phpnodb/</url>
+	</project>
+	<project name="Collaborative Modeling Framework">
+		<description>This modeling framework uses the MetaDepth framework to model and generate collaborative Android applications. The framework includes - among others - chat, Dropbox, Foursquare and geo components. </description>
+		<url>https://github.com/philipdesmedt/Thesis-Android</url>
 	</project>
 	<project name="Unicaneer2Sql">
 		<url>http://code.google.com/p/unicaneer2sql/</url>

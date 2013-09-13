@@ -13,10 +13,10 @@
 			<div class="span12">
 
 				<p>
-					Below are <?=count($projects)?> open-source projects that use languages and tools provided by Epsilon.
-					Beyond open-source projects, we are also aware of several industrial projects that have successfuly used Epsilon
-					but - as expected - little information about such projects can be made publicly available. If you'd like us to add your 
-					project here or you've spotted any outdated content, please <a href="mailto:epsilon.devs@gmail.com">let us know</a>.<br/><br/>
+					Below are <?=count($projects)?> open-source projects that are using languages and tools provided by Epsilon. 
+					<!--Beyond open-source projects, we are also aware of several industrial projects that have successfuly used Epsilon
+					but - as expected - little information about such projects can be made publicly available.--> If you'd like your project
+					to appear here or you've spotted any outdated content, please <a href="mailto:epsilon.devs@gmail.com">let us know</a>.<br/><br/>
 				</p>
 
 				<div class="tabbable" style="margin-bottom: 0px;">
