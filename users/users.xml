@@ -36,6 +36,12 @@
 	<project name="metaDepth">
 		<description>metaDepth is a framework for deep meta-modelling that provide supports for an arbitrary number of ontological meta-levels. This makes MetaDepth especially useful to define multi-level languages.</description>
 		<url>http://astreo.ii.uam.es/~jlara/metaDepth/</url>
+	</project>
+	<project name="bflow* Toolbox">
+		<description>The bflow* Toolbox is an open source tool kit for business process management. The objective of bflow* is to explore new ways and scenarios for the development and use of modelling tools.
+		</description>
+		<url>http://sourceforge.net/projects/bflowtoolbox/</url>
+		<evidence>https://svn.code.sf.net/p/bflowtoolbox/code/trunk/plugins/org.bflow.toolbox.oepc.evl/validation/syntax.evl</evidence>
 	</project>	
 	<project name="Pongo MongoDB Generator">
 		<description>Pongo is a template-based Java POJO generator for MongoDB. Instead of using low-level DBObjects to interact with your MongoDB database, with Pongo you can define your data/domain model using Emfatic and then generate strongly-typed Java classes you can then use to work with your database at a more convenient level of abstraction.</description>
