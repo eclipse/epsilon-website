@@ -73,11 +73,14 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="<?= Epsilon::getRelativeLocation('forum'); ?>">Forum</a>
-							</li>
+								<a href="<?= Epsilon::getRelativeLocation('users'); ?>">Who is using Epsilon?</a>
+							</li>							
 							<li>
+								<a href="<?= Epsilon::getRelativeLocation('forum'); ?>">Forum</a>
+							</li>						
+							<!--li>
 								<a href="<?= Epsilon::getRelativeLocation('spreadtheword'); ?>">Spread the word</a>
-							</li>
+							</li-->
 							<li>
 								<a href="http://wiki.eclipse.org/Epsilon">Wiki</a>
 							</li>
@@ -86,7 +89,7 @@
 							</li>
 							<li>
 								<a href="http://twitter.com/epsilonews">@epsilonews</a>
-							</li>							
+							</li>								
 						</ul>
 					</li>
 					<li class="dropdown">
