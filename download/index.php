@@ -38,6 +38,8 @@
 	}
 	
 	$distributions = (strcmp($release["distributions"], "no") != 0);
+	$jars = (strcmp($release["jars"], "yes") == 0);
+	
 	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."distributions/eclipse-epsilon-".$version."-";
 	
 	$downloadWin = $downloadUrl."win32.zip";
@@ -93,6 +95,11 @@
 		else return false;
 	}
 	
+	function jar($flavour, $version, $breadCrumb) {
+		$link = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."jars/epsilon-".$version."-".$flavour.".jar";
+		return "<a href='".$link."'>epsilon-".$version."-".$flavour.".jar";
+	}
+	
 	h();
 ?>
 
@@ -130,9 +137,12 @@
 				    <?if ($latest){?>
 				    <li><a href="#marketplace" data-toggle="tab"><h4>Marketplace</h4></a></li>
 				    <?}?>
-				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source Code</h4></a></li>
-				    <li><a href="#releasenotes" data-toggle="tab"><h4>Release Notes</h4></a></li>
-				    <li><a href="#versions" data-toggle="tab"><h4>All Versions</h4></a></li>
+				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source code</h4></a></li>
+				    <?if ($jars){?>
+				    <li><a href="#jars" data-toggle="tab"><h4>JARs</h4></a></li>
+				    <?}?>
+				    <li><a href="#releasenotes" data-toggle="tab"><h4>Release notes</h4></a></li>
+				    <li><a href="#versions" data-toggle="tab"><h4>All versions</h4></a></li>
 				  </ul>
 				    <div class="tab-content">
 				    	<?if($distributions){?>
@@ -275,6 +285,56 @@
 							</div>
 							</form>  							
   						</div>
+  						
+  						<?if ($jars){?>
+  						<div id="jars" class="tab-pane">
+  						<p>
+  						Plain old JARs you can use to embed Epsilon as a library in your Java or Android application.
+  						</p>
+  						<table class="table table-striped">
+  							<thead>
+  								<tr>
+  									<th>JAR</th>
+  									<th>Execution engines</th>
+  									<th>Workflow *</th>
+  									<th>EMF driver **</th>
+  								</tr>
+  							</thead>
+  							<tbody>
+	  							<tr>
+	  								<td><a href=""><?=jar("core", $version, $breadCrumb)?></a></td>
+	  								<td>&#10004;</td>
+	  								<td>&#10008;</td>
+	  								<td>&#10008;</td>
+	  							</tr>	
+	  							<tr>
+	  								<td><a href=""><?=jar("ant", $version, $breadCrumb)?></a></td>
+	  								<td>&#10004;</td>
+	  								<td>&#10004;</td>
+	  								<td>&#10008;</td>
+	  							</tr>
+	  							<tr>
+	  								<td><a href=""><?=jar("emf", $version, $breadCrumb)?></a></td>
+	  								<td>&#10004;</td>
+	  								<td>&#10008;</td>
+	  								<td>&#10004;</td>
+	  							</tr>
+	  							<tr>
+	  								<td><a href=""><?=jar("ant-emf", $version, $breadCrumb)?></a></td>
+	  								<td>&#10004;</td>
+	  								<td>&#10004;</td>
+	  								<td>&#10004;</td>
+	  							</tr>	  								  							
+	  						</tbody>						
+						</table>
+  						<p>
+  						* To use the workflow tasks, you will need to install <a href="http://apache.org/ant">ANT</a>.<br/>
+  						** To use the EMF driver, you will also need EMF in your classpath (not contained in the JARs distributed here).
+  						</p>
+  						</div>
+  						
+  						<?}?>
+  						
   						<div id="releasenotes" class="tab-pane">
   						<p>
   						Version <?=$version?> fixes the bugs and implements the enhancement requests below.
