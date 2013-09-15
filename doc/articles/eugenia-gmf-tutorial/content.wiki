@@ -82,7 +82,7 @@ Applies to an `EClass` and denotes that it should appear on the diagram as a nod
 * `polygon.y` (when `figure` is set to `polygon`) : list of space-separated integers with the Y coordinates of the polygon used as figure.
 * `resizable` (optional) : a value of `false` disables all the resize handles for the node
 * `size` (optional) : a GMF dimension that will be used as the node's preferred size (e.g. `10,5`). Width is specified before height.
-* `svg.uri` (when `figure` is set to `svg`) : URI of the `.svg` file to be used as figure for the node. For instance, `platform:/plugin/my.plugin/my.svg` will access the `my.svg` file in the `my.plugin` plugin. Note: using SVG figures requires the GMF Tooling Experimental SDK (available from [[http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/|this update site]]), and you should add the `.svg` file to the binary builds of your plugin.
+* `svg.uri` (when `figure` is set to `svg`) : URI of the `.svg` file to be used as figure for the node. For instance, `platform:/plugin/my.plugin/my.svg` will access the `my.svg` file in the `my.plugin` plugin. Note: until Kepler, using SVG figures required the GMF Tooling Experimental SDK (available from [[http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/|this update site]]). Remember to add the `.svg` file to the binary builds of your plugin.
 * `tool.description` (optional) : the description of the creation tool.
 * `tool.large.bundle` (optional) : the bundle of the large icon of the creation tool.
 * `tool.large.path` (optional) : the path of the large icon of the creation tool.
