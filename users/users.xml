@@ -17,21 +17,21 @@
 		<url>http://mtcflow.com/</url>
 	</project>
 	<project name="Melanee">
-		<description>Melanee is a workbench for creating domain-specific languages which occupy an arbirtary number of ontological levels. It ships with a default general-purpose notation which is designed with the UML and Entity-Relationship diagrams in mind.</description>
+		<description>Melanee is a workbench for creating domain-specific languages which occupy an arbitrary number of ontological levels. It ships with a default general-purpose notation which is designed with the UML and Entity-Relationship diagrams in mind.</description>
 		<url>http://melanee.org/</url>
-	</project>
-	<project name="Event-B">
-		<url>http://wiki.event-b.org/index.php/Transformation_patterns</url>
-		<description>Event-B is a formal method for system-level modelling and analysis. Key features of Event-B are the use of set theory as a modelling notation, the use of refinement to represent systems at different abstraction levels and the use of mathematical proof to verify consistency between refinement levels.</description>
-	</project>
-	<project name="Mosskit">
-		<description>Modeling Software KIT (MOSKitt) is a FREE CASE tool, built on Eclipse which is being developed by the Conselleria de Infraestructuras, Territorio y Medio Ambiente to support the gvMétrica methodology (adapting Métrica III to its specific needs). gvMétrica uses techniques based on the UML modeling language. MOSKitt's plugin architecture makes it not only a CASE Tool but also a Free Modeling Platform to develop this kind of tools.</description>
-		<url>http://www.moskitt.org/eng/</url>
 	</project>
 	<project name="JastEMF">
 		<description>JastEMF is a tool to support the integrated use of the JastAdd system - a rewriteable, circular, reference attribute grammar (ReCRAG) generator - and the Eclipse Modeling Framework (EMF) - a Java based metamodeling framework built around the Ecore metamodeling language.</description>
 		<url>https://code.google.com/a/eclipselabs.org/p/jastemf/</url>
 		<evidence>https://code.google.com/a/eclipselabs.org/p/jastemf/source/browse/trunk/jastemf-examples/statemachine/specifications/metamodel/Statemachine.ecore?spec=svn388&amp;r=388&amp;redir=1</evidence>
+	</project>	
+	<project name="HiLeS">
+		<description>The HiLeS2 Framework was developed to aid the Embedded System Designers during the design process. The HiLeS2 Framework purpose is to serve as a platform to create Embedded System Product Lines. It incorporates both tools developed by the group and open source tools to provide an Integrated Development Environment (IDE) suitable for system specification, product line construction and virtual prototype generation.</description>
+		<url>https://hiles.uniandes.edu.co/</url>
+	</project>
+	<project name="Mosskit">
+		<description>Modeling Software KIT (MOSKitt) is a FREE CASE tool, built on Eclipse which is being developed by the Conselleria de Infraestructuras, Territorio y Medio Ambiente to support the gvMétrica methodology (adapting Métrica III to its specific needs). gvMétrica uses techniques based on the UML modeling language. MOSKitt's plugin architecture makes it not only a CASE Tool but also a Free Modeling Platform to develop this kind of tools.</description>
+		<url>http://www.moskitt.org/eng/</url>
 	</project>
 	<project name="metaDepth">
 		<description>metaDepth is a framework for deep meta-modelling that provide supports for an arbitrary number of ontological meta-levels. This makes MetaDepth especially useful to define multi-level languages.</description>
@@ -59,6 +59,10 @@
 		<description>MIDE is an IDE for working with UML Class Diagrams. It extends the Eclipse UML2 Editor and enables carrying out complex tasks in one click, and provides a pattern-matching engine for detecting design errors as soon as they are made</description>
 		<url>http://sourceforge.net/projects/mide-bgu/</url>
 	</project>
+	<project name="Event-B">
+		<url>http://wiki.event-b.org/index.php/Transformation_patterns</url>
+		<description>Event-B is a formal method for system-level modelling and analysis. Key features of Event-B are the use of set theory as a modelling notation, the use of refinement to represent systems at different abstraction levels and the use of mathematical proof to verify consistency between refinement levels.</description>
+	</project>	
 	<project name="PhpNoDB">
 		<description>While having a database is essential for any large-scale website, it can be an overkill for smaller projects/prototypes where read-only access to a small dataset would be sufficient. To save you the trouble of setting up and managing a database if you don't really need one, phpnodb lets you capture your data in a Google Spreadsheet and then generate from it a standalone PHP class that contains an embedded copy of your data.</description>
 		<url>https://code.google.com/p/phpnodb/</url>
@@ -89,7 +93,7 @@
 	</project>
 	<project name="Unicaneer2Sql">
 		<url>http://code.google.com/p/unicaneer2sql/</url>
-		<description>An Eclipse plugin for model-driven development of databases. The application provides faiclities to create graphical ER models and generates code for SLQ Sever and Oracle.</description>
+		<description>An Eclipse plugin for model-driven development of databases. The application provides facilities to create graphical ER models and generates code for SLQ Sever and Oracle.</description>
 	</project>
 	<project name="Reflo">
 		<url>http://code.google.com/a/eclipselabs.org/p/reflo/</url>
