@@ -1,6 +1,6 @@
 <?php
 	require_once('../template.php');
-	$projects = simplexml_load_file("users.xml")->project;	
+	$projects = simplexml_load_file("../data/users.xml")->project;	
 	h();
 ?>
 
