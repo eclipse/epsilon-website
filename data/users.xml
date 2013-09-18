@@ -96,6 +96,17 @@
 		<url>http://metagem.wordpress.com/</url>
 		<evidence>http://metagem.googlecode.com/svn-history/r461/trunk/MeTAGeM.ui/src/kybele/metagem/ui/api/resources/mm_Hybrid_to_RubyTL.evl</evidence>
 	</project>
+	<project name="AceEdit">
+		<description>Editor for Assurance Cases, Implementing the Goal Structuring Notation (GSN) and the OMG Argumentation Metamodel (ARM).
+		 The editor implements the GSN standard as specified at www.goalstructuringnotation.info and the ARM standard available from sysa.omg.org</description>
+		<url>http://acedit.googlecode.com</url>
+		<evidence>http://acedit.googlecode.com/svn/trunk/GSN.transformation/bin/gsn/transformation/core/GSN2ARM.etl</evidence>
+	</project>
+	<project name="Ecore 2 Doctrine">
+		<description>Ecore 2 Doctrine Model-to-model transformer</description>
+		<url>https://github.com/stephaneerard/org.se.ecore.doctrine.epsilon.transformer</url>
+		<evidence>https://github.com/stephaneerard/org.se.ecore.doctrine.epsilon.transformer/blob/master/src/Package/toDoctrine.etl</evidence>
+	</project>
 	<project name="Unicaneer2Sql">
 		<url>http://code.google.com/p/unicaneer2sql/</url>
 		<description>An Eclipse plugin for model-driven development of databases. The application provides facilities to create graphical ER models and generates code for SLQ Sever and Oracle.</description>
