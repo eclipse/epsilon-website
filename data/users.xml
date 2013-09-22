@@ -3,28 +3,38 @@
 	<project name="NASA CertWare">
 		<description>The CertWare workbench contributes several core modules supporting safety case models, and extends these with a service-based APIs for plugging new capabilities into the workbench for processing these models.</description>
 		<url>http://nasa.github.com/CertWare/</url>
+		<evidence>https://github.com/nasa/CertWare/blob/master/net.certware.argument.gsz.validator/validation/gsz.evl</evidence>
 	</project>
 	<project name="SAFECAP">
 		<description>Safecap is an Eclipse-based tool for entering and analysing railway junction schemas. The tool can be used for the analysis of control table for junction signals, assessment of capacity impact of signal positioning and train detection circuit boundaries, and also for conducting semi-automatic or automatic changes to schema topology or control tables.</description>
 		<url>http://safecap.sourceforge.net/</url>
+		<evidence>http://safecap.sourceforge.net/</evidence>
 	</project>
 	<project name="EMF Rest">
 		<description>EMF-REST generates truly RESTful APIs for your EMF models. EMF-REST complements the existing (Java-based) API generation facilities EMF already provides and extends them to the Web.</description>
 		<url>http://emf-rest.com/</url>
+		<evidence>https://github.com/emf-rest/emf-rest/blob/master/emf-rest-src/emf-rest/transformations/M2M/Ecore2GenModel.etl</evidence>
 	</project>
 	<project name="MTC Flow">
 		<description>MTC Flow s a tool which allows model-driven developers to design, develop, test and deploy Model Transformation Chains (MTCs). The tool offers a graphical DSL for defining MTC workflows independently of implementation technologies.</description>
 		<url>http://mtcflow.com/</url>
+		<evidence>http://mtcflow.com/</evidence>
 	</project>
 	<project name="Melanee">
 		<description>Melanee is a workbench for creating domain-specific languages which occupy an arbitrary number of ontological levels. It ships with a default general-purpose notation which is designed with the UML and Entity-Relationship diagrams in mind.</description>
 		<url>http://melanee.org/</url>
+		<evidence>https://github.com/deep-modeling/melanee-website/wiki/First-Steps-(Developers)</evidence>
 	</project>
 	<project name="JastEMF">
 		<description>JastEMF is a tool to support the integrated use of the JastAdd system - a rewriteable, circular, reference attribute grammar (ReCRAG) generator - and the Eclipse Modeling Framework (EMF) - a Java based metamodeling framework built around the Ecore metamodeling language.</description>
 		<url>https://code.google.com/a/eclipselabs.org/p/jastemf/</url>
 		<evidence>https://code.google.com/a/eclipselabs.org/p/jastemf/source/browse/trunk/jastemf-examples/statemachine/specifications/metamodel/Statemachine.ecore?spec=svn388&amp;r=388&amp;redir=1</evidence>
-	</project>	
+	</project>
+	<project name="Tigerstripe">
+		<description>Tigerstripe is a framework for Model Driven Engineering (MDE) with special support for the Telecommunications Industry.</description>
+		<url>http://www.eclipse.org/tigerstripe/</url>
+		<evidence>http://code.xored.com/browse/Tigerstripe/plugins/org.eclipse.tigerstripe.annotation.ui.diagrams/model/model.ecore</evidence>
+	</project>
 	<project name="HiLeS">
 		<description>The HiLeS2 Framework was developed to aid the Embedded System Designers during the design process. The HiLeS2 Framework purpose is to serve as a platform to create Embedded System Product Lines. It incorporates both tools developed by the group and open source tools to provide an Integrated Development Environment (IDE) suitable for system specification, product line construction and virtual prototype generation.</description>
 		<url>https://hiles.uniandes.edu.co/</url>
