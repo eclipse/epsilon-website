@@ -15,7 +15,7 @@
 		<metamodel name="Tree.emf"/>
 		<metamodel name="Graph.emf"/>
 	</example>
-	<example src="org.eclipse.epsilon.examples.rss2atom" title="Transform an RSS feed to an Atom feed using ETL" standalone="false">
+	<example src="org.eclipse.epsilon.examples.rss2atom" title="Transform an RSS feed to an Atom feed using ETL" standalone="true">
 		<description>
 		<![CDATA[In this example, we use ETL and the plain XML driver to transform an RSS feed to an Atom feed.]]>
 		</description>
