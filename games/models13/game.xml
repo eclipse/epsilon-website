@@ -34,7 +34,7 @@ Paper.all.size().println();
 		Each paper has one or more authors.
 		</description>
 		<question>
-		How many authors were involved in the accepted papers?
+		How many authors were involved in total in accepted papers?
 		</question>
 		<hint>
 ?.all.size().println();
@@ -46,7 +46,7 @@ Author.all.size().println();
 	</level>
 	<level id="3">
 		<description>The conference has 2 tracks: Applications and Foundations.</description>
-		<question>How many papers were accepted in the applications track?</question>
+		<question>How many papers were accepted in the Applications track?</question>
 		<hint>
 var applicationsTrack = 
 	Track.all.selectOne(t | t.name = "Applications");
@@ -85,7 +85,7 @@ Paper.all.select(p | p.authors.size() >= 5).size().println();
 	</level>
 	<level id="6">
 		<description>On the other end of the spectrum, there are also monographs.</description>
-		<question>How many papers only have 1 author?</question>
+		<question>How many papers have only 1 author?</question>
 		<hint>
 Paper.?.select(p | p.?.?() == 1).size().println();
 		</hint>
