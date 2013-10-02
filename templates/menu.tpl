@@ -27,6 +27,9 @@
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('games/xmas'); ?>">Santa's Christmas Adventure</a>
 							</li>
+							<li>
+								<a href="<?= Epsilon::getRelativeLocation('games/models13'); ?>">MoDELS'13</a>
+							</li>
 						</ul>
 					</li>
 					<li>
