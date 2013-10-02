@@ -32,9 +32,7 @@
 	
 	h();
 ?>
-<?
-if(strpos(get_browser(), 'msie')){
-?>
+<?if(strpos(get_browser(), 'msie')){?>
 <div class="row">
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
@@ -42,11 +40,6 @@ if(strpos(get_browser(), 'msie')){
     </div>
     </div>
 </div>
-<?
-}
-else {
-?>
-&nbsp;
 <?}?>
 
 <div class="row">
@@ -132,6 +125,7 @@ else {
 		</div>
 		<?}?>
 </div>
+Browser: <?=get_browser()?>
 <?f(array(
 		'<script>
 			prettyPrint();
