@@ -1,0 +1,29 @@
+@namespace(uri="murdercase", prefix="")
+package murdercase;
+
+class House {
+   val Person[*] people;
+   val Room[*] rooms; //level3
+   val Door[*] doors; //level6
+}
+
+class Person {
+   attr String name; //level2
+   attr int age; //level10
+   attr String profession; //level10
+   attr boolean alive; //level2
+}
+
+class Room { //level3
+   attr String name; //level3
+   val Object[*] objects; //level7
+   val Person[*] people; //level4
+} //level3
+
+class Door { //level6
+   ref Room[2] rooms; //level6
+} //level6
+
+class Object { //level7
+   attr String name; //level7
+} //level7

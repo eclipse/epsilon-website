@@ -1,0 +1,26 @@
+@namespace(uri="conference", prefix="")
+package conference;
+
+class Conference {
+	attr String name;
+	attr int year;
+	val Track[*] tracks;
+	val Author[*] authors;
+}
+
+class Track {
+	attr String name;
+	val Paper[*]#track papers;
+}
+
+class Paper {
+	attr String title;
+	ref Author[*] authors;
+	ref Track#papers track;
+}
+
+class Author {
+	attr String name;
+	attr String affiliation;
+	attr String country;
+}

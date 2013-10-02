@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Conference xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="conference" name="MoDELS" year="2013">
+  <tracks name="Foundations">
+    <papers title="Generic Model Assist" authors="//@authors.5 //@authors.6"/>
+    <papers title="Adding Spreadsheets to the MDE Toolbox" authors="//@authors.7 //@authors.8 //@authors.9"/>
+    <papers title="Model-driven Extraction and Analysis of Network Security Policies" authors="//@authors.10 //@authors.11 //@authors.12 //@authors.13 //@authors.14"/>
+    <papers title="SafetyMet: A Metamodel for Safety Standards" authors="//@authors.15 //@authors.16"/>
+    <papers title="A Generic Fault Model for Quality Assurance" authors="//@authors.17 //@authors.18 //@authors.19 //@authors.20"/>
+    <papers title="Towards an Operationalization of the &quot;Physics of Notations&quot; for the Analysis of Visual Languages" authors="//@authors.21 //@authors.22"/>
+    <papers title="Teaching Model-Driven Engineering from a Relational Database Perspective" authors="//@authors.23 //@authors.24 //@authors.25"/>
+    <papers title="Big Metamodels are Evil" authors="//@authors.26 //@authors.27 //@authors.28 //@authors.29 //@authors.30"/>
+    <papers title="Recommending Auto-Completions for Software Modeling Activities" authors="//@authors.33 //@authors.34 //@authors.35"/>
+    <papers title="Automatically Searching for Metamodel Well-Formedness Rules in Examples and Counter-Examples" authors="//@authors.36 //@authors.37 //@authors.38 //@authors.39 //@authors.40"/>
+    <papers title="Testing M2T/T2M Transformations" authors="//@authors.41 //@authors.42"/>
+    <papers title="An Approach to Testing Java Implementation against its UML Class Model" authors="//@authors.43 //@authors.44 //@authors.45 //@authors.46"/>
+    <papers title="Customizable Model Migration Schemes for Meta-model Evolutions with Multiplicity Changes" authors="//@authors.51 //@authors.52 //@authors.53 //@authors.54"/>
+    <papers title="Fine-Grained Software Evolution using UML Activity and Class Models" authors="//@authors.55 //@authors.56 //@authors.57 //@authors.45"/>
+    <papers title="Supporting the Co-Evolution of Metamodels and Constraints through Incremental Constraint Management" authors="//@authors.58 //@authors.59 //@authors.60"/>
+    <papers title="Model Checking of UML-RT Models Using Lazy Composition" authors="//@authors.61 //@authors.62"/>
+    <papers title="Behavioural Verification in Embedded Software, from Model to Source Code" authors="//@authors.63 //@authors.64 //@authors.65 //@authors.66"/>
+    <papers title="Formal Verification Integration Approach for DSML" authors="//@authors.67 //@authors.68 //@authors.69"/>
+    <papers title="Composing your Compositions of Variability Models" authors="//@authors.70 //@authors.40 //@authors.71 //@authors.72 //@authors.73 //@authors.45"/>
+    <papers title="Evolution of UML Interactions Metamodel" authors="//@authors.81 //@authors.82 //@authors.83"/>
+    <papers title="Simplification and Correctness of UML Class Diagrams: Focusing on Multiplicity and Aggregation/Composition Constraints" authors="//@authors.90 //@authors.91"/>
+    <papers title="Formal Semantics Specification of Cyber-Physical Components Integration and Composition" authors="//@authors.92 //@authors.93 //@authors.94 //@authors.95 //@authors.96"/>
+    <papers title="Endogenous Metamodeling Semantics for Newer Structural UML Concepts" authors="//@authors.97 //@authors.98"/>
+    <papers title="Computer Assisted Integration of Domain-Specific Modeling Languages using Text Analysis Techniques" authors="//@authors.99 //@authors.100 //@authors.101"/>
+    <papers title="Towards the Notation-Driven Development of DSMLs" authors="//@authors.102"/>
+    <papers title="Validation of Derived Features and Well-Formedness Constraints in DSLs" authors="//@authors.103 //@authors.104 //@authors.105"/>
+    <papers title="Self-Adaptation with End-User Preference: Using Run-Time Models and Constraint Solving" authors="//@authors.106 //@authors.107 //@authors.108 //@authors.109"/>
+    <papers title="Concern-Oriented Software Design" authors="//@authors.121 //@authors.122 //@authors.123"/>
+    <papers title="Parallel Execution of ATL Transformation Rules" authors="//@authors.130 //@authors.10 //@authors.131"/>
+    <papers title="Transformation of Models Containing Uncertainty" authors="//@authors.132 //@authors.133 //@authors.134 //@authors.135"/>
+    <papers title="Data-flow based Model Analysis and its Applications" authors="//@authors.140 //@authors.141"/>
+    <papers title="Contract-aware Slicing of UML Class Models" authors="//@authors.142 //@authors.143 //@authors.144"/>
+    <papers title="Model-Driven Approach for Supporting the Mapping of Parallel Algorithms to Parallel Computing Platforms" authors="//@authors.148 //@authors.149 //@authors.150"/>
+    <papers title="Compositional Synthesis of Controllers from Scenario-Based Assume-Guarantee Specifications" authors="//@authors.151 //@authors.152"/>
+  </tracks>
+  <tracks name="Applications">
+    <papers title="Industrial Adoption of Model-Driven Engineering: Are the Tools Really the Problem?" authors="//@authors.0 //@authors.1 //@authors.2 //@authors.3 //@authors.4"/>
+    <papers title="Integrating Modeling Tools in the Development Lifecycle with OSLC: A Case Study" authors="//@authors.31 //@authors.32"/>
+    <papers title="Automated Test Case Selection using Feature Model: An Industrial Case Study" authors="//@authors.47 //@authors.48 //@authors.49 //@authors.50"/>
+    <papers title="Constraints: The Core of Supporting Automated Product Configuration of Cyber-Physical Systems" authors="//@authors.74 //@authors.75 //@authors.49 //@authors.76 //@authors.77"/>
+    <papers title="Defining and Validating a Multimodel Approach for Product Architecture Derivation and Improvement" authors="//@authors.78 //@authors.79 //@authors.80"/>
+    <papers title="A Graph-pattern Based Approach for Meta-model Specific Conflict Detection in a General-purpose Model Versioning System" authors="//@authors.84 //@authors.85"/>
+    <papers title="On the Complex Nature of MDE Evolution" authors="//@authors.86 //@authors.87 //@authors.88 //@authors.89"/>
+    <papers title="Runtime Model Based Management of Diverse Cloud Resources" authors="//@authors.110 //@authors.111 //@authors.112 //@authors.113 //@authors.114 //@authors.115"/>
+    <papers title="The Semantic Web as a Software Modeling Tool: Application to Citizen Relationship Management" authors="//@authors.116 //@authors.117 //@authors.118 //@authors.119 //@authors.120"/>
+    <papers title="Analyzing Enterprise Models Using Enterprise Architecture-based Ontology" authors="//@authors.124 //@authors.125 //@authors.126"/>
+    <papers title="Analyzing the Effort of Composing Design Models of Large-Scale Software in Industrial Case Studies" authors="//@authors.127 //@authors.128 //@authors.0 //@authors.129"/>
+    <papers title="Automated Verification of Model Transformations in the Automotive Industry" authors="//@authors.136 //@authors.137 //@authors.138 //@authors.62 //@authors.139"/>
+    <papers title="Usability Inspection in Model-driven Web Development: Empirical Validation in WebML" authors="//@authors.145 //@authors.80 //@authors.146 //@authors.147"/>
+  </tracks>
+  <authors name="Jon Whittle" affiliation="Lancaster University" country="United Kingdom"/>
+  <authors name="John Hutchinson" affiliation="Lancaster University" country="United Kingdom"/>
+  <authors name="Mark Rouncefield" affiliation="Lancaster University" country="United Kingdom"/>
+  <authors name="H&#xe5;kan Burden" affiliation="Chalmers University of Technology and University of Gothenburg" country="Sweden"/>
+  <authors name="Rogardt Heldal" affiliation="Chalmers University of Technology and University of Gothenburg" country="Sweden"/>
+  <authors name="Friedrich Steimann" affiliation="Fernuniversit&#xe4;t in Hagen" country="Germany"/>
+  <authors name="Bastian Ulke" affiliation="Fernuniversit&#xe4;t in Hagen" country="Germany"/>
+  <authors name="Dimitris Kolovos" affiliation="University of York" country="United Kingdom"/>
+  <authors name="Nicholas Matragkas" affiliation="University of York" country="United Kingdom"/>
+  <authors name="Richard Paige" affiliation="University of York" country="United Kingdom"/>
+  <authors name="Salvador Mart&#xed;nez" affiliation="AtlanMod" country="INRIA &amp; Ecole des Mines de Nantes &amp; LINA"/>
+  <authors name="Joaqu&#xed;n Garc&#xed;a-Alfaro" affiliation="TELECOM SudParis" country="France"/>
+  <authors name="Fr&#xe9;d&#xe9;ric Cuppens" affiliation="T&#xe9;l&#xe9;com Bretagne" country="France"/>
+  <authors name="Nora Cuppens-Boulahia" affiliation="T&#xe9;l&#xe9;com Bretagne" country="France"/>
+  <authors name="Jordi Cabot" affiliation="AtlanMod" country="INRIA &amp; Ecole des Mines de Nantes &amp; LINA"/>
+  <authors name="Jose Luis Vara" affiliation="Simula Research Laboratory" country="Norway"/>
+  <authors name="Rajwinder Kaur Panesar-Walawege" affiliation="Simula Research Laboratory" country="Norway"/>
+  <authors name="Alexander Pretschner" affiliation="Technische Universit&#xe4;t M&#xfc;nchen" country="Germany"/>
+  <authors name="Dominik Holling" affiliation="Technische Universit&#xe4;t M&#xfc;nchen" country="Germany"/>
+  <authors name="Robert Eschbach" affiliation="itk Engineering" country="Germany"/>
+  <authors name="Matthias Gemmar" affiliation="itk Engineering" country="Germany"/>
+  <authors name="Harald St&#xf6;rrle" affiliation="Technical University of Denmark" country="Denmark"/>
+  <authors name="Andrew Fish" affiliation="University of Brighton" country="United Kingdom"/>
+  <authors name="Don Batory" affiliation="University of Texas at Austin" country="United States"/>
+  <authors name="Eric Latimer" affiliation="University of Texas at Austin" country="United States"/>
+  <authors name="Maider Azanza" affiliation="University of the Basque Country (UPV/EHU)" country="Spain"/>
+  <authors name="Fr&#xe9;d&#xe9;ric Fondement" affiliation="Universit&#xe9; de Haute Alsace" country="France"/>
+  <authors name="Pierre-Alain Muller" affiliation="Universit&#xe9; de Haute Alsace" country="France"/>
+  <authors name="Laurent Thiry" affiliation="Universit&#xe9; de Haute Alsace" country="France"/>
+  <authors name="Brice Wittmann" affiliation="Universit&#xe9; de Haute Alsace" country="France"/>
+  <authors name="Germain Forestier" affiliation="Universit&#xe9; de Haute Alsace" country="France"/>
+  <authors name="Maged Elaasar" affiliation="IBM Canada Ltd." country="Canada"/>
+  <authors name="Adam Neal" affiliation="IBM Canada Ltd." country="Canada"/>
+  <authors name="Tobias Kuschke" affiliation="Ilmenau Technical University" country="Germany"/>
+  <authors name="Patrick M&#xe4;der" affiliation="Ilmenau Technical University" country="Germany"/>
+  <authors name="Patrick Rempel" affiliation="Ilmenau Technical University" country="Germany"/>
+  <authors name="Martin Faunes" affiliation="DIRO" country="Universit&#xe9; de Montr&#xe9;al"/>
+  <authors name="Juan Cadavid" affiliation="INRIA" country="Centre Rennes"/>
+  <authors name="Benoit Baudry" affiliation="INRIA" country="Centre Rennes"/>
+  <authors name="Houari Sahraoui" affiliation="DIRO" country="Universit&#xe9; de Montr&#xe9;al"/>
+  <authors name="Benoit Combemale" affiliation="IRISA" country="Universit&#xe9; de Rennes 1"/>
+  <authors name="Loli Burgue&#xf1;o" affiliation="Universidad de M&#xe1;laga" country="Spain"/>
+  <authors name="Manuel Wimmer" affiliation="Vienna University of Technology" country="Austria"/>
+  <authors name="Hector Chavez" affiliation="Western Michigan University" country="United States"/>
+  <authors name="Wuwei Shen" affiliation="Western Michigan University" country="United States"/>
+  <authors name="Robert France" affiliation="Colorado State University" country="United States"/>
+  <authors name="Benjamin Mechling" affiliation="Western Michigan University" country="United States"/>
+  <authors name="Shuai Wang" affiliation="Certus Software V&amp;V Center" country="Simula Research Laboratory"/>
+  <authors name="Arnaud Gotlieb" affiliation="Certus Software V&amp;V Center" country="Simula Research Laboratory"/>
+  <authors name="Shaukat Ali" affiliation="Certus Software V&amp;V Center" country="Simula Research Laboratory"/>
+  <authors name="Marius Liaaen" affiliation="Cisco Systems Inc." country="Norway"/>
+  <authors name="Gabriele Taentzer" affiliation="Philipps-Universit&#xe4;t Marburg" country="Germany"/>
+  <authors name="Florian Mantz" affiliation="H&#xf6;gskolen i Bergen" country="Norway"/>
+  <authors name="Thorsten Arendt" affiliation="Philipps-Universit&#xe4;t Marburg" country="Germany"/>
+  <authors name="Yngve Lamo" affiliation="H&#xf6;gskolen i Bergen" country="Norway"/>
+  <authors name="Walter Cazzola" affiliation="Universit&#xe0; degli Studi di Milano" country="Italy"/>
+  <authors name="Nicole Alicia Rossini" affiliation="Universit&#xe0; degli Studi di Milano" country="Italy"/>
+  <authors name="Mohammed Al-Refai" affiliation="Colorado State University" country="United States"/>
+  <authors name="Andreas Demuth" affiliation="Johannes Kepler University Linz" country="Austria"/>
+  <authors name="Roberto E. Lopez-Herrejon" affiliation="Johannes Kepler University Linz" country="Austria"/>
+  <authors name="Alexander Egyed" affiliation="Johannes Kepler University Linz" country="Austria"/>
+  <authors name="Karolina Zurowska" affiliation="Queen's University" country="Canada"/>
+  <authors name="Juergen Dingel" affiliation="Queen's University" country="Canada"/>
+  <authors name="Anthony Fernandes Pires" affiliation="Atos/ONERA" country="France"/>
+  <authors name="Thomas Polacsek" affiliation="ONERA" country="France"/>
+  <authors name="Virginie Wiels" affiliation="ONERA" country="France"/>
+  <authors name="St&#xe9;phane Duprat" affiliation="Atos" country="France"/>
+  <authors name="Faiez Zalila" affiliation="Toulouse University" country="IRIT - France"/>
+  <authors name="Xavier Cr&#xe9;gut" affiliation="Toulouse University" country="IRIT - France"/>
+  <authors name="Marc Pantel" affiliation="Toulouse University" country="IRIT - France"/>
+  <authors name="Mathieu Acher" affiliation="University of Rennes 1 / Inria / Irisa" country="France"/>
+  <authors name="Philippe Collet" affiliation="University of Nice Sophia Antipolis / CNRS" country="France"/>
+  <authors name="Olivier Barais" affiliation="University of Rennes 1 / Inria / Irisa" country="France"/>
+  <authors name="Philippe Lahire" affiliation="University of Nice Sophia Antipolis / CNRS" country="France"/>
+  <authors name="Kunming Nie" affiliation="Beihang University" country="China"/>
+  <authors name="Tao Yue" affiliation="Certus Software V&amp;V Center" country="Simula Research Laboratory"/>
+  <authors name="Li Zhang" affiliation="Beihang University" country="China"/>
+  <authors name="Zhiqiang Fan" affiliation="Beihang University" country="China"/>
+  <authors name="Javier Gonzalez-Huerta" affiliation="Universitat Polit&#xe8;cnica de Val&#xe8;ncia" country="Spain"/>
+  <authors name="Emilio Insfr&#xe1;n" affiliation="Universitat Polit&#xe8;cnica de Val&#xe8;ncia" country="Spain"/>
+  <authors name="Silvia Abrah&#xe3;o" affiliation="Universitat Polit&#xe8;cnica de Val&#xe8;ncia" country="Spain"/>
+  <authors name="Marc-Florian Wendland" affiliation="Fraunhofer FOKUS" country="Germany"/>
+  <authors name="Martin Schneider" affiliation="Fraunhofer FOKUS" country="Germany"/>
+  <authors name="&#xd8;ystein Haugen" affiliation="SINTEF" country="Norway"/>
+  <authors name="Asha Rajbhoj" affiliation="Tata Consultancy Services Ltd." country="India"/>
+  <authors name="Sreedhar Reddy" affiliation="Tata Consultancy Services Ltd." country="India"/>
+  <authors name="Regina Hebig" affiliation="Hasso Plattner Institute at the University of Potsdam" country="Germany"/>
+  <authors name="Holger Giese" affiliation="Hasso Plattner Institute at the University of Potsdam" country="Germany"/>
+  <authors name="Florian Stallmann" affiliation="SAP AG" country="Germany"/>
+  <authors name="Andreas Seibel" affiliation="Hasso Plattner Institute at the University of Potsdam" country="Germany"/>
+  <authors name="Mira Balaban" affiliation="Ben-Gurion University of the Negev" country="Israel"/>
+  <authors name="Azzam Maraee" affiliation="Ben-Gurion University of the Negev" country="Israel"/>
+  <authors name="Gabor Simko" affiliation="Vanderbilt University" country="United States"/>
+  <authors name="David Lindecker" affiliation="Vanderbilt University" country="United States"/>
+  <authors name="Tihamer Levendovszky" affiliation="Vanderbilt University" country="United States"/>
+  <authors name="Sandeep Neema" affiliation="Vanderbilt University" country="United States"/>
+  <authors name="Janos Sztipanovits" affiliation="Vanderbilt University" country="United States"/>
+  <authors name="Lars Hamann" affiliation="University of Bremen" country="Germany"/>
+  <authors name="Martin Gogolla" affiliation="University of Bremen" country="Germany"/>
+  <authors name="Florian Noyrit" affiliation="CEA" country="LIST"/>
+  <authors name="S&#xe9;bastien G&#xe9;rard" affiliation="CEA" country="LIST"/>
+  <authors name="Fran&#xe7;ois Terrier" affiliation="CEA" country="LIST"/>
+  <authors name="Laurent Wouters" affiliation="Laboratoire d'Informatique de Paris 6" country="France"/>
+  <authors name="Oszk&#xe1;r Semer&#xe1;th" affiliation="Budapest University of Technology and Economics" country="Hungary"/>
+  <authors name="Akos Horvath" affiliation="Budapest University of Technology and Economics" country="Hungary"/>
+  <authors name="Daniel Varro" affiliation="Budapest University of Technology and Economics" country="Hungary"/>
+  <authors name="Hui Song" affiliation="Trinity College Dublin" country="Ireland"/>
+  <authors name="Stephen Barrett" affiliation="Trinity College Dublin" country="Ireland"/>
+  <authors name="Aidan Clarke" affiliation="IBM Ireland" country="Ireland"/>
+  <authors name="Siobh&#xe1;n Clarke" affiliation="Trinity College Dublin" country="Ireland"/>
+  <authors name="Xiaodong Zhang" affiliation="Peking University" country="China"/>
+  <authors name="Xing Chen" affiliation="Peking University" country="China"/>
+  <authors name="Ying Zhang" affiliation="Peking University" country="China"/>
+  <authors name="Yihan Wu" affiliation="Peking University" country="China"/>
+  <authors name="Wei Yao" affiliation="Bona Information Technology Co." country="Ltd"/>
+  <authors name="Gang Huang" affiliation="Peking University" country="China"/>
+  <authors name="Borislav Iordanov" affiliation="Miami-Dade County" country="United States"/>
+  <authors name="Assia Alexandrova" affiliation="Miami-Dade County" country="United States"/>
+  <authors name="Syed Abbas" affiliation="Miami-Dade County" country="United States"/>
+  <authors name="Thomas Hilpold" affiliation="Miami-Dade County" country="United States"/>
+  <authors name="Phani Upadrasta" affiliation="Miami-Dade County" country="United States"/>
+  <authors name="Omar Alam" affiliation="McGill University" country="Canada"/>
+  <authors name="J&#xf6;rg Kienzle" affiliation="McGill University" country="Canada"/>
+  <authors name="Gunter Mussbacher" affiliation="University of Ottawa" country="Canada"/>
+  <authors name="Sagar Sunkle" affiliation="Tata Consultancy Services Ltd." country="India"/>
+  <authors name="Vinay Kulkarni" affiliation="Tata Consultancy Services Ltd." country="India"/>
+  <authors name="Suman Roychoudhury" affiliation="Tata Consultancy Services" country="India"/>
+  <authors name="Kleinner Farias" affiliation="PIPCA/Unisinos" country="Brazil"/>
+  <authors name="Alessandro Garcia" affiliation="Pontifical Catholic University of Rio de Janeiro" country="Brazil"/>
+  <authors name="Carlos Lucena" affiliation="Pontifical Catholic University of Rio de Janeiro" country="Brazil"/>
+  <authors name="Massimo Tisi" affiliation="AtlanMod" country="INRIA &amp; Ecole des Mines de Nantes &amp; LINA"/>
+  <authors name="Hassene Choura" affiliation="AtlanMod" country="INRIA &amp; Ecole des Mines de Nantes &amp; LINA"/>
+  <authors name="Michalis Famelis" affiliation="University of Toronto" country="Canada"/>
+  <authors name="Rick Salay" affiliation="University of Toronto" country="Canada"/>
+  <authors name="Alessio Sandro" affiliation="University of Toronto" country="Canada"/>
+  <authors name="Marsha Chechik" affiliation="University of Toronto" country="Canada"/>
+  <authors name="Gehan M. K. Selim" affiliation="Queen's University" country="Canada"/>
+  <authors name="Fabian B&#xfc;ttner" affiliation="AtlanMod" country="INRIA &amp; Ecole des Mines de Nantes &amp; LINA"/>
+  <authors name="ames R. Cordy" affiliation="Queen's University" country="Canada"/>
+  <authors name="Shige Wang" affiliation="Electrical and Controls Integration Lab" country="General Motors Research and Development"/>
+  <authors name="Christian Saad" affiliation="University of Augsburg" country="Germany"/>
+  <authors name="Bernhard Bauer" affiliation="University of Augsburg" country="Germany"/>
+  <authors name="Wuliang Sun" affiliation="Colorado State University" country="United States"/>
+  <authors name="Robert B. France" affiliation="Colorado State University" country="United States"/>
+  <authors name="Indrakshi Ray" affiliation="Colorado State University" country="United States"/>
+  <authors name="Adrian Fernandez" affiliation="Polit&#xe8;cnica de Val&#xe8;ncia" country="Spain"/>
+  <authors name="Emilio Insfran" affiliation="Polit&#xe8;cnica de Val&#xe8;ncia" country="Spain"/>
+  <authors name="Maristella Matera" affiliation="Politecnico di Milano" country="Italy"/>
+  <authors name="Ethem Arkin" affiliation="Hacettepe University" country="Turkey"/>
+  <authors name="Bedir Tekinerdogan" affiliation="Bilkent University" country="Turkey"/>
+  <authors name="Kayhan Imre" affiliation="Hacettepe University" country="Turkey"/>
+  <authors name="Joel Greenyer" affiliation="Politecnico di Milano" country="Italy"/>
+  <authors name="Ekkart Kindler" affiliation="Technical University of Denmark" country="Denmark"/>
+</Conference>
