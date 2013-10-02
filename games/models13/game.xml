@@ -108,6 +108,27 @@ monograph.title.println();
 		<answer>Towards the Notation-Driven Development of DSMLs</answer>
 	</level>
 	<level id="8">
+		<description>MDE is clearly more popular in some countries.</description>
+		<question>Which country had the most authors of accepted papers?</question>
+		<hint>
+var countries = Author.all.collect(a | a.?).asSet();
+countries.sortBy(c| -getAuthorsFrom(?)).first().println();
+
+operation getAuthorsFrom(country : String) {
+	return Author.?.select(a|a.country = ?);
+}
+		</hint>
+		<solution>
+var countries = Author.all.collect(a | a.country).asSet();
+countries.sortBy(c| -getAuthorsFrom(c)).first().println();
+
+operation getAuthorsFrom(country : String) {
+	return Author.all.select(a|a.country = country);
+}
+		</solution>
+		<answer>Germany</answer>
+	</level>
+	<level id="9">
 		<description>Before we close, let's talk about our hosts.</description>
 		<question>How many papers have at least one author from the United States?</question>
 		<hint>

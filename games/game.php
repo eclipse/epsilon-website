@@ -32,6 +32,20 @@
 	
 	h();
 ?>
+<?
+if(preg_match('/(?i)msie/',get_browser()))
+{
+?>
+<div class="row">
+	<div class="span12">
+	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
+		Like any decent web application, this game does not work on Internet Explorer.
+    </div>
+    </div>
+</div>
+<?
+}
+?>
 <div class="row">
 	<!-- main part -->
 	<?if ($levelId <= $levelCount){?>
