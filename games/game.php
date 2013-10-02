@@ -33,7 +33,7 @@
 	h();
 ?>
 <?
-if(strpos(get_browser(), 'msie')>-1){
+if(strpos(get_browser(), 'msie')){
 ?>
 <div class="row">
 	<div class="span12">
@@ -44,7 +44,11 @@ if(strpos(get_browser(), 'msie')>-1){
 </div>
 <?
 }
+else {
 ?>
+&nbsp;
+<?}?>
+
 <div class="row">
 	<!-- main part -->
 	<?if ($levelId <= $levelCount){?>
