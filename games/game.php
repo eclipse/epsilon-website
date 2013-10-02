@@ -32,16 +32,18 @@
 	
 	h();
 ?>
-<?if(strpos(get_browser(), 'msie')){?>
-<div class="row">
+<div class="row" id="iewarning">
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
 		Like any decent web application, this game does not work on Internet Explorer.
     </div>
     </div>
 </div>
-<?}?>
-
+<script>
+if (navigator.userAgent.indexOf("MSIE") == -1) {
+	document.getElementById("iewarning").style.display = 'none';
+}
+</script>
 <div class="row">
 	<!-- main part -->
 	<?if ($levelId <= $levelCount){?>
@@ -125,7 +127,7 @@
 		</div>
 		<?}?>
 </div>
-Browser: <?=get_browser()?>
+
 <?f(array(
 		'<script>
 			prettyPrint();
