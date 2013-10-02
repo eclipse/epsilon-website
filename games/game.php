@@ -33,8 +33,7 @@
 	h();
 ?>
 <?
-if(preg_match('/(?i)msie/',get_browser()))
-{
+if(strpos(get_browser(), 'msie')>-1){
 ?>
 <div class="row">
 	<div class="span12">
