@@ -1,26 +1,26 @@
-@namespace(uri="conference", prefix="")
-package conference;
+@namespace(uri="conference", prefix="") //hide
+package conference; //level1
 
-class Conference {
-	attr String name;
-	attr int year;
-	val Track[*] tracks;
-	val Author[*] authors;
-}
+class Conference { //level1
+	attr String name; //level1
+	attr int year; //level1
+	val Track[*] tracks; //level1
+	val Author[*] authors; //level1
+} //level1
 
-class Track {
-	attr String name;
-	val Paper[*]#track papers;
-}
+class Track { //level1
+	attr String name; //level1
+	val Paper[*]#track papers; //level1
+} //level1
 
-class Paper {
-	attr String title;
-	ref Author[*] authors;
-	ref Track#papers track;
-}
+class Paper { //level1
+	attr String title; //level1
+	ref Author[*] authors; //level1
+	ref Track#papers track; //level1
+} //level1
 
-class Author {
-	attr String name;
-	attr String affiliation;
-	attr String country;
-}
+class Author { //level1
+	attr String name; //level1
+	attr String affiliation; //level1
+	attr String country; //level1
+} //level1
