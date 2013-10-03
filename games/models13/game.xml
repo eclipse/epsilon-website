@@ -129,7 +129,7 @@ operation getAuthorsFrom(country : String) {
 		<answer>Germany</answer>
 	</level>
 	<level id="9">
-		<description>Before we close, let's talk about our hosts.</description>
+		<description>Let's talk about our hosts.</description>
 		<question>How many papers have at least one author from the United States?</question>
 		<hint>
 Paper.?.select(p|p.hasAuthorFrom("United States"))
@@ -149,71 +149,25 @@ operation Paper hasAuthorFrom(country : String) {
 		</solution>
 		<answer>7</answer>
 	</level>
-	<!--level id="9">
-		<description>The murder weapon is in a room empty of people.</description>
-		<question>Which object is the murder weapon?</question>
-		<hint>
-for (room in ?.all.select(r|r.?.size() = 0)) {
-    for (object in room.?) {
-    	object.?.println();
-    }
-}
-		</hint>
-		<solution>
-for (room in Room.all.select(r|r.people.size() = 0)) {
-    for (object in room.objects) {
-    	object.name.println();
-    }
-}
-		</solution>
-		<answer>Knife</answer>
-	</level>
 	<level id="10">
-		<description>The murderer is in a room without any suspicious objects.</description>
-		<question>How many suspects does this leave us with?</question>
+		<description>Finally, let's find out who has topped this year's MoDELS.</description>
+		<question>Who has co-authored the most accepted papers this year and is also celebrating his birthday during the conference?</question>
 		<hint>
-for (room in ?.all.select(r|r.objects.?() = 0)) {
-    for (person in ?.people) {
-    	person.?.println();
-    }
+Author.all.sortBy(a | -a.getPapers().size()).
+	first().?.println();
+
+operation Author getPapers() {
+  return Paper.?.select(p | p.?.includes(self));
 }
-// Remember that James is not the murderer (Level 6)
 		</hint>
 		<solution>
-for (room in Room.all.select(r|r.objects.size() = 0)) {
-    for (person in room.people) {
-    	person.name.println();
-    }
+Author.all.sortBy(a | -a.getPapers().size()).
+	first.name.println();
+
+operation Author getPapers() {
+  return Paper.all.select(p | p.authors.includes(self));
 }
-// Remember that James is not the murderer (Level 6)
 		</solution>
-		<answer>2</answer>
+		<answer>Robert France</answer>
 	</level>
-	<level id="11">
-		<description>The murderer is younger than 30 years old.</description>
-		<question>Who is the murderer?</question>
-		<hint>
-<![CDATA[
-for (room in ?.all.select(room|room.objects.size() = 0)) {
-    for (person in room.?) {
-    	if (person.? <> "James" and person.? < 30) {
-    		?.name.println();
-    	}
-    }
-}
-]]>
-		</hint>
-		<solution>
-<![CDATA[
-for (room in Room.all.select(room|room.objects.size() = 0)) {
-    for (person in room.people) {
-    	if (person.name <> "James" and person.age < 30) {
-    		person.name.println();
-    	}
-    }
-}
-]]>
-		</solution>
-		<answer>Tony</answer>
-	</level-->
 </game>
