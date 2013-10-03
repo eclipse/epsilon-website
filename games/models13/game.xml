@@ -37,6 +37,9 @@ Paper.all.size().println();
 		How many authors were involved, in total, in accepted papers?
 		</question>
 		<hint>
+// Replace ? with something more meaningful
+// and then click on the magnifying glass.
+// The metamodel on the right should help.
 ?.all.size().println();
 		</hint>
 		<solution>
@@ -50,7 +53,7 @@ Author.all.size().println();
 		<hint>
 var applicationsTrack = 
 	Track.all.selectOne(t | t.name = "Applications");
-	
+
 applicationsTrack.?.size().println();	
 		</hint>
 		<solution>
