@@ -17,7 +17,7 @@
 		Let's start with the basics.
 		</description>
 		<question>
-		How many papers have been accepted in the conference?
+		How many papers were accepted this year?
 		</question>
 		<hint>
 // We'll give you this one
@@ -34,7 +34,7 @@ Paper.all.size().println();
 		Each paper has one or more authors.
 		</description>
 		<question>
-		How many authors were involved in total in accepted papers?
+		How many authors were involved, in total, in accepted papers?
 		</question>
 		<hint>
 ?.all.size().println();
@@ -65,7 +65,7 @@ applicationsTrack.papers.size().println();
 		<description>MoDELS'13 brings together MDE researchers from across the globe.</description>
 		<question>How many different countries do authors come from?</question>
 		<hint>
-Author.all.collect(a|a.?).asSet().size().println();		
+Author.all.collect(a|a.?).asSet().size().println();
 		</hint>
 		<solution>
 Author.all.collect(a|a.country).asSet().size().println();				
@@ -73,7 +73,7 @@ Author.all.collect(a|a.country).asSet().size().println();
 		<answer>27</answer>
 	</level>
 	<level id="5">
-		<description>Some papers need more than a couple people to write.</description>
+		<description>Some papers need more than a couple of people to write.</description>
 		<question>How many papers have 5 of more authors?</question>
 		<hint>
 Paper.all.select(p | p.?.size() >= ?).size().println();		
@@ -96,7 +96,7 @@ Paper.all.select(p | p.authors.size() == 1).size().println();
 	</level>
 	<level id="7">
 		<description>So there is exactly one monograph.</description>
-		<question>What is the title of the monograph?</question>
+		<question>What is the title of this monograph?</question>
 		<hint>
 var monograph = Paper.all.selectOne(p|p.?.size() == 1);
 monograph.?.println();	
@@ -151,7 +151,7 @@ operation Paper hasAuthorFrom(country : String) {
 	</level>
 	<level id="10">
 		<description>Finally, let's find out who has topped this year's MoDELS.</description>
-		<question>Who has co-authored the most accepted papers this year and is also celebrating his birthday during the conference?</question>
+		<question>Which person has co-authored the most accepted papers this year and is also celebrating his birthday during the conference?</question>
 		<hint>
 Author.all.sortBy(a | -a.getPapers().size()).
 	first().?.println();
