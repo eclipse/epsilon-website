@@ -42,6 +42,7 @@ class Book {
    attr String title;
    attr int pages = 100;
    attr BookCategory category;
+   ref Writer[1]#books author;
 }
 
 enum BookCategory {
