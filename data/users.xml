@@ -130,6 +130,11 @@
 		<url>http://code.google.com/a/eclipselabs.org/p/reflo/</url>
 		<description>This project aims to provide a machine-assisted environment for developers model programs, using a dataflow notation. It also provides a rewriting system for dataflow graphs.</description>
 	</project>	
+	<project name="Prediqt Editors">
+		<url>https://code.google.com/a/eclipselabs.org/p/prediqt-editors/</url>
+		<description>Two versions of a editor for the PREDIQT method, one created using GMF, the other created using Graphiti.</description>
+		<evidence>https://code.google.com/a/eclipselabs.org/p/prediqt-editors/source/browse/model/prediqt.emf?r=be5aebf394b213843f89fa537b284887e2802853</evidence>
+	</project>
 	<project name="Kybele GMF Gen">
 		<url>http://kybelegmfgen.googlecode.com</url>
 		<description>Kybele GMF Generator (also known as KybeleGMFgen) is a new Model-Driven Software Development (MDSD) tool for Eclipse Modeling Tools for creating, in only a few steps, graphical editors from manually annotated metamodels and customization files.</description>
