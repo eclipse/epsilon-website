@@ -39,6 +39,11 @@
 		<description>The HiLeS2 Framework was developed to aid the Embedded System Designers during the design process. The HiLeS2 Framework purpose is to serve as a platform to create Embedded System Product Lines. It incorporates both tools developed by the group and open source tools to provide an Integrated Development Environment (IDE) suitable for system specification, product line construction and virtual prototype generation.</description>
 		<url>https://hiles.uniandes.edu.co/</url>
 	</project>
+	<project name="EERCASE">
+		<url>https://sites.google.com/a/cin.ufpe.br/eercase/</url>
+		<description>The Enhanced Entity-Relationship (EER) Model is one of the most used modeling languages for the conceptual design of database. However, to the best of our knowledge, there are no metamodels and Computer-Aided Software Engineering (CASE) tool that provide support to code generation and schema validation from conceptual data model according to the EER classical notation (i.e., Chen/Elmasri and Navathe's notation -  cf. Fig below). Aiming to overcome the previous shortcoming, we have proposed a metamodel and a CASE tool named EER MetaModel (EERMM) and EERCASE, respectively.</description>
+		<evidence>https://twitter.com/edsonvicious/status/387913070242058240</evidence>
+	</project>
 	<project name="Mosskit">
 		<description>Modeling Software KIT (MOSKitt) is a FREE CASE tool, built on Eclipse which is being developed by the Conselleria de Infraestructuras, Territorio y Medio Ambiente to support the gvMétrica methodology (adapting Métrica III to its specific needs). gvMétrica uses techniques based on the UML modeling language. MOSKitt's plugin architecture makes it not only a CASE Tool but also a Free Modeling Platform to develop this kind of tools.</description>
 		<url>http://www.moskitt.org/eng/</url>
