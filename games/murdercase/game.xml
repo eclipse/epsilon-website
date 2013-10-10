@@ -91,7 +91,7 @@ room.name.println();
 		<answer>Study</answer>
 	</level>
 	<level id="6">
-		<description>Unsurprisingly, there are doors connecting the rooms of the house. The murderer is not in a room next to the room where the body lies.</description>
+		<description>Unsurprisingly, there are doors connecting the rooms of the house. The murderer is in a room next to the room where the body lies.</description>
 		<question>What is the name of the person that is definitely not the murderer (or the dead body)?</question>
 		<hint>
 var study = Room.all.selectOne(r|r.name = "Study");
