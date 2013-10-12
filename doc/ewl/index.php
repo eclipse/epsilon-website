@@ -21,6 +21,7 @@
 					<li>Execute wizards within EMF and GMF editors
 					<li>Define guards in wizards
 					<li>Undo/redo the effects of wizards on the model
+					<li><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=358199">Access the domain and the notation models at the same time</a> (<a href="http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/trunk/examples/org.eclipse.epsilon.eugenia.examples.flowchart.extensions/flowchart.ewl">example</a>)
 				</ul>
 			</div>
 		</div>
