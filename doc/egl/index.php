@@ -1,7 +1,7 @@
 <?php
 	require_once('../../template.php');
 	require_once('../tools.php');
-	h('Epsilon Generation Language');
+	h('Epsilon Generation Language - Code Generation Language');
 ?>
 <div class="row">
 	<!-- main part -->

@@ -1,7 +1,7 @@
 <?php
 	require_once('../../template.php');
 	require_once('../tools.php');
-	h('Epsilon Validation Language');
+	h('Epsilon Validation Language - Model Constraint/Validation Language');
 ?>
 <div class="row">
 	<!-- main part -->

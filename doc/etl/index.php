@@ -1,7 +1,7 @@
 <?php
 	require_once('../../template.php');
 	require_once('../tools.php');
-	h('Epsilon Transformation Language');
+	h('Epsilon Transformation Language - Model Transformation Language');
 ?>
 <div class="row">
 	<!-- main part -->
