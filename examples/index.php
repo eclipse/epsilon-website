@@ -3,7 +3,15 @@
 	require_once('../util.php');
 	
 	// Create a parser and parse the examples.xml document.
-	$examples = simplexml_load_file("examples.xml")->example;
+	$categories = simplexml_load_file("examples.xml")->category;
+	
+	// Collect all examples by visiting all leaf nodes
+	$examples = array();
+	foreach ($categories as $category) {
+		foreach ($category->example as $example) {
+			array_push($examples, $example); 
+		}
+	}	
 	
 	$currentExampleName = isset($_REQUEST['example']) ? strip_tags($_REQUEST['example']) : null;
 	$example = null;
@@ -185,11 +193,14 @@
 		<? sE(); ?>
 
 		<? sB('More examples...'); ?>
-					<ul>
-					<? foreach ($examples as $example) { ?>
-						<li><a href="index.php?example=<?=$example["src"]?>"><?=$example["title"]?></a>
-					<?}?>
-					</ul>
+					<? foreach ($categories as $category) { ?>
+						<h5><?=$category["title"]?></h5>
+						<ul>
+						<? foreach ($category->example as $example) { ?>
+							<li><a href="index.php?example=<?=$example["src"]?>"><?=$example["title"]?></a>
+						<?}?>
+						</ul>
+					<? } ?>
 		<? sE(); ?>
 
 		<? sB('Even more examples...'); ?>
