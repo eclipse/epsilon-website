@@ -291,10 +291,18 @@
   						<p>
   						Plain old JARs you can use to embed Epsilon as a library in your Java or Android application.
   						</p>
+  						<?for($i=0;$i<2;$i++){?>
+  						<?
+  						$firstTh = "Stable";
+  						if ($i == 1) {
+  							$firstTh = "Interim";
+  							$breadCrumb = "interim-".$breadCrumb;
+  						}
+  						?>
   						<table class="table table-striped">
   							<thead>
   								<tr>
-  									<th>JAR</th>
+  									<th><?=$firstTh?></th>
   									<th>Execution engines</th>
   									<th>Workflow *</th>
   									<th>EMF driver **</th>
@@ -302,31 +310,32 @@
   							</thead>
   							<tbody>
 	  							<tr>
-	  								<td><a href=""><?=jar("core", $version, $breadCrumb)?></a></td>
+	  								<td><?=jar("core", $version, $breadCrumb)?></td>
 	  								<td>&#10004;</td>
 	  								<td>&#10008;</td>
 	  								<td>&#10008;</td>
 	  							</tr>	
 	  							<tr>
-	  								<td><a href=""><?=jar("ant", $version, $breadCrumb)?></a></td>
+	  								<td><?=jar("ant", $version, $breadCrumb)?></td>
 	  								<td>&#10004;</td>
 	  								<td>&#10004;</td>
 	  								<td>&#10008;</td>
 	  							</tr>
 	  							<tr>
-	  								<td><a href=""><?=jar("emf", $version, $breadCrumb)?></a></td>
+	  								<td><?=jar("emf", $version, $breadCrumb)?></td>
 	  								<td>&#10004;</td>
 	  								<td>&#10008;</td>
 	  								<td>&#10004;</td>
 	  							</tr>
 	  							<tr>
-	  								<td><a href=""><?=jar("ant-emf", $version, $breadCrumb)?></a></td>
+	  								<td><?=jar("ant-emf", $version, $breadCrumb)?></td>
 	  								<td>&#10004;</td>
 	  								<td>&#10004;</td>
 	  								<td>&#10004;</td>
 	  							</tr>	  								  							
 	  						</tbody>						
 						</table>
+						<?}?>
   						<p>
   						* To use the workflow tasks, you will need to install <a href="http://apache.org/ant">ANT</a>.<br/>
   						** To use the EMF driver, you will also need EMF in your classpath (not contained in the JARs distributed here).
