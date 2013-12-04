@@ -44,6 +44,9 @@
 								<a href="<?= Epsilon::getRelativeLocation('doc') ?>">Overview</a>
 							</li>
 							<li>
+								<a href="http://download.eclipse.org/epsilon/javadoc/">Javadoc</a>
+							</li>							
+							<li>
 								<a href="<?= Epsilon::getRelativeLocation('doc/articles') ?>">Articles</a>
 							</li>
 							<li>
