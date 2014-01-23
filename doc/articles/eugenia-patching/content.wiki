@@ -55,46 +55,54 @@ It is possible to generate `.patch` files as part of the EuGENia code generation
 In our running example, we can generalise our '''State''' patch (above) such that it is applied to any element in our metamodel that has an external label. First, we create a `GeneratePatches.egx` file that produces a `.patch` file for every EClass in our ECore file that is annotated with `label.placement` set to `external`:
 
 {{{egx
-// Imports the EClass#getLabelPlacement() operation
+// Imports the EClass#getLabelPlacement() operation from Eugenia
 import "platform:/plugin/org.eclipse.epsilon.eugenia/transformations/ECoreUtil.eol";
 
 rule FixExternalLabelMargins
   // apply this rule to all EClasses where...
-	transform c : ECore!EClass
+  transform c : ECore!EClass
 {
-	
-	// ... the EClass is annotated with @gmf.node(label.placement="external")
-	guard: c.getLabelPlacement() == "external"
 
-  // invoke this EGL template on the EClass
-	template : "FixExternalLabelMargin.egl"
+  // ... the EClass is annotated with @gmf.node(label.placement="external")
+  guard: c.getLabelPlacement() == "external"
 
-  // and make a variable `node` available to the template
-	parameters : Map{ "node" = c.name }
+  // invoke the following EGL template on the EClass
+  template : "FixExternalLabelMargin.egl"
+
+  // make the source directory and name of the node available to the template
+  parameters : Map{ "srcDir" = getSourceDirectory(), "node" = c.name }
 
   // and save the generated text to the following .patch file
-	target : "FixExternalLabelMarginsFor" + c.name + ".patch"
+  target : "FixExternalLabelMarginsFor" + c.name + ".patch"
+}
+
+// Determine source directory from GMF Gen model
+@cache
+operation getSourceDirectory() {
+  var genEditor = GmfGen!GenEditorGenerator.all.first;
+  return genEditor.pluginDirectory.substring(1) + "/" +
+         genEditor.packageNamePrefix.replace("\\.", "/");
 }
 }}}
 
 We'll also need to provide a parameterised version of our '''State''' patch, saving it as an EGL template at `FixExternalLabelMargin.egl`:
 
 {{{
-diff --git org.eclipse.epsilon.eugenia.examples.executablestatemachine.graphical.diagram/src/esm/diagram/edit/parts/[%=node%]EditPart.java org.eclipse.epsilon.eugenia.examples.executablestatemachine.graphical.diagram/src/esm/diagram/edit/parts/[%=node%]EditPart.java
+diff --git [%=srcDir%]/edit/parts/[%=node%]EditPart.java [%=srcDir%]/edit/parts/[%=node%]EditPart.java
 index d0684d6..f162365 100644
---- org.eclipse.epsilon.eugenia.examples.executablestatemachine.graphical.diagram/src/esm/diagram/edit/parts/[%=node%]EditPart.java
-+++ org.eclipse.epsilon.eugenia.examples.executablestatemachine.graphical.diagram/src/esm/diagram/edit/parts/[%=node%]EditPart.java
+--- [%=srcDir%]/edit/parts/[%=node%]EditPart.java
++++ [%=srcDir%]/edit/parts/[%=node%]EditPart.java
 @@ -143,7 +143,7 @@
- 		if (borderItemEditPart instanceof [%=node%]NameEditPart) {
- 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
- 					PositionConstants.SOUTH);
--			locator.setBorderItemOffset(new Dimension(-20, -20));
-+			locator.setBorderItemOffset(new Dimension(-5, -5));
- 			borderItemContainer.add(borderItemEditPart.getFigure(), locator);
- 		} else {
- 			super.addBorderItem(borderItemContainer, borderItemEditPart);
+     if (borderItemEditPart instanceof [%=node%]NameEditPart) {
+       BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+           PositionConstants.SOUTH);
+-      locator.setBorderItemOffset(new Dimension(-20, -20));
++      locator.setBorderItemOffset(new Dimension(-5, -5));
+       borderItemContainer.add(borderItemEditPart.getFigure(), locator);
+     } else {
+       super.addBorderItem(borderItemContainer, borderItemEditPart);
 }}}
-Note that the above template uses the `node` variable made available by our EGX transformation rule.
+Note that the above template uses the `srcDir` and `node` variables made available by our EGX transformation rule.
 
 The next time that EuGENia is invoked, a `.patch` file is generated and applied for every EClass in our ECore file that has an externally-placed label:
 
