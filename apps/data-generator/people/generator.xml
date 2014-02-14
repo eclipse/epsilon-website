@@ -3,7 +3,7 @@
 	metamodel="http://www.eclipse.org/epsilon/apps/data-generator/people/people.ecore" 
 	model="http://www.eclipse.org/epsilon/apps/data-generator/people/people.model"
 	emfatic="http://www.eclipse.org/epsilon/apps/data-generator/people/people.emf"
-	version="8">
+	version="9">
 
 	<description>
 Use the template below to generate fake people data in any format that suits your needs. 
