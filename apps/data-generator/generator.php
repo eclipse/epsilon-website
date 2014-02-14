@@ -28,9 +28,14 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 	<div class="row">
 	<!-- main part -->
 	
-	<div class="span12">
+	<div class="span7">
 		<legend><?=$generator["name"]?></legend>
 		<p><?=$generator->description?></p>
+	</div>
+
+	<div class="span5">
+		<legend>What is this?</legend>
+		<p>This app demonstrates using the <a href="/epsilon/doc/egl">EGL model-to-text transformation language</a> for generating text from EMF models. You can download the <a href="<?=$generator["model"]?>">model</a> and the <a href="<?=$generator["metamodel"]?>">metamodel</a> behind this app and experiment with EGL <a href="/epsilon/download/">offline</a>.</p>
 	</div>
 
 	</div>
@@ -38,12 +43,12 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 			<div class="span7">
 				<div class="tabbable" style="margin-bottom: 0px;">
 					<ul class="nav nav-tabs">
-					    <li class="active"><a href="#editor" data-toggle="tab"><h4>Generator</h4></a></li>
+					    <li class="active"><a href="#editor" data-toggle="tab"><h4>Template</h4></a></li>
 					</ul>
 				</div>
 				<div class="tab-content">
   					<div id="editor" class="tab-pane active">
-						<iframe src="http://epsilon-live.appspot.com/embedded.jsp?language=egl&source=<?=urlencode(str_replace("\t", "  ", $generator->example))?>&button=search&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
+						<iframe src="http://epsilon-live.appspot.com/embedded.jsp?language=egl&source=<?=urlencode(str_replace("\t", "  ", $generator->example))?>&button=play&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
 					</div>
 				</div>
 			</div>

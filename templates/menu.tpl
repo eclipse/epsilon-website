@@ -32,6 +32,17 @@
 							</li>
 						</ul>
 					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Apps
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="<?= Epsilon::getRelativeLocation('apps/data-generator/people/'); ?>">Fake People Data Generator</a>
+							</li>
+						</ul>
+					</li>
 					<li>
 						<a href="<?= Epsilon::getRelativeLocation('download'); ?>">Download</a>
 					</li>
