@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<game name="Santa's Christmas Adventure" 
+	metamodel="http://www.eclipse.org/epsilon/apps/data-generator/people/xmas.ecore" 
+	model="http://www.eclipse.org/epsilon/apps/data-generator/people/people.model"
+	emfatic="http://www.eclipse.org/epsilon/apps/data-generator/people/people.emf"
+	version="5">
+
+	<description>
+	It's Christmas Eve and you are the chief elf at Santa's Grotto. Your job is to make sure everything runs smoothly as Santa delivers presents to the entire world in just one night! For some reason, you have an unusual sense of foreboding...
+
+	As you progress through the levels of the game, more details of the metamodel will be revealed to you. Use the Model Explorer to query the model with EOL and answer the questions on the right!
+	</description>
+
+	<example><![CDATA[
+ArrayList<String> people = new ArrayList<String>();
+[%for (i in 1.to(10)){%]
+people.add("[%=Person.all.at(i).firstName%] [%=Person.all.at(i).lastName%]");
+[%}%]
+]]></example>
+
+</game>

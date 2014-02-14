@@ -1,5 +1,5 @@
 <?
-function readEmfaticContent($url, $level, $levelCount) {
+function readEmfaticContent($url) {
 	$content = '';
 	if ($fp = fopen($url, 'r')) {
    		// keep reading until there's nothing left 
@@ -11,22 +11,7 @@ function readEmfaticContent($url, $level, $levelCount) {
    		
    		$filteredContent = "";
    		foreach ($lines as $line) {
-   			$includeLine = true;
-      		for ($i=1;$i<=$levelCount+1;$i++) {
-				$levelTag = "//level".$i;
-      			if (endswith(trim($line), $levelTag)) {
-      				if ($i >= $level+1) {
-      					$includeLine = false;
-      				}
-      				$line = substr($line, 0, strlen($line) - strlen($levelTag) - 1);
-      			}
-      			if (endswith(trim($line), "//hide")) {
-      				$includeLine = false;
-      			}
-      		}
-      		if ($includeLine) {
-      			$filteredContent .= $line."\n";
-      		}
+      		$filteredContent .= $line."\n";
    		}
    		
    		$content = htmlentities(trim($filteredContent));

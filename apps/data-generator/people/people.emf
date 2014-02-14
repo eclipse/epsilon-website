@@ -1,0 +1,11 @@
+@namespace(uri="people", prefix="") 
+package people;
+
+class Person {
+	attr String firstName;
+	attr String lastName;
+}
+
+class PeopleDataSet {
+	val Person[*] people;
+}
