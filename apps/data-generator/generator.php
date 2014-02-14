@@ -11,7 +11,7 @@
 	$model = $generator["model"]."?version=".$generator["version"];
 	$emfatic = $generator["emfatic"];
 	
-	h();
+	h("Epsilon - Apps - ".$generator["name"]);
 ?>
 <div class="row" id="iewarning">
 	<div class="span12">
@@ -48,7 +48,7 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 				</div>
 				<div class="tab-content">
   					<div id="editor" class="tab-pane active">
-						<iframe src="http://epsilon-live.appspot.com/embedded.jsp?language=egl&source=<?=urlencode(str_replace("\t", "  ", $generator->example))?>&button=play&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
+						<iframe src="http://epsilon-live.appspot.com/embedded.jsp?language=egl&source=<?=urlencode(str_replace("\t", "  ", $generator->example))?>&button=play&editorHeight=200&consoleHeight=300&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:800px;width:100%"></iframe>
 					</div>
 				</div>
 			</div>
