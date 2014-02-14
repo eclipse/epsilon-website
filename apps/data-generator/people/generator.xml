@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <game name="Santa's Christmas Adventure" 
-	metamodel="http://www.eclipse.org/epsilon/apps/data-generator/people/xmas.ecore" 
+	metamodel="http://www.eclipse.org/epsilon/apps/data-generator/people/people.ecore" 
 	model="http://www.eclipse.org/epsilon/apps/data-generator/people/people.model"
 	emfatic="http://www.eclipse.org/epsilon/apps/data-generator/people/people.emf"
-	version="5">
+	version="6">
 
 	<description>
 	It's Christmas Eve and you are the chief elf at Santa's Grotto. Your job is to make sure everything runs smoothly as Santa delivers presents to the entire world in just one night! For some reason, you have an unusual sense of foreboding...
