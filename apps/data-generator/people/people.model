@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="ASCII"?>
-<PeopleDataSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="people" xmi:id="_Xs-rYEUpEeKNzumKaYEDBQ">
-  <persons xmi:id="_aQDsIEUpEeKNzumKaYEDBQ" firstName="Dimitris" lastName="Kolovos"/>
+<PeopleDataSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="people" xmi:id="_Xs-rYEUpEeKNzumKaYEDBQ">
+  <people xmi:id="_fw5MQJUHEeOR79R-u_aovQ" firstName="Dimitris" lastName="Kolovos"/>
 </PeopleDataSet>
