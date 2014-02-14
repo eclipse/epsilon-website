@@ -4,6 +4,14 @@ package people;
 class Person {
 	attr String firstName;
 	attr String lastName;
+	attr String gender;
+	attr String address;
+	attr String postCode;
+	attr String city;
+	attr String emailAddress;
+	attr String birthday;
+	attr float weight;
+	attr int height;
 }
 
 class PeopleDataSet {

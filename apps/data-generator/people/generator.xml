@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
-<game name="Santa's Christmas Adventure" 
+<game name="Fake People Data Generator" 
 	metamodel="http://www.eclipse.org/epsilon/apps/data-generator/people/people.ecore" 
 	model="http://www.eclipse.org/epsilon/apps/data-generator/people/people.model"
 	emfatic="http://www.eclipse.org/epsilon/apps/data-generator/people/people.emf"
 	version="8">
 
 	<description>
-	It's Christmas Eve and you are the chief elf at Santa's Grotto. Your job is to make sure everything runs smoothly as Santa delivers presents to the entire world in just one night! For some reason, you have an unusual sense of foreboding...
-
-	As you progress through the levels of the game, more details of the metamodel will be revealed to you. Use the Model Explorer to query the model with EOL and answer the questions on the right!
+Use the template below to generate fake people data in any format that suits your needs. 
+Have a look at the metamodel on the right for an overview of the available properties.
 	</description>
 
 	<example><![CDATA[
