@@ -24,6 +24,18 @@
 	h('', $styles);
 ?>
 
+<div class="row">
+	<div class="span12">
+	<div class="alert alert-info" style1="background-color: rgb(116, 67, 140)">
+		<b>Upcoming events</b><button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>   
+    <br/>
+    <p style="padding-top:10px">
+    	2<sup>nd</sup> <a href="http://www.big-mde.eu">Workshop on Scalable Model Driven Engineering</a> (BigMDE'14), July 24, 2014, York, UK
+	</p>
+    </div>
+    </div>
+</div>
+
 <!--div class="row">
 	<div class="span12">
 	<div class="alert alert-info" style1="background-color: rgb(116, 67, 140)">
