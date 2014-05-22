@@ -10,10 +10,10 @@
 
 		<div class="row">
 			<div class="span8">
-				<p>ETL is a hybrid, rule-based model-to-model transformation language built on top of EOL.ETL provides all the standard features of a transformation language but also provides enhanced flexibility as it can transform many input to many output models,and can query/navigate/modify both source and target models.</p>
+				<p>ETL is a hybrid, rule-based model-to-model transformation language built on top of EOL. ETL provides all the standard features of a transformation language but also provides enhanced flexibility as it can transform many input to many output models,and can query/navigate/modify both source and target models.</p>
 			</div>
 		</div>
-
+		
 		<h3>Features</h3>
 		<div class="row">
 			<div class="span8">
