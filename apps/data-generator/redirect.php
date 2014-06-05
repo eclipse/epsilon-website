@@ -20,7 +20,7 @@ function redirect() {
 	// in case there are spaces in the URL (probably only on local servers)
 	$redirectUrl = str_replace(" ","%20",$redirectUrl);
 
-	echo file_get_contents($redirectUrl);
+	header("Location: ".$redirectUrl);
 
 }
 ?>

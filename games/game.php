@@ -92,7 +92,7 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 				</div>
 				<div class="tab-content">
   					<div id="editor" class="tab-pane active">
-						<iframe src="http://epsilon-live.appspot.com/embedded.jsp?source=<?=urlencode(str_replace("\t", "  ", trim($level->hint)))?>&button=search&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
+						<iframe src="https://epsilon-live.appspot.com/embedded.jsp?source=<?=urlencode(str_replace("\t", "  ", trim($level->hint)))?>&button=search&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
 					</div>
 					<div id="solution" class="tab-pane">
 						<div class="alert alert-info">
