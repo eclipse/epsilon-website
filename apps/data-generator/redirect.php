@@ -7,7 +7,7 @@ function redirect() {
 		//FIX if server == eclipse.org it doesn't work - for some reason
 		$serverName = "www.eclipse.org";
 	}
-	if ($_SERVER['SERVER_PORT'] != 80) {
+	if ($_SERVER['SERVER_PORT'] != 80 && $_SERVER['SERVER_PORT'] != 443) {
 		// Useful if we're working locally on the website, with a custom port number
 		$serverName = "$serverName:" . $_SERVER['SERVER_PORT'];
 		$protocol = "http";
