@@ -75,6 +75,12 @@
 	  		In this article we demonstrate how you can query a list of references stored in BibTeX files with Epsilon programs using the BibTeX driver.
 	  		</description>
 	  	</article>
+	  	<article name="http://arcanebeans.blogspot.co.uk/2013/11/extended-emc-for-cvs-files.html" title="Scripting CSV files using Epsilon">
+	  		<description>
+	  		This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
+	  		</description>
+	  	</article>
+	  	
 	</category>
 	<category name="eugenia" title="EuGENia">
 		<subcategory title="Fundamentals">

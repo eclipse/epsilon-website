@@ -24,7 +24,7 @@
 				<div class="span8">
 					<ul>
 				  		<? foreach ($category->article as $article) { ?>
-				  			<li><a href="<?=$article["name"]?>/"><?=$article["title"]?></a>: <?=$article->description?>
+				  			<li><a href="<?=$article["name"]?>"><?=$article["title"]?></a>: <?=$article->description?>
 				  		<? } ?>
 			  		</ul>
 			  		
