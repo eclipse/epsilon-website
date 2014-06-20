@@ -63,6 +63,11 @@
 	  		This article demonstrates how you can use Exeed to inspect the structure of your EMF models.
 	  		</description>
 	  	</article>
+	  	<article name="in-memory-emf-model" title="Working with custom EMF resources">
+	  		<description>
+	  		This article demonstrates how you can work with custom EMF resources in Epsilon.
+	  		</description>
+	  	</article>
 	</category>
 	<category name="xml" title="Epsilon and XML, CSV or BibTeX">
 		<article name="plain-xml" title="Scripting XML documents using Epsilon">
