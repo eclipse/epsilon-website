@@ -35,6 +35,13 @@
 		<url>http://www.eclipse.org/tigerstripe/</url>
 		<evidence>http://code.xored.com/browse/Tigerstripe/plugins/org.eclipse.tigerstripe.annotation.ui.diagrams/model/model.ecore</evidence>
 	</project>
+	<project name="LARES">
+		<description>
+		The aim of the LAnguage for REconfigurable dependable Systems (LARES) is to bridge the gap between high-level formalisms and formal modelling languages. LARES provides means for hierarchical modelling, i.e. it separates between the definition of structure and behaviour and introduces scopes to restrict visibility of definitions. The formal semantics of LARES has been defined by means of labelled Markov chains and stochastic process algebra (SPA).
+		</description>
+		<url>http://lares.w3.rz.unibw-muenchen.de/</url>
+		<evidence>Email request to epsilon-devs</evidence>
+	</project>
 	<project name="HiLeS">
 		<description>The HiLeS2 Framework was developed to aid the Embedded System Designers during the design process. The HiLeS2 Framework purpose is to serve as a platform to create Embedded System Product Lines. It incorporates both tools developed by the group and open source tools to provide an Integrated Development Environment (IDE) suitable for system specification, product line construction and virtual prototype generation.</description>
 		<url>https://hiles.uniandes.edu.co/</url>
