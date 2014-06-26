@@ -225,6 +225,25 @@ The following ANT build file demonstrates how you can use ANT to load/store and 
 	</target>
 </project>
 }}}
+ 
+==Loading an XML document through Java code==
+ 
+The following excerpt demonstrates using XML models using Epsilon's Java API.
+
+{{{java
+EolModule module = new EolModule();
+module.parse(new File("..."));
+
+PlainXmlModel model = new PlainXmlModel();
+model.setName("M");
+model.setFile(new File("..."));
+model.load();
+
+module.getContext().getModelRepository().addModel(model);
+module.getContext().setModule(module);
+module.execute();
+}}}
+ 
 ==Additional resources==
  
 * [[http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html]]: Complete list of the operations that are applicable to XML elements
