@@ -32,7 +32,7 @@ class ArticleReader {
 		
 		if ($contentType == "wiki") {
 			$converter = new WikiTextToHTML();
-			$content = $converter->convertWikiTextToHTML($content);
+			$content = $converter->convertWikiTextToHTML($content, $print);
 		}
 		
 		if ($absoluteLinks) {

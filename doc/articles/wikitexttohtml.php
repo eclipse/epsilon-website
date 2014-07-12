@@ -123,14 +123,15 @@ class WikiTextToHTML {
 		return -1;
 	}
 	
-	public function convertWikiTextToHTML($input) {
+	public function convertWikiTextToHTML($input, $print = false) {
 	
 		$lines = explode("\n", $input);
 		$output = "";
 		
 		foreach ($lines as $line) {
-		
-			if (strpos($line,"[[file:") === 0) {
+			if ($print and strpos($line,"[[video:") === 0) {
+			}
+			else if (strpos($line,"[[file:") === 0) {
 				$file = substr(trim($line), 7);
 				$file = substr($file, 0, strlen($file) - 2);
 				$output = $output."{{{".pathinfo($s, PATHINFO_EXTENSION)."\n".file_get_contents($file)."\n}}}\n";
