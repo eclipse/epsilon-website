@@ -3,7 +3,9 @@
 In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver added in version 0.8.9. All the examples in this article demonstrate using EOL to script XML documents. However, it's worth stressing that XML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - XML or EMF-based -, or to text), compare and merge your XML documents.
 
 '''Note:''' This article is consistent with the latest interim version of Epsilon.
- 
+
+[[video:GV1Wyx4SiQQ]]
+
 ==Querying an XML document==
  
 We use the following `library.xml` as a base for demonstrating the EOL syntax for querying XML documents.
