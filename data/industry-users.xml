@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<companies>
+	<company name="BAE Systems" url="https://www.baesystems.com" logo="bae.png">
+		<evidence>http://link.springer.com/chapter/10.1007%2F978-3-642-13595-8_7</evidence>
+	</company>
+	<company name="NASA" url="http://www.nasa.gov" logo="nasa.png">
+		<evidence>https://github.com/nasa/CertWare/blob/master/net.certware.argument.gsz.validator/validation/gsz.evl</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=258871</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=259923</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=256473</evidence>
+	</company>
+	<company name="THALES Group" url="https://www.thalesgroup.com" logo="thales.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=415037</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=414675</evidence>	
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=414766</evidence>
+	</company>
+	<company name="Siemens" url="http://www.siemens.com" logo="siemens.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=333740</evidence>
+		<evidence>http://yusun.io/papers/iceme-2011.pdf</evidence>
+	</company>
+	<company name="Rolls-Royce" url="http://www.rolls-royce.com" logo="rr.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=385900</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=386240</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=381984</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=383547</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=390339</evidence>
+	</company>
+	<company name="IBM" url="http://www.ibm.com" logo="ibm.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=264709</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=268085</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=265609</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=265285</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=265145</evidence>
+	</company>
+	<company name="Raytheon" url="http://www.raytheon.com" logo="raytheon.png">
+		<evidence>https://twitter.com/guwac/status/321983342683758592</evidence>
+	</company>
+	<company name="Ergon" url="http://ergon.ch/" logo="ergon.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=407183</evidence>
+	</company>
+	<company name="Talend" url="http://www.talend.com/" logo="talend.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=325010</evidence>
+	</company>
+	<company name="Corpus" url="http://www.corpus.cz/" logo="corpus.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=287756</evidence>
+	</company>	
+	<company name="Academa" url="http://www.academa.si/" logo="academa.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=270570</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=271329</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=270572</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=211210</evidence>
+	</company>
+	<company name="Intelliment" url="http://www.intellimentsec.com/" logo="intelliment.png">
+		<evidence>https://twitter.com/jozemi/status/128550322560958464</evidence>
+	</company>	
+	
+</companies>

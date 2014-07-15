@@ -1,6 +1,7 @@
 <?php
 	require_once('../template.php');
-	$projects = simplexml_load_file("../data/users.xml")->project;	
+	$projects = simplexml_load_file("../data/open-source-users.xml")->project;	
+	$companies = simplexml_load_file("../data/industry-users.xml")->company;	
 	h();
 ?>
 
@@ -12,19 +13,17 @@
 		<div class="row">
 			<div class="span12">
 
-				<p>
-					Below are <?=count($projects)?> open-source projects that are using languages and tools provided by Epsilon. 
-					<!--Beyond open-source projects, we are also aware of several industrial projects that have successfuly used Epsilon
-					but - as expected - little information about such projects can be made publicly available.--> If you'd like your project
-					to appear here or you've spotted any outdated content, please <a href="mailto:epsilon.devs@gmail.com">let us know</a>.<br/><br/>
-				</p>
-
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
-				  	<li class="active"><a href="#projects" data-toggle="tab"><h4>Open-source projects</h4></a></li>
+				  	<li><a href="#projects" data-toggle="tab"><h4>Open-source projects</h4></a></li>
+				   	<li class="active"><a href="#industry" data-toggle="tab"><h4>Industry</h4></a></li>
 				   </ul>
 				    <div class="tab-content">
-				    	<div id="projects" class="tab-pane active">
+				    	<div id="projects" class="tab-pane">
+					    	<p>
+								Below are <?=count($projects)?> open-source projects that are using languages and tools provided by Epsilon. 
+								If you'd like your project to appear here or you've spotted any outdated content, please <a href="mailto:epsilon.devs@gmail.com">let us know</a>.<br/><br/>
+							</p>	
 						  <?$i=0;?>
 						  <?foreach ($projects as $project){?>
 						  <?if($i%2==0){?><div class="row" style="padding-bottom:20px"><?}?>
@@ -37,6 +36,33 @@
 						  <?if($i%2==1){?></div><?}?>
 						  <?$i++;?>
 						  <?}?>
+						</div>
+  						</div>
+  						<div id="industry" class="tab-pane active">
+  							<p> Below is a list of companies for which there are publicly-available indications of engagement with Epsilon,
+  								including bug reports, forum messages, blog posts, tweets and published articles*. 
+  								If you'd like to report additional uses of Epsilon in industry or you've spotted any outdated content, please <a href="mailto:epsilon.devs@gmail.com">let us know</a>.
+  							</p>
+
+  							<?foreach($companies as $company){?>
+  							<img src="logos/<?=$company["logo"]?>" style="padding:15px;"/>
+  							<?}?>
+  							<br/><br/>
+
+  							* Based on the following data:
+							<?foreach($companies as $company) {?>
+								<?
+									$evidenceHtml = "";
+									$evidenceItems = $company->evidence;
+									for ($i=0; $i < count($evidenceItems); $i++) {
+										$evidenceHtml .= "<a href='".$evidenceItems[$i]."'>".($i+1)."</a>";
+										if ($i < count($evidenceItems) - 1) {
+											$evidenceHtml .= ", ";
+										}
+									}
+								?>
+								<a href="<?=$company["url"]?>"><?=$company["name"]?></a> (<?=$evidenceHtml?>), 
+							<?}?>
   						</div>
   					</div>
 				</div>

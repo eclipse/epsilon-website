@@ -3,19 +3,19 @@
 	<faq id="epsilon-and-emf">
 		<title>What is the relationship between Epsilon and EMF?</title>
 		<answer><![CDATA[
-		<p>To put it simply, with EMF you can specify metamodels and construct models that conform to these metamodels, while with Epsilon you can <i>do stuff</i> with these EMF models and metamodels (e.g. validate them, transform them, generate code from them etc.).]]>
+		<p>Briefly, with EMF you can specify metamodels and construct models that conform to these metamodels, while with Epsilon you can <i>do stuff</i> with these EMF models and metamodels (e.g. validate them, transform them, generate code from them etc.).]]>
 		</answer>
 	</faq>
 	<faq id="is-epsilon-a-model-transformation-language">
 		<title>Is Epsilon a model transformation language?</title>
 		<answer><![CDATA[
-		<p>No. Epsilon is a family of task-specific model management languages, <b>one of which</b> targets model-to-model transformation (ETL).]]>
+		<p>No. Epsilon is a family of languages, <b>one of which</b> targets model-to-model transformation (ETL).]]>
 		</answer>
 	</faq>
 	<faq id="who-is-using-epsilon">
 		<title>Who is using Epsilon?</title>
 		<answer><![CDATA[
-		<p>While we can't possibly have a precise answer to this, with <b>more than 3000 posts</b> in the <a href="../forum">Epsilon forum</a>, it seems that quite a few people are currently using different parts of Epsilon.]]>
+		With <b>more than 6000 posts</b> in the <a href="../forum">Epsilon forum</a>, it seems that quite a few people are currently using different parts of Epsilon. A list of open-source projects that build on top of Epsilon is available <a href="../users">here</a>.]]>
 		</answer>
 	</faq>
 		<faq id="getting-help">
@@ -31,9 +31,7 @@
 	<faq id="new-version-notification">
 		<title>How do I get notified when a new version of Epsilon becomes available?</title>
 		<answer><![CDATA[
-		<p>To get notified when a new version of Epsilon becomes available, please subscribe to Epsilon's <a href="../news/epsilonNewsArchive.rss">RSS feed</a> (you can subscribe using a dedicated RSS client or an email client such as <a href="http://kb.mozillazine.org/RSS_basics_(Thunderbird)">Thunderbird</a>).</p> 
-		
-		<p> You can also configure Eclipse to check for updates automatically by going to Window->Preferences->Install/Update/Automatic Updates and checking the "Automatically find new updates and notify me" option.</p>
+		<p>To get notified when a new version of Epsilon becomes available you can configure Eclipse to check for updates automatically by going to Window->Preferences->Install/Update/Automatic Updates and checking the "Automatically find new updates and notify me" option.</p>
 		
 		]]>
 		</answer>
@@ -41,7 +39,7 @@
 	<faq id="epsilon-standalone">
 		<title>Can I use Epsilon in a non-Eclipse-based standalone Java application?</title>
 		<answer><![CDATA[
-		<p>Yes. There are several examples of doing just that (for all languages provided by Epsilon) in <a href="http://dev.eclipse.org/viewsvn/index.cgi/trunk/examples/org.eclipse.epsilon.examples.standalone/?root=Modeling_EPSILON">this project in the SVN</a>.]]>
+		<p>Yes. There are several examples of doing just that (for all languages provided by Epsilon) in <a href="http://dev.eclipse.org/viewsvn/index.cgi/trunk/examples/org.eclipse.epsilon.examples.standalone/?root=Modeling_EPSILON">this project in the SVN</a>. Just grab a standalone JAR from the <a href="../download">downloads page</a>.]]>
 		</answer>
 	</faq>
 	<faq id="epsilon-omg">
@@ -55,13 +53,13 @@
 		]]>
 		</answer>
 	</faq>
-	<faq id="epsilon-and-other-modeling-projects">
+	<!--faq id="epsilon-and-other-modeling-projects">
 		<title>Is Epsilon a competitor to the Eclipse OCL/M2M/M2T projects?</title>
 		<answer><![CDATA[
 		<p>No. In Epsilon, precedence is given to researching and providing solutions for interesting and novel aspects of MDE - as opposed to implementing existing standards. By contrast, the OCL/M2M/M2T projects aim at providing tools that will fully implement the respective OMG standards.
 		]]>
 		</answer>
-	</faq>
+	</faq-->
 	<faq id="comparison-with-other-languages">
 		<title>What is the difference between E*L and language X?</title>
 		<answer><![CDATA[

@@ -25,6 +25,7 @@
 				<p>
 					<?=$faq->answer?>
 				</p>
+				<br/><br/>
 			</div>
 		</div>
 		
