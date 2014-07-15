@@ -50,6 +50,10 @@
 	<company name="develop group" url="http://www.develop-group.de/" logo="develop-group.png">
 		<evidence>http://www.develop-group.de/downloads/fv_projekt/devgroup_ecmfa2012.pdf</evidence>
 	</company>
+	<company name="DevBoost" url="http://www.devboost.de" logo="devboost.png">
+		<evidence>https://github.com/DevBoost/Reuseware/blob/master/Experimental/org.reuseware.comogen.ui.eclipse.dslbuilder/META-INF/MANIFEST.MF</evidence>
+	</company>	
+	
 	<company name="Academa" url="http://www.academa.si/" logo="academa.png">
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=270570</evidence>
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=271329</evidence>
