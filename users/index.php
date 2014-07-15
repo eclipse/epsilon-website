@@ -48,7 +48,7 @@
   							<?}?>
   							<br/><br/>
 
-  							* Based on the following data:
+  							* Based on the following sources:
 							<?foreach($companies as $company) {?>
 								<?
 									$evidenceHtml = "";

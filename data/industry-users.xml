@@ -35,6 +35,9 @@
 	<company name="Raytheon" url="http://www.raytheon.com" logo="raytheon.png">
 		<evidence>https://twitter.com/guwac/status/321983342683758592</evidence>
 	</company>
+	<company name="Atos" url="http://http://uk.atos.net/" logo="atos.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=331497</evidence>
+	</company>
 	<company name="Ergon" url="http://ergon.ch/" logo="ergon.png">
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=407183</evidence>
 	</company>
@@ -44,14 +47,16 @@
 	<company name="Corpus" url="http://www.corpus.cz/" logo="corpus.png">
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=287756</evidence>
 	</company>	
+	<company name="develop group" url="http://www.develop-group.de/" logo="develop-group.png">
+		<evidence>http://www.develop-group.de/downloads/fv_projekt/devgroup_ecmfa2012.pdf</evidence>
+	</company>
 	<company name="Academa" url="http://www.academa.si/" logo="academa.png">
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=270570</evidence>
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=271329</evidence>
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=270572</evidence>
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=211210</evidence>
-	</company>
+	</company>		
 	<company name="Intelliment" url="http://www.intellimentsec.com/" logo="intelliment.png">
 		<evidence>https://twitter.com/jozemi/status/128550322560958464</evidence>
-	</company>	
-	
+	</company>
 </companies>
