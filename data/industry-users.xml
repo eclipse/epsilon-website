@@ -52,8 +52,7 @@
 	</company>
 	<company name="DevBoost" url="http://www.devboost.de" logo="devboost.png">
 		<evidence>https://github.com/DevBoost/Reuseware/blob/master/Experimental/org.reuseware.comogen.ui.eclipse.dslbuilder/META-INF/MANIFEST.MF</evidence>
-	</company>	
-	
+	</company>
 	<company name="Academa" url="http://www.academa.si/" logo="academa.png">
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=270570</evidence>
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=271329</evidence>
@@ -62,5 +61,9 @@
 	</company>		
 	<company name="Intelliment" url="http://www.intellimentsec.com/" logo="intelliment.png">
 		<evidence>https://twitter.com/jozemi/status/128550322560958464</evidence>
+	</company>
+	<company name="Maiborn Wolff" url="http://www.maibornwolff.de/" logo="maibornwolff.png">
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=441410#c12</evidence>
+		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=441979</evidence>
 	</company>
 </companies>
