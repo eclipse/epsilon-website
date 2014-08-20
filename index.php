@@ -57,7 +57,7 @@
 		<div class="span3" style="width:325px">
         <p style="text-align:left"><b>Epsilon</b> is a family of languages and tools
         for <a href="doc/egl">code generation</a>, <a href="doc/etl">model-to-model transformation</a>, <a href="doc/evl">model validation</a>, <a href="doc/ecl">comparison</a>,
-        <a href="doc/flock">migration</a> and <a href="doc/ewl">refactoring</a> that work out-of-the-box with <a href="http://www.eclipse.org/emf">EMF</a> and <a href="doc/emc/">other types of</a> models.</p>
+        <a href="doc/flock">migration</a> and <a href="doc/ewl">refactoring</a> that work out of the box with <a href="http://www.eclipse.org/emf">EMF</a> and <a href="doc/emc/">other types of</a> models.</p>
         <p>
          <!--a class="btn btn-large" href="games/murdercase">Learn through a game &raquo;</a-->
          <a class="btn btn-large" href="users">Who is using Epsilon?</a>
