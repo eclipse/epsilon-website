@@ -1,0 +1,4043 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugs.eclipse.org/bugs/page.cgi?id=bugzilla.dtd">
+
+<bugzilla version="4.4.5"
+          urlbase="https://bugs.eclipse.org/bugs/"
+          
+          maintainer="webmaster@eclipse.org"
+>
+
+    <bug>
+          <bug_id>435304</bug_id>
+          
+          <creation_ts>2014-05-20 10:56:00 -0400</creation_ts>
+          <short_desc>Screencasts don&apos;t load</short_desc>
+          <delta_ts>2014-08-18 12:42:56 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Justus 2000">justus_2000</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2404291</commentid>
+    <comment_count>0</comment_count>
+    <who name="Justus 2000">justus_2000</who>
+    <bug_when>2014-05-20 10:56:56 -0400</bug_when>
+    <thetext>Screencasts on http://www.eclipse.org/epsilon/cinema/ don&apos;t load (IE, FF, Chrome).</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2407403</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-05-26 16:11:29 -0400</bug_when>
+    <thetext>Thanks for reporting this. This was due to [1]. All screencasts have now been moved under a YouTube channel [2].
+
+[1] https://bugs.eclipse.org/bugs/show_bug.cgi?id=434581#c5
+[2] https://www.youtube.com/channel/UCn9rS_c10R4Tww39xkTVEIw</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440154</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-18 12:42:56 -0400</bug_when>
+    <thetext>Added interim whiteboard tag for housekeeping.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>395804</bug_id>
+          
+          <creation_ts>2012-12-05 05:14:00 -0500</creation_ts>
+          <short_desc>Epsilon Screencasts not viewable in IE 9</short_desc>
+          <delta_ts>2014-08-18 12:42:35 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Rafidah Pakir">rpm507</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2190806</commentid>
+    <comment_count>0</comment_count>
+    <who name="Rafidah Pakir">rpm507</who>
+    <bug_when>2012-12-05 05:14:19 -0500</bug_when>
+    <thetext>All the  Epsilon screencasts in new website in not viewable with Internet Explorer ( I am using IE 9). It works fine with FireFox and Safari.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2407405</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-05-26 16:12:47 -0400</bug_when>
+    <thetext>All screencasts have now been moved under a YouTube channel [1] due to [2]
+
+[1] https://www.youtube.com/channel/UCn9rS_c10R4Tww39xkTVEIw
+[2] https://bugs.eclipse.org/bugs/show_bug.cgi?id=434581#c5</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440153</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-18 12:42:35 -0400</bug_when>
+    <thetext>Added interim whiteboard tag for housekeeping. Fix will appear in 1.2.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>437719</bug_id>
+          
+          <creation_ts>2014-06-18 18:43:00 -0400</creation_ts>
+          <short_desc>Add support for Luna&apos;s dark theme</short_desc>
+          <delta_ts>2014-08-18 12:41:40 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitris Kolovos">dkolovos</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2418271</commentid>
+    <comment_count>0</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-06-18 18:43:04 -0400</bug_when>
+    <thetext>Provide a suitable editor colour scheme for use with Luna&apos;s dark theme.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2418293</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-06-18 22:21:33 -0400</bug_when>
+    <thetext>Fixed in the SVN (r2599)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440151</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-18 12:41:40 -0400</bug_when>
+    <thetext>Added interim whiteboard tag for housekeeping. Fix will appear in 1.2.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>437862</bug_id>
+          
+          <creation_ts>2014-06-21 15:30:00 -0400</creation_ts>
+          <short_desc>[EUnit] EMF Compare integration fails to compile in Eclipse Luna RC3</short_desc>
+          <delta_ts>2014-08-18 12:41:26 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">nyoescape</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>dkolovos</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2419014</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-06-21 15:30:40 -0400</bug_when>
+    <thetext>It seems that the constructor for the EMF Compare ComparisonEditorInput class has changed in Eclipse Luna, and now takes an EMFCompareConfiguration instead of a CompareConfiguration as its first argument.
+
+For this reason, a clean checkout of Epsilon cannot build properly in Luna. This should be fixed before Epsilon 1.2 is released targeting Luna.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2419015</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-06-21 15:39:49 -0400</bug_when>
+    <thetext>Fixed in SVN r2600.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440150</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-18 12:41:26 -0400</bug_when>
+    <thetext>Added interim whiteboard tag for housekeeping. Fix will appear in 1.2.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>437861</bug_id>
+          
+          <creation_ts>2014-06-21 15:27:00 -0400</creation_ts>
+          <short_desc>assertEqualDirectories reports differences due to VCS directories (.svn, .git)</short_desc>
+          <delta_ts>2014-08-18 12:40:58 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">nyoescape</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>dkolovos</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2419013</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-06-21 15:27:41 -0400</bug_when>
+    <thetext>Usually I work through git-svn and do not run into this issue, but this time I tried checking out the source through Subversive.
+
+Our internal tests fail for the EUnit directory comparison assertions. I&apos;ve checked their output manually and they do produce the same results, but obviously the .svn directories differ.
+
+EUnit should ignore these directories by default: it is very unlikely that anyone would be interested in generating them, let alone comparing them.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2419016</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-06-21 15:40:00 -0400</bug_when>
+    <thetext>Fixed in SVN r2601.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440149</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-18 12:40:58 -0400</bug_when>
+    <thetext>Added interim whiteboard tag for housekeeping. Fix will appear in 1.2.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>428737</bug_id>
+          
+          <creation_ts>2014-02-21 08:25:00 -0500</creation_ts>
+          <short_desc>[Epsilon Book] Collection sortBy sorting semantics</short_desc>
+          <delta_ts>2014-08-18 12:40:41 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2366759</commentid>
+    <comment_count>0</comment_count>
+      <attachid>240196</attachid>
+    <who name="Horacio Hoyos">arcanefoam</who>
+    <bug_when>2014-02-21 08:25:12 -0500</bug_when>
+    <thetext>Created attachment 240196
+Proposed patch
+
+Added additional information on how the sortBy operation on collection works. Specifically how exactly is the sorting performed.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2421931</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-06-29 08:51:05 -0400</bug_when>
+    <thetext>Thanks for the patch! This has been now fixed in the SVN.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>240196</attachid>
+            <date>2014-02-21 08:25:00 -0500</date>
+            <delta_ts>2014-02-21 08:25:12 -0500</delta_ts>
+            <desc>Proposed patch</desc>
+            <filename>Design.EOL.tex.patch</filename>
+            <type>application/octet-stream</type>
+            <size>11565</size>
+            <attacher name="Horacio Hoyos">arcanefoam</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>434203</bug_id>
+          
+          <creation_ts>2014-05-06 08:18:00 -0400</creation_ts>
+          <short_desc>Can&apos;t create/edit XML backed by XSD model configuration in Run Configuration</short_desc>
+          <delta_ts>2014-08-18 12:40:26 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>blocker</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>arcanefoam</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2397433</commentid>
+    <comment_count>0</comment_count>
+    <who name="Horacio Hoyos">arcanefoam</who>
+    <bug_when>2014-05-06 08:18:44 -0400</bug_when>
+    <thetext>While editing or creating an XML backed by XSD I get a null pointer exception which prevents me from creating/updating a run configuration.
+
+Mu eclipse:
+Version: Kepler Service Release 2
+Build id: 20140224-0627
+
+Epsilon: Latest stable from update site.
+
+Exception:
+java.lang.NullPointerException
+at org.eclipse.epsilon.common.dt.launching.dialogs.AbstractCachedModelConfigurationDialog.loadProperties(AbstractCachedModelConfigurationDialog.java:47)
+at org.eclipse.epsilon.emc.emf.dt.XmlModelConfigurationDialog.loadProperties(XmlModelConfigurationDialog.java:102)
+at org.eclipse.epsilon.common.dt.launching.dialogs.AbstractModelConfigurationDialog.createDialogArea(AbstractModelConfigurationDialog.java:87)
+at org.eclipse.jface.dialogs.TitleAreaDialog.createContents(TitleAreaDialog.java:158)
+at org.eclipse.jface.window.Window.create(Window.java:432)
+...</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2398090</commentid>
+    <comment_count>1</comment_count>
+    <who name="Horacio Hoyos">arcanefoam</who>
+    <bug_when>2014-05-07 08:40:26 -0400</bug_when>
+    <thetext>The patched submitted to https://bugs.eclipse.org/bugs/attachment.cgi?bugid=434295&amp;action=enter solves this one too.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2398570</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-05-07 17:11:00 -0400</bug_when>
+    <thetext>This looks like a duplicate of https://bugs.eclipse.org/bugs/show_bug.cgi?id=419852
+
+Could you please check with the latest interim version and let me know if the problem persists?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2421932</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-06-29 08:52:08 -0400</bug_when>
+    <thetext>Closing as fixed.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440148</commentid>
+    <comment_count>4</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-18 12:40:26 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>437802</bug_id>
+          
+          <creation_ts>2014-06-20 06:39:00 -0400</creation_ts>
+          <short_desc>EMF model unregisters resources loaded by the platform</short_desc>
+          <delta_ts>2014-08-18 12:39:16 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2418722</commentid>
+    <comment_count>0</comment_count>
+    <who name="Horacio Hoyos">arcanefoam</who>
+    <bug_when>2014-06-20 06:39:55 -0400</bug_when>
+    <thetext>When the executing an ExL script that uses a resource (EMF Model&apos;s) loaded by the platform, at the end of the execution when the EMF model is unloaded the resource is unregistered from the platform. The eclipse IDE must be closed and reopened for the resource to be reloaded which is a big inconvenience if you are running the script multiple times. 
+
+I recall going through this with Dimitris but can&apos;t seem to remember/find the exact method/line that needs to be changed.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2418858</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-06-20 14:36:06 -0400</bug_when>
+    <thetext>Could you please provide a minimal example I can use to reproduce this?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2418893</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-06-20 16:05:00 -0400</bug_when>
+    <thetext>I think I&apos;ve now fixed this (and possibly #416803) in the SVN. Could you please update and let me know if this works for you?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2421936</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-06-29 09:02:31 -0400</bug_when>
+    <thetext>Closing as fixed but please feel free to reopen if the reported behaviour persists.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440146</commentid>
+    <comment_count>4</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-18 12:39:16 -0400</bug_when>
+    <thetext>Added interim whiteboard tag for housekeeping. Fix will appear in 1.2.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>416803</bug_id>
+          
+          <creation_ts>2013-09-08 14:22:00 -0400</creation_ts>
+          <short_desc>EmfModelResourceSet appropriates Java EResources</short_desc>
+          <delta_ts>2014-08-18 12:38:52 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ed Willink">ed</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2304086</commentid>
+    <comment_count>0</comment_count>
+    <who name="Ed Willink">ed</who>
+    <bug_when>2013-09-08 14:22:44 -0400</bug_when>
+    <thetext>Java-defined EPackages have an EResource that is not in a ResourceSet and should not be put in a ResourceSet since they can only be in one. Once in a ResourceSet all sorts of stupid things such as loading, saving and unloading can occur causing general downstream chaos once the corrupted Resource is used.
+
+Launching a Flock transformation referencing http://www.eclipse.org/ocl/3.1.0/OCL.oclstdlib.oclas which is a Java defined model in org.eclipse.ocl.examples.pivot.model.OCLstdlib.java demonmsdtrates this.
+
+After running a Flock transformation, the QVTc editor malfunctions with no OCL Standard Library available since the model has been unloaded by the Launch dispose.
+
+Running one EMF application should not corrupt another; critical.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2304089</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-08 15:06:41 -0400</bug_when>
+    <thetext>This doesn&apos;t sound good. Are you running the Flock transformation using the development tools or through the Java API?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2304149</commentid>
+    <comment_count>2</comment_count>
+    <who name="Ed Willink">ed</who>
+    <bug_when>2013-09-09 02:18:42 -0400</bug_when>
+    <thetext>Using Horacio&apos;s org.eclipse.qvtd.build.etl plugin.
+
+Open UpperToLower.qvtc editor; no markers.
+Run the QVTcToQVTuFlock.launch; two markers on &apos;=&apos; operations.
+Close and reopen UpperToLower.qvtc editor; many problem markers.
+
+I&apos;m not clear why there is an EmfModelResourceSet; a confusing name since its not provided by EMF.
+
+In my experience custom ResourceSets are bad since they inhibit cross-application usage.
+
+If you need a modified ResourceSet API; rethink your design.
+
+If you need extended ResourceSet state; use an eAdapter on a standard ResourceSet.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305383</commentid>
+    <comment_count>3</comment_count>
+    <who name="Ed Willink">ed</who>
+    <bug_when>2013-09-11 08:57:45 -0400</bug_when>
+    <thetext>The problems are indeed due to an attempt to make EMF work in a different way.
+
+Specifically the problem is that EmfModelResourceFactory has a non-standard Resource cache with a heuristic to determine which cache entries can be safeRemove&apos;d.
+
+I don&apos;t understand the heuristic and it is clearly failing.
+
+---
+
+More generally:
+
+EmfModel::createResourceSet() {
+ ResourceSet resourceSet = new EmfModelResourceSet();
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(&quot;*&quot;, EmfModelResourceFactory.getInstance());
+		return resourceSet;
+	}
+
+This is very smelly; occluding the user&apos;s ResourceFactory registrations. The Resource and ResourceFactory are part of the used model design; it is dangerous to change them.
+
+EmfModelResourceSet::createResource(URI uri)
+
+			// Added code to copy the EPackages of the old resource set
+			// into the new resource set
+			if (result.getResourceSet() != null) {
+				for (String s : result.getResourceSet().getPackageRegistry().keySet()) {
+					this.getPackageRegistry().put(s, result.getResourceSet().getPackageRegistry().get(s));
+				}
+			}
+
+I&apos;ve no idea why this would be a good idea.
+
+The override is certainly wrong since it subverts the redirection to content-types. I expect this may make the delicate UML content-type registrations fail.
+
+
+EmfModelResourceFactory::configure()
+
+Overriding the user default load options does not seem like a good idea. You can specify an alternate set of options to be merged when loading..
+
+
+EmfModelResourceFactory::createResource(URI uri) {
+...
+if (resourceFactory != null &amp;&amp; resourceFactory.getClass() != XMIResourceFactoryImpl.class) {
+	resource = resourceFactory.createResource(uri);
+}
+else {
+	resource = new EmfXMIResource(uri);
+}
+
+This is really odd. How can it be useful to change functionality for precisely XMIResourceFactoryImpl but not for derived XMIResourceFactory&apos;s? Why is it appropriate to change XMIResources created by file extension but not those created by content-type?
+
+===
+
+I strongly recommend eliminating all overrides of EMF functionality, it risks making Epsilon incompatible with the rest of the Eclipse modeling ecosystem.
+
+If you want a smart Resource cache have a look at ResourceSetImpl&apos;s
+
+  protected ResourceLocator resourceLocator;
+
+It was added to improve Xtext efficiency.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305623</commentid>
+    <comment_count>4</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-11 17:53:35 -0400</bug_when>
+    <thetext>Thanks for sharing your insights. We&apos;ll probably need to keep the cache but I agree with the rest of your comments. I&apos;ll try to rework the classes involved accordingly when I get a chance - hopefully within the next week or so.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2421937</commentid>
+    <comment_count>5</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-06-29 09:03:20 -0400</bug_when>
+    <thetext>This has been fixed in the SVN.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440145</commentid>
+    <comment_count>6</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-18 12:38:52 -0400</bug_when>
+    <thetext>Added interim whiteboard tag for housekeeping. Fix will appear in 1.2.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>441410</bug_id>
+          
+          <creation_ts>2014-08-08 05:42:00 -0400</creation_ts>
+          <short_desc>EUnit ANT task fails in standalone mode</short_desc>
+          <delta_ts>2014-08-18 12:37:12 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitris Kolovos">dkolovos</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>nyoescape</cc>
+    
+    <cc>Sebastian.Zitzelsberger</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2436989</commentid>
+    <comment_count>0</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-08 05:42:25 -0400</bug_when>
+    <thetext>EunitTask has a hard dependency on org.eclipse.epsilon.common.dt.extensions.ClassBasedExtension which is not part of the standalone Epsilon JARs and as such fails when executed in standalone mode. See [1] for a more detailed discussion and a minimal example.
+
+[1] https://www.eclipse.org/forums/index.php?t=rview&amp;goto=1405839#msg_1405839</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2437022</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-08-08 07:28:35 -0400</bug_when>
+    <thetext>This should be fixed in SVN r2630.
+
+I&apos;ve modified EUnitTask so it accesses that class through reflection. If the class is not available at runtime, it will simply ignore the ClassNotFoundException.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2437023</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-08-08 07:29:18 -0400</bug_when>
+    <thetext>Oh, BTW: should we push out a new interim release for this?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2437861</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-12 04:41:34 -0400</bug_when>
+    <thetext>To minimise the use of reflection, would it make sense to move all Eclipse-specific extensions to the EclipseHost [1] class (we&apos;d probably also need to extend the Host interface - which is fine)? On a related note, by looking at EUnitTask, I&apos;ve noticed that it uses org.eclipse.core.runtime.Platform which is unlikely to exist in standalone mode (I suspect that the exception is handled elsewhere but thought that it may be a good opportunity to restructure this too).</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2437862</commentid>
+    <comment_count>4</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-12 04:42:02 -0400</bug_when>
+    <thetext>[1] https://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/trunk/plugins/org.eclipse.epsilon.workflow/ant/org/eclipse/epsilon/workflow/tasks/hosts/EclipseHost.java</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2438757</commentid>
+    <comment_count>5</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-08-13 16:27:44 -0400</bug_when>
+    <thetext>I&apos;ve committed in SVN r2632 a second version of the fix using the *Host classes. I had to add two methods to Host:
+
+- addEUnitListeners, which is EUnit-specific
+- setupContext(IEolContext context)
+
+I&apos;m not sure if we should generalize the first one to getImplementations(Class) to make it more reusable in the future. As it is, it&apos;s pretty clear waht addEUnitListeners is for.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2438847</commentid>
+    <comment_count>6</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-14 01:35:30 -0400</bug_when>
+    <thetext>Great! If we need to add similar methods in the future, generalising would make a lot of sense.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2439645</commentid>
+    <comment_count>7</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-16 10:44:08 -0400</bug_when>
+    <thetext>After picking up the latest updates, most EUnit-related tests seem to be failing. Is there any chance that some updates have not made it to the SVN?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2439652</commentid>
+    <comment_count>8</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-08-16 14:19:25 -0400</bug_when>
+    <thetext>Not that I know of. I&apos;ll have a look now and let you know. Sorry for the trouble!</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2439663</commentid>
+    <comment_count>9</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-08-16 16:28:22 -0400</bug_when>
+    <thetext>I have fixed the unit tests in SVN r2633. Basically, I was calling EclipseContextManager through the EclipseHost, and that wasn&apos;t working properly in the regular JUnit test cases.
+
+I&apos;ve improved the code so it doesn&apos;t use EclipseContextManager#setup: instead, it only uses Host#addNativeTypeDelegates.
+
+Additionally, I have generalized the old addEUnitListeners(EUnitModule) method to getExtensionsOfType(Class): DefaultHost always returns an empty list, but EclipseHost returns a list of EUnitTestListeners if you pass the EUnitTestListener interface.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2439664</commentid>
+    <comment_count>10</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-08-16 16:28:58 -0400</bug_when>
+    <thetext>Marking once more as fixed.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2439691</commentid>
+    <comment_count>11</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-17 04:02:13 -0400</bug_when>
+    <thetext>Thanks for doing this. All EUnit tests are now passing once again!</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440047</commentid>
+    <comment_count>12</comment_count>
+    <who name="Sebastian Zitzelsberger">Sebastian.Zitzelsberger</who>
+    <bug_when>2014-08-18 10:30:00 -0400</bug_when>
+    <thetext>Thanks for fixing this.
+
+Will these changes pushed to a new interim release then? Or do i have to create the jar from the sourcecode.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2440053</commentid>
+    <comment_count>13</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-08-18 10:35:38 -0400</bug_when>
+    <thetext>We&apos;ll be releasing a new stable version (1.2) that will include this fix within the next few days.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>422937</bug_id>
+          
+          <creation_ts>2013-12-02 06:50:00 -0500</creation_ts>
+          <short_desc>Extended CSV EMC</short_desc>
+          <delta_ts>2014-07-23 06:29:12 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>arcanefoam</cc>
+    
+    <cc>louis</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2336446</commentid>
+    <comment_count>0</comment_count>
+      <attachid>237904</attachid>
+    <who name="Horacio Hoyos">arcanefoam</who>
+    <bug_when>2013-12-02 06:50:21 -0500</bug_when>
+    <thetext>Created attachment 237904
+Patch for emc.csv plugins
+
+Extended CSV EMC privdes:
+
+- Identification and use of header fields
+- Save CSV models
+- Additional options when loading CSV models
+
+More details:
+http://arcanebeans.blogspot.co.uk/2013/11/extended-emc-for-cvs-files.html</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2336447</commentid>
+    <comment_count>1</comment_count>
+      <attachid>237905</attachid>
+    <who name="Horacio Hoyos">arcanefoam</who>
+    <bug_when>2013-12-02 06:51:14 -0500</bug_when>
+    <thetext>Created attachment 237905
+Project with CSV exmaples and scripts that can be used as tests</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2363149</commentid>
+    <comment_count>2</comment_count>
+      <attachid>237904</attachid>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-02-13 15:57:39 -0500</bug_when>
+    <thetext>Comment on attachment 237904
+Patch for emc.csv plugins
+
+Applied patch</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2363150</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-02-13 15:58:33 -0500</bug_when>
+    <thetext>Applied provided patch and committed to SVN (r2495/2496)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2387780</commentid>
+    <comment_count>4</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-04-10 16:44:00 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2430702</commentid>
+    <comment_count>5</comment_count>
+      <attachid>245291</attachid>
+    <who name="Horacio Hoyos">arcanefoam</who>
+    <bug_when>2014-07-23 06:29:12 -0400</bug_when>
+    <thetext>Created attachment 245291
+Plugin Project
+
+Hi,
+
+I have created a plugin to provide a workflow csv loader task. It seems to be working, but I cann&apos;t get ANT to auto-complete/suggest the taks attributes.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>237904</attachid>
+            <date>2013-12-02 06:50:00 -0500</date>
+            <delta_ts>2014-02-13 15:57:39 -0500</delta_ts>
+            <desc>Patch for emc.csv plugins</desc>
+            <filename>org.eclipse.epsilon.emc.csv.dt.patch</filename>
+            <type>application/octet-stream</type>
+            <size>24128</size>
+            <attacher name="Horacio Hoyos">arcanefoam</attacher>
+            
+<flag name="iplog"
+          id="61636"
+          type_id="7"
+          status="+"
+          setter="dkolovos"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>237905</attachid>
+            <date>2013-12-02 06:51:00 -0500</date>
+            <delta_ts>2013-12-02 06:51:14 -0500</delta_ts>
+            <desc>Project with CSV exmaples and scripts that can be used as tests</desc>
+            <filename>org.eclipse.epsilon.emc.csv.test.zip</filename>
+            <type>application/x-zip-compressed</type>
+            <size>6952</size>
+            <attacher name="Horacio Hoyos">arcanefoam</attacher>
+            
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>245291</attachid>
+            <date>2014-07-23 06:29:00 -0400</date>
+            <delta_ts>2014-07-23 06:29:12 -0400</delta_ts>
+            <desc>Plugin Project</desc>
+            <filename>WorkflowCSVLoader.zip</filename>
+            <type>application/zip</type>
+            <size>39722</size>
+            <attacher name="Horacio Hoyos">arcanefoam</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>416219</bug_id>
+          
+          <creation_ts>2013-08-30 05:16:00 -0400</creation_ts>
+          <short_desc>Epsilon Book Typo section 10.2</short_desc>
+          <delta_ts>2014-07-10 08:20:18 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>arcanefoam</cc>
+    
+    <cc>maarten.bezemer</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      <flag name="documentation"
+          id="59238"
+          type_id="4"
+          status="+"
+          setter="arcanefoam"
+    />
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2301179</commentid>
+    <comment_count>0</comment_count>
+      <attachid>235024</attachid>
+    <who name="Horacio Hoyos">arcanefoam</who>
+    <bug_when>2013-08-30 05:16:52 -0400</bug_when>
+    <thetext>Created attachment 235024
+Fixed typo
+
+Missing a parenthesis. Attached patch to fix it.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2382868</commentid>
+    <comment_count>1</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2014-04-01 05:04:03 -0400</bug_when>
+    <thetext>Fixed in r2541
+Thanks for submitting the report</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2382870</commentid>
+    <comment_count>2</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2014-04-01 05:06:43 -0400</bug_when>
+    <thetext>Forgot to update status...</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2387785</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-04-10 16:45:25 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>235024</attachid>
+            <date>2013-08-30 05:16:00 -0400</date>
+            <delta_ts>2013-08-30 05:16:52 -0400</delta_ts>
+            <desc>Fixed typo</desc>
+            <filename>Flock.tex.patch</filename>
+            <type>application/octet-stream</type>
+            <size>2896</size>
+            <attacher name="Horacio Hoyos">arcanefoam</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>418799</bug_id>
+          
+          <creation_ts>2013-10-07 07:14:00 -0400</creation_ts>
+          <short_desc>EGL engine appears to be storing some trace data despite the fact that &apos;Create trace model&apos; is unchecked in the run configuration of the transformation.</short_desc>
+          <delta_ts>2014-04-10 16:44:26 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jimi Ogunyomi">jimmysyl</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>dkolovos</cc>
+    
+    <cc>louis</cc>
+          <qa_contact name="Louis Rose">louis</qa_contact>
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2314975</commentid>
+    <comment_count>0</comment_count>
+      <attachid>236167</attachid>
+    <who name="Jimi Ogunyomi">jimmysyl</who>
+    <bug_when>2013-10-07 07:14:45 -0400</bug_when>
+    <thetext>Created attachment 236167
+Project folder
+
+Upon inspecting the transformation hot spots through JProfiler, there were calls to the following TraceManager methods:
+addDestinationResourceForUnclaimedPropertyAccesses
+appendToFineGrainedTrace
+getFineGrainedTraceManager
+getTraceManager
+setTraceManager</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2372925</commentid>
+    <comment_count>1</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2014-03-07 05:52:07 -0500</bug_when>
+    <thetext>Confirmed that this is the case, and we should definitely fix.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2372932</commentid>
+    <comment_count>2</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2014-03-07 05:57:16 -0500</bug_when>
+    <thetext>I&apos;ve rewritten the fine-grained trace plugin to use a different approach; it now uses an EGL template execution listener, and hence the EGL engine plugin has no dependency on the fine-grained trace plugin.
+
+The trace plugin is now only &quot;turned on&quot; when the trace checkbox is ticked.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2372933</commentid>
+    <comment_count>3</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2014-03-07 05:57:31 -0500</bug_when>
+    <thetext>Fix checked into SVN r2506.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2387783</commentid>
+    <comment_count>4</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-04-10 16:44:26 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>236167</attachid>
+            <date>2013-10-07 07:14:00 -0400</date>
+            <delta_ts>2013-10-07 07:14:45 -0400</delta_ts>
+            <desc>Project folder</desc>
+            <filename>testsign.zip</filename>
+            <type>application/zip</type>
+            <size>796881</size>
+            <attacher name="Jimi Ogunyomi">jimmysyl</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>419001</bug_id>
+          
+          <creation_ts>2013-10-09 05:51:00 -0400</creation_ts>
+          <short_desc>Provide an interface for the Concordance Model</short_desc>
+          <delta_ts>2014-04-10 16:44:13 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Maarten Bezemer">maarten.bezemer</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2316065</commentid>
+    <comment_count>0</comment_count>
+      <attachid>236259</attachid>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-10-09 05:51:41 -0400</bug_when>
+    <thetext>Created attachment 236259
+Add and use IModel interface
+
+Hello all,
+
+Concordance uses the Model class to store some model related information and to provide means to manipulate models.
+
+The Model implementation is working from the original model file. For my application I require a Model object that is going to work from the EditingDomain.
+See http://www.eclipse.org/forums/index.php/m/1129373/#msg_1129373
+
+The provided patch adds a IModel.java file for the interface and changes the Concordance code to use IModel instead of Model. So it becomes possible to have different IModel implementations.
+
+Some notes:
+ * IModel.java is lacking a license header, I&apos;ll leave it up to you to include it. (You are free to use my changes as you desire: I do not need/require personal rights of my patches in Epsilon)
+
+ * I did not prove comments to all interface methods, as I do not exactly know what some of the methods do. You might want to add them yourselves..? :)
+
+ * I named the interface IModel. I could imagine that the interface needs to be called &apos;Model&apos;. I know SVN has some problems keeping track of things when a file gets moved and a new file (with the original name) is added. hence I named the interface IModel. Feel free to rename it to match your naming scheme better.
+
+ * I do not have a solution to be able to choose between different IModel implementation. I&apos;ll wait until this patch (or a derived version) is accepted, to prevent double work.
+
+Regards,
+  Maarten</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2332363</commentid>
+    <comment_count>1</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-11-20 10:21:26 -0500</bug_when>
+    <thetext>It has been a while since I posted this report and corresponding patch.
+
+Is there any chance the interface for the concordance model will be implemented/ made available?
+
+I really need it to provide a new model class that uses the EditingDomain instead of loading the model from the workspace all the time.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2362898</commentid>
+    <comment_count>2</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2014-02-13 09:30:18 -0500</bug_when>
+    <thetext>The interface (named to IConcordanceModel) is added to r2492 (being part of a larger commit).
+Also an extension point (ConcordanceModelFactory) is added to be able to use the required/correct implementation of the interface.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2387782</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-04-10 16:44:13 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+          >
+            <attachid>236259</attachid>
+            <date>2013-10-09 05:51:00 -0400</date>
+            <delta_ts>2013-10-09 05:51:54 -0400</delta_ts>
+            <desc>Add and use IModel interface</desc>
+            <filename>AddModelInterface.patch</filename>
+            <type>text/plain</type>
+            <size>40209</size>
+            <attacher name="Maarten Bezemer">maarten.bezemer</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>423690</bug_id>
+          
+          <creation_ts>2013-12-10 07:20:00 -0500</creation_ts>
+          <short_desc>CrossReferenceReconciler update</short_desc>
+          <delta_ts>2014-04-10 16:43:49 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Maarten Bezemer">maarten.bezemer</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2339834</commentid>
+    <comment_count>0</comment_count>
+      <attachid>238195</attachid>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-12-10 07:20:38 -0500</bug_when>
+    <thetext>Created attachment 238195
+Patch to modify CrossReferenceReconciler
+
+Hello,
+
+I have improved CrossReferenceReconciler a bit. The Model object itself is used to get hold of the resource (instead of the Renaming class).
+
+Big advantage of this is that the Model is able to either load the resource (current behavior), or use some other method like EditingDomains (my desired behavior).
+
+I did not completely remove the Renaming class, but this might be considered as well, as it has no/barely any functionality left.
+
+Please consider adding this patch.
+Cheers,
+  Maarten</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2339836</commentid>
+    <comment_count>1</comment_count>
+      <attachid>238196</attachid>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-12-10 07:23:09 -0500</bug_when>
+    <thetext>Created attachment 238196
+Patch to modify CrossReferenceReconciler (v2)
+
+Oops I left my IModel objects in the patch (see bug #419001), the updated patch should work with the current sources of Epsilon!</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2362896</commentid>
+    <comment_count>2</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2014-02-13 09:28:09 -0500</bug_when>
+    <thetext>This patch is added to the svn in r2492 (part of a larger commit)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2387779</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-04-10 16:43:49 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+          >
+            <attachid>238195</attachid>
+            <date>2013-12-10 07:20:00 -0500</date>
+            <delta_ts>2013-12-10 07:23:09 -0500</delta_ts>
+            <desc>Patch to modify CrossReferenceReconciler</desc>
+            <filename>CrossReferenceReconciler.patch</filename>
+            <type>text/plain</type>
+            <size>3030</size>
+            <attacher name="Maarten Bezemer">maarten.bezemer</attacher>
+            
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+          >
+            <attachid>238196</attachid>
+            <date>2013-12-10 07:23:00 -0500</date>
+            <delta_ts>2013-12-10 07:23:09 -0500</delta_ts>
+            <desc>Patch to modify CrossReferenceReconciler (v2)</desc>
+            <filename>CrossReferenceReconciler.patch</filename>
+            <type>text/plain</type>
+            <size>2653</size>
+            <attacher name="Maarten Bezemer">maarten.bezemer</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>425090</bug_id>
+          
+          <creation_ts>2014-01-08 09:41:00 -0500</creation_ts>
+          <short_desc>Executing ConcordanceH2DatabaseUpdater provides problems for custom/other concordance clients</short_desc>
+          <delta_ts>2014-04-10 16:42:58 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Maarten Bezemer">maarten.bezemer</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2346961</commentid>
+    <comment_count>0</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2014-01-08 09:41:04 -0500</bug_when>
+    <thetext>Renaming a model file name is picked up by the ModelChangerReporter. This class has a list of listeners that need to be informed. One of these listeners is the ConcordanceH2DatabaseUpdater, which has the task to update the database.
+
+Now I have a custom concordance client, which is added to the list of listeners by using the ModelChangeListener extension point.
+Due to this my custom client is called after the database has been updated (as the ConcordanceH2DatabaseUpdater is added before my custom client).
+So it finding model elements that have cross references to the renamed model is not possible anymore as this is a database operation and the database is already updated to reflect the new situation.
+
+An solution would be to (somehow) execute ConcordanceH2DatabaseUpdater after all other listeners are executed/informed about the change.
+The same goes for any other default clients that modifies the database to keep it up to date with the changed situation (if there are any others).</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2384249</commentid>
+    <comment_count>1</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2014-04-03 10:58:20 -0400</bug_when>
+    <thetext>Fixed by r2548
+
+The listeners the modify the database are put in a separate list, and are notified after the regular listeners are notified.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2387776</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-04-10 16:42:58 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>428137</bug_id>
+          
+          <creation_ts>2014-02-13 14:52:00 -0500</creation_ts>
+          <short_desc>Missing &apos;{&apos; in autocomplete EVL &apos;fix&apos; block</short_desc>
+          <delta_ts>2014-04-10 16:42:50 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Victor Pavon">victorpavon</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>victorpavon</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2363122</commentid>
+    <comment_count>0</comment_count>
+    <who name="Victor Pavon">victorpavon</who>
+    <bug_when>2014-02-13 14:52:55 -0500</bug_when>
+    <thetext>When I use the autocomplete &apos;fix&apos; block in the EVL editor the &apos;{&apos; after the keyword &apos;fix&apos; is missed.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2363130</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-02-13 15:11:39 -0500</bug_when>
+    <thetext>Thanks for reporting this. I&apos;ve fixed it in the SVN (r2494).</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2387775</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-04-10 16:42:50 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>428186</bug_id>
+          
+          <creation_ts>2014-02-14 06:55:00 -0500</creation_ts>
+          <short_desc>EOL - Improve API for PropertyAccessRecorder</short_desc>
+          <delta_ts>2014-04-10 16:42:09 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Louis Rose">louis</reporter>
+          <assigned_to name="Louis Rose">louis</assigned_to>
+          <cc>dkolovos</cc>
+    
+    <cc>jimmysyl</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2363414</commentid>
+    <comment_count>0</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2014-02-14 06:55:57 -0500</bug_when>
+    <thetext>The property access recorder is currently only used internally by EGL, but we could easily make this available to clients of the E?L languages. For example, the following should be possible:
+
+recorder = module.getContext().getPropertyAccessRecorder();
+
+module.parse(&quot;...&quot;)
+recorder.startRecording();
+module.execute();
+recorder.stopRecording();
+
+System.out.println(recorder.getPropertyAccesses());</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2363452</commentid>
+    <comment_count>1</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2014-02-14 08:36:11 -0500</bug_when>
+    <thetext>As EGL uses an internal property access recorder to build its fine grained trace model, it makes sense to support multiple property access recorders:
+
+recorder = new PropertyAccessRecorder();
+recorder = module.getContext().getPropertyAccessRecorders().add(recorder);
+
+module.parse(&quot;...&quot;)
+recorder.startRecording();
+module.execute();
+recorder.stopRecording();
+
+System.out.println(recorder.getPropertyAccesses());</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2363456</commentid>
+    <comment_count>2</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2014-02-14 08:43:24 -0500</bug_when>
+    <thetext>I&apos;ve fixed this in SVN r2498.
+
+Dimitris, could you take a look to see whether it would make sense to re-implement this as an ExecutionListener? At the moment, property access recorders are fired as part of the PointExecutor (line 82):
+
+https://gist.github.com/louismrose/9001140#file-pointexecutor-java-L82
+
+If we separate this an ExecutionListener, it seems like we&apos;d need to duplicate some of the AST-parsing logic in the ExecutionListener (e.g., lines 57 and 62), but perhaps I&apos;m missing something?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2363460</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-02-14 08:48:35 -0500</bug_when>
+    <thetext>Thanks for doing this! I agree that implementing this as an execution listener would probably involve some duplication but on the upside we can then remove getPropertyAccessRecorders() from context. I&apos;ll have a closer look at this shortly and get back to you.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2363461</commentid>
+    <comment_count>4</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2014-02-14 08:50:44 -0500</bug_when>
+    <thetext>Yep -- it&apos;s definitely a trade-off, and IEolContext is big enough already! A compromise might be to push down getPropertyAccessRecorders() from IEolContext to ExecutorFactory.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2363469</commentid>
+    <comment_count>5</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-02-14 09:16:46 -0500</bug_when>
+    <thetext>IExecutionListener doesn&apos;t seem to have access to all the information it would need to capture property accesses; its aboutToExecute method only receives the AST and the context as parameters but we would also need the evaluated LHS of . ASTs.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2364137</commentid>
+    <comment_count>6</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-02-17 02:16:03 -0500</bug_when>
+    <thetext>Actually, a little bit of caching seems to be making this possible (see minimal example below)
+
+PropertyRecorderWorkbench.java
+---
+public class PropertyRecorderWorkbench {
+	
+	public static void main(String[] args) throws Exception {
+		new PropertyRecorderWorkbench().run();
+	}
+	
+	public void run() throws Exception {
+		EolModule module = new EolModule();
+		module.parse(&quot;p.name = &apos;foo&apos;; p.asBag().collect(p|p.name).println();&quot;);
+		module.getContext().getFrameStack().
+			putGlobal(Variable.createReadOnlyVariable(&quot;p&quot;, new Person()));
+		module.getContext().getExecutorFactory().addExecutionListener(new PropertyRecorder());
+		module.execute();
+	}
+	
+	class Person {
+		
+		protected String name;
+		
+		public void setName(String name) {
+			this.name = name;
+		}
+		
+		public String getName() {
+			return name;
+		}
+	}
+	
+}
+
+PropertyRecorder.java
+---
+public class PropertyRecorder implements IExecutionListener {
+
+	WeakHashMap&lt;AST, Object&gt; cache = new WeakHashMap&lt;AST, Object&gt;();
+	
+	@Override
+	public void finishedExecuting(AST ast, Object result, IEolContext context) {
+		// Cache the result of the LHS of x.y expressions if a weak hash map
+		if (ast.getParent().getType() == EolParser.POINT 
+				&amp;&amp; ast.getParent().getFirstChild() == ast) {
+			cache.put(ast, result);
+		} // Detect property calls
+		else if (ast.getType() == EolParser.POINT 
+				&amp;&amp; ast.getParent().getType() != EolParser.ASSIGNMENT 
+				&amp;&amp; ast.getSecondChild().getChildCount() == 0) {
+			
+			System.out.println(&quot;Accessed property &quot; + 
+					ast.getSecondChild().getText() + 
+					&quot; of &quot; + 
+					cache.get(ast.getFirstChild()));
+		}
+	}
+	
+	@Override
+	public void aboutToExecute(AST ast, IEolContext context) {}
+
+}
+
+
+Can you spot any obvious problems with this approach?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2369757</commentid>
+    <comment_count>7</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2014-02-28 08:45:08 -0500</bug_when>
+    <thetext>Looks pretty good! I&apos;ve made some changes to handle:
+
+* Nested property accesses: person.enemy.name should capture both &lt;&quot;enemy&quot; on &quot;person&quot;&gt; and &lt;&quot;name&quot; on &quot;person.enemy&quot;&gt;
+
+* Property accesses that are on the _right-hand side_ of an assignment: var name = person.name should capture &lt;&quot;name&quot; on &quot;person&quot;&gt;
+
+* Point expressions that are not model-based property accesses: Person.all should capture nothing.
+
+I&apos;ll keep working on this, as I suspect there may be some other cases we&apos;ve overlooked.
+
+--
+
+public class PropertyAccessExecutionListener implements IExecutionListener {
+
+	private final Collection&lt;IPropertyAccessRecorder&gt; recorders = new LinkedList&lt;IPropertyAccessRecorder&gt;();
+	private final WeakHashMap&lt;AST, Object&gt; cache = new WeakHashMap&lt;AST, Object&gt;();
+	
+	public PropertyAccessExecutionListener(IPropertyAccessRecorder... recorders) {
+		this.recorders.addAll(Arrays.asList(recorders));
+	}
+	
+	@Override
+	public void aboutToExecute(AST ast, IEolContext context) {}
+	
+	@Override
+	public void finishedExecuting(AST ast, Object result, IEolContext context) {
+		// When the left-hand side of a point expression has been executed, store the object on 
+		// which the point expression was invoked, so that we can pass it to any property access recorders
+		if (isLeftHandSideOfPointExpression(ast)) {
+			cache.put(ast, result);
+		}
+		
+		// When a property access is executed, notify the recorders
+		if (isPropertyAccessExpression(ast)) {
+			
+			final Object modelElement = cache.get(ast.getFirstChild());
+			final String propertyName = ast.getSecondChild().getText();
+			
+			if (isModelBasedProperty(modelElement, propertyName, context)) {
+				for (IPropertyAccessRecorder recorder : this.recorders) {
+					recorder.record(modelElement, propertyName);
+				}
+			}
+		}
+	}
+	
+	private boolean isLeftHandSideOfPointExpression(AST ast) {
+		return ast.getParent().getType() == EolParser.POINT &amp;&amp; 
+		       ast.getParent().getFirstChild() == ast;
+	}
+	
+	private boolean isPropertyAccessExpression(AST ast) {
+		return ast.getType() == EolParser.POINT &amp;&amp;          // AST is a point expression  
+		       ast.getSecondChild().getChildCount() == 0 &amp;&amp; // AST&apos;s right-hand side is not a method call
+		       !isAssignee(ast);                            // AST is not the left-hand side of an assignment
+	}
+	
+	// Determines whether a property access is model-based (and not, for example, for an extended property) 
+	private boolean isModelBasedProperty(Object object, String property, IEolContext context) {
+		return context.getIntrospectionManager().isModelBasedProperty(object, property, context);
+	}
+	
+	// Determines whether the specified AST is the left-hand side of an assignment expression
+	private boolean isAssignee(AST ast) {
+		return ast.getParent().getType() == EolParser.ASSIGNMENT &amp;&amp;
+			   ast.getParent().getFirstChild() == ast;
+	}
+}</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2372929</commentid>
+    <comment_count>8</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2014-03-07 05:54:41 -0500</bug_when>
+    <thetext>This latest version seems to be working well, so I&apos;ve checked it in as SVN r2499.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2387773</commentid>
+    <comment_count>9</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2014-04-10 16:42:09 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>359410</bug_id>
+          
+          <creation_ts>2011-09-29 08:11:00 -0400</creation_ts>
+          <short_desc>Epsilon jar for use as library</short_desc>
+          <delta_ts>2014-01-13 11:31:32 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>louis</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2002352</commentid>
+    <comment_count>0</comment_count>
+    <who name="Horacio Hoyos">arcanefoam</who>
+    <bug_when>2011-09-29 08:11:09 -0400</bug_when>
+    <thetext>Hello,
+
+It would be nice to have access to the complete epsilon modules packaged in a jar for use in stand alone applications as a library. Just pack the essentials for running Epsilon language modules.
+
+Thanks, 
+
+Horacio Hoyos</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2337887</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-12-04 19:32:05 -0500</bug_when>
+    <thetext>Epsilon JARs are now available under http://eclipse.org/epsilon/download/</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>414470</bug_id>
+          
+          <creation_ts>2013-08-06 04:39:00 -0400</creation_ts>
+          <short_desc>Epsilon Book - @greedy annotation is not described</short_desc>
+          <delta_ts>2014-01-13 11:31:21 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Gaëtan Pruvost">gaetan.pruvost</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>louis</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2291720</commentid>
+    <comment_count>0</comment_count>
+    <who name="Gaëtan Pruvost">gaetan.pruvost</who>
+    <bug_when>2013-08-06 04:39:51 -0400</bug_when>
+    <thetext>To be added in chapter 5 on ETL</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2341899</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-12-14 09:05:27 -0500</bug_when>
+    <thetext>Fixed.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>414677</bug_id>
+          
+          <creation_ts>2013-08-08 11:07:00 -0400</creation_ts>
+          <short_desc>Epsilon API Javadoc</short_desc>
+          <delta_ts>2014-01-13 11:31:08 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Gaëtan Pruvost">gaetan.pruvost</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>louis</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2292793</commentid>
+    <comment_count>0</comment_count>
+    <who name="Gaëtan Pruvost">gaetan.pruvost</who>
+    <bug_when>2013-08-08 11:07:03 -0400</bug_when>
+    <thetext>This would be nice to have an online javadoc for people who want to interact with Epsilon from Java.
+
+Thanks</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2337885</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-12-04 19:29:31 -0500</bug_when>
+    <thetext>Javadoc is now available under http://download.eclipse.org/epsilon/javadoc/</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>414683</bug_id>
+          
+          <creation_ts>2013-08-08 11:46:00 -0400</creation_ts>
+          <short_desc>Update Concordance webpage</short_desc>
+          <delta_ts>2014-01-13 11:30:39 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Gaëtan Pruvost">gaetan.pruvost</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>louis</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2292809</commentid>
+    <comment_count>0</comment_count>
+    <who name="Gaëtan Pruvost">gaetan.pruvost</who>
+    <bug_when>2013-08-08 11:46:00 -0400</bug_when>
+    <thetext>Read on the webpage:
+
+http://www.eclipse.org/epsilon/doc/concordance/
+
+&quot;Concordance is the newest part of Epsilon and its API is still volatile. We plan to have a first stable version of the API accompanied by exemplar tools in early 2010. Check back soon or drop by the forum for more details.&quot;
+
+Is it stable now?
+
+Thanks</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2341900</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-12-14 09:14:35 -0500</bug_when>
+    <thetext>Updated documentation page. Concordance is reasonably stable but we need to provide additional documentation for it to be useful to the community.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>424610</bug_id>
+          
+          <creation_ts>2013-12-23 07:17:00 -0500</creation_ts>
+          <short_desc>[Eugenia] Forbid users from using the same feature for the source and the target of a link</short_desc>
+          <delta_ts>2014-01-13 11:29:53 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">nyoescape</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>dkolovos</cc>
+    
+    <cc>louis</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2344620</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-12-23 07:17:23 -0500</bug_when>
+    <thetext>In this forum thread, a new user reported that his links were not working properly in the graphical editor after he modified the &quot;filesystem&quot; Eugenia example to use a collection of EReferences in the Sync class:
+
+http://www.eclipse.org/forums/index.php/mv/msg/629804/1222819/#msg_1222819
+
+This is incorrect, but Eugenia should have caught that and notified the user accordingly.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2344623</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-12-23 07:25:12 -0500</bug_when>
+    <thetext>Fixed in SVN r2477.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>425455</bug_id>
+          
+          <creation_ts>2014-01-10 16:40:00 -0500</creation_ts>
+          <short_desc>[Eugenia] Synchronization fails if user has defined labels on EReferences</short_desc>
+          <delta_ts>2014-01-13 11:29:21 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">nyoescape</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>dkolovos</cc>
+    
+    <cc>louis</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2348417</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-01-10 16:40:23 -0500</bug_when>
+    <thetext>Petri Savola from the forums has issues with the FixGMFGen.eol script bundled in Eugenia. Apparently, he has manually added labels to some of the EReferences in his classes and FixGMFGen.eol is producing an error when it tries to check if they should be labelled or not:
+
+http://www.eclipse.org/forums/index.php/t/629163/
+
+Since Eugenia does not handle EReferences as labels but as affixed nodes or links, I think it should be safe to simply return false in a new variant of isLabelled() for EReferences:
+
+@cached
+operation ECore!EReference isLabelled() : Boolean {
+	return false;
+}</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2348419</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2014-01-10 16:42:20 -0500</bug_when>
+    <thetext>Fixed in SVN r2479.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>396963</bug_id>
+          
+          <creation_ts>2012-12-19 18:35:00 -0500</creation_ts>
+          <short_desc>[EVL] Finalise the EVL process automaticaly when the same process its run again.</short_desc>
+          <delta_ts>2013-12-04 19:30:44 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Sebastian Rivera">sebasrivera</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2196390</commentid>
+    <comment_count>0</comment_count>
+    <who name="Sebastian Rivera">sebasrivera</who>
+    <bug_when>2012-12-19 18:35:25 -0500</bug_when>
+    <thetext>As suggested by Dimitris , I&apos;m submitting this enhancement request. Because the only way to run from start the same EVL process again after it finds a unsatisfied constraint it&apos;s by pressing the play-like button to stop the one Already running if not it will keep useing the old model without the fixes made. And a way to stop it automatically would be really useful and more intuitive for the user when useing EVL.
+
+More info related to this here http://www.eclipse.org/forums/index.php/t/441694/</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2337886</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-12-04 19:30:44 -0500</bug_when>
+    <thetext>This has been fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>422295</bug_id>
+          
+          <creation_ts>2013-11-21 17:18:00 -0500</creation_ts>
+          <short_desc>[EGL] Setting formatter at runtime no longer works</short_desc>
+          <delta_ts>2013-11-22 04:31:44 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Louis Rose">louis</reporter>
+          <assigned_to name="Louis Rose">louis</assigned_to>
+          <cc>dkolovos</cc>
+    
+    <cc>nyoescape</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2333203</commentid>
+    <comment_count>0</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2013-11-21 17:18:36 -0500</bug_when>
+    <thetext>From http://www.eclipse.org/forums/index.php/t/610080/:
+
+The following EGL code used to work but now causes an EolTypeNotFoundException.
+
+[%
+  var formatter = new Native(&quot;org.eclipse.epsilon.egl.formatter.language.XmlFormatter&quot;);
+  someTemplate.setFormatter(formatter);
+%]
+
+Results in: EXCEPTION: Type &apos;org.eclipse.epsilon.egl.formatter.language.XmlFormatter&apos; not found.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2333204</commentid>
+    <comment_count>1</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2013-11-21 17:23:42 -0500</bug_when>
+    <thetext>The root cause appears to be that we use a class in (EolClasspathNativeTypeDelegate) .eol.engine to obtain a class loader. Classes contributed by downstream plugins (such as .egl.engine) cannot be loaded from the .eol.engine class path.
+
+My proposal is for us to allow EolContext subclasses to pass an alternative classloader on instantiation. Diff at: https://gist.github.com/louismrose/7590827
+
+Do you both think this is the right approach? Do other subclasses of EolContext likely need this change too?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2333206</commentid>
+    <comment_count>2</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2013-11-21 17:28:17 -0500</bug_when>
+    <thetext>The patch I described above is in SVN r2468.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2333311</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-22 04:31:44 -0500</bug_when>
+    <thetext>Fixed in the latest interim version</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>421226</bug_id>
+          
+          <creation_ts>2013-11-07 05:33:00 -0500</creation_ts>
+          <short_desc>Create ant task for loading xsd-backed xml</short_desc>
+          <delta_ts>2013-11-21 06:39:35 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Arend Rensink">arend.rensink</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2327516</commentid>
+    <comment_count>0</comment_count>
+    <who name="Arend Rensink">arend.rensink</who>
+    <bug_when>2013-11-07 05:33:40 -0500</bug_when>
+    <thetext>The title should be clear enough regarding what I would like, but let me elucidate: I have found no documentation at all about loading xsd-backed xml in the Epsilon workflow language. With the help from Louis I now know that the way to do it is using
+
+&lt;epsilon.loadModel name=&quot;myModelName&quot; type=&quot;xml&quot;&gt;
+	&lt;parameter name=&quot;modelFile&quot; value=&quot;myModelFile&quot;/&gt;
+	&lt;parameter name=&quot;xsdFile&quot; value=&quot;myXsdFile&quot;/&gt;
+	&lt;!-- Other parameters --&gt;
+&lt;/epsilon.loadModel&gt;
+
+but obviously either
+
+&lt;epsilon.xml.loadModel name=&quot;myModelName&quot; file=&quot;myModelFile&quot; xsd=&quot;myXsdFile&quot;/&gt;
+
+or if that causes undesirable overloading (seeing that epsilon.xml.loadModel is also used for &quot;plain&quot; xml) a special task epsilon.xsd.loadModel would be much more convenient.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2331306</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-18 09:48:10 -0500</bug_when>
+    <thetext>Thanks for reporting this. It&apos;s been now fixed in the SVN (r2462). The name of the new task is &lt;epsilon.emf.loadXmlModel&gt; The fix will appear in the next interim version.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2331312</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-18 10:00:00 -0500</bug_when>
+    <thetext>I&apos;ve also updated the example under [1] to demonstrate using the new task.
+
+[1] http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/trunk/examples/org.eclipse.epsilon.examples.xsdxml</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2332391</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-20 10:55:01 -0500</bug_when>
+    <thetext>Fixed in the latest interim version (+jars)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2332773</commentid>
+    <comment_count>4</comment_count>
+      <attachid>237608</attachid>
+    <who name="Arend Rensink">arend.rensink</who>
+    <bug_when>2013-11-21 04:52:40 -0500</bug_when>
+    <thetext>Created attachment 237608
+Ant script showing error
+
+Sorry to continue bothering you... if I use this new task in an ant build script then the new addText method seems not to be available! As an example I include createnote.build.xml which invokes createnote.eol in the xsdxml example: for me this crashes with 
+
+D:\Epsilon\org.eclipse.epsilon.examples.xsdxml\createnode.build.xml:7: Method &apos;addText&apos; not found for: org.eclipse.emf.ecore.impl.DynamicEObjectImpl@60339e3e [eClass: org.eclipse.emf.ecore.impl.EClassImpl@17cfa4f [name: NoteType] [instanceClassName: null] [abstract: false, interface: false]]
+	at (D:\Epsilon\org.eclipse.epsilon.examples.xsdxml\createnote.eol@6:0-6:29)
+
+whereas launching createnote.eol directly works OK. (As an aside: when launching createnote.eol directly, the generated newnote.xml lacks all layouting.)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2332782</commentid>
+    <comment_count>5</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-21 05:11:21 -0500</bug_when>
+    <thetext>Oops - you&apos;re right. I&apos;ve fixed this in the SVN (r2465) and I&apos;m building a new interim version. Regarding the formatting issue, I suspect that once the text content of a mixed element is set, whitespace becomes important and EMF refrains from automatically formatting the produced document so that it doesn&apos;t add extraneous characters. Would post-formatting be an option [1]?
+
+[1] http://stackoverflow.com/questions/8588498/how-can-i-get-xslt-to-indent-xml-from-ant</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2332832</commentid>
+    <comment_count>6</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-21 06:39:35 -0500</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>237608</attachid>
+            <date>2013-11-21 04:52:00 -0500</date>
+            <delta_ts>2013-11-21 04:52:40 -0500</delta_ts>
+            <desc>Ant script showing error</desc>
+            <filename>createnode.build.xml</filename>
+            <type>text/xml</type>
+            <size>233</size>
+            <attacher name="Arend Rensink">arend.rensink</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>419124</bug_id>
+          
+          <creation_ts>2013-10-10 07:38:00 -0400</creation_ts>
+          <short_desc>[EWL] Run wizards repeatedly on collections of applicable objects</short_desc>
+          <delta_ts>2013-11-12 17:36:29 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">nyoescape</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>dkolovos</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2316644</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-10-10 07:38:46 -0400</bug_when>
+    <thetext>I have a wizard that can be applied on an UML activity. I can use it when I have one activity selected, but not when I select two or more. I think it&apos;d be natural to simply let EWL run the same wizard over all the selected elements if they all meet the specified guard.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2316645</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-10-10 07:39:22 -0400</bug_when>
+    <thetext>Fixed in SVN r2416.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2329441</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-12 17:36:29 -0500</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>358199</bug_id>
+          
+          <creation_ts>2011-09-20 04:25:00 -0400</creation_ts>
+          <short_desc>[EWL] GMF integration should expose variable for referring to GMF notation model</short_desc>
+          <delta_ts>2013-11-12 17:36:06 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X - Carbon (unsup.)</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Louis Rose">louis</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>abhijit.gurav</cc>
+    
+    <cc>dkolovos</cc>
+    
+    <cc>louis</cc>
+    
+    <cc>nyoescape</cc>
+    
+    <cc>rcgoncalves.pt</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>1996234</commentid>
+    <comment_count>0</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2011-09-20 04:25:35 -0400</bug_when>
+    <thetext>There&apos;s currently no way to access the GMF notation model from an EWL wizard that has been invoked from a diagram.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2317537</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-10-12 05:11:48 -0400</bug_when>
+    <thetext>*** Bug 325160 has been marked as a duplicate of this bug. ***</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2317546</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-10-12 06:55:00 -0400</bug_when>
+    <thetext>Fixed in SVN r2420, in a somewhat roundabout way.
+
+Many EMF model editors (such as the ones generated by GMF) use an EditingDomain that inherits from the EMF AdapterFactoryEditingDomain, which stores the ResourceSet being edited.
+
+Therefore, we can do a checked downcast of the EditingDomain and expose the Resource objects different from the &quot;Model&quot; one as additional in-memory EMF models.
+
+I&apos;ve decided to name each of these additional models from their file extension. For instance, a &quot;.spdiag&quot; resource will be exposed as &quot;Spdiag&quot;. If we have more than one &quot;.spdiag&quot; resource, the second one will be &quot;Spdiag2&quot; and so on.
+
+I&apos;ll revise the examples a bit now.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2317559</commentid>
+    <comment_count>3</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-10-12 10:41:41 -0400</bug_when>
+    <thetext>I&apos;ve extended the .ewl file for the flowchart example so it includes several wizards that change the notation model:
+
+http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/trunk/examples/org.eclipse.epsilon.eugenia.examples.flowchart.extensions/flowchart.ewl</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2329440</commentid>
+    <comment_count>4</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-12 17:36:06 -0500</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>420158</bug_id>
+          
+          <creation_ts>2013-10-23 06:47:00 -0400</creation_ts>
+          <short_desc>[EGL] Can produces wrong type of newlines in generated files when templates are written and executed on different OSs</short_desc>
+          <delta_ts>2013-11-12 17:35:28 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Louis Rose">louis</reporter>
+          <assigned_to name="Louis Rose">louis</assigned_to>
+          <cc>dkolovos</cc>
+    
+    <cc>nyoescape</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2322067</commentid>
+    <comment_count>0</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2013-10-23 06:47:54 -0400</bug_when>
+    <thetext>Currently, if an EGL template contains newline characters from one operating system (say Windows) and that template is executed on another operating system (say UNIX) then any generated text will contain the Windows newline characters.
+
+This problematic for preventing generated files from being overwritten if their contents would not be changed by the overwrite operation. Java seems to normalise newline characters to the current OS when loading files from disk. This means that we cannot accurately detect whether text generated from a later invocation of the template is different from the file currently on disk as, for the example above, the former would contain Windows newline characters and the latter UNIX newline characters.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2322068</commentid>
+    <comment_count>1</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2013-10-23 06:54:53 -0400</bug_when>
+    <thetext>I&apos;ve committed a fix for this in r2434. We now normalise all newline characters emitted by a template by rewriting newline characters in static sections in the Preprocessor.
+
+In the future, we might want to consider adding Windows and UNIX formatters. These would be postprocessors that rewrite newline characters so that files generated via EGL running on UNIX could be used on Windows, and vice-versa.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2329438</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-12 17:35:28 -0500</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>420159</bug_id>
+          
+          <creation_ts>2013-10-23 07:01:00 -0400</creation_ts>
+          <short_desc>[EGL] Provide mechanism for turning on and off preservation of unchanged files</short_desc>
+          <delta_ts>2013-11-12 17:34:59 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Louis Rose">louis</reporter>
+          <assigned_to name="Louis Rose">louis</assigned_to>
+          <cc>dkolovos</cc>
+    
+    <cc>nyoescape</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2322069</commentid>
+    <comment_count>0</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2013-10-23 07:01:41 -0400</bug_when>
+    <thetext>Currently, EGL will always attempt to prevent writes to disk when the generated text is the same as the contents of the existing file. This can be unhelpful when we want to benchmark the performance of EGL, particularly whilst we explore approaches to incremental transformation.
+
+We need a mechanism for turning on or off this behaviour.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2322071</commentid>
+    <comment_count>1</comment_count>
+    <who name="Louis Rose">louis</who>
+    <bug_when>2013-10-23 07:11:38 -0400</bug_when>
+    <thetext>Patch in r2435. I&apos;ve added support for this (and any future related settings) via a new IncrementalitySettings class. These settings can be changed on a template factory (in which case they are bubbled down to all templates created by that factory) or on individual templates:
+
+templateFactory.getDefaultIncrementalitySettings().setOverwriteUnchangedFiles(false);
+
+template.getIncrementalitySettings().setOverwriteUnchangedFiles(true)
+
+By default isOverwriteUnchangedFiles will return false.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2329437</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-12 17:34:59 -0500</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>420862</bug_id>
+          
+          <creation_ts>2013-11-01 08:34:00 -0400</creation_ts>
+          <short_desc>[EOL] Improve error reporting for unsatisfied postconditions</short_desc>
+          <delta_ts>2013-11-12 17:34:47 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">nyoescape</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>dkolovos</cc>
+    
+    <cc>louis</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2325521</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-01 08:34:34 -0400</bug_when>
+    <thetext>When a postcondition of an EOL operation is not satisfied, it would be nice to know the value of _result in order to assist debugging.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325523</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-01 08:35:16 -0400</bug_when>
+    <thetext>Fixed in SVN r2437.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2329436</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-12 17:34:47 -0500</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>420378</bug_id>
+          
+          <creation_ts>2013-10-25 08:47:00 -0400</creation_ts>
+          <short_desc>[EOL] Support for setting content of an xml/xsd mixed complex type</short_desc>
+          <delta_ts>2013-11-12 17:34:23 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Arend Rensink">arend.rensink</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2323204</commentid>
+    <comment_count>0</comment_count>
+      <attachid>236894</attachid>
+    <who name="Arend Rensink">arend.rensink</who>
+    <bug_when>2013-10-25 08:47:12 -0400</bug_when>
+    <thetext>Created attachment 236894
+Example solution for modifying the mixed attribute
+
+An xml element specified in the xsd has having a mixed complex type ends up with a pseudo-addribute &quot;mixed&quot;. This is an EFeatureMap, in which the values represent the sequence of children, indeed a mixed collection of further XML elements and character data.
+
+Accessing the character data is possible using the functionality of the mixed attribute (though that is not as straightforward as one would like) but modifying it is a pain, because the FeatureMap needs keys of the right type, and these are not easy to construct. See the attached zip for an example of how I solved this in the end (based on the available xsdxml example).
+
+It would be very helpful if EOL provided support for this functionality. There are two levels on which this could be done:
+
+1. Low-level support: an auxiliary operation &quot;setText&quot; on the mixed attribute, which inserts a string into the map. (You could have an indexed version to allow insertion at arbitrary places, and an unindexed version for appending.)
+
+2. High-level support: an auxiliary operation &quot;setContent&quot; on the xml element itself, which appends a string to its mixed attribute. This would avoid the mixed attribute altogether.
+
+--Arend</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2328534</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-10 18:06:07 -0500</bug_when>
+    <thetext>Thanks for reporting this. I&apos;ve extended the example under [1] to demonstrate adding text to mixed elements without the need for an auxiliary file, but I agree that a more elegant solution would be desirable.
+
+[1] https://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/trunk/examples/org.eclipse.epsilon.examples.xsdxml</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2328535</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-10 18:23:25 -0500</bug_when>
+    <thetext>Fixed in the SVN (r2456)
+
+Added 2 operations on mixed elements:
+
+addText(String text) and addText(String text, int index)
+
+The fix will appear in the next interim version.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2329435</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-12 17:34:23 -0500</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>236894</attachid>
+            <date>2013-10-25 08:47:00 -0400</date>
+            <delta_ts>2013-10-25 08:47:12 -0400</delta_ts>
+            <desc>Example solution for modifying the mixed attribute</desc>
+            <filename>note.zip</filename>
+            <type>application/zip</type>
+            <size>1563</size>
+            <attacher name="Arend Rensink">arend.rensink</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>420859</bug_id>
+          
+          <creation_ts>2013-11-01 08:24:00 -0400</creation_ts>
+          <short_desc>[EOL] Improve error reporting with better stack traces</short_desc>
+          <delta_ts>2013-11-12 17:33:37 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">nyoescape</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>ae2</cc>
+    
+    <cc>dkolovos</cc>
+    
+    <cc>louis</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2325511</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-01 08:24:26 -0400</bug_when>
+    <thetext>E*L runtime errors are reported by throwing exceptions. These exceptions usually have a short explanation and the line/column where they happened, but sometimes this is not enough. A full E*L stack trace of the location of the error would be much more helpful than the Java-based stack trace we provide now.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325514</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-01 08:29:23 -0400</bug_when>
+    <thetext>*** Bug 331990 has been marked as a duplicate of this bug. ***</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325515</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-01 08:30:47 -0400</bug_when>
+    <thetext>Fixed in SVN r2013.
+
+I&apos;ve removed a few exception classes that weren&apos;t used anywhere in Epsilon, as far as I could find. I believe we were dragging these since 2007 or so.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325516</commentid>
+    <comment_count>3</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-01 08:31:50 -0400</bug_when>
+    <thetext>Sorry, I meant SVN r2436.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325518</commentid>
+    <comment_count>4</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-01 08:32:28 -0400</bug_when>
+    <thetext>*** Bug 419189 has been marked as a duplicate of this bug. ***</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325520</commentid>
+    <comment_count>5</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-01 08:33:31 -0400</bug_when>
+    <thetext>Thanks for doing this! I&apos;ll go through the updates for a quick sanity check shortly.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325797</commentid>
+    <comment_count>6</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-01 18:42:07 -0400</bug_when>
+    <thetext>Another option might be to implement the call stack monitoring behaviour as a new IExecutionListener which we could attach to the ExecutorFactory. This would also enable us to track the call stack at a more fine-grained level. For example under the current implementation, in the following sample program
+
+1.foo();
+
+operation Integer foo() {
+	self.bar();
+}
+
+operation Integer bar() {
+	return a;
+}
+
+the generated trace does not go all the way up to 1.foo(). Any thoughts?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325835</commentid>
+    <comment_count>7</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-02 06:09:36 -0400</bug_when>
+    <thetext>I&apos;m not sure if that&apos;d be a good idea: wouldn&apos;t that reduce the performance of every E*L script and/or increase the options that need to be juggled by the user?
+
+The way we have it now, the only extra cost is passing around the stack trace in the exception, which shouldn&apos;t be a problem, as it *is* an exceptional situation after all.
+
+I do agree that we may need to revise the code to produce more accurate stack traces, though.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325836</commentid>
+    <comment_count>8</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-02 06:22:45 -0400</bug_when>
+    <thetext>I wouldn&apos;t be too worried about performance: all the new IExecutionListener would do would be to keep a stack of ASTs and push/pop ASTs there in its aboutToExecute/finishedExecuting methods. A potential advantage over the current solution is that we won&apos;t need to change the API of exceptions (when I updated, I had to fix a couple of drivers that are not in the main SVN as the signature of EolIllegalPropertyAssignmentException now includes an extra parameter). I suspect that we&apos;d need to make more changes in a couple of places to support more fine-grained traces - while if we go with the IExecutionListener we won&apos;t need to modify anything other than install a new listener to the executor factory.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325837</commentid>
+    <comment_count>9</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-02 06:29:35 -0400</bug_when>
+    <thetext>That makes sense. How would we print the stack trace, though? Someone would have to get a reference to the concrete IExecutionListener, grab the current stack trace and place it into the exception message. I&apos;m not sure who would be responsible for that: E*L code can be called from many different places.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325839</commentid>
+    <comment_count>10</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-02 06:52:14 -0400</bug_when>
+    <thetext>That&apos;s a good point. Since exceptions are context-less, I suspect that after printing the reason of an exception, client code would have to call something like this: 
+
+module.getContext().getExecutorFactory().getCallStackManager().printCallStack(module.getContext().getErrorStream());
+
+which is not too bad I guess.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325840</commentid>
+    <comment_count>11</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-02 07:04:13 -0400</bug_when>
+    <thetext>Instead of changing client code all over the place, could we use a mix of our two approaches?
+
+We could use an IExecutionListener to track the stack trace, and then place a catch block on E*LModule#execute which would add a detailed stack trace to the thrown exception (wrapping the original exception if necessary) and rethrow it.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325898</commentid>
+    <comment_count>12</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-02 15:33:18 -0400</bug_when>
+    <thetext>That could potentially work but we&apos;ll need to decide how the Epsilon stack trace should be combined with the Java stack trace (when Epsilon is used in an embedded mode, the Java stack trace can be useful). For now, I&apos;d suggest reverting the code in the SVN to version 2345, applying 2347 on top of it and taking it from there. In the first instance, I&apos;ll prototype the IExecutionListener-based solution and when we&apos;re happy with it we can investigate how we want client code to make use of this information. Does this sound sensible?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325911</commentid>
+    <comment_count>13</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-02 17:21:28 -0400</bug_when>
+    <thetext>Sure! Shall I do the revert, then?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325917</commentid>
+    <comment_count>14</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-02 17:41:34 -0400</bug_when>
+    <thetext>That&apos;d be great!</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325922</commentid>
+    <comment_count>15</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-02 18:13:36 -0400</bug_when>
+    <thetext>Done! :-)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2325974</commentid>
+    <comment_count>16</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-03 06:53:16 -0500</bug_when>
+    <thetext>Thanks! I&apos;ve committed a solution that appears to be working well so far. To overcome the context-less EolRuntimeException issue, I&apos;ve made ASTs aware of the IModule they are a part of. As such a runtime exception can get hold of the module of its AST, its context and eventually the stack trace manager.
+
+I&apos;ve also modified the format of the reported error locations in the console so that we can navigate to the exact coordinates of the offending ASTs. Could you please have a go at it and let me know what you think?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2326305</commentid>
+    <comment_count>17</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-11-04 11:21:26 -0500</bug_when>
+    <thetext>This is much nicer, thanks! I like that the actual region with the problem is highlighted, instead of just the line.
+
+After fixing two compilation errors in SVN r2451 due to ambiguous constructors, all tests are green. Looks good to me!</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2328536</commentid>
+    <comment_count>18</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-10 18:25:43 -0500</bug_when>
+    <thetext>Thanks! I forgot to commit the changes to these tests. Closing as fixed.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2329433</commentid>
+    <comment_count>19</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-11-12 17:33:37 -0500</bug_when>
+    <thetext>Fixed in the latest interim version</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>419852</bug_id>
+          
+          <creation_ts>2013-10-18 10:34:00 -0400</creation_ts>
+          <short_desc>gives Eclipse error</short_desc>
+          <delta_ts>2013-10-18 11:30:38 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Arend Rensink">arend.rensink</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2320286</commentid>
+    <comment_count>0</comment_count>
+      <attachid>236655</attachid>
+    <who name="Arend Rensink">arend.rensink</who>
+    <bug_when>2013-10-18 10:34:53 -0400</bug_when>
+    <thetext>Created attachment 236655
+XML file to be used as model + corresponding XSD
+
+When creating a new run configuration, setting a model as &quot;XML backed up by XSD (EMF)&quot; and then loading the attached xml and xsd results in an Eclipse error: &quot;Unhandled event loop exception&quot; (stack trace below). The dialog does not close. --Arend
+
+
+eclipse.buildId=4.3.0.I20130605-2000
+java.version=1.7.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+Error
+Fri Oct 18 15:27:28 BST 2013
+Unhandled event loop exception
+
+java.lang.NullPointerException
+	at org.eclipse.epsilon.common.dt.launching.dialogs.AbstractCachedModelConfigurationDialog.storeProperties(AbstractCachedModelConfigurationDialog.java:52)
+	at org.eclipse.epsilon.emc.emf.dt.XmlModelConfigurationDialog.storeProperties(XmlModelConfigurationDialog.java:110)
+	at org.eclipse.epsilon.common.dt.launching.dialogs.AbstractModelConfigurationDialog.okPressed(AbstractModelConfigurationDialog.java:155)
+	at org.eclipse.jface.dialogs.Dialog.buttonPressed(Dialog.java:476)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:628)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4170)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:826)
+	at org.eclipse.jface.window.Window.open(Window.java:802)
+	at org.eclipse.epsilon.common.dt.launching.tabs.ModelsConfigurationTab$AddModelListener.handleEvent(ModelsConfigurationTab.java:194)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4170)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:826)
+	at org.eclipse.jface.window.Window.open(Window.java:802)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchConfigurationsDialog.open(LaunchConfigurationsDialog.java:1134)
+	at org.eclipse.debug.ui.DebugUITools$2.run(DebugUITools.java:604)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.debug.ui.DebugUITools.openLaunchConfigurationDialogOnGroup(DebugUITools.java:612)
+	at org.eclipse.debug.ui.DebugUITools.openLaunchConfigurationDialogOnGroup(DebugUITools.java:546)
+	at org.eclipse.debug.ui.actions.OpenLaunchDialogAction.run(OpenLaunchDialogAction.java:81)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:499)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4170)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3759)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1113)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:997)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:138)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:610)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:567)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:354)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1426)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2320301</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-10-18 10:51:37 -0400</bug_when>
+    <thetext>Thanks for reporting this. This has been now fixed in the SVN and the fix will appear in the next interim version.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2320345</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-10-18 11:30:38 -0400</bug_when>
+    <thetext>This has been fixed in the latest interim version 
+
+http://download.eclipse.org/epsilon/interim/</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>236655</attachid>
+            <date>2013-10-18 10:34:00 -0400</date>
+            <delta_ts>2013-10-18 10:34:53 -0400</delta_ts>
+            <desc>XML file to be used as model + corresponding XSD</desc>
+            <filename>full.zip</filename>
+            <type>application/x-zip-compressed</type>
+            <size>2433</size>
+            <attacher name="Arend Rensink">arend.rensink</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>417774</bug_id>
+          
+          <creation_ts>2013-09-22 14:32:00 -0400</creation_ts>
+          <short_desc>Results of lazy match rules are not added to the match trace</short_desc>
+          <delta_ts>2013-09-22 14:43:27 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitris Kolovos">dkolovos</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2309603</commentid>
+    <comment_count>0</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-22 14:32:01 -0400</bug_when>
+    <thetext>Reported in the newsgroup: http://www.eclipse.org/forums/index.php/mv/msg/528766/1114390/#msg_1114390</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2309604</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-22 14:33:24 -0400</bug_when>
+    <thetext>Fixed in the SVN (r2403)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2309606</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-22 14:43:27 -0400</bug_when>
+    <thetext>Fixed in the latest interim version</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>417464</bug_id>
+          
+          <creation_ts>2013-09-17 19:37:00 -0400</creation_ts>
+          <short_desc>EvlValidator should support configurable error handling</short_desc>
+          <delta_ts>2013-09-18 03:45:37 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitris Kolovos">dkolovos</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          <cc>maarten.bezemer</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2308098</commentid>
+    <comment_count>0</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-17 19:37:05 -0400</bug_when>
+    <thetext>Copied from http://www.eclipse.org/forums/index.php/t/523935/
+
+---
+Hello,
+
+Sometimes I am getting a ridiculous amount of validation exceptions (shown in the same amount of dialogs, making my system quite unresponsive).
+So I thought it is time to prevent this (e.g. by ignoring validation problems after 10 are found).
+With the current EvlValidator class this is not really possible.
+
+The EvlValidator.validate(Resource, Map&lt;Object, Object&gt;) catches exception and show them in a log + dialog.
+I have some thoughts about this:
+
+When an exception is caught, the validation should be canceled... Now it continues, which is not likely the perform the validation correctly.
+The method does not provide means to let the callee know whether an exception occurred... E.g. via a return value or a rethrown exception
+
+My opinion is to cancel the validation when an exception occurs (point 1) and throw a new exception telling what went wrong (point 2), instead of directly logging them.
+The newly thrown exception can be caught in the validate(EClass, EObject, DiagnosticChain, Map&lt;Object, Object&gt;) method and added to the log, to keep the default behavior.
+
+But now a custom validator is able to handle them as desired. E.g. keeping a counter and stop showing the exceptions after a certain threshold is reached.
+
+Any additional thoughts about this subject?
+
+Again, I am willing to provide a patch when a consensus is achieved.
+
+Have a good weekend!
+Cheers,
+Maarten
+---</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2308099</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-17 19:45:29 -0400</bug_when>
+    <thetext>Fixed in the SVN (r2395)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2308101</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-17 19:56:53 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>417462</bug_id>
+          
+          <creation_ts>2013-09-17 19:30:00 -0400</creation_ts>
+          <short_desc>Eugenia patch generation fails on Windows</short_desc>
+          <delta_ts>2013-09-17 19:59:12 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitris Kolovos">dkolovos</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2308092</commentid>
+    <comment_count>0</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-17 19:30:12 -0400</bug_when>
+    <thetext>Copied from http://www.eclipse.org/forums/index.php/t/517439/
+
+---
+Hi,
+I&apos;m learning using Eugenia patches functionality. For this purpose I&apos;m following the tutorial described on http://www.eclipse.org/epsilon/doc/articles/print.php?articleId=eugenia-patching. I have executed the first part of the tutorial successfully, modifying generated code with different customized patches. But the problem comes on the second part, where the patches are generated from a .egx file. I have specified both egx and egl files but if I execute &quot;Generate patches&quot; Eugenia action, the following error appears: 
+
+Could not process &apos;C:\Users\xdecarlos\Desktop\Kepler_Sep\runtime\runtime-New_configuration\es.ikerlan.example\model\FixCustomEditPartTemplate.egl&apos;
+	Cause: java.net.MalformedURLException: unknown protocol: c
+
+	at org.eclipse.epsilon.egl.EglTemplateFactory.handleFailedLoad(EglTemplateFactory.java:205)
+
+
+Maybe I have done something wrong, but I don&apos;t know where. Any suggestion?
+
+Thank you!
+
+Xabier De Carlos.
+---</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2308094</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-17 19:31:39 -0400</bug_when>
+    <thetext>Fixed in the SVN (r2395)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2308100</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-17 19:45:52 -0400</bug_when>
+    <thetext>Resolving as fixed</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2308103</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos</who>
+    <bug_when>2013-09-17 19:59:12 -0400</bug_when>
+    <thetext>Fixed in the latest interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>417277</bug_id>
+          
+          <creation_ts>2013-09-15 05:42:00 -0400</creation_ts>
+          <short_desc>[Eugenia] runtime.lite not required anymore for SVG support</short_desc>
+          <delta_ts>2013-09-15 06:42:37 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">nyoescape</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2306910</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-15 05:42:08 -0400</bug_when>
+    <thetext>This bug report stems from the discussion in this forum thread:
+
+http://www.eclipse.org/forums/index.php/m/1109345/#msg_1109345
+
+When SVG support was first added to Eugenia (in Indigo, IIRC) it required the experimental GMF tooling SDK. It was the same during Juno as well. Among other things, when using SVG-based figures Eugenia would add dependencies to two plugins: org.eclipse.gmf.runtime.lite and org.eclipse.gmf.runtime.lite.svg.
+
+Kepler has improved the situation considerably: runtime.lite.svg is now part of the standard GMF distribution and does not require runtime.lite anymore. However, Eugenia is still adding the dependency on runtime.lite, which prevents the generated plugin from working correctly.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2306913</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-15 06:35:56 -0400</bug_when>
+    <thetext>Fixed in SVN r2392.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>417059</bug_id>
+          
+          <creation_ts>2013-09-12 04:28:00 -0400</creation_ts>
+          <short_desc>Support custom EvlValidator implementations</short_desc>
+          <delta_ts>2013-09-15 06:42:33 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Maarten Bezemer">maarten.bezemer</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>nyoescape</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2305703</commentid>
+    <comment_count>0</comment_count>
+      <attachid>235414</attachid>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-09-12 04:28:52 -0400</bug_when>
+    <thetext>Created attachment 235414
+Adds custom EvlValidator support
+
+As discussed in http://www.eclipse.org/forums/index.php/t/521880/ the custom EvlValidator allows one to modify the validation behavior of the EVL constraints. (In my case to cache results to increase to the speed of live validation)
+
+The patch adds a validation attribute to the constraintsBinding which is used to create the custom EvlValidator object (if the attribute is used). The default behaviour does not change.
+
+Unfortunately, createExecutableExtension() is not possible to call constructors with parameters. Therefore, an initialise() method is added to EvlValidator to provide the &apos;constructor parameters&apos; after the class has been instantiated.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305709</commentid>
+    <comment_count>1</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-09-12 04:45:00 -0400</bug_when>
+    <thetext>EvlValidator has some private methods:
+
+ * addMarkers(String, EObject, DiagnosticChain)
+ * void validate(Resource, Map&lt;Object, Object&gt;)
+
+it would be great if these change be changed to protected, so they are usable from the custom EvlValidator implementations!</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305710</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-12 04:51:15 -0400</bug_when>
+    <thetext>The patch looks simple enough, but could you preserve the original EvlValidator constructor in addition to the new no-arg constructor? Someone could be using it, and we wouldn&apos;t want to break their code. You could have it invoke the initialize method, in order to avoid duplicating code.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305718</commentid>
+    <comment_count>3</comment_count>
+      <attachid>235415</attachid>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-09-12 04:59:40 -0400</bug_when>
+    <thetext>Created attachment 235415
+Adds custom EvlValidator support v2
+
+Good idea.
+
+I also changed the visibility of both methods to protected (assuming this would not be a problem)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305722</commentid>
+    <comment_count>4</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-12 05:17:14 -0400</bug_when>
+    <thetext>Sure, feel free to change those methods to protected access :-).</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305723</commentid>
+    <comment_count>5</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-09-12 05:18:13 -0400</bug_when>
+    <thetext>I already did... :-D</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305725</commentid>
+    <comment_count>6</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-12 05:25:14 -0400</bug_when>
+    <thetext>I guess you&apos;re preventing multiple initialization in order to better simulate the semantics of the old four-arg constructor, right?
+
+I think that&apos;s a good idea, but perhaps you should add an else branch to the initialize(...) method that logs a warning to the Error Log view if someone tries to initialize an already initialized EvlValidator. Otherwise, they might be left scratching their heads when it doesn&apos;t pick up their values. (I&apos;ve been bitten by silent errors before, and it&apos;s not nice :-D)
+
+You could use something like:
+
+  Activator.getDefault().getLog().log(...)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305733</commentid>
+    <comment_count>7</comment_count>
+      <attachid>235417</attachid>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-09-12 05:39:02 -0400</bug_when>
+    <thetext>Created attachment 235417
+Adds custom EvlValidator support v3
+
+Yes, it prevents calling initialise() twice, as it will probably break things badly (assuming it uses different values).
+
+Updated the patch to generate a warning when initialise() is called twice (or after the original constructor is used).
+
+To make it even nicer, one should/could check if initialise() is called before making use of the class. Although, I guess this results in a lot of overhead, as this is checked every time validate() is called and therefore not worth it.
+
+Personally, I would not do this, do you agree?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305744</commentid>
+    <comment_count>8</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-12 05:59:27 -0400</bug_when>
+    <thetext>No, I think it&apos;s good enough to assume that users will read the prominently displayed note in the javadoc for the default constructor... or else :-).
+
+I think the patch is ready for integration now.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305757</commentid>
+    <comment_count>9</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-12 06:27:39 -0400</bug_when>
+    <thetext>Patch integrated in SVN r2384.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>235414</attachid>
+            <date>2013-09-12 04:28:00 -0400</date>
+            <delta_ts>2013-09-12 04:59:40 -0400</delta_ts>
+            <desc>Adds custom EvlValidator support</desc>
+            <filename>CustomEvlValidator.patch</filename>
+            <type>application/octet-stream</type>
+            <size>4040</size>
+            <attacher name="Maarten Bezemer">maarten.bezemer</attacher>
+            
+
+          </attachment>
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+          >
+            <attachid>235415</attachid>
+            <date>2013-09-12 04:59:00 -0400</date>
+            <delta_ts>2013-09-12 05:39:02 -0400</delta_ts>
+            <desc>Adds custom EvlValidator support v2</desc>
+            <filename>CustomEvlValidator-v2.patch</filename>
+            <type>text/plain</type>
+            <size>4895</size>
+            <attacher name="Maarten Bezemer">maarten.bezemer</attacher>
+            
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+          >
+            <attachid>235417</attachid>
+            <date>2013-09-12 05:39:00 -0400</date>
+            <delta_ts>2013-09-12 05:39:02 -0400</delta_ts>
+            <desc>Adds custom EvlValidator support v3</desc>
+            <filename>CustomEvlValidator-v3.patch</filename>
+            <type>text/plain</type>
+            <size>5459</size>
+            <attacher name="Maarten Bezemer">maarten.bezemer</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>416893</bug_id>
+          
+          <creation_ts>2013-09-10 04:54:00 -0400</creation_ts>
+          <short_desc>Add support for custom variable to EVLValidator</short_desc>
+          <delta_ts>2013-09-15 06:42:28 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard>interim</status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Maarten Bezemer">maarten.bezemer</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">nyoescape</assigned_to>
+          <cc>nyoescape</cc>
+          
+          <votes>0</votes>
+
+      
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2304722</commentid>
+    <comment_count>0</comment_count>
+      <attachid>235337</attachid>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-09-10 04:54:34 -0400</bug_when>
+    <thetext>Created attachment 235337
+Patch to add variable support
+
+As discussed in http://www.eclipse.org/forums/index.php/m/1105247/ a patch to add variable support to EvlValidator/EvlModule/EVL rules.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2304732</commentid>
+    <comment_count>1</comment_count>
+      <attachid>235339</attachid>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-09-10 05:04:59 -0400</bug_when>
+    <thetext>Created attachment 235339
+Patch to add variable support v2
+
+Changed minimum required diagnosticanVariable elements to 0 (previous patch has it set to 1, forcing the user to use this element)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2304968</commentid>
+    <comment_count>2</comment_count>
+      <attachid>235359</attachid>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-10 11:29:34 -0400</bug_when>
+    <thetext>Created attachment 235359
+Revised patch using sets and assigning Any to the variable type
+
+Nice work! I hope you don&apos;t mind me making a few adjustments here and there. Here&apos;s a revised patch with some changes:
+
+- Reworded the javadocs to relate them more closely to the concept of the EMF Diagnostician.
+
+- Use Set&lt;String&gt; instead of List&lt;String&gt;: they just make more sense conceptually to me :-).
+
+- Do not assume that the value in the context is a String: it could be an Integer or some Object.
+
+Please try out the revised patch and let me know what you think :-).</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305060</commentid>
+    <comment_count>3</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-09-10 13:37:47 -0400</bug_when>
+    <thetext>Using EolAnyType.Instance does seem to work in my case. How is it implemented? It takes the type of value that is set to the variable? If so, it is indeed much nicer to use this.
+
+I am also fine with using a Set instead of a List (I pick List as a default, but a Set is good enough) and your changes in the the Javadoc.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305063</commentid>
+    <comment_count>4</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-10 13:52:26 -0400</bug_when>
+    <thetext>As far as I can remember, the type is only used for checking argument types, for instance. The rest of the time, Epsilon is pretty much a dynamically-typed language, so the type is not used :-).
+
+I&apos;ll integrate the patch between today and tomorrow, then. Do you need a new interim release, or can you work straight from the source?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305065</commentid>
+    <comment_count>5</comment_count>
+    <who name="Maarten Bezemer">maarten.bezemer</who>
+    <bug_when>2013-09-10 13:56:46 -0400</bug_when>
+    <thetext>Thanks.
+
+I do not require a new interim release as I have copied the complete plug-in into my application (see http://www.eclipse.org/forums/index.php/t/521880/ )</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2305140</commentid>
+    <comment_count>6</comment_count>
+    <who name="Antonio Garcia-Dominguez">nyoescape</who>
+    <bug_when>2013-09-10 16:51:27 -0400</bug_when>
+    <thetext>Patch integrated in SVN r2380.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>235337</attachid>
+            <date>2013-09-10 04:54:00 -0400</date>
+            <delta_ts>2013-09-10 05:04:59 -0400</delta_ts>
+            <desc>Patch to add variable support</desc>
+            <filename>Epsilon-EvlValidator-SupportVariables.patch</filename>
+            <type>application/octet-stream</type>
+            <size>5741</size>
+            <attacher name="Maarten Bezemer">maarten.bezemer</attacher>
+            
+
+          </attachment>
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+          >
+            <attachid>235339</attachid>
+            <date>2013-09-10 05:04:00 -0400</date>
+            <delta_ts>2013-09-10 11:29:34 -0400</delta_ts>
+            <desc>Patch to add variable support v2</desc>
+            <filename>Epsilon-EvlValidator-SupportVariables.patch</filename>
+            <type>text/plain</type>
+            <size>6262</size>
+            <attacher name="Maarten Bezemer">maarten.bezemer</attacher>
+            
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+          >
+            <attachid>235359</attachid>
+            <date>2013-09-10 11:29:00 -0400</date>
+            <delta_ts>2013-09-10 11:29:34 -0400</delta_ts>
+            <desc>Revised patch using sets and assigning Any to the variable type</desc>
+            <filename>0001-Improved-javadocs-use-Set-instead-of-List-and-do-not.patch</filename>
+            <type>text/plain</type>
+            <size>7170</size>
+            <attacher name="Antonio Garcia-Dominguez">nyoescape</attacher>
+            
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

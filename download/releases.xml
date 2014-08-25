@@ -7,6 +7,10 @@
 		<notes>...</notes>
 	</release>
 	 -->
+	<release version="1.2" released="10 Sept 2013" jars="yes" srcjars="yes">
+		<eclipse name="Luna" version="4.4" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/R/eclipse-modeling-luna-R-"/>
+		<notes>Scheduled release</notes>
+	</release>
 	<release version="1.1_SR1" released="10 Sept 2013" jars="yes">
 		<eclipse name="Kepler" version="4.3" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-"/>
 		<notes>Service release</notes>

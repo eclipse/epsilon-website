@@ -95,13 +95,32 @@
 		else return false;
 	}
 	
-	function jar($flavour, $version, $breadCrumb) {
-		$link = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."jars/epsilon-".$version."-".$flavour.".jar";
-		return "<a href='".$link."'>epsilon-".$version."-".$flavour.".jar";
+	function jar($flavour, $version, $interim, $src) {
+		global $breadCrumb;
+		$srcLabel = "";
+		if ($src) { $srcLabel = "-src"; }
+		
+		$jarFolder = "jars";
+		if ($interim) { $jarFolder = "interim-jars"; }
+
+		$filename = "epsilon-".$version."-".$flavour.$srcLabel.".jar";
+		$link = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb.$jarFolder."/".$filename;
+		return "<a href='".$link."'>".$filename."</a>";
 	}
 	
 	h();
 ?>
+
+<?if ($latest) {?>
+<div class="row">
+	<div class="span12">
+	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
+		We are currently in the middle of releasing a new stable version of Epsilon (1.2) so until that's done, some links/update sites may not work as expected.
+		In the meantime, please <a href="index.php?version=1.1_SR1">download version 1.1_SR1 instead</a>.
+    </div>
+    </div>
+</div>
+<?}?>
 
 <!--div class="row">
 	<div class="span12">
@@ -288,60 +307,29 @@
   						
   						<?if ($jars){?>
   						<div id="jars" class="tab-pane">
-  						<p>
-  						Plain old JARs you can use to embed Epsilon as a library in your Java or Android application.
-  						</p>
-  						<?for($i=0;$i<2;$i++){?>
-  						<?
-  						$firstTh = "Stable";
-  						if ($i == 1) {
-  							$firstTh = "Interim";
-  							$breadCrumb = "interim-".$breadCrumb;
-  						}
-  						?>
-  						<table class="table table-striped">
-  							<thead>
-  								<tr>
-  									<th><?=$firstTh?></th>
-  									<th>Execution engines</th>
-  									<th>Workflow *</th>
-  									<th>EMF driver **</th>
-  								</tr>
-  							</thead>
-  							<tbody>
-	  							<tr>
-	  								<td><?=jar("core", $version, $breadCrumb)?></td>
-	  								<td>&#10004;</td>
-	  								<td>&#10008;</td>
-	  								<td>&#10008;</td>
-	  							</tr>	
-	  							<tr>
-	  								<td><?=jar("ant", $version, $breadCrumb)?></td>
-	  								<td>&#10004;</td>
-	  								<td>&#10004;</td>
-	  								<td>&#10008;</td>
-	  							</tr>
-	  							<tr>
-	  								<td><?=jar("emf", $version, $breadCrumb)?></td>
-	  								<td>&#10004;</td>
-	  								<td>&#10008;</td>
-	  								<td>&#10004;</td>
-	  							</tr>
-	  							<tr>
-	  								<td><?=jar("ant-emf", $version, $breadCrumb)?></td>
-	  								<td>&#10004;</td>
-	  								<td>&#10004;</td>
-	  								<td>&#10004;</td>
-	  							</tr>	  								  							
-	  						</tbody>						
-						</table>
-						<?}?>
-  						<p>
-  						* To use the workflow tasks, you will need to install <a href="http://apache.org/ant">ANT</a>.<br/>
-  						** To use the EMF driver, you will also need EMF in your classpath (not contained in the JARs distributed here).
-  						</p>
+	  						<ul class="nav nav-pills">
+							    <li class="active"><a href="#stablejars" data-toggle="tab">Stable</a></li>
+							    <li><a href="#interimjars" data-toggle="tab">Interim</a></li>
+							</ul>
+							<div class="tab-content">
+								<div id="stablejars" class="tab-pane active">
+									<p>
+			  							Plain old JARs you can use to embed the latest <b>stable</b> version of Epsilon <?=$version?> 
+			  							as a library in your Java or Android application.
+			  						</p>
+	  								<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."jars";?>
+	  								<?include("jars/".$version.".php");?>
+	  							</div>
+	  							<div id="interimjars" class="tab-pane">
+									<p>
+			  							Plain old JARs you can use to embed the latest <b>interim</b> version of Epsilon <?=$version?> 
+			  							as a library in your Java or Android application.
+			  						</p>	  								
+			  						<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."interim-jars";?>
+			  						<?include("jars/".$version."-interim.php");?>
+	  							</div>
+	  						</div>
   						</div>
-  						
   						<?}?>
   						
   						<div id="releasenotes" class="tab-pane">
