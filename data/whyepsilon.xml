@@ -64,8 +64,11 @@
 	  The Epsilon forum contains more than <a href="forum">6500 posts</a> and we're proud that no question has ever gone unanswered.
 	  ]]>
 	</reason>
+	<reason title="You're not alone" icon="user">
+	  Epsilon has a significant <a href="users">user community</a> both in the industry and in open-source software development.
+	</reason>
 	<reason title="We're working on it" icon="chart">
-	  We've been developing Epsilon since 2006 and it's not going away any time soon.
+	  Epsilon has been an official Eclipse project since 2006 and it's not going away any time soon.
 	</reason>
 	<reason title="Ready to use distributions" icon="monitor">
 	   <![CDATA[
