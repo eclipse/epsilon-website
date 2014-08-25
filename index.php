@@ -92,7 +92,7 @@
   </div>
 </div>
 
-<span style="float:right;position:relative;top:20px"><script id='fbwyf51'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=epsilonews&button=compact&url=http%3A%2F%2Fwww.eclipse.org%2Fepsilon';f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbwyf51');</script></span>  
+<!--span style="float:right;position:relative;top:20px"><script id='fbwyf51'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=epsilonews&button=compact&url=http%3A%2F%2Fwww.eclipse.org%2Fepsilon';f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbwyf51');</script></span-->  
 <div class="tabbable" style="margin-bottom: 0px;">
   <ul class="nav nav-tabs">
     <li><a href="#languages" data-toggle="tab"><h4>Languages</h4></a></li>
