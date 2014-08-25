@@ -92,19 +92,20 @@
   </div>
 </div>
 
+<span style="float:right;position:relative;top:20px"><script id='fbwyf51'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=epsilonews&button=compact&url=http%3A%2F%2Fwww.eclipse.org%2Fepsilon';f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbwyf51');</script></span>  
 <div class="tabbable" style="margin-bottom: 0px;">
   <ul class="nav nav-tabs">
     <li><a href="#languages" data-toggle="tab"><h4>Languages</h4></a></li>
     <li><a href="#tools" data-toggle="tab"><h4>Tools</h4></a></li>
     <li class="active"><a href="#whyepsilon" data-toggle="tab"><h4>Why Epsilon?</h4></a></li>
     <li><a href="#twitter" data-toggle="tab"><h4>@epsilonews</h4></a></li>
+    
     <!--
     <a style="position:relative;top:19px;left:521px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="Drag and drop into a running Eclipse Indigo workspace to install Epsilon">
 	  <img src="/epsilon/img/installbutton.png"/>
     </a>
      -->
   </ul>
-  
   <div class="tab-content">
   <?foreach (array("language", "tool") as $componentType) { $componentCount = countElements($components, $componentType);?>
     <div class="tab-pane <?if ($componentType=="language1"){ echo "active";}?>" id="<?=$componentType?>s">
