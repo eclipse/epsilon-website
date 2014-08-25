@@ -28,6 +28,12 @@
 	  Other drivers provide support for <a href="doc/articles/plain-xml">XML</a>, CSV, Bibtex and you can even roll out your own driver!
 	  ]]>
 	</reason>
+	<reason title="No Eclipse? No problem" icon="folder">
+      <![CDATA[ 
+	  While Epsilon provides strong support for Eclipse, we also provide <a href="download">standalone JARs</a> that you can use
+	  to <a href="examples/index.php?example=org.eclipse.epsilon.examples.standalone">embed Epsilon</a> in your plain Java or Android application.
+	  ]]>
+	</reason>	
 	<reason title="Mix and match" icon="refresh">
 	  <![CDATA[
 	  Epsilon poses no constraints on the number/type of models you can use in the same program. 

@@ -315,7 +315,7 @@
 								<div id="stablejars" class="tab-pane active">
 									<p>
 			  							Plain old JARs you can use to embed the latest <b>stable</b> version of Epsilon <?=$version?> 
-			  							as a library in your Java or Android application.
+			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application.
 			  						</p>
 	  								<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."jars";?>
 	  								<?include("jars/".$version.".php");?>
@@ -323,7 +323,7 @@
 	  							<div id="interimjars" class="tab-pane">
 									<p>
 			  							Plain old JARs you can use to embed the latest <b>interim</b> version of Epsilon <?=$version?> 
-			  							as a library in your Java or Android application.
+			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application.
 			  						</p>	  								
 			  						<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."interim-jars";?>
 			  						<?include("jars/".$version."-interim.php");?>
