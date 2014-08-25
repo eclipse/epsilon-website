@@ -1,5 +1,3 @@
-<h4>Modular JARs</h4>
-
 <table class="table table-striped">
 	<thead>
 		<tr>
