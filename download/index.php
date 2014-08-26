@@ -46,9 +46,16 @@
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
 	$downloadMac = $downloadUrl."macosx-cocoa.zip";
 	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.zip";
-	$downloadLinux = $downloadUrl."linux-gtk.tar.gz";
-	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.tar.gz";
-	
+
+	if ($version == "1.2") {
+		$downloadLinux = $downloadUrl."linux-gtk.zip";
+		$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.zip";
+	}
+	else {
+		$downloadLinux = $downloadUrl."linux-gtk.tar.gz";
+		$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.tar.gz";
+	}
+
 	$updateSite = "http://download.eclipse.org/epsilon/".$breadCrumb."updates/";
 	
 	function getVisitorPlatform() 
