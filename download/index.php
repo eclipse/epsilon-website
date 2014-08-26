@@ -118,7 +118,7 @@
 	h();
 ?>
 
-<?if ($latest) {?>
+<?if (false) {?>
 <div class="row">
 	<div class="span12">
 	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
