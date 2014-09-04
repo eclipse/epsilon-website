@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<developers>
+	<developer name="Dimitris Kolovos" photo="dimitris">
+		<![CDATA[
+		I started developing Epsilon in 2004 and have been leading the project ever since. Most of my effort goes into the development and maintenance of EOL, ETL, EVL, ECL, EML, EWL, Eugenia, and the ANT workflow, as well as the release engineering activities of the project. I currently pretend to work as a lecturer in the Department of Computer Science of the University of York, one of the most research-intensive CS departments in the UK. I am currently recruiting PhD students so if the prospect of contributing mind-blowing features to future versions of Epsilon sounds like chocolate-covered unicorns - and you don't mind <a href="http://duckdensity.org.uk/uni_info?uni_ID=york">the ducks</a> - do <a href="http://dimitris.io/contact">get in touch</a>.
+		]]>
+	</developer>
+	<developer name="Louis Rose" photo="louis">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</developer>
+	<developer name="Antonio Garcia-Dominguez" photo="antonio">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</developer>
+	<developer name="Maarten Bezemer" photo="maarten">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</developer>			
+</developers>
