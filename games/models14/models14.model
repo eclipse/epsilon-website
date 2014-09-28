@@ -35,7 +35,7 @@
       <papers title="IncQuery-D: A Distributed Incremental Model Query Framework in the Cloud" authors="/152 /153 /17 /154 /18"/>
       <papers title="Translating OCL to Graph Patterns" authors="/154"/>
     </tracks>
-    <tracks name="Model-driven Engineering In Practice">
+    <tracks name="MEIP">
       <papers title="A Model-Based System to Automate Cloud Resource Allocation and Optimization" authors="/7 /8 /9"/>
       <papers title="Three Cases of Feature-Based Variability Modeling in Industry" authors="/75 /76 /77 /78 /79 /80"/>
       <papers title="Supporting Multiplicity and Hierarchy in Model-based Configuration: Experiences and  Lessons Learned" authors="/81 /82 /83 /84 /85 /86"/>
