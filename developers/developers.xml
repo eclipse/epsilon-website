@@ -14,12 +14,8 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	</developer>
 	<developer name="Antonio Garcia-Dominguez" photo="antonio">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <![CDATA[
+                   I started working with Epsilon during the summer of 2009, using Eugenia to produce a graphical notation for my Master's final project. After participating in the forums and submitting patches during 2009 and 2010, I joined the project in 2011 and continue contributing to it since then. You can blame me for the EUnit unit testing framework, various improvements on Eugenia, EWL and EOL and the odd bugfix here and there. I completed my PhD in 2013, and I am currently a Research Assistant at the University of Cadiz (Spain). My <a href="http://https://ucase.uca.es/">research group</a> focuses on improving software quality through testing (especially mutation testing) and model-driven engineering. In addition to my current contract, which deals with improving information quality at Cadiz and using MDE to modernize existing ad-hoc solutions, I am interested in seeing how mutation testing could be applied to MDE.]]>
 	</developer>
 	<developer name="Maarten Bezemer" photo="maarten">
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
