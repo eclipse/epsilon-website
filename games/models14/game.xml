@@ -95,19 +95,6 @@ Paper.all.select(p | p.authors.size() == 1).size().println();
 		</solution>		
 		<answer>3</answer>
 	</level>
-	<!--level id="7">
-		<description>So there is exactly one monograph.</description>
-		<question>What is the title of this monograph?</question>
-		<hint>
-var monograph = Paper.all.selectOne(p|p.?.size() == 1);
-monograph.?.println();	
-		</hint>
-		<solution>
-var monograph = Paper.all.selectOne(p|p.authors.size() == 1);
-monograph.title.println();	
-		</solution>
-		<answer>Towards the Notation-Driven Development of DSMLs</answer>
-	</level-->
 	<level id="7">
 		<description>MDE is clearly more popular in some countries.</description>
 		<question>Which country had the most authors of accepted papers?</question>
@@ -129,9 +116,9 @@ operation getAuthorsFrom(country : String) {
 		</solution>
 		<answer>Germany</answer>
 	</level>
-	<!--level id="8">
-		<description>Let's talk about our hosts.</description>
-		<question>How many papers have at least one author from Spain?</question>
+	<level id="8">
+		<description>Finally, let's talk about our hosts.</description>
+		<question>How many accepted papers have at least one author from Spain?</question>
 		<hint>
 Paper.?.select(p|p.hasAuthorFrom("Spain"))
 	.size().println();
@@ -148,27 +135,6 @@ operation Paper hasAuthorFrom(country : String) {
   return self.authors.exists(a | a.country = country);
 }
 		</solution>
-		<answer>6</answer>
-	</level-->
-	<!--level id="9">
-		<description>Finally, let's find out who has topped this year's MoDELS.</description>
-		<question>Which person has co-authored the most accepted papers this year?</question>
-		<hint>
-Author.all.sortBy(a | -a.getPapers().size()).
-	first().?.println();
-
-operation Author getPapers() {
-  return Paper.?.select(p | p.?.includes(self));
-}
-		</hint>
-		<solution>
-Author.all.sortBy(a | -a.getPapers().size()).
-	first.name.println();
-
-operation Author getPapers() {
-  return Paper.all.select(p | p.authors.includes(self));
-}
-		</solution>
-		<answer>Robert France</answer>
-	</level-->
+		<answer>1</answer>
+	</level>
 </game>

@@ -93,6 +93,9 @@
 								<a href="<?= Epsilon::getRelativeLocation('users'); ?>">Who is using Epsilon?</a>
 							</li>							
 							<li>
+								<a href="<?= Epsilon::getRelativeLocation('developers'); ?>">Who is developing Epsilon?</a>
+							</li>							
+							<li>
 								<a href="<?= Epsilon::getRelativeLocation('forum'); ?>">Forum</a>
 							</li>						
 							<!--li>

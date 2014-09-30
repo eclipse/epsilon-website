@@ -10,7 +10,7 @@ class Conference { //level1
 
 class Track { //level1
 	attr String name; //level1
-	val Paper[*]#track papers; //level1
+	val Paper[*] papers; //level1
 } //level1
 
 class Paper { //level1
