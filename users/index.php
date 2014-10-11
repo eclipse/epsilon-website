@@ -1,7 +1,9 @@
 <?php
 	require_once('../template.php');
 	$projects = simplexml_load_file("../data/open-source-users.xml")->project;	
-	$companies = simplexml_load_file("../data/industry-users.xml")->company;	
+	$companies = simplexml_load_file("../data/industry-users.xml")->company;
+	$institutions = simplexml_load_file("../data/institutions.xml")->institution;
+		
 	h();
 ?>
 
@@ -17,6 +19,7 @@
 				  <ul class="nav nav-tabs">
 				  	<li><a href="#projects" data-toggle="tab"><h4>Open-source projects</h4></a></li>
 				   	<li class="active"><a href="#industry" data-toggle="tab"><h4>Industry</h4></a></li>
+				  	<li><a href="#teaching" data-toggle="tab"><h4>Teaching</h4></a></li>
 				   </ul>
 				    <div class="tab-content">
 				    	<div id="projects" class="tab-pane">
@@ -63,6 +66,31 @@
 								<a href="<?=$company["url"]?>"><?=$company["name"]?></a> (<?=$evidenceHtml?>), 
 							<?}?>
   						</div>
+						<div id="teaching" class="tab-pane active">
+  							<p> Below is a list of institutions that use one or more components of Epsilon (e.g. EGL, Eugenia) as part of their modelling/MDE courses*. 
+  								If you'd like to report additional uses of Epsilon in taught courses or you've spotted any outdated content, please <a href="mailto:epsilon.devs@gmail.com">let us know</a>.
+  							</p>
+
+  							<?foreach($institutions as $institution){?>
+  							<img src="logos/<?=$institution["logo"]?>" style="padding:15px;"/>
+  							<?}?>
+  							<br/><br/>
+
+  							* Based on the following sources:
+							<?foreach($institutions as $institution) {?>
+								<?
+									$evidenceHtml = "";
+									$evidenceItems = $institution->evidence;
+									for ($i=0; $i < count($evidenceItems); $i++) {
+										$evidenceHtml .= "<a href='".$evidenceItems[$i]."'>".($i+1)."</a>";
+										if ($i < count($evidenceItems) - 1) {
+											$evidenceHtml .= ", ";
+										}
+									}
+								?>
+								<a href="<?=$institution["url"]?>"><?=$institution["name"]?></a> (<?=$evidenceHtml?>), 
+							<?}?>
+  						</div>  						
   					</div>
 				</div>
 			</div>
