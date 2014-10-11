@@ -8,7 +8,7 @@
         <li><a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a>
         <li><a href="http://www.eclipse.org/legal/">Legal</a>
         <li><a href="http://www.eclipse.org/org/foundation/contact.php">Contact us</a>
-        <li><a> Copyright &copy; 2012 The Eclipse Foundation.</a>
+        <li><a> Copyright &copy; 2014 The Eclipse Foundation.</a>
         </ul>       
       </footer>
 

@@ -66,7 +66,7 @@
 								<a href="<?=$company["url"]?>"><?=$company["name"]?></a> (<?=$evidenceHtml?>), 
 							<?}?>
   						</div>
-						<div id="teaching" class="tab-pane active">
+						<div id="teaching" class="tab-pane">
   							<p> Below is a list of institutions that use one or more components of Epsilon (e.g. EGL, Eugenia) as part of their modelling/MDE courses*. 
   								If you'd like to report additional uses of Epsilon in taught courses or you've spotted any outdated content, please <a href="mailto:epsilon.devs@gmail.com">let us know</a>.
   							</p>
