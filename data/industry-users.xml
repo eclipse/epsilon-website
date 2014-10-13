@@ -4,7 +4,7 @@
 		<evidence>http://link.springer.com/chapter/10.1007%2F978-3-642-13595-8_7</evidence>
 	</company>
 	<company name="NASA" url="http://www.nasa.gov" logo="nasa.png">
-		<evidence>https://github.com/nasa/CertWare/blob/master/net.certware.argument.gsz.validator/validation/gsz.evl</evidence>
+		<evidence>https://github.com/nasa/CertWare/blob/f63ff91edaaf2b0718b51a34cda0136f3cdbb085/net.certware.state.gui/model/StateAnalysis.emf</evidence>
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=258871</evidence>
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=259923</evidence>
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=256473</evidence>
