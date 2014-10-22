@@ -20,7 +20,10 @@
 	</institution>	
 	<institution name="Technische Universiteit Eindhoven" url="https://www.tue.nl/" logo="tue.png">
 		<evidence>http://www.win.tue.nl/~mvdbrand/courses/GLT/1314/exercises/assignment4and5.pdf</evidence>
-	</institution>	
+	</institution>
+	<institution name="Universitea Babes-Bolyai" url="http://www.ubbcluj.ro/" logo="babes.png">
+		<evidence>http://www.cs.ubbcluj.ro/~ilazar/ssm/</evidence>
+	</institution>
 	<institution name="Universidad de los Andes" url="http://sistemas.uniandes.edu.co/" logo="losandes.png">
 		<evidence>http://sistemas.uniandes.edu.co/~isis4712/dokuwiki/doku.php?id=tut_eugenia</evidence>
 	</institution>	
