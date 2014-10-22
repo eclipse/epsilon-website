@@ -2,7 +2,10 @@
 <institutions>
 	<institution name="University of York" url="https://www.york.ac.uk/" logo="york.png">
 		<evidence>http://www.cs.york.ac.uk/postgraduate/modules/mode.html</evidence>
-	</institution>	
+	</institution>
+	<institution name="University of Texas" url="www.utexas.edu/" logo="texas.png">
+		<evidence>http://www.cs.utexas.edu/~jbarbosa/CS392F/</evidence>
+	</institution>
 	<institution name="University of Oslo" url="http://www.uio.no" logo="uio.png">
 		<evidence>http://www.uio.no/studier/emner/matnat/ifi/INF5120/v13/obligs/oblig-2-description-2013-ajb.pdf</evidence>
 	</institution>
