@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
 /*!
  * Bootstrap v2.1.1
@@ -144,7 +145,7 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: 'Ubuntu', Tahoma, sans-serif;
+  font-family: 'Open Sans', Tahoma, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -525,7 +526,8 @@ h5,
 h6 {
   margin: 10px 0;
   font-family: inherit;
-  font-weight: bold;
+  //font-weight: bold;
+  font-weight:400;
   line-height: 1;
   color: inherit;
   text-rendering: optimizelegibility;
@@ -781,7 +783,7 @@ input,
 button,
 select,
 textarea {
-  font-family: 'Ubuntu', Tahoma, sans-serif;
+  font-family: 'Open Sans', Tahoma, sans-serif;
 }
 label {
   display: block;
@@ -2425,14 +2427,15 @@ table [class*=span],
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
+  background-color:#fff;
+  background-color: #fdfbfd;
   border: 1px solid #e3e3e3;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  //-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  //-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  //box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 .well blockquote {
   border-color: #ddd;
@@ -3598,7 +3601,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: 'Ubuntu', Tahoma, sans-serif;
+  font-family: 'Open Sans', Tahoma, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
@@ -4753,7 +4756,7 @@ a.badge:hover {
 .carousel .item {
   display: none;
   position: relative;
-  -webkit-transition: 0.6s ease-in-out left;
+  -webkit-transition: 0.6s ease-in-out 0.6s ease-in-out;
   -moz-transition: 0.6s ease-in-out left;
   -o-transition: 0.6s ease-in-out left;
   transition: 0.6s ease-in-out left;
@@ -4842,10 +4845,21 @@ a.badge:hover {
 .carousel-caption p {
   margin-bottom: 0;
 }
+/*
+.carousel .item {-webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;}
+.carousel .active.left {left:0;opacity:1;z-index:1;}
+.carousel .next {left:0;opacity:1;z-index:1;}
+*/
 .hero-unit {
-  padding: 60px;
+  padding-top: 35px; 
+  padding-bottom:0px; 
+  //background-color:rgb(232,232,232);
   margin-bottom: 30px;
-  background-color: #f5f5f5;
+  //background-color: #f5f5f5;
+  //border: 1px solid rgba(0, 0, 0, 0.05);
+  //-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  //-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  //box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);  
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -4858,8 +4872,8 @@ a.badge:hover {
   letter-spacing: -1px;
 }
 .hero-unit p {
-  font-size: 18px;
-  font-weight: 200;
+  font-size: 20px;
+  font-weight: 300;
   line-height: 30px;
   color: inherit;
 }
@@ -4882,11 +4896,14 @@ a.badge:hover {
   position: fixed;
 }
 .navbar .nav > li > a {
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+	border-left:1px;
+	border-right:1px;
+  //border-right: 1px solid rgba(0, 0, 0, 0.2);
+  //border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 .navbar .nav > li > a:hover {
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
+	border-left:1px;
+  //border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 .navbar .nav > .active > a,
 .navbar .nav > .active > a:hover {
@@ -4997,12 +5014,6 @@ a.badge:hover {
 }
 .alert {
   text-shadow: none;
-}
-.hero-unit {
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 .hero-unit h1 {
   line-height: 1.6em;

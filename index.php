@@ -52,12 +52,13 @@
     </div>
 </div-->
 
-<div class="hero-unit" style="padding: 35px; padding-bottom:0px; background-color:rgb(232,232,232)">
+<div class="hero-unit">
 	<div class="row">
-		<div class="span3" style="width:325px">
-        <p style="text-align:left"><b>Epsilon</b> is a family of languages and tools
+		<div class="span5">
+        <p style="text-align:left">Epsilon is a family of languages and tools
         for <a href="doc/egl">code generation</a>, <a href="doc/etl">model-to-model transformation</a>, <a href="doc/evl">model validation</a>, <a href="doc/ecl">comparison</a>,
         <a href="doc/flock">migration</a> and <a href="doc/ewl">refactoring</a> that work out of the box with <a href="http://www.eclipse.org/emf">EMF</a> and <a href="doc/emc/">other types of</a> models.</p>
+        <br/>
         <p>
          <!--a class="btn btn-large" href="games/murdercase">Learn through a game &raquo;</a-->
          <a class="btn btn-large" href="users">Who is using Epsilon?</a>
@@ -66,7 +67,7 @@
 		</div>
 
    <div class="span7" style="width:495px; position:relative; left:25px; top:-10px">
-     <div id="showcase" class="carousel slide" data-interval="5000">
+     <div id="showcase" class="carousel slide" data-interval="8000">
        <div class="carousel-inner" style="border:0px">
          <?
          $slideshow = simplexml_load_file("data/slideshow.xml")->children();
@@ -85,8 +86,8 @@
           $i++;
         } ?>
         </div>
-        <a class="carousel-control left" href="#showcase" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#showcase" data-slide="next">&rsaquo;</a>
+        <a class="carousel-control left" href="#showcase" data-slide="prev" style="font-family:'Ubuntu'">&lsaquo;</a>
+        <a class="carousel-control right" href="#showcase" data-slide="next" style="font-family:'Ubuntu'">&rsaquo;</a>
       </div>
     </div>
   </div>

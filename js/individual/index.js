@@ -3,7 +3,7 @@ prettyPrint();
 
 // enable and start the slideshow
 $('#epsilonSlideshow').carousel({
-  interval: 6000
+ interval: 7000
 });
 
 // make the control buttons disappear when the mouse is not over the slideshow
