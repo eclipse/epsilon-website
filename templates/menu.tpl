@@ -64,7 +64,7 @@
 								<a href="<?= Epsilon::getRelativeLocation('doc/articles') ?>">Articles</a>
 							</li>
 							<li>
-								<a href="https://wiki.eclipse.org/Epsilon/HowTo">How to...</a>
+								<a href="https://wiki.eclipse.org/Epsilon/HowTo">How to ...</a>
 							</li>
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('cinema') ?>">Screencasts</a>
