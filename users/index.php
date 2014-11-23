@@ -42,8 +42,8 @@
 						</div>
   						</div>
   						<div id="industry" class="tab-pane active">
-  							<p> Below is a list of companies for which there are publicly-available indications of engagement with Epsilon (including bug reports, forum messages, blog posts, tweets and published articles*). 
-  								If you'd like to report additional uses of Epsilon in industry or you've spotted any outdated content, please <a href="mailto:epsilon.devs@gmail.com">let us know</a>.
+  							<p> Below is a list of known industrial users of Epsilon (based on bug reports, forum messages, blog posts, tweets and published articles*). 
+  								If you'd like to report additional users of Epsilon in industry or you've spotted any outdated content, please <a href="mailto:epsilon.devs@gmail.com">let us know</a>.
   							</p>
 
   							<?foreach($companies as $company){?>
