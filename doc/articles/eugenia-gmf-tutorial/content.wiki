@@ -173,6 +173,7 @@ If you now change your metamodel you'll have to rerun EuGENia to generate your u
 * Certain versions of Emfatic do not support annotations without details (e.g. `@gmf` or `@gmf.diagram`). You can use dummy details as a workaround (e.g. `@gmf(foo="bar")`)
 * Should you run across the "Node is referenced from multiple containers with different 'List Layout' values" message during validation please ignore it and proceed with the editor code generation.
 * Eugenia does not work with Ecore metamodels that span across multiple files/sub-packages
+* Ensure that the name of your package is different to the names of the classes it contains (i.e. a package Foo should not contain a Foo class)
  
 ==Recipes==
 * [[../eugenia-nodes-with-images|Nodes with user defined images]] (e.g. jpg, png, gif)
