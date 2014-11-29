@@ -8,7 +8,7 @@ In this article, we demonstrate using [[../../egl|EGL]] as a server-side scripti
 * Download [[http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/trunk/serverside/org.eclipse.epsilon.egl.servlet/egl-servlet-full.zip|egl-servlet-full.zip]]
 * Extract all .jar files from the zip into the `lib` folder of Tomcat
 * Open `web.xml` in the `conf` directory of Tomcat and add the following snippet
-
+ 
 {{{xml
 <servlet>
 	<servlet-name>egl</servlet-name>
@@ -22,7 +22,7 @@ In this article, we demonstrate using [[../../egl|EGL]] as a server-side scripti
 	<url-pattern>*.egl</url-pattern>
 </servlet-mapping>
 }}}
-
+ 
 * Make sure that there is an environment variable called `JRE_HOME` and it's pointing to your JRE installation directory (the root, not the `bin`). In Windows, you can create this variable from System Properties->Advanced->Environment Variables->System Variables->New...
 
 ==Create a Hello World web application==
@@ -43,7 +43,7 @@ To access parameters from the URL (or fields of a submitted form) you can use th
 {{{egl
 [%="Hello "+request.getParameter("visitor")%]
 }}}
-
+ 
 and navigating to [[http://localhost:8080/helloworld/index.egl?visitor=John]], you should get a page reading `Hello John` as a result.
 
 ==Other built-in objects==
@@ -53,7 +53,7 @@ EGL provides the following built-in objects which (should) function exactly like
 * `config`
 * `application`
 * `session`
-
+ 
 You may want to have a look [[http://www.exforsys.com/tutorials/jsp/jsp-implicit-and-session-objects.html|here]] for a tutorial that explains their functionality.
 
 ==Caching==
@@ -64,13 +64,13 @@ For example, the following code is used to ensure that repeated requests for pag
 {{{egl
 [% cache.pages("index.*"); %]
 }}}
-
+ 
 The page cache can be expired programmatically, as shown below, or by restarting the Tomcat server.
-
+ 
 {{{egl
 [% cache.expirePages("index.*"); %]
 }}} 
-
+ 
 In addition to page caching, EGL supports fragment caching which allows the contents of a sub-template to be cached. For example, the following code processes `sidebar.egl` only the first time that the template is executed:
 
 {{{egl
@@ -85,7 +85,7 @@ In addition to page caching, EGL supports fragment caching which allows the cont
 {{{egl
 [% cache.expireFragment(sidebarTemplate); %]
 }}} 
-
+ 
 A simple caching strategy is to populate the page and fragment caches from your main EGL templates, and to provide a `ClearCache.egl` template in a sub-directory that only administrators that can access. 
 
 ==Loading EMF models in EGL pages==
@@ -101,7 +101,7 @@ modelManager.loadModel("Sample", "Graph.ecore", "http://www.eclipse.org/emf/2002
 
 The metamodel has [%=EClass.all.size()%] classes
 }}}
-
+ 
 Refresh the page in your browser and it should now read:
 
 {{{
@@ -127,7 +127,7 @@ operation loadModels() {
   modelManager.loadModel("Sample", "Graph.ecore", "http://www.eclipse.org/emf/2002/Ecore");
 }
 }}}
-
+ 
 and then import and call it from each one of your pages:
 
 {{{egl
@@ -139,7 +139,17 @@ loadModels();
 -- Page code here
 
 }}}
+ 
+==Running EGL on Google App Engine==
+By default App Engine will treat EGL files as static content and serve their source code instead of executing them. 
+To work around this, add the following snippet under the root element of the `appengine-web.xml` configuration file of your App Engine application.
 
+{{{xml
+<static-files>
+	<exclude path="*.egl"/>
+</static-files>
+}}}
+ 
 ==Working with big models==
 If you encounter a Java `OutOfMemoryError` while querying a big model you'll need to start Tomcat with more memory than the default 256 MB. To do this, go to `bin/catalina.bat` (on Windows -- if you're on Linux you should modify `catalina.sh` accordingly) and change line
 
