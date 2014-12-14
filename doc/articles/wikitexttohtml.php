@@ -35,7 +35,7 @@ class WikiTextToHTML {
 			'/`(.+?)`/'
 				=>	'<tt>\1</tt>',
 			'/\[\[video:(.+?)\]\]/'
-				=>	'<iframe width="100%" height="415" src="//www.youtube.com/embed/\1" frameborder="0" allowfullscreen></iframe>',
+				=>	'<iframe width="100%" height="415" src="//www.youtube.com/embed/\1?rel=0" frameborder="0" allowfullscreen></iframe>',
 			'/\[\[image:(.+?)\|(.+?)\]\]/'
 				=>	'<img src="\1" alt="\2"/>',
 			'/\[\[image:(.+?)\]\]/'

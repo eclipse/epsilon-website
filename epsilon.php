@@ -77,7 +77,7 @@ class Epsilon {
 	}
 	
 	static function getSVNExamplesLocation() {
-		return Epsilon::getSVNLocation()."trunk/examples/";
+		return "https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/"; //Epsilon::getSVNLocation()."trunk/examples/";
 	}
 	
 	static function getBinariesLocation() {
