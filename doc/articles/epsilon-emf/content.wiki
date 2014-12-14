@@ -65,7 +65,7 @@ Car.all.println();
 Epsilon does not provide a built-in method for this but you can use EObject's `eContents()` method if you're working with EMF. To get all descendants of an element, something like the following should do the trick: `o.asSequence().closure(x | x.eContents())`. See [[https://www.eclipse.org/forums/index.php/t/855628/]] for more details.
  
 ==How can I get the container of a model element?==
-Epsilon does not provide a built-in method for this but you can use EObject's `eConainer()` method if you're working with EMF.
+Epsilon does not provide a built-in method for this but you can use EObject's `eContainer()` method if you're working with EMF.
 
 ==How can I use an existing EMF Resource in Epsilon?==
 To use an existing EMF Resource in your Epsilon program, you should wrap it as an [[http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/InMemoryEmfModel.html|InMemoryEmfModel]] first.
