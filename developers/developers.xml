@@ -19,5 +19,10 @@
 		<![CDATA[
 		My Epsilon development career started with some questions about Epsilon, followed by bug reports, feature requests and finally patches to fix/improve Epsilon in order to make it more suitable for my application. I suppose the developers got fed up with my spam and decided to make me part of the team in order to have time for themselves again! Now I am mainly helping out with Concordance and EVL, but if I spot opportunities for improvements (bugs) elsewhere I'll fix them as well.This is all part of my employment at the <a href="http://www.ce.utwente.nl/">Robotics and Mechantronics</a> chair at the university of Twente, where I am <a href="http://www.ce.utwente.nl/ECSSoftware/">researching</a> model driven software development for cyber-physical systems and helping out with software related stuff for the robots in out lab.
 		]]>
-	</developer>			
+	</developer>
+	<developer name="Martin Francis" photo="martin">
+		<![CDATA[
+		I first got involved with Epsilon at the end of 2012 as part of my Master thesis that was supervised by Dimitris. I extended the Epsilon Model Connectivity (EMC) layer by developing the abstract spreadsheets driver and providing a concrete implementation for viewing and managing Google Spreadsheets as models. I am currently working on a driver to support other spreadsheet-like documents and looking for opportunities to get more involved with the project during my (rather limited) spare time outside my regular day job.
+		]]>
+	</developer>		
 </developers>
