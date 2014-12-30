@@ -55,7 +55,7 @@ Applies to the top `EPackage` only and denotes that GMF-related annotations are 
 ===gmf.diagram===
 Denotes the root object of the metamodel. Only one (non-abstract) `EClass` must be annotated as `gmf.diagram`. Accepts the following details
 * `diagram.extension` (optional) : the file extension for the diagram file
-* `model.extension` (optional) : the file extension for the domain model
+* `model.extension` (optional) : the file extension for the domain model. To make the generated tree-based editor work with the same extension, you need to add an `@emf.gen(fileExtensions="model-file-extension")` annotation '''to the root package''' of your metamodel.
 * `onefile` (optional) : a value of `true` specifies that the domain model and the diagram should be stored in the same file
 * `rcp` (optional) : a value of `true` specifies that the editor is intended to be part of a RCP product (printing is disabled)
 * `units` (optional) : the units for the diagram (e.g. `Pixels`)
