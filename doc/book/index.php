@@ -1,6 +1,7 @@
 <?php
 	require_once('../../template.php');
-	$pdf = Epsilon::getSVNLocation()."trunk/doc/org.eclipse.epsilon.book/EpsilonBook.pdf";
+	//$pdf = Epsilon::getSVNLocation()."trunk/doc/org.eclipse.epsilon.book/EpsilonBook.pdf";
+	$pdf = "https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/doc/org.eclipse.epsilon.book/EpsilonBook.pdf";
 	h('The Epsilon Book');
 ?>
 <div class="row">
@@ -25,7 +26,7 @@
 
 		<div class="row">
 			<div class="span12">
-				<iframe id="bookPreview" src="http://docs.google.com/viewer?url=http%3A%2F%2Fdev.eclipse.org%2Fsvnroot%2Fmodeling%2Forg.eclipse.epsilon%2Ftrunk%2Fdoc%2Forg.eclipse.epsilon.book%2FEpsilonBook.pdf&embedded=true"></iframe>
+				<iframe id="bookPreview" src="https://drive.google.com/viewerng/viewer?url=https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/doc/org.eclipse.epsilon.book/EpsilonBook.pdf&embedded=true"></iframe>
 			</div>
 		</div>
 
