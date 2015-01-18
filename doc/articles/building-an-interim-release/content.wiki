@@ -1,7 +1,7 @@
 =Building an interim release=
 This article outlines the process of building and uploading an interim release of Epsilon.
 
-* Check out the interim update site project from the SVN: `org.eclipse.epsilon.updatesite.interim`
+* Check out the interim update site project: `org.eclipse.epsilon.updatesite.interim`
 * Delete the folders `features` and `plugins`, and the files `artifacts.jar` and `content.jar` under it (if they already exist)
 * Open `site.xml` and click the `Build All` button
 * Connect via SFTP to `build.eclipse.org` and go to directory `/home/data/httpd/download.eclipse.org/epsilon`

@@ -23,9 +23,7 @@ In-keeping with agile development principles, we don't use a strict/heavy-weight
 
 ==Source Code Management==
 # '''Describe commits with meaningful messages''': to ensure that the history of the code can be understood by every member of the team, we endeavour to make our commit messages understandable and traceable. Metadata is often include in commit messages, for example: "[EOL] Fixes bug #123456, which prevented the creation of widgets." 
-# '''Avoid large commits''': to ensure that the history of the code can be understood by every member of the team, we favour breaking large commits into smaller consecutive commits. 
-# '''Favour distributed version control''': to make use of 2-stage commits and cheap local branching, we recommend using git-svn as a client for the Subversion repository. 
-# '''Avoid branching on the server''': when using git-svn, we typically use local branching rather than remote branching, because branching and switching between branches takes longer with Subversion (because it requires communication with the server).   
+# '''Avoid large commits''': to ensure that the history of the code can be understood by every member of the team, we favour breaking large commits into smaller consecutive commits.   
 
 ==Technical Support==
 # '''No forum post goes unanswered''': to maintain and foster the community around Epsilon, we answer every question on the user forum. 

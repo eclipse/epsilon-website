@@ -1,8 +1,8 @@
 =Resolved Bugs=
  
 There are three types of resolved bugs in Epsilon.
-# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=notequals;value0-0-0=interim;product=epsilon|Bugs that have been fixed in the SVN, but have not been yet integrated in an interim version]]
-# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=equals;value0-0-0=interim;product=epsilon|Bugs that have been fixed in the SVN and in the latest interim version but have not been yet integrated in the latest stable version]]
+# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=notequals;value0-0-0=interim;product=epsilon|Bugs that have been fixed in the latest version of the source code, but have not been yet integrated in an interim version]]
+# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=equals;value0-0-0=interim;product=epsilon|Bugs that have been fixed in the latest version of the source code and in the latest interim version but have not been yet integrated in the latest stable version]]
 # [[https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=CLOSED|Bugs that have been fixed in the latest stable version]]
 
 ==Bugzilla Conventions==
@@ -11,7 +11,7 @@ Below are the conventions used by the Epsilon committers to characterise reporte
  
 * New bug: Status -> New
 * Assigned bug: Status -> Assigned
-* Bug fixed in the SVN: Status -> Resolved/Fixed
+* Bug fixed in the latest version of the source code: Status -> Resolved/Fixed
 * Bug fixed in the latest interim version: Status -> Resolved/Fixed, Whiteboard -> interim
 * Bug fixed in the latest stable version: Status -> Closed/Fixed
  

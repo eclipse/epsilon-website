@@ -288,25 +288,23 @@
   						<?}?>
   						<div id="sourcecode" class="tab-pane">
   							<p>
-  							The source code of Epsilon is stored in the following SVN repository. 
-  							<a href="../doc/articles/epsilon-source-svn/">This article</a> provides step-by-step instructions for checking out the code from the repository 
-  							into your Eclipse workspace.
+  							The source code of Epsilon is stored in the following Git repository.
   							</p>
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
   								<?if ($latest){?>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Users</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getSVNLocation()?>">
+								  <input class="span9" id="appendedPrependedInput" type="text" value="ssh://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git">
 								</div>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Committers</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getCommittersSVNLocation()?>">
+								  <input class="span9" id="appendedPrependedInput" type="text" value="git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git">
 								</div>
 								<?}?>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Release tag</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/tags/<?=$version?>">
+								  <input class="span9" id="appendedPrependedInput" type="text" value="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=<?=$version?>">
 								</div>								
 							</div>
 							</form>  							

@@ -51,7 +51,7 @@
 			<?} else if ($example["interim"] == "false"){?>
 				<div class="alert alert-info alert-block">
 					<button type="button" class="close" data-dismiss="alert">×</button>
-					This example uses features which are only available if you are running Epsilon from the <a href="../doc/articles/epsilon-source-svn">latest version of its source code</a>.
+					This example uses features which are only available if you are running Epsilon from the latest version of its source code.
 				</div>
 			<?}?>
 			</div>
@@ -125,35 +125,17 @@
 					<? $i++; }?>
 					<div class="tab-pane" id="tab<?=$i?>">
 						<p>
-						    <!-- 
-							There are two ways to get the code of this example:
-							<ol>
-								<li>download the following zip archive(s), extract them and import them as new Eclipse projects
-									<ul>
-										<li><a href="getit.php?example=<?=$example["src"]?>"><?=$example["src"]?>.zip</a>
-										<?if ($example["standalone"] == "false"){?>
-										<li><a href="getit.php?example=org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels.zip</a>
-										<?}?>
-										<?foreach ($example->project as $project){?>
-										<li><a href="getit.php?example=<?=$project["src"]?>"><?=$project["src"]?>.zip</a>
-										<?}?>
-									</ul>					
-								</li>
-								<li><strong>or</strong>  --> Check out the code from the SVN:
-									<ul>
-										<li> go to the <a href="../doc/articles/epsilon-source-svn/">SVN repository</a> 
-										<li> navigate to <strong>trunk/examples</strong>
-										<?if ($example["standalone"] == "false"){?>
-										<li> check out the <strong>org.eclipse.epsilon.examples.metamodels</strong> project
-										<?}?>
-										<li> check out the <strong><?=$example["src"]?></strong> project
-										<?foreach ($example->project as $project){?>
-										<li> check out the <strong><?=$project["src"]?></strong> project
-										<?}?>
-									</ul>
-								<!-- 
-								</li>
-							</ol>  -->
+						   Clone Epsilon's Git repository:
+							<ul>
+								<li> navigate to <strong>trunk/examples</strong>
+								<?if ($example["standalone"] == "false"){?>
+								<li> import the <strong>org.eclipse.epsilon.examples.metamodels</strong> project
+								<?}?>
+								<li> import the <strong><?=$example["src"]?></strong> project
+								<?foreach ($example->project as $project){?>
+								<li> import the <strong><?=$project["src"]?></strong> project
+								<?}?>
+							</ul>
 						</p>
 						<?if (!($example["runnable"] == "false")){?>
 						<p>Once you have checked out/imported the code, to run the example you need to go through the following steps:
@@ -204,7 +186,7 @@
 		<? sE(); ?>
 
 		<? sB('Even more examples...'); ?>
-					<p> More examples are available in the <a href="<?=Epsilon::getSVNExamplesLocation()?>">examples</a> folder of the SVN repository.</p>
+					<p> More examples are available in the <a href="<?=Epsilon::getSVNExamplesLocation()?>">examples</a> folder of the Git repository.</p>
 		<? sE(); ?>
 
 	</div>
