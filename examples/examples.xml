@@ -104,7 +104,7 @@
 		</example>
 	</category>
 	<category name="egl" title="Epsilon Generation Language">
-		<example src="org.eclipse.epsilon.examples.egl.flowchart" title="Experiment with the different features of EGL using a Flowchart-to-HTML transformation." standalone="true" interim="true">
+		<example src="org.eclipse.epsilon.examples.egl.flowchart" title="Experiment with the different features of EGL using a Flowchart-to-HTML transformation." standalone="true">
 			<description>
 			<![CDATA[In this example, we explore the main features of EGL by generating HTML text from an EMF model of a flowchart. We demonstrate the EGX coordination language, code formatters, preserving hand-written text with protected regions and generating a fine-grained trace model.]]>
 			</description>
@@ -112,7 +112,7 @@
 			<file name="templates/protected_regions/action2page.egl"/>
 			<file name="templates/protected_regions/decision2page.egl"/>
 		</example>
-		<example src="org.eclipse.epsilon.examples.egl.library" title="Generating HTML pages from an XML document" standalone="true" interim="true">
+		<example src="org.eclipse.epsilon.examples.egl.library" title="Generating HTML pages from an XML document" standalone="true">
 			<description>
 			<![CDATA[In this example, we use the plain XML driver of Epsilon in the context of an EGL model-to-text transformation.]]>
 			</description>
