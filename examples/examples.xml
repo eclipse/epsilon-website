@@ -120,6 +120,7 @@
 			<file name="book2page.egl"/>
 			<file name="library.xml"/>
 			<file name="gen/EMFBook.html"/>
+			<file name="src/org/eclipse/epsilon/examples/egl/library/App.java"/>
 		</example>
 		<example src="org.eclipse.epsilon.examples.egldoc" title="Generate HTML documentation from an Ecore metamodel with EGL" standalone="false">
 			<description>

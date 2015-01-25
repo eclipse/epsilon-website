@@ -26,7 +26,7 @@ EGL is a template-based language that can be used to generate code (or any other
 </library>
 }}}
  
-More specifically, we will generate one HTML file for each `<book>` element that has a `public` attribute set to `true`. Below is an EGL template (book2page.egl) that can generate an HTML file from a single `<book>` element:
+More specifically, we will generate one HTML file for each `<book>` element that has a `public` attribute set to `true`. Below is an EGL template (`book2page.egl`) that can generate an HTML file from a single `<book>` element. For more details on using EGL's expression language to navigate and query XML documents, please refer to [[../plain-xml/|this article]].
  
 {{{egl
 <h1>Book [%=index%]: [%=book.a_title%]</h1>
@@ -87,10 +87,49 @@ For completeness, the source code of the `library2page.egl` template appears bel
 </ul>
 }}}
  
-Screenshots of the run configuration also appear below. The complete source for this example is available [[../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library|here]].
- 
+==Running the Code Generator from Eclipse==
+Screenshots of the Eclipse run configuration appear below. The complete source for this example is available [[../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library|here]].
+
 [[image:run-configuration.png]]
 
 [[image:run-configuration-models.png]]
 
 [[image:run-configuration-model.png]]
+ 
+==Running the Code Generator from Java==
+ 
+The following snippet demonstrates using Epsilon's Java API to parse the XML document and execute the EGX program. The complete source for this example is available [[../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library|here]] (please read `lib/readme.txt` for instructions on how to obtain the missing Epsilon JAR). 
+
+{{{java
+import java.io.File;
+
+import org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory;
+import org.eclipse.epsilon.egl.EgxModule;
+import org.eclipse.epsilon.emc.plainxml.PlainXmlModel;
+
+public class App {
+  
+  public static void main(String[] args) throws Exception {
+    
+    // Parse main.egx
+    EgxModule module = new EgxModule(new EglFileGeneratingTemplateFactory());
+    module.parse(new File("main.egx").getAbsoluteFile());
+    
+    if (!module.getParseProblems().isEmpty()) {
+      System.out.println("Syntax errors found. Exiting.");
+    }
+    
+    // Load the XML document
+    PlainXmlModel model = new PlainXmlModel();
+    model.setFile(new File("library.xml"));
+    model.setName("L");
+    model.load();
+    
+    // Make the document visible to the EGX program
+    module.getContext().getModelRepository().addModel(model);
+    // ... and execute
+    module.execute();
+  }
+  
+}  
+}}}
