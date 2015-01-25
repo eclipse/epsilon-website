@@ -26,9 +26,9 @@
 	  	</article>
 	</category>
 	<category name="egl" title="Epsilon Generation Language">
-	  	<article name="egl-tutorial" title="EGL Tutorial">
+	  	<article name="code-generation-tutorial-egl" title="Code Generation Tutorial with EGL">
 	  		<description>
-	  		This article demonstrates using EGL to generate HTML files from an XML document.
+	  		This article demonstrates using EGL templates to generate HTML files from an XML document.
 	  		</description>
 	  	</article>
 	  	<article name="egl-template-operations" title="Using template operations in EGL">

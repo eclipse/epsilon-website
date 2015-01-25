@@ -1,4 +1,4 @@
-=EGL Tutorial=
+=Code Generation Tutorial with EGL=
 EGL is a template-based language that can be used to generate code (or any other kind of text) from different types of models supported by Epsilon (e.g. EMF, UML, XML). This example demonstrates using EGL to generate HTML code from the XML document below.
 
 {{{xml
