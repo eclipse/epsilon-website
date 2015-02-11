@@ -146,6 +146,24 @@
 		<url>http://kybelegmfgen.googlecode.com</url>
 		<description>Kybele GMF Generator (also known as KybeleGMFgen) is a new Model-Driven Software Development (MDSD) tool for Eclipse Modeling Tools for creating, in only a few steps, graphical editors from manually annotated metamodels and customization files.</description>
 	</project>
+	<project name="MODEmbed">
+		<url>http://balazsgrill.github.io/modembed/</url>
+		<description>MODembed is an experimental IDE aiming to provide a more advanced toolchain for embedded software development. It provides a model-based approach for defining the whole compilation process. The project aims to create a full-featured IDE which can support every aspect of an embedded system design using a model-based approach.</description>
+	</project>
+	<project name="rFSM Modeling">
+		<url>https://github.com/gijss/rfsm-modeling</url>
+		<description>The purpose of this project is to create a meta-model for the representation of rFSM programs. This project contains a meta-model of rFSM, a grammar which is only defined for testing purposes, a complete programming environment based on that Xtext grammar, and a Lua code generation based on the model of an rFSM program.</description>
+	</project>	
+	<project name="HyperFlex">
+		<url>https://github.com/Robotics-UniBG/HyperFlex</url>
+		<description>HyperFlex is a collection of Eclipse plugins that support the development of robotics software product lines, a family of similar applications that are built reusing a set of software components and share the same architecture. HyperFlex provides a set of tools for designing variability models and architectural models for the most spread Robotics Software Frameworks (ROS, Orocos and the cloud-based Rapyuta).</description>
+	</project>
+	<project name="FraMED">
+		<url>https://github.com/leondart/FRaMED</url>
+		<description>FRaMED is the First Role Modeling EDitor allowing the graphical specification of Role-based Software Systems by means of compartments (aka. contexts), objects, roles, and relationships. Additionally, it supports a varity of constraints upon roles and relationships.</description>
+	</project>	
+	
+	
 	<!--project name="GenGMF">
 		<description>GMF model generator</description>
 		<url>http://gengmf.randomice.net/</url>
