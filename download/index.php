@@ -314,7 +314,7 @@
   						<div id="jars" class="tab-pane">
 	  						<ul class="nav nav-pills">
 							    <li class="active"><a href="#stablejars" data-toggle="tab">Stable</a></li>
-							    <li><a href="#interimjars" data-toggle="tab">Interim</a></li>
+							    <!--li><a href="#interimjars" data-toggle="tab">Interim</a></li-->
 							</ul>
 							<div class="tab-content">
 								<div id="stablejars" class="tab-pane active">
@@ -325,14 +325,14 @@
 	  								<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."jars";?>
 	  								<?include("jars/".$version.".php");?>
 	  							</div>
-	  							<div id="interimjars" class="tab-pane">
+	  							<!--div id="interimjars" class="tab-pane">
 									<p>
 			  							Plain old JARs you can use to embed the latest <b>interim</b> version of Epsilon <?=$version?> 
 			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application.
 			  						</p>	  								
 			  						<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."interim-jars";?>
 			  						<?include("jars/".$version."-interim.php");?>
-	  							</div>
+	  							</div-->
 	  						</div>
   						</div>
   						<?}?>
