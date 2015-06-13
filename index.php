@@ -147,8 +147,8 @@
 
     
   <div class="tab-pane" id="twitter">
-  <a class="twitter-timeline" href="https://twitter.com/epsilonews" data-widget-id="308297319382654976">Tweets by @epsilonews</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <a class="twitter-timeline" href="https://twitter.com/epsilonews" data-widget-id="308297319382654976" width="700">Tweets by @epsilonews</a>
+	<script>window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));</script>
   </div>
 </div>
 
