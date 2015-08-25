@@ -165,10 +165,9 @@
 	<project name="Tura">
 		<url>http://sourceforge.net/projects/tura/</url>
 		<description>Tura provides support for model-driven development of JEE/JSF web applications. Tura provides a dedicated domain-specific language for modelling web applications, supporting editors and generators built using the EMF, GMF and Epsilon frameworks, and supports the full development lifecycle including code generation, testing, compilation, building, and deployment.</description>
-	</project>	
-	
-	<!--project name="GenGMF">
+	</project>
+	<project name="GenGMF">
 		<description>GMF model generator</description>
 		<url>http://gengmf.randomice.net/</url>
-	</project-->	
+	</project>	
 </users>
