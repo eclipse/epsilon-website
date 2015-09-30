@@ -9,10 +9,10 @@
 			<a class="brand" href="<?= Epsilon::getRelativeLocation('') ?>">Epsilon</a>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<li>
+					<!--li>
 						<a href="<?= Epsilon::getRelativeLocation('live') ?>">Live</a>
-					</li>
-					<li class="dropdown">
+					</li-->
+					<!--li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Games
 							<b class="caret"></b>
@@ -34,8 +34,8 @@
 								<a href="<?= Epsilon::getRelativeLocation('games/models14'); ?>">MoDELS'14</a>
 							</li>
 						</ul>
-					</li>
-					<li class="dropdown">
+					</li-->
+					<!--li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Apps
 							<b class="caret"></b>
@@ -45,7 +45,7 @@
 								<a href="<?= Epsilon::getRelativeLocation('apps/data-generator/people/'); ?>">Fake People Data Generator</a>
 							</li>
 						</ul>
-					</li>
+					</li-->
 					<li>
 						<a href="<?= Epsilon::getRelativeLocation('download'); ?>">Download</a>
 					</li>
@@ -59,7 +59,7 @@
 							</li>
 							<li>
 								<a href="http://download.eclipse.org/epsilon/javadoc/">Javadoc</a>
-							</li>							
+							</li>
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('doc/articles') ?>">Articles</a>
 							</li>
@@ -97,13 +97,13 @@
 						<ul class="dropdown-menu">
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('users'); ?>">Who is using Epsilon?</a>
-							</li>							
+							</li>
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('developers'); ?>">Who is developing Epsilon?</a>
-							</li>							
+							</li>
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('forum'); ?>">Forum</a>
-							</li>						
+							</li>
 							<!--li>
 								<a href="<?= Epsilon::getRelativeLocation('spreadtheword'); ?>">Spread the word</a>
 							</li-->
@@ -115,7 +115,7 @@
 							</li>
 							<li>
 								<a href="http://twitter.com/epsilonews">@epsilonews</a>
-							</li>								
+							</li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -132,10 +132,10 @@
 							</li>
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('doc/articles/resolved-bugs') ?>">View resolved bugs</a>
-							</li>							
+							</li>
 							<li>
 								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement">View enhancement requests</a>
-							</li>							
+							</li>
 							<li>
 								<a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time">View all bugs</a>
 							</li>
