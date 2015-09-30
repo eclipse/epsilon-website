@@ -64,11 +64,11 @@
 		</description>
 		<url>http://sourceforge.net/projects/bflowtoolbox/</url>
 		<evidence>https://svn.code.sf.net/p/bflowtoolbox/code/trunk/plugins/org.bflow.toolbox.oepc.evl/validation/syntax.evl</evidence>
-	</project>	
+	</project>
 	<project name="Pongo MongoDB Generator">
 		<description>Pongo is a template-based Java POJO generator for MongoDB. Instead of using low-level DBObjects to interact with your MongoDB database, with Pongo you can define your data/domain model using Emfatic and then generate strongly-typed Java classes you can then use to work with your database at a more convenient level of abstraction.</description>
 		<url>https://code.google.com/p/pongo/</url>
-	</project>	
+	</project>
 	<project name="TENTE C#">
 		<description>TENTE is a contribution for SPL architectural design and implementation. This process integrates relevant advances, from an SPL point of view, for separation of concerns and MDD technologies. This project contains the TENTE code generators for the C# approach.</description>
 		<url>https://code.google.com/p/tentecsharp/</url>
@@ -84,7 +84,7 @@
 	<project name="Event-B">
 		<url>http://wiki.event-b.org/index.php/Transformation_patterns</url>
 		<description>Event-B is a formal method for system-level modelling and analysis. Key features of Event-B are the use of set theory as a modelling notation, the use of refinement to represent systems at different abstraction levels and the use of mathematical proof to verify consistency between refinement levels.</description>
-	</project>	
+	</project>
 	<project name="PhpNoDB">
 		<description>While having a database is essential for any large-scale website, it can be an overkill for smaller projects/prototypes where read-only access to a small dataset would be sufficient. To save you the trouble of setting up and managing a database if you don't really need one, phpnodb lets you capture your data in a Google Spreadsheet and then generate from it a standalone PHP class that contains an embedded copy of your data.</description>
 		<url>https://code.google.com/p/phpnodb/</url>
@@ -136,7 +136,7 @@
 	<project name="Reflo">
 		<url>http://code.google.com/a/eclipselabs.org/p/reflo/</url>
 		<description>This project aims to provide a machine-assisted environment for developers model programs, using a dataflow notation. It also provides a rewriting system for dataflow graphs.</description>
-	</project>	
+	</project>
 	<project name="Prediqt Editors">
 		<url>https://code.google.com/a/eclipselabs.org/p/prediqt-editors/</url>
 		<description>Two versions of a editor for the PREDIQT method, one created using GMF, the other created using Graphiti.</description>
@@ -153,7 +153,7 @@
 	<project name="rFSM Modeling">
 		<url>https://github.com/gijss/rfsm-modeling</url>
 		<description>The purpose of this project is to create a meta-model for the representation of rFSM programs. This project contains a meta-model of rFSM, a grammar which is only defined for testing purposes, a complete programming environment based on that Xtext grammar, and a Lua code generation based on the model of an rFSM program.</description>
-	</project>	
+	</project>
 	<project name="HyperFlex">
 		<url>https://github.com/Robotics-UniBG/HyperFlex</url>
 		<description>HyperFlex is a collection of Eclipse plugins that support the development of robotics software product lines, a family of similar applications that are built reusing a set of software components and share the same architecture. HyperFlex provides a set of tools for designing variability models and architectural models for the most spread Robotics Software Frameworks (ROS, Orocos and the cloud-based Rapyuta).</description>
@@ -161,13 +161,17 @@
 	<project name="FraMED">
 		<url>https://github.com/leondart/FRaMED</url>
 		<description>FRaMED is the First Role Modeling EDitor allowing the graphical specification of Role-based Software Systems by means of compartments (aka. contexts), objects, roles, and relationships. Additionally, it supports a varity of constraints upon roles and relationships.</description>
-	</project>	
+	</project>
 	<project name="Tura">
 		<url>http://sourceforge.net/projects/tura/</url>
 		<description>Tura provides support for model-driven development of JEE/JSF web applications. Tura provides a dedicated domain-specific language for modelling web applications, supporting editors and generators built using the EMF, GMF and Epsilon frameworks, and supports the full development lifecycle including code generation, testing, compilation, building, and deployment.</description>
 	</project>
+	<project name="MMINT">
+		<url>https://github.com/adisandro/MMINT</url>
+		<description>Model Management INTeractive (MMINT) is an Eclipse-based workbench for graphical, interactive model management. MMINT allows modelers to do rapid prototyping and exploratory modeling while seamlessly keeping track of all relevant artifacts in their workspace. MMINT is developed by the Software Engineering group at the University of Toronto, under the supervision of Professor Marsha Chechik.</description>
+	</project>
 	<project name="GenGMF">
 		<description>GMF model generator</description>
 		<url>http://gengmf.randomice.net/</url>
-	</project>	
+	</project>
 </users>
