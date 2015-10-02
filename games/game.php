@@ -2,18 +2,18 @@
 	require_once('../template.php');
 	require_once('../util.php');
 	require_once('util.php');
-	
+
 	$gameId = isset($_REQUEST['game']) ? strip_tags($_REQUEST['game']) : "";
 	$cheat = isset($_REQUEST['cheat']) ? strip_tags($_REQUEST['cheat']) : "false";
-	
+
 	$game = simplexml_load_file($gameId."/game.xml");
-	
+
 	$levelId = isset($_REQUEST['level']) ? strip_tags($_REQUEST['level']) : 1;
 	$answer = isset($_REQUEST['answer']) ? strip_tags($_REQUEST['answer']) : "";
 	$wrongAnswer = false;
 	$correctAnswer = "";
 	$levelCount = count($game->level);
-	
+
 	if ($levelId > 1) {
 		$levelId = min($levelId, $levelCount+1);
 		$previousLevel = $game->level[$levelId - 2];
@@ -23,13 +23,13 @@
 			$levelId = $levelId-1;
 		}
 	}
-	
+
 	$metamodel = $game["metamodel"]."?version=".$game["version"];
 	$model = $game["model"]."?version=".$game["version"];
 	$emfatic = $game["emfatic"];
-	
+
 	$level = $game->level[$levelId-1];
-	
+
 	h();
 ?>
 <div class="row" id="iewarning">
@@ -47,7 +47,7 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 <div class="row">
 	<!-- main part -->
 	<?if ($levelId <= $levelCount){?>
-	
+
 	<div class="span7">
 		<legend><?=$game["name"]?></legend>
 		<p><?=$game->description?></p>
@@ -60,7 +60,7 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
   				<?}else{?>
   				<legend>Final level</legend>
   				<?}?>
-  				
+
   				<p>
   					<?=$level->description?>
   				</p>
@@ -80,7 +80,7 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 			 	</div>
 			</fieldset>
 		</form>
-	</div>	
+	</div>
 	</div>
 	<div class="row">
 			<div class="span7">
@@ -92,7 +92,7 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 				</div>
 				<div class="tab-content">
   					<div id="editor" class="tab-pane active">
-						<iframe src="https://epsilon-live.appspot.com/embedded.jsp?source=<?=urlencode(str_replace("\t", "  ", trim($level->hint)))?>&button=search&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
+						<iframe src="https://epsiloncloud.appspot.com/embedded.jsp?source=<?=urlencode(str_replace("\t", "  ", trim($level->hint)))?>&button=search&compact=1&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
 					</div>
 					<div id="solution" class="tab-pane">
 						<div class="alert alert-info">
@@ -118,11 +118,11 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 	  				</div>
 				</div>
 			</div>
-		
+
 		<?}else{?>
 		<div class="span12">
 		<h1>Well done!</h1>
-		You can now download the <a href="<?=$metamodel?>">metamodel</a> and the <a href="<?=$model?>">model</a> of 
+		You can now download the <a href="<?=$metamodel?>">metamodel</a> and the <a href="<?=$model?>">model</a> of
 		<?=$game["name"]?> and practice more with EOL <a href="/epsilon/download">offline</a>!
 		</div>
 		<?}?>

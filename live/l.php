@@ -10,12 +10,12 @@
 
 		<div class="row">
 			<div class="span8">
-				<iframe src="http://epsilon-live.appspot.com/embedded2.html" frameborder="0" scrolling="no" style="height:600px;" class="span8"></iframe>
+				<iframe src="http://epsiloncloud.appspot.com/embedded2.html" frameborder="0" scrolling="no" style="height:600px;" class="span8"></iframe>
 			</div>
 		</div>
 
-		
-	</div>	
+
+	</div>
 	<!-- end main part -->
 
 	<!-- sidebar -->

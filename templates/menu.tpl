@@ -9,10 +9,10 @@
 			<a class="brand" href="<?= Epsilon::getRelativeLocation('') ?>">Epsilon</a>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<!--li>
+					<li>
 						<a href="<?= Epsilon::getRelativeLocation('live') ?>">Live</a>
-					</li-->
-					<!--li class="dropdown">
+					</li>
+					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Games
 							<b class="caret"></b>
@@ -34,7 +34,7 @@
 								<a href="<?= Epsilon::getRelativeLocation('games/models14'); ?>">MoDELS'14</a>
 							</li>
 						</ul>
-					</li-->
+					</li>
 					<!--li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Apps

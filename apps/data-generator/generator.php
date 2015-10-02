@@ -2,15 +2,15 @@
 	require_once('../../template.php');
 	require_once('../../util.php');
 	require_once('util.php');
-	
+
 	$generatorId = isset($_REQUEST['generator']) ? strip_tags($_REQUEST['generator']) : "";
-	
+
 	$generator = simplexml_load_file($generatorId."/generator.xml");
-		
+
 	$metamodel = $generator["metamodel"]."?version=".$generator["version"];
 	$model = $generator["model"]."?version=".$generator["version"];
 	$emfatic = $generator["emfatic"];
-	
+
 	h("Epsilon - Apps - ".$generator["name"]);
 ?>
 <div class="row" id="iewarning">
@@ -27,7 +27,7 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 </script>
 	<div class="row">
 	<!-- main part -->
-	
+
 	<div class="span7">
 		<legend><?=$generator["name"]?></legend>
 		<p><?=$generator->description?></p>
@@ -48,7 +48,7 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 				</div>
 				<div class="tab-content">
   					<div id="editor" class="tab-pane active">
-						<iframe src="https://epsilon-live.appspot.com/embedded.jsp?language=egl&source=<?=urlencode(str_replace("\t", "  ", $generator->example))?>&button=play&editorHeight=200&consoleHeight=300&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:800px;width:100%"></iframe>
+						<iframe src="https://epsiloncloud.appspot.com/embedded.jsp?language=egl&source=<?=urlencode(str_replace("\t", "  ", $generator->example))?>&button=play&editorHeight=200&consoleHeight=300&metamodel=<?=urlencode($metamodel)?>&model=<?=urlencode($model)?>" frameborder="0" scrolling="no" style="height:800px;width:100%"></iframe>
 					</div>
 				</div>
 			</div>
@@ -68,7 +68,7 @@ if (navigator.userAgent.indexOf("MSIE") == -1) {
 	  				</div>
 				</div>
 			</div>
-		
+
 </div>
 
 <?f(array(

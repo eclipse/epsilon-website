@@ -10,7 +10,7 @@
 
 		<div class="row">
 			<div class="span8">
-				<iframe src="https://epsilon-live.appspot.com/embedded.jsp?editorHeight=300&source=<?=urlencode(trim($scripts[2]->source))?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
+				<iframe src="https://epsiloncloud.appspot.com/embedded.jsp?editorHeight=300&source=<?=urlencode(trim($scripts[2]->source))?>" frameborder="0" scrolling="no" style="height:600px;width:100%"></iframe>
 				<h2>Live Scripts</h2>
 				<p>You can copy/paste any of the following scripts in the editor above, modify them if you want, and finally run them.</p>
 			</div>
@@ -31,7 +31,7 @@
 				</div>
 			<?}?>
 		</div>
-	</div>	
+	</div>
 	<!-- end main part -->
 
 	<!-- sidebar -->
