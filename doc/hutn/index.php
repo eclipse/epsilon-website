@@ -10,7 +10,7 @@
 
 		<div class="row">
 			<div class="span8">
-				<p>HUTN is an OMG standard for storing models in a human understandable format. In a sense it is a human-oriented alternative to XMI; it has a C-like style which uses curly braces instead of the verbose XML start and end-element tags. Epsilon provides an implementation of HUTN which has been realized using ETL for model-to-model transformation, EGL for generating model-to-model transformations, and EVL for checking the consistency of HUTN models.</p>
+				<p>HUTN is an OMG standard for storing models in a human understandable format. In a sense it is a human-oriented alternative to XMI; it has a C-like style which uses curly braces instead of the verbose XML start and end-element tags. Epsilon provides an implementation of HUTN which has been realized using ETL for model-to-model transformation, EGL for generating model-to-text transformations, and EVL for checking the consistency of HUTN models.</p>
 			</div>
 		</div>
 
