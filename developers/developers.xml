@@ -24,5 +24,10 @@
 		<![CDATA[
 		I first got involved with Epsilon at the end of 2012 as part of my Master thesis that was supervised by Dimitris. I extended the Epsilon Model Connectivity (EMC) layer by developing the abstract spreadsheets driver and providing a concrete implementation for viewing and managing Google Spreadsheets as models. I am currently working on a driver to support other spreadsheet-like documents and looking for opportunities to get more involved with the project during my (rather limited) spare time outside my regular day job.
 		]]>
-	</developer>		
+	</developer>
+	<developer name="Horacio Hoyos Rodriguez" photo="horacio">
+		<![CDATA[
+		I started using Epsilon during my masters course when I found about the Exeed editor when looking into how to get more visual information out of metamodels and models. I then started using ETL and EVL for the HiLeS Project (https://hiles.uniandes.edu.co) to provide model to model transformations from SysML to Petri Nets and then EGL to generate VHDL code. I really liked the tools and support, and after some time I decided I could help fix some bugs and provide new functionality. I have mostly been involved with the model connectivity layer, helping improve the CSV and BibTeX model support. I also like to help fixing and improving the Epsilon Book. All of this happens of course in my limited free time. I consider myself an Epsilon evangelist and I like to think I am responsible for its adoption at Universidad de Los Andes (Colombia).
+		]]>
+	</developer>
 </developers>
