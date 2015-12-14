@@ -1,20 +1,17 @@
 =Resolved Bugs=
- 
-There are three types of resolved bugs in Epsilon.
-# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=notequals;value0-0-0=interim;product=epsilon|Bugs that have been fixed in the latest version of the source code, but have not been yet integrated in an interim version]]
-# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;field0-0-0=status_whiteboard;bug_status=RESOLVED;bug_status=VERIFIED;type0-0-0=equals;value0-0-0=interim;product=epsilon|Bugs that have been fixed in the latest version of the source code and in the latest interim version but have not been yet integrated in the latest stable version]]
+
+There are two types of resolved bugs in Epsilon.
+# [[https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced;bug_status=RESOLVED;bug_status=VERIFIED;product=epsilon|Bugs that have been fixed in the latest version of the source code and in the latest interim version but have not been yet integrated in the latest stable version]]
 # [[https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=CLOSED|Bugs that have been fixed in the latest stable version]]
 
 ==Bugzilla Conventions==
- 
+
 Below are the conventions used by the Epsilon committers to characterise reported bugs according to their status.
- 
+
 * New bug: Status -> New
 * Assigned bug: Status -> Assigned
-* Bug fixed in the latest version of the source code: Status -> Resolved/Fixed
-* Bug fixed in the latest interim version: Status -> Resolved/Fixed, Whiteboard -> interim
+* Bug fixed in the latest version of the source code (interim update site is rebuilt automatically): Status -> Resolved/Fixed
 * Bug fixed in the latest stable version: Status -> Closed/Fixed
- 
+
 ==Release Process==
-* When releasing a new interim version, go through all bugs of type [1] and set their whiteboard field to '''interim'''.
-* When releasing a new stable version, go through all bugs of type [1] and [2], set their status to Closed/Fixed, and record the closed bug numbers in [[https://docs.google.com/spreadsheet/ccc?key=0AhVF3EZ8Xel-dGU0SmJiWjlieExMMDVZeGZZNF9IaFE|this Google spreadsheet]].
+* When releasing a new stable version, go through all bugs of type [1], set their status to Closed/Fixed.
