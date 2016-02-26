@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <releases>
-	<!-- 
+	<!--
 	Lazy man's schema follows (** denotes default value)
 	<release version="version number" released="date of release" distributions="*yes*/no" jars="yes/*no*"/>
 		<eclipse name="Kepler/Juno/..." version="4.2/4.3/..." distribution="base URL for the modeling distribution"/>
 		<notes>...</notes>
 	</release>
 	 -->
-	<release version="1.2" released="10 Sept 2013" jars="yes" srcjars="yes">
+	<release version="1.2" released="25 Aug 2014" jars="yes" srcjars="yes">
 		<eclipse name="Luna" version="4.4" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/R/eclipse-modeling-luna-R-"/>
 		<notes>Scheduled release</notes>
 	</release>
