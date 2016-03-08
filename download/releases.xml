@@ -7,6 +7,10 @@
 		<notes>...</notes>
 	</release>
 	 -->
+	<release version="1.3" released="8 Mar 2015" jars="yes" srcjars="yes">
+ 		<eclipse name="Mars" version="4.5" distribution="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-modeling-mars-2-"/>
+ 		<notes>Scheduled release</notes>
+ 	</release>
 	<release version="1.2" released="25 Aug 2014" jars="yes" srcjars="yes">
 		<eclipse name="Luna" version="4.4" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/R/eclipse-modeling-luna-R-"/>
 		<notes>Scheduled release</notes>
