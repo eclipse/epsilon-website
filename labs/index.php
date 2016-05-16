@@ -8,13 +8,10 @@
 		<h1 class="page-header">Epsilon Labs</h1>
 
 		<div class="row">
-			<div class="span6">
-				<p>EpsilonLabs is a satellite project of Epsilon that hosts experimental stuff which may (or may not) end up being part of Epsilon in the future. It also hosts contributions that are incompatible with EPL and therefore cannot be hosted under eclipse.org.</p>
+			<div class="span8">
+				<p><a href="https://github.com/epsilonlabs">EpsilonLabs</a> is a satellite project of Epsilon on GitHub that hosts experimental stuff which may (or may not) end up being part of Epsilon in the future. It also hosts contributions that are incompatible with EPL and therefore cannot be hosted under eclipse.org.</p>
 			</div>
 
-			<div class="span2">
-				<img src="../resources/epsilonlabs.big.png" alt="">
-			</div>
 		</div>
 		<div class="row">
 			<div class="span8">
@@ -26,7 +23,7 @@
 
 		</div>
 
-	</div>	
+	</div>
 	<!-- end main part -->
 
 	<!-- sidebar -->
@@ -35,10 +32,7 @@
 		<? sB('External Links'); ?>
 					<ul>
 						<li>
-							<a href="http://code.google.com/p/epsilonlabs/">EpsilonLabs under Google Code</a>
-						</li>
-						<li>
-							<del><a href="http://epsilonlabs.wiki.sourceforge.net/">EpsilonLabs under Sourceforge</a></del>
+							<a href="https://github.com/epsilonlabs">EpsilonLabs under GitHub</a>
 						</li>
 					</ul>
 		<? sE(); ?>
