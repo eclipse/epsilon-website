@@ -176,6 +176,11 @@
   							<p>
   							Ready-to-use Eclipse <?=$release->eclipse["name"]?> (<?=$release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$version?>), EMF, GMF, and Emfatic. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.
   							</p>
+								<?if (onMac()){?>
+								<div class="alert alert-info alert-block">
+									<b>Warning:</b> If Mac OS X complains that Eclipse is damaged, you can either set the "Allow apps downloaded from" setting to "Anywhere" in the "Security and Privacy" preferences panel (this is only needed when you run Eclipse for the first time - you can disable this later), or run Eclipse from a terminal (i.e. ./Eclipse.app/Contents/MacOS/eclipse).
+								</div>
+								<?}?>
   							<p style="padding-top:15px;padding-bottom:15px">
 							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin?>">Windows 32bit</a>
 							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin64?>">Windows 64bit</a>
