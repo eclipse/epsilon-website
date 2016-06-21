@@ -105,13 +105,13 @@ The next step is to run a new Eclipse instance and create a new filesystem diagr
 
 [[image:Filesystemwitherrors.png]]
 
-To validate this we go to the `Diagram` menu and select `Validate` (if you are running Galileo, the `Validate` option is under the `Edit` menu instead). The editor now looks like this:
+To validate this we go to the `Diagram` menu and select `Validate` (depending on your version of Eclipse, the `Validate` option may be located under the `Edit` menu instead). The editor now looks like this:
 
 [[image:Filesystemwitherrorshighlighted.png]]
 
 There are two problems with our model:
 
-* The sync between picture.bmp and backup is invalid as it syncs a file with a folder. As a result the `MustLinkSame` constraint has failed and the sync has been visually annotated with a red circle that shows this. 
+* The sync between picture.bmp and backup is invalid as it syncs a file with a folder. As a result the `MustLinkSame` constraint has failed and the sync has been visually annotated with a red circle that shows this.
 * Similarly, the `NameStartsWithCapital` constraints has failed for the backup folder (it should start with an upper-case letter) and this is indicated with a red triangle on the folder.
 
 The generated errors/warnings also appear in the `Problems` view:
