@@ -313,6 +313,10 @@
 								</div>
 							</div>
 							</form>
+							<br/>
+							<p>
+								<b>Note:</b> If you need to modify and re-build the parsers of the Epsilon languages, you will also need to clone the following repository next to the Epsilon Git repository on your machine: <code>https://github.com/epsilonlabs/epsilon-antlr-dev.git</code>
+							</p>
   						</div>
 
   						<?if ($jars){?>
