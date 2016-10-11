@@ -3,7 +3,7 @@
 	<category name="eol" title="Epsilon Object Language">
 	  	<article name="eol-syntax-updates" title="EOL syntax updates">
 	  		<description>
-	  		This article summarizes the changes introduced in 0.8.7 and 0.8.8 in the EOL concrete syntax. 
+	  		This article summarizes the changes introduced in 0.8.7 and 0.8.8 in the EOL concrete syntax.
 	  		</description>
 	  	</article>
 	  	<article name="extended-properties" title="Extended Properties">
@@ -50,7 +50,7 @@
 	  	</article>
 	    <article name="reflective-emf-tutorial" title="Reflective EMF tutorial">
 	  		<description>
-	  		This tutorial demonstrates how to create an EMF Ecore metamodel and a sample model that conforms to it reflectively (i.e. without generating any code). 
+	  		This tutorial demonstrates how to create an EMF Ecore metamodel and a sample model that conforms to it reflectively (i.e. without generating any code).
 	  		</description>
 	  	</article>
 	  	<article name="epsilon-emf" title="Epsilon and EMF">
@@ -95,7 +95,7 @@
 	  		This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
 	  		</description>
 	  	</article>
-	  	
+
 	</category>
 	<category name="eugenia" title="EuGENia">
 		<subcategory title="Fundamentals">
@@ -136,7 +136,7 @@
 		  		This article addresses the case where the end-user needs to set an image for each node at runtime.
 		  		</description>
 		  		<publication>eugenia</publication>
-		  	</article>	
+		  	</article>
 		  	<article name="eugenia-nodes-with-centred-layout" title="EuGENia: Nodes with a centred layout">
 		  		<description>
 		  		This article shows how to create nodes in your GMF editor whose contents are centred both vertically and horizontally.
@@ -185,7 +185,7 @@
 	<category name="releases" title="Release Notes">
 	  	<article name="0.9.1-new-and-noteworthy" title="New and Noteworthy in Epsilon v0.9.1" date="Sat, 13 Aug 2011 19:47:44 BST">
 	  		<description>
-	  		Epsilon v0.9.1 included several major improvements to EUnit, Flock and the Epsilon development tools, as well as significant enhancements for EOL, EGL and EuGENia. This article provides a summary of the changes in Epsilon v0.9.1. 
+	  		Epsilon v0.9.1 included several major improvements to EUnit, Flock and the Epsilon development tools, as well as significant enhancements for EOL, EGL and EuGENia. This article provides a summary of the changes in Epsilon v0.9.1.
 	  		</description>
 		</article>
 	</category>
@@ -195,6 +195,13 @@
 	  		From time to time, you may run into a problem when using Epsilon or find a bug. This article describes how to construct a minimal example that we can use to reproduce the problem on our machine.
 	  		</description>
 	  	</article>
+	</category>
+	<category name="extending" title="Extending Epsilon">
+		<article name="developing-a-new-language" title="Developing a new Epsilon Language">
+			<description>
+				This article demonstrates how to build a new language on top of Epsilon.
+			</description>
+		</article>
 	</category>
 	<category name="dev" title="Epsilon Developers">
 		<article name="call-for-user-stories" title="Call for User Stories">
