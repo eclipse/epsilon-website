@@ -182,13 +182,13 @@
 	  		</description>
 		</article>
 	</category>
-	<category name="releases" title="Release Notes">
+	<!--category name="releases" title="Release Notes">
 	  	<article name="0.9.1-new-and-noteworthy" title="New and Noteworthy in Epsilon v0.9.1" date="Sat, 13 Aug 2011 19:47:44 BST">
 	  		<description>
 	  		Epsilon v0.9.1 included several major improvements to EUnit, Flock and the Epsilon development tools, as well as significant enhancements for EOL, EGL and EuGENia. This article provides a summary of the changes in Epsilon v0.9.1.
 	  		</description>
 		</article>
-	</category>
+	</category-->
 	<category name="tech-support" title="Technical Support">
 	  	<article name="minimal-examples" title="Constructing a helpful minimal example">
 	  		<description>
@@ -199,7 +199,12 @@
 	<category name="extending" title="Extending Epsilon">
 		<article name="developing-a-new-language" title="Developing a new Epsilon Language">
 			<description>
-				This article demonstrates how to build a new language on top of Epsilon.
+				This article demonstrates how to develop a new language on top of Epsilon.
+			</description>
+		</article>
+		<article name="developing-a-new-emc-driver" title="Developing a new EMC Driver">
+			<description>
+				This article demonstrates how to develop a new driver for Epsilon's Model Connectivity layer (EMC).
 			</description>
 		</article>
 	</category>
