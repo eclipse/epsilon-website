@@ -35,14 +35,13 @@ class Library {
 
 class Writer {
    attr String name;
-   ref Book[*]#author books;
+   ref Book[*] books;
 }
 
 class Book {
    attr String title;
    attr int pages = 100;
    attr BookCategory category;
-   ref Writer#books author;
 }
 
 enum BookCategory {
@@ -54,7 +53,7 @@ enum BookCategory {
 
 Now your '''library.emf''' editor should look like this:
 
-[[image:emfatic-editor.jpg]]
+[[image:emfatic-editor.png]]
 
 ==Generate library.ecore from library.emf==
 
