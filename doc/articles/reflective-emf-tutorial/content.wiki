@@ -1,19 +1,19 @@
 =Reflective EMF Tutorial=
-
+ 
 This tutorial demonstrates how to create an EMF Ecore metamodel and a sample model that conforms to it reflectively (i.e. without generating any code).
 
 ==Prerequisites==
-
+ 
 To go through this tutorial you need to first install the Eclipse Modeling Distribution, Epsilon and Emfatic. Installation instructions are available [[../../../download|here]].
 
 ==Create a new project==
-
+ 
 Go to '''File->New->Other...''' and select '''General->Project'''. Type '''library''' as the project name:
 
 [[image:new-project.jpg]]
 
 ==Create library.emf==
-
+ 
 Go to '''File->New->Other...''' and select '''File'''. Type '''library.emf''' as the file name:
 
 [[image:create-emfatic.jpg]]
@@ -21,7 +21,7 @@ Go to '''File->New->Other...''' and select '''File'''. Type '''library.emf''' as
 This is where we'll specify our Ecore metamodel using the Emfatic textual syntax
 
 ==Add content to library.emf==
-
+ 
 Now '''library.emf''' should be open and you can copy-paste the following text into it (our sample metamodel) and save.
 
 {{{emf
@@ -56,7 +56,7 @@ Now your '''library.emf''' editor should look like this:
 [[image:emfatic-editor.png]]
 
 ==Generate library.ecore from library.emf==
-
+ 
 The next step is to generate a proper XMI-based Ecore metamodel from the Emfatic textual representation. To do this, you can right-click '''library.emf''' and select '''Generate Ecore model''' as shown below:
 
 [[image:generate-ecore.png]]
@@ -66,13 +66,13 @@ Once you've done this you should have a new file called '''library.ecore''' sitt
 '''Tip:''' If at some point you change '''library.emf''', you need to repeat this step in order to update '''library.ecore'''.
 
 ==Register library.ecore==
-
+ 
 The next step is to let EMF know of the existence of your newly created '''library.ecore''' metamodel. To do this, right-click '''library.ecore''' and select '''Register EPackages''' as shown below:
 
 [[image:register-epackages.png]]
 
 ==Create a model that conforms to library.ecore==
-
+ 
 Now we're ready to create models that conform to our new Ecore metamodel! To create a model, go to '''File->New->Other...''' and select '''EMF Model''' as shown below:
 
 [[image:create-emf-model.jpg]]
@@ -94,7 +94,7 @@ Now '''mylibrary.model''' should be open in a tree-based editor:
 [[image:empty-model.jpg]]
 
 ==Add content to mylibrary.model==
-
+ 
 To create a new '''Book''' under the library, you can right-click it and select '''New Child->Books Book'''
 
 [[image:create-book.png]]
