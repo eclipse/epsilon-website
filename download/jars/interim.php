@@ -57,6 +57,18 @@
 			</td>
 		</tr>
 		<tr>
+			<td>Epsilon's Excel/Google spreadsheet driver.</td>
+			<td><a href="<?=$jarsUrl?>/epsilon-1.4-spreadsheets.jar">epsilon-1.4-spreadsheets.jar</a>
+			<td><a href="<?=$jarsUrl?>/epsilon-1.4-spreadsheets-src.jar">epsilon-1.4-spreadsheets-src.jar</a>
+			<td>
+				<ul>
+					<li>To use this JAR, you will also need to have epsilon-1.4-core in your classpath.
+					<li> To use this JAR, you will also need to have at least these <a href="<?=$jarsUrl?>/epsilon-1.4-spreadsheets-dependencies.zip">external dependencies</a>
+					in your classpath.
+				</ul>
+			</td>
+		</tr>
+		<tr>
 			<td>Epsilon's Human Usable Textual Notation implementation.</td>
 			<td><a href="<?=$jarsUrl?>/epsilon-1.4-hutn.jar">epsilon-1.4-hutn.jar</a>
 			<td><a href="<?=$jarsUrl?>/epsilon-1.4-hutn-src.jar">epsilon-1.4-hutn-src.jar</a>

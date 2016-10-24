@@ -337,10 +337,27 @@
 	  							<div id="interimjars" class="tab-pane">
 									<p>
 			  							Plain old JARs you can use to embed the latest <b>interim</b> version of Epsilon
-			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application.
+			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
 			  						<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."interim-jars";?>
 			  						<?include("jars/interim.php");?>
+									<p>
+									You can use the latest SNAPSHOTs at the <a href="https://oss.sonatype.org">Sonatype OSSRH</a> repository. For instance, to use the 1.4 interim <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
+									<pre>&lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;ossrh-snapshots&lt;/id&gt;
+      &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/repositories&gt;
+...
+&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.epsilon&lt;/groupId&gt;
+    &lt;artifactId&gt;epsilon-core&lt;/artifactId&gt;
+    &lt;version&gt;1.4.0-SNAPSHOT&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;</pre>
+									</p>
 	  							</div>
 	  						</div>
   						</div>
