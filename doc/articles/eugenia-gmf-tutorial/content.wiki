@@ -160,7 +160,8 @@ To run EuGENia you need to do the following:
 # Create a new project
 # Create and annotate your Ecore metamodel in the "model" folder of your project
 # Right-click your Ecore metamodel (or Emfatic file) and select Eugenia->Generate GMF editor
-# Launch a new eclipse instance from the "Run - Eclipse Application" menu using "-XX:PermSize=64M -XX:MaxPermSize=128M -Xms512M -Xmx1024M" as VM arguments in the Run Configuration
+# Launch a new Eclipse instance from the "Run - Eclipse Application" menu using "-XX:PermSize=64M -XX:MaxPermSize=128M -Xms512M -Xmx1024M" as VM arguments in the Run Configuration
+# In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the File->New->Other... dialog
 
 ==Re-running EuGENia==
 If you now change your metamodel you'll have to rerun EuGENia to generate your updated editor:
