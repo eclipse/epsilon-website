@@ -329,10 +329,22 @@
 								<div id="stablejars" class="tab-pane active">
 									<p>
 			  							Plain old JARs you can use to embed the latest <b>stable</b> version of Epsilon (<?=$version?>)
-			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application.
+			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
 	  								<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."jars";?>
 	  								<?include("jars/".$version.".php");?>
+                                     <p>
+                                     Since 1.4, these JARs are also available from Maven Central. For instance, to use the <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
+                                     <pre>&lt;dependencies&gt;
+  ...
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.epsilon&lt;/groupId&gt;
+    &lt;artifactId&gt;epsilon-core&lt;/artifactId&gt;
+    &lt;version&gt;1.4.0&lt;/version&gt;
+  &lt;/dependency&gt;
+  ...
+&lt;/dependencies&gt;</pre>
+                                     </p>
 	  							</div>
 	  							<div id="interimjars" class="tab-pane">
 									<p>
