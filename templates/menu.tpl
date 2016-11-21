@@ -106,7 +106,7 @@
 								<a href="<?= Epsilon::getRelativeLocation('developers'); ?>">Who is developing Epsilon?</a>
 							</li>
 							<li>
-								<a href="<?= Epsilon::getRelativeLocation('forum'); ?>">Forum</a>
+								<a href="https://www.eclipse.org/forums/index.php/f/22/">Forum</a>
 							</li>
 							<!--li>
 								<a href="<?= Epsilon::getRelativeLocation('spreadtheword'); ?>">Spread the word</a>
