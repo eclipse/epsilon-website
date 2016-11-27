@@ -66,6 +66,12 @@
 		<p>If the available <a href="../doc/">documentation</a> doesn't provide enough information for figuring this out, please feel free to ask in the <a href="../forum">Epsilon forum</a>.]]>
 		</answer>
 	</faq>
+	<faq id="compiled-or-interpeted">
+		<title>Are Epsilon languages compiled or interpreted?</title>
+		<answer><![CDATA[
+		<p>All Epsilon languages are interpreted. With the exception of EGL templates which are transformed into EOL before execution, all other languages are supported by bespoke interpreters.]]>
+		</answer>
+	</faq>	
 	<faq id="contributing-to-epsilon">
 		<title>How can I contribute to Epsilon?</title>
 		<answer><![CDATA[
