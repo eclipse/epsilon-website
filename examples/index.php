@@ -127,7 +127,7 @@
 						<p>
 						   Clone Epsilon's Git repository:
 							<ul>
-								<li> navigate to <strong>trunk/examples</strong>
+								<li> navigate to <strong>examples</strong>
 								<?if ($example["standalone"] == "false"){?>
 								<li> import the <strong>org.eclipse.epsilon.examples.metamodels</strong> project
 								<?}?>
