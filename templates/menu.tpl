@@ -27,12 +27,12 @@
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('games/xmas'); ?>">Santa's Christmas Adventure</a>
 							</li>
-							<li>
+							<!--li>
 								<a href="<?= Epsilon::getRelativeLocation('games/models13'); ?>">MoDELS'13</a>
 							</li>
 							<li>
 								<a href="<?= Epsilon::getRelativeLocation('games/models14'); ?>">MoDELS'14</a>
-							</li>
+							</li-->
 						</ul>
 					</li>
 					<!--li class="dropdown">
