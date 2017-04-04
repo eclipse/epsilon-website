@@ -191,7 +191,7 @@ class WikiTextToHTML {
 				}
 				else if ($in_ul && !startsWith($in, "*")) {
 					$in_ul = false;
-					$out = $out."</ul>";
+					$out = "</ul>".$out;
 				}
 				else if (!$in_ol && startsWith($in, "#")) {
 					$out = "<ol>".$out;
@@ -200,14 +200,14 @@ class WikiTextToHTML {
 				}
 				else if ($in_ol && !startsWith($in, "#")) {
 					$in_ol = false;
-					$out = $out."</ol>";
+					$out = "</ol>".$out;
 				}
 			}
 			
 			
 			// determine output format
 			if('' == $out && (!$this->incode)) {
-				$output[] = '<br><br>';
+				$output[] = '<p/>';
 			} else if (startsWith(trim($in), '{{{')) {
 				if (trim($in) == '{{{') {
 					$output[] = '<pre>';

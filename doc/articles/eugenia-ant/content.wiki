@@ -1,4 +1,4 @@
-=EuGENia: Automated Invocation with Ant= 
+=EuGENia: Automated Invocation with Ant=
 EuGENia can be called from Ant, using the `<epsilon.eugenia>` Ant task. This way, the creation of the GMF editors can be easily automated by using a standard Ant Builder. Additionally, the Ant task has several features which are not currently available through the regular graphical user interface.
 
 In this article, we will show how to invoke the EuGENia Ant task and offer some recommendations on how to adopt it.
