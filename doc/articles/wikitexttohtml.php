@@ -159,7 +159,10 @@ class WikiTextToHTML {
 		
 		// preformatted code state
 		$this->incode = false;
-		
+
+		$in_ul = false;
+		$in_ol = false;
+
 		// loop through the input
 		foreach($input as $in) {
 			
@@ -169,20 +172,41 @@ class WikiTextToHTML {
  			}
 			
 			// read, htmlify and right-trim each input line
-			$in = htmlspecialchars(rtrim($in));
+			$in = htmlspecialchars($in);
+
 			$out = $in;		
 			$out = preg_replace("/\t/", "  ",$out);	
 			
 			if (!$this->incode) {
+
 				foreach($this->rules as $pattern => $replacement) {
-					$out = preg_replace($pattern, $replacement,
-						$out);
+					$out = preg_replace($pattern, $replacement, $out);
+				}
+				
+				
+				if (!$in_ul && startsWith($in, "*")) {
+					$out = "<ul>".$out;
+					$in_ul = true;
+					
+				}
+				else if ($in_ul && !startsWith($in, "*")) {
+					$in_ul = false;
+					$out = $out."</ul>";
+				}
+				else if (!$in_ol && startsWith($in, "#")) {
+					$out = "<ol>".$out;
+					$in_ol = true;
+					
+				}
+				else if ($in_ol && !startsWith($in, "#")) {
+					$in_ol = false;
+					$out = $out."</ol>";
 				}
 			}
 			
 			
 			// determine output format
-			if('' == $in && (!$this->incode)) {
+			if('' == $out && (!$this->incode)) {
 				$output[] = '<br><br>';
 			} else if (startsWith(trim($in), '{{{')) {
 				if (trim($in) == '{{{') {

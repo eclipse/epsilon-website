@@ -1,0 +1,12 @@
+=Running Epsilon from Source=
+To run Epsilon from source, you need to:
+
+* Clone the Git repository (`git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git`)
+* Import all the projects under the `plugins`, `features`, and `tests` folders in your workspace. 
+* (optional) To organise your workspace, you can create [[http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Fconcepts%2Fcworkset.htm|working sets]].
+* (optional) If you wish to modify the parsers (syntax) of Epsilon languages you also need to clone the following repository next to Epsilon's Git repository on your machine: `https://github.com/epsilonlabs/epsilon-antlr-dev.git`
+* Right-click on any Epsilon plugin project in the Project Explorer and select Run as -> Eclipse Application
+
+== Compilation Errors ==
+ 
+Epsilon has several optional dependencies to projects such as EMF, GMF, Sirius and Emfatic. To get rid of any compilation errors upon importing the Epsilon projects to your workspace, please close the respective projects (Right click -> Close Project) or install the missing dependencies.

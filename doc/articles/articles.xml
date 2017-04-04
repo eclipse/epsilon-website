@@ -209,6 +209,11 @@
 		</article>
 	</category>
 	<category name="dev" title="Epsilon Developers">
+		<article name="running-from-source" title="Running Epsilon from source">
+			<description>
+				This article demonstrates how to run Epsilon from source  in your machine.
+			</description>
+		</article>
 		<article name="call-for-user-stories" title="Call for User Stories">
 	  		<description>
 	  		This is a kind request to all Epsilon Users.
