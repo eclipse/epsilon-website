@@ -15,19 +15,19 @@
  		<eclipse name="Mars" version="4.5" distribution="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-modeling-mars-2-"/>
  		<notes>Scheduled release</notes>
  	</release>
-	<release version="1.2" released="25 Aug 2014" jars="yes" srcjars="yes">
+	<release version="1.2" released="25 Aug 2014" jars="yes" srcjars="yes" archived="yes">
 		<eclipse name="Luna" version="4.4" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/R/eclipse-modeling-luna-R-"/>
 		<notes>Scheduled release</notes>
 	</release>
-	<release version="1.1_SR1" released="10 Sept 2013" jars="yes">
+	<release version="1.1_SR1" released="10 Sept 2013" jars="yes" archived="yes">
 		<eclipse name="Kepler" version="4.3" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-"/>
 		<notes>Service release</notes>
 	</release>
-	<release version="1.1" released="29 Aug 2013" jars="no">
+	<release version="1.1" released="29 Aug 2013" jars="no" archived="yes">
 		<eclipse name="Kepler" version="4.3" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/kepler/R/eclipse-modeling-kepler-R-"/>
 		<notes>Scheduled release</notes>
 	</release>
-	<release version="1.0" released="12 Nov 2012" jars="no">
+	<release version="1.0" released="12 Nov 2012" jars="no" archived="yes">
 		<eclipse name="Juno" version="4.2" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/juno/SR1/eclipse-modeling-juno-SR1-"/>
 		<notes>Scheduled release</notes>
 	</release>

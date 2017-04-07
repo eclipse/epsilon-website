@@ -36,7 +36,11 @@
 	if (!$latest) {
 		$breadCrumb = $version."/";
 	}
-
+	$download_server = "download";
+	if (strcmp($release["archived"], "yes") == 0) {
+		$download_server = "archive";
+	}
+	
 	$distributions = (strcmp($release["distributions"], "no") != 0);
 	$jars = (strcmp($release["jars"], "yes") == 0);
 
@@ -56,7 +60,7 @@
 		$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.tar.gz";
 	}
 
-	$updateSite = "http://download.eclipse.org/epsilon/".$breadCrumb."updates/";
+	$updateSite = "http://".$download_server.".eclipse.org/epsilon/".$breadCrumb."updates/";
 	$zippedUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."updates/site.zip";
 	$zippedInterimUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
 	
