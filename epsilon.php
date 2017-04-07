@@ -92,6 +92,10 @@ class Epsilon {
 		return "http://download.eclipse.org/epsilon/interim/";
 	}
 	
+	static function getInterimZippedUpdateSite() {
+		return "http://download.eclipse.org/epsilon/interim/site.zip";
+	}
+	
 	static function getEmfaticUpdateSite() {
 		return "http://download.eclipse.org/emfatic/update/";
 	}

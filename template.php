@@ -85,7 +85,7 @@ function sB($title = '', $fixed = false) { ?>
 				<? if(strlen($title) > 0) { ?>
 					<h4><?= $title ?></h4>
 				<? } ?>
-<? }
+<?php }
 
 /*
  This function returns the HTML code to close a sidebar element.
@@ -94,5 +94,5 @@ function sE() { ?>
 			</div>
 		</div>
 	</div>
-<? }
+<?php }
 ?>

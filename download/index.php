@@ -220,6 +220,11 @@
 								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
 								</div>
 
+                                <div class="input-prepend input-append" style="padding-top:25px">
+                                  <span class="add-on"><div class="span2">Interim (zipped) *</div></span>
+                                  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimZippedUpdateSite()?>"/>
+                                </div>
+
 								<p>
 
 								<br>
