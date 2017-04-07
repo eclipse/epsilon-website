@@ -57,7 +57,9 @@
 	}
 
 	$updateSite = "http://download.eclipse.org/epsilon/".$breadCrumb."updates/";
-
+	$zippedUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."updates/site.zip";
+	$zippedInterimUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
+	
 	function getVisitorPlatform()
 	{
 	    $u_agent = $_SERVER['HTTP_USER_AGENT'];
@@ -211,19 +213,17 @@
   							<div class="control-group">
 	  							<div class="input-prepend input-append">
 								  <span class="add-on"><div class="span2">Stable</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=$updateSite?>"/>
+								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=$updateSite?>"/>
+									<span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedUpdateSite?>">Archive</a></div></span>
 								</div>
 
+								
 								<?if ($latest){?>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Interim *</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
+								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
+									<span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedInterimUpdateSite?>">Archive</a></div></span>
 								</div>
-
-                                <div class="input-prepend input-append" style="padding-top:25px">
-                                  <span class="add-on"><div class="span2">Interim (zipped) *</div></span>
-                                  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimZippedUpdateSite()?>"/>
-                                </div>
 
 								<p>
 
