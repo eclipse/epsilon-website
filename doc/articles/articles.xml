@@ -41,6 +41,16 @@
 	  		This article demonstrates using EGL (the model-to-text language of Epsilon) in Tomcat to produce HTML pages from EMF models on the fly.
 	  		</description>
 	  	</article>
+	  	<article name="egx-parameters" title="Co-ordinating EGL templates with EGX">
+	  		<description>
+	  		This article demonstrates how to parameterize EGL templates and execute them multiple times to produce multiple files.
+	  		</description>
+	  	</article>
+	  	<article name="egl-invoke-egl" title="Re-using EGL templates">
+	  		<description>
+	  		This article demonstrates how to invoke other EGL templates and direct their output to calling EGL template.
+	  		</description>
+	  	</article>
 	</category>
 	<category name="emf" title="Epsilon and EMF">
 		<article name="emfatic" title="Emfatic language reference" content="html">
