@@ -25,16 +25,16 @@ is done, you should see something like this:
 
 In the picture, we can see three update sites (main Luna release, Luna updates
 and Emfatic), with some features pulled from them. In general, it is better to
-define update sites at the feature level rather than at the plugin level, as
+define target platforms at the feature level rather than at the plugin level, as
 they tend to be more stable across releases: it's better to pull in a few extra
 plugins than have the whole thing break because of a single missing plugin.
 
 One important restriction is that even though Eclipse allows for adding local
 folders as part of the target platform, these are rejected by Tycho. Tycho only
-supports update sites in the target platform definitions: should you need a
+supports URL-based update sites in target platform definitions: should you need a
 custom plugin for building Eclipse, it will have to be placed in an update site
 and hosted somewhere. If it is part of a well-known open source project, it may
-make sense to see if one of the [[https://www.eclipse.org/orbit/|Orbit update sites]] already have it: additionally, those bundles have already gone through
+make sense to see if one of the [[https://www.eclipse.org/orbit/|Orbit update sites]] already has it: additionally, those bundles have already gone through
 the legal processes set by the Eclipse Foundation.
 
 To check if the target platform has everything we need, we should follow these
