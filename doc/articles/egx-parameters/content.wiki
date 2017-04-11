@@ -26,7 +26,7 @@ rule Libraries transform lib : Library {
 
 In this example, the Lib2XML EGL template will be invoked for every Library instance in the model, and the output will be written to the file specified in the "target". The Lib2XML template will receive all of the parameters put in the "params" variable in the parameters block of the rule. The variable is a mapping from variable name (that the EGL template will use to refer to it) and variable value. For reference, the Lib2XML template is shown below.
 
-*Note: there is no limit on the number of rules you can declare in an EGX template.*
+*Note: there is no limit on the number of rules you can declare in an EGX program.*
 
 {{{egl
 <?xml version="1.0" encoding="UTF-8"?>
