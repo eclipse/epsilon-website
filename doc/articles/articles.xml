@@ -52,7 +52,7 @@
 	  		</description>
 	  	</article>
 	</category>
-	<category name="emf" title="Epsilon and EMF">
+	<category name="emf" title="Epsilon and EMF models">
 		<article name="emfatic" title="Emfatic language reference" content="html">
 	  		<description>
 	  		Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
@@ -89,15 +89,15 @@
 	  		</description>
 	  	</article>
 	</category>
-	<category name="xml" title="Epsilon and XML, CSV or BibTeX">
+	<category name="xml" title="Epsilon and non-EMF models">
 		<article name="plain-xml" title="Scripting XML documents using Epsilon">
 	  		<description>
 	  		In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver.
 	  		</description>
 	  	</article>
-	  	<article name="bibtex" title="Scripting BibTeX files using Epsilon">
+	  	<article name="simulink" title="Scripting Simulink models using Epsilon">
 	  		<description>
-	  		In this article we demonstrate how you can query a list of references stored in BibTeX files with Epsilon programs using the BibTeX driver.
+	  		In this article we demonstrate how you can query and modify Simulink models in Epsilon.
 	  		</description>
 	  	</article>
 	  	<article name="http://arcanebeans.blogspot.co.uk/2013/11/extended-emc-for-cvs-files.html" title="Scripting CSV files using Epsilon">
@@ -105,7 +105,11 @@
 	  		This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
 	  		</description>
 	  	</article>
-
+		<article name="bibtex" title="Scripting BibTeX files using Epsilon">
+	  		<description>
+	  		In this article we demonstrate how you can query a list of references stored in BibTeX files with Epsilon programs using the BibTeX driver.
+	  		</description>
+	  	</article>
 	</category>
 	<category name="eugenia" title="EuGENia">
 		<subcategory title="Fundamentals">
