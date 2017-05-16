@@ -5,7 +5,7 @@ In this article we demonstrate how you can create, query and modify Simulink mod
 [[video:k3hdD7Ot0Bc]]
 
 == Installation ==
-The first time you run Eclipse after installing the Simulink driver you will need to point it to the location of your Matlab installation through the Eclipse `Preferences->Epsilon->Simulink` dialog. In particular, you need to specify the location of the `<matlab-root>/bin/maci64` (or `/bin/win64` if you are on Mac OS) directory and Matlab's `engine.jar` as shown below. If you are on Windows, ensure that `<matlab-root>/bin/win64` is in the system path.
+The first time you run Eclipse after installing the Simulink driver you will need to point it to the location of your Matlab installation through the Eclipse `Preferences->Epsilon->Simulink` dialog. In particular, you need to specify the location of the `<matlab-root>/bin/win64` (or `/bin/maci64` if you are on Mac OS) directory and Matlab's `engine.jar` as shown below. If you are on Windows, ensure that `<matlab-root>/bin/win64` is in the system path.
 
 [[image:preferences.png]]
  
@@ -14,7 +14,7 @@ The first time you run Eclipse after installing the Simulink driver you will nee
 * If you start getting strange errors about dynamic libraries, chances are that the Matlab paths above are wrong. If restarting Eclipse and correcting the paths doesn't solve this, please post a message to the forum.
 
 == Quick start ==
-* Create a new general project (in your nested Eclipse instance)
+* Create a new general project
 * Create an empty Simulink model in the project (e.g. `empty.slx`)
 * Create a new EOL file (e.g. `demo.eol`) and add the content below to it:
 
