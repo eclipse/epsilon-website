@@ -250,6 +250,9 @@
     	<article name="target-platform" title="Managing the target platform">
         	<description>This article outlines how to manage the target platform that Epsilon is built against.</description>
       	</article>
+      	<article name="adding-new-plugins" title="Adding new plugins">
+			<description>This article outlines the process of adding new plugins to the main Epsilon repository.</description>
+		</article>      	
       	<article name="git-fork-epsilon" title="Forking Epsilon as a non-committer with Git">
 			<description>This article shows how to branch Epsilon into a different remote repository whilst still getting updates from the main project.</description>
 		</article>
