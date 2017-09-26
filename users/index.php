@@ -52,8 +52,12 @@
   							<br/><br/>
 
   							* Based on the following sources:
-							<?foreach($companies as $company) {?>
+							<?
+							$companyIndex = 0;
+  							$companyCount = count($companies);
+							foreach($companies as $company) {?>
 								<?
+									$companyIndex++;
 									$evidenceHtml = "";
 									$evidenceItems = $company->evidence;
 									for ($i=0; $i < count($evidenceItems); $i++) {
@@ -63,7 +67,8 @@
 										}
 									}
 								?>
-								<a href="<?=$company["url"]?>"><?=$company["name"]?></a> (<?=$evidenceHtml?>), 
+								<a href="<?=$company["url"]?>"><?=$company["name"]?></a> (<?=$evidenceHtml?>)
+								<?if ($companyIndex < $companyCount) {?>,<?}?>
 							<?}?>
   						</div>
 						<div id="teaching" class="tab-pane">
@@ -77,8 +82,12 @@
   							<br/><br/>
 
   							* Based on the following sources:
-							<?foreach($institutions as $institution) {?>
+							<?
+							$institutionIndex = 0;
+  							$institutionCount = count($institutions);
+							foreach($institutions as $institution) {?>
 								<?
+									$institutionIndex++;
 									$evidenceHtml = "";
 									$evidenceItems = $institution->evidence;
 									for ($i=0; $i < count($evidenceItems); $i++) {
@@ -88,7 +97,8 @@
 										}
 									}
 								?>
-								<a href="<?=$institution["url"]?>"><?=$institution["name"]?></a> (<?=$evidenceHtml?>), 
+								<a href="<?=$institution["url"]?>"><?=$institution["name"]?></a> (<?=$evidenceHtml?>)
+								<?if ($institutionIndex < $institutionCount) {?>,<?}?>
 							<?}?>
   						</div>  						
   					</div>

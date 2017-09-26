@@ -45,4 +45,7 @@
 	<institution name="McMaster University" url="http://www.mcmaster.ca/" logo="mcmaster.png">
 		<evidence>http://www.cas.mcmaster.ca/~maibaum/Toms_Mac_Site/CAS756.html</evidence>
 	</institution>
+	<institution name="University of Edinburgh" url="http://www.ed.ac.uk/" logo="edin.png">
+		<evidence>http://www.inf.ed.ac.uk/teaching/courses/sdm/labs/mdd.html</evidence>
+	</institution>
 </institutions>
