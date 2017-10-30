@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="span8">
 				<p>The vast majority of examples in this website demonstrate using  languages from Epsilon to manage EMF-based models. While Epsilon provides robust support for EMF models, it is not tied to EMF at all. In fact, Epsilon is underpined by an open model connectivity framework which developers can extend with support for additional types of models/modeling technologies by providing respective drivers. </p>
-				<img src="../epsilon-architecture.png" style="padding-top:10px"/>
+				<?include "../architecture.php";?>
 				<p>For example, in <a href="/epsilon/labs">EpsilonLabs</a>, drivers are provided for managing:
 				<ul>
 					<li><a href="https://github.com/epsilonlabs/emc-argouml">ArgoUML models</a>

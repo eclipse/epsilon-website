@@ -1,0 +1,18 @@
+<emc>
+	<driver id="emf" title="EMF" logo="" maturity="5">
+	</driver>
+	<driver id="simulink" title="MATLAB Simulink" logo="" maturity="3">
+	</driver>
+	<driver id="excel" title="Microsoft Excel" logo="" maturity="5">
+	</driver>
+	<driver id="csv" title="CSV" logo="">
+	</driver>
+	<driver id="rhapsody" title="Rhapsody" logo="" maturity="4">
+	</driver>
+	<driver id="ptcim" title="PTC Integrity Modeller" logo="" marurity="4">
+	</driver>
+	<driver id="metaedit" title="MetaEdit+" logo="" maturity="1">
+	</driver>
+	<driver id="plainxml" title="Plain XML" logo="" maturity="5">
+	</driver>
+</emc>
