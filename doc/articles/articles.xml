@@ -88,6 +88,11 @@
 	  		This article demonstrates how you can work with custom EMF resources in Epsilon.
 	  		</description>
 	  	</article>
+	  	<article name="flexmi" title="Parsing XML documents as EMF models with Flexmi">
+	  		<description>
+	  		This article demonstrates how you can use Flexmi to parse XML documents in a fuzzy manner as instances of Ecore metamodels.
+	  		</description>
+	  	</article>
 	</category>
 	<category name="xml" title="Epsilon and non-EMF models">
 		<article name="plain-xml" title="Scripting XML documents using Epsilon">
