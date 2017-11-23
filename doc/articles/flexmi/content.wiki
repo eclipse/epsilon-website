@@ -1,4 +1,4 @@
-= Flexible Model Interchange (Flexmi) =
+= Parsing XML documents as EMF models with Flexmi =
 
 Flexmi is an implementation of [[http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/resource/Resource.html|EMF's Resource interface]] that can parse XML documents as instances of Ecore metamodels in a fuzzy manner. For example it can parse the following XML document (`messaging.flexmi`):
 
