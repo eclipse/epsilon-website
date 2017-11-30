@@ -32,6 +32,10 @@
 		title="The Epsilon Generation Language"
 		url="http://www.springerlink.com/content/h182m536v0471545/"
 	/>
+	<publication id="epl"
+		title="The Epsilon Pattern Language"
+		url="http://ieeexplore.ieee.org/document/7964596/"
+	/>
 	<publication id="flock"
 		title="Model migration with Epsilon Flock"
 		url="http://dl.acm.org/citation.cfm?id=1875862"
@@ -47,6 +51,10 @@
 	<publication id="workflow"
 		title="A Framework for Composing Modular and Interoperable Model Management Tasks"
 		url="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.215.3127"
+	/>
+	<publication id="emg"
+		title="EMG: A Domain-Specific Transformation Language for Synthetic Model Generation"
+		url="https://link.springer.com/chapter/10.1007/978-3-319-42064-6_3"
 	/>
 	
 </publications>

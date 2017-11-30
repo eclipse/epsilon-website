@@ -177,6 +177,17 @@
 			<file name="metamodels/Evolved.emf"/>
 		</example>
 	</category>
+	
+	<category name="emg" title="Epsilon Model Generation Language">
+		<example src="org.eclipse.epsilon.examples.emg.petrinet" title="Generate PetriNet models using EMG" standalone="false">
+			<description>
+			<![CDATA[In this example we demonstrate how to generate PetriNet elements and how to define relations between them.]]>
+			</description>
+			<file name="scripts/PetriNet.emg"/>
+			<file name="model/PetriNet.emf"/>
+		</example>
+	</category>
+
 	<category name="combination" title="Combining the Epsilon Languages">
 		<example src="org.eclipse.epsilon.examples.standalone" title="Use Epsilon in standalone Java applications">
 			<description>

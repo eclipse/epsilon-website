@@ -32,10 +32,13 @@
 				<ul>
 					<li><a href="etl">Epsilon Transformation Language (ETL)</a>: A rule-based model-to-model transformation language that supports transforming many input to many output models, rule inheritance,  lazy and greedy rules, and the ability to query and modify both input and output models.
 					<li><a href="evl">Epsilon Validation Language (EVL)</a>: A model validation language that supports both intra and inter-model consistency checking, constraint dependency management and specifying fixes that	users can invoke to repair identified inconsistencies. EVL is integrated with EMF/GMF and as such, EVL constraints can be evaluated from within EMF/GMF editors and generate error markers for failed constraints.
-					<li><a href="egl">Epsilon Generation Language (EGL)</a>: A template-based model-to-text language for generating code, documentation and other textual artefacts from models. EGL supports content-destination decoupling, protected regions for mixing generated with hand-written code and template coordination.
+					<li><a href="egl">Epsilon Generation Language (EGL)</a>: A template-based model-to-text language for generating code, documentation and other textual artefacts from models. EGL supports content-destination decoupling, protected regions for mixing generated with hand-written code.
+					<li><a href="egx">Epsilon EGL Coordination Language (EGX)</a>: A rule-based coordination language to execute specific EGL templates for a specific model element type, with the ability to guard rule execution and specify generation target location by type/element.
 					<li><a href="ewl">Epsilon Wizard Language (EWL)</a>: A language tailored to interactive in-place model transformations on model elements selected by the user. EWL is integrated with EMF/GMF and as such, wizards can be executed from within EMF and GMF editors.
 					<li><a href="ecl">Epsilon Comparison Language (ECL)</a>: A rule-based language for discovering  correspondences (matches) between elements of models of diverse metamodels.
 					<li><a href="eml">Epsilon Merging Language (EML)</a>: A rule-based language for merging models of diverse metamodels, after first identifying their correspondences with <a href="ecl">ECL</a> (or otherwise).
+                    <li><a href="epl">Epsilon Pattern Language (EPL)</a>: A pattern language for matching model elements based on element relations and characteristics.
+					<li><a href="emg">Epsilon Model Generation Language (EMG)</a>: A language for semi-automated model generation.
 					<li><a href="flock">Epsilon Flock</a>: A rule-based transformation language for updating models in response to metamodel changes.</li> 
 				</ul>
 			</div>

@@ -105,7 +105,7 @@
 	  		In this article we demonstrate how you can query and modify Simulink models in Epsilon.
 	  		</description>
 	  	</article>
-	  	<article name="http://arcanebeans.blogspot.co.uk/2013/11/extended-emc-for-cvs-files.html" title="Scripting CSV files using Epsilon">
+	  	<article name="csv-emc" title="Scripting CSV files using Epsilon">
 	  		<description>
 	  		This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
 	  		</description>
