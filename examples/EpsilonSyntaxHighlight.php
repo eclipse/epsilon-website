@@ -91,6 +91,10 @@ class EpsilonSyntaxHighlight {
 			if ($language == "mig") {
 				$keywords .= "|original|migrated|migrate|when|to";
 			}
+
+			if ($language == "epl") {
+				$keywords .= "|pattern";
+			}
 			
 			return $keywords;
 		}
