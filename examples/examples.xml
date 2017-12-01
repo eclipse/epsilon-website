@@ -193,7 +193,7 @@
 			<description>
 			<![CDATA[In this example we demonstrate how to find matches of the patterns in the Train Benchmark models with EPL.]]>
 			</description>
-			<file name="model/trainBenchmarkPatterns.epl"/>
+			<file name="trainBenchmarkPatterns.epl"/>
 		</example>
 	</category>
 
