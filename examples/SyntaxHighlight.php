@@ -7,7 +7,7 @@ include 'XmlSyntaxHighlight.php';
 
 function highlight($text, $language) {
 
-	if ($language == "eol" || $language == "eunit" || $language == "etl" || $language == "evl" || $language == "ecl" || $language == "eml" || $language == "ewl" || $language == "mig") {
+	if ($language == "eol" || $language == "eunit" || $language == "etl" || $language == "evl" || $language == "ecl" || $language == "eml" || $language == "ewl" || $language == "mig" || $language == "epl") {
 		return EpsilonSyntaxHighlight::process($text, $language);
 	}
 	else if ($language == "emf") {
