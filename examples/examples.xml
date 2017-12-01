@@ -177,7 +177,7 @@
 			<file name="metamodels/Evolved.emf"/>
 		</example>
 	</category>
-	
+
 	<category name="emg" title="Epsilon Model Generation Language">
 		<example src="org.eclipse.epsilon.examples.emg.petrinet" title="Generate PetriNet models using EMG" standalone="false">
 			<description>
@@ -185,6 +185,15 @@
 			</description>
 			<file name="scripts/PetriNet.emg"/>
 			<file name="model/PetriNet.emf"/>
+		</example>
+	</category>
+
+	<category name="epl" title="Epsilon Pattern Language">
+		<example src="org.eclipse.epsilon.examples.epl" title="Find pattern matches in railway models using EPL" standalone="false">
+			<description>
+			<![CDATA[In this example we demonstrate how to find matches of the patterns in the Train Benchmark models with EPL.]]>
+			</description>
+			<file name="model/trainBenchmarkPatterns.epl"/>
 		</example>
 	</category>
 
