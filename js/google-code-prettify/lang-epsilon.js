@@ -35,7 +35,7 @@ registerEpsilonLanguageHandler("evl", erlKeywords + "|context|constraint|critiqu
 registerEpsilonLanguageHandler("eml", etlKeywords + "|with|merge");
 registerEpsilonLanguageHandler("ecl", erlKeywords + "|rule|compare|match|with");
 registerEpsilonLanguageHandler("mig", erlKeywords + "|migrate|from|to|ignoring|retype|delete");
-registerEpsilonLanguageHandler("epl", erlKeywords + "|pattern");
+registerEpsilonLanguageHandler("epl", erlKeywords + "|pattern|do|from");
 
 
 function registerEpsilonLanguageHandler(language, keywords) {
