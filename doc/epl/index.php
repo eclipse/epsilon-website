@@ -30,16 +30,17 @@
 		</div>
 
 		<?=eolFeatures()?>
-<!--
+
+
 		<h3>Examples and Screencasts</h3>
 		<div class="row">
 			<div class="span8">
 				<ul>
-					<li>should we add an example to the Examples section?
+                  <li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.epl">Find pattern matches in railway models using EPL</a>
 				</ul>
 			</div>
 		</div>
--->
+
 		<h3>Reference</h3>
 		<div class="row">
 			<div class="span8">
