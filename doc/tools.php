@@ -20,7 +20,7 @@ function toolsSideItem($tool="epsilon") {
 	<li><a href="<?=Epsilon::getRelativeLocation('doc/ecl')?>">Epsilon Comparison Language</a>
 	<li><a href="<?=Epsilon::getRelativeLocation('doc/eml')?>">Epsilon Merging Language</a>
     <li><a href="<?=Epsilon::getRelativeLocation('doc/epl')?>">Epsilon Pattern Language</a>
-    <li><a href="<?=Epsilon::getRelativeLocation('doc/emg')?>">Epsilon Model Genration Language</a>	
+    <li><a href="<?=Epsilon::getRelativeLocation('doc/emg')?>">Epsilon Model Generation Language</a>	
 	<li><a href="<?=Epsilon::getRelativeLocation('doc/flock')?>">Epsilon Flock</a>
 	</ul>
 	<? sE(); ?>
