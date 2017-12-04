@@ -6,7 +6,7 @@
 <div class="row">
 	<!-- main part -->
 	<div class="span8">
-		<h1 class="page-header">Epsilon Coordination Language</h1>
+		<h1 class="page-header">Epsilon EVL Coordination Language</h1>
 
 		<div class="row">
 			<div class="span8">

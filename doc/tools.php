@@ -15,7 +15,7 @@ function toolsSideItem($tool="epsilon") {
 	<li><a href="<?=Epsilon::getRelativeLocation('doc/etl')?>">Epsilon Transformation Language</a>
 	<li><a href="<?=Epsilon::getRelativeLocation('doc/evl')?>">Epsilon Validation Language</a>
 	<li><a href="<?=Epsilon::getRelativeLocation('doc/egl')?>">Epsilon Generation Language</a>
-	<li><a href="<?=Epsilon::getRelativeLocation('doc/egx')?>">Epsilon EGL Coordination Language</a>	
+	<!--<li><a href="<?=Epsilon::getRelativeLocation('doc/egx')?>">Epsilon EGL Coordination Language</a>-->
 	<li><a href="<?=Epsilon::getRelativeLocation('doc/ewl')?>">Epsilon Wizard Language</a>
 	<li><a href="<?=Epsilon::getRelativeLocation('doc/ecl')?>">Epsilon Comparison Language</a>
 	<li><a href="<?=Epsilon::getRelativeLocation('doc/eml')?>">Epsilon Merging Language</a>

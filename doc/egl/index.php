@@ -22,6 +22,7 @@
 					<li>Call templates (with parameters) from other templates
 					<li>Define and call sub-templates
 					<li>Mix generated with hand-written code
+					<li>Rule-based coordination language (<a href="../egx">EGX</a>) for template coordination
 				</ul>
 			</div>
 		</div>
