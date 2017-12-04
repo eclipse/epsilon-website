@@ -6,13 +6,12 @@
 <div class="row">
 	<!-- main part -->
 	<div class="span8">
-		<h1 class="page-header">Epsilon EVL Coordination Language</h1>
+		<h1 class="page-header">Epsilon EGL Coordination Language</h1>
 
 		<div class="row">
 			<div class="span8">
-				<p>EGX is a rule-based language for coordinating the execution of <a href="../egl/">EGL</a> templates. EGX provides an easy way to
-				invoke and EGL template with a specific set of parameters, on a specific type
-				of model elements and generate output on a paticular location</p>
+				<p>EGX is a rule-based language for coordinating the execution of <a href="../egl/">EGL</a> templates. EGX provides a natural syntax for
+				invoking EGL templates on model elements and for specifying the paths of generated files.</p>
 			</div>
 		</div>
 
@@ -20,7 +19,7 @@
 		<div class="row">
 			<div class="span8">
 				<ul>
-					<li>Invoke an EGL template for each model element
+					<li>Invoke EGL templates against model elements of specific types
 					<li>Define parameters per element/template combination
 					<li>Specify output file location per element/template combination
 					<li>Guarded generation rules
