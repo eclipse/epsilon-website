@@ -10,7 +10,7 @@
 
 		<div class="row">
 			<div class="span8">
-				<p>EGL is a template-based model-to-text language for generating code, documentation and other textual artefacts from models. EGL supports content-destination decoupling, protected regions for mixing generated with hand-written code, and template coordination</p>
+				<p>EGL is a template-based model-to-text language for generating code, documentation and other textual artefacts from models. EGL supports content-destination decoupling, protected regions for mixing generated with hand-written code, and provides a rule-based template coordination language (EGX).</p>
 			</div>
 		</div>
 
@@ -18,11 +18,11 @@
 		<div class="row">
 			<div class="span8">
 				<ul>
-					<li>Decouple content from destination (can be used to generate text to files, to the <a href="https://sourceforge.net/apps/mediawiki/kolovos/index.php?title=MiniGen">clipboard</a>, or as a <a href="http://code.google.com/p/epsilonlabs/wiki/EGLinTomcat">server-side scripting language</a> etc.)
+					<li>Decouple content from destination (can be used to generate text to files, to the <a href="https://github.com/kolovos/minigen">clipboard</a>, or as a <a href="../articles/egl-server-side/">server-side scripting language</a> etc.)
 					<li>Call templates (with parameters) from other templates
 					<li>Define and call sub-templates
 					<li>Mix generated with hand-written code
-					<li>Rule-based coordination language (<a href="../egx">EGX</a>) for template coordination
+					<li>Coordinate template execution using a <a href="../articles/code-generation-tutorial-egl/">rule-based sub-language</a> (EGX)
 				</ul>
 			</div>
 		</div>
@@ -33,9 +33,10 @@
 		<div class="row">
 			<div class="span8">
 				<ul>
-					<li><a href="http://code.google.com/p/epsilonlabs/wiki/EGLinTomcat">Tutorial: Using EGL as a server-side scripting language in Tomcat</a>
+					<li><a href="../articles/code-generation-tutorial-egl/">Code Generation Tutorial with EGL</a>
+					<li><a href="../articles/egx-parameters/">Co-ordinating EGL template execution with EGX</a>
+					<li><a href="../articles/egl-server-side/">Tutorial: Using EGL as a server-side scripting language in Tomcat</a>
 					<li><a href="../../examples/index.php?example=org.eclipse.epsilon.examples.egldoc">Example: Generate HTML from an Ecore metamodel</a>
-					<li>Screencast: Generating an HTML report (<a href="../../cinema/#EglIntroduction">part 1</a>, <a href="../../cinema/#EglVariables">part 2</a>)
 				</ul>
 			</div>
 		</div>
@@ -43,7 +44,7 @@
 		<h3>Reference</h3>
 		<div class="row">
 			<div class="span8">
-				<p>Chapter 7 of the <a href="../book">Epsilon book</a> provides a complete reference of the syntax and semantics of EGL.</p>
+				<p>Chapter 7 of the <a href="../book">Epsilon book</a> provides a complete reference of the syntax and semantics of EGL and its rule-based template coordination language.</p>
 			</div>
 		</div>
 
