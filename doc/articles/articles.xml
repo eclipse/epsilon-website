@@ -105,6 +105,11 @@
 	  		In this article we demonstrate how you can query and modify Simulink models in Epsilon.
 	  		</description>
 	  	</article>
+	  	<article name="simulink-stateflow" title="Managing Matlab Simulink/Stateflow models from Epsilon">
+	  		<description>
+	  		This tutorial shows you how to manipulate Simulink and Stateflow blocks from within Epsilon.
+	  		</description>
+	  	</article>
 	  	<article name="csv-emc" title="Scripting CSV files using Epsilon">
 	  		<description>
 	  		This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
