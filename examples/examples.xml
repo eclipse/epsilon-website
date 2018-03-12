@@ -68,6 +68,16 @@
 			<file name="note.xml"/>
 			<file name="note.xsd"/>
 		</example>
+		<example src="org.eclipse.epsilon.emc.simulink.examples" title="Manage Matlab Simulink/Stateflow blocks from Epsilon" standalone="true" runnable="true">
+			<description>
+			<![CDATA[In this example we show how to manage Matlab Simulink/Stateflow blocks with EOL.]]>
+			</description>
+			<file name="create/globalVars.eol"/>
+			<file name="create/createFeedbackController.eol"/>
+			<file name="create/createFunctionWithScript.eol"/>
+			<file name="create/createSimpleSimulation.eol"/>
+			<file name="create/createStateflowStateTransitions.eol"/>
+		</example>
 	</category>
 	<category name="etl" title="Epsilon Transformation Language">
 		<example src="org.eclipse.epsilon.examples.tree2graph" title="Transform a Tree model to a Graph model with ETL" standalone="false">
@@ -314,16 +324,6 @@
 			<file name="src/org/eclipse/epsilon/examples/eunit/junit/JUnitIntegrationExampleSuite.java"/>
 			<file name="resources/tests/example.eunit"/>
 			<file name="resources/etl/Tree2Graph.etl"/>
-		</example>
-		<example src="org.eclipse.epsilon.emc.simulink.examples" title="Manage Matlab Simulink/Stateflow blocks from Epsilon" standalone="true" runnable="true">
-			<description>
-			<![CDATA[In this example we show how to manage Matlab Simulink/Stateflow blocks with EOL.]]>
-			</description>
-			<file name="create/globalVars.eol"/>
-			<file name="create/createFeedbackController.eol"/>
-			<file name="create/createFunctionWithScript.eol"/>
-			<file name="create/createSimpleSimulation.eol"/>
-			<file name="create/createStateflowStateTransitions.eol"/>
 		</example>
 	</category>
 </examples>
