@@ -315,5 +315,15 @@
 			<file name="resources/tests/example.eunit"/>
 			<file name="resources/etl/Tree2Graph.etl"/>
 		</example>
+		<example src="org.eclipse.epsilon.emc.simulink.examples" title="Manage Matlab Simulink/Stateflow blocks from Epsilon" standalone="true" runnable="true">
+			<description>
+			<![CDATA[In this example we show how to manage Matlab Simulink/Stateflow blocks with EOL.]]>
+			</description>
+			<file name="create/globalVars.eol"/>
+			<file name="create/createFeedbackController.eol"/>
+			<file name="create/createFunctionWithScript.eol"/>
+			<file name="create/createSimpleSimulation.eol"/>
+			<file name="create/createStateflowStateTransitions.eol"/>
+		</example>
 	</category>
 </examples>
