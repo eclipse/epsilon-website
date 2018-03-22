@@ -68,6 +68,7 @@ Applies to an `EClass` and denotes that it should appear on the diagram as a nod
 * `color` (optional) : an RGB color that will be set as the node's background color (e.g. `255,0,0`).
 * `figure` (optional) : the figure that will represent the node. Can be set to `rectangle`, `ellipse`, `rounded` (default), `svg` (see `svg.uri`), `polygon` (see `polygon.x` and `polygon.y`) or the fully qualified name of a Java class that implements Figure.
 * `label`: the name(s) of the `EAttribute`(s) of the `EClass`, the value(s) of which will be displayed as the label of the node. If `label.placement` is set to `none`, this detail is not required.
+* `label.color` (optional, since 1.5.0) : an RGB color that will be set as the node's foreground color. Labels will have a fixed font of this color.
 * `label.icon` (optional) : if set to `true` (default) a small icon appears on the left of the label.
 * `label.parser` (optional) : indicates the unqualified name of the class that will parse the text entered by the user into the label. By default, a [[http://download.oracle.com/javase/6/docs/api/java/text/MessageFormat.html|MessageFormat]]-based parser is generated, but it can be manually customized after generation. 
 * `label.edit.pattern` (optional) : like `label.pattern`, but only for editing the label.
