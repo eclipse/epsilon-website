@@ -55,7 +55,16 @@ class Message {
 }
 }}}
 
-==Use==
+==Getting started==
+
+* Create a text file named `messaging.emf` in your workspace and place the Emfatic content above in it.
+* Convert it into Ecore and register the produced Ecore metamodel (`messaging.ecore`) as shown [[../reflective-emf-tutorial|here]].
+* Create a new text file named `messaging.flexmi` and place the XML content above in it.
+* The result should look like the screenshot below.
+
+[[image:screenshot.png]]
+
+==Use in Epsilon and Java==
 
 Flexmi can be used like any other EMF resource implementation. For example, you can add `.flexmi` models as regular EMF models to the run configuration of your Epsilon program. An example of using Flexmi from Java follows.
 
@@ -67,14 +76,7 @@ Resource resource = resourceSet.createResource(URI.createFileURI("/../messaging.
 resource.load(null);
 }}}
 
-==Editor==
-
-An Eclipse editor for `.flexmi` files is also available in the `org.eclipse.epsilon.flexmi.dt` project.
-
-[[image:screenshot.png]]
-
-
-==Limitations==
+===Limitations===
 
 Flexmi resources can't be saved programmatically (i.e. trying to call `resource.save(...)` will throw an `UnsupportedOperationException`).
 
