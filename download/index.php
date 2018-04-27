@@ -250,6 +250,12 @@
 								  <input class="span9" id="appendedPrependedInput" type="text" value="Install through the Help->Install Modeling Components menu.">
 								</div>
 
+								<h4 style="padding-top:10px;padding-bottom:10px">EpsilonLabs (optional)</h4>
+								<p>Some of the projects found in the EpsilonLabs <a href="https://github.com/epsilonlabs">repository</a> can be installed from the EpsilonLabs update site.
+								<div class="input-prepend input-append">
+								  <span class="add-on"><div class="span2">EpsilonLabs</div></span>
+								  <input class="span9" id="appendedPrependedInput" type="text" value="https://dl.bintray.com/epsilonlabs/updates">							
+								</div>
 							</div>
 							</form>
 							<h4>What do I do with these?</h4>
