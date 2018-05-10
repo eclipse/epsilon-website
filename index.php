@@ -99,7 +99,6 @@
     <li><a href="#languages" data-toggle="tab"><h4>Languages</h4></a></li>
     <li><a href="#tools" data-toggle="tab"><h4>Tools</h4></a></li>
     <li class="active"><a href="#whyepsilon" data-toggle="tab"><h4>Why Epsilon?</h4></a></li>
-    <li><a href="#twitter" data-toggle="tab"><h4>News</h4></a></li>
 
     <!--
     <a style="position:relative;top:19px;left:521px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="Drag and drop into a running Eclipse Indigo workspace to install Epsilon">
@@ -145,19 +144,12 @@
   <p style="text-align:right">* Icons by <a href="http://dryicons.com/">http://dryicons.com</a></p>
   </div>
 
-
-  <div class="tab-pane" id="twitter">
-  <a class="twitter-timeline" href="https://twitter.com/EclipseEpsilon" data-widget-id="308297319382654976" width="400">Tweets by @EclipseEpsilon</a>
-	<script>window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));</script>
-  </div>
 </div>
 
 <?php
 
 	$scripts = array(
-		'<script src="'.Epsilon::getRelativeLocation('js/individual/index.js').'"></script>',
-    '<script type="text/javascript" src="https://twitter.com/javascripts/blogger.js"></script>',
-    '<script type="text/javascript" src="https://twitter.com/statuses/user_timeline/EclipseEpsilon.json?callback=twitterCallback2&amp;count=5"></script>'
+		'<script src="'.Epsilon::getRelativeLocation('js/individual/index.js').'"></script>'
 	);
 
 	f($scripts);

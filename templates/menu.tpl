@@ -115,9 +115,6 @@
 								<a href="http://wiki.eclipse.org/Epsilon">Wiki</a>
 							</li>
 							<li>
-								<a href="http://statcounter.com/p2185757/summary/?postback=1&timerange=custom&range_or_period=period&period_yearly=0&yearFrom=2007&yearTo=2012&show_page_loads=1&show_unique=1&show_returning=1&graph_type_selection=area_graph">Stats</a>
-							</li>
-							<li>
 								<a href="http://twitter.com/EclipseEpsilon">@EclipseEpsilon</a>
 							</li>
 						</ul>
