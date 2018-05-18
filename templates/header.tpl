@@ -10,7 +10,7 @@
 	<!-- Le styles -->
 	<link href="<?php echo Epsilon::getRelativeLocation('css/bootstrap-united.css'); ?>" rel="stylesheet">
 	<link href="<?php echo Epsilon::getRelativeLocation('css/general.css'); ?>" rel="stylesheet">
-
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
 	<link href="<?php echo Epsilon::getRelativeLocation('js/google-code-prettify/prettify.css'); ?>" rel="stylesheet">
 
 	<?php echo $tpl_styles; ?>
