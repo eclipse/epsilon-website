@@ -13,7 +13,7 @@
 
 		<div class="row">
 			<div class="span8">
-				<img class="pull-right" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png" alt="">
+				<img class="pull-right" src="https://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png" alt="">
 				<p>This page contains an index of articles presenting a range of tools and languages in Epsilon. Should you find that an article contains errors or is inconsistent with the current release of Epsilon, please <a href="../../forum">let us know</a>.</p>
 			</div>
 		</div>

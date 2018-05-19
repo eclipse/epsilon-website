@@ -11,7 +11,7 @@
 		<!-- first row of content - change loop to div -->
 		<div class="row">
 			<div class="span8">
-				<img class="pull-right" src="http://dev.eclipse.org/huge_icons/apps/help-browser.png" alt="">
+				<img class="pull-right" src="https://dev.eclipse.org/huge_icons/apps/help-browser.png" alt="">
 				<p>In this page we provide answers to common questions about Epsilon. If your question is not answered here, please feel free to <a href="../forum">ask in the forum</a>.</p>
 		
 			</div>

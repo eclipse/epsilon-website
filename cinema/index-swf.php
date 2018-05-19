@@ -53,7 +53,7 @@
 
 		<div class="row">
 			<div class="span8">
-				<img class="pull-right" src="http://dev.eclipse.org/huge_icons/mimetypes/x-office-presentation.png" alt="">
+				<img class="pull-right" src="https://dev.eclipse.org/huge_icons/mimetypes/x-office-presentation.png" alt="">
 				<p>This page contains several screencasts demonstrating different tools and languages in Epsilon. To watch the screencasts you must have a <a href="http://get.adobe.com/flashplayer/">Flash player</a> installed and enabled in your browser. All screencasts have been captured using <a href="http://www.debugmode.com/wink">Wink</a>.</p>
 			</div>
 		</div>

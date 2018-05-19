@@ -10,7 +10,7 @@
 
 		<div class="row">
 			<div class="span8">
-				<!--img class="pull-right" src="http://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png" alt=""-->
+				<!--img class="pull-right" src="https://dev.eclipse.org/huge_icons/apps/accessories-text-editor.png" alt=""-->
 				
 				<p>Epsilon is a family of languages and tools for code generation, model-to-model transformation, model validation, comparison, migration and refactoring that work out-of-the-box with EMF <a href="emc">and other types of</a> of models.</p>
 
@@ -46,7 +46,7 @@
 		<h3>Tools</h3>
 		<div class="row">
 			<div class="span8">
-				<!--img class="pull-right" src="http://dev.eclipse.org/huge_icons/categories/preferences-system.png" alt=""-->
+				<!--img class="pull-right" src="https://dev.eclipse.org/huge_icons/categories/preferences-system.png" alt=""-->
 
 				<p>In addition to the languages above, Epsilon also provides several tools and utilities for working with models.</p>
 				<ul>
