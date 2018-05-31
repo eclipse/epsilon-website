@@ -267,7 +267,7 @@
 			<description>This article shows how to branch Epsilon into a different remote repository whilst still getting updates from the main project.</description>
         </article>
         <article name="labsupdatesite" title="Publishing to the EpsilonLabs Updatesite">
-            <description>This article outlines the process publishing a plugin (EMC/language/tool) from the EpsilonLabs to the EpsilonLabs updatesite.</description>
+            <description>This article outlines the process for publishing a plugin (EMC driver/language/tool) from the EpsilonLabs Github organisation to the EpsilonLabs updatesite.</description>
         </article>     
 
 	</category>
