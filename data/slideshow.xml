@@ -4,7 +4,7 @@
 		
 	</item>
   <item title="Epsilon Object Language" img="img/slideshow/images/EOL.png" href="doc/eol">
-    Query and modify your EMF models with EOL
+    Query and modify your models with EOL
   </item> 
   <item title="Epsilon Object Language" img="img/slideshow/images/Native.png" href="doc/eol">
     Call Java code from all Epsilon languages
