@@ -4,7 +4,7 @@ This article provides a step-by-step guide for obtaining a local copy of the Eps
 * Download and install [[http://portableapps.com/apps/development/xampp|XAMPP]].
 * The folder where web-content is placed is `htdocs`.
 * Create an `epsilon` folder inside `htdocs`.
-* Clone the Git repository at [[ssh://youruser@git.eclipse.org/gitroot/www.eclipse.org/epsilon.git]] using EGit, specifying your Eclipse committer username in `youruser`. Eclipse will ask for your committer password. The destination directory should be the `epsilon` directory created in the previous step.
+* Clone the Git repository at [[ssh://user_id@git.eclipse.org:29418/www.eclipse.org/epsilon.git]] using EGit, specifying your Eclipse committer username in `user_id`. Eclipse will ask for your committer password. The destination directory should be the `epsilon` directory created in the previous step.
 * Import the working directory of the Git repository as a single general project.
 * Start XAMPP and go to `http://localhost/epsilon`.
 * You are now ready to start playing with the Epsilon site locally.

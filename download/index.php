@@ -319,7 +319,7 @@
 								</div>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Committers</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="ssh://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git">
+								  <input class="span9" id="appendedPrependedInput" type="text" value="ssh://user_id@git.eclipse.org:29418/epsilon/org.eclipse.epsilon.git">
 								</div>
 								<?}?>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
