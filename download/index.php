@@ -26,8 +26,7 @@
 
 	$modelingToolsWin = $modelingTools."win32.zip";
 	$modelingToolsWin64 = $modelingTools."win32-x86_64.zip";
-	//$modelingToolsMac = $modelingTools."macosx-cocoa.tar.gz";
-	$modelingToolsMac64 = $modelingTools."macosx-cocoa-x86_64.tar.gz";
+	$modelingToolsMac64 = $modelingTools."macosx-cocoa-x86_64.".$release->eclipse["mac-extension"];
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 
@@ -48,17 +47,10 @@
 
 	$downloadWin = $downloadUrl."win32.zip";
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
-	$downloadMac = $downloadUrl."macosx-cocoa.zip";
-	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.zip";
-
-	if ($version == "1.2") {
-		$downloadLinux = $downloadUrl."linux-gtk.zip";
-		$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.zip";
-	}
-	else {
-		$downloadLinux = $downloadUrl."linux-gtk.tar.gz";
-		$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.tar.gz";
-	}
+	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.".$release->eclipse["mac-extension"];
+	$downloadLinux = $downloadUrl."linux-gtk.".$release->eclipse["linux-extension"];
+	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.".$release->eclipse["linux-extension"];
+	
 
 	$updateSite = "http://".$download_server.".eclipse.org/epsilon/".$breadCrumb."updates/";
 	$zippedUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."updates/site.zip";
@@ -124,28 +116,6 @@
 	h();
 ?>
 
-<?if (false) {?>
-<div class="row">
-	<div class="span12">
-	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
-		We are currently in the middle of releasing a new stable version of Epsilon (1.2) so until that's done, some links/update sites may not work as expected.
-		In the meantime, please <a href="index.php?version=1.1_SR1">download version 1.1_SR1 instead</a>.
-    </div>
-    </div>
-</div>
-<?}?>
-
-<!--div class="row">
-	<div class="span12">
-	<div class="alert alert-info" style1="font-weight:normal; background-color: rgb(214,238,247); color: rgb(24,136,173); border-color: rgb(181,233,241)">
-		If you have recently installed v1.1 or have downloaded one of its pre-bundled distributions,
-		please upgrade to version 1.1_SR1 as v1.1 contained two
-		<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416920">critical</a> <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=416918">bugs</a> related to Eugenia.
-		We apologise for any inconvenience caused.
-    </div>
-    </div>
-</div-->
-
 <div class="row">
 	<!-- main part -->
 	<div class="span8">
@@ -180,7 +150,7 @@
 				    	<?if($distributions){?>
   						<div id="distributions" class="tab-pane active">
   							<p>
-  							Ready-to-use Eclipse <?=$release->eclipse["name"]?> (<?=$release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$version?>), EMF, GMF, and Emfatic. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.
+  							Ready-to-use Eclipse <?=$release->eclipse["name"]?> (<?=$release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$version?>) and all its mandatory and optional dependencies. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.
   							</p>
 								<?if (onMac()){?>
 								<div class="alert alert-info alert-block">
@@ -190,9 +160,7 @@
   							<p style="padding-top:15px;padding-bottom:15px">
 							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin?>">Windows 32bit</a>
 							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin64?>">Windows 64bit</a>
-							<!--a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac?>">Mac OS X 32bit</a-->
 							<a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac64?>">Mac OS X 64bit</a>
-
 							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux?>">Linux 32bit</a>
 							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux64?>">Linux 64bit</a>
 
@@ -203,13 +171,6 @@
 							</p>
 							<?}?>
 							</p>
-							<?if (onMac() && strcmp($version, "1.0") == 0){?>
-							<p><b>Note for Mac OSX Snow Leopard users:</b> The above distributions require Java 1.7 which is not
-							available for Mac OSX Snow Leopard. To assemble a 1.6-compatible version of the Epsilon distribution,
-							please download one of the distributions above, and re-install Emfatic from the following update site:
-							<?=Epsilon::getEmfaticUpdateSite()?>
-							</p>
-							<?}?>
   						</div>
   						<?}?>
   						<div id="updatesites" class="tab-pane <?if(!$distributions){ echo "active";}?>">
@@ -239,16 +200,43 @@
 								</p>
 								<?}?>
 
-								<h4 style="padding-top:10px;padding-bottom:10px">Dependencies (optional)</h4>
+								<h4>What do I do with these?</h4>
+								<p>
+								The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a Java Runtime Environment and Eclipse first. The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon <?=$release["version"]?> and is available for the following platforms.
+								</p>
+								<p style="padding-top:15px;padding-bottom:15px">
+								<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin?>">Windows 32bit</a>
+								<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows 64bit</a>
+								<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">Mac OS X 64bit</a>
+								<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux?>">Linux 32bit</a>
+								<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux 64bit</a>
+								</p>
 
-								<div class="input-prepend input-append">
+								<h4 style="padding-top:10px;padding-bottom:10px">Dependencies (optional)</h4>
+								<p>Below are optional dependencies that are not pre-installed in the Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution.</p>
+								<table class="table table-striped table-bordered">
+									<thead>
+										<tr><th>Dependency</th><th>Update site</th><th>Notes</th></tr>
+									</thead>
+									<tbody>
+										<?foreach ($release->dependency as $dependency){?>
+										<tr>
+											<td><?=$dependency["name"]?></td>
+											<td><?=$dependency["location"]?></td>
+											<td><?=$dependency["notes"]?></td>
+										</tr>
+										<?}?>
+									</tbody>
+								</table>
+
+								<!--div class="input-prepend input-append">
 								  <span class="add-on"><div class="span2">Emfatic</div></span>
 								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getEmfaticUpdateSite()?>">
 								</div>
 								<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">GMF</div></span>
 								  <input class="span9" id="appendedPrependedInput" type="text" value="Install through the Help->Install Modeling Components menu.">
-								</div>
+								</div-->
 
 								<h4 style="padding-top:10px;padding-bottom:10px">EpsilonLabs (optional)</h4>
 								<p>Some of the projects found in the EpsilonLabs <a href="https://github.com/epsilonlabs">repository</a> can be installed from the EpsilonLabs update site.
@@ -258,7 +246,7 @@
 								</div>
 							</div>
 							</form>
-							<h4>What do I do with these?</h4>
+							<!--h4>What do I do with these?</h4>
 							<p>
 							The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a> and Eclipse
 							(including EMF, GMF and Emfatic in order to use the full range of its capabilities) first.
@@ -267,7 +255,6 @@
 							<p style="padding-top:15px;padding-bottom:15px">
 							<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin?>">Windows 32bit</a>
 							<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows 64bit</a>
-							<!--a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac?>">Mac OS X 32bit</a-->
 							<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">Mac OS X 64bit</a>
 							<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux?>">Linux 32bit</a>
 							<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux 64bit</a>
@@ -298,7 +285,7 @@
 							    <li><i><a href="../doc/hutn/">Human Usable Text Notation</a> Core:</i> provides the EMC driver required to load models written in the OMG HUTN textual notation.
 							    <li><i>Human Usable Text Notation Development Tools:</i> provides an editor for models written in OMG HUTN.
 							    <li><i>Epsilon <a href="../doc/concordance/">Concordance</a>:</i> provides a tool that detects, reconciles and reports broken cross-resource EMF references.
-							</ul>
+							</ul!-->
   						</div>
   						<?if ($latest){?>
   						<div id="marketplace" class="tab-pane">

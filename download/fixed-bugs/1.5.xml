@@ -1,0 +1,1803 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugs.eclipse.org/bugs/page.cgi?id=bugzilla.dtd">
+
+<bugzilla version="5.0.3"
+          urlbase="https://bugs.eclipse.org/bugs/"
+          
+          maintainer="webmaster@eclipse.org"
+          exporter="dkolovos@cs.york.ac.uk"
+>
+
+    <bug>
+          <bug_id>508075</bug_id>
+          
+          <creation_ts>2016-11-23 16:01:30 -0500</creation_ts>
+          <short_desc>[EMF] Use adapters to keep caches up to date, instead of createInstance/deleteElement</short_desc>
+          <delta_ts>2017-01-16 14:22:45 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</assigned_to>
+          <cc>dkolovos@cs.york.ac.uk</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923808-ntKW-1Pdcvsl2FPYkBSCq22tpspTUbpRfv_BA-pZT6U</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2779336</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2016-11-23 16:01:30 -0500</bug_when>
+    <thetext>Kostas and I were debugging some of his work - his code was producing empty EVL scripts for some reason. After fixing one more odd issue with his use of InMemoryEmfModel&apos;s, we looked into it and it seems that his use of EcoreUtil#copy thoroughly confused the allContentsCache of AbstractEmfModel.
+
+Basically, allContentsCache is updated in parallel with newInstance(...) and deleteElement(...), but anything that is done outside there makes it go stale. For instance, EcoreUtil#copy.
+
+We already register containment listeners in some cases - it&apos;d be better to update the caches through EMF adapters.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2779342</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2016-11-23 16:10:28 -0500</bug_when>
+    <thetext>Tests and fix pushed in 0d4752df.
+
+Essentially, at the end of EmfModel#loadModel and InMemoryEmfModel#init, we make sure that the Resource has an EContentsAdapter which will update the cache accordingly.
+
+The only part I don&apos;t like that much about the code is the slightly &quot;hacky&quot; way in which I disable the old way createInstance/deleteInstance updated the cache, 
+while still reusing the way the caches were handled in CachedModel.
+
+Basically, I refactored the cache management in those methods to protected addToCache/removeFromCache methods, which I override to be empty in EmfModel and then add force*() versions which call the original versions. These force*() versions are needed so I can call the original versions from the nested class used for the CachedContentsAdapter.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2779348</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2016-11-23 16:35:21 -0500</bug_when>
+    <thetext>Hudson is reporting some test failures with the EUnit model comparison assertions: I&apos;ll give them another look and fix the regression ASAP.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2779384</commentid>
+    <comment_count>3</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2016-11-23 18:29:48 -0500</bug_when>
+    <thetext>I&apos;ve fixed a few but there are still two remaining failures - I&apos;ll have a look at them tomorrow. Getting the adapter right is tricky!</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2779388</commentid>
+    <comment_count>4</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2016-11-23 18:53:21 -0500</bug_when>
+    <thetext>I guess that&apos;s why it&apos;s been sinking to the bottom of my to-do list for so long :) Thanks for all your hard work on this!</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2779580</commentid>
+    <comment_count>5</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2016-11-24 07:11:41 -0500</bug_when>
+    <thetext>OK, now Hudson and my local Tycho build are both happy, after I had a good look at the EContentAdapter and how it handled various types of notifications (it&apos;s actually a pretty good reference on how to handle a few things).
+
+Marking as fixed as of 31b397f.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2795128</commentid>
+    <comment_count>6</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-01-16 14:13:59 -0500</bug_when>
+    <thetext>Interestingly, for some reason I just ran into a failing test on the EMF test suite, particularly the EMF deletion tests.
+
+It seems that the way we were deleting elements (deleting the element, and then its contents) doesn&apos;t work well for our these new adapter-based per-type caches. When the element is removed from the model, the adapters don&apos;t react anymore to the contents being deleted, so the cache became stale.
+
+Instead, the right thing to do is to remove the contents first, and then the elements itself.
+
+The odd thing is why wasn&apos;t this caught by Hudson already: it appears that the EmfTestSuite was missing some test cases, but EmfModelDeleteTests wasn&apos;t among those. I only saw the failing test case until today, when running things manually over Eclipse.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2795131</commentid>
+    <comment_count>7</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-01-16 14:22:45 -0500</bug_when>
+    <thetext>Right, it seems we only run the &quot;plugged in&quot; tests from Hudson, oops. I need to look into that.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>510531</bug_id>
+          
+          <creation_ts>2017-01-16 13:53:14 -0500</creation_ts>
+          <short_desc>[EMF] When expand=true, EmfModel counts elements in cross-file fragmented models twice</short_desc>
+          <delta_ts>2017-01-17 07:10:43 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</assigned_to>
+          <cc>agarcdomi@gmail.com</cc>
+    
+    <cc>dkolovos@cs.york.ac.uk</cc>
+    
+    <cc>konstantinos.barmpis@york.ac.uk</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923808-JiuSoaX2REoDPThQD9PFbcRV7rg3tV1QrFX1AXIcOQk</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2795122</commentid>
+    <comment_count>0</comment_count>
+      <attachid>266314</attachid>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-01-16 13:53:14 -0500</bug_when>
+    <thetext>Created attachment 266314
+Main model fragment
+
+While testing a fragmented version of a big XMI dump of a Modelio project, Kostas found that apparently Epsilon allContents().size() reported more elements than it should when expand was set to &quot;true&quot; in the EmfModel.
+
+We have confirmed this with a much smaller model, using the sample Tree metamodel. The main reason seems to be that allContentsInModel() loops over all resources in the resource set when expand=true, regardless of whether the resource is fully contained within another one. This means that the elements get counted multiple times (once per containing model).</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2795123</commentid>
+    <comment_count>1</comment_count>
+      <attachid>266315</attachid>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-01-16 13:53:51 -0500</bug_when>
+    <thetext>Created attachment 266315
+Example model (contained fragment)
+
+Added second fragment.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2795125</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-01-16 13:59:54 -0500</bug_when>
+    <thetext>I have pushed in 585495b two new unit tests (with expand=false and expand=true), and a first fix for the expand=true case.
+
+The fix is to filter the resources in getResources() to those that have at least one root element that is not contained by something else. This should be inexpensive enough for most models.
+
+The alternative is rolling back the fix and just telling users with fragmented models that they should not use &quot;Expand model references&quot;, which doesn&apos;t seem ideal. Thoughts?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2795273</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-01-17 05:06:17 -0500</bug_when>
+    <thetext>Could another alternative be to change allInstances in allContentsFromModel from ArrayList to LinkedHashSet?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2795323</commentid>
+    <comment_count>4</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-01-17 07:10:43 -0500</bug_when>
+    <thetext>That&apos;s certainly an option, but it might be expensive for large models with all the hashing and linked lists, wouldn&apos;t it?</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>266314</attachid>
+            <date>2017-01-16 13:53:14 -0500</date>
+            <delta_ts>2017-01-16 13:53:14 -0500</delta_ts>
+            <desc>Main model fragment</desc>
+            <filename>tree-0.xmi</filename>
+            <type>text/x-xmi</type>
+            <size>184</size>
+            <attacher name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</attacher>
+            
+              <token>1531923809-_EV69oSSl8uKecfNOZGP83vb0d09J7XB-8ytEq2DyAk</token>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>266315</attachid>
+            <date>2017-01-16 13:53:51 -0500</date>
+            <delta_ts>2017-01-16 13:53:51 -0500</delta_ts>
+            <desc>Example model (contained fragment)</desc>
+            <filename>tree-1.xmi</filename>
+            <type>text/x-xmi</type>
+            <size>182</size>
+            <attacher name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</attacher>
+            
+              <token>1531923809-ASY8ujvCDAOKuSGhKr7_lcDzK5XtbIJ2tyZyqry6t4U</token>
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>510619</bug_id>
+          
+          <creation_ts>2017-01-18 05:19:42 -0500</creation_ts>
+          <short_desc>[EGX, Book] Template.append(String) is not documented and is inconsistent with generate(String)</short_desc>
+          <delta_ts>2017-01-18 05:23:20 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</assigned_to>
+          <cc>dkolovos@cs.york.ac.uk</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-gABU4eGUBH8R00Kud6rWf89ns6jddsSH2RhpUxNBL5Y</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2795752</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-01-18 05:19:42 -0500</bug_when>
+    <thetext>From this forum thread:
+
+https://www.eclipse.org/forums/index.php?t=rview&amp;goto=1751874#msg_1751874
+
+We haven&apos;t documented append(String), which is defined in EglFileGeneratingTemplate and it seems quite useful. I will add it to the book and perhaps tweak it a bit to make it slightly more convenient.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2795756</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-01-18 05:23:20 -0500</bug_when>
+    <thetext>Minor improvements pushed in 0e220ba:
+
+- Fix caption of table 7.1.
+- Mention Template#append in table 7.2.
+- Changed Template#append so it returns the generated file, same as Template#generate (it used to return nothing).
+- Fixed Template#append when the destination file does not exist (previously, it would generate a file containing &quot;null&quot;, a newline and the newly generated text.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>511514</bug_id>
+          
+          <creation_ts>2017-02-01 18:40:18 -0500</creation_ts>
+          <short_desc>Caching is broken</short_desc>
+          <delta_ts>2017-02-02 07:34:39 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          <cc>agarcdomi@gmail.com</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-YzL560WQ4bGEUuJ5qSLzejkpJzY6imLb8tzQ3LwNoVs</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2801304</commentid>
+    <comment_count>0</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-02-01 18:40:18 -0500</bug_when>
+    <thetext>Caching doesn&apos;t seem to be working correctly in the current version of CachedModel. This is caught by several tests under EolAcceptanceTestSuite which however do not appear to be executed as part of the Hudson CI job as the latest interim build completed without problems (I had to run EpsilonTestSuite locally to catch these).</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2801385</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-02-02 04:25:17 -0500</bug_when>
+    <thetext>Thanks for the tip! I have put some work into getting the rest of the EpsilonTestSuite working from Hudson, but I haven&apos;t been able to push this as they have been some lingering tests that refused to work from &quot;mvn test&quot; for some reason.
+
+I remember having to fix a few things from some of these tests - I thought they were all passing again, but it seems I was wrong. I&apos;ll look into it now.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2801396</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-02-02 04:44:30 -0500</bug_when>
+    <thetext>That&apos;s interesting: EolAcceptanceTestSuite passes with JDK7, but when I switched to JDK8 they broke. Time to look into them!</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2801434</commentid>
+    <comment_count>3</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-02-02 05:50:06 -0500</bug_when>
+    <thetext>From what I&apos;m seeing, it&apos;s not as simple as a caching issue: it just so happens that the EOL code is simply referring to &quot;EClass&quot;, and the tests are picking up &quot;EClass&quot; from our custom ecoreLite metamodel and not &quot;EClass&quot; from the proper &quot;ecore&quot; metamodel. 
+
+It appears that in JDK8, the iteration order for the package registry sometimes changes and we go through ecoreLite before ecore.
+
+Adding &quot;ecore::&quot; to the type references in the .eol code fixes many of these issues, but there&apos;s still some failing tests due to the fact that the new caching used only type names and not fully qualified &quot;package::type&quot;-style names. I&apos;m doing that now.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2801466</commentid>
+    <comment_count>4</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-02-02 07:12:47 -0500</bug_when>
+    <thetext>By the way, just to add to this: Tycho really doesn&apos;t like tests that involve retrieving files from source folders.
+
+Due to the way Tycho resolves dependencies, I have to run tests from .jar files, and the way to get at those resources files differs quite a bit. This is what is breaking 337 test cases right now out of 2100+.
+
+It is also impossible to get at any .java files, since those are not in the .jar file. This rules out things like the MultilineCommentReader.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2801473</commentid>
+    <comment_count>5</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-02-02 07:18:42 -0500</bug_when>
+    <thetext>In any case, the failing tests themselves have been fixed in dc105d9. Marking as resolved for now :-).</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2801478</commentid>
+    <comment_count>6</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-02-02 07:34:39 -0500</bug_when>
+    <thetext>As suggested by Dimitris, we simplified the tests using the third argument of InMemoryEmfModel.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>513097</bug_id>
+          
+          <creation_ts>2017-03-03 15:33:21 -0500</creation_ts>
+          <short_desc>Number.log10() requires spurious number argument</short_desc>
+          <delta_ts>2017-03-03 15:34:31 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-62L25PqyMu3DjJ9l08NNmWWCQ3vIn7D0wIlfyzdRVvI</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2810670</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-03-03 15:33:21 -0500</bug_when>
+    <thetext>Horacio could not get Number.log10 to work, and noticed that it required for some reason a Number argument itself: he had to write x.log10(dummyValue) instead of just doing x.log10() as would be expected.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2810671</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-03-03 15:34:31 -0500</bug_when>
+    <thetext>Test and fix added in 4de958e.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>513701</bug_id>
+          
+          <creation_ts>2017-03-15 07:18:43 -0400</creation_ts>
+          <short_desc>Rename and refactor o.e.e.evl.dt.dblClick</short_desc>
+          <delta_ts>2017-03-15 09:02:20 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          <cc>arcanefoam@gmail.com</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-t_IUigCzgY9VXlMxTtrvTcQzVC11q3CTRDQ2z3DJV1c</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2814385</commentid>
+    <comment_count>0</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-03-15 07:18:43 -0400</bug_when>
+    <thetext>The current implementation of the dblClick extension point for navigating from the EVL validation view to model elements in their editor would benefit from refactoring.
+
+1. Essentially, extensions can &quot;reveal&quot; elements in model editors regardless of whether these come from failed EVL constraints or whether it&apos;s through a double click action. As such, we should probably renamed the extension point accordingly and move it under common.dt instead of evl.dt. A suggestion:
+
+interface IElementLocator { boolean canLocate(Object o); boolean locate(Object o); }
+
+2. ValidationView.java only expects one extension (many should be able to co-exist - see the canLocate method above) and actually refers to to &quot;PTC IM Modeler&quot;. This should be cleaned and refactored.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2814437</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-03-15 09:02:20 -0400</bug_when>
+    <thetext>Fixed in commit 51446e2a74aaf25bf5ce97649659471fc56fda74</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>514794</bug_id>
+          
+          <creation_ts>2017-04-05 12:56:23 -0400</creation_ts>
+          <short_desc>Provide compressed update site for offline installation</short_desc>
+          <delta_ts>2017-04-07 07:10:41 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</assigned_to>
+          <cc>agarcdomi@gmail.com</cc>
+    
+    <cc>dkolovos@cs.york.ac.uk</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-bHlJVrF_EH0w7sZaDBfJBKvZ_DEgc53MDFFeO5CAPrk</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2821191</commentid>
+    <comment_count>0</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-04-05 12:56:23 -0400</bug_when>
+    <thetext>See https://www.eclipse.org/forums/index.php/m/1759054/#msg_1759054</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2821907</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-04-07 06:31:03 -0400</bug_when>
+    <thetext>I&apos;ll have a quick look at this.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2821919</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-04-07 07:10:41 -0400</bug_when>
+    <thetext>Done: the &quot;Download&quot; page in the website now provides a link to a zipped version of the update site, which is kept up to date by Hudson.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>514970</bug_id>
+          
+          <creation_ts>2017-04-08 07:02:52 -0400</creation_ts>
+          <short_desc>[EGL] Additional documentation on invoking EGL</short_desc>
+          <delta_ts>2017-04-09 04:19:53 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 10</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Sina Madani">sinadoom@googlemail.com</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-i92pSB7AEwU6uobU2kdxp_4E9yUvsb_A3g5K3ew4mXA</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2822214</commentid>
+    <comment_count>0</comment_count>
+      <attachid>267707</attachid>
+    <who name="Sina Madani">sinadoom@googlemail.com</who>
+    <bug_when>2017-04-08 07:02:52 -0400</bug_when>
+    <thetext>Created attachment 267707
+The additional articles, to be pasted into the &quot;epsilon/doc/articles&quot; folder.
+
+I found the documentation on EGX to be lacking. To help users, I have decided to write up a couple of additional articles on using EGL. The first article covers how to use EGX. The second demonstrates how to re-use an EGL template within another template. I have updated the articles list to include links to these. The relevant files are attached.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2822263</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-04-09 04:19:53 -0400</bug_when>
+    <thetext>Many thanks! The articles are now live:
+
+http://www.eclipse.org/epsilon/doc/articles/egl-invoke-egl/
+http://www.eclipse.org/epsilon/doc/articles/egx-parameters/</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>267707</attachid>
+            <date>2017-04-08 07:02:52 -0400</date>
+            <delta_ts>2017-04-08 07:02:52 -0400</delta_ts>
+            <desc>The additional articles, to be pasted into the &quot;epsilon/doc/articles&quot; folder.</desc>
+            <filename>EGL articles.zip</filename>
+            <type>application/x-zip-compressed</type>
+            <size>5898</size>
+            <attacher name="Sina Madani">sinadoom@googlemail.com</attacher>
+            
+              <token>1531923809-B-9Z7xJ-tjIcY8M2pyyQAPxwOZOO0EVOfzV3PpJkIrA</token>
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>515736</bug_id>
+          
+          <creation_ts>2017-04-25 04:18:59 -0400</creation_ts>
+          <short_desc>HUTN Can not parse Date objects</short_desc>
+          <delta_ts>2017-04-25 06:43:02 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam@gmail.com</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          <cc>arcanefoam@gmail.com</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-enABxbmuqoNO1azVKeCBMVeuyiIfA2QjFZzYAi4M-mc</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2827043</commentid>
+    <comment_count>0</comment_count>
+      <attachid>267960</attachid>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-04-25 04:18:59 -0400</bug_when>
+    <thetext>Created attachment 267960
+patch
+
+When creating a HUTN model from an existing XMI model, the unparser can not handle date objects. A simple fix is to add another case to the unparseValue method in SlotUnparser.
+
+The suggested fix can be found in the attached patch.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2827095</commentid>
+    <comment_count>1</comment_count>
+      <attachid>267964</attachid>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-04-25 05:22:10 -0400</bug_when>
+    <thetext>Created attachment 267964
+New patch
+
+I have added a date formatter so date representation matches what is expected by Emf, so users familiar with emf date parsing capabilities will get an expected result.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2827097</commentid>
+    <comment_count>2</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-04-25 05:26:39 -0400</bug_when>
+    <thetext>I&apos;ve fixed this a bit more generically here: https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/commit/?id=497f75d93f770583b14e7515ce0dd7c60ae226c5</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2827144</commentid>
+    <comment_count>3</comment_count>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-04-25 06:43:02 -0400</bug_when>
+    <thetext>Elegant. Thanks</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>267960</attachid>
+            <date>2017-04-25 04:18:59 -0400</date>
+            <delta_ts>2017-04-25 04:18:59 -0400</delta_ts>
+            <desc>patch</desc>
+            <filename>patchHUTN-Date.diff</filename>
+            <type>application/octet-stream</type>
+            <size>1273</size>
+            <attacher name="Horacio Hoyos">arcanefoam@gmail.com</attacher>
+            
+              <token>1531923809-3BlX5yIZwUQCRickrfjkeNYuVO7nv46jl8uh7gvtulA</token>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+          >
+            <attachid>267964</attachid>
+            <date>2017-04-25 05:22:10 -0400</date>
+            <delta_ts>2017-04-25 05:22:10 -0400</delta_ts>
+            <desc>New patch</desc>
+            <filename>patchHUTN-Date2.diff</filename>
+            <type>text/plain</type>
+            <size>1760</size>
+            <attacher name="Horacio Hoyos">arcanefoam@gmail.com</attacher>
+            
+              <token>1531923809-VvRDk4EUqSwWF2T0y-_oj45A4eSBe67NIkvEJhCDeTg</token>
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>515749</bug_id>
+          
+          <creation_ts>2017-04-25 05:55:31 -0400</creation_ts>
+          <short_desc>HUTN fails for ERefernce[0..*] when only one value is used</short_desc>
+          <delta_ts>2017-04-25 07:20:58 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam@gmail.com</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          <cc>arcanefoam@gmail.com</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-n-rZ7LGNNmG9SSNBxDK4UX5yu7k83VgY0C8FOLqkWWM</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2827112</commentid>
+    <comment_count>0</comment_count>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-04-25 05:55:31 -0400</bug_when>
+    <thetext>When trying to assing a single object to a multivalue EReference HUTN parser throws a ClassCastException.
+
+The reason is that the field with a single value is assumed to be an EAttribute, and hence the value is assumed to be a EDataType. As a result, coerceValue in AttributeSlotImpl generates the exception as it is expecting a EDataType but an EClass is given (the EClass comes from the EStructuralFeature type).
+
+Since the parser can differentiate between multivalyued EAttributes and EReferences when the value has more thatn one entry, I guess the same logic should be used for values with single entries. I guess getting the exact type before dispatching to the AttributeSlotImpl/ClassObjectSlotImpl.
+
+I am not very familiar with the HUTN implementation so having trouble helping with a patch in this case.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2827129</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-04-25 06:12:00 -0400</bug_when>
+    <thetext>Could you please provide a minimal example? I cannot reproduce it using the following:
+
+--- refs.emf ---
+@namespace(uri=&quot;refs&quot;, prefix=&quot;refs&quot;)
+package refs;
+
+class Model {
+	val Element[*] elements;
+}
+
+class Element {
+	attr String name;
+	ref Element[*] refs;
+}
+
+--- refs.hutn ---
+@Spec {
+	metamodel &quot;refs&quot; {
+		nsUri: &quot;refs&quot;
+	}
+}
+
+package  {
+	Model &quot;Model1&quot; {
+		elements: Element &quot;e1&quot; {
+			name: &quot;e1&quot;
+			refs: Element &quot;e1&quot;
+		}, Element &quot;e2&quot; {
+			name: &quot;e2&quot;
+		}
+	}
+}</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2827145</commentid>
+    <comment_count>2</comment_count>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-04-25 06:45:38 -0400</bug_when>
+    <thetext>Hmmm, I can&apos;t reproduce it now either. Maybe it was another error down the file that causes the parser to get &quot;lost&quot;... I will see if I can figure out to reproduce it.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2827161</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-04-25 07:20:58 -0400</bug_when>
+    <thetext>No worries. Resolving this as invalid for now but feel free to reopen if you manage to reproduce this.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>526455</bug_id>
+          
+          <creation_ts>2017-10-25 09:55:57 -0400</creation_ts>
+          <short_desc>Update Epsilon architecture diagram</short_desc>
+          <delta_ts>2017-10-30 08:24:07 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows NT</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>0</everconfirmed>
+          <reporter name="Sina Madani">sinadoom@googlemail.com</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-o80r9ITbxk4pV9n47AkaosUC-_MmryGck217hzf3lfU</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2889431</commentid>
+    <comment_count>0</comment_count>
+      <attachid>271172</attachid>
+    <who name="Sina Madani">sinadoom@googlemail.com</who>
+    <bug_when>2017-10-25 09:55:57 -0400</bug_when>
+    <thetext>Created attachment 271172
+Image source
+
+The image in https://www.eclipse.org/epsilon/doc/ could be updated to show more supported modelling technologies.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2890196</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-10-30 08:24:07 -0400</bug_when>
+    <thetext>Thanks! I have actually re-drawn this image as a HTML table in https://www.eclipse.org/epsilon/doc/ so that it&apos;s easier to update with more languages/drivers in the future.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>271172</attachid>
+            <date>2017-10-25 09:55:57 -0400</date>
+            <delta_ts>2017-10-25 09:55:57 -0400</delta_ts>
+            <desc>Image source</desc>
+            <filename>Epsilon diagram.pptx</filename>
+            <type>application/vnd.openxmlformats-officedocument.presentationml.presentation</type>
+            <size>45245</size>
+            <attacher name="Sina Madani">sinadoom@googlemail.com</attacher>
+            
+              <token>1531923809-zmBJ5PmfVFMABGQ-oDAZ0ZFB5qPOo3G0ttMYnu8Myco</token>
+
+          </attachment>
+      
+
+    </bug>
+    <bug>
+          <bug_id>526767</bug_id>
+          
+          <creation_ts>2017-11-02 10:00:12 -0400</creation_ts>
+          <short_desc>[EMF] expand=false is not honored</short_desc>
+          <delta_ts>2017-11-02 10:01:36 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-UxFO5G8Xii0Cxs3z55lChMmkEU8oOOKm9BIpOu_-gFs</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2894356</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-11-02 10:00:12 -0400</bug_when>
+    <thetext>Antonio Garmendia reported in the forum [1] that getAllContents(resource, false) was not listing anything. We replied with the right way to use the returned value, but then it would go over all indirectly contained objects in its fragmented resource, which wasn&apos;t the intended behaviour.
+
+Further investigation shows that expand=false wasn&apos;t being fully honored. Even if set to false, there were two things that would trigger the resolution of all proxies in the resource:
+
+* the addition of the CachedContentsAdapter, and
+* the addition of the containment change adapter (which looped over allContents)
+
+One possible fix (which I will be pushing soon) would be to:
+
+* Not add the CachedContentsAdapter when caching is disabled (any envisioned side effects from this?), and
+* Only adding containment change adapters to the direct contents and not to allContents.
+
+[1]: https://www.eclipse.org/forums/index.php/t/1089664/</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2894359</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-11-02 10:01:26 -0400</bug_when>
+    <thetext>Pushed a test case based on the MWE and a fix in commit 89a270f663950385f18236ff7d52ec891ddd1161.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>527947</bug_id>
+          
+          <creation_ts>2017-11-30 07:10:53 -0500</creation_ts>
+          <short_desc>StringProperties does not handle default values</short_desc>
+          <delta_ts>2017-12-04 10:04:27 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam@gmail.com</reporter>
+          <assigned_to name="Horacio Hoyos">arcanefoam@gmail.com</assigned_to>
+          <cc>arcanefoam@gmail.com</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-5S-cZje6VQWBaAjDQSeRuAmMUeys-0UygmtdOcoVoAU</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2902475</commentid>
+    <comment_count>0</comment_count>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-11-30 07:10:53 -0500</bug_when>
+    <thetext>The StringProperties class returns an empty string when the map does not contain the key value. Since the Properties Class uses this method when evaluating the &apos;public String getProperty(String key, String defaultValue)&apos; method, this causes a null value to never be received and hence the defaultValue is never used.
+
+If the intention is that empty properties should return empty strings, then StringProperties should also override the default value method to correctly return default values.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2902552</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-11-30 09:38:23 -0500</bug_when>
+    <thetext>The current behaviour of getProperty(String key, String defaultValue) is unintended. Could you perhaps have a stab at fixing this? We&apos;ll need unit tests for getBooleanProperty and getIntegerProperty if we don&apos;t already have some, to make sure that we don&apos;t break them in the process.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2902647</commentid>
+    <comment_count>2</comment_count>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-11-30 11:54:07 -0500</bug_when>
+    <thetext>Will do.
+
+Just to clarify, it is intended that non-existing keys return empty strings?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2903452</commentid>
+    <comment_count>3</comment_count>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-12-04 09:12:08 -0500</bug_when>
+    <thetext>The semantics of getBooleanProperty and getIntegerProperty is inconsistent.
+
+getIntegerProperty returns the default value if the key is not present in the properties.
+
+getBooleanProperty returns the default if the key&apos;s value is not &quot;true&quot; or &quot;false&quot;.
+
+getIntegerProperty is consistent with the base Properties class (getProperty(name, default). 
+
+Changing it now might be trouble for back compatibility, so is more of a clarification and to write proper tests.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2903473</commentid>
+    <comment_count>4</comment_count>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-12-04 10:04:27 -0500</bug_when>
+    <thetext>Fixed in 94cf9171192538965a41e903d78e5457f7be2c90
+
+Test class in place.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>522175</bug_id>
+          
+          <creation_ts>2017-09-12 04:09:27 -0400</creation_ts>
+          <short_desc>[EMC] CSV Driver should support  double-quotes</short_desc>
+          <delta_ts>2018-02-16 06:53:20 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Horacio Hoyos">arcanefoam@gmail.com</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-knBdz3YSZyqpzNiC1dqHve19RB0Rd7fg4KzrzmVS6ZU</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2867817</commentid>
+    <comment_count>0</comment_count>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2017-09-12 04:09:27 -0400</bug_when>
+    <thetext>According to rfc4180 section-2, item 6:
+
+    Fields containing line breaks (CRLF), double quotes, and commas
+    should be enclosed in double-quotes.  For example:
+
+     &quot;aaa&quot;,&quot;b CRLF
+     bb&quot;,&quot;ccc&quot; CRLF
+     zzz,yyy,xxx
+
+A simple parser or regex could be added to the CSV driver to support this feature.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2924519</commentid>
+    <comment_count>1</comment_count>
+    <who name="Horacio Hoyos">arcanefoam@gmail.com</who>
+    <bug_when>2018-02-16 06:53:20 -0500</bug_when>
+    <thetext>This has been solved by using Apache Commons CSV library. Changes are currently available in the interim version.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>531453</bug_id>
+          
+          <creation_ts>2018-02-21 06:32:12 -0500</creation_ts>
+          <short_desc>[EOL] Cannot retrieve Element.all.id</short_desc>
+          <delta_ts>2018-02-21 07:41:40 -0500</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</assigned_to>
+          
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-niNlmqQuE0SHczP3R0VWmf__Ks55dwUtXqp062WQl5s</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2925819</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-02-21 06:32:12 -0500</bug_when>
+    <thetext>While adding test cases to Hawk with a custom metamodel, I tried to run &quot;return Element.all.id;&quot; to retrieve the value of the id EAttribute of all Element instances in the model.
+
+Unfortunately, this results in Hawk complaining that the OptimisableCollection used by Hawk to represent Element.all is not a model element. Further research shows that this is because the default property getter reports that the OptimisableCollection does have the &quot;id&quot; property, thanks to the AnyOperationContributor.
+
+Seeing as how the &quot;id&quot; contributed operation only works for model elements and throws exceptions otherwise, I will move it to a new default operation contributor that only contributes operations to model elements. This should fix the issue in Hawk, without impacting any queries that used to work before.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2925824</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-02-21 06:39:39 -0500</bug_when>
+    <thetext>Fix pushed in b2689bfd8. Waiting for Jenkins build.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2925832</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-02-21 06:56:20 -0500</bug_when>
+    <thetext>Reopening, as the latest commit brought a regression. Pushed a fix that fixed the tests locally, waiting for confirmation from Jenkins.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>532788</bug_id>
+          
+          <creation_ts>2018-03-22 17:14:46 -0400</creation_ts>
+          <short_desc>[Eugenia] Add label.color to @gmf.node</short_desc>
+          <delta_ts>2018-03-27 18:11:08 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</assigned_to>
+          <cc>dkolovos@cs.york.ac.uk</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-tg4GngIaWVYMj7oZbH1uOyOhNS37zL8Gr5vf9KlBo2s</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2934511</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-03-22 17:14:46 -0400</bug_when>
+    <thetext>Juan Boubeta was trying to define a node with a black background and a white label, trying something like this:
+
+@gmf.node(label=&quot;name&quot;, color=&quot;0,0,0&quot;, label.color=&quot;255,255,255&quot;)
+class Node {
+  attr String name;
+}
+
+The big issue is that we did not have &quot;label.color&quot; for @gmf.node in the first place :-). I had a look on how to do it: it should be as simple as setting the foreground colour on the GmfGraph figure, but it only works if you change the fixedFont style attribute on the corresponding GmfGen viewmap to true. If you forget to do that, the default font colour in the Eclipse preference will take preference.
+
+Should be useful for more people, so might as well add it to Eugenia proper.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2934513</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-03-22 17:23:13 -0400</bug_when>
+    <thetext>Implemented in ebfa8726c.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2935779</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-03-27 18:11:08 -0400</bug_when>
+    <thetext>Using the foreground colour of the node figure was a bad idea - it would clash with `border.color`. Commit 5195c2090 fixes Eugenia so it changes only the foreground color of the label.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>533744</bug_id>
+          
+          <creation_ts>2018-04-18 06:56:17 -0400</creation_ts>
+          <short_desc>[EMF] Keep stack traces of when cached models were acquired/released</short_desc>
+          <delta_ts>2018-04-18 07:01:29 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</assigned_to>
+          <cc>dkolovos@cs.york.ac.uk</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-UmqK83aLRxvLD39G0Sbjswv2LOIZ5e7xgVbJYYG-1eI</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2940973</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-04-18 06:56:17 -0400</bug_when>
+    <thetext>Antonio Garmendia is running into issues with cached EMF models in his integration for EMFSplitter. In order to debug this issue and other similar cache leaks, it would be useful to track when the cached models were acquired and released. The cache items would be extended with stack traces of these events.
+
+This should not use too much memory in practice, as we will be releasing those cache items as soon as we are done with the E*L scripts.
+
+The EMF Cache view should be extended so that when you double click on an element, you will get a list of the acquiring/releasing stack traces.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2940977</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-04-18 07:01:29 -0400</bug_when>
+    <thetext>Implemented in e25c2eb0c.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>511527</bug_id>
+          
+          <creation_ts>2017-02-02 04:41:02 -0500</creation_ts>
+          <short_desc>Switch to Java 8?</short_desc>
+          <delta_ts>2018-04-18 08:12:16 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-3dE5snX1xo_2bjKFfmu_YoNYbTSk7kFGx9Y4UVi9DRc</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2801390</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2017-02-02 04:41:02 -0500</bug_when>
+    <thetext>I have both JDK 7 and JDK 8 installed, and since JDK 7 is a closer match to the JavaSE-1.6 environment that is required by Epsilon, my Eclipse will try to compile Epsilon with it.
+
+That will result in quite a few initialization errors during the tests (the usual &quot;invalid class version 52.0&quot; error), since some of the plugins we depend on are compiled with Java 8.
+
+Should we start moving Epsilon to JavaSE-1.8? Java 7 was EOL&apos;ed on April 2015, so I think we can safely assume people are using Java 8 now :-).
+
+At the very least, I think we should move our test projects to it.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2801395</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2017-02-02 04:44:22 -0500</bug_when>
+    <thetext>I agree that we should eventually move to 1.8 (and start making use of lambdas etc.). As a temporary workaround, changing the JRE to 1.8 in the run configurations of the Epsilon test suites seems to be solving the &quot;invalid class version&quot; problems in my setup.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2940998</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-04-18 08:12:16 -0400</bug_when>
+    <thetext>This was completed in 2aa71e.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>533754</bug_id>
+          
+          <creation_ts>2018-04-18 08:16:36 -0400</creation_ts>
+          <short_desc>Fragmented models are not released completely from the Cache</short_desc>
+          <delta_ts>2018-04-18 08:33:56 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</assigned_to>
+          <cc>dkolovos@cs.york.ac.uk</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-COpHteAVlUSNdx7TcRPFgTwZBuZj5rB5RmTRlE4h1Ig</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2941000</commentid>
+    <comment_count>0</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-04-18 08:16:36 -0400</bug_when>
+    <thetext>Using the Model Cache view, Antonio Garmendia and I noticed that running a EOL query on a fragmented model would only release the root model fragment, and leave the other model fragments in the Epsilon cache.
+
+This seems to be because the AbstractEmfModel#disposeModel method only releases modelImpl (the root fragment), rather than all the models in the CachedResourceSet.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2941004</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-04-18 08:30:47 -0400</bug_when>
+    <thetext>Fix completed in 1338e694e. All tests green locally, waiting for CI.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2941006</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-04-18 08:32:56 -0400</bug_when>
+    <thetext>One interesting observation: adding a check for having an empty cache in the relevant test cases of EmfModelLoadTests did confirm the issue.
+
+However, I had to make sure to clean the test before their EOL scripts were run, as apparently some other tests in the EpsilonTestSuite are leaving entries in the cache (12, in fact).
+
+tl;dr: We may be forgetting to dispose models in some test cases.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2941008</commentid>
+    <comment_count>3</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-04-18 08:33:56 -0400</bug_when>
+    <thetext>(In reply to Antonio Garcia-Dominguez from comment #2)
+&gt; However, I had to make sure to clean the test before their EOL scripts were
+&gt; run, as apparently some other tests in the EpsilonTestSuite are leaving
+&gt; entries in the cache (12, in fact).
+
+I meant clean the *cache*.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>532820</bug_id>
+          
+          <creation_ts>2018-03-23 07:40:12 -0400</creation_ts>
+          <short_desc>Simulink&apos;s engine jar is not ammended to the system&apos;s Java library path contents but is overwritten.</short_desc>
+          <delta_ts>2018-04-20 08:24:40 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Windows 10</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Thanos Zolotas">zolotas4@gmail.com</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          <cc>zolotas4@gmail.com</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-jFykW6urKUdKAi6nnuu_At0jvHQ_BibQ4ToPcPGPSrA</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2934735</commentid>
+    <comment_count>0</comment_count>
+    <who name="Thanos Zolotas">zolotas4@gmail.com</who>
+    <bug_when>2018-03-23 07:40:12 -0400</bug_when>
+    <thetext>In line 39 of MatlabEnginePool.java (org.eclipse.epsilon.emc.simulink) the java library path system property is overwritten by the content of the Matlab engine path.
+	
+System.setProperty(JAVA_LIBRARY_PATH, libraryPath);
+
+This way, other libraries loaded (e.g., the Rhapsody&apos;s driver library) cannot be used after the first run of the Simulink driver. 
+
+A possible workaround would be to ammend the path of the Matlab engine instead:
+
+System.setProperty(JAVA_LIBRARY_PATH, libraryPath + &quot;;&quot; + 
+                        System.getProperty(JAVA_LIBRARY_PATH));</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2934740</commentid>
+    <comment_count>1</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2018-03-23 07:59:48 -0400</bug_when>
+    <thetext>This sounds like a very sensible workaround.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2941713</commentid>
+    <comment_count>2</comment_count>
+    <who name="Thanos Zolotas">zolotas4@gmail.com</who>
+    <bug_when>2018-04-20 08:24:40 -0400</bug_when>
+    <thetext>Fixed by eadba0b42f835fe56387d1296204305fecddfbeb commit.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+    <bug>
+          <bug_id>534149</bug_id>
+          
+          <creation_ts>2018-04-27 08:21:47 -0400</creation_ts>
+          <short_desc>epsilon.storeModel fails for plain XML model and relative path</short_desc>
+          <delta_ts>2018-07-04 13:04:32 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</reporter>
+          <assigned_to name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</assigned_to>
+          <cc>agarcdomi@gmail.com</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1531923809-WtmGXpcjB1ChZJl87TINMcXWntJGnFBE44RanhHTyTY</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2943735</commentid>
+    <comment_count>0</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2018-04-27 08:21:47 -0400</bug_when>
+    <thetext>Loading a plain XML model and storing it in an ANT workflow using epsilon.storeModel and a relative path fails with an exception.
+
+&lt;epsilon.storeModel model=&quot;M&quot; target=&quot;m.xml&quot;/&gt;
+
+This seems to be caused by the fix for bug 344272. There seem to be different expectations for the value of target in PlainXmlModel (file) and EmfModel (uri).
+
+Antonio: would it make sense to add a targetUri property to storeModel to accommodate both scenarios without much magic? (we&apos;ll need to update the book accordingly)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2944259</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-04-30 16:46:11 -0400</bug_when>
+    <thetext>(In reply to Dimitris Kolovos from comment #0)
+&gt; Loading a plain XML model and storing it in an ANT workflow using
+&gt; epsilon.storeModel and a relative path fails with an exception.
+&gt; 
+&gt; &lt;epsilon.storeModel model=&quot;M&quot; target=&quot;m.xml&quot;/&gt;
+&gt; 
+&gt; This seems to be caused by the fix for bug 344272. There seem to be
+&gt; different expectations for the value of target in PlainXmlModel (file) and
+&gt; EmfModel (uri).
+&gt; 
+&gt; Antonio: would it make sense to add a targetUri property to storeModel to
+&gt; accommodate both scenarios without much magic? (we&apos;ll need to update the
+&gt; book accordingly)
+
+For the 1.5.0 release, I think we could indeed go for targetUri. Then target passes a File object, and targetUri passes a URI object. To keep it EMF-agnostic, it should be a java.net.URI object, rather than an EMF URI.
+
+For 1.6.0, it might be worth thinking about changing IModel and replacing #store(String) with #store(File) and #store(java.net.URI). That way we can have the compiler do some extra checks for us: I find strings to be too ambiguous. What is your take on this?
+
+(It would be entirely valid to have a model driver reject non-file:// URIs, for instance. However, things like Hawk&apos;s EOLQueryEngine could still take in URIs in some cases, or when we want to load a model in a pathmap://.)</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2944260</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-04-30 16:47:13 -0400</bug_when>
+    <thetext>(In reply to Antonio Garcia-Dominguez from comment #1)
+&gt; (In reply to Dimitris Kolovos from comment #0)
+&gt; &gt; Loading a plain XML model and storing it in an ANT workflow using
+&gt; &gt; epsilon.storeModel and a relative path fails with an exception.
+&gt; &gt; 
+&gt; &gt; &lt;epsilon.storeModel model=&quot;M&quot; target=&quot;m.xml&quot;/&gt;
+&gt; &gt; 
+&gt; &gt; This seems to be caused by the fix for bug 344272. There seem to be
+&gt; &gt; different expectations for the value of target in PlainXmlModel (file) and
+&gt; &gt; EmfModel (uri).
+&gt; &gt; 
+&gt; &gt; Antonio: would it make sense to add a targetUri property to storeModel to
+&gt; &gt; accommodate both scenarios without much magic? (we&apos;ll need to update the
+&gt; &gt; book accordingly)
+&gt; 
+&gt; For the 1.5.0 release, I think we could indeed go for targetUri. Then target
+&gt; passes a File object, and targetUri passes a URI object. To keep it
+&gt; EMF-agnostic, it should be a java.net.URI object, rather than an EMF URI.
+
+Oops, I meant an absolute file path for target, and a file:// URI for targetUri.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2947289</commentid>
+    <comment_count>3</comment_count>
+    <who name="Dimitris Kolovos">dkolovos@cs.york.ac.uk</who>
+    <bug_when>2018-05-13 07:59:36 -0400</bug_when>
+    <thetext>Sounds good to me! Would you be able to give this a first stab?</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2961885</commentid>
+    <comment_count>4</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-07-04 13:04:32 -0400</bug_when>
+    <thetext>targetUri has been added to epsilon.storeModel and Epsilon book in 969c1c2a72c9d53768b4a30fb9fb9e9c08f85324.</thetext>
+  </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>
