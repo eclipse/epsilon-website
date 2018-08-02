@@ -125,15 +125,15 @@
 					<? $i++; }?>
 					<div class="tab-pane" id="tab<?=$i?>">
 						<p>
-						   Clone Epsilon's Git repository:
+						   <a href="../doc/articles/running-from-source">Clone</a> Epsilon's <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/">Git repository</a> and then:
 							<ul>
-								<li> navigate to <strong>examples</strong>
+								<li> navigate to <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples">examples</a>
 								<?if ($example["standalone"] == "false"){?>
-								<li> import the <strong>org.eclipse.epsilon.examples.metamodels</strong> project
+								<li> import the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels</a> project
 								<?}?>
-								<li> import the <strong><?=$example["src"]?></strong> project
+								<li> import the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/<?=$example["src"]?>"><?=$example["src"]?></a> project
 								<?foreach ($example->project as $project){?>
-								<li> import the <strong><?=$project["src"]?></strong> project
+								<li> import the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/<?=$project["src"]?>"><?=$project["src"]?></a> project
 								<?}?>
 							</ul>
 						</p>
