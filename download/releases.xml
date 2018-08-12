@@ -7,13 +7,13 @@
 		<notes>...</notes>
 	</release>
 	 -->
-	<!--release version="1.5" released="19 Jul 2018" jars="yes" srcjars="yes">
+	<release version="1.5" released="12 Aug 2018" jars="yes" srcjars="yes">
   		<eclipse name="Photon" version="4.8" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/photon/R/eclipse-modeling-photon-R-" mac-extension="dmg" linux-extension="tar.gz"/>
   		<notes>Scheduled release</notes>
   		<dependency name="Emfatic" location="http://download.eclipse.org/emfatic/update/" notes="Untick the &quot; Group items by category &quot; check box"/>
   		<dependency name="GMF Tooling" location="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/" notes="Install Graphical Modelling Framework (GMF) Tooling SDK"/>
   		<dependency name="QVTo" location="http://download.eclipse.org/mmt/qvto/updates/releases/3.4.0" notes="Older version of QVTo that works with GMF Tooling"/>
-  	</release--> 
+  	</release> 
 	<release version="1.4" released="6 Nov 2016" jars="yes" srcjars="yes">
   		<eclipse name="Neon" version="4.6" distribution="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/1a/eclipse-modeling-neon-1a-" mac-extension="tar.gz" linux-extension="tar.gz"/>
   		<notes>Scheduled release</notes>
