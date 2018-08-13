@@ -123,9 +123,9 @@
 		<div class="row">
 			<div class="span12">
 				
-				<div class="alert alert-warning alert-block">
+				<!--div class="alert alert-warning alert-block">
 					<b>13/08/2018</b>: We are in the process of releasing version 1.5 and some links or update sites may not work as expected until we are done.
-				</div>
+				</div-->
 				 
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
