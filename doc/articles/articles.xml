@@ -93,6 +93,11 @@
 	  		This article demonstrates how you can use Flexmi to parse XML documents in a fuzzy manner as instances of Ecore metamodels.
 	  		</description>
 	  	</article>
+	  	<article name="modular-flexmi" title="Modularity Mechanisms in Flexmi">
+	  		<description>
+	  		This article demonstrates how you can break down Flexmi models over multiple files and use templates to capture complex reusable structures in your models.
+	  		</description>
+	  	</article>
 	</category>
 	<category name="xml" title="Epsilon and non-EMF models">
 		<article name="plain-xml" title="Scripting XML documents using Epsilon">
