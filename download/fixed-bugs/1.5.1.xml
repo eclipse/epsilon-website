@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugs.eclipse.org/bugs/page.cgi?id=bugzilla.dtd">
+
+<bugzilla version="5.0.3"
+          urlbase="https://bugs.eclipse.org/bugs/"
+          
+          maintainer="webmaster@eclipse.org"
+          exporter="dkolovos@cs.york.ac.uk"
+>
+
+    <bug>
+          <bug_id>539644</bug_id>
+          
+          <creation_ts>2018-09-29 05:54:12 -0400</creation_ts>
+          <short_desc>[Exeed] Eclipse 2018-09 produces NPE in Property View for Tree metamodel</short_desc>
+          <delta_ts>2018-09-29 06:22:45 -0400</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>11</classification_id>
+          <classification>Modeling</classification>
+          <product>Epsilon</product>
+          <component>Core</component>
+          <version>unspecified</version>
+          <rep_platform>PC</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc></bug_file_loc>
+          <status_whiteboard></status_whiteboard>
+          <keywords></keywords>
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</reporter>
+          <assigned_to name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</assigned_to>
+          <cc>agarcdomi@gmail.com</cc>
+          
+          
+          <votes>0</votes>
+
+      
+          <token>1538340146-eJA0qvwQxWIeQAJhIVK5MghiwvjBW_fq9uPPwleld2w</token>
+
+      
+
+      
+
+          <comment_sort_order>oldest_to_newest</comment_sort_order>  
+          <long_desc isprivate="0" >
+    <commentid>2982780</commentid>
+    <comment_count>0</comment_count>
+      <attachid>276063</attachid>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-09-29 05:54:12 -0400</bug_when>
+    <thetext>Created attachment 276063
+Tree metamodel
+
+On Eclipse I20180903, I tried installing Epsilon 1.5 stable (Eugenia worked fine after adding the optional update sites, BTW), and registered the Tree metamodel. I created an &quot;EMF Model&quot; using the usual wizard, and then tried selecting the root Tree instance. The Properties view failed with an NPE, with this stack trace:
+
+--
+java.lang.NullPointerException
+  at org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage.refresh(ExtendedPropertySheetPage.java:651)
+  at org.eclipse.epsilon.dt.exeed.ExeedPropertySheetPage.updateSorting(ExeedPropertySheetPage.java:68)
+  at org.eclipse.epsilon.dt.exeed.ExeedPropertySheetPage.&lt;init&gt;(ExeedPropertySheetPage.java:32)
+  at org.eclipse.epsilon.dt.exeed.ExeedEditor.getPropertySheetPage(ExeedEditor.java:271)
+  at org.eclipse.epsilon.dt.exeed.ExeedEditor.getPropertySheetPage(ExeedEditor.java:1)
+  at org.eclipse.emf.ecore.presentation.EcoreEditor.getAdapter(EcoreEditor.java:1487)
+  at org.eclipse.core.runtime.Adapters.adapt(Adapters.java:62)
+  at org.eclipse.core.runtime.Adapters.adapt(Adapters.java:110)
+...
+--</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2982781</commentid>
+    <comment_count>1</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-09-29 05:55:21 -0400</bug_when>
+    <thetext>By the way, the regular sample reflective editor works fine, so this seems to be Exeed-specific.</thetext>
+  </long_desc><long_desc isprivate="0" >
+    <commentid>2982782</commentid>
+    <comment_count>2</comment_count>
+    <who name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</who>
+    <bug_when>2018-09-29 06:22:45 -0400</bug_when>
+    <thetext>Fixed on 6e5ac95e5.</thetext>
+  </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+          >
+            <attachid>276063</attachid>
+            <date>2018-09-29 05:54:12 -0400</date>
+            <delta_ts>2018-09-29 05:54:12 -0400</delta_ts>
+            <desc>Tree metamodel</desc>
+            <filename>Tree.ecore</filename>
+            <type>application/octet-stream</type>
+            <size>789</size>
+            <attacher name="Antonio Garcia-Dominguez">agarcdomi@gmail.com</attacher>
+            
+              <token>1538340146-gB7SpFkg_kcC_5xeqXUGdeUw9fRp3AGfYmlrA4fKCq0</token>
+              
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -7,6 +7,10 @@
 		<notes>...</notes>
 	</release>
 	 -->
+	<release version="1.5.1" released="30 Sep 2018" jars="yes" srcjars="yes" services="1.5">
+		<message>Once you have downloaded one of the distributions below, please update Epsilon from the stable update site to version 1.5.1, which contains a fix for a regression that affects the properties view of Exeed.</message>
+		<notes>Service release</notes>
+  	</release>
 	<release version="1.5" released="12 Aug 2018" jars="yes" srcjars="yes">
   		<eclipse name="Photon" version="4.8" distribution="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/photon/R/eclipse-modeling-photon-R-" mac-extension="dmg" linux-extension="tar.gz"/>
   		<notes>Scheduled release</notes>
