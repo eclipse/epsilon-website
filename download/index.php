@@ -53,7 +53,7 @@
 	$distributions = (strcmp($major_release["distributions"], "no") != 0);
 	$jars = (strcmp($release["jars"], "yes") == 0);
 
-	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$major_release_bread_crumb."distributions/eclipse-epsilon-".$version."-";
+	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$major_release_bread_crumb."distributions/eclipse-epsilon-".$major_release["version"]."-";
 
 	$downloadWin = $downloadUrl."win32.zip";
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
