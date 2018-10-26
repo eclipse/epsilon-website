@@ -10,14 +10,12 @@ pre {
 }
 
 rule Libraries transform lib : Library {
-	parameters {
-		var params : new Map;
-		params.put("library", lib);
-		params.put("name", lib.name);
-		params.put("books", lib.books);
-		params.put("hasSpecialBook", lib.books.exists(book | book.title == specialBook);
-		params.put("isBigLibrary", lib.books.size() > bigLibThreshold)
-		return params;
+	parameters : Map {
+		"library" = lib,
+		"name" = lib.name,
+		"books" = lib.books,
+		"hasSpecialBook" = lib.books.exists(book | book.title == specialBook),
+		"isBigLibrary" = lib.books.size() > bigLibThreshold
 	}
 	template: "/path/to/Lib2XML.egl"
 	target: outDirLib+lib.name+extension

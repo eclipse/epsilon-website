@@ -25,6 +25,7 @@
 					<li>Break down complex constraints to sequences of simpler statements
 					<li>Automated constraint evaluation
 					<li><a href="../articles/evl-gmf-integration/">Out-of-the-box integration with the EMF validation framework and GMF</a>
+					<li>Support for parallel execution
 				</ul>
 			</div>
 		</div>

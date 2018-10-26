@@ -30,4 +30,9 @@
 		I started using Epsilon during my masters course when I found about the Exeed editor when looking into how to get more visual information out of metamodels and models. I then started using ETL and EVL for the HiLeS Project (https://hiles.uniandes.edu.co) to provide model to model transformations from SysML to Petri Nets and then EGL to generate VHDL code. I really liked the tools and support, and after some time I decided I could help fix some bugs and provide new functionality. I have mostly been involved with the model connectivity layer, helping improve the CSV and BibTeX model support. I also like to help fixing and improving the Epsilon Book. All of this happens of course in my limited free time. I consider myself an Epsilon evangelist and I like to think I am responsible for its adoption at Universidad de Los Andes (Colombia).
 		]]>
 	</developer>
+	<developer name="Sina Madani" photo="sina">
+		<![CDATA[
+		I started using Epsilon in my Masters thesis (supervised by Dimitris) to demonstrate how it can be used to create a much more concise and readable compiler than traditional tools. I then started my PhD on parallel and distributed execution of model management programs, and ever since have been working on improving the performance of Epsilon; whether it's sizing ArrayLists or parallelising anything involving a for loop. I also help to fix bugs and do a lot of refactoring; though perhaps taking the latter a bit too far!
+		]]>
+	</developer>
 </developers>

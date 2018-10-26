@@ -59,6 +59,11 @@
 	  You can <a href="doc/articles/call-java-from-epsilon/">call methods of Java classes</a> from all Epsilon programs to reuse code you have already written or to perform tasks that Epsilon languages do not support natively.
 	  ]]>
 	</reason>
+	<reason title="Parallel execution" icon="speedometer">
+	  <![CDATA[
+	  The latest (interim) version of Epsilon is multi-threaded, which includes first-order operations and many of the rule-based languages, making it faster than other interpreted tools.
+	  ]]>
+	</reason>
 	<reason title="All questions answered" icon="mail">
 	  <![CDATA[
 	  The Epsilon forum contains more than <a href="forum">6500 posts</a> and we're proud that no question has ever gone unanswered.
