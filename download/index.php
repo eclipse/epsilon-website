@@ -3,6 +3,7 @@
 
 	$releases = simplexml_load_file("releases.xml")->release;
 	$release = null;
+	$major_release = null;
 
 	if (isset($_GET["version"])) {
 		$version = $_GET["version"];
@@ -19,41 +20,50 @@
 	}
 
 	$latest = ($release == $releases[0]);
+	$major_release_latest = ($major_release == $releases[0]);
+
+	$major_release = get_major_release($release);
 
 	$fixedBugs = simplexml_load_file("fixed-bugs/".$release["version"].".xml")->bug;
 
-	$modelingTools = $release->eclipse["distribution"];
+	$modelingTools = $major_release->eclipse["distribution"];
 
 	$modelingToolsWin = $modelingTools."win32.zip";
 	$modelingToolsWin64 = $modelingTools."win32-x86_64.zip";
-	$modelingToolsMac64 = $modelingTools."macosx-cocoa-x86_64.".$release->eclipse["mac-extension"];
+	$modelingToolsMac64 = $modelingTools."macosx-cocoa-x86_64.".$major_release->eclipse["mac-extension"];
 	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 
 	$version = $release["version"];
-	$breadCrumb = "";
-	if (!$latest) {
-		$breadCrumb = $version."/";
+	$major_release_bread_crumb = "";
+	$release_bread_crumb = "";
+	
+	if (!$major_release_latest) {
+		$major_release_bread_crumb = $major_release["version"]."/";
 	}
+	if (!$latest) {
+		$release_bread_crumb = $release["version"]."/";
+	}
+
 	$download_server = "download";
 	if (strcmp($release["archived"], "yes") == 0) {
 		$download_server = "archive";
 	}
 	
-	$distributions = (strcmp($release["distributions"], "no") != 0);
+	$distributions = (strcmp($major_release["distributions"], "no") != 0);
 	$jars = (strcmp($release["jars"], "yes") == 0);
 
-	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."distributions/eclipse-epsilon-".$version."-";
+	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$major_release_bread_crumb."distributions/eclipse-epsilon-".$major_release["version"]."-";
 
 	$downloadWin = $downloadUrl."win32.zip";
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
-	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.".$release->eclipse["mac-extension"];
-	$downloadLinux = $downloadUrl."linux-gtk.".$release->eclipse["linux-extension"];
-	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.".$release->eclipse["linux-extension"];
+	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.".$major_release->eclipse["mac-extension"];
+	$downloadLinux = $downloadUrl."linux-gtk.".$major_release->eclipse["linux-extension"];
+	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.".$major_release->eclipse["linux-extension"];
 	
 
-	$updateSite = "http://".$download_server.".eclipse.org/epsilon/".$breadCrumb."updates/";
-	$zippedUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."updates/site.zip";
+	$updateSite = "http://".$download_server.".eclipse.org/epsilon/".$release_bread_crumb."updates/";
+	$zippedUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."updates/site.zip";
 	$zippedInterimUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
 	
 	function getVisitorPlatform()
@@ -101,7 +111,7 @@
 	}
 
 	function jar($flavour, $version, $interim, $src) {
-		global $breadCrumb;
+		global $release_bread_crumb;
 		$srcLabel = "";
 		if ($src) { $srcLabel = "-src"; }
 
@@ -109,7 +119,7 @@
 		if ($interim) { $jarFolder = "interim-jars"; }
 
 		$filename = "epsilon-".$version."-".$flavour.$srcLabel.".jar";
-		$link = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb.$jarFolder."/".$filename;
+		$link = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb.$jarFolder."/".$filename;
 		return "<a href='".$link."'>".$filename."</a>";
 	}
 
@@ -122,14 +132,11 @@
 		<h1 class="page-header">Download</h1>
 		<div class="row">
 			<div class="span12">
-				<!--
-				<div class="alert alert-info alert-block">
-					<button type="button" class="close" data-dismiss="alert">��</button>
-					If you've downloaded one of the 1.0 distributions or installed 1.0 from the main update site before Friday Nov 9,
-					please update Epsilon from the stable update site (or download a fresh copy of the distributiuon) to pick up a fix for <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=393941">bug 393941</a>.
-				</div>
-				 -->
-
+				
+				<!--div class="alert alert-warning alert-block">
+					<b>13/08/2018</b>: We are in the process of releasing version 1.5 and some links or update sites may not work as expected until we are done.
+				</div-->
+				 
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
 				  	<?if($distributions){?>
@@ -150,11 +157,11 @@
 				    	<?if($distributions){?>
   						<div id="distributions" class="tab-pane active">
   							<p>
-  							Ready-to-use Eclipse <?=$release->eclipse["name"]?> (<?=$release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$version?>) and all its mandatory and optional dependencies. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.
+  							Ready-to-use Eclipse <?=$major_release->eclipse["name"]?> (<?=$major_release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$major_release["version"]?>) and all its mandatory and optional dependencies. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.
   							</p>
-								<?if (onMac()){?>
-								<div class="alert alert-info alert-block">
-									<b>Warning:</b> If Mac OS X complains that Eclipse is damaged, you can either set the "Allow apps downloaded from" setting to "Anywhere" in the "Security and Privacy" preferences panel (this is only needed when you run Eclipse for the first time - you can disable this later), or run Eclipse from a terminal (i.e. ./Eclipse.app/Contents/MacOS/eclipse).
+								<?if ($release != $major_release){?>
+								<div class="alert alert-error alert-block">
+									<b>Important:</b> <?=$release->message?>
 								</div>
 								<?}?>
   							<p style="padding-top:15px;padding-bottom:15px">
@@ -219,7 +226,7 @@
 										<tr><th>Dependency</th><th>Update site</th><th>Notes</th></tr>
 									</thead>
 									<tbody>
-										<?foreach ($release->dependency as $dependency){?>
+										<?foreach ($major_release->dependency as $dependency){?>
 										<tr>
 											<td><?=$dependency["name"]?></td>
 											<td><?=$dependency["location"]?></td>
@@ -333,7 +340,7 @@
 			  							Plain old JARs you can use to embed the latest <b>stable</b> version of Epsilon (<?=$version?>)
 			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
-	  								<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."jars";?>
+	  								<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."jars";?>
 	  								<?include("jars/".$version.".php");?>
                                      <p>
                                      Since 1.4, these JARs are also available from Maven Central. For instance, to use the <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
@@ -353,7 +360,7 @@
 			  							Plain old JARs you can use to embed the latest <b>interim</b> version of Epsilon
 			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
-			  						<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$breadCrumb."interim-jars";?>
+			  						<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."interim-jars";?>
 			  						<?include("jars/interim.php");?>
 									<p>
 									You can use the latest SNAPSHOTs at the <a href="https://oss.sonatype.org">Sonatype OSSRH</a> repository. For instance, to use the 1.4 interim <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
@@ -413,13 +420,15 @@
   								</tr>
   							</thead>
   							<tbody>
-  							<?foreach ($releases as $r){?>
+  							<?foreach ($releases as $r){
+  								$m = get_major_release($r);
+  							?>
   							<tr>
   								<td>
   									<a href="?version=<?=$r["version"]?>"><?=$r["version"]?></a>
   								</td>
   								<td>
-  									<?=$r->eclipse["version"]?> (<?=$r->eclipse["name"]?>)
+  									<?=$m->eclipse["version"]?> (<?=$m->eclipse["name"]?>)
   								</td>
   								<td>
   									<?=$r["released"]?>
@@ -440,4 +449,17 @@
 	</div>
 </div>
 
-<?f();?>
+<?f();
+
+function get_major_release($the_release) {
+	if ($the_release["services"] != null) {
+		$candidates = simplexml_load_file("releases.xml")->release;
+		foreach ($candidates as $candidate) {
+			if (strcmp($candidate["version"], $the_release["services"]) == 0) {
+				return $candidate;
+			}
+		}
+	}
+	return $the_release;
+}
+?>
