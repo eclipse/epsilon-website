@@ -17,6 +17,11 @@
 	  		This article demonstrates how to create Java objects, access their properties and call their methods from Epsilon languages.
 	  		</description>
 	  	</article>
+		<article name="lambda-expressions" title="Call Java functional interfaces from Epsilon">
+			<description>
+			This article demonstrates how to call native methods which take functions as their parameter, using lambdas and streams directly from Epsilon using EOL syntax.
+			</description>
+		</article>
 	</category>
 	<category name="evl" title="Epsilon Validation Language">
 	  	<article name="evl-gmf-integration" title="EVL-GMF Integration">

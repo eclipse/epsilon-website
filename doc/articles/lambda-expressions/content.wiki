@@ -1,0 +1,40 @@
+=Native lambda expressions=
+Whilst EOL has many useful declarative operations built in, some applications and developers may benefit from using alternative implementations, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html|Java Streams API]].
+
+Epsilon now allows you to invoke functional interfaces using EOL first-order operation syntax. Provided that the method being invoked is a [[https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html|functional interface]] and the correct number of parameters are used, this integration should work seamlessly as with regular first-order operation call expressions. For lambda expressions which do not require a parameter, you can either omit the parameter, use `null` or `_` in place of the parameter, like so:
+
+{{{eol
+	var optional = Native("java.util.stream.IntStream")
+		.range(0, 16)
+		.filter(i | i / 4 >= 2)
+		.findFirst();
+	
+	optional.orElse(64/4);	// No lambda - literal value always calculated even if not present.
+	optional.orElseGet(null | someIntensiveCalculation());	// Evaluation only occurs if no value is present.
+	optional.orElseThrow(| new Native("org.eclipse.epsilon.eol.exceptions.EolRuntimeException"));
+}}}
+
+Here is an example of how one could use Java Streams and the equivalent approach using EOL (i.e. without native delegation):
+
+{{{eol
+	var Collectors = Native("java.util.stream.Collectors");
+
+	var testData = Sequence{-1024..1024};
+	
+	var positiveOddsSquaredEol = testData
+		.parallelSelect(i | i >= 0 and i.mod(2) > 0)
+		.parallelCollect(i | i * i)
+		.asSet();
+	
+	var positiveOddsSquaredJava = testData
+		.parallelStream()
+		.filter(i | i >= 0 and i.mod(2) > 0)
+		.map(i | i * i)
+		.collect(Collectors.toSet());
+		
+	assertEquals(positiveOddsSquaredEol, positiveOddsSquaredJava);
+}}}
+
+One benefit of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements, which can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly.
+
+There are however some caveats. Currently EOL does not allow you to assign lambda expressions to variables for re-use. It also does not support operations which require a simple variable and non-functional interface as a parameter, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-|iterate] operation.

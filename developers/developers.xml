@@ -32,7 +32,7 @@
 	</developer>
 	<developer name="Sina Madani" photo="sina">
 		<![CDATA[
-		I started using Epsilon in my Masters thesis (supervised by Dimitris) to demonstrate how it can be used to create a much more concise and readable compiler than traditional tools. I then started my PhD on parallel and distributed execution of model management programs, and ever since have been working on improving the performance of Epsilon; whether it's sizing ArrayLists or parallelising anything involving a for loop. I also help to fix bugs and do a lot of refactoring; though perhaps taking the latter a bit too far!
+		I started using Epsilon in 2016 for my Masters thesis (supervised by Dimitris) to demonstrate how it can be used to create a much more concise and readable compiler than traditional tools. I then started my PhD on parallel and distributed execution of model management programs, and ever since have been working on improving the performance of Epsilon; whether it's sizing ArrayLists or parallelising anything involving a for loop. I also help to fix bugs and do a lot of refactoring; though perhaps taking the latter a bit too far!
 		]]>
 	</developer>
 </developers>
