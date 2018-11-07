@@ -35,6 +35,6 @@ Here is an example of how one could use Java Streams and the equivalent approach
 	assertEquals(positiveOddsSquaredEol, positiveOddsSquaredJava);
 }}}
 
-One benefit of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements, which can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly.
+One benefits of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements. This can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly.
 
-There are however some caveats. Currently EOL does not allow you to assign lambda expressions to variables for re-use. It also does not support operations which require a simple variable and non-functional interface as a parameter, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-|iterate] operation.
+There are however some caveats. Currently EOL does not allow you to assign lambda expressions to variables for re-use. It also does not support operations which require a simple variable and non-functional interface as a parameter, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-|iterate]] operation.
