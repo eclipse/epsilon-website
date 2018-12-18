@@ -39,20 +39,29 @@ One benefits of using Streams is lazy evaluation, which allows you to chain a se
 
 There are however some caveats. Currently EOL does not allow you to assign lambda expressions to variables for re-use. It also does not support operations which require a simple variable and non-functional interface as a parameter, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-|iterate]] operation.
 
-==Streams vs EOL cheat sheet==
-Aside from the fact that streams are lazy and Epsilon first-order operations are eager, there is inevitable some overlap in their functionality. This section provides an equivalence mapping from Epsilon to Java Streams to help you migrate from one to the other.
+===Streams vs EOL cheat sheet===
+Aside from the fact that streams are lazy and Epsilon operations are eager, there is some inevitable overlap in their functionality. This section provides an equivalence mapping from Epsilon to Java Streams to help you migrate from one to the other.
 
 * select => filter
 * collect => map
 * forAll => allMatch
 * exists => anyMatch
 * none => noneMatch
-* nMatch => filter followed by .count() == n
-* one => same as nMatch with n = 1
-* selectOne => filter followed by .findAny().orElse(null)
-* reject/rejectOne => same as select / selectOne with negated predicate
+* nMatch => No efficient short-circuiting equivalent, but results can be achieved using filter followed by .count() == n
+* one => Same as nMatch with n = 1
+* selectOne => filter followed by .findAny() / .findFirst() then .orElse(null) if the desired absence of a result is null
+* reject / rejectOne => same as select / selectOne with negated predicate
 * sortBy => sorted
 * mapBy => .collect(Collectors.groupingBy)
 * aggregate => .collect(Collectors.toMap)
 
-Please note that streams are one-shot and the pipeline cannot be re-sued once a terminal operation is invoked (see the API for details).
+In addition, non-first-order operations on Epsilon collection types can be simulated as follows for streams:
+
+* flatten => .flatMap(c | c.stream()) -- please note that flatten is recursive whilst flatMap is not
+* sum => .filter(e | e.isInteger()).mapToInt(i | i).sum() -- replace Int/Integer with appropriate type (Long, Double etc.)
+* min / max => Same as sum but replace the last call with min or max as required
+* product => Same as sum but replace the last call with .reduce(i1, i2 | i1 * i2).getAsLong() -- replace Long with appropriate type
+* asBag => .collect(Collectors.toCollection(| new Bag))
+* asSequence / asSet / asOrderedSet => Same as asSequence but replace Bag with desired type
+
+Please note that streams are one-shot and the pipeline cannot be re-used once a terminal operation is invoked (see the API for details).
