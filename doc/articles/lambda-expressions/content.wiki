@@ -1,7 +1,7 @@
 =Native lambda expressions=
 Whilst EOL has many useful declarative operations built in, some applications and developers may benefit from using alternative implementations, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html|Java Streams API]].
 
-Epsilon now allows you to invoke functional interfaces using EOL first-order operation syntax. Provided that the method being invoked is a [[https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html|functional interface]] and the correct number of parameters are used, this integration should work seamlessly as with regular first-order operation call expressions. For lambda expressions which do not require a parameter, you can either omit the parameter, use `null` or `_` in place of the parameter, like so:
+Epsilon now allows you to invoke functional interfaces using EOL first-order operation syntax. Provided that the method being invoked takes one or more [[https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html|functional interface]]s as a parameter and the correct number of parameters are supplied to each interface, this integration should work seamlessly as with regular first-order operation call expressions. For lambda expressions which do not require a parameter, you can either omit the parameter, use `null` or `_` in place of the parameter, like so:
 
 {{{eol
 	var optional = Native("java.util.stream.IntStream")
@@ -38,3 +38,21 @@ Here is an example of how one could use Java Streams and the equivalent approach
 One benefits of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements. This can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly.
 
 There are however some caveats. Currently EOL does not allow you to assign lambda expressions to variables for re-use. It also does not support operations which require a simple variable and non-functional interface as a parameter, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-|iterate]] operation.
+
+==Streams vs EOL cheat sheet==
+Aside from the fact that streams are lazy and Epsilon first-order operations are eager, there is inevitable some overlap in their functionality. This section provides an equivalence mapping from Epsilon to Java Streams to help you migrate from one to the other.
+
+* select => filter
+* collect => map
+* forAll => allMatch
+* exists => anyMatch
+* none => noneMatch
+* nMatch => filter followed by .count() == n
+* one => same as nMatch with n = 1
+* selectOne => filter followed by .findAny().orElse(null)
+* reject/rejectOne => same as select / selectOne with negated predicate
+* sortBy => sorted
+* mapBy => .collect(Collectors.groupingBy)
+* aggregate => .collect(Collectors.toMap)
+
+Please note that streams are one-shot and the pipeline cannot be re-sued once a terminal operation is invoked (see the API for details).
