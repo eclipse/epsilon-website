@@ -237,7 +237,7 @@
 								</table>
 
 								<div class="alert alert-info alert-block">
-									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus bring in newer versions of QVTo with which GMF Tooling - and hence Eugenia - won't work. If you wish to use Xtext or Papyrus in the same installation as Eugenia, you should use <a href="http://www.eclipse.org/downloads/download.php?file=/mmt/qvto/downloads/drops/3.9.1/N201811131301/mmt-qvto-Update-N201811131301.zip">this nigthly version of QVTo</a>. This will be resolved soon in QVTo 3.9.1.</p>
+									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence Eugenia - won't work. If you wish to use Xtext or Papyrus in the same installation as Eugenia, you should use QVTo 3.9.1 from this update site: http://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
 								</div>
 
 								<!--div class="input-prepend input-append">
