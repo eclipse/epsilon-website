@@ -229,7 +229,7 @@
 										<?foreach ($major_release->dependency as $dependency){?>
 										<tr>
 											<td><?=$dependency["name"]?></td>
-											<td><?=$dependency["location"]?></td>
+											<td><input class="span7" style="outline:none;border:0;box-shadow:none;padding:0px" type="text" value="<?=$dependency["location"]?>"></input></td>
 											<td><?=$dependency["notes"]?></td>
 										</tr>
 										<?}?>
