@@ -10,12 +10,12 @@
 		<url>http://safecap.sourceforge.net/</url>
 		<evidence>http://safecap.sourceforge.net/</evidence>
 	</project>	
-	<project name="PADRE">
+	<!--project name="PADRE">
 		<description>PADRE is a performance-driven software model refactoring framework that deals with UML models made of the following diagrams: a Component Diagram that describes the software components and their Interfaces/Operations; a Deployment Diagram that describes the allocation of artifacts, corresponding to components, on platform nodes; an Use Case Diagram that describes the actors and the use cases that they can execute; a number of Sequence Diagrams, one for each use case, that describe the system behavior in terms of interactions among components.
 		</description>
 		<url>https://github.com/SEALABQualityGroup/padre</url>
 		<evidence>https://github.com/SEALABQualityGroup/padre/blob/master/it.spe.disim.epsilon.porting/src/it/spe/disim/univaq/porting/epl2exl/Epl2Evl.java</evidence>
-	</project>
+	</project-->
 	<project name="T4UME">
 		<description>Uncertainty Modeling and Evaluation (UME) is a  methodology that aims at detecting uncertainty caused by missing information on system models. UME aims at contributing to the Uncertainty Modeling (UM) standardization activity supported by the OMG focusing on models created with UML. Tool for UME (T4UME) is the companion supporting tool implemented on top of state of the art MDE technologies.</description>
 		<url>https://github.com/rdsea/T4UME</url>
