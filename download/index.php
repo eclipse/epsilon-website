@@ -157,7 +157,7 @@
 				    	<?if($distributions){?>
   						<div id="distributions" class="tab-pane active">
   							<p>
-  							Ready-to-use Eclipse <?=$major_release->eclipse["name"]?> (<?=$major_release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$major_release["version"]?>) and all its mandatory and optional dependencies. You will only need a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a>.
+  							Ready-to-use Eclipse <?=$major_release->eclipse["name"]?> (<?=$major_release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$major_release["version"]?>) and all its mandatory and optional dependencies. You will only need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a>.
   							</p>
 								<?if ($release != $major_release){?>
 								<div class="alert alert-error alert-block">
@@ -174,7 +174,7 @@
 							</p>
 							<?if (onWindows()){?>
 							<p><b>Note for Windows users:</b> Please make sure that you extract the downloaded distributions close to the root of a drive (e.g. C:/D:) as
-							the maximum path length on Windows may not exceed 256 characters.
+							the maximum path length on Windows may not exceed 255 characters by default.
 							</p>
 							<?}?>
 							</p>
