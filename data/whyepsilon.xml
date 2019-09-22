@@ -38,7 +38,7 @@
 	  <![CDATA[
 	  Epsilon poses no constraints on the number/type of models you can use in the same program. 
 	  For example, you can write a transformation that transforms an XML-based and an EMF-based model 
-	  into a MetaEdit+-based model and also modifies the source EMF model.
+	  into a Simulink model and also modifies the source EMF model.
 	  ]]>
 	</reason>
 	<reason title="Plumbing included" icon="magic_wand">
@@ -64,23 +64,24 @@
 	  The latest (interim) version of Epsilon is multi-threaded, which includes first-order operations and many of the rule-based languages, making it faster than other interpreted tools.
 	  ]]>
 	</reason>
-	<reason title="All questions answered" icon="mail">
-	  <![CDATA[
-	  The Epsilon forum contains more than <a href="forum">6500 posts</a> and we're proud that no question has ever gone unanswered.
-	  ]]>
-	</reason>
-	<reason title="You're not alone" icon="user">
-	  <![CDATA[
-	  Epsilon has a significant <a href="users">user community</a> both in the industry and in open-source software development.
-	  ]]>
-	</reason>
-	<reason title="We're working on it" icon="chart">
-	  Epsilon has been an official Eclipse project since 2006 and it's not going away any time soon.
-	</reason>
 	<reason title="Ready to use distributions" icon="monitor">
 	   <![CDATA[
 	  Configuring Eclipse can be a pain, particularly for new users. That's why we provide <a href="download">complete Eclipse distributions</a> which contain Epsilon and all its dependencies.
 	  ]]>
 	</reason>
+	<reason title="All questions answered" icon="mail">
+	  <![CDATA[
+	  The Epsilon forum contains more than <a href="forum">6500 posts</a> and we're proud that no question has ever gone unanswered.
+	  ]]>
+	</reason>
+	<!--reason title="You're not alone" icon="user">
+	  <![CDATA[
+	  Epsilon has a significant <a href="users">user community</a> both in the industry and in open-source software development.
+	  ]]>
+	</reason-->
+	<reason title="We're working on it" icon="chart">
+	  Epsilon has been an Eclipse project since 2006 and it's not going away any time soon.
+	</reason>
+	
 	
 </whyepsilon>

@@ -16,6 +16,10 @@ body { padding-top: 40px; padding-bottom: 40px; }
   margin-bottom: 10px;
 }
 
+h5 {
+	font-weight: bold;
+}
+
 #languages h5, #tools h5 {
   margin-bottom: 2px;
 }
