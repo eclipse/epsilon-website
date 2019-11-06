@@ -48,6 +48,7 @@ Aside from the fact that streams are lazy and Epsilon operations are eager, ther
 * `exists` => `anyMatch`
 * `none` => `noneMatch`
 * `nMatch` => No efficient short-circuiting equivalent, but result can be achieved using `filter` followed by `.count() == n`
+* `count` => `count`
 * `one` => Same as `nMatch` with n = 1
 * `selectOne` => `filter` followed by `.findAny()` / `.findFirst()` then `.orElse(null)` if the desired absence of a result is null
 * `reject` => same as `select` with negated predicate
@@ -62,6 +63,6 @@ In addition, non-first-order operations on Epsilon collection types can be simul
 * `min / max` => Same as sum but replace the last call with min or max as required
 * `product` => Same as `sum` but replace the last call with `.reduce(i1, i2 | i1 * i2).getAsLong()` -- replace Long with appropriate type
 * `asBag` => `.collect(Collectors.toCollection(| new Bag))`
-* `asSequence` / `asSet` / `asOrderedSet` => Same as asBag but replace Bag with desired type
+* `asSequence` / `asSet` / `asOrderedSet` => Same as `asBag` but replace Bag with desired type
 
 Please note that streams are one-shot and the pipeline cannot be re-used once a terminal operation is invoked (see the API for details).

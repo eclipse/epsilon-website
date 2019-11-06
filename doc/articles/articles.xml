@@ -34,6 +34,11 @@
         This article demonstrates evaluating EVL constraints from within a GMF-based editor.
         </description>
       </article>
+	  <article name="parallel-execution" title="Parallel Execution">
+        <description>
+        This article explains how to use the parallel module implementations for EOL and rule-based languages like EVL.
+        </description>
+      </article>
   </category>
   <category name="egl" title="Epsilon Generation Language">
       <article name="code-generation-tutorial-egl" title="Code Generation Tutorial with EGL">
