@@ -31,7 +31,7 @@ pre {
 	var parallelThreshold = 9001;
 }
 context ModelElementType {
-	$parallel self.children.size() > parallelThreshold
+	$parallel self.children.size() > parallelThreshold;
 	constraint Invariant {
 		check {
 			// ...
