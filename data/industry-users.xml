@@ -3,6 +3,9 @@
 	<company name="BAE Systems" url="https://www.baesystems.com" logo="bae.png">
 		<evidence>http://link.springer.com/chapter/10.1007%2F978-3-642-13595-8_7</evidence>
 	</company>
+	<company name="Bosch" url="https://www.bosch.com" logo="bosch.png">
+		<evidence>https://www.youtube.com/watch?v=T7-ExsSzSWw&amp;feature=youtu.be&amp;t=1940</evidence>
+	</company>
 	<company name="NASA" url="http://www.nasa.gov" logo="nasa.png">
 		<evidence>https://github.com/nasa/CertWare/blob/f63ff91edaaf2b0718b51a34cda0136f3cdbb085/net.certware.state.gui/model/StateAnalysis.emf</evidence>
 		<evidence>https://bugs.eclipse.org/bugs/show_bug.cgi?id=258871</evidence>
