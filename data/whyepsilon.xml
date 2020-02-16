@@ -61,7 +61,7 @@
 	</reason>
 	<reason title="Parallel execution" icon="speedometer">
 	  <![CDATA[
-	  The latest (interim) version of Epsilon is multi-threaded, which includes first-order operations and many of the rule-based languages, making it faster than other interpreted tools.
+	  The latest (interim) version of Epsilon is multi-threaded, which includes first-order operations and some of the rule-based languages, making it faster than other interpreted tools.
 	  ]]>
 	</reason>
 	<reason title="Ready to use distributions" icon="monitor">

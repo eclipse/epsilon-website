@@ -22,12 +22,11 @@ Here is an example of how one could use Java Streams and the equivalent approach
 	var testData = Sequence{-1024..1024};
 	
 	var positiveOddsSquaredEol = testData
-		.parallelSelect(i | i >= 0 and i.mod(2) > 0)
-		.parallelCollect(i | i * i)
+		.select(i | i >= 0 and i.mod(2) > 0)
+		.collect(i | i * i)
 		.asSet();
 	
-	var positiveOddsSquaredJava = testData
-		.parallelStream()
+	var positiveOddsSquaredJava = testData.stream()
 		.filter(i | i >= 0 and i.mod(2) > 0)
 		.map(i | i * i)
 		.collect(Collectors.toSet());
@@ -35,9 +34,9 @@ Here is an example of how one could use Java Streams and the equivalent approach
 	assertEquals(positiveOddsSquaredEol, positiveOddsSquaredJava);
 }}}
 
-One benefits of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements. This can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly.
+One benefits of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements. This can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly. As with built-in EOL operations, Streams also support parallel execution, although this must be explicitly specified with the `.parallel()` property on the stream.
 
-There are however some caveats. Currently EOL does not allow you to assign lambda expressions to variables for re-use. It also does not support operations which require a simple variable and non-functional interface as a parameter, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-|iterate]] operation.
+Currently EOL does not support operations which require a simple variable and non-functional interface as a parameter, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-|iterate]] operation.
 
 ===Streams vs EOL cheat sheet===
 Aside from the fact that streams are lazy and Epsilon operations are eager, there is some inevitable overlap in their functionality. This section provides an equivalence mapping from Epsilon to Java Streams to help you migrate from one to the other.
