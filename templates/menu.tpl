@@ -74,6 +74,9 @@
 								<a href="<?= Epsilon::getRelativeLocation('cinema') ?>">Screencasts</a>
 							</li>
 							<li>
+								<a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI">Lectures</a>
+							</li>
+							<li>
 								<a href="<?= Epsilon::getRelativeLocation('examples') ?>">Examples</a>
 							</li>
 							<li>

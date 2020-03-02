@@ -61,7 +61,7 @@
         <br/>
         <p>
          <!--a class="btn btn-large" href="games/murdercase">Learn through a game &raquo;</a-->
-         <a class="btn btn-large" href="users">Who is using Epsilon?</a>
+         <a class="btn btn-large" href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI">Getting Started</a>
          <a class="btn btn-primary btn-large" href="download">Download &raquo;</a>
         </p>
 		</div>
