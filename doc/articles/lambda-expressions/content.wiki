@@ -36,7 +36,33 @@ Here is an example of how one could use Java Streams and the equivalent approach
 
 One benefits of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements. This can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly. As with built-in EOL operations, Streams also support parallel execution, although this must be explicitly specified with the `.parallel()` property on the stream.
 
-Currently EOL does not support operations which require a simple variable and non-functional interface as a parameter, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-|iterate]] operation.
+Currently EOL does not support operations which require a simple variable and non-functional interface as a parameter, such as the [[https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-|iterate]] operation. To work around this, you can assign lambda expressions to variables, deriving them by calling a built-in operation to obtain the desired type.
+
+{{{eol
+	// UnaryOperator
+	var doubler = func(i | i * 2);
+	assertEquals(16, doubler.apply(8));
+	
+	// Predicate
+	var isEvenTester = predicate(i | i.mod(2) == 0);
+	assertFalse(predicate.test(3));
+	
+	// Function
+	var hasher = func(x | x.hashCode());
+	assertEquals(7, hasher.apply(7));
+	
+	// Consumer
+	var printer = consumer(x | x.println());
+	printer.accept("Testing...");
+	
+	// Supplier
+	var threadSafeCollectionMaker = supplier( | new Native("java.util.concurrent.ConcurrentLinkedDeque"));
+	var deque = threadSafeCollectionMaker.get();
+	
+	// Runnable
+	var sayHi = runnable( | "Hello, World!".println());
+	sayHi.run();
+}}}
 
 ===Streams vs EOL cheat sheet===
 Aside from the fact that streams are lazy and Epsilon operations are eager, there is some inevitable overlap in their functionality. This section provides an equivalence mapping from Epsilon to Java Streams to help you migrate from one to the other.
