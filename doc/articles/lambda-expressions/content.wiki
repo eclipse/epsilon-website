@@ -40,7 +40,7 @@ Currently EOL does not support operations which require a simple variable and no
 
 {{{eol
 	// UnaryOperator
-	var doubler = func(i | i * 2);
+	var doubler = unary(i | i * 2);
 	assertEquals(16, doubler.apply(8));
 	
 	// Predicate
@@ -49,7 +49,7 @@ Currently EOL does not support operations which require a simple variable and no
 	
 	// Function
 	var hasher = func(x | x.hashCode());
-	assertEquals(7, hasher.apply(7));
+	assertEquals(-1007761232, hasher.apply("a string"));
 	
 	// Consumer
 	var printer = consumer(x | x.println());
