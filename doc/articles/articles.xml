@@ -195,6 +195,13 @@
         </article>
       </subcategory>
   </category>
+  <category name="picto" title="Picto">
+      <article name="picto" title="Visualising Models with Picto">
+        <description>
+        Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. The article introduces Picto and shows the tool in action.
+        </description>
+      </article>
+  </category>
   <category name="hutn" title="Human-Usable Textual Notation">
       <article name="hutn-basic" title="Using the Human-Usable Textual Notation (HUTN) in Epsilon">
         <description>
