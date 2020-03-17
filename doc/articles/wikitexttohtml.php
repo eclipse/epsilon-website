@@ -214,7 +214,7 @@ class WikiTextToHTML {
 				}
 				else {
 					$lang = substr(trim($in), 3);
-					$output[] = '<pre class="prettyprint lang-'.$lang.'">';
+					$output[] = '<pre class="prettyprint linenums lang-'.$lang.'">';
 				}
 				$this->incode = true;
 			} else if ('}}}' == trim($in)) {
