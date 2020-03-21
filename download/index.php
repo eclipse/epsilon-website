@@ -28,10 +28,8 @@
 
 	$modelingTools = $major_release->eclipse["distribution"];
 
-	$modelingToolsWin = $modelingTools."win32.zip";
 	$modelingToolsWin64 = $modelingTools."win32-x86_64.zip";
 	$modelingToolsMac64 = $modelingTools."macosx-cocoa-x86_64.".$major_release->eclipse["mac-extension"];
-	$modelingToolsLinux = $modelingTools."linux-gtk.tar.gz";
 	$modelingToolsLinux64 = $modelingTools."linux-gtk-x86_64.tar.gz";
 
 	$version = $release["version"];
@@ -55,13 +53,10 @@
 
 	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$major_release_bread_crumb."distributions/eclipse-epsilon-".$major_release["version"]."-";
 
-	$downloadWin = $downloadUrl."win32.zip";
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
 	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.".$major_release->eclipse["mac-extension"];
-	$downloadLinux = $downloadUrl."linux-gtk.".$major_release->eclipse["linux-extension"];
 	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.".$major_release->eclipse["linux-extension"];
 	
-
 	$updateSite = "http://".$download_server.".eclipse.org/epsilon/".$release_bread_crumb."updates/";
 	$zippedUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."updates/site.zip";
 	$zippedInterimUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
@@ -165,15 +160,13 @@
 								</div>
 								<?}?>
   							<p style="padding-top:15px;padding-bottom:15px">
-							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin?>">Windows 32bit</a>
-							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin64?>">Windows 64bit</a>
-							<a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac64?>">Mac OS X 64bit</a>
-							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux?>">Linux 32bit</a>
-							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux64?>">Linux 64bit</a>
+							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin64?>">Windows</a>
+							<a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac64?>">macOS</a>
+							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux64?>">Linux</a>
 
 							</p>
 							<?if (onWindows()){?>
-							<p><b>Note for Windows users:</b> Please make sure that you extract the downloaded distributions close to the root of a drive (e.g. C:/D:) as
+							<p><b>Note for Windows users:</b> Please make sure that you extract the downloaded distributions close to the root of a drive (e.g. C:) as
 							the maximum path length on Windows may not exceed 255 characters by default.
 							</p>
 							<?}?>
@@ -212,11 +205,9 @@
 								The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a Java Runtime Environment and Eclipse first. The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon <?=$release["version"]?> and is available for the following platforms.
 								</p>
 								<p style="padding-top:15px;padding-bottom:15px">
-								<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin?>">Windows 32bit</a>
-								<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows 64bit</a>
-								<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">Mac OS X 64bit</a>
-								<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux?>">Linux 32bit</a>
-								<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux 64bit</a>
+								<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows</a>
+								<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">macOS</a>
+								<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux</a>
 								</p>
 
 								<h4 style="padding-top:10px;padding-bottom:10px">Dependencies (optional)</h4>
@@ -264,11 +255,9 @@
 							The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon and is available for the following platforms.
 							</p>
 							<p style="padding-top:15px;padding-bottom:15px">
-							<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin?>">Windows 32bit</a>
-							<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows 64bit</a>
-							<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">Mac OS X 64bit</a>
-							<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux?>">Linux 32bit</a>
-							<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux 64bit</a>
+							<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows</a>
+							<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">macOS</a>
+							<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux</a>
 							</p>
 							Once you have downoaded one of the Modeling distributions above, you will need to
 							<ol>
