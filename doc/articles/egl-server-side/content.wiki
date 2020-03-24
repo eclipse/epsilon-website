@@ -163,4 +163,4 @@ to
 set JAVA_OPTS=%JAVA_OPTS% %LOGGING_MANAGER% -Xms1024m -Xmx1024m -XX:MaxPermSize=128m
 }}}
 
-If you keep getting out of memory errors, you may find [[http://www.lambdaprobe.org/d/index.htm|Lambda Probe]] useful for figuring out what's going wrong.
+If you keep getting out of memory errors, you may find [[https://github.com/psi-probe/psi-probe|PSI Probe]] useful for figuring out what's going wrong.
