@@ -15,7 +15,8 @@
 			<td><a href="<?=$jarsUrl?>/epsilon-1.6.0-core-src.jar">epsilon-1.6.0-core-src.jar</a>
 			<td>
 				<ul>
- <li> None
+					<li> To use this JAR, you will also need to have at least these <a href="<?=$jarsUrl?>/epsilon-1.6.0-core-dependencies.zip">external dependencies</a>
+					in your classpath.
 				</ul>
 			</td>
 		</tr>
