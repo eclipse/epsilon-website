@@ -8,7 +8,7 @@
   		<dependency name="QVTo" location="http://download.eclipse.org/mmt/qvto/updates/releases/3.9.1" notes="Version of QVTo that works with GMF Tooling"/>
   	</release-->
 	<release version="1.5.1" released="30 Sep 2018" jars="yes" srcjars="yes" services="1.5">
-		<message>Once you have downloaded one of the distributions below, please update Epsilon from the stable update site to version 1.5.1, which contains a fix for a regression that affects the properties view of Exeed.</message>
+		<message>Once you have downloaded the 1.5 distribution, please update Epsilon from the stable update site to version 1.5.1, which contains a fix for a regression that affects the properties view of Exeed.</message>
 		<notes>Service release</notes>
   	</release>
 	<release version="1.5" released="12 Aug 2018" jars="yes" srcjars="yes">

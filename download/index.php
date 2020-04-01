@@ -51,15 +51,15 @@
 	$distributions = (strcmp($major_release["distributions"], "no") != 0);
 	$jars = (strcmp($release["jars"], "yes") == 0);
 
-	$downloadUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$major_release_bread_crumb."distributions/eclipse-epsilon-".$major_release["version"]."-";
+	$downloadUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$major_release_bread_crumb."distributions/eclipse-epsilon-".$major_release["version"]."-";
 
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
 	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.".$major_release->eclipse["mac-extension"];
 	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.".$major_release->eclipse["linux-extension"];
 	
-	$updateSite = "http://".$download_server.".eclipse.org/epsilon/".$release_bread_crumb."updates/";
-	$zippedUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."updates/site.zip";
-	$zippedInterimUpdateSite = "http://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
+	$updateSite = "https://".$download_server.".eclipse.org/epsilon/".$release_bread_crumb."updates/";
+	$zippedUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."updates/site.zip";
+	$zippedInterimUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
 	
 	function getVisitorPlatform()
 	{
@@ -111,10 +111,10 @@
 		if ($src) { $srcLabel = "-src"; }
 
 		$jarFolder = "jars";
-		if ($interim) { $jarFolder = "interim-jars"; }
+		if ($interim) { $jarFolder = "interim/jars"; }
 
 		$filename = "epsilon-".$version."-".$flavour.$srcLabel.".jar";
-		$link = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb.$jarFolder."/".$filename;
+		$link = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb.$jarFolder."/".$filename;
 		return "<a href='".$link."'>".$filename."</a>";
 	}
 
@@ -129,7 +129,7 @@
 			<div class="span12">
 				
 				<!--div class="alert alert-warning alert-block">
-					<b>13/08/2018</b>: We are in the process of releasing version 1.5 and some links or update sites may not work as expected until we are done.
+					<b>13/08/2018</b>: We are in the process of releasing version 2.0 and some links or update sites may not work as expected until we are done.
 				</div-->
 				 
 				<div class="tabbable" style="margin-bottom: 0px;">
@@ -228,7 +228,7 @@
 								</table>
 
 								<div class="alert alert-info alert-block">
-									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence Eugenia - won't work. If you wish to use Xtext or Papyrus in the same installation as Eugenia, you should use QVTo 3.9.1 from this update site: http://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
+									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence Eugenia - won't work. If you wish to use Xtext or Papyrus in the same installation as Eugenia, you should use QVTo 3.9.1 from this update site: https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
 								</div>
 
 								<!--div class="input-prepend input-append">
@@ -290,7 +290,7 @@
   						<?if ($latest){?>
   						<div id="marketplace" class="tab-pane">
   							Drag and drop into a running Eclipse <?=$release->eclipse["name"]?> workspace to
-  							<a style="position:relative;top:-2px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="https://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> the latest stable version (v <?=$version?>) of Epsilon.
+  							<a style="position:relative;top:-2px" href="https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="https://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> the latest stable version (v <?=$version?>) of Epsilon.
   						</div>
   						<?}?>
   						<div id="sourcecode" class="tab-pane">
@@ -333,7 +333,7 @@
 			  							Plain old JARs you can use to embed the latest <b>stable</b> version of Epsilon (<?=$version?>)
 			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
-	  								<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."jars";?>
+	  								<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb.$version"/jars";?>
 	  								<?include("jars/".$version.".php");?>
                                      <p>
                                      Since 1.4, these JARs are also available from Maven Central. For instance, to use the <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
@@ -342,7 +342,7 @@
   &lt;dependency&gt;
     &lt;groupId&gt;org.eclipse.epsilon&lt;/groupId&gt;
     &lt;artifactId&gt;epsilon-core&lt;/artifactId&gt;
-    &lt;version&gt;1.4.0&lt;/version&gt;
+    &lt;version&gt;1.5.1&lt;/version&gt;
   &lt;/dependency&gt;
   ...
 &lt;/dependencies&gt;</pre>
@@ -353,10 +353,10 @@
 			  							Plain old JARs you can use to embed the latest <b>interim</b> version of Epsilon
 			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
-			  						<?$jarsUrl = "http://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."interim-jars";?>
+			  						<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."interim/jars";?>
 			  						<?include("jars/interim.php");?>
 									<p>
-									You can use the latest SNAPSHOTs at the <a href="https://oss.sonatype.org">Sonatype OSSRH</a> repository. For instance, to use the 1.4 interim <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
+									You can use the latest SNAPSHOTs at the <a href="https://oss.sonatype.org">Sonatype OSSRH</a> repository. For instance, to use the 1.6 interim <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
 									<pre>&lt;repositories&gt;
     &lt;repository&gt;
       &lt;id&gt;ossrh-snapshots&lt;/id&gt;
@@ -368,7 +368,7 @@
   &lt;dependency&gt;
     &lt;groupId&gt;org.eclipse.epsilon&lt;/groupId&gt;
     &lt;artifactId&gt;epsilon-core&lt;/artifactId&gt;
-    &lt;version&gt;1.4.0-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;1.6.0-SNAPSHOT&lt;/version&gt;
   &lt;/dependency&gt;
 &lt;/dependencies&gt;</pre>
 									</p>

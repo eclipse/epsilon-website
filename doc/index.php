@@ -14,7 +14,7 @@
 				
 				<p>Epsilon is a family of languages and tools for code generation, model-to-model transformation, model validation, comparison, migration and refactoring that work out-of-the-box with EMF <a href="emc">and other types of</a> of models.</p>
 
-				<p>At the core of Epsilon is the <a href="eol">Epsilon Object Language (EOL)</a>, an imperative model-oriented language that combines the procedural style of Javascript with the powerful model querying capabilities of OCL.</p>
+				<p>At the core of Epsilon is the <a href="eol">Epsilon Object Language (EOL)</a>, an imperative model-oriented language that combines the procedural style of JavaScript with the powerful model querying capabilities of OCL.</p>
 				<p></p>
 
 				<?include "architecture.php";?>

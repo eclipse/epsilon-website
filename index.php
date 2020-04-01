@@ -24,34 +24,6 @@
 	h('', $styles);
 ?>
 
-<!--div class="row">
-	<div class="span12">
-	<div class="alert alert-info" style1="background-color: rgb(116, 67, 140)">
-		<b>Upcoming events</b><button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>
-    <br/>
-    <p style="padding-top:10px">
-    	2<sup>nd</sup> <a href="http://www.big-mde.eu">Workshop on Scalable Model Driven Engineering</a> (BigMDE'14), July 24, 2014, York, UK
-	</p>
-    </div>
-    </div>
-</div-->
-
-<!--div class="row">
-	<div class="span12">
-	<div class="alert alert-info" style1="background-color: rgb(116, 67, 140)">
-		<b>We're hiring!</b><button type="button" class="close" data-dismiss="alert" style="font-size:16px">x</button>
-    <br/>
-    <p style="padding-top:10px">
-    	Two 30-month research posts on scalable Model Driven Engineering are now open at the University of York.
-      <ul style="list-style:none;margin-left:0px;padding-left:5px">
-          <li>&raquo; <a href="https://jobs.york.ac.uk/wd/plsql/wd_portal.show_job?p_web_site_id=3885&p_web_page_id=170663">Research associate in Model Driven Engineering</a>
-          &amp; <a href="https://jobs.york.ac.uk/wd/plsql/wd_portal.show_job?p_web_site_id=3885&p_web_page_id=170874">Senior research associate in Model Driven Engineering</a>
-      </ul>
-    </p>
-    </div>
-    </div>
-</div-->
-
 <div class="hero-unit">
 	<div class="row">
 		<div class="span5">

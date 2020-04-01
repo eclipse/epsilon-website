@@ -49,7 +49,7 @@ class Epsilon {
 	}
 	
 	static function getAbsoluteLocation($path) {
-		return "http://".$_SERVER["HTTP_HOST"].Epsilon::getRelativeLocation($path);
+		return "https://".$_SERVER["HTTP_HOST"].Epsilon::getRelativeLocation($path);
 	}
 	
 	static function getVersion() {
@@ -77,27 +77,27 @@ class Epsilon {
 	}
 	
 	static function getSVNExamplesLocation() {
-		return "https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/"; //Epsilon::getSVNLocation()."trunk/examples/";
+		return "https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/"; 
 	}
 	
 	static function getBinariesLocation() {
-		return "http://www.eclipse.org/downloads/download.php?file=/epsilon/org.eclipse.epsilon_".Epsilon::getVersion().".zip";
+		return "https://www.eclipse.org/downloads/download.php?file=/epsilon/org.eclipse.epsilon_".Epsilon::getVersion().".zip";
 	}
 	
 	static function getUpdateSite() {
-		return "http://download.eclipse.org/epsilon/updates/";
+		return "https://download.eclipse.org/epsilon/updates/";
 	}
 	
 	static function getInterimUpdateSite() {
-		return "http://download.eclipse.org/epsilon/interim/";
+		return "https://download.eclipse.org/epsilon/interim/";
 	}
 	
 	static function getInterimZippedUpdateSite() {
-		return "http://download.eclipse.org/epsilon/interim/site.zip";
+		return "https://download.eclipse.org/epsilon/interim/site.zip";
 	}
 	
 	static function getEmfaticUpdateSite() {
-		return "http://download.eclipse.org/emfatic/update/";
+		return "https://download.eclipse.org/emfatic/update/";
 	}
 	
 	static function getParentPath() {
