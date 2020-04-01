@@ -57,7 +57,7 @@
 	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.".$major_release->eclipse["mac-extension"];
 	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.".$major_release->eclipse["linux-extension"];
 	
-	$updateSite = "https://".$download_server.".eclipse.org/epsilon/".$release_bread_crumb."updates/";
+	$updateSite = "https://".$download_server.".eclipse.org/epsilon/updates/".$release_bread_crumb;
 	$zippedUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."updates/site.zip";
 	$zippedInterimUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
 	

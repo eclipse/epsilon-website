@@ -60,8 +60,8 @@
 							<li class="dropdown-submenu">
 								<a tabindex="-1" href="#">Javadoc</a>
 								<ul class="dropdown-menu">
-									<li><a href="http://download.eclipse.org/epsilon/javadoc/">Stable</a>
-										<li><a href="http://download.eclipse.org/epsilon/interim-javadoc/">Interim</a>
+									<li><a href="https://download.eclipse.org/epsilon/javadoc/">Stable</a>
+										<li><a href="https://download.eclipse.org/epsilon/interim/javadoc/">Interim</a>
 								</ul>
 							</li>
 							<li>

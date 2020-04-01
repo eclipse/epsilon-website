@@ -73,7 +73,7 @@
     <li class="active"><a href="#whyepsilon" data-toggle="tab"><h4>Why Epsilon?</h4></a></li>
 
     <!--
-    <a style="position:relative;top:19px;left:521px" href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="Drag and drop into a running Eclipse Indigo workspace to install Epsilon">
+    <a style="position:relative;top:19px;left:521px" href="https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="Drag and drop into a running Eclipse Indigo workspace to install Epsilon">
 	  <img src="/epsilon/img/installbutton.png"/>
     </a>
      -->
@@ -113,20 +113,16 @@
   <?if($i%2==1){?></div><?}?>
   <?$i++;?>
   <?}?>
-  <p style="text-align:right">* Icons by <a href="http://dryicons.com/">http://dryicons.com</a></p>
+  <p style="text-align:right">* Icons by <a href="http://dryicons.com/">https://dryicons.com</a></p>
   </div>
 
 </div>
 
 <?php
-
 	$scripts = array(
 		'<script src="'.Epsilon::getRelativeLocation('js/individual/index.js').'"></script>'
 	);
-
 	f($scripts);
-
-
 ?>
 
 <script type="text/javascript">
