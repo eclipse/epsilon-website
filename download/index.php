@@ -134,14 +134,11 @@
 				 
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
-					<li class="active"><a href="#installer" data-toggle="tab"><h4>Oomph</h4></li>
+					<li class="active"><a href="#installer" data-toggle="tab"><h4>Eclipse Installer</h4></a></li>
 				  	<?if($distributions){?>
 				    <li><a href="#distributions" data-toggle="tab"><h4>Distributions</h4></a></li>
 				    <?}?>
 				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
-				    <?if ($latest){?>
-				    <li><a href="#marketplace" data-toggle="tab"><h4>Marketplace</h4></a></li>
-				    <?}?>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source code</h4></a></li>
 				    <?if ($jars){?>
 				    <li><a href="#jars" data-toggle="tab"><h4>JARs</h4></a></li>
@@ -246,6 +243,11 @@
 								  <input class="span9" id="appendedPrependedInput" type="text" value="Install through the Help->Install Modeling Components menu.">
 								</div-->
 
+								<?if($latest){?>
+								<h4 style="padding-top:10px;padding-bottom:10px">Eclipse Marketplace</h4>
+								<p>If you prefer to install Epsilon through the Eclipse Marketplace, you can drag and drop <a style="position:relative;top:-2px" href="https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="https://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> into a running instance of Eclipse.</p>
+  								<?}?>
+
 								<h4 style="padding-top:10px;padding-bottom:10px">EpsilonLabs (optional)</h4>
 								<p>Some of the projects found in the EpsilonLabs <a href="https://github.com/epsilonlabs">repository</a> can be installed from the EpsilonLabs update site.
 								<div class="input-prepend input-append">
@@ -293,12 +295,6 @@
 							    <li><i>Epsilon <a href="../doc/concordance/">Concordance</a>:</i> provides a tool that detects, reconciles and reports broken cross-resource EMF references.
 							</ul!-->
   						</div>
-  						<?if ($latest){?>
-  						<div id="marketplace" class="tab-pane">
-  							Drag and drop into a running Eclipse <?=$release->eclipse["name"]?> workspace to
-  							<a style="position:relative;top:-2px" href="https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="https://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> the latest stable version (v <?=$version?>) of Epsilon.
-  						</div>
-  						<?}?>
   						<div id="sourcecode" class="tab-pane">
   							<p>
   							The source code of Epsilon is stored in the following Git repository.
