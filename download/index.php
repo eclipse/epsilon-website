@@ -134,7 +134,7 @@
 				 
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
-					<li class="active"><a href="#installer" data-toggle="tab"><h4>Eclipse Installer</h4></li>
+					<li class="active"><a href="#installer" data-toggle="tab"><h4>Oomph</h4></li>
 				  	<?if($distributions){?>
 				    <li><a href="#distributions" data-toggle="tab"><h4>Distributions</h4></a></li>
 				    <?}?>
@@ -152,7 +152,7 @@
 				    <div class="tab-content">
 						<div id="installer" class="tab-pane active">
 							<p>
-							Download the <a href="https://www.eclipse.org/downloads/packages/installer"><i>Eclipse Installer</i></a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.
+							Download the <a href="https://www.eclipse.org/downloads/packages/installer"><b>Eclipse Installer</b></a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.
 							</p>
 						</div>
 				    	<?if($distributions){?>
