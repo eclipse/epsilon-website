@@ -111,7 +111,7 @@
 		if ($src) { $srcLabel = "-src"; }
 
 		$jarFolder = "jars";
-		if ($interim) { $jarFolder = "interim/jars"; }
+		if ($interim) { $jarFolder = "interim-jars"; }
 
 		$filename = "epsilon-".$version."-".$flavour.$srcLabel.".jar";
 		$link = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb.$jarFolder."/".$filename;
