@@ -333,7 +333,7 @@
 			  							Plain old JARs you can use to embed the latest <b>stable</b> version of Epsilon (<?=$version?>)
 			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
-	  								<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb.$version."jars";?>
+	  								<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb.$version."/jars";?>
 	  								<?include("jars/".$version.".php");?>
                                      <p>
                                      Since 1.4, these JARs are also available from Maven Central. For instance, to use the <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
