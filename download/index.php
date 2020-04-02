@@ -134,10 +134,11 @@
 				 
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
+					<li class="active"><a href="#installer" data-toggle="tab"><h4>Eclipse Installer</h4></li>
 				  	<?if($distributions){?>
-				    <li class="active"><a href="#distributions" data-toggle="tab"><h4>Distributions</h4></a></li>
+				    <li><a href="#distributions" data-toggle="tab"><h4>Distributions</h4></a></li>
 				    <?}?>
-				    <li <?if(!$distributions){ echo 'class="active"';}?>><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
+				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
 				    <?if ($latest){?>
 				    <li><a href="#marketplace" data-toggle="tab"><h4>Marketplace</h4></a></li>
 				    <?}?>
@@ -149,8 +150,13 @@
 				    <li><a href="#versions" data-toggle="tab"><h4>All versions</h4></a></li>
 				  </ul>
 				    <div class="tab-content">
+						<div id="installer" class="tab-pane active">
+							<p>
+							Download the <a href="https://www.eclipse.org/downloads/packages/installer"><b>Eclipse Installer<b></a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.
+							</p>
+						</div>
 				    	<?if($distributions){?>
-  						<div id="distributions" class="tab-pane active">
+  						<div id="distributions" class="tab-pane">
   							<p>
   							Ready-to-use Eclipse <?=$major_release->eclipse["name"]?> (<?=$major_release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$major_release["version"]?>) and all its mandatory and optional dependencies. You will only need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a>.
   							</p>
