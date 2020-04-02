@@ -152,7 +152,7 @@
 				    <div class="tab-content">
 						<div id="installer" class="tab-pane active">
 							<p>
-							Download the <a href="https://www.eclipse.org/downloads/packages/installer"><b>Eclipse Installer<b></a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.
+							Download the <a href="https://www.eclipse.org/downloads/packages/installer"><b>Eclipse Installer</b></a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.
 							</p>
 						</div>
 				    	<?if($distributions){?>
