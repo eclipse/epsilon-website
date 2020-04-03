@@ -150,6 +150,8 @@
 						<div id="installer" class="tab-pane active">
 							<p>
 							Download the <a href="https://www.eclipse.org/downloads/packages/installer"><b>Eclipse Installer</b></a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.
+							</p><br/><p>
+							If you don't see Epsilon in the list, click on the three vertical bars on the top left, then <i>Product Catalogs...</i> and check <i>Eclipse.org Applications</i>. Epsilon should be near the bottom of the list. If the <i>Product Catalogs...</i> option is missing, switch to <i>Advanced Mode</i> and look for Epsilon under <i>Eclipse.org Applications</i>. Press <i>Next</i> 3 times (you don't need to change anything) and then <i>Finish</i>. Accept any licenses when prompted.
 							</p>
 						</div>
 				    	<?if($distributions){?>
