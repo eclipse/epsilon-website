@@ -70,6 +70,18 @@
 			</td>
 		</tr>
 		<tr>
+			<td>Epsilon's Simulink driver.</td>
+			<td><a href="<?=$jarsUrl?>/epsilon-2.0.0-simulink.jar">epsilon-2.0.0-simulink.jar</a>
+			<td><a href="<?=$jarsUrl?>/epsilon-2.0.0-simulink-src.jar">epsilon-2.0.0-simulink-src.jar</a>
+			<td>
+				<ul>
+					<li>To use this JAR, you will also need to have epsilon-2.0.0-core in your classpath.
+					<li> To use this JAR, you will also need to have at least these <a href="<?=$jarsUrl?>/epsilon-2.0.0-simulink-dependencies.zip">external dependencies</a>
+					in your classpath.
+				</ul>
+			</td>
+		</tr>
+		<tr>
 			<td>Epsilon's Human Usable Textual Notation implementation.</td>
 			<td><a href="<?=$jarsUrl?>/epsilon-2.0.0-hutn.jar">epsilon-2.0.0-hutn.jar</a>
 			<td><a href="<?=$jarsUrl?>/epsilon-2.0.0-hutn-src.jar">epsilon-2.0.0-hutn-src.jar</a>
