@@ -65,7 +65,7 @@ Eclipse will create a new '''.launch''' file in your project, which contains all
 
 [[image:savedlaunchconfig.png]]
 
-=== Exporting an Eclipse project from your workspace === 
+=== Exporting an Eclipse project from your workspace ===
 Once you have created a project containing a minimal example (and launch configurations or Ant scripts), you can create an archive file which can be emailed to us:
 
 # Right-click your Project
