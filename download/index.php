@@ -151,7 +151,12 @@
 							<p>
 							Download the <a href="https://www.eclipse.org/downloads/packages/installer"><b>Eclipse Installer</b></a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.
 							</p><br/><p>
-							If you don't see Epsilon in the list, click on the three vertical bars on the top right, then <i>Product Catalogs</i> and check "Eclipse.org Applications". Epsilon should be near the bottom of the list (you can also use the search bar). If the <i>Product Catalogs</i> option is missing, switch to <i>Advanced Mode</i> and look for Epsilon under "Eclipse.org Applications" (if this category is missing, click on the small yellow folder icon in the top right corner and select it). Keep pressing <i>Next</i> (you don't need to change anything) and then <i>Finish</i>. Accept the licenses when prompted.
+							If you don't see Epsilon in the list, click on the three vertical bars on the top right, then <i>Product Catalogs</i> and check "Eclipse.org Applications". Epsilon should be near the bottom of the list (you can also use the search bar). If the <i>Product Catalogs</i> option is missing, switch to <i>Advanced Mode</i> and look for Epsilon under "Eclipse.org Applications" (if this category is missing, click on the small yellow folder icon in the top right corner and select it). Keep pressing <i>Next</i> (you don't need to change anything) and then <i>Finish</i>. Accept the licenses when prompted.<br/>
+							<?if (onWindows()){?>
+							<p><b>Note for Windows users:</b> Please make sure that you install Eclipse close to the root of a drive (e.g. C:\Users\&lt;username&gt;\Epsilon) as
+							the maximum path length on Windows may not exceed 255 characters by default.
+							</p>
+							<?}?>
 							</p>
 						</div>
 				    	<?if($distributions){?>
@@ -198,7 +203,7 @@
 								<p>
 
 								<br>
-								*<a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&bug_status=VERIFIED&list_id=17694438&product=epsilon&query_format=advanced">
+								*<a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced">
 								Bugs fixed in the latest interim version (compared to the latest stable version)
 								</a>
 
@@ -235,15 +240,6 @@
 								<div class="alert alert-info alert-block">
 									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence Eugenia - won't work. If you wish to use Xtext or Papyrus in the same installation as Eugenia, you should use QVTo 3.9.1 from this update site: https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
 								</div>
-
-								<!--div class="input-prepend input-append">
-								  <span class="add-on"><div class="span2">Emfatic</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="<?=Epsilon::getEmfaticUpdateSite()?>">
-								</div>
-								<div class="input-prepend input-append" style="padding-top:25px">
-								  <span class="add-on"><div class="span2">GMF</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="Install through the Help->Install Modeling Components menu.">
-								</div-->
 
 								<?if($latest){?>
 								<h4 style="padding-top:10px;padding-bottom:10px">Eclipse Marketplace</h4>

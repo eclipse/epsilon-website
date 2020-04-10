@@ -259,6 +259,13 @@
       </description>
     </article>
   </category>
+  <category name="install" title="Installation"/>
+    <article name="epsilon-1.x" title="Working with Epsilon 1.x">
+	  <description>
+	    This article contains instructions for installing legacy versions of Epsilon prior to 2.0.
+	  </description>
+	</article>
+  </category>
   <category name="dev" title="Epsilon Developers">
     <article name="running-from-source" title="Running Epsilon from source">
       <description>
