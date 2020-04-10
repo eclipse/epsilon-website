@@ -324,7 +324,8 @@
 							</p>
 							<?}?>
 							</p><br/>
-							<h4>Modeling Tools package</h4>
+							<hr>
+							<h3>Modeling Tools package</h3>
 							<p>
 								The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a Java Runtime Environment and Eclipse first. The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon <?=$release["version"]?> and is available for the following platforms.
 								</p>
