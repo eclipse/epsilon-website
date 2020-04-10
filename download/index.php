@@ -131,13 +131,13 @@
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
 					<li class="active"><a href="#installer" data-toggle="tab"><h4>Eclipse Installer</h4></a></li>
-				  	<?if($distributions){?>
-				    <li><a href="#distributions" data-toggle="tab"><h4>Distributions</h4></a></li>
-				    <?}?>
 				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source code</h4></a></li>
 				    <?if ($jars){?>
 				    <li><a href="#jars" data-toggle="tab"><h4>JARs</h4></a></li>
+				    <?}
+					if($distributions){?>
+				    <li><a href="#distributions" data-toggle="tab"><h4>Distributions</h4></a></li>
 				    <?}?>
 				    <li><a href="#releasenotes" data-toggle="tab"><h4>Release notes</h4></a></li>
 				    <li><a href="#versions" data-toggle="tab"><h4>All versions</h4></a></li>
@@ -155,30 +155,6 @@
 							<?}?>
 							</p>
 						</div>
-				    	<?if($distributions){?>
-  						<div id="distributions" class="tab-pane">
-  							<p>
-  							Ready-to-use Eclipse <?=$major_release->eclipse["name"]?> (<?=$major_release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$major_release["version"]?>) and all its mandatory and optional dependencies. You will only need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a>.
-  							</p>
-								<?if ($release != $major_release){?>
-								<div class="alert alert-error alert-block">
-									<b>Important:</b> <?=$release->message?>
-								</div>
-								<?}?>
-  							<p style="padding-top:15px;padding-bottom:15px">
-							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin64?>">Windows</a>
-							<a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac64?>">macOS</a>
-							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux64?>">Linux</a>
-
-							</p>
-							<?if (onWindows()){?>
-							<p><b>Note for Windows users:</b> Please make sure that you extract the downloaded distributions close to the root of a drive (e.g. C:) as
-							the maximum path length on Windows may not exceed 255 characters by default.
-							</p>
-							<?}?>
-							</p>
-  						</div>
-  						<?}?>
   						<div id="updatesites" class="tab-pane <?if(!$distributions){ echo "active";}?>">
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
@@ -204,33 +180,6 @@
 								</p>
 								<?}?>
 
-								<h4>What do I do with these?</h4>
-								<p>
-								The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a Java Runtime Environment and Eclipse first. The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon <?=$release["version"]?> and is available for the following platforms.
-								</p>
-								<p style="padding-top:15px;padding-bottom:15px">
-								<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows</a>
-								<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">macOS</a>
-								<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux</a>
-								</p>
-
-								<h4 style="padding-top:10px;padding-bottom:10px">Dependencies (optional)</h4>
-								<p>Below are optional dependencies that are not pre-installed in the Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution.</p>
-								<table class="table table-striped table-bordered">
-									<thead>
-										<tr><th>Dependency</th><th>Update site</th><th>Notes</th></tr>
-									</thead>
-									<tbody>
-										<?foreach ($major_release->dependency as $dependency){?>
-										<tr>
-											<td><?=$dependency["name"]?></td>
-											<td><input class="span7" style="outline:none;border:0;box-shadow:none;padding:0px" type="text" value="<?=$dependency["location"]?>"></input></td>
-											<td><?=$dependency["notes"]?></td>
-										</tr>
-										<?}?>
-									</tbody>
-								</table>
-
 								<div class="alert alert-info alert-block">
 									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence Eugenia - won't work. If you wish to use Xtext or Papyrus in the same installation as Eugenia, you should use QVTo 3.9.1 from this update site: https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
 								</div>
@@ -248,25 +197,7 @@
 								</div>
 							</div>
 							</form>
-							<!--h4>What do I do with these?</h4>
-							<p>
-							The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a> and Eclipse
-							(including EMF, GMF and Emfatic in order to use the full range of its capabilities) first.
-							The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon and is available for the following platforms.
-							</p>
-							<p style="padding-top:15px;padding-bottom:15px">
-							<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows</a>
-							<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">macOS</a>
-							<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux</a>
-							</p>
-							Once you have downoaded one of the Modeling distributions above, you will need to
-							<ol>
-								<li>Install GMF through the <i>Help->Install Modeling Components</i> menu of Eclipse
-								<li>Install Emfatic through the <i>Help->Install New Software</i> menu of Eclipse using the Emfatic update site above
-								<li>Install Epsilon through the <i>Help->Install New Software</i> menu of Eclipse using one of the Epsilon update sites (stable or interim/bleeding edge)
-							</ol>
-
-							<p>If you are not familiar with Eclipse/plugin installation, <a href="http://www.vogella.com/articles/Eclipse/article.html#install">this tutorial</a> provides an excellent crash course.</p>
+							<!--p>If you are not familiar with Eclipse/plugin installation, <a href="http://www.vogella.com/articles/Eclipse/article.html#install">this tutorial</a> provides an excellent crash course.</p>
 
 							<h4>Which features should I install?</h4>
 
@@ -368,6 +299,58 @@
 									</p>
 	  							</div>
 	  						</div>
+  						</div>
+  						<?}
+						if($distributions){?>
+  						<div id="distributions" class="tab-pane">
+							<h3>Epsilon package</h3>
+  							<p>
+  							Ready-to-use Eclipse <?=$major_release->eclipse["name"]?> (<?=$major_release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$major_release["version"]?>) and all its mandatory and optional dependencies. You will only need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a>.
+  							</p>
+								<?if ($release != $major_release){?>
+								<div class="alert alert-error alert-block">
+									<b>Important:</b> <?=$release->message?>
+								</div>
+								<?}?>
+  							<p style="padding-top:15px;padding-bottom:15px">
+							<a class="btn <?=getStyle('windows')?>" href="<?=$downloadWin64?>">Windows</a>
+							<a class="btn <?=getStyle('mac')?>" href="<?=$downloadMac64?>">macOS</a>
+							<a class="btn <?=getStyle('linux')?>" href="<?=$downloadLinux64?>">Linux</a>
+
+							</p>
+							<?if (onWindows()){?>
+							<p><b>Note for Windows users:</b> Please make sure that you extract the downloaded distributions close to the root of a drive (e.g. C:) as
+							the maximum path length on Windows may not exceed 255 characters by default.
+							</p>
+							<?}?>
+							</p><br/>
+							<h4>Modeling Tools package</h4>
+							<p>
+								The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a Java Runtime Environment and Eclipse first. The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon <?=$release["version"]?> and is available for the following platforms.
+								</p>
+								<p style="padding-top:15px;padding-bottom:15px">
+								<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows</a>
+								<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">macOS</a>
+								<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux</a>
+								</p>
+
+								<h4 style="padding-top:10px;padding-bottom:10px">Dependencies (optional)</h4>
+								<p>Below are optional dependencies that are not pre-installed in the Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution.</p>
+								<table class="table table-striped table-bordered">
+									<thead>
+										<tr><th>Dependency</th><th>Update site</th><th>Notes</th></tr>
+									</thead>
+									<tbody>
+										<?foreach ($major_release->dependency as $dependency){?>
+										<tr>
+											<td><?=$dependency["name"]?></td>
+											<td><input class="span7" style="outline:none;border:0;box-shadow:none;padding:0px" type="text" value="<?=$dependency["location"]?>"></input></td>
+											<td><?=$dependency["notes"]?></td>
+										</tr>
+										<?}?>
+									</tbody>
+								</table>
+							<p>Once you have installed these dependencies, you can install Epsilon through <a href="https://download.eclipse.org/epsilon/updates/">the update site</a>.</p>
   						</div>
   						<?}?>
 
