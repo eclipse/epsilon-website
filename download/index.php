@@ -56,7 +56,7 @@
 	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.".$major_release->eclipse["mac-extension"];
 	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.".$major_release->eclipse["linux-extension"];
 	$updateSite = "https://".$download_server.".eclipse.org/epsilon/updates/";
-	$zippedUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/".$major_release_bread_crumb."/site.zip";
+	$zippedUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/".$major_release_bread_crumb."site.zip";
 	$zippedInterimUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
 	
 	function getVisitorPlatform()
