@@ -52,14 +52,10 @@
 	$jars = (strcmp($release["jars"], "yes") == 0);
 
 	$downloadUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$major_release_bread_crumb."distributions/eclipse-epsilon-".$major_release["version"]."-";
-
 	$downloadWin64 = $downloadUrl."win32-x86_64.zip";
 	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.".$major_release->eclipse["mac-extension"];
 	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.".$major_release->eclipse["linux-extension"];
-	
 	$updateSite = "https://".$download_server.".eclipse.org/epsilon/updates/".$release_bread_crumb;
-	$zippedUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."updates/site.zip";
-	$zippedInterimUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
 	
 	function getVisitorPlatform()
 	{
@@ -189,7 +185,6 @@
 	  							<div class="input-prepend input-append">
 								  <span class="add-on"><div class="span2">Stable</div></span>
 								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=$updateSite?>"/>
-									<span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedUpdateSite?>">Archive</a></div></span>
 								</div>
 
 								
@@ -197,7 +192,6 @@
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Interim *</div></span>
 								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
-									<span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedInterimUpdateSite?>">Archive</a></div></span>
 								</div>
 
 								<p>
