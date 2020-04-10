@@ -162,15 +162,14 @@
   							<div class="control-group">
 	  							<div class="input-prepend input-append">
 								  <span class="add-on"><div class="span2">Stable</div></span>
-								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=$updateSite?>"/>
+								  <input class="span7" id="appendedPrependedInput" type="text" value="<?=$updateSite?>"/>
 								  <span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedUpdateSite?>">Archive</a></div></span>
 								</div>
 
-								
 								<?if ($latest){?>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Interim *</div></span>
-								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
+								  <input class="span7" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
 								  <span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedInterimUpdateSite?>">Archive</a></div></span>
 								</div>
 
@@ -197,7 +196,7 @@
 								<p>Some of the projects found in the EpsilonLabs <a href="https://github.com/epsilonlabs">repository</a> can be installed from the EpsilonLabs update site.
 								<div class="input-prepend input-append">
 								  <span class="add-on"><div class="span2">EpsilonLabs</div></span>
-								  <input class="span9" id="appendedPrependedInput" type="text" value="https://dl.bintray.com/epsilonlabs/updates">							
+								  <input class="span7" id="appendedPrependedInput" type="text" value="https://dl.bintray.com/epsilonlabs/updates">							
 								</div>
 							</div>
 							</form>
