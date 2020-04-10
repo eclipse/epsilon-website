@@ -56,6 +56,8 @@
 	$downloadMac64 = $downloadUrl."macosx-cocoa-x86_64.".$major_release->eclipse["mac-extension"];
 	$downloadLinux64 = $downloadUrl."linux-gtk-x86_64.".$major_release->eclipse["linux-extension"];
 	$updateSite = "https://".$download_server.".eclipse.org/epsilon/updates/".$release_bread_crumb;
+	$zippedUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."updates/site.zip";
+	$zippedInterimUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip";
 	
 	function getVisitorPlatform()
 	{
@@ -131,7 +133,7 @@
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
 					<li class="active"><a href="#installer" data-toggle="tab"><h4>Eclipse Installer</h4></a></li>
-				    <li><a href="#updatesites" data-toggle="tab"><h4>Update Sites</h4></a></li>
+				    <li><a href="#updatesite" data-toggle="tab"><h4>Update Site</h4></a></li>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source code</h4></a></li>
 				    <?if ($jars){?>
 				    <li><a href="#jars" data-toggle="tab"><h4>JARs</h4></a></li>
@@ -155,12 +157,13 @@
 							<?}?>
 							</p>
 						</div>
-  						<div id="updatesites" class="tab-pane <?if(!$distributions){ echo "active";}?>">
+  						<div id="updatesite" class="tab-pane <?if(!$distributions){ echo "active";}?>">
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
 	  							<div class="input-prepend input-append">
 								  <span class="add-on"><div class="span2">Stable</div></span>
 								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=$updateSite?>"/>
+								  <span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedUpdateSite?>">Archive</a></div></span>
 								</div>
 
 								
@@ -168,6 +171,7 @@
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Interim *</div></span>
 								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
+								  <span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedInterimUpdateSite?>">Archive</a></div></span>
 								</div>
 
 								<p>
@@ -181,7 +185,7 @@
 								<?}?>
 
 								<div class="alert alert-info alert-block">
-									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence Eugenia - won't work. If you wish to use Xtext or Papyrus in the same installation as Eugenia, you should use QVTo 3.9.1 from this update site: https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
+									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence EuGENia - won't work. If you wish to use Xtext or Papyrus in the same installation as EuGENia, you should use QVTo 3.9.1 from this update site: https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
 								</div>
 
 								<?if($latest){?>
