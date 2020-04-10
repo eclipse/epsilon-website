@@ -7,10 +7,10 @@ If you wish to use an older version of Epsilon, the easiest and most compatible 
 == From a Modeling Distribution ==
 For a more up-to-date IDE, we recommend that users install the [[https://www.eclipse.org/downloads/packages/release/2020-03/r/eclipse-modeling-tools|Eclipse Modeling Tools distribution]] and install Epsilon along with its (optional) dependencies (these are mainly for working with EuGENia) by adding the following list of update sites through *Help -> Install New Software...*:
 
-* **Epsilon** : [[https://download.eclipse.org/epsilon/updates/1.5]] -- substitute *1.5* for the desired version.
+* '''Epsilon''' : [[https://download.eclipse.org/epsilon/updates/1.5]] -- substitute *1.5* for the desired version.
 
-* **Emfatic** : [[https://download.eclipse.org/emfatic/update]]
+* '''Emfatic''' : [[https://download.eclipse.org/emfatic/update]]
 
-* **GMF Tooling** : [[https://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases]]
+* '''GMF Tooling''' : [[https://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases]]
 
-* **QVTo** : [[https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1]]
+* '''QVTo''' : [[https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1]]
