@@ -422,7 +422,7 @@
   							?>
   							<tr>
   								<td>
-  									<a href="?version=<?=$r["version"]?>"><?=$r["version"]?></a>
+  									<a href="https://archive.eclipse.org/epsilon/<?=$r["version"]?>"><?=$r["version"]?></a>
   								</td>
   								<td>
   									<?=$m->eclipse["version"]?> (<?=$m->eclipse["name"]?>)
