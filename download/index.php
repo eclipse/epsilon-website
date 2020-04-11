@@ -133,7 +133,7 @@
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
 					<li class="active"><a href="#installer" data-toggle="tab"><h4>Eclipse Installer</h4></a></li>
-				    <li><a href="#updatesite" data-toggle="tab"><h4>Update Site</h4></a></li>
+				    <li><a href="#updatesite" data-toggle="tab"><h4>Update Site<?if($latest){?>s<?}?></h4></a></li>
 				    <li><a href="#sourcecode" data-toggle="tab"><h4>Source code</h4></a></li>
 				    <?if ($jars){?>
 				    <li><a href="#jars" data-toggle="tab"><h4>JARs</h4></a></li>
@@ -162,17 +162,27 @@
   							<div class="control-group">
 	  							<div class="input-prepend input-append">
 								  <span class="add-on"><div class="span2">Stable</div></span>
-								  <input class="span7" id="appendedPrependedInput" type="text" value="<?=$updateSite?>"/>
+								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=$updateSite?>"/>
 								  <span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedUpdateSite?>">Archive</a></div></span>
 								</div>
+
+								<?if(!$latest){?>
+									<br/><br/>
+									<div class="alert alert-info alert-block">
+										Uncheck the "Show only the latest versions of available software" check box in Eclipse's new software installation dialog and select version <?=$version?>.
+									</div>
+								<?}?>
 
 								<?if ($latest){?>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Interim *</div></span>
-								  <input class="span7" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
+								  <input class="span8" id="appendedPrependedInput" type="text" value="<?=Epsilon::getInterimUpdateSite()?>"/>
 								  <span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedInterimUpdateSite?>">Archive</a></div></span>
 								</div>
-
+								<br/><br/>
+								<div class="alert alert-info alert-block">
+									The interim update site is now self-contained and can be used to install Epsilon on top of a plain-vanilla Eclipse. If you choose to install the interim version there is no need to start with an Eclipse Modeling distribution or to install any of the dependencies below.
+								</div>
 								<p>
 
 								<br>
@@ -182,6 +192,33 @@
 
 								</p>
 								<?}?>
+								
+								<h4 style="padding-top:10px;padding-bottom:10px">Prerequisites</h4>
+								<p>
+								The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a Java Runtime Environment and Eclipse first. The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon <?=$release["version"]?> and is available for the following platforms.
+								</p>
+								<p style="padding-top:15px;padding-bottom:15px">
+								<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows</a>
+								<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">macOS</a>
+								<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux</a>
+								</p>
+
+								<h4 style="padding-top:10px;padding-bottom:10px">Dependencies (optional)</h4>
+								<p>Below are optional dependencies that are not pre-installed in the Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution.</p>
+								<table class="table table-striped table-bordered">
+									<thead>
+										<tr><th>Dependency</th><th>Update site</th><th>Notes</th></tr>
+									</thead>
+									<tbody>
+										<?foreach ($major_release->dependency as $dependency){?>
+										<tr>
+											<td><?=$dependency["name"]?></td>
+											<td><input class="span7" style="outline:none;border:0;box-shadow:none;padding:0px" type="text" value="<?=$dependency["location"]?>"></input></td>
+											<td><?=$dependency["notes"]?></td>
+										</tr>
+										<?}?>
+									</tbody>
+								</table>
 
 								<div class="alert alert-info alert-block">
 									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence EuGENia - won't work. If you wish to use Xtext or Papyrus in the same installation as EuGENia, you should use QVTo 3.9.1 from this update site: https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
@@ -196,7 +233,7 @@
 								<p>Some of the projects found in the EpsilonLabs <a href="https://github.com/epsilonlabs">repository</a> can be installed from the EpsilonLabs update site.
 								<div class="input-prepend input-append">
 								  <span class="add-on"><div class="span2">EpsilonLabs</div></span>
-								  <input class="span7" id="appendedPrependedInput" type="text" value="https://dl.bintray.com/epsilonlabs/updates">							
+								  <input class="span9" id="appendedPrependedInput" type="text" value="https://dl.bintray.com/epsilonlabs/updates">							
 								</div>
 							</div>
 							</form>
@@ -230,16 +267,16 @@
   								<?if ($latest){?>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Users</div></span>
-								  <input class="span8" id="appendedPrependedInput" type="text" value="git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git">
+								  <input class="span9" id="appendedPrependedInput" type="text" value="git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git">
 								</div>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Committers</div></span>
-								  <input class="span8" id="appendedPrependedInput" type="text" value="ssh://user_id@git.eclipse.org:29418/epsilon/org.eclipse.epsilon.git">
+								  <input class="span9" id="appendedPrependedInput" type="text" value="ssh://user_id@git.eclipse.org:29418/epsilon/org.eclipse.epsilon.git">
 								</div>
 								<?}?>
 	  							<div class="input-prepend input-append" style="padding-top:25px">
 								  <span class="add-on"><div class="span2">Release tag</div></span>
-								  <input class="span8" id="appendedPrependedInput" type="text" value="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=<?=$version?>">
+								  <input class="span9" id="appendedPrependedInput" type="text" value="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=<?=$version?>">
 								</div>
 							</div>
 							</form>
@@ -261,7 +298,7 @@
 			  							Plain old JARs you can use to embed the latest <b>stable</b> version of Epsilon (<?=$version?>)
 			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
-	  								<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb.$version."/jars";?>
+	  								<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$version."/jars";?>
 	  								<?include("jars/".$version.".php");?>
                                      <p>
                                      Since 1.4, these JARs are also available from Maven Central. For instance, to use the <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
@@ -306,8 +343,7 @@
   						<?}
 						if($distributions){?>
   						<div id="distributions" class="tab-pane">
-							<h3>Epsilon package</h3>
-  							<p>
+							<p>
   							Ready-to-use Eclipse <?=$major_release->eclipse["name"]?> (<?=$major_release->eclipse["version"]?>) distributions containing a stable version of Epsilon (v<?=$major_release["version"]?>) and all its mandatory and optional dependencies. You will only need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a>.
   							</p>
 								<?if ($release != $major_release){?>
@@ -328,33 +364,6 @@
 							<?}?>
 							</p><br/>
 							<hr>
-							<h3>Modeling Tools package</h3>
-							<p>
-								The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a Java Runtime Environment and Eclipse first. The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon <?=$release["version"]?> and is available for the following platforms.
-								</p>
-								<p style="padding-top:15px;padding-bottom:15px">
-								<a class="btn <?=getStyle('windows')?>" href="<?=$modelingToolsWin64?>">Windows</a>
-								<a class="btn <?=getStyle('mac')?>" href="<?=$modelingToolsMac64?>">macOS</a>
-								<a class="btn <?=getStyle('linux')?>" href="<?=$modelingToolsLinux64?>">Linux</a>
-								</p>
-
-								<h4 style="padding-top:10px;padding-bottom:10px">Dependencies (optional)</h4>
-								<p>Below are optional dependencies that are not pre-installed in the Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution.</p>
-								<table class="table table-striped table-bordered">
-									<thead>
-										<tr><th>Dependency</th><th>Update site</th><th>Notes</th></tr>
-									</thead>
-									<tbody>
-										<?foreach ($major_release->dependency as $dependency){?>
-										<tr>
-											<td><?=$dependency["name"]?></td>
-											<td><input class="span7" style="outline:none;border:0;box-shadow:none;padding:0px" type="text" value="<?=$dependency["location"]?>"></input></td>
-											<td><?=$dependency["notes"]?></td>
-										</tr>
-										<?}?>
-									</tbody>
-								</table>
-							<p>Once you have installed these dependencies, you can install Epsilon through <a href="https://download.eclipse.org/epsilon/updates/">the update site</a>.</p>
   						</div>
   						<?}?>
 
@@ -399,7 +408,8 @@
   							?>
   							<tr>
   								<td>
-  									<a href="https://archive.eclipse.org/epsilon/<?=$r["version"]?>"><?=$r["version"]?></a>
+  									<a href="?version=<?=$r["version"]?>"><?=$r["version"]?></a>
+  									<!--a href="https://archive.eclipse.org/epsilon/<?=$r["version"]?>"><?=$r["version"]?></a-->
   								</td>
   								<td>
   									<?=$m->eclipse["version"]?> (<?=$m->eclipse["name"]?>)
