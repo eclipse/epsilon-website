@@ -1,5 +1,9 @@
 <?
-$url = "https://bugs.eclipse.org/bugs/buglist.cgi?list_id=19418181&product=epsilon&query_format=advanced&title=Bug%20List&ctype=atom";
+header('Content-Type: text/xml');
+$url = "https://bugs.eclipse.org/bugs/buglist.cgi?component=Core&product=Epsilon&query_format=advanced&resolution=---&title=Bug%20List&ctype=atom";
 $xml = simplexml_load_file($url);
-print_r($xml);
+foreach($xml->entry as $entry) {
+	$entry->summary = "";
+}
+echo $xml->asXML();
 ?>
