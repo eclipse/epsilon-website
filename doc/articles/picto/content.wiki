@@ -9,7 +9,7 @@ On the flip side, Picto displays read-only views of models and as such it is not
 ==Metamodel==
 We start with the metamodel of our social network DSL expressed in [[https://www.eclipse.org/emfatic/|Emfatic]] (the `.ecore` version of the metamodel is also provided in the repository). The DSL allows modelling people in a network and likes/dislikes relationships between them.
 
-{{{emfatic
+{{{emf
 @namespace(uri="socialnetwork", prefix="")
 package socialnetwork;
 
