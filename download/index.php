@@ -282,7 +282,7 @@
 							</form>
 							<br/>
 							<p>
-								<b>Note:</b> If you need to modify and re-build the parsers of the Epsilon languages, you will also need to add the <a href="http://www.antlr3.org/download/antlr-3.5.2-complete-no-st3.jar">ANTLR 3 parser generator JAR</a> to the <code>org.eclipse.epsilon.eol.parse</code> package of the org.eclipse.epsilon.eol.engine plugin in the Epsilon repository. Note that this is not included due to Eclipse's licensing restrictions.
+								<b>Note:</b> If you need to modify and re-build the parsers of the Epsilon languages, you will also need to add the <a href="http://www.antlr3.org/download/antlr-3.5.2-complete-no-st3.jar">ANTLR 3 parser generator JAR</a> to the classpath of the <code>build-all-eol-dependent-parsers.xml</code> ANT script.
 							</p>
   						</div>
 
