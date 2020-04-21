@@ -23,7 +23,7 @@ The following is a brief description of changes to the Epsilon Object Language's
 
 === 0.8.8 ===
 
-In 0.8.8 we extended the syntax of EOL so that it looks and feels a bit more like Java(script). As the majority of Eclipse/EMF audience are Java programmers, this will hopefully make their (and our) lives a bit easier. Of course, all these changes also affect all languages built on top of EOL.
+In 0.8.8 we extended the syntax of EOL so that it looks and feels a bit more like Java. As the majority of Eclipse/EMF audience are Java programmers, this will hopefully make their (and our) lives a bit easier. Of course, all these changes also affect all languages built on top of EOL.
 
 More specifically, we have introduced:
 
