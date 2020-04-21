@@ -17,7 +17,6 @@ To run Epsilon from source, you need to:
 * Plugins named `*.workflow` contribute [[../../workflow|ANT tasks]].
 
 == Modifying the Epsilon parsers ==
-* If you wish to modify the parsers (syntax) of Epsilon languages you also need to clone the following repository next to Epsilon's Git repository on your machine: `https://github.com/epsilonlabs/epsilon-antlr-dev.git`
 * To modify e.g. the EVL parser, you need to change `Evl.g` and/or `EvlParserRules.g`. To re-generate the parser you need to run `build-evl-parser.xml` as an Ant build.
 * Since all Epsilon languages extend EOL, if you modify the EOL parser, you'll then need to run `build-all-eol-dependent-parsers.xml`
 

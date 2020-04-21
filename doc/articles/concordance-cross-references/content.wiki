@@ -1,6 +1,6 @@
 =Using Concordance to manage and reconcile cross-model references=
 
-'''Warning:''' Concordance is no longer actively maintained and will be archived in the near future. Please consider using [[https://www.eclipse.org/hawk/|Eclipse Hawk]] instead.
+'''Warning:''' Concordance is no longer actively maintained and is only available in versions 1.5 and below. Please consider using [[https://www.eclipse.org/hawk/|Eclipse Hawk]] instead.
 ----
 
 EMF allows cross-model references facilitating modularity in models. However, when a model is deleted or moved in the workspace, cross-model references can become inconsistent. Concordance is a model notification framework included in Epsilon and provides a client for managing cross-model references.
