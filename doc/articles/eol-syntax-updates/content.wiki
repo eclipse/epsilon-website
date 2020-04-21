@@ -4,8 +4,8 @@ The following is a brief description of changes to the Epsilon Object Language's
 
 === 2.0 ===
 
-* Ternary expressions which can be used almost anywhere, not just in assignments or returns. Syntax is identical to Java, but you can also use the 'else' keyword in place of the colon.
-* Native lambda expressions. You can use first-order operation syntax or JavaScript-style '=>' for invoking functional interfaces on native types (for example, using Streams on collections).
+* Ternary expressions, which can be used almost anywhere, not just in assignments or returns. Syntax and semantics are identical to Java, but you can also use the 'else' keyword in place of the colon if you prefer.
+* Native lambda expressions. You can use first-order operation syntax or JavaScript-style => for [[../lambda-expressions|invoking functional interfaces.]]
 * Removed old-style OCL comments (-* and --)
 * -- can be used to increment and decrement integers
 
@@ -31,7 +31,7 @@ More specifically, we have introduced:
 * backticks (_backticks) for reserved words,
 * Java-like comments (`//` and `/**/`),
 * `==` as a comparison operator,
-* `=` as an assignment opperator (in 0.8.7)
+* `=` as an assignment operator (in 0.8.7)
  
 All these changes (except for the double quotes which have now been replaced by _backticks) are non-breaking: the old syntax (`''` for strings, `=` for comparison and `:=` for assignment still work). Below is an example demonstrating the new syntax:
 
