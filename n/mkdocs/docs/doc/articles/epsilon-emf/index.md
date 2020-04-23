@@ -1,10 +1,10 @@
-=Epsilon and EMF=
+# Epsilon and EMF
 Below are some frequently-asked questions related to querying and modifying EMF-based models with Epsilon.
  
-== What is the difference between containment and non-containment references in EMF? ==
+## What is the difference between containment and non-containment references in EMF?
 Briefly, a model element can belong to as most one containment reference at a time. Containment references also demonstrate a cascade-delete behaviour. For example, consider the following Ecore metamodel (captured in Emfatic).
 
-{{{emf
+```emf
 package cars;
 
 class Person {
@@ -13,11 +13,11 @@ class Person {
 }
 
 class Car { }
-}}}
+```
  
 Now consider the following EOL code which demonstrates the similarities/differences of containment and non-containment references.
  
-{{{eol
+```eol
 // Set up a few model elements to play with
 var c1 = new Car;
 var c2 = new Car;
@@ -59,20 +59,20 @@ Person.all.println(); // prints {p2, p3}
 // were not deleted from the model, since they were referenced through a 
 // non-containment reference (friends)
 Car.all.println();
-}}}
+```
  
-==How can I get all children of a model element?==
-Epsilon does not provide a built-in method for this but you can use EObject's `eContents()` method if you're working with EMF. To get all descendants of an element, something like the following should do the trick: `o.asSequence().closure(x | x.eContents())`. See [[https://www.eclipse.org/forums/index.php/t/855628/]] for more details.
+## How can I get all children of a model element?
+Epsilon does not provide a built-in method for this but you can use EObject's `eContents()` method if you're working with EMF. To get all descendants of an element, something like the following should do the trick: `o.asSequence().closure(x | x.eContents())`. See [https://www.eclipse.org/forums/index.php/t/855628/](https://www.eclipse.org/forums/index.php/t/855628/) for more details.
  
-==How can I get the container of a model element?==
+## How can I get the container of a model element?
 Epsilon does not provide a built-in method for this but you can use EObject's `eContainer()` method if you're working with EMF.
 
-==How can I use an existing EMF Resource in Epsilon?==
-To use an existing EMF Resource in your Epsilon program, you should wrap it as an [[http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/InMemoryEmfModel.html|InMemoryEmfModel]] first.
+## How can I use an existing EMF Resource in Epsilon?
+To use an existing EMF Resource in your Epsilon program, you should wrap it as an [InMemoryEmfModel](http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/InMemoryEmfModel.html) first.
 
-==How can I use custom load/save options for my EMF model?==
-You need to un-tick the "Read on load" / "Store on disposal" options in your model configuration dialog and use the underlying EMF resource's load/save methods directly from your EOL code. For example, to turn off the OPTION_DEFER_IDREF_RESOLUTION option, which is on by default in Epsilon's EMF driver and has been reported to [[https://www.eclipse.org/forums/index.php/m/1754026/#msg_1754026|slow down loading of models that use "id" attributes]], you can use the following EOL statement.
+## How can I use custom load/save options for my EMF model?
+You need to un-tick the "Read on load"/"Store on disposal" options in your model configuration dialog and use the underlying EMF resource's load/save methods directly from your EOL code. For example, to turn off the OPTION_DEFER_IDREF_RESOLUTION option, which is on by default in Epsilon's EMF driver and has been reported to [slow down loading of models that use "id" attributes](https://www.eclipse.org/forums/index.php/m/1754026/#msg_1754026), you can use the following EOL statement.
 
-{{{
+```
 M.resource.load(Map{"DEFER_IDREF_RESOLUTION" = false});
-}}}
+```
