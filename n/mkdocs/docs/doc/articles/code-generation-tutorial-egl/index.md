@@ -1,7 +1,7 @@
-=Code Generation Tutorial with EGL=
+# Code Generation Tutorial with EGL
 EGL is a template-based language that can be used to generate code (or any other kind of text) from different types of models supported by Epsilon (e.g. EMF, UML, XML). This example demonstrates using EGL to generate HTML code from the XML document below.
 
-{{{xml
+```xml
 <library>
   <book title="EMF Eclipse Modeling Framework" pages="744" public="true">
     <id>EMFBook</id>
@@ -24,11 +24,11 @@ EGL is a template-based language that can be used to generate code (or any other
     <published>2004</published>
   </book>
 </library>
-}}}
+```
  
 More specifically, we will generate one HTML file for each `<book>` element that has a `public` attribute set to `true`. Below is an EGL template (`book2page.egl`) that can generate an HTML file from a single `<book>` element. For more details on using EGL's expression language to navigate and query XML documents, please refer to [[../plain-xml/|this article]].
  
-{{{egl
+```egl
 <h1>Book [%=index%]: [%=book.a_title%]</h1>
 
 <h2>Authors</h2>
@@ -37,11 +37,11 @@ More specifically, we will generate one HTML file for each `<book>` element that
   <li>[%=author.text%]
 [%}%]
 </ul>
-}}}
+```
  
 The template above can generate one HTML file from one `<book>` element. To run this template against '''all''' `<book>` elements anywhere in the XML document, and generate appropriately-named HTML files, we need to use an EGX co-ordination program such as the one illustrated below (`main.egx`). The `Book2Page` rule of the EGX program will `transform` every `<book>` element (`t_book`) that satisfies the declared `guard` (has a `public` attribute set to `true`), into a `target` file, using the specified `template` (`book2page.egl`). In addition, the EGX program specifies a `Library2Page` rule, that generates an HTML (index) file for each `<library>` element in the document.
 
-{{{egx
+```egx
 rule Book2Page 
   transform book : t_book {
   
@@ -73,11 +73,11 @@ rule Library2Page
   
   target : "gen/index.html"
 }
-}}}
+```
  
 For completeness, the source code of the `library2page.egl` template appears below.
  
-{{{egl
+```egl
 <h1>Books</h1>
 
 <ul>
@@ -85,22 +85,22 @@ For completeness, the source code of the `library2page.egl` template appears bel
   <li><a href="[%=book.e_id.text%].html">[%=book.a_title%]</a>
 [%}%]
 </ul>
-}}}
+```
  
-==Running the Code Generator from Eclipse==
+## Running the Code Generator from Eclipse
 Screenshots of the Eclipse run configuration appear below. The complete source for this example is available [[../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library|here]].
 
-[[image:run-configuration.png]]
+![](run-configuration.png)
 
-[[image:run-configuration-models.png]]
+![](run-configuration-models.png)
 
-[[image:run-configuration-model.png]]
+![](run-configuration-model.png)
  
-==Running the Code Generator from Java==
+## Running the Code Generator from Java
  
-The following snippet demonstrates using Epsilon's Java API to parse the XML document and execute the EGX program. The complete source for this example is available [[../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library|here]] (please read `lib/readme.txt` for instructions on how to obtain the missing Epsilon JAR). 
+The following snippet demonstrates using Epsilon's Java API to parse the XML document and execute the EGX program. The complete source for this example is available [here](../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library) (please read `lib/readme.txt` for instructions on how to obtain the missing Epsilon JAR). 
 
-{{{java
+```java
 import java.io.File;
 
 import org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory;
@@ -133,4 +133,4 @@ public class App {
   }
   
 }  
-}}}
+```
