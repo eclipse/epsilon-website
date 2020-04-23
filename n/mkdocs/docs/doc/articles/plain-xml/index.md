@@ -1,16 +1,14 @@
-=Scripting XML documents using Epsilon=
+# Scripting XML documents using Epsilon
  
 In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver added in version 0.8.9. All the examples in this article demonstrate using EOL to script XML documents. However, it's worth stressing that XML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - XML or EMF-based -, or to text), compare and merge your XML documents.
 
-'''Note:''' This article is consistent with the latest interim version of Epsilon.
+<iframe width="90%" height="494" src="https://www.youtube.com/embed/GV1Wyx4SiQQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-[[video:GV1Wyx4SiQQ]]
-
-==Querying an XML document==
+## Querying an XML document
  
 We use the following `library.xml` as a base for demonstrating the EOL syntax for querying XML documents.
 
-{{{xml
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <library>
 	<book title="EMF Eclipse Modeling Framework" pages="744">
@@ -30,17 +28,17 @@ We use the following `library.xml` as a base for demonstrating the EOL syntax fo
 		<published>2004</published>
 	</book>
 </library>
-}}}
+```
 
-==Querying/modifying XML documents in EOL==
+## Querying/modifying XML documents in EOL
  
 The PlainXML driver uses predefined naming conventions to allow developers to programmatically access and modify XML documents in a concise way. This section outlines the supported conventions in the form of questions and answers followed by relevant examples.
 
-===How can I access elements by tag name?=== 
+### How can I access elements by tag name? 
  
 The `t_` prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, `t_book.all` can be used to get all elements tagged as `<book>` in the document, `t_author.all` to retrieve all `<author>` elements etc. Also, if `b` is an element with a `<book>` tag, then `b.isTypeOf(t_book)` shall return true.
 
-{{{eol
+```eol
 // Get all <book> elements
 var books = t_book.all;
 
@@ -54,28 +52,28 @@ b.isTypeOf(t_book).println();
 // Check if b is a library
 // Prints 'false'
 b.isTypeOf(t_library).println();
-}}}
+```
 
-===How can I get the tag name of an element?===
+### How can I get the tag name of an element?
  
 You can use the `.tagName` property for this purpose. For instance, if `b` is an element tagged as `<book>`, `b.tagName` shall return `book`. The `tagName` property is read-only.
 
-{{{eol
+```eol
 // Get a random <book> element
 var b = t_book.all.random();
 
 // Print its tag
 // Prints 'book'
 b.tagName.println();
-}}}
+```
 
-===How can I get/set the attributes of an element?===
+### How can I get/set the attributes of an element?
  
 You can use the attribute name as a property of the element object, prefixed by `a_`. For example, if `b` is the first book of `library.xml`, `b.a_title` will return `EMF Eclipse Modeling Framework`. Attribute properties are read/write.
 
 In this example, `b.a_pages` will return `744` as a string. For `744` to be returned as an integer instead, the `i_` prefix should be used instead (i.e. `b.i_pages`. The driver also supports the following preffixes: `b_` for boolean, `s_` for string (alias of `a_`) and `r_` for real values. 
 
-{{{eol
+```eol
 // Print all the titles of the books in the library
 for (b in t_book.all) {
 	b.a_title.println();
@@ -91,36 +89,36 @@ total.print();
 // ... the same using collect() and sum() 
 // instead of a for loop
 t_book.all.collect(b|b.i_pages).sum();
-}}}
+```
 
-===How can I get/set the text of an element?===
+### How can I get/set the text of an element?
  
 You can use the `.text` read-write property for this.
 
-{{{eol
+```eol
 for (author in t_author.all) {
 	author.text.println();
 }
-}}}
+```
 
-===How do I get the parent of an element?===
+### How do I get the parent of an element?
  
 You can use the `.parentNode` read-only property for this.
 
-{{{eol
+```eol
 // Get a random book
 var b = t_book.all.random();
 
 // Print the tag of its parent node
 // Prints 'library'
 b.parentNode.tagName.println();
-}}}
+```
 
-===How do I get the children of an element?===
+### How do I get the children of an element?
  
 You can use the `.children` read-only property for this.
 
-{{{eol
+```eol
 // Get the <library> element
 var lib = t_library.all.first();
 
@@ -129,13 +127,13 @@ for (b in lib.children) {
 	// Print the title of each child
 	b.a_title.println();
 }
-}}}
+```
 
-===How do I get child elements with a specific tag name?===
+### How do I get child elements with a specific tag name?
  
 Using what you've learned so far, you can do this using a combination of the `.children` property and the select/selectOne() operations. However, the driver also supports `e_` and `c_`-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. `e_` and `c_` properties are read-only.
 
-{{{eol
+```eol
 // Get a random book
 var b = t_book.all.random();
 
@@ -156,13 +154,13 @@ b.children.selectOne(p|p.tagName = "published").text.println();
 // we only want one element, 
 // not a collection of them)
 b.e_published.text.println();
-}}}
+```
 
-===How do I create an element?===
+### How do I create an element?
  
 You can use the `new` operator for this. 
 
-{{{eol
+```eol
 // Check how many <books> are in the library
 // Prints '3'
 t_book.all.size().println();
@@ -173,13 +171,13 @@ var b = new t_book;
 // Check again
 // Prints '4'
 t_book.all.size().println();
-}}}
+```
 
-==How can I add a child to an existing element?==
+### How can I add a child to an existing element?
  
 You can use the `.appendChild(child)` operation for this.
 
-{{{eol
+```eol
 // Create a new book
 var b = new t_book;
 
@@ -188,31 +186,31 @@ var lib = t_library.all.first();
 
 // Add the book to the library
 lib.appendChild(b);
-}}}
+```
 
-===How can I set the root element of an XML document?===
+### How can I set the root element of an XML document?
  
 You can use the `.root` property for this.
 
-{{{eol
+```eol
 XMLDoc.root = new t_library;
-}}}
+```
 
-==Adding an XML document to your launch configuration==
+## Adding an XML document to your launch configuration
  
 To add an XML document to your Epsilon launch configuration, you need to select "Plain XML document" from the list of available model types.
 
-[[image:select.png]]
+![](select.png)
 
 Then you can configure the details of your document (name, file etc.) in the screen that pops up. To load an XML document that is not in the Eclipse workspace, untick the "Workspace file" check box and provide a full uri for your document (e.g. `http://api.twitter.com/1/statuses/followers/epsilonews.xml` or `file:/c:/myxml.xml`). 
 
-[[image:configure.png]]
+![](configure.png)
 
-==Loading an XML document in your ANT buildfile==
+## Loading an XML document in your ANT buildfile
  
 The following ANT build file demonstrates how you can use ANT to load/store and process XML documents with Epsilon.
 
-{{{xml
+```xml
 <project default="main">
 	<target name="main">
 		
@@ -226,13 +224,13 @@ The following ANT build file demonstrates how you can use ANT to load/store and 
 		
 	</target>
 </project>
-}}}
+```
  
-==Loading an XML document through Java code==
+## Loading an XML document through Java code
  
 The following excerpt demonstrates using XML models using Epsilon's Java API.
 
-{{{java
+```java
 EolModule module = new EolModule();
 module.parse(new File("..."));
 
@@ -244,8 +242,8 @@ model.load();
 module.getContext().getModelRepository().addModel(model);
 module.getContext().setModule(module);
 module.execute();
-}}}
+```
  
-==Additional resources==
+## Additional resources
  
-* [[http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html]]: Complete list of the operations that are applicable to XML elements
+* [http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html](http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html): Complete list of the operations that are applicable to XML elements
