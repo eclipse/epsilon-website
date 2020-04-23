@@ -1,0 +1,43 @@
+site_name: Eclipse Epsilon
+nav:
+  - Home: index.md
+  - Languages:
+      - Core language (EOL): 'doc/eol.md'
+      - Model-to-text transformation (EGL): 'doc/egl.md'
+  - Tools:
+      - EuGENia: 'doc/eugenia.md'
+  - Resources:
+    - Screencasts: ''
+    - Lectures: ''
+    - Javadoc:
+      - Stable: 'https://download.eclipse.org/epsilon/stable/javadoc/'
+      - Interim: 'https://download.eclipse.org/epsilon/interim/javadoc/'
+  - Community:
+      - Who is using Epsilon?:
+        - Open-source projects: ''
+        - Industry: ''
+        - Teaching: ''
+      - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
+      - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'
+  - Users:
+      - Industry: 'users/index.md'
+      - Education: 'users/education.md'
+      - Open-source projects: 'users/open-source.md'
+theme: 
+  name: material
+  custom_dir: custom_theme
+  logo: 'assets/images/epsilon-logo-round.png'
+  palette:
+    primary: 'deep purple'
+    accent: 'deep purple'
+repo_name: 'Git repository @ Eclipse'
+repo_url: 'git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git'
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
+extra_css:
+  - 'stylesheets/extra.css'
