@@ -4,21 +4,21 @@ The following is a brief description of changes to the Epsilon Object Language's
 
 === 2.0 ===
 
-* Ternary expressions, which can be used almost anywhere, not just in assignments or returns. Syntax and semantics are identical to Java, but you can also use the 'else' keyword in place of the colon if you prefer.
-* Native lambda expressions. You can use first-order operation syntax or JavaScript-style => for [[../lambda-expressions|invoking functional interfaces.]]
-* Removed old-style OCL comments (-* and --)
-* -- can be used to increment and decrement integers
-
+* Ternary expressions, which can be used almost anywhere, not just in assignments or returns. Syntax and semantics are identical to Java, but you can also use the `else` keyword in place of the `:` if you prefer.
+* Native lambda expressions. You can use first-order operation syntax or JavaScript-style `=>` for [[../lambda-expressions|invoking functional interfaces.]]
+* Removed old-style OCL comments (`-*` and `--`).
+* -- can be used to increment and decrement integers.
+* Thread-safe collection types: `ConcurrentBag`, `ConcurrentMap` and `ConcurrentSet`.
 
 === 1.4 ===
 
-* Added support for postfix increment operator (i.e. i++) and for composite assignment statements (i.e. a +=1; a -= 2; a *= 3; a /= 4;)
+* Added support for postfix increment operator (i.e. i++) and for composite assignment statements (i.e. `a +=1; a -= 2; a *= 3; a /= 4;`)
 
 
-=== 1.3 ===
+=== 0.9.1 ===
 
 * Added support for externally defined variables.
-* Support for Map literal expressions (e.g. Map {key1 = value1, k2 = v2})
+* Support for Map literal expressions (e.g. `Map {key1 = value1, k2 = v2}`)
 
 
 === 0.8.8 ===
