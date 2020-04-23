@@ -10,7 +10,7 @@
 
 		<div class="row">
 			<div class="span8">
-				<p>EVL is a validation language built on top of EOL. In their simplest form, EVL constraints are quite similar to OCL constraints. However, EVL also supports dependencies between constraints (e.g. if constraint A fails, don't evaluate constraint B), customizable error messages to be displayed to the user and specification of fixes (in EOL) which users can invoke to repair inconsistencies. Also, as EVL builds on EOL, it can evaluate inter-model constraints (unlike OCL).</p>
+				<p>EVL is a validation language built on top of EOL. In their simplest form, EVL constraints are quite similar to OCL constraints. However, EVL also supports dependencies between constraints (e.g. if constraint A fails, don't evaluate constraint B), customizable error messages to be displayed to the user and specification of fixes (in EOL) which users can invoke to repair inconsistencies. Also, as EVL builds on EOL, it can evaluate inter-model constraints (unlike OCL). In terms of performance, EVL is significantly faster than Eclipse OCL due to its parallel execution capabilities.</p>
 			</div>
 		</div>
 

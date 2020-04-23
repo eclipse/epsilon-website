@@ -12,7 +12,8 @@
 			<div class="span8">
 				<p>EGX is a rule-based language for coordinating the execution of <a href="../egl/">EGL</a> templates. EGX provides an easy way to
 				invoke and EGL template with a specific set of parameters, on a specific type
-				of model elements and generate output on a paticular location.</p>
+				of model elements and generate output on a paticular location. You can even process the output from
+				each template as a raw string in memory without writing it to a file.</p>
 			</div>
 		</div>
 
@@ -24,6 +25,7 @@
 					<li>Define parameters per element/template combination
 					<li>Specify output file location per element/template combination
 					<li>Guarded generation rules
+					<li>Parallel execution of rules
 				</ul>
 			</div>
 		</div>

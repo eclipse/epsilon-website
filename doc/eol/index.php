@@ -17,9 +17,9 @@
 				You can think of it as a mixture of Javascript and OCL, combining the best of both worlds. 
 				As such, it provides all the usual imperative features found in Javascript (e.g. statement sequencing, 
 				variables, for and while loops, if branches etc.) and all the nice features of OCL such as those handy 
-				collection querying functions (e.g. <code>Sequence{1..5}.select(x|x>3)</code>). In addition,
-				these first-order operations can also be executed in parallel (e.g.
-				<code>Sequence{1..5}.parallelSelect(x|x>3)</code>).</p>
+				collection querying functions (e.g. <code>Sequence{1..5}.select(x|x>3)</code>). These first-order 
+				operations are executed in parallel and are short-circuiting where possible (e.g. <i>exists</i>),
+				so performance is significantly better than OCL.</p>
 				
 				<p>
 				<a class="btn" href="../../live" >Try EOL in your browser »</a>
