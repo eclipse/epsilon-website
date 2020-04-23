@@ -1,0 +1,31 @@
+=Getting the source code of Epsilon=
+ 
+This article provides instructions for obtaining the source code of Epsilon from the Eclipse SVN. First of all, you need to add an SVN client to your Eclipse installation. There are two main alternatives:
+* [[http://subclipse.tigris.org/|Subclipse]] (recommended)
+* [[http://www.eclipse.org/subversive/|Subversive]]
+ 
+== Checking out the code from the SVN==
+ 
+Once you have installed an SVN client you need to go through the following steps (instructions and screenshots below are for Subclipse but should be similar for Subversive).
+
+* Switch to the `SVN Repository Exploring` perspective (from the `Window->Open Perspective->Other...` menu)
+* Click on the `New Repository Location` button on the `SVN Repositories` view and enter the following details 	 
+ * URL: `http://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/`
+* (If you have committer rights you should set the URL to `https://dev.eclipse.org/svnroot/modeling/org.eclipse.epsilon/` instead ''- note https vs. http'')
+ 
+[[image:configurerepository.png]]
+
+* Open the `trunk` node
+* Select the sub-folders of `plugins` and `features`, right-click and check them out as follows
+ 
+[[image:checkout.jpg]]
+
+* Accept the default settings in the dialog that pops-up and click `Finish`
+ 
+[[image:checkout-options.png]]
+
+==Running the Epsilon plugins==
+ 
+To run the Epsilon plugins, switch back to the `Plug-in Development` perspective, right-click on any of the projects you have just checked out and click `Run as->Eclipse Application`. A new instance of Eclipse with the Epsilon plugins loaded should pop up shortly.
+
+[[image:run.jpg]]

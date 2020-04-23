@@ -1,0 +1,85 @@
+= Parsing XML documents as EMF models with Flexmi =
+
+Flexmi is an implementation of [[http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/resource/Resource.html|EMF's Resource interface]] that can parse XML documents as instances of Ecore metamodels in a fuzzy manner. For example it can parse the following XML document (`messaging.flexmi`):
+
+{{{xml
+<?xml version="1.0"?>
+<?nsuri http://messaging?>
+<sys>
+	<u name="tom">
+		<box q="15">
+			<out>
+				<msg from="mary" subject="Hello Tom">
+					<body> 
+						Fuzzy parsing is
+						so cool.
+					</body>
+				</msg>
+			</out>
+		</box>
+	</u>
+	<u name="mary">
+		<box q="20">
+			<out>
+				<msg to="tom, mary" t="Hello everyone"/>
+			</out>
+		</box>
+	</u>
+</sys>
+}}}
+as a valid instance of the Ecore metamodel (in Emfatic) below:
+{{{emf
+@namespace(uri="http://messaging", prefix="")
+package messaging;
+
+class System {
+	val User[*] users;
+}
+
+class User {
+	id attr String name;
+	val Mailbox mailbox;
+}
+
+class Mailbox {
+	attr int quota;
+	val Message[*] incoming;
+	val Message[*] outgoing;
+}
+
+class Message {
+	attr String subject;
+	attr String body;
+	ref User from;
+	ref User[*] to;
+}
+}}}
+
+==Getting started==
+
+* Create a text file named `messaging.emf` in your workspace and place the Emfatic content above in it.
+* Convert it into Ecore and register the produced Ecore metamodel (`messaging.ecore`) as shown [[../reflective-emf-tutorial|here]].
+* Create a new text file named `messaging.flexmi` and place the XML content above in it.
+* The result should look like the screenshot below.
+
+[[image:screenshot.png]]
+
+==Use in Epsilon and Java==
+
+Flexmi can be used like any other EMF resource implementation. For example, you can add `.flexmi` models as regular EMF models to the run configuration of your Epsilon program. An example of using Flexmi from Java follows.
+
+{{{java
+ResourceSet resourceSet = new ResourceSetImpl();
+resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("flexmi", 
+	new FlexmiResourceFactory());
+Resource resource = resourceSet.createResource(URI.createFileURI("/../messaging.flexmi"));
+resource.load(null);
+}}}
+
+===Limitations===
+
+Flexmi resources can't be saved programmatically (i.e. trying to call `resource.save(...)` will throw an `UnsupportedOperationException`).
+
+
+
+

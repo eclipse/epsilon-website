@@ -1,0 +1,147 @@
+=Creating an Epsilon Game= 
+This tutorial explains how to create an Epsilon game from scratch, using the [[../../../games/xmas|Santa's Christmas Adventure]] game as the running example.
+
+==Pre-requisites==
+* Download and install [[http://www.eclipse.org/emfatic|Emfatic]] - a textual syntax for Ecore models.
+* Check out the source code of the Epsilon website ([[../manage-the-epsilon-website-locally|instructions]]).
+
+==Defining a Game==
+Create a new directory in the '''games''' folder of the epsilon website source. There are four files associated with a game which need to live in this folder:
+
+# '''game.xml''': An XML file that defines the questions and answers in the game.
+# '''foo.model''': The model being inspected by the game.
+# '''Foo.ecore''': The Ecore metamodel to which '''foo.model''' conforms.
+# '''Foo.emf''': The [[http://www.eclipse.org/emfatic|Emfatic]] markup of the metamodel, with optional game-related annotations.
+
+To explain the process of creating these files, we'll go through the process of creating a simple game about Christmas.
+
+===The Metamodel===
+Define your metamodel using Emfatic (or generate the Emfatic markup from an existing Ecore metamodel by right-clicking the Ecore file and selecting Generate Emfatic Source). The metamodel for the Christmas game is shown below.
+
+{{{emf
+@namespace(uri="xmas", prefix="") 
+package xmas;
+
+class Xmas { 
+	val Continent[*] continents; 
+	val Object[*] objects; 
+} 
+
+class Continent { 
+	attr String name; 
+	val Location[*]#continent locations; 
+} 
+
+class Location { 
+	attr String name; 
+	ref Continent[1]#locations continent; 
+	ref Object[*]#location objects; 
+} 
+
+abstract class Object { 
+	ref Location[1]#objects location;	
+} 
+
+class Person extends Object {
+	attr String name;
+	attr int age; 
+	attr boolean beenGood; 
+	attr Mood mood;
+	ref Gift[1]#receipients gift; 
+} 
+
+class Reindeer extends Object { 
+	attr String name; 
+} 
+
+class Gift extends Object { 
+	attr String name; 
+	ref Person[*]#gift receipients; 
+} 
+
+enum Mood {
+	Happy; 
+	Sad; 
+	Furious; 
+	Drunk; 
+	Excited; 
+	Worried; 
+} 
+}}}
+
+===The Model===
+Create a model that represents the game that you want to inspect using which ever method you prefer (e.g. using [[../hutn-basic|HUTN]] or the [[../reflective-emf-tutorial|reflective editor]]). The model used in the Christmas game can be downloaded [[../../../games/xmas/xmas.model|here]].
+
+===The Game Definition===
+Games are defined in a very simple XML file, which can be broken down into three parts: the model definitions, the game description, and the level definitions. 
+
+====Model Definition====
+Everything is contained by a game node, whose attributes define the name of the game and the models involved:
+
+{{{xml
+<?xml version="1.0"?>
+<game name="Santa's Christmas Adventure" 
+	metamodel="http://www.eclipse.org/epsilon/games/xmas.ecore"
+	model="http://www.eclipse.org/epsilon/games/xmas.model"
+	emfatic="http://www.eclipse.org/epsilon/games/xmas.emf"
+	version="1">
+}}}
+The game node defines the '''name''' of the game, links to the '''metamodel''', '''model''', and '''emfatic''' files, and also defines a '''version''' number. Each time the metamodel or model is changed, you need to increment this version number (this is to stop Google App Engine using previously cached versions of the models).
+
+====The Game Description====
+The first child should be the description of the game. This appears in the top left of the game's web pages.
+
+{{{xml
+<description>
+It's Christmas Eve and you are the chief elf at Santa's Grotto. Your job
+is to make sure everything runs smoothly as Santa delivers presents to the
+entire world in just one night! For some reason, you have an unusual sense
+of foreboding...
+</description>
+}}}
+====Level Definition====
+The final things left to define are the levels in the game. Levels have the following elements:
+* '''id''': The level number.
+* '''description''': A short description of the level - use this to provide any extra information needed for the level.
+* '''question''': The question to be answered by inspecting the model.
+* '''hint''': EOL code that acts as a hint to get the player started.
+* '''solution''': The EOL code for the solution to the question.
+* '''answer''': The answer that the player should enter. This value is matched against the player's submitted value.
+
+An example level from the Christmas game: 
+
+{{{xml
+	<level id="1">
+		<description>
+		First things first, we need to get the sleigh ready.
+		</description>
+		<question>
+		How many reindeer are there?
+		</question>
+		<hint>
+			// We'll give you this one
+			Reindeer.all.size().println();
+		</hint>
+		<solution>
+			// We'll give you this one
+			Reindeer.all.size().println();
+		</solution>
+		<answer>9</answer>
+	</level>
+}}}
+And that's it (almost)! Just create a number of levels to your satisfaction!
+
+==Uncovering the Metamodel Incrementally==
+If you don't want to let the player see the entire metamodel from the beginning, you can add comments to the Emfatic file that make lines appear only after a certain level has been reached.
+
+For example, the Person class looks as follows:
+
+{{{emf
+class Person extends Object { //level4
+	attr String name; //level4
+	attr int age; //level6
+	attr boolean beenGood; //level7
+	attr Mood mood; //level4
+	ref Gift[1]#receipients gift; //level8
+} //level4
+}}}

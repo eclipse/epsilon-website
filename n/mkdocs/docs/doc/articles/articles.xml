@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<articles>
+  <category name="eol" title="Epsilon Object Language">
+      <article name="eol-syntax-updates" title="EOL syntax updates">
+        <description>
+        This article summarizes changes in the EOL concrete syntax over time.
+        </description>
+      </article>
+      <article name="extended-properties" title="Extended Properties">
+        <description>
+        This article demonstrates the extended properties mechanism in EOL (and by inheritance, in all languages in Epsilon).
+        </description>
+        <publication>novel-features</publication>
+      </article>
+      <article name="call-java-from-epsilon" title="Call Java from Epsilon">
+        <description>
+        This article demonstrates how to create Java objects, access their properties and call their methods from Epsilon languages.
+        </description>
+      </article>
+      <article name="lambda-expressions" title="Call Java functional interfaces from Epsilon">
+        <description>
+        This article demonstrates how to call native methods which take functions as their parameter, using lambdas and streams directly from Epsilon using EOL syntax.
+        </description>
+      </article>
+      <article name="profiling" title="Profiling Epsilon Programs">
+        <description>
+        This article demonstrates how to profile Epsilon programs using the platform's built-in profiling tools.
+        </description>
+      </article>
+  </category>
+  <category name="evl" title="Epsilon Validation Language">
+      <article name="evl-gmf-integration" title="EVL-GMF Integration">
+        <description>
+        This article demonstrates evaluating EVL constraints from within a GMF-based editor.
+        </description>
+      </article>
+	  <article name="parallel-execution" title="Parallel Execution">
+        <description>
+        This article explains how to use the parallel module implementations for EOL and rule-based languages like EVL.
+        </description>
+      </article>
+  </category>
+  <category name="egl" title="Epsilon Generation Language">
+      <article name="code-generation-tutorial-egl" title="Code Generation Tutorial with EGL">
+        <description>
+        This article demonstrates using EGL templates to generate HTML files from an XML document.
+        </description>
+      </article>
+      <article name="egl-template-operations" title="Using template operations in EGL">
+        <description>
+        This article demonstrates template operations for writing re-usable code in EGL (the model-to-text language of Epsilon).
+        </description>
+      </article>
+      <article name="egl-server-side" title="EGL as a server-side language">
+        <description>
+        This article demonstrates using EGL (the model-to-text language of Epsilon) in Tomcat to produce HTML pages from EMF models on the fly.
+        </description>
+      </article>
+      <article name="egx-parameters" title="Co-ordinating EGL templates with EGX">
+        <description>
+        This article demonstrates how to parameterize EGL templates and execute them multiple times to produce multiple files.
+        </description>
+      </article>
+      <article name="egl-invoke-egl" title="Re-using EGL templates">
+        <description>
+        This article demonstrates how to invoke other EGL templates and direct their output to calling EGL template.
+        </description>
+      </article>
+  </category>
+  <category name="emf" title="Epsilon and EMF models">
+    <article name="emfatic" title="Emfatic language reference" content="html">
+        <description>
+        Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
+        </description>
+      </article>
+      <article name="reflective-emf-tutorial" title="Reflective EMF tutorial">
+        <description>
+        This tutorial demonstrates how to create an EMF Ecore metamodel and a sample model that conforms to it reflectively (i.e. without generating any code).
+        </description>
+      </article>
+      <article name="epsilon-emf" title="Epsilon and EMF">
+          <description>
+          Frequently-asked questions related to querying and modifying EMF-based models with Epsilon.
+          </description>
+      </article>
+      <article name="epackage-registry-view" title="The EMF EPackage Registry View">
+        <description>
+        This article demonstrates the EPackage Registry view which allows developers to inspect the contents of the registered EMF EPackages.
+        </description>
+      </article>
+      <article name="exeed-reference" title="Exeed annotation reference">
+        <description>
+        This article lists the annotations you can use on your metamodels to customize the look of the Exeed model editor.
+        </description>
+      </article>
+      <article name="inspect-models-exeed" title="Inspecting EMF models with Exeed">
+        <description>
+        This article demonstrates how you can use Exeed to inspect the structure of your EMF models.
+        </description>
+      </article>
+      <article name="in-memory-emf-model" title="Working with custom EMF resources">
+        <description>
+        This article demonstrates how you can work with custom EMF resources in Epsilon.
+        </description>
+      </article>
+      <article name="flexmi" title="Parsing XML documents as EMF models with Flexmi">
+        <description>
+        This article demonstrates how you can use Flexmi to parse XML documents in a fuzzy manner as instances of Ecore metamodels.
+        </description>
+      </article>
+      <article name="modular-flexmi" title="Modularity Mechanisms in Flexmi" content="html">
+        <description>
+        This article demonstrates how you can break down Flexmi models over multiple files and use templates to capture complex reusable structures in your models.
+        </description>
+      </article>
+  </category>
+  <category name="xml" title="Epsilon and non-EMF models">
+    <article name="plain-xml" title="Scripting XML documents using Epsilon">
+        <description>
+        In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver.
+        </description>
+      </article>
+      <article name="simulink" title="Scripting Simulink models using Epsilon">
+        <description>
+        In this article we demonstrate how you can query and modify Simulink models in Epsilon.
+        </description>
+      </article>
+      <article name="simulink-stateflow" title="Managing Matlab Simulink/Stateflow models from Epsilon">
+        <description>
+        This tutorial shows you how to manipulate Simulink and Stateflow blocks from within Epsilon.
+        </description>
+      </article>
+      <article name="csv-emc" title="Scripting CSV files using Epsilon">
+        <description>
+        This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
+        </description>
+      </article>
+    <article name="bibtex" title="Scripting BibTeX files using Epsilon">
+        <description>
+        In this article we demonstrate how you can query a list of references stored in BibTeX files with Epsilon programs using the BibTeX driver.
+        </description>
+      </article>
+  </category>
+  <category name="eugenia" title="EuGENia">
+    <subcategory title="Fundamentals">
+        <article name="eugenia-gmf-tutorial" title="EuGENia GMF Tutorial">
+          <description>
+          This article provides a guide to using EuGENia for developing GMF editors, as well as its complete list of features and supported annotations.
+          </description>
+          <publication>eugenia</publication>
+        </article>
+        <article name="eugenia-polishing" title="Customizing an editor generated with EuGENia">
+          <description>
+          This article demonstrates EuGENia's polishing transformations, which can be used to customize GMF editors in a systematic and reproducible way.
+          </description>
+          <publication>eugenia</publication>
+        </article>
+        <article name="eugenia-patching" title="Applying source code patches to an editor generated with EuGENia">
+          <description>
+          This article demonstrates EuGENia's patch generation and application functionality, which can be used to customize the Java source code generated by GMF in a systematic and reproducible way.
+          </description>
+          <publication>eugenia</publication>
+        </article>
+        <article name="eugenia-ant" title="EuGENia: Automated Invocation with Ant">
+          <description>
+          This article demonstrates how to run Eugenia from Ant, and some of the additional features offered through the Ant task.
+          </description>
+          <publication>eugenia</publication>
+        </article>
+      </subcategory>
+      <subcategory title="Tips">
+        <article name="eugenia-nodes-with-images" title="EuGENia: Nodes with images instead of shapes">
+          <description>
+          This article shows how to create nodes in your GMF editor that are represented with images (png, jpg etc.) instead of the standard GMF shapes (rectangle, ellipse etc.)
+          </description>
+          <publication>eugenia</publication>
+        </article>
+        <article name="eugenia-nodes-with-runtime-images" title="EuGENia: Nodes with images defined at run-time">
+          <description>
+          This article addresses the case where the end-user needs to set an image for each node at runtime.
+          </description>
+          <publication>eugenia</publication>
+        </article>
+        <article name="eugenia-nodes-with-centred-layout" title="EuGENia: Nodes with a centred layout">
+          <description>
+          This article shows how to create nodes in your GMF editor whose contents are centred both vertically and horizontally.
+          </description>
+          <publication>eugenia</publication>
+        </article>
+        <article name="eugenia-phantom-nodes" title="EuGENia: Phantom nodes in GMF editors">
+          <description>
+          This article demonstrates how to define GMF phantom nodes in EuGENia.
+          </description>
+          <publication>eugenia</publication>
+        </article>
+      </subcategory>
+  </category>
+  <category name="picto" title="Picto">
+      <article name="picto" title="Visualising Models with Picto">
+        <description>
+        Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. The article introduces Picto and shows the tool in action.
+        </description>
+      </article>
+  </category>
+  <category name="hutn" title="Human-Usable Textual Notation">
+      <article name="hutn-basic" title="Using the Human-Usable Textual Notation (HUTN) in Epsilon">
+        <description>
+        This article demonstrates how to specify models using a textual notation.
+        </description>
+      </article>
+      <article name="hutn-configuration" title="Customising Epsilon HUTN documents with configuration">
+        <description>
+        This article demonstrates how to customise Epsilon HUTN documents with a configuration model.
+        </description>
+      </article>
+      <article name="hutn-compliance" title="Compliance of Epsilon HUTN to the OMG HUTN Standard">
+        <description>
+        This article summarises the similarities and differences between the Epsilon HUTN implementation and the OMG HUTN standard.
+        </description>
+      </article>
+  </category>
+  <category name="concordance" title="Concordance">
+      <article name="concordance-cross-references" title="Using Concordance to manage and reconcile cross-model references">
+        <description>
+        This article demonstrates how to use Concordance to automatically maintain the integrity of cross-model references.
+        </description>
+    </article>
+  </category>
+  <category name="teaching" title="Teaching Material">
+      <article name="exercises" title="MDE Exercises" date="Mon, 21 Nov 2011 15:36:44 BST">
+        <description>
+        This article provides a number of exercises which enable you to test your knowledge on MDE, EMF and Epsilon.
+        </description>
+    </article>
+  </category>
+  <!--category name="releases" title="Release Notes">
+      <article name="0.9.1-new-and-noteworthy" title="New and Noteworthy in Epsilon v0.9.1" date="Sat, 13 Aug 2011 19:47:44 BST">
+        <description>
+        Epsilon v0.9.1 included several major improvements to EUnit, Flock and the Epsilon development tools, as well as significant enhancements for EOL, EGL and EuGENia. This article provides a summary of the changes in Epsilon v0.9.1.
+        </description>
+    </article>
+  </category-->
+  <category name="tech-support" title="Technical Support">
+      <article name="minimal-examples" title="Constructing a helpful minimal example">
+        <description>
+        From time to time, you may run into a problem when using Epsilon or find a bug. This article describes how to construct a minimal example that we can use to reproduce the problem on our machine.
+        </description>
+      </article>
+  </category>
+  <category name="extending" title="Extending Epsilon">
+    <article name="developing-a-new-language" title="Developing a new Epsilon Language">
+      <description>
+        This article demonstrates how to develop a new language on top of Epsilon.
+      </description>
+    </article>
+    <article name="developing-a-new-emc-driver" title="Developing a new EMC Driver">
+      <description>
+        This article demonstrates how to develop a new driver for Epsilon's Model Connectivity layer (EMC).
+      </description>
+    </article>
+  </category>
+  <category name="installing" title="Installation">
+    <article name="epsilon-1.x" title="Working with Epsilon 1.x">
+	  <description>
+	    This article contains instructions for installing legacy versions of Epsilon prior to 2.0.
+	  </description>
+	</article>
+  </category>
+  <category name="dev" title="Epsilon Developers">
+    <article name="running-from-source" title="Running Epsilon from source">
+      <description>
+        This article demonstrates how to run Epsilon from source  in your machine.
+      </description>
+    </article>
+    <article name="call-for-user-stories" title="Call for User Stories">
+      <description>
+        This is a kind request to all Epsilon Users.
+      </description>
+    </article>
+    <article name="manage-the-epsilon-website-locally" title="Manage the Epsilon website locally">
+      <description>
+        This article demonstrates how to manage the Epsilon website in your machine.
+      </description>
+    </article>
+    <article name="development-principles" title="Epsilon development principles">
+      <description>These are the guiding principles used by the developers of Epsilon.</description>
+    </article>
+    <article name="resolved-bugs" title="Resolved bugs">
+      <description>This article discusses the different types of resolved bugs in Epsilon.</description>
+    </article>
+    <!--article name="building-an-interim-release" title="Building an interim release">
+      <description>This article outlines the process of building and uploading an interim release of Epsilon.</description>
+    </article-->
+    <article name="target-platform" title="Managing the target platform">
+      <description>This article outlines how to manage the target platform that Epsilon is built against.</description>
+    </article>
+    <article name="adding-new-plugins" title="Adding new plugins">
+      <description>This article outlines the process of adding new plugins to the main Epsilon repository.</description>
+    </article>
+    <article name="preparing-the-macosx-distribution" title="Preparing the MacOSX distribution">
+      <description>This article outlines the process of signing the Eclipse MacOSX distribution.</description>
+    </article>
+    <article name="git-fork-epsilon" title="Forking Epsilon as a non-committer with Git">
+      <description>This article shows how to branch Epsilon into a different remote repository whilst still getting updates from the main project.</description>
+    </article>
+    <article name="labsupdatesite" title="Publishing to the EpsilonLabs Updatesite">
+      <description>This article outlines the process for publishing a plugin (EMC driver/language/tool) from the EpsilonLabs Github organisation to the EpsilonLabs updatesite.</description>
+    </article>
+    <article name="maven-release" title="Releasing a new version to Maven Central">
+      <description>This article outlines how to release a new version of the Epsilon standalone artifacts to Maven Central.</description>
+    </article>
+
+  </category>
+</articles>

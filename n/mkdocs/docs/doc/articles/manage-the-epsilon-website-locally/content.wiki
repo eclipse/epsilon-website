@@ -1,0 +1,62 @@
+= Manage the Epsilon web site locally =
+This article provides a step-by-step guide for obtaining a local copy of the Epsilon website.
+
+* Download and install [[http://portableapps.com/apps/development/xampp|XAMPP]].
+* The folder where web-content is placed is `htdocs`.
+* Create an `epsilon` folder inside `htdocs`.
+* Clone the Git repository at [[ssh://user_id@git.eclipse.org:29418/www.eclipse.org/epsilon.git]] using EGit, specifying your Eclipse committer username in `user_id`. Eclipse will ask for your committer password. The destination directory should be the `epsilon` directory created in the previous step.
+* Import the working directory of the Git repository as a single general project.
+* Start XAMPP and go to `http://localhost/epsilon`.
+* You are now ready to start playing with the Epsilon site locally.
+* Once you've happy with the changes you've made, go back to the epsilon project in Eclipse, refresh and then commit and push the changes to Git. The site should be updated within a few minutes.
+ 
+== Using lighttpd instead of XAMPP ==
+You can also use [[http://www.lighttpd.net/|lighttpd]] with PHP instead of XAMPP, following [[http://redmine.lighttpd.net/wiki/1/TutorialLighttpdAndPHP|this tutorial]] and pointing `server.document-root` to your `htdocs` directory, checked out as above. Alternatively, in most Debian-based GNU/Linux distributions, installing the `lighttpd` and `php5-cgi` packages and adapting this minimal configuration should be enough:
+
+{{{
+server.document-root = "/path/to/htdocs"
+server.port          = 8080
+index-file.names    += ( "index.html", "index.htm", "index.php" )
+
+mimetype.assign = ( ".html" => "text/html", ".htm" => "text/html",
+                    ".css" => "text/css",   ".txt" => "text/plain",
+                    ".jpg" => "image/jpeg", ".png" => "image/png" )
+
+server.modules += ( "mod_cgi" )
+cgi.assign      = ( ".php" => "/path/to/php-cgi" )
+}}}
+
+You can then launch the lighttpd server and leave it running on the foreground with:
+
+{{{
+lighttpd -D -f lighttpd-epsilon.conf
+}}}
+
+If you use lighttpd in Windows, use Windows-style paths (`c:\...`) instead of Cygwin-style (`/cygdrive/c/...`) paths. Otherwise, PHP will not work correctly.  
+
+== Troubleshooting ==
+* The HTML output includes bits of PHP code: make sure that `short_open_tag` is set to `On` in your `php.ini` file. It seems to be set to `Off` by default in the latest distributions of XAMPP and PHP.
+* All you get is `No input file specified`: make sure that `doc_root` is set to the path to the `htdocs` folder in your `php.ini` file.
+
+== Finding broken links ==
+`wget` and `grep` can be used to find broken links in the Epsilon website. First, we will traverse the website using `wget` with this command:
+
+{{{
+wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8080/epsilon/
+}}}
+
+We have used these options:
+* `-e robots=off` makes `wget` ignore `robots.txt`. This is OK in this case, as we're running the spider on our own local server. 
+* `--spider` prevents `wget` from downloading page requisites that do not contain links
+* `-r` makes `wget` traverse through links
+* `--no-parent` prevents `wget` from leaving `/gmt/epsilon/`
+* `-o wget_errors.txt` collects all messages in the `wget_errors.txt` file
+
+Once it's done, we can simply search for the word "404" in the log, with:
+{{{
+grep -B2 -w 404 wget_errors.txt
+}}}
+
+We will get a list of all the URLs which reported 404 (Not Found) HTTP error codes.
+
+To find broken links in the [[http://epsilonblog.wordpress.com|Epsilon blog]], it is better to use `-l 3` (3 levels of recursion for the spider) rather than `--no-parent`, as we might want to check if external links are broken as well. We use three levels so we can go to the month in the "Archives", then to the full article, and finally to the external link itself. 

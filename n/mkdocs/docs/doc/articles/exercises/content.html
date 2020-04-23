@@ -1,0 +1,70 @@
+<h1>MDE Exercises</h1>
+ 
+This article provides a number of exercises you can use to test your knowledge on MDE, EMF and Epsilon.
+<h2>Exercise 1: Metamodelling with Ecore</h2>
+ 
+Write Ecore metamodels (using Emfatic or the graphical Ecore editor) for the following scenarios, and create instances of these metamodels using the <a href="../reflective-emf-tutorial">reflective EMF tree editor</a>:
+<ol>
+<li> All school rooms have a buzzer triggered by a central clock to signal the end of the school day.
+<li> Political parties, such as the Labour Party, the Conservative party, and the Liberal Democrat party, have both voters and supporters.
+<li> An undirected graph consists of a set of vertices and a set of edges. Edges connect pairs of vertices.
+<li> A football league has a set of teams, where each team has a manager and a set of players. A player is a forward, defender, or goalkeeper. The manager cannot be a player.
+<li> A student is awarded a prize. Each prize is donated by at least one sponsor, e.g., IBM. A prize may be jointly awarded. Each student must write a letter thanking the sponsors of their prize
+</ol>
+
+<h2>Exercise 2: Constructing models programmatically using EOL</h2>
+In the previous exercise, you created sample models conforming to your metamodels using the reflective EMF tree editor. In this exercise, you should create the same models, but this time programmatically using <a href="../../eol">EOL</a>.
+
+<h2>Exercise 3: Introducing EOL operations</h2>
+The Office Management System (OMS) is used to manage the rooms available to a company. It keeps track of who is assigned to occupy a room, along with their position in the company. It facilitates providing newly hired employees with offices, and assists employees who are to move from one office to another. Employees have positions, an office (offices are never shared), and know when they started work at the company and when they ended their employment. The OMS keeps track of all employees and rooms. Rooms are either occupied or unoccupied. 
+<br/>
+With the OMS, it is possible to:
+<ol>
+<li>hire a new employee and assign them to a room
+<li>fire an employee and remove them from their office
+<li>move an employee from one room to another, unoccupied room
+<li>calculate the set of rooms that are unoccupied (useful for planning)
+</ol>
+With this scenario in mind you need to do the following:
+<ul>
+<li>Write an Ecore metamodel for the system above
+<li>Write the body of the following EOL operations that implement 1-4 above
+<ol>
+<li>operation Employee hire() { ... }
+<li>operation Employee fire() { ... }
+<li>operation Employee move(to:Room) { ... }
+<li>operation Company getFreeRooms() : Sequence(Room) { ... }
+</ol>
+</ul>
+
+<h2>Exercise 4: Model validation with EVL</h2>
+
+<img src="Exercise4ClassDiagram.png"/>
+
+<ul>
+<li>Construct the Ecore metamodel above and create a sample model that conforms to it using the reflective EMF tree editor.
+<li>Write the following EVL constraints and evaluate them on your sample model
+<ol>
+<li>In the context of class Student, write a constraint stating that a student takes up to 6 modules
+<li>In the context of class Grade, write a constraint stating that the mark must always be non-negative.
+<li>In the context of Module, write a constraint stating that every student must have a unique name.
+<li>In the context of Student, write a constraint that states that the grades for the modules taken by a student must be identical to the grades that the student knows about directly
+</ol>
+</ul>
+
+<h2>Exercise 5: Model transformation with ETL</h2>
+Write an ETL transformation that transforms models conforming to the metamodel of Exercise 4 to models conforming to the metamodel below. <br/>
+
+<img src="Exercise5ClassDiagram.png"/>
+
+<h2>Exercise 6: Text generation with EGL</h2>
+Write an EGL transformation that reads a model conforming to the metamodel of exercise 4 and produces a text file containing the names of all students and the total marks each student has obtained so far.
+
+<h2>Exercise 7: Multiple file generation with EGL</h2>
+Write an EGL transformation that reads a model conforming to the metamodel of exercise 5 and generates one file per transcript. Each output file should be named after the student with a .txt suffix (e.g. John Doe.txt) and it should contain a list of all the modules and marks of the student.
+
+<h2>Exercise 8: Using ANT to implement an ETL->EGL workflow</h2>
+Use the ANT tasks provided by Epsilon to create an ANT workflow that invokes the ETL transformation of Exercise 5 and then passes the produced model to the EGL transformation of Exercise 7, which in turn generates a set of transcript files.
+
+<h2>Exercise 9: Constructing graphical editors</h2>
+Create GMF editors for the metamodels you have written in the exercises above using EuGENia.
