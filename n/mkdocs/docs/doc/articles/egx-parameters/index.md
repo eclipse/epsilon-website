@@ -1,7 +1,7 @@
-=Co-ordinating EGL template execution with EGX=
+# Co-ordinating EGL template execution with EGX
 Suppose you're using Epsilon to make a compiler for a domain-specific language (DSL). Specifically, for every Library in the DSL, you want to generate a separate XML file with all of the properties of the Library and its Books. With EGX, you can parameterize your EGL templates to achieve this, like so:
 
-{{{egx
+```egx
 pre {
 	var outDirLib : String = "../libraries/";
 	var extension : String = ".xml";
@@ -20,13 +20,15 @@ rule Libraries transform lib : Library {
 	template: "/path/to/Lib2XML.egl"
 	target: outDirLib+lib.name+extension
 }
-}}}
+```
 
 In this example, the Lib2XML EGL template will be invoked for every Library instance in the model, and the output will be written to the file specified in the "target". The Lib2XML template will receive all of the parameters put in the "params" variable in the parameters block of the rule. The variable is a mapping from variable name (that the EGL template will use to refer to it) and variable value. For reference, the Lib2XML template is shown below.
 
-*Note: there is no limit on the number of rules you can declare in an EGX program.*
+!!! info "Note"
 
-{{{egl
+	There is no limit on the number of rules you can declare in an EGX program.
+
+```egl
 <?xml version="1.0" encoding="UTF-8"?>
 <library id=[%=lib.id%] name="[%=name%]" isBigLibrary="[%=isBigLibrary.asString()%]">
 [% for (book in books) {%]
@@ -42,4 +44,4 @@ In this example, the Lib2XML EGL template will be invoked for every Library inst
 	</book>
 [%}%]
 </library>
-}}}
+```
