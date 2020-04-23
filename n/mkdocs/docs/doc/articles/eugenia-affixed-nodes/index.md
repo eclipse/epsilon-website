@@ -1,7 +1,7 @@
-=EuGENia: Affixed Nodes in GMF=
+# EuGENia: Affixed Nodes in GMF
 From the following annotated Ecore metamodel (in Emfatic)
 
-{{{emf
+```emf
 @namespace(uri="components", prefix="components")
 package components;
 
@@ -33,8 +33,8 @@ class Connector extends NamedElement {
    ref Port source;
    ref Port target;
 }
-}}}
+```
 
 EuGENia can automatically generate this GMF editor:
 
-[[image:Components.jpg]]
+![](Components.jpg)
