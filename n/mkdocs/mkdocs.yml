@@ -34,8 +34,10 @@ repo_name: 'Git repository @ Eclipse'
 repo_url: 'git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git'
 markdown_extensions:
   - admonition
+  - footnotes
   - codehilite:
       guess_lang: false
+      linenums: true
   - toc:
       permalink: true
 copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
