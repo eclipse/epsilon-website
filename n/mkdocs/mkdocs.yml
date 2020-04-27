@@ -6,6 +6,7 @@ nav:
       - Model-to-text transformation (EGL): 'doc/egl.md'
   - Tools:
       - EuGENia: 'doc/eugenia.md'
+      - Exeed: 'doc/exeed.md'
   - Resources:
     - Screencasts: ''
     - Lectures: ''
