@@ -152,12 +152,12 @@
 						<div id="installer" class="tab-pane active">
 							<p>
 							Download the <a href="https://wiki.eclipse.org/Eclipse_Installer"><b>Eclipse Installer</b></a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.
-							</p><br/>
+							</p>
 							<p style="padding-top:15px;padding-bottom:15px">
 							<a class="btn <?=getStyle('windows')?>" href="<?=$installerWin64?>">Windows</a>
 							<a class="btn <?=getStyle('mac')?>" href="<?=$installerMac64?>">macOS</a>
 							<a class="btn <?=getStyle('linux')?>" href="<?=$installerLinux64?>">Linux</a>
-							</p></p>
+							</p><p>
 							If you don't see Epsilon in the list, click on the three vertical bars on the top right, then <i>Product Catalogs</i> and check "Eclipse.org Applications". Epsilon should be near the bottom of the list (you can also use the search bar). If the <i>Product Catalogs</i> option is missing, switch to <i>Advanced Mode</i> and look for Epsilon under "Eclipse.org Applications" (if this category is missing, click on the small yellow folder icon in the top right corner and select it). Keep pressing <i>Next</i> (you don't need to change anything) and then <i>Finish</i>. Accept the licenses when prompted.<br/>
 							<b>IMPORTANT:</b> Please do not select the Epsilon project on the second page of the installer in Advanced Mode. This is for Epsilon developers only and may cause issues during installation of the Epsilon product.</p>
 							<?if (onWindows()){?>
