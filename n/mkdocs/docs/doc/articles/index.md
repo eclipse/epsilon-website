@@ -36,11 +36,14 @@ This page contains an index of articles presenting a range of tools and language
 - [Parsing XML documents as EMF models with Flexmi](flexmi): This article demonstrates how you can use Flexmi to parse XML documents in a fuzzy manner as instances of Ecore metamodels.
 - [Modularity Mechanisms in Flexmi](modular-flexmi): This article demonstrates how you can break down Flexmi models over multiple files and use templates to capture complex reusable structures in your models.
 
-## Epsilon and non-EMF models
+## Epsilon and Simulink models
 
-- [Scripting XML documents using Epsilon](plain-xml): In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver.
 - [Scripting Simulink models using Epsilon](simulink): In this article we demonstrate how you can query and modify Simulink models in Epsilon.
 - [Managing Matlab Simulink/Stateflow models from Epsilon](simulink-stateflow): This tutorial shows you how to manipulate Simulink and Stateflow blocks from within Epsilon.
+
+## Epsilon and other types of models
+
+- [Scripting XML documents using Epsilon](plain-xml): In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver.
 - [Scripting CSV files using Epsilon](csv-emc): This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
 - [Scripting BibTeX files using Epsilon](bibtex): In this article we demonstrate how you can query a list of references stored in BibTeX files with Epsilon programs using the BibTeX driver.
 
