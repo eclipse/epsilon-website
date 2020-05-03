@@ -41,6 +41,10 @@ markdown_extensions:
       linenums: true
   - toc:
       permalink: true
+plugins:
+    - redirects:
+        redirect_maps:
+            'doc/articles/emfatic.md': 'https://www.eclipse.org/emfatic'
 copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
 extra_css:
   - 'stylesheets/extra.css'

@@ -82,15 +82,8 @@ problem that you are encountering. In particular, please provide:
 -   Small programs (ideally containing only the code required to
     reproduce the problem).
 
-Although it can take a little extra time for you to produce a minimal
-example, we really appreciate it. A minimal example allows us to spend
-more time fixing the problem and providing advice, and much less time
-trying to reproduce the problem on our computer. Also, based on our
-experience, messages that provide a minimal example tend to get answered
-much faster. On the other hand, examples which indicate little/no effort
-from the reporter's side to narrow down the problem (e.g. complete code
-dumps) tend to be pushed back to the end of the queue and can take
-significantly longer to investigate.
+!!! tip    
+    Although it can take a little extra time for you to produce a minimal example, we really appreciate it. A minimal example allows us to spend more time fixing the problem and providing advice, and much less time trying to reproduce the problem on our computer. Also, based on our experience, messages that provide a minimal example tend to get answered much faster. On the other hand, examples which indicate little/no effort from the reporter's side to narrow down the problem (e.g. complete code dumps) tend to be pushed back to the end of the queue and can take significantly longer to investigate.
 
 In some cases, building a minimal example is a great way to troubleshoot
 the problem that you're experiencing, and you may even find a solution

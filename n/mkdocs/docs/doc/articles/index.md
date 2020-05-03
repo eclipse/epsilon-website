@@ -26,7 +26,7 @@ This page contains an index of articles presenting a range of tools and language
 
 ## Epsilon and EMF models
 
-- [Emfatic language reference](emfatic): Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
+- [Emfatic language reference](https://www.eclipse.org/emfatic/): Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
 - [Reflective EMF tutorial](reflective-emf-tutorial): This tutorial demonstrates how to create an EMF Ecore metamodel and a sample model that conforms to it reflectively (i.e. without generating any code).
 - [Epsilon and EMF](epsilon-emf): Frequently-asked questions related to querying and modifying EMF-based models with Epsilon.
 - [The EMF EPackage Registry View](epackage-registry-view): This article demonstrates the EPackage Registry view which allows developers to inspect the contents of the registered EMF EPackages.

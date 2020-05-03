@@ -1,7 +1,6 @@
 # Managing Matlab Simulink/Stateflow models from Epsilon
 
-Epsilon supports Matlab Simulink models. This tutorial shows you how to
-manipulate Simulink and Stateflow blocks from within Epsilon.
+Epsilon supports Matlab Simulink models. This tutorial shows you how to manipulate Simulink and Stateflow blocks from within Epsilon.
 
 ## [Pre-requisite] Setting up your Eclipse Installation
 
@@ -9,20 +8,11 @@ manipulate Simulink and Stateflow blocks from within Epsilon.
 
 *Help > Install New Software...*
 
-In your eclipse installation make sure to go to Help > Install New
-Software... and in the pop up window add the Epsilon's Update Site
-(Interim) and select the "Epsilon Simulink Integration" and proceed with
-the installation. Make sure that you have "Epsilon Core", "Epsilon Core
-Developement Tools" and their dependencies already Installed. Click here
-for more details.
+In your eclipse installation make sure to go to Help > Install New Software... and in the pop up window add the Epsilon's Update Site (Interim) and select the "Epsilon Simulink Integration" and proceed with the installation. Make sure that you have "Epsilon Core", "Epsilon Core Developement Tools" and their dependencies already Installed. Click here for more details.
 
-Once installed, make sure to add to the Eclipse Preferences (Eclipse >
-Preferences...) the path of the Simulink library directory and the
-Matlab Engine Jar. You will find them in the Preference dialog under the
-tabs Epsilon > Simulink.
+Once installed, make sure to add to the Eclipse Preferences (Eclipse > Preferences...) the path of the Simulink library directory and the Matlab Engine Jar. You will find them in the Preference dialog under the tabs Epsilon > Simulink.
 
-For MATLAB version R2017a, the OSX paths for both are those in the
-figure below, whereas for Windows machines, the paths are as follow:
+For MATLAB version R2017a, the OSX paths for both are those in the figure below, whereas for Windows machines, the paths are as follow:
 
 - `C:/Program Files/MATLAB/R2017b/bin/win64`
 - `C:/Program Files/MATLAB/R2017b/extern/engines/java/jar/engine.jar`
