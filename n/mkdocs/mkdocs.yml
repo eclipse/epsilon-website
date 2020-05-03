@@ -4,26 +4,29 @@ nav:
   - Languages:
       - Core language (EOL): 'doc/eol.md'
       - Model-to-text transformation (EGL): 'doc/egl.md'
+      - Model validation (EVL): 'doc/evl.md'
+      - Model-to-model transformation (ETL): 'doc/etl.md'
+      - Model comparison (ECL): 'doc/ecl.md'
+      - Model merging (EML): 'doc/eml.md'
+      - Pattern matching (EPL): 'doc/epl.md'
   - Tools:
-      - EuGENia: 'doc/eugenia.md'
-      - Exeed: 'doc/exeed.md'
-  - Resources:
-    - Screencasts: ''
-    - Lectures: ''
-    - Javadoc:
-      - Stable: 'https://download.eclipse.org/epsilon/stable/javadoc/'
-      - Interim: 'https://download.eclipse.org/epsilon/interim/javadoc/'
+      - Picto: 'doc/picto/index.md'
+      - Flexmi: 'doc/flexmi/index.md'
+      - EuGENia: 'doc/eugenia/index.md'
+      - Exeed: 'doc/exeed/index.md'
+  - Articles: 'doc/articles/index.md'
+  - Screencasts: ''
+  - Lectures: ''
+  - Javadoc:
+    - Stable: 'https://download.eclipse.org/epsilon/stable/javadoc/'
+    - Interim: 'https://download.eclipse.org/epsilon/interim/javadoc/'
   - Community:
       - Who is using Epsilon?:
-        - Open-source projects: ''
-        - Industry: ''
-        - Teaching: ''
+        - Industry: 'users/index.md'
+        - Education: 'users/education.md'
+        - Open-source projects: 'users/open-source.md'
       - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
-      - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'
-  - Users:
-      - Industry: 'users/index.md'
-      - Education: 'users/education.md'
-      - Open-source projects: 'users/open-source.md'
+      - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'    
 theme: 
   name: material
   custom_dir: custom_theme
@@ -45,6 +48,11 @@ plugins:
     - redirects:
         redirect_maps:
             'doc/articles/emfatic.md': 'https://www.eclipse.org/emfatic'
+            'doc/articles/eugenia-gmf-tutorial/index.md': 'doc/eugenia/index.md'
+            'doc/articles/flexmi/index.md': 'doc/flexmi/index.md'
+            'doc/articles/picto/index.md': 'doc/picto/index.md'
+            'doc/articles/exeed-reference/index.md': 'doc/exeed/index.md'
+
 copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
 extra_css:
   - 'stylesheets/extra.css'

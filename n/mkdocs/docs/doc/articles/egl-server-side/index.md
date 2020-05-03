@@ -2,10 +2,7 @@
 
 The original purpose of [EGL](../../egl) was to enable batch generation of source code and other textual artefacts from EMF models. However, since there is no hard binding between the language and the file system, it is also possible to use EGL in other contexts.
 
-In this article, we demonstrate using
-[EGL](../../egl)
-as a server-side scripting language in Tomcat, to produce web pages from
-EMF models on the fly.
+In this article, we demonstrate using [EGL](../../egl) as a server-side scripting language in Tomcat, to produce web pages from EMF models on the fly.
 
 ## Setup
 
@@ -100,9 +97,7 @@ Note that the `fragment` method should be used in a dynamic output section. Like
 [% cache.expireFragment(sidebarTemplate); %]
 ```
 
-A simple caching strategy is to populate the page and fragment caches
-from your main EGL templates, and to provide a `ClearCache.egl` template
-in a sub-directory that only administrators that can access.
+A simple caching strategy is to populate the page and fragment caches from your main EGL templates, and to provide a `ClearCache.egl` template in a sub-directory that only administrators that can access.
 
 ## Loading EMF models in EGL pages
 

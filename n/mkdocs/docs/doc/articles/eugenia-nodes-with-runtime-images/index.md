@@ -1,19 +1,14 @@
 # EuGENia: Nodes with images defined at run-time
 
-This recipe addresses the case where the end-user needs to set an image
-for each node at runtime (based on Thomas Beyer's solution presented in
-the GMF newsgroup). For our example, we'll use the Component class.
+This recipe addresses the case where the end-user needs to set an image for each node at runtime (based on Thomas Beyer's solution presented in the GMF newsgroup). For our example, we'll use the Component class.
 
 ## Create an attribute to store the image path
 
-First we need to create an `imagePath` attribute that will store the
-path of the image for each component.
+First we need to create an `imagePath` attribute that will store the path of the image for each component.
 
 ## Set the figure of Component to a custom ComponentFigure
 
-The next step is to set the figure of Component in EuGENia to a custom
-figure. After those two steps, our definition of Component looks like
-this:
+The next step is to set the figure of Component in EuGENia to a custom figure. After those two steps, our definition of Component looks like this:
 
 ```emf
 @gmf.node(label="name", figure="ccdl.diagram.figures.ComponentFigure", label.placement="external")
@@ -23,9 +18,7 @@ class Component {
 }
 ```
 
-Once we generate the diagram code, we'll get an error because
-`ComponentFigure` has not been found. We need to create the
-`ComponentFigure` class and set its code to the following:
+Once we generate the diagram code, we'll get an error because `ComponentFigure` has not been found. We need to create the `ComponentFigure` class and set its code to the following:
 
 ```java
 import java.io.File;
@@ -89,10 +82,7 @@ public class ComponentFigure extends ImageFigure  {
 ## Create the image path property descriptor
 
 
-The next step is to create the property descriptor for the image path so
-that we can eventually get a nice browse button in the properties view.
-To do this we need to create a new class named
-`ComponentImagePathPropertyDescriptor`.
+The next step is to create the property descriptor for the image path so that we can eventually get a nice browse button in the properties view. To do this we need to create a new class named `ComponentImagePathPropertyDescriptor`.
 
 ```java
 import org.eclipse.emf.ecore.EAttribute;
@@ -213,8 +203,7 @@ public IPropertySource getPropertySource(Object object) {
 
 ## Modify the edit part
 
-Modify the `handleNotificationEvent` method so that the figure is updated every
-time the value of `imagePath` changes
+Modify the `handleNotificationEvent` method so that the figure is updated every time the value of `imagePath` changes
 
 ```java
 protected void handleNotificationEvent(Notification event) {
@@ -240,8 +229,7 @@ protected void handleNotificationEvent(Notification event) {
 }
 ```
 
-Modify the `createNodeShape` method so that the figure is initialized from the
-existing `imagePath` the first time.
+Modify the `createNodeShape` method so that the figure is initialized from the existing `imagePath` the first time.
 
 ```java
 protected IFigure createNodeShape() {

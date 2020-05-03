@@ -171,3 +171,6 @@ enum VisibilityEnum {
 }
 
 ```
+
+## Resources
+- [Article: Inspecting EMF Models with Exeed](../articles/inspect-models-exeed)

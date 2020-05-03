@@ -1,19 +1,8 @@
 # Native lambda expressions
 
-Whilst EOL has many useful declarative operations built in, some
-applications and developers may benefit from using alternative
-implementations, such as the [Java Streams
-API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html).
+Whilst EOL has many useful declarative operations built in, some applications and developers may benefit from using alternative implementations, such as the [Java Streams API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html).
 
-Epsilon now allows you to invoke functional interfaces using EOL
-first-order operation syntax. Provided that the method being invoked
-takes one or more [functional
-interface](https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html)s
-as a parameter and the correct number of parameters are supplied to each
-interface, this integration should work seamlessly as with regular
-first-order operation call expressions. For lambda expressions which do
-not require a parameter, you can either omit the parameter, use `null`
-or `_` in place of the parameter, like so:
+Epsilon now allows you to invoke functional interfaces using EOL first-order operation syntax. Provided that the method being invoked takes one or more [functional interface](https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html)s as a parameter and the correct number of parameters are supplied to each interface, this integration should work seamlessly as with regular first-order operation call expressions. For lambda expressions which do not require a parameter, you can either omit the parameter, use `null` or `_` in place of the parameter, like so:
 
 ```eol
   var optional = Native("java.util.stream.IntStream")
@@ -26,8 +15,7 @@ or `_` in place of the parameter, like so:
   optional.orElseThrow(| new Native("org.eclipse.epsilon.eol.exceptions.EolRuntimeException"));
 ```
 
-Here is an example of how one could use Java Streams and the equivalent
-approach using EOL (i.e. without native delegation):
+Here is an example of how one could use Java Streams and the equivalent approach using EOL (i.e. without native delegation):
 
 ```eol
   var Collectors = Native("java.util.stream.Collectors");
@@ -47,21 +35,9 @@ approach using EOL (i.e. without native delegation):
   assertEquals(positiveOddsSquaredEol, positiveOddsSquaredJava);
 ```
 
-One benefits of using Streams is lazy evaluation, which allows you to
-chain a series of operations without executing the entire pipeline on
-all elements. This can be more efficient since streams are not
-materialised in intermediate operations, unlike EOL first-order
-operations which always return a collection and are thus evaluated
-eagerly. As with built-in EOL operations, Streams also support parallel
-execution, although this must be explicitly specified with the
-`.parallel()` property on the stream.
+One benefits of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements. This can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly. As with built-in EOL operations, Streams also support parallel execution, although this must be explicitly specified with the `.parallel()` property on the stream.
 
-Currently EOL does not support operations which require a simple
-variable and non-functional interface as a parameter, such as the
-[iterate](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-)
-operation. To work around this, you can assign lambda expressions to
-variables, deriving them by calling a built-in operation to obtain the
-desired type.
+Currently EOL does not support operations which require a simple variable and non-functional interface as a parameter, such as the [iterate](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-) operation. To work around this, you can assign lambda expressions to variables, deriving them by calling a built-in operation to obtain the desired type.
 
 ```eol
   // UnaryOperator
@@ -91,10 +67,7 @@ desired type.
 
 ### Streams vs EOL cheat sheet
 
-Aside from the fact that streams are lazy and Epsilon operations are
-eager, there is some inevitable overlap in their functionality. This
-section provides an equivalence mapping from Epsilon to Java Streams to
-help you migrate from one to the other.
+Aside from the fact that streams are lazy and Epsilon operations are eager, there is some inevitable overlap in their functionality. This section provides an equivalence mapping from Epsilon to Java Streams to help you migrate from one to the other.
 
 -   `select` =\> `filter`
 -   `collect` =\> `map`
@@ -112,8 +85,7 @@ help you migrate from one to the other.
 -   `mapBy` =\> `.collect(Collectors.groupingBy)`
 -   `aggregate` =\> `.collect(Collectors.toMap)`
 
-In addition, non-first-order operations on Epsilon collection types can
-be simulated as follows for streams:
+In addition, non-first-order operations on Epsilon collection types can be simulated as follows for streams:
 
 -   `flatten` =\> `.flatMap(c | c.stream())` \-- please note that
     `flatten` is recursive whilst `flatMap` is not
@@ -128,5 +100,4 @@ be simulated as follows for streams:
 -   `asSequence` / `asSet` / `asOrderedSet` =\> Same as `asBag` but
     replace Bag with desired type
 
-Please note that streams are one-shot and the pipeline cannot be re-used
-once a terminal operation is invoked (see the API for details).
+Please note that streams are one-shot and the pipeline cannot be re-used once a terminal operation is invoked (see the API for details).
