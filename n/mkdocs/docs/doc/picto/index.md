@@ -1,6 +1,9 @@
 # Visualising Models with Picto
 
-Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. Compared to existing graphical modelling frameworks such as [Sirius](https://eclipse.org/sirius) and [GMF/Eugenia](../eugnia-gmf-tutorial), the main appeal of Picto is that model visualisation takes place in an embedded browser and therefore you can leverage any HTML/SVG/JavaScript-based technology such as [D3.js](https://d3js.org/), [mxGraph](https://github.com/jgraph/mxgraph) and [JointJS(https://www.jointjs.com/). Picto also provides built-in support for the powerful [Graphviz](https://www.graphviz.org/) and [PlantUML](https://plantuml.com/) textual syntaxes (which are transformed to SVG via the respective tools). A distinguishing feature of Picto is does not require running multiple Eclipse instances as the metamodels, models and visualisation transformations can all reside in the same workspace. Also, as Picto uses [EGL](../../egl) for model-to-text transformation, it is not limited to EMF-based models and can be used to visualise the contents of Simulink models, XML documents, spreadsheets, and any other type of artefact supported by an [Epsilon EMC driver](../../emc). 
+Picto is an Eclipse view for **visualising models via model-to-text transformation** to SVG/HTML. Compared to existing graphical modelling frameworks such as [Sirius](https://eclipse.org/sirius) and [GMF/Eugenia](../eugnia-gmf-tutorial), the main appeal of Picto is that model visualisation takes place in an embedded browser and therefore you can leverage any HTML/SVG/JavaScript-based technology such as [D3.js](https://d3js.org/), [mxGraph](https://github.com/jgraph/mxgraph) and [JointJS](https://www.jointjs.com/). Picto also provides built-in support for the powerful [Graphviz](https://www.graphviz.org/) and [PlantUML](https://plantuml.com/) textual syntaxes (which are transformed to SVG via the respective tools). A distinguishing feature of Picto is does not require running multiple Eclipse instances as the metamodels, models and visualisation transformations can all reside in the same workspace. 
+
+!!! tip
+	As Picto uses [EGL](../../egl) for model-to-text transformation, it is [not limited to EMF-based models](#using-picto-in-standalone-mode-with-many-models) and can be used to visualise the contents of Simulink models, XML documents, spreadsheets, and any other type of artefact supported by an [Epsilon EMC driver](../../emc). 
 
 On the flip side, Picto displays read-only views of models and as such it is not a good fit if diagram-based model editing capabilities are required. In this article we demonstrate Picto through a small social network example. The complete source code of the example is available [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.socialnetwork/).
 
@@ -191,7 +194,7 @@ In such cases, it is preferable to generate many smaller diagrams; for this exam
 
 ## Extending Picto
 
-Picto provides two extension points (`org.eclipse.epsilon.picto.pictoSource` and `org.eclipse.epsilon.picto.viewContentTransformer`) that can be used to add support for other Eclipse-based editors. Please see this `[plugin.xml](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto.plantuml/plugin.xml)`, which shows how these extension points were used to integrate PlantUML with Picto.
+Picto provides two extension points (`org.eclipse.epsilon.picto.pictoSource` and `org.eclipse.epsilon.picto.viewContentTransformer`) that can be used to add support for other Eclipse-based editors. Please see this [plugin.xml](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto.plantuml/plugin.xml), which shows how these extension points were used to integrate PlantUML with Picto.
 
 ## Using Picto in standalone mode / with many models
 

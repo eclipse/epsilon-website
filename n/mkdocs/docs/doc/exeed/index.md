@@ -1,8 +1,10 @@
-# Exeed Reference
- 
-Exeed (standing for **Ex**tended **E**MF **Ed**itor) is an extended version of the built-in tree-based reflective editor provided by EMF.
+# Exeed (Extended EMF Editor)
 
-The aim of Exeed is to enable developers to customize the appearance of the editor (labels and icons) by annotating Ecore metamodels. As a result, developers can enjoy the benefits of a customized editor for their models without needing to generate one and then customize it using Java.
+Exeed is an extended version of the built-in tree-based reflective editor provided by EMF. The aim of Exeed is to **enable developers to customize the appearance of the editor (labels and icons)** by annotating Ecore metamodels. As a result, developers can enjoy the benefits of a customized editor for their models without needing to generate one and then customize it using Java.
+
+| Plain Reflective Editor | Exeed             |
+| ----------------------- | -----             |
+| ![](normaltree.png)     |![](exeedtree.png)|
 
 ## Exeed Annotations Keys
 The *source* for exeed annotations is `exeed`. Exeed annotations are only supported in `EClass`, `EEnumLiteral` and `EStructuralFeature` elements of the metamodel. For each element the following keys are supported:

@@ -15,8 +15,8 @@ nav:
       - EuGENia: 'doc/eugenia/index.md'
       - Exeed: 'doc/exeed/index.md'
   - Articles: 'doc/articles/index.md'
-  - Screencasts: ''
-  - Lectures: ''
+  - Screencasts: 'https://www.youtube.com/epsilondevs'
+  - Lectures: 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
   - Javadoc:
     - Stable: 'https://download.eclipse.org/epsilon/stable/javadoc/'
     - Interim: 'https://download.eclipse.org/epsilon/interim/javadoc/'
@@ -45,6 +45,7 @@ markdown_extensions:
   - toc:
       permalink: true
 plugins:
+    - search
     - redirects:
         redirect_maps:
             'doc/articles/emfatic.md': 'https://www.eclipse.org/emfatic'

@@ -1,6 +1,6 @@
-# Parsing XML documents as EMF models with Flexmi
+# Flexmi
 
-Flexmi is an implementation of [EMF's Resource interface](http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/resource/Resource.html) that can parse XML documents as instances of Ecore metamodels in a fuzzy manner. For example it can parse the following XML document (`messaging.flexmi`):
+Flexmi is a **permissive and reflective textual syntax for creating models conforming to Ecore metamodels**. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (`messaging.flexmi`):
 
 ```xml
 <?xml version="1.0"?>
@@ -28,7 +28,7 @@ Flexmi is an implementation of [EMF's Resource interface](http://download.eclips
 </sys>
 ```
 
-as a valid instance of the Ecore metamodel (in Emfatic) below:
+is a valid instance of the Ecore metamodel (in Emfatic) below:
 
 ```emf
 @namespace(uri="http://messaging", prefix="")
@@ -72,7 +72,7 @@ class Message {
 
 ## Use in Epsilon and Java
 
-Flexmi can be used like any other EMF resource implementation. For example, you can add `.flexmi` models as regular EMF models to the run configuration of your Epsilon program. An example of using Flexmi from Java follows.
+Flexmi offers and registers an implementation of [EMF's Resource interface](http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/resource/Resource.html) (`FlexmiResource`), and can be used like any other EMF resource implementation. For example, you can add `.flexmi` models as regular EMF models to the run configuration of your Epsilon program. An example of using Flexmi from Java follows.
 
 ```java
 ResourceSet resourceSet = new ResourceSetImpl();
