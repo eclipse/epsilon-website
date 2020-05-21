@@ -44,9 +44,9 @@
 	<tool title="Human Usable Textual Notation" id="hutn" img="./img/thumbnails/HUTN.png">
 		Epsilon HUTN is our implementation of the OMG standard for representing models in a human understandable format. Write models using a text editor with a Java-like syntax
 	</tool>
-	<tool title="Concordance" id="concordance" img="./img/thumbnails/Concordance.png">
+	<!--tool title="Concordance" id="concordance" img="./img/thumbnails/Concordance.png">
 		Concordance monitors and maintains an index of cross-model EMF references, and a platform for exploiting that index. We provide Concordance clients that report and reconcile broken cross-model references.
-	</tool>
+	</tool-->
 	<tool title="EUnit" id="eunit" img="./img/thumbnails/EUnit.png">
 		EUnit is a unit testing framework for model management tasks.	Tests are written by combining an EOL script and an <a href="workflow">ANT</a> buildfile, and can be used to test Epsilon and non-Epsilon model management programs.
 	</tool>		
