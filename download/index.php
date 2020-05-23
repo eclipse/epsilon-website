@@ -191,9 +191,9 @@
 								  <span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedInterimUpdateSite?>">Archive</a></div></span>
 								</div>
 								<br/><br/>
-								<div class="alert alert-info alert-block">
+								<!--div class="alert alert-info alert-block">
 									The interim update site is now self-contained and can be used to install Epsilon on top of a plain-vanilla Eclipse. If you choose to install the interim version there is no need to start with an Eclipse Modeling distribution or to install any of the dependencies below.
-								</div>
+								</div-->
 								<p>
 
 								<br>

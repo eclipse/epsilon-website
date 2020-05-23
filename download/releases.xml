@@ -2,7 +2,7 @@
 <releases>
 	<release version="2.0" released="29 May 2020" jars="yes" srcjars="yes">
   		<eclipse name="2020-03" version="4.15" distribution="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-03/R/eclipse-modeling-2020-03-R-" mac-extension="dmg" linux-extension="tar.gz"/>
-  		<notes>Scheduled release</notes>
+  		<notes>Major release</notes>
   	</release>
 	<release version="1.5.1" released="30 Sep 2018" jars="yes" srcjars="yes" services="1.5">
 		<message>Once you have downloaded the 1.5 distribution, please update Epsilon from the stable update site to version 1.5.1, which contains a fix for a regression that affects the properties view of Exeed.</message>
