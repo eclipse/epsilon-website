@@ -195,12 +195,10 @@
 									The interim update site is now self-contained and can be used to install Epsilon on top of a plain-vanilla Eclipse. If you choose to install the interim version there is no need to start with an Eclipse Modeling distribution or to install any of the dependencies below.
 								</div-->
 								<p>
-
 								<br>
 								*<a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced">
 								Bugs fixed in the latest interim version (compared to the latest stable version)
 								</a>
-
 								</p>
 								<?}?>
 
