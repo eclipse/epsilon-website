@@ -195,7 +195,7 @@
 								Bugs fixed in the latest interim version (compared to the latest stable version)
 								</a>
 								</p>
-								<?} if (count($release->dependency) > 0) {?>
+								<?} if (count($major_release->dependency) > 0) {?>
 								<h4 style="padding-top:10px;padding-bottom:10px">Prerequisites</h4>
 								<p>
 								The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a Java Runtime Environment and Eclipse first. The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon <?=$release["version"]?> and is available for the following platforms.
