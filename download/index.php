@@ -128,12 +128,7 @@
 	<div class="span10">
 		<h1 class="page-header">Download</h1>
 		<div class="row">
-			<div class="span12">
-				
-				<!--div class="alert alert-warning alert-block">
-					<b>13/08/2018</b>: We are in the process of releasing version 2.0 and some links or update sites may not work as expected until we are done.
-				</div-->
-				 
+			<div class="span12">			 
 				<div class="tabbable" style="margin-bottom: 0px;">
 				  <ul class="nav nav-tabs">
 					<li class="active"><a href="#installer" data-toggle="tab"><h4>Eclipse Installer</h4></a></li>
@@ -200,8 +195,7 @@
 								Bugs fixed in the latest interim version (compared to the latest stable version)
 								</a>
 								</p>
-								<?}?>
-
+								<?} if (count($release->dependency) > 0) {?>
 								<h4 style="padding-top:10px;padding-bottom:10px">Prerequisites</h4>
 								<p>
 								The development tools of Epsilon come as a set of Eclipse plugins and therefore, to install Epsilon you need to download and install a Java Runtime Environment and Eclipse first. The Eclipse <?=$release->eclipse["name"]?> Modeling Tools distribution contains most of the necessary prerequisites for Epsilon <?=$release["version"]?> and is available for the following platforms.
@@ -228,7 +222,7 @@
 										<?}?>
 									</tbody>
 								</table>
-
+								<?}?>
 								<div class="alert alert-info alert-block">
 									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence EuGENia - won't work. If you wish to use Xtext or Papyrus in the same installation as EuGENia, you should use QVTo 3.9.1 from this update site: https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
 								</div>
