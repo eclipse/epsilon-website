@@ -12,7 +12,7 @@ Tycho requires defining a "target platform" with the Eclipse plugins and
 features that Epsilon should be compiled against. In the case of Epsilon, this
 target platform will usually include EMF, GMF, the Eclipse IDE and PDE, Emfatic,
 and then any other third-party components that might be useful (e.g. Sirius or
-Papyrus). The target platform is stored in the [[http://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/plugins/org.eclipse.epsilon.targetplatform/org.eclipse.epsilon.targetplatform.target|plugins/org.eclipse.epsilon.targetplatform.target]] project.
+Papyrus). The target platform is stored in the [[http://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/releng/org.eclipse.epsilon.target/org.eclipse.epsilon.target.target|releng/org.eclipse.epsilon.target]] project.
 
 The target platform is an XML file that lists features or plugins from one or
 more update sites. It can be edited by hand, but it is rather unwieldy, so it is
@@ -85,9 +85,9 @@ folder of the Epsilon Git repository and run this command, assuming we have a
 recent version of Maven 3 installed and available from our `PATH`:
 
 {{{
-mvn clean install
+mvn -T 1C clean install
 }}}
 
 If this command succeeds, it is ready to be pushed. Push the changes, wait until
-the build succeeds in the [[https://hudson.eclipse.org/epsilon/|Epsilon HIPP instance]]
-(Hudson checks every 5 minutes or so for changes), and then you're done!
+the build succeeds in the [[https://ci.eclipse.org/epsilon/|Epsilon JIPP instance]]
+(Jenkins checks every 5 minutes or so for changes), and then you're done!

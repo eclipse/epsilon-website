@@ -21,7 +21,8 @@ Next, you should tweak the `standalone/org.eclipse.epsilon.standalone/jarmodel.x
 Trigger a full rebuild of Epsilon from the root folder of the repository:
 
 {{{
-mvn clean install
+mvn -T 1C clean install
+mvn -f standalone install -P build
 }}}
 
 Go to the standalone project and build the Javadoc JARs:

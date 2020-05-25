@@ -11,17 +11,17 @@ To run Epsilon from source, you need to:
 == Naming Conventions ==
 
 * The execution engines for the various Epsilon languages are located in `org.eclipse.epsilon.*.engine` plugins. These are Eclipse-independent.
-* Plugins named `*.dt` contain development tools (e.g. editors, run configurations, debuggers) for the respective Epsilon languages.
+* Plugins named `*.dt` contain Eclipse development tools (e.g. editors, run configurations, debuggers) for the respective Epsilon languages.
 * Plugins named `org.eclipse.epsilon.emc.*` contain Epsilon Model Connectivity (EMC) drivers through which Epsilon languages can interact with different types of models (e.g. EMF models, spreadsheets etc.)
 * Plugins named `org.eclipse.epsilon.emc.*.dt` contain development tools (e.g. model configuration dialogs) for the respective EMC drivers.
 * Plugins named `*.workflow` contribute [[../../workflow|ANT tasks]].
 
 == Modifying the Epsilon parsers ==
 * To modify e.g. the EVL parser, you need to change `Evl.g` and/or `EvlParserRules.g`. To re-generate the parser you need to run `build-evl-parser.xml` as an Ant build.
-* Since all Epsilon languages extend EOL, if you modify the EOL parser, you'll then need to run `build-all-eol-dependent-parsers.xml`
+* Since all Epsilon languages extend EOL, if you modify the EOL parser, you'll then need to run `build-all-eol-dependent-parsers.xml`.
 
 == Running the Epsilon tests ==
-* After making any changes to the Epsilon source code, you're advised to run the Epsilon test suites to avoid regressions. Epsilon provides two main test suites: `EpsilonTestSuite` and `EpsilonPluggedInTestSuite` (the latter needs to be run as a `JUnit Plug-In Test`)
+* After making any changes to the Epsilon source code, you're advised to run the Epsilon test suites to avoid regressions. Epsilon provides two main test suites: `EpsilonEclipseTestSuite` and `EpsilonPluggedInTestSuite` (the latter needs to be run as a `JUnit Plug-In Test`)
 
 == Compilation Errors ==
  
