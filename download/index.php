@@ -163,7 +163,7 @@
 							<?}?>
 							</p>
 						</div>
-  						<div id="updatesite" class="tab-pane <?if(!$distributions){ echo "active";}?>">
+  						<div id="updatesite" class="tab-pane">
   							<form class="form-horizontal" style="padding-left:1px">
   							<div class="control-group">
 	  							<div class="input-prepend input-append">
