@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <releases>
-	<release version="2.0" released="29 May 2020" jars="yes" srcjars="yes" distributions="no">
+	<release version="2.0" released="30 May 2020" jars="yes" srcjars="yes" distributions="no">
   		<eclipse name="2020-03" version="4.15" distribution="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-03/R/eclipse-modeling-2020-03-R-" mac-extension="dmg" linux-extension="tar.gz"/>
   		<notes>Major release</notes>
   	</release>
@@ -8,7 +8,7 @@
 		<message>Once you have downloaded the 1.5 distribution, please update Epsilon from the stable update site to version 1.5.1, which contains a fix for a regression that affects the properties view of Exeed.</message>
 		<notes>Service release</notes>
   	</release>
-	<release version="1.5" released="12 Aug 2018" jars="yes" srcjars="yes">
+	<release version="1.5" released="12 Aug 2018" jars="no" srcjars="no">
   		<eclipse name="Photon" version="4.8" distribution="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/photon/R/eclipse-modeling-photon-R-" mac-extension="dmg" linux-extension="tar.gz"/>
   		<notes>Scheduled release</notes>
   		<dependency name="Emfatic" location="https://download.eclipse.org/emfatic/update/" notes="Untick the &quot; Group items by category &quot; check box"/>
