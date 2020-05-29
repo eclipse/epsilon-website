@@ -34,7 +34,7 @@
 
 	$version = $release["version"];
 	$major_release_bread_crumb = "";
-	$release_bread_crumb = "";
+	$release_bread_crumb = "latest/";
 	
 	if (!$major_release_latest) {
 		$major_release_bread_crumb = $major_release["version"]."/";
@@ -107,13 +107,12 @@
 		else return false;
 	}
 
-	function jar($flavour, $version, $interim, $src) {
+	function jar($flavour, $version, $src) {
 		global $release_bread_crumb;
 		$srcLabel = "";
 		if ($src) { $srcLabel = "-src"; }
 
 		$jarFolder = "jars";
-		if ($interim) { $jarFolder = "interim/jars"; }
 
 		$filename = "epsilon-".$version."-".$flavour.$srcLabel.".jar";
 		$link = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb.$jarFolder."/".$filename;
@@ -287,9 +286,6 @@
 							<p>
 								Additional projects which are experimental or not formally approved due to licensing constraints are available in <a href="https://github.com/epsilonlabs"><b>Epsilon Labs</b></a>.
 							</p>
-							<!--p>
-								<b>Note:</b> If you need to modify and re-build the parsers of the Epsilon languages, you will also need to add the <a href="http://www.antlr3.org/download/antlr-3.5.2-complete-no-st3.jar">ANTLR 3 parser generator JAR</a> to the classpath of the <code>build-all-eol-dependent-parsers.xml</code> ANT script.
-							</p-->
   						</div>
 
   						<?if ($jars){?>
@@ -324,7 +320,7 @@
 			  							Plain old JARs you can use to embed the latest <b>interim</b> version of Epsilon
 			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
-			  						<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/".$release_bread_crumb."interim/jars";?>
+			  						<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/latest/jars";?>
 			  						<?include("jars/interim.php");?>
 									<p>
 									You can use the latest SNAPSHOTs at the <a href="https://oss.sonatype.org">Sonatype OSSRH</a> repository. For instance, to use the 1.6 interim <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
