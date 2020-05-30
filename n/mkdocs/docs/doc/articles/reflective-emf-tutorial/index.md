@@ -10,7 +10,7 @@ To go through this tutorial you need to first install the Eclipse Modeling Distr
  
 Go to `File->New->Other...` and select `General->Project`. Type `library` as the project name:
 
-[[image:new-project.jpg]]
+![](new-project.jpg)
 
 ## Create library.emf
  

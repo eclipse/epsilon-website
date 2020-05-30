@@ -26,7 +26,7 @@ EGL is a template-based language that can be used to generate code (or any other
 </library>
 ```
  
-More specifically, we will generate one HTML file for each `<book>` element that has a `public` attribute set to `true`. Below is an EGL template (`book2page.egl`) that can generate an HTML file from a single `<book>` element. For more details on using EGL's expression language to navigate and query XML documents, please refer to [[../plain-xml/|this article]].
+More specifically, we will generate one HTML file for each `<book>` element that has a `public` attribute set to `true`. Below is an EGL template (`book2page.egl`) that can generate an HTML file from a single `<book>` element. For more details on using EGL's expression language to navigate and query XML documents, please refer to [this article](plain-xml).
  
 ```egl
 <h1>Book [%=index%]: [%=book.a_title%]</h1>
@@ -88,7 +88,7 @@ For completeness, the source code of the `library2page.egl` template appears bel
 ```
  
 ## Running the Code Generator from Eclipse
-Screenshots of the Eclipse run configuration appear below. The complete source for this example is available [[../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library|here]].
+Screenshots of the Eclipse run configuration appear below. The complete source for this example is available [here](../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library).
 
 ![](run-configuration.png)
 

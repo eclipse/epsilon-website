@@ -71,20 +71,20 @@ Applies to an `EClass` and denotes that it should appear on the diagram as a nod
 * `label`: the name(s) of the `EAttribute`(s) of the `EClass`, the value(s) of which will be displayed as the label of the node. If `label.placement` is set to `none`, this detail is not required.
 * `label.color` (optional, since 1.5.0) : an RGB color that will be set as the node's foreground color. Labels will have a fixed font of this color.
 * `label.icon` (optional) : if set to `true` (default) a small icon appears on the left of the label.
-* `label.parser` (optional) : indicates the unqualified name of the class that will parse the text entered by the user into the label. By default, a [[http://download.oracle.com/javase/6/docs/api/java/text/MessageFormat.html|MessageFormat)-based parser is generated, but it can be manually customized after generation. 
+* `label.parser` (optional) : indicates the unqualified name of the class that will parse the text entered by the user into the label. By default, a [MessageFormat](http://download.oracle.com/javase/6/docs/api/java/text/MessageFormat.html)-based parser is generated, but it can be manually customized after generation. 
 * `label.edit.pattern` (optional) : like `label.pattern`, but only for editing the label.
 * `label.pattern` (optional) : if more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. `{0} : {1}`). The same pattern is used for editing and viewing the label.
 * `label.view.pattern` (optional) : like `label.pattern`, but only for viewing the label.
-* `label.placement` (optional) : defines the placement of the label in relation to the node. Can be set to `internal`, `external` or `none` (no label will be shown). ''(The default distance of an external label in GMF is 20pt which is a bit too far away for my taste. [[../gmf-fix-label-offset/|Read more) about fixing this without changing the generated code every time)''.
+* `label.placement` (optional) : defines the placement of the label in relation to the node. Can be set to `internal`, `external` or `none` (no label will be shown). ''(The default distance of an external label in GMF is 20pt which is a bit too far away for my taste. [Read more](../gmf-fix-label-offset) about fixing this without changing the generated code every time)''.
 * `label.text` (optional) : defines the default text to be used when the `EAttribute`(s) in `label` are not set. By default, it is set to the name of the `EClass`.
 * `label.readOnly` (optional) : a value of `true` denotes that the label cannot be changed in the generated diagram editor.
 * `margin` (optional) : inset margin (5 units by default) for the node.
-* `phantom` (optional) : defines if the node is phantom (`true`/`false`). Phantom nodes are particularly useful in order to visualize containment references using links instead of spatial containment ([[../eugenia-phantom-nodes|read more...)).
+* `phantom` (optional) : defines if the node is phantom (`true`/`false`). Phantom nodes are particularly useful in order to visualize containment references using links instead of spatial containment ([read more...](../eugenia-phantom-nodes)).
 * `polygon.x` (when `figure` is set to `polygon`) : list of space-separated integers with the X coordinates of the polygon used as figure. 
 * `polygon.y` (when `figure` is set to `polygon`) : list of space-separated integers with the Y coordinates of the polygon used as figure.
 * `resizable` (optional) : a value of `false` disables all the resize handles for the node
 * `size` (optional) : a GMF dimension that will be used as the node's preferred size (e.g. `10,5`). Width is specified before height.
-* `svg.uri` (when `figure` is set to `svg`) : URI of the `.svg` file to be used as figure for the node. For instance, `platform:/plugin/my.plugin/my.svg` will access the `my.svg` file in the `my.plugin` plugin. Note: until Kepler, using SVG figures required the GMF Tooling Experimental SDK (available from [[http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/|this update site)). Remember to add the `.svg` file to the binary builds of your plugin.
+* `svg.uri` (when `figure` is set to `svg`) : URI of the `.svg` file to be used as figure for the node. For instance, `platform:/plugin/my.plugin/my.svg` will access the `my.svg` file in the `my.plugin` plugin. Note: until Kepler, using SVG figures required the GMF Tooling Experimental SDK (available from [this update site](http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/)). Remember to add the `.svg` file to the binary builds of your plugin.
 * `tool.description` (optional) : the description of the creation tool.
 * `tool.large.bundle` (optional) : the bundle of the large icon of the creation tool.
 * `tool.large.path` (optional) : the path of the large icon of the creation tool.
@@ -150,14 +150,14 @@ Defines that the containment reference will create nodes which are affixed to th
 Defines additional labels for the containing `EClass`. These labels will be displayed underneath the default label for the containing `EClass`. It accepts the following details:
 
 * `label.edit.pattern` (optional) : like `label.pattern`, but only for editing the label.
-* `label.parser` (optional) : indicates the unqualified name of the class that will parse the text entered by the user into the label. By default, a [[http://download.oracle.com/javase/6/docs/api/java/text/MessageFormat.html|MessageFormat)-based parser is generated, but it can be manually customized after generation. 
+* `label.parser` (optional) : indicates the unqualified name of the class that will parse the text entered by the user into the label. By default, a [MessageFormat](http://download.oracle.com/javase/6/docs/api/java/text/MessageFormat.html)-based parser is generated, but it can be manually customized after generation. 
 * `label.pattern` (optional) : if more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. `{0} : {1}`). The same pattern is used for editing and viewing the label.
 * `label.readOnly` (optional) : A value of `true` denotes that the label cannot be changed in the generated diagram editor.
 * `label.text` (optional) : defines the default text to be used when the attribute is not set.
 * `label.view.pattern` (optional) : like `label.pattern`, but only for viewing the label.
 
 ==Installing EuGENia ''(New Instructions!)''==
-EuGENia is a part of the main Epsilon distribution. The update site of Epsilon is `http://download.eclipse.org/epsilon/updates`, and detailed instructions for installing it are available [[http://www.eclipse.org/gmt/epsilon/download|here).
+EuGENia is a part of the main Epsilon distribution. The update site of Epsilon is `http://download.eclipse.org/epsilon/updates`, and detailed instructions for installing it are available [here](http://www.eclipse.org/gmt/epsilon/download).
 
 Although not necessary, you should also install the Emfatic toolkit mentioned above through the following update site: `http://download.eclipse.org/emfatic/update/`
 
@@ -176,7 +176,7 @@ If you now change your metamodel you'll have to rerun EuGENia to generate your u
 - Right-click your Ecore metamodel (or Emfatic file) and select Eugenia->Generate GMF editor
 - Run a new instance of Eclipse
 
-(Please note that any changes you have done manually to .gmfgraph, .gmftool and .gmfmap will be `overwritten`. Have a look [[../eugenia-polishing|here) for an alternative way to customize these models)
+(Please note that any changes you have done manually to .gmfgraph, .gmftool and .gmfmap will be `overwritten`. Have a look [here](../eugenia-polishing) for an alternative way to customize these models)
 
 ## Troubleshooting
 * Certain versions of Emfatic do not support annotations without details (e.g. `@gmf` or `@gmf.diagram`). You can use dummy details as a workaround (e.g. `@gmf(foo="bar")`)
@@ -195,7 +195,7 @@ If you now change your metamodel you'll have to rerun EuGENia to generate your u
 To add copyright information to your generated .gmfgen model, simply create a file named copyright.txt next to it. Next time you invoke `Eugenia->Synchronize GMF gen model`, EuGENia will pick it up and place its contents in the root GenDiagramEditor of your .gmfgen model. If you have added the copyright.txt file, you can also inject its contents to your .genmodel model (EMF generator model) by right-clicking it and invoking `Eugenia->Synchronize EMF gen model`.
 
 ## Next Steps
-Now that you've learned how to generate a GMF-based editor using EuGENia, you may also want to add some constraints to your editor, which you can then evaluate (explicitly or on-save) to [[../evl-gmf-integration|check the correctness/consistency of your models):
+Now that you've learned how to generate a GMF-based editor using EuGENia, you may also want to add some constraints to your editor, which you can then evaluate (explicitly or on-save) to [check the correctness/consistency of your models](../evl-gmf-integration):
 
 ![](Filesystemwitherrorshighlighted.png)
 
