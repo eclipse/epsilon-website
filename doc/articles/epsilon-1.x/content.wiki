@@ -13,4 +13,4 @@ For a more up-to-date IDE, we recommend that users install the [[https://www.ecl
 
 * '''GMF Tooling''' : [[https://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases]]
 
-* '''QVTo''' : [[https://download.eclipse.org/mmt/qvto/updates/releases/3.9.1]]
+* '''QVTo''' : [[https://archive.eclipse.org/mmt/qvto/updates/releases/3.9.1]]
