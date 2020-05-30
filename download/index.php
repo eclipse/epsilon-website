@@ -171,7 +171,7 @@
 								  <span class="add-on"><div class="span1" style="margin-left:2px;margin-right:7px"><a href="<?=$zippedUpdateSite?>">Archive</a></div></span>
 								</div>
 
-								<?if($latest){?>
+								<?if(!$latest){?>
 									<br/><br/>
 									<div class="alert alert-info alert-block">
 										Uncheck the "Show only the latest versions of available software" check box in Eclipse's new software installation dialog and select version <?=$version?>.
