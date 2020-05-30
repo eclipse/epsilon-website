@@ -222,10 +222,7 @@
 									</tbody>
 								</table>
 								<?}?>
-								<div class="alert alert-info alert-block">
-									<b>Note for Xtext and Papyrus users:</b> Tools such as Xtext and Papyrus may bring in a version of QVTo with which GMF Tooling - and hence EuGENia - won't work. If you wish to use Xtext or Papyrus in the same installation as EuGENia, you should use QVTo 3.9.1 from this update site: https://archive.eclipse.org/mmt/qvto/updates/releases/3.9.1</p>
-								</div>
-
+								
 								<?if($latest){?>
 								<h4 style="padding-top:10px;padding-bottom:10px">Eclipse Marketplace</h4>
 								<p>If you prefer to install Epsilon through the Eclipse Marketplace, you can drag and drop <a style="position:relative;top:-2px" href="https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="https://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> into a running instance of Eclipse.</p>
