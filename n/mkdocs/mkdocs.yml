@@ -1,6 +1,7 @@
 site_name: Eclipse Epsilon
 nav:
   - Home: index.md
+  - Download : 'download'
   - Languages:
       - Core language (EOL): 'doc/eol.md'
       - Model connectivity: 'doc/emc.md'
@@ -24,8 +25,8 @@ nav:
   - Screencasts: 'https://www.youtube.com/epsilondevs'
   - Lectures: 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
   - Javadoc:
-    - Stable: 'https://download.eclipse.org/epsilon/stable/javadoc/'
-    - Interim: 'https://download.eclipse.org/epsilon/interim/javadoc/'
+    - Stable: 'https://download.eclipse.org/epsilon/2.0/javadoc/'
+    - Interim: 'https://download.eclipse.org/epsilon/latest/javadoc/'
   - Community:
       - Who is using Epsilon?:
         - Industry: 'users/index.md'

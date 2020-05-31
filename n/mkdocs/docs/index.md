@@ -4,7 +4,7 @@ Epsilon is a family of languages for model-based software engineering tasks such
 
 ## Installation
 
-Download the [Eclipse Installer](https://www.eclipse.org/downloads/packages/installer) and select Epsilon. Note that you will need a Java Runtime Environment installed on your system. 
+Download the [Eclipse Installer](https://www.eclipse.org/downloads/packages/installer) and select Epsilon. Note that you will need a Java Runtime Environment installed on your system. More options for downloading Epsilon (update sites, standalone JARs, Maven) are [available here](download).
 
 ![Epsilon in Eclipse Installer](assets/images/eclipse-installer.png)
 
