@@ -1,6 +1,6 @@
 # Eclipse Epsilon
 
-The mission of Epsilon is to facilitate low-overhead **model-based software engineering**. To achieve this, Epsilon offers tools for [reflective textual modelling](doc/flexmi) and [model visualisation](doc/picto), as well as interpreted languages for tasks such as [code generation](doc/egl), [model-to-model transformation](doc/etl) and [model validation](doc/evl), that work out of the box with EMF (including Xtext and Sirius), UML, Simulink, XML and other types of models.
+Epsilon is a family of languages for model-based software engineering tasks such as [code generation](doc/egl), [model-to-model transformation](doc/etl) and [model validation](doc/evl), that work out of the box with EMF (including Xtext and Sirius), UML, Simulink, XML and other types of models. It also includes tools for [reflective textual modelling](doc/flexmi), [model visualisation](doc/picto), and integration with [Apache Ant](doc/workflow).
 
 ## Installation
 

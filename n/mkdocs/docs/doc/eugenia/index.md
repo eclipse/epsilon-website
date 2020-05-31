@@ -1,5 +1,8 @@
-# EuGENia GMF Tutorial
-EuGENia is a tool that automatically generates the `.gmfgraph`, `.gmftool` and `.gmfmap` models needed to implement a GMF editor from a single annotated Ecore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic; an Ecore version is available [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.eugenia.examples.filesystem/model/filesystem.ecore)) it can generate a fully functional GMF editor, a screenshot of which is displayed below.
+# Graphical Model Editor development with EuGENia/GMF
+Eugenia is a tool that simplifies the development of GMF-based graphical model editors by automatically generating the `.gmfgraph`, `.gmftool` and `.gmfmap` models needed by GMF editor from a single annotated Ecore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic; an Ecore version is available [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.eugenia.examples.filesystem/model/filesystem.ecore)) it can generate a fully functional GMF editor, a screenshot of which is displayed below.
+
+!!! tip
+	Eugenia builds on top of the [GMF Tooling](https://www.eclipse.org/gmf-tooling/) framework, which is no longer actively maintained. While you can still use Eugenia/GMF to develop fully-functional editors, you may want to consider more actively-maintained tools such as [Eclipse Sirius](https://eclipse.org/sirius) if you need to develop a graphical editor, or [Picto](../picto) if you are only interested in producing read-only views from models.
 
 
 ## The Filesystem metamodel
