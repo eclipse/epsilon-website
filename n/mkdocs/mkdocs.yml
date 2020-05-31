@@ -37,6 +37,8 @@ nav:
       - Frequently asked questions: 'faq.md'   
 theme: 
   name: material
+  features:
+    - tabs
   custom_dir: custom_theme
   logo: 'assets/images/epsilon-logo-round.png'
   palette:
