@@ -4,7 +4,7 @@ The simplest way to install a fully-functional instance of Eclipse with Epsilon 
 
 ![Epsilon in Eclipse Installer](../assets/images/eclipse-installer.png)
 
-| OS | Location |
+| OS | Eclipse Installer |
 | - | - |
 | Windows | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-win64.exe> |
 | Mac | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-mac64.dmg> |

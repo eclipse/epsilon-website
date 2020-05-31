@@ -300,8 +300,8 @@ the Real primitive type. It also defines the following operations:
 iota(end : Integer, step : Integer) : Sequence(Integer)   |Returns a sequence of integers up to `end` using the specified step (e.g. 1.iota(10,2) returns Sequence{1,3,5,7,9})
 mod(divisor : Integer) : Integer                          |Returns the remainder of dividing the integer by the divisor
 to(other : Integer) : Sequence(Integer)                   |Returns a sequence of integers (e.g. 1.to(5) returns Sequence{1,2,3,4,5})
-toBinary() : String                                       |Returns the binary representation of the integer (e.g. 6.toBinary() returns \"110\")
-toHex() : String                                          |Returns the hexadecimal representation of the integer (e.g. 42.toBinary() returns \"2a\")
+toBinary() : String                                       |Returns the binary representation of the integer (e.g. 6.toBinary() returns "110")
+toHex() : String                                          |Returns the hexadecimal representation of the integer (e.g. 42.toBinary() returns "2a")
 
 Finally, the Boolean type represents true/false states and provides no
 additional operations to those provided by the base Any type.
@@ -673,7 +673,7 @@ Type|Default value
 ----|-------------
 Integer|0
 Boolean|false
-String|\"\"
+String|""
 Real|0.0
 
 

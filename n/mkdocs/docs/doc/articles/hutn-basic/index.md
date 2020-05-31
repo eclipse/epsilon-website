@@ -52,7 +52,7 @@ Containment references are specified by nesting model element definitions. For e
 
 ### Non-containment references
 
-Non-containment references are specified using a HUTN identifier, which is the string appearing in double-quotes as part of an object\'s declaraton. Below, the second Family has the identifier \"bloggs.\" In the following HUTN, The first family references the second family, using the familyFriends reference:
+Non-containment references are specified using a HUTN identifier, which is the string appearing in double-quotes as part of an object\'s declaraton. Below, the second Family has the identifier "bloggs." In the following HUTN, The first family references the second family, using the familyFriends reference:
 
     Family {
       familyFriends: Family "bloggs"

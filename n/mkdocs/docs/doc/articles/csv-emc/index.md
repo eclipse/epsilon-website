@@ -6,7 +6,7 @@ In this article we demonstrate how you can create, query and modify CSV document
 
 ## The CSV Model Configuration Dialog
 
-To add a CSV document to your Epsilon launch configuration you first need to click on \"Show all model types\" in order to display the CSV Model type. From there you can select \"CSV Model\" from the list of available model types.
+To add a CSV document to your Epsilon launch configuration you first need to click on "Show all model types" in order to display the CSV Model type. From there you can select "CSV Model" from the list of available model types.
 
 ![](select.png)
 
@@ -14,7 +14,7 @@ Then you can configure the details of your document (name, file etc.) in the scr
 
 ![](configure.png)
 
-You need to provide a name for the model and select the CSV file using the \"Browse Workspace\...\" button.
+You need to provide a name for the model and select the CSV file using the "Browse Workspace\..." button.
 
 The CSV section allows you to define specific behaviour for the CSV model.
 
@@ -24,7 +24,7 @@ The CSV section allows you to define specific behaviour for the CSV model.
 
 - The **Known Headers** tells the loader that the first row of your file contains headers. Headers can late be used to access fields of a row.
 
-- The **Varargs Header** tells the loader that the last column/field of the file can span multiple columns. This is not the \"standard\" (did you know that [RFC 4180](https://tools.ietf.org/html/rfc4180%20) describes CSV file standards?), but in some cases it can be useful.
+- The **Varargs Header** tells the loader that the last column/field of the file can span multiple columns. This is not the "standard" (did you know that [RFC 4180](https://tools.ietf.org/html/rfc4180%20) describes CSV file standards?), but in some cases it can be useful.
 
 - Finally, the **Id Field** allows you to *optionally* select one of the fields as an *id* for your model elements. When using **Known Headers**, this should be the name of one of the fields. If not, it should be the index (integer) of the field.
 
