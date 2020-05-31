@@ -61,7 +61,7 @@
 								<a tabindex="-1" href="#">Javadoc</a>
 								<ul class="dropdown-menu">
 									<li><a href="https://www.eclipse.org/downloads/download.php?file=/epsilon/2.0/javadoc/">v2.0</a>
-									<li><a href="https://www.eclipse.org/downloads/download.php?file=/epsilon/latest/javadoc/">Interim</a>
+									<li><a href="https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/javadoc/">Interim</a>
 								</ul>
 							</li>
 							<li>

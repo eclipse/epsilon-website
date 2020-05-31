@@ -34,7 +34,7 @@
 
 	$version = $release["version"];
 	$major_release_bread_crumb = "";
-	$release_bread_crumb = "latest/";
+	$release_bread_crumb = "interim/";
 	
 	if (!$major_release_latest) {
 		$major_release_bread_crumb = $major_release["version"]."/";
@@ -315,7 +315,7 @@
 			  							Plain old JARs you can use to embed the latest <b>interim</b> version of Epsilon
 			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
 			  						</p>
-			  						<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/latest/jars";?>
+			  						<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/jars";?>
 			  						<?include("jars/interim.php");?>
 									<p>
 									You can use the latest SNAPSHOTs at the <a href="https://oss.sonatype.org">Sonatype OSSRH</a> repository. For instance, to use the 1.6 interim <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
