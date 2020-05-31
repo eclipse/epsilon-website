@@ -1,0 +1,12 @@
+.hawk-eclipse-links {
+    display: table;
+}
+
+.hawk-eclipse-links ul {
+    display: table-row;
+}
+
+.hawk-eclipse-links li {
+    display: table-cell;
+    padding: 1em;
+}

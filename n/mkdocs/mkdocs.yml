@@ -19,6 +19,7 @@ nav:
       - Flexmi: 'doc/flexmi/index.md'
       - Eugenia: 'doc/eugenia/index.md'
       - Exeed: 'doc/exeed/index.md'
+      - Modelink: 'doc/modelink.md'
       - HUTN: 'doc/hutn.md'
       - Workflow (Ant tasks): 'doc/workflow.md'
   - Articles: 'doc/articles/index.md'
