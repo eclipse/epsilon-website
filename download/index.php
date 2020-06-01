@@ -287,7 +287,6 @@
   						<div id="jars" class="tab-pane">
 	  						<ul class="nav nav-pills">
 							    <li class="active"><a href="#stablejars" data-toggle="tab">Stable</a></li>
-							    <li><a href="#interimjars" data-toggle="tab">Interim</a></li>
 							</ul>
 							<div class="tab-content">
 								<div id="stablejars" class="tab-pane active">
@@ -310,15 +309,9 @@
 &lt;/dependencies&gt;</pre>
                                      </p>
 	  							</div>
-	  							<div id="interimjars" class="tab-pane">
+	  							<div id="interim-mvn" class="tab-pane">
 									<p>
-			  							Plain old JARs you can use to embed the latest <b>interim</b> version of Epsilon
-			  							<a href="../examples/index.php?example=org.eclipse.epsilon.examples.standalone">as a library</a> in your Java or Android application. You can also use Maven: see instructions below the table.
-			  						</p>
-			  						<?$jarsUrl = "https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/jars";?>
-			  						<?include("jars/interim.php");?>
-									<p>
-									You can use the latest SNAPSHOTs at the <a href="https://oss.sonatype.org">Sonatype OSSRH</a> repository. For instance, to use the 1.6 interim <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
+									You can use the latest SNAPSHOTs at the <a href="https://oss.sonatype.org">Sonatype OSSRH</a> repository. For instance, to use the 2.1 interim <code>epsilon-core</code> JAR from your <code>pom.xml</code>:
 									<pre>&lt;repositories&gt;
     &lt;repository&gt;
       &lt;id&gt;ossrh-snapshots&lt;/id&gt;
@@ -330,7 +323,7 @@
   &lt;dependency&gt;
     &lt;groupId&gt;org.eclipse.epsilon&lt;/groupId&gt;
     &lt;artifactId&gt;epsilon-core&lt;/artifactId&gt;
-    &lt;version&gt;1.6.0-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;2.1.0-SNAPSHOT&lt;/version&gt;
   &lt;/dependency&gt;
 &lt;/dependencies&gt;</pre>
 									</p>
