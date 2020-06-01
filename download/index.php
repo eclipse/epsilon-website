@@ -60,7 +60,7 @@
 	$installerMac64 = $installerUrl."mac64.dmg";
 	$installerLinux64 = $installerUrl."linux64.tar.gz";
 	$updateSite = "https://".$download_server.".eclipse.org/epsilon/updates/";
-	$zippedUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/".$major_release_bread_crumb."site.zip";
+	$zippedUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/".$major_release_bread_crumb."epsilon-".$major_release_bread_crumb."-site.zip";
 	$zippedInterimUpdateSite = "https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/epsilon-interim-site.zip";
 	
 	function getVisitorPlatform()
