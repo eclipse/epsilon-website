@@ -1,6 +1,6 @@
 # Flexmi
 
-Flexmi is a **permissive and reflective textual syntax for creating models conforming to Ecore metamodels**. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (`messaging.flexmi`):
+Flexmi is a **flexible, reflective textual syntax for creating models conforming to Ecore metamodels**. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (`messaging.flexmi`):
 
 ```xml
 <?xml version="1.0"?>

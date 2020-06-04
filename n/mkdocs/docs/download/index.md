@@ -31,8 +31,8 @@ Below are also links to compressed versions of the Epsilon update sites for long
 
 | Site | Zip Archive |
 | - | - |
-| Stable | <https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/2.0/site.zip>|
-| Interim | <https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/site.zip>|
+| Stable | <https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/2.0/epsilon-2.0-site.zip> |
+| Interim | <https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/epsilon-interim-site.zip> |
 
 ## Eclipse Marketplace
 
@@ -69,4 +69,4 @@ instance, to use the `epsilon-core` JAR from your `pom.xml`:
 
 ## Older versions
 
-Previous stable versions of Epsilon are available [here](history).
+Previous stable versions of Epsilon are available [here](all-versions).

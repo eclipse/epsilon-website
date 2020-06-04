@@ -93,6 +93,7 @@ Epsilon provides several task-specific languages, which use EOL as an expression
 -   [Epsilon Pattern Language (EPL)](epl): A pattern language for matching model elements based on element relations and characteristics.
 -   [Epsilon Model Generation Language (EMG)](emg): A language for semi-automated model generation.
 -   [Epsilon Flock](flock): A rule-based transformation language for updating models in response to metamodel changes.
+-   [EUnit](eunit): EUnit is a unit testing framework specialized on testing model management tasks, such as model-to-model transformations, model-to-text transformations or model validation. It is based on Epsilon, but it can be used for model technologies external to Epsilon. Tests are written by combining an EOL script and an [ANT](workflow) buildfile.
 
 ### Tools
 
@@ -104,4 +105,4 @@ and utilities for working with models.
 -   [ModeLink](modelink): ModeLink is an editor consisting of 2-3 side-by-side EMF tree-based editors, and is very convenient for establishing (weaving) links between different models using drag-and-drop.
 -   [Workflow](workflow): Epsilon provides a set of ANT tasks to enable developers assemble complex workflows that involve both MDE and non-MDE tasks.
 -   [Human Usable Textual Notation](hutn): An implementation of the OMG standard for representing models in a human understandable format. HUTN allows models to be written using a text editor in a C-like syntax.
--   [EUnit](eunit): EUnit is a unit testing framework specialized on testing model management tasks, such as model-to-model transformations, model-to-text transformations or model validation. It is based on Epsilon, but it can be used for model technologies external to Epsilon. Tests are written by combining an EOL script and an [ANT](workflow) buildfile.
+

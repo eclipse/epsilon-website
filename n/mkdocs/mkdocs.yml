@@ -1,33 +1,35 @@
-site_name: Eclipse Epsilon
+site_name: Epsilon
 nav:
   - Home: index.md
   - Download : 'download'
-  - Languages:
-      - Core language (EOL): 'doc/eol.md'
-      - Model connectivity: 'doc/emc.md'
-      - Code generation (EGL): 'doc/egl.md'
-      - Model validation (EVL): 'doc/evl.md'
-      - Model transformation (ETL): 'doc/etl.md'
-      - Model comparison (ECL): 'doc/ecl.md'
-      - Model merging (EML): 'doc/eml.md'
-      - Pattern matching (EPL): 'doc/epl.md'
-      - Model Migration (Flock): 'doc/flock.md'
-      - Model generation (EMG): 'doc/emg.md'
-      - Unit testing (EUnit): 'doc/eunit.md'
-  - Tools:
-      - Picto: 'doc/picto/index.md'
-      - Flexmi: 'doc/flexmi/index.md'
-      - Eugenia: 'doc/eugenia/index.md'
-      - Exeed: 'doc/exeed/index.md'
-      - Modelink: 'doc/modelink.md'
-      - HUTN: 'doc/hutn.md'
-      - Workflow (Ant tasks): 'doc/workflow.md'
-  - Articles: 'doc/articles/index.md'
-  - Screencasts: 'https://www.youtube.com/epsilondevs'
-  - Lectures: 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
-  - Javadoc:
-    - Stable: 'https://download.eclipse.org/epsilon/2.0/javadoc/'
-    - Interim: 'https://download.eclipse.org/epsilon/latest/javadoc/'
+  - Documentation:
+    - Overview: 'doc/index.md'
+    - Languages:
+        - Object language (EOL): 'doc/eol.md'
+        - Model connectivity: 'doc/emc.md'
+        - Code generation (EGL): 'doc/egl.md'
+        - Model validation (EVL): 'doc/evl.md'
+        - Model transformation (ETL): 'doc/etl.md'
+        - Model comparison (ECL): 'doc/ecl.md'
+        - Model merging (EML): 'doc/eml.md'
+        - Pattern matching (EPL): 'doc/epl.md'
+        - Model Migration (Flock): 'doc/flock.md'
+        - Model generation (EMG): 'doc/emg.md'
+        - Unit testing (EUnit): 'doc/eunit.md'
+    - Tools:
+        - Picto: 'doc/picto/index.md'
+        - Flexmi: 'doc/flexmi/index.md'
+        - Eugenia: 'doc/eugenia/index.md'
+        - Exeed: 'doc/exeed/index.md'
+        - Modelink: 'doc/modelink.md'
+        - HUTN: 'doc/hutn.md'
+        - Workflow (Ant tasks): 'doc/workflow.md'
+    - Articles: 'doc/articles/index.md'
+    - Screencasts: 'https://www.youtube.com/epsilondevs'
+    - Lectures: 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
+    - Javadoc:
+      - Stable: 'https://download.eclipse.org/epsilon/2.0/javadoc/'
+      - Interim: 'https://download.eclipse.org/epsilon/interim/javadoc/'
   - Community:
       - Who is using Epsilon?:
         - Industry: 'users/index.md'
@@ -41,18 +43,19 @@ theme:
   features:
     - tabs
   custom_dir: custom_theme
-  logo: 'assets/images/epsilon-logo-round.png'
+  logo: 'assets/images/epsilonlogo.big.sphere.png'
   palette:
-    primary: 'deep purple'
-    accent: 'deep purple'
+    primary: 'black'
+    accent: 'orange'
 repo_name: 'Git repository @ Eclipse'
 repo_url: 'git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git'
 markdown_extensions:
   - admonition
+  - meta
   - footnotes
   - codehilite:
       guess_lang: false
-      linenums: true
+      linenums: false
   - toc:
       permalink: true
 plugins:
@@ -68,4 +71,4 @@ plugins:
 
 copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
 extra_css:
-  - 'stylesheets/extra.css'
+  - '/stylesheets/extra.css'

@@ -1,12 +1,11 @@
-.hawk-eclipse-links {
-    display: table;
+.md-logo {
+	display: none;
 }
 
-.hawk-eclipse-links ul {
-    display: table-row;
+[data-md-color-primary=black] .md-header {
+	background-color: #494949;
 }
 
-.hawk-eclipse-links li {
-    display: table-cell;
-    padding: 1em;
+.md-header-nav {
+	background-color: #494949;
 }
