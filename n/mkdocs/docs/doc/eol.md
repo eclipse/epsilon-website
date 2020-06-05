@@ -1,3 +1,9 @@
+<style>
+  svg {
+    width:100% !important;
+    height:auto !important;
+  }
+</style>
 # The Epsilon Object Language (EOL)
 
 The primary aim of EOL is to provide a reusable set of common model management facilities, atop which task-specific languages can be implemented. However, EOL can also be used as a general-purpose standalone model management language for automating tasks that do not fall into the patterns targeted by task-specific languages. This section presents the syntax and semantics of the language using a combination of abstract syntax diagrams, concrete syntax examples and informal discussion.
@@ -44,9 +50,9 @@ class SimpleAnnotation {
 EolModule -- ImportStatement: *
 EolModule -- Operation: operations *
 Operation -- Annotation: annotations *
-Operation -- StatmentBlock: body
-EolModule -- StatmentBlock: main
-StatmentBlock -- Statement: statements *
+Operation -- StatementBlock: body
+EolModule -- StatementBlock: main
+StatementBlock -- Statement: statements *
 Annotation <|-- ExecutableAnnotation
 Annotation <|-- SimpleAnnotation
 ```
@@ -170,7 +176,7 @@ class ModelElementType {
 class Native {
   -implementation: String
 }
-Any <|-- ModelElementType
+ModelElementType --|> Any
 Any <|-- Native
 Any <|-- Collection
 Any <|-- Map
@@ -178,7 +184,7 @@ Collection <|-- Bag
 Collection <|-- Set
 Collection <|-- OrderedSet
 Collection <|-- Sequence
-Any <|-- PrimitiveType
+PrimitiveType --|> Any
 PrimitiveType <|-- Integer
 PrimitiveType <|-- String
 PrimitiveType <|-- Boolean

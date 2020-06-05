@@ -866,6 +866,10 @@
 <td><a href="https://archive.eclipse.org/epsilon/1.2/distributions/">https://archive.eclipse.org/epsilon/1.2/distributions/</a></td>
 </tr>
 <tr>
+<td>1.1_SR1</td>
+<td><a href="https://archive.eclipse.org/epsilon/1.1_SR1/distributions/">https://archive.eclipse.org/epsilon/1.1_SR1/distributions/</a></td>
+</tr>
+<tr>
 <td>1.1</td>
 <td><a href="https://archive.eclipse.org/epsilon/1.1/distributions/">https://archive.eclipse.org/epsilon/1.1/distributions/</a></td>
 </tr>
@@ -889,7 +893,7 @@
 <tbody>
 <tr>
 <td>Stable</td>
-<td><code>https://download.eclipse.org/epsilon/updates/</code></td>
+<td><code>http://download.eclipse.org/epsilon/updates/</code></td>
 </tr>
 </tbody>
 </table>
@@ -906,17 +910,17 @@
 <tbody>
 <tr>
 <td>Emfatic</td>
-<td><code>https://download.eclipse.org/emfatic/update/</code></td>
+<td><code>http://download.eclipse.org/emfatic/update/</code></td>
 <td>None.</td>
 </tr>
 <tr>
 <td>GMF Tooling</td>
-<td><code>https://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/</code></td>
+<td><code>http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/</code></td>
 <td>Install Graphical Modelling Framework (GMF) Tooling SDK. Required for Eugenia.</td>
 </tr>
 <tr>
 <td>QVTo</td>
-<td><code>https://download.eclipse.org/mmt/qvto/updates/releases/latest/</code></td>
+<td><code>http://download.eclipse.org/mmt/qvto/updates/releases/latest/</code></td>
 <td>Versions of QVTo &gt;= 3.9.1 should all work with with GMF Tooling</td>
 </tr>
 </tbody>
@@ -932,7 +936,7 @@
 </thead>
 <tbody>
 <tr>
-<td>1.5/1.5.1</td>
+<td>1.5</td>
 <td><a href="https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/1.5/epsilon-1.5-site.zip">https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/1.5/epsilon-1.5-site.zip</a></td>
 </tr>
 <tr>
@@ -950,16 +954,15 @@
 </tbody>
 </table>
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
-<p>The source code of 1.x versions of Epsilon can be obtained by checking out the respective tag listed under <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/refs/">https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/refs/</a> (e.g. <code>https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=1.5.1</code> for 1.5.1)</p>
+<p>The source code of 1.x versions of Epsilon can be obtained by checking out the respective tag listed under <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/refs/">https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/refs/</a> (e.g. <code>https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=1.4</code> for 1.4)</p>
 <h2 id="maven">Maven<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h2>
-<p>Older versions of Epsilon JARs are available from <a href="https://mvnrepository.com/artifact/org.eclipse.epsilon">Maven Central</a>. For
-instance, to use the <code>epsilon-core</code> JAR from your <code>pom.xml</code>:</p>
+<p>Older versions of Epsilon JARs are available from <a href="https://mvnrepository.com/artifact/org.eclipse.epsilon">Maven Central</a>. Note that prior to 2.0, the structure was different (less modular). For instance, to use the <code>epsilon-core</code> JAR from your <code>pom.xml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
   ...
   <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>epsilon-core<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>1.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.5.1<span class="nt">&lt;/version&gt;</span>
   <span class="nt">&lt;/dependency&gt;</span>
   ...
 <span class="nt">&lt;/dependencies&gt;</span>
