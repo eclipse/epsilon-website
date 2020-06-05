@@ -1,0 +1,30 @@
+g.classGroup rect {
+	fill: white !important;
+	stroke: black !important;
+}
+
+g.classGroup text {
+	fill: black !important;
+}
+
+g.classGroup line {
+	stroke: black !important;
+}
+
+g.classLabel rect {
+	fill: white !important;
+}
+
+g.classLabel text {
+	fill: black !important;
+}
+
+.relation {
+	stroke: black !important;
+}
+
+#extensionStart {
+	fill: white !important;
+	stroke: black !important;
+}
+

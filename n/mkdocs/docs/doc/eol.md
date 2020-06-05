@@ -28,7 +28,39 @@ hello(); // main body
 // ... more operations could be placed here ...
 ```
 
-![image](images/EOLModule.png)
+```mermaid
+classDiagram
+class EolModule {
+  +main:StatementBlock
+}
+class ImportStatement {
+  +imported:EolModule
+}
+class Operation {
+  +name: String
+  +context: EolType
+  +parameters: Parameter[*]
+  +returnType: EolType
+}
+class ExecutableAnnotation {
+	+expression: Expression
+}
+class SimpleAnnotation {
+	+values: String[*]
+}
+EolModule -- ImportStatement: *
+EolModule -- Operation: *
+Operation -- Annotation: *
+Operation -- StatmentBlock: body
+EolModule -- StatmentBlock: main
+StatmentBlock -- Statement
+Statement <|-- ForStatement
+Statement <|-- IfStatement
+Annotation <|-- ExecutableAnnotation
+Annotation <|-- SimpleAnnotation
+```
+
+<!--![image](images/EOLModule.png)-->
 
 ## User-Defined Operations 
 
@@ -215,8 +247,33 @@ system of types, illustrated in the figure below. The
 `Any` type, inspired by the `OclAny` type of OCL, is the basis of all
 types in EOL including Collection types. 
 
-![Overview of the type system of
-EOL](images/EOLTypes.png)
+```mermaid
+classDiagram
+class ModelElementType {
+  -model: String
+  -type: String
+}
+class Native {
+  -implementation: String
+}
+Any <|-- ModelElementType
+Any <|-- Native
+Any <|-- Collection
+Any <|-- Map
+Collection <|-- Bag
+Collection <|-- Set
+Collection <|-- OrderedSet
+Collection <|-- Sequence
+Any <|-- PrimitiveType
+PrimitiveType <|-- Integer
+PrimitiveType <|-- String
+PrimitiveType <|-- Boolean
+PrimitiveType <|-- Real
+
+```
+
+<!--![Overview of the type system of
+EOL](images/EOLTypes.png)-->
 
 The operations supported by
 instances of the Any type are outlined in the table below[^2].
