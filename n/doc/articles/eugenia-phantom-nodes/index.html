@@ -778,7 +778,7 @@
                 
                 <h1 id="eugenia-phantom-nodes-in-gmf-editors">EuGENia: Phantom nodes in GMF editors<a class="headerlink" href="#eugenia-phantom-nodes-in-gmf-editors" title="Permanent link">&para;</a></h1>
 <p>Containment references in Ecore metamodels are usually depicted in GMF as spatial containment (e.g. in the sense that a class is contained inside the figure of a package). However, it is sometimes needed to represent containment references using links instead. To achieve this, GMF provides the notion of <em>phantom nodes.</em> EuGENia provides first-class support for phantom nodes in GMF using the <em>phantom</em> annotation detail. The following listing provides such an example:</p>
-<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;phantom&quot;, prefix=&quot;phantom&quot;)
+<pre class="prettyprint lang-emf"><code>@namespace(uri="phantom", prefix="phantom")
 package phantom;
 
 @gmf.diagram
@@ -790,17 +790,16 @@ class NamedElement {
    attr String name;
 }
 
-@gmf.node(label=&quot;name&quot;)
+@gmf.node(label="name")
 class Group extends NamedElement {
-   @gmf.link(label=&quot;member&quot;)
+   @gmf.link(label="member")
    val Member[*] members;
 }
 
-@gmf.node(label=&quot;name&quot;, phantom=&quot;true&quot;)
+@gmf.node(label="name", phantom="true")
 class Member extends NamedElement {
 
-}
-</code></pre></div>
+}</code></pre>
 
 <p>In this example, a Model contains many groups and a Group contains many members. To represent the Group.members containment reference as a normal link, we the phantom detail of the gmf.node annotation of Member to true and add a gmf.link anotation to Group.members. The result looks like this:</p>
 <p><img alt="" src="Phantomgmf.png" /></p>

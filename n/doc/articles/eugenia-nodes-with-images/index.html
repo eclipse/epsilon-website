@@ -781,7 +781,7 @@
 represented with images (png, jpg etc.) instead of the standard GMF
 shapes (rectangle, ellipse etc.). We'll use the simple <code>friends</code>
 metamodel as demonstration:</p>
-<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;friends&quot;, prefix=&quot;&quot;)
+<pre class="prettyprint lang-emf"><code>@namespace(uri="friends", prefix="")
 package friends;
 
 @gmf.diagram
@@ -789,19 +789,18 @@ class World {
     val Person[*] people;
 }
 
-@gmf.node(figure=&quot;figures.PersonFigure&quot;, label.icon=&quot;false&quot;, label=&quot;name&quot;, label.placement=&quot;external&quot;)
+@gmf.node(figure="figures.PersonFigure", label.icon="false", label="name", label.placement="external")
 class Person {
     attr String name;
 
-    @gmf.link(width=&quot;2&quot;, color=&quot;0,255,0&quot;, source.decoration=&quot;arrow&quot;,
-      target.decoration=&quot;arrow&quot;, style=&quot;dash&quot;)
+    @gmf.link(width="2", color="0,255,0", source.decoration="arrow",
+      target.decoration="arrow", style="dash")
     ref Person[*] friendOf;
 
-    @gmf.link(width=&quot;2&quot;, color=&quot;255,0,0&quot;, source.decoration=&quot;arrow&quot;, 
-      target.decoration=&quot;arrow&quot;, style=&quot;dash&quot;)
+    @gmf.link(width="2", color="255,0,0", source.decoration="arrow", 
+      target.decoration="arrow", style="dash")
     ref Person[*] enemyOf;
-}
-</code></pre></div>
+}</code></pre>
 
 <p>We define a custom figure for Person (<code>figure="figures.PersonFigure"</code>)
 and also specify that the label should be placed externally to the node

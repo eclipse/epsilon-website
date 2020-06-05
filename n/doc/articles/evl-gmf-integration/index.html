@@ -847,13 +847,13 @@
 <h2 id="step-3-write-the-constraints">Step 3: Write the constraints<a class="headerlink" href="#step-3-write-the-constraints" title="Permanent link">&para;</a></h2>
 <p>We create a new .evl file in the plugin. In our case we've created it under <code>validation/filesystem.evl</code> (make sure you switch to the Build tab to verify that the .evl file is included in your binary build).</p>
 <p>In our example we define the following constraints:</p>
-<div class="highlight"><pre><span></span><code>context File {
+<pre class="prettyprint lang-evl"><code>context File {
 
     constraint HasName {
 
         check : self.name.isDefined()
 
-        message : &#39;Unnamed &#39; + self.eClass().name + &#39; not allowed&#39;
+        message : 'Unnamed ' + self.eClass().name + ' not allowed'
 
     }
 
@@ -863,16 +863,16 @@ context Folder {
 
     critique NameStartsWithCapital {
 
-        guard : self.satisfies(&#39;HasName&#39;)
+        guard : self.satisfies('HasName')
 
         check : self.name.firstToUpperCase() = self.name
 
-        message : &#39;Folder &#39; + self.name +
-            &#39; should start with an upper-case letter&#39;
+        message : 'Folder ' + self.name +
+            ' should start with an upper-case letter'
 
         fix {
 
-            title : &#39;Rename to &#39; + self.name.firstToUpperCase()
+            title : 'Rename to ' + self.name.firstToUpperCase()
 
             do {
                 self.name := self.name.firstToUpperCase();
@@ -889,17 +889,17 @@ context Sync {
 
         check : self.source.eClass() = self.target.eClass()
 
-        message : &#39;Cannot synchronize a &#39; + self.source.eClass().name
-            + &#39; with a &#39; + self.target.eClass().name
+        message : 'Cannot synchronize a ' + self.source.eClass().name
+            + ' with a ' + self.target.eClass().name
 
         fix {
 
-            title : &#39;Synchronize with another &#39; +
+            title : 'Synchronize with another ' +
                 self.source.eClass().name
 
             do {
 
-                var target := UserInput.choose(&#39;Select target&#39;,
+                var target := UserInput.choose('Select target',
                     _Model.getAllOfType(self.source.eClass().name));
 
                 if (target.isDefined()) self.target := target;
@@ -910,8 +910,7 @@ context Sync {
 
     }
 
-}
-</code></pre></div>
+}</code></pre>
 
 <p>We have defined three constraints:</p>
 <ul>

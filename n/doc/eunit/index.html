@@ -1283,7 +1283,7 @@ The optional <code>&lt;modelTasks&gt;</code> nested element contains a sequence 
 <p>The Epsilon Object Language script is the second half of the EUnit test suite. EOL annotations are used to tag some of the operations as data binding definitions (<code>@data</code> or <code>@Data</code>), additional model setup sections (<code>@model</code>/<code>@Model</code>), test setup and teardown sections (<code>@setup</code>/<code>@Before</code> and <code>@teardown</code>/<code>@After</code>) and test cases (<code>@test</code>/<code>@Test</code>). Suite setup and teardown sections can also be defined with <code>@suitesetup</code>/<code>@BeforeClass</code> and <code>@suiteteardown</code>/<code>@AfterClass</code> annotations: these operations will be run before and after all tests, respectively.</p>
 <h4 id="data-bindings">Data bindings<a class="headerlink" href="#data-bindings" title="Permanent link">&para;</a></h4>
 <p>Data bindings repeat all test cases with different values in some variables. To define a data binding, users must define an operation which returns a sequence of elements and is marked with @data variable. All test cases will be repeated once for each element of the returned sequence, setting the specified variable to the corresponding element. Listing 15.2 shows two nested data bindings and a test case which will be run four times: with x=1 and y=5, x=1 and y=6, x=2 and y=5 and finally x=2 and y=6. The example shows how x and y could be used by the setup section to generate an input model for the test. This can be useful if the intent of the test is ensuring that a certain property holds in a class of models, rather than a single model.</p>
-<div class="highlight"><pre><span></span><code>@data x
+<pre class="prettyprint lang-eol"><code>@data x
 operation firstLevel()  { return 1.to(2); }
 
 @data y
@@ -1293,11 +1293,10 @@ operation secondLevel() { return 5.to(6); }
 operation generateModel() { /* generate model using x and y */ }
 
 @test
-operation mytest() { /* test with the generated model */ }
-</code></pre></div>
+operation mytest() { /* test with the generated model */ }</code></pre>
 
 <p>Alternatively, if both x and y were to use the same sets of values, we could add two @data annotations to the same operation. For instance, the listing below shows how we could test with 4 cases: x=1 and y=1, x=1 and y=2, x=2 and y=1 and x=2 and y=2.</p>
-<div class="highlight"><pre><span></span><code>@data x
+<pre class="prettyprint lang-eol"><code>@data x
 @data y
 operation levels()  { return 1.to(2); }
 
@@ -1305,28 +1304,26 @@ operation levels()  { return 1.to(2); }
 operation generateModel() { /* generate model using x and y */ }
 
 @test
-operation mytest() { /* test with the generated model */ }
-</code></pre></div>
+operation mytest() { /* test with the generated model */ }</code></pre>
 
 <h4 id="model-bindings">Model bindings<a class="headerlink" href="#model-bindings" title="Permanent link">&para;</a></h4>
 <p>Model bindings repeat a test case with different subsets of models. They can be defined by annotating a test case with <code>$with map</code> or <code>$onlyWith map</code> one or more times, where map is an EOL expression that produces a <code>MAP</code>. For each key-value pair <code>key = value</code>, EUnit will rename the model named <code>value</code> to <code>key</code>. The difference between <code>$with</code> and <code>$onlyWith</code> is how they handle the models not mentioned in the <code>MAP</code>: <code>$with</code> will preserve them as is, and <code>$onlyWith</code> will make them unavailable during the test. <code>$onlyWith</code> is useful for tightly restricting the set of available models in a test and for avoiding ambiguous type references when handling multiple models using the same metamodel.</p>
 <p>The listing below shows two tests which will be each run twice. The first test uses <code>$with</code>, which preserves models not mentioned in the MAP: the first time, model "A" will be the default model and model "B" will be the "Other" model, and the second time, model "B" will be the default model and model "A" will be the "Other" model. The second test uses two <code>$onlyWith</code> annotations: on the first run, "A" will be available as "Model" and "B" will not unavailable, and on the second run, only "B" will be available as "Model" and "A" will be unavailable.</p>
-<div class="highlight"><pre><span></span><code>$with Map {&quot;&quot; = &quot;A&quot;, &quot;Other&quot; = &quot;B&quot;}
-$with Map {&quot;&quot; = &quot;B&quot;, &quot;Other&quot; = &quot;A&quot;}
+<pre class="prettyprint lang-eol"><code>$with Map {"" = "A", "Other" = "B"}
+$with Map {"" = "B", "Other" = "A"}
 @test
 operation mytest() {
   /* use the default and Other models, while
      keeping the rest as is */
 }
 
-$onlyWith Map { &quot;Model&quot; = &quot;A&quot; }
-$onlyWith Map { &quot;Model&quot; = &quot;B&quot; }
+$onlyWith Map { "Model" = "A" }
+$onlyWith Map { "Model" = "B" }
 @test
 operation mytest2() {
-  // first time: A as &#39;Model&#39;, B is unavailable
-  // second time: B as &#39;Model&#39;, A is unavailable
-}
-</code></pre></div>
+  // first time: A as 'Model', B is unavailable
+  // second time: B as 'Model', A is unavailable
+}</code></pre>
 
 <h4 id="additional-variables-and-built-in-operations">Additional variables and built-in operations<a class="headerlink" href="#additional-variables-and-built-in-operations" title="Permanent link">&para;</a></h4>
 <p>EUnit provides several variables and operations which are useful for testing. These are listed in the table below.</p>
@@ -1521,48 +1518,47 @@ operation transformationWorksAsExpected() {
 </code></pre></div>
 
 <p>The EOL script used is shown below. Instead of loading models through the Ant tasks, the <code>loadHutn</code> operation has been used to load the models. The test itself is almost the same, but instead of running a helper target, it invokes an operation which creates and runs the ETL Ant task through the <code>antProject</code> variable provided by EUnit, taking advantage of the support in EOL for invoking Java code through reflection.</p>
-<div class="highlight"><pre><span></span><code>@model
+<pre class="prettyprint lang-eol"><code>@model
 operation loadModels() {
-  loadHutn(&quot;Tree&quot;, &#39;@Spec {Metamodel {nsUri: &quot;Tree&quot; }}
+  loadHutn("Tree", '@Spec {Metamodel {nsUri: "Tree" }}
 Model {
-  Tree &quot;t1&quot; { label : &quot;t1&quot; }
-  Tree &quot;t2&quot; {
-    label : &quot;t2&quot;
-    parent : Tree &quot;t1&quot; 
+  Tree "t1" { label : "t1" }
+  Tree "t2" {
+    label : "t2"
+    parent : Tree "t1" 
   }
 }
-&#39;);
+');
 
-  loadHutn(&quot;GraphExpected&quot;, &#39;@Spec {Metamodel {nsUri: &quot;Graph&quot;}}
+  loadHutn("GraphExpected", '@Spec {Metamodel {nsUri: "Graph"}}
 Graph { nodes :
-  Node &quot;t1&quot; {
-    name : &quot;t1&quot;
-    outgoing : Edge { source : Node &quot;t1&quot; target : Node &quot;t2&quot; }
+  Node "t1" {
+    name : "t1"
+    outgoing : Edge { source : Node "t1" target : Node "t2" }
   },
-  Node &quot;t2&quot; {
-    name : &quot;t2&quot;
+  Node "t2" {
+    name : "t2"
   }
 }
-&#39;);
+');
 
-  loadHutn(&quot;Graph&quot;, &#39;@Spec {Metamodel {nsUri: &quot;Graph&quot;}}&#39;);
+  loadHutn("Graph", '@Spec {Metamodel {nsUri: "Graph"}}');
 }
 
 @test
 operation transformationWorksAsExpected() {
   runETL();
-  assertEqualModels(&quot;GraphExpected&quot;, &quot;Graph&quot;);
+  assertEqualModels("GraphExpected", "Graph");
 }
 
 operation runETL() {
-  var etlTask := antProject.createTask(&quot;epsilon.etl&quot;);
-  etlTask.setSrc(new Native(&#39;java.io.File&#39;)(
-    antProject.getBaseDir(), &#39;resources/etl/Tree2Graph.etl&#39;));
-  etlTask.createModel().setRef(&quot;Tree&quot;);
-  etlTask.createModel().setRef(&quot;Graph&quot;);
+  var etlTask := antProject.createTask("epsilon.etl");
+  etlTask.setSrc(new Native('java.io.File')(
+    antProject.getBaseDir(), 'resources/etl/Tree2Graph.etl'));
+  etlTask.createModel().setRef("Tree");
+  etlTask.createModel().setRef("Graph");
   etlTask.execute();
-}
-</code></pre></div>
+}</code></pre>
 
 <h2 id="extending-eunit">Extending EUnit<a class="headerlink" href="#extending-eunit" title="Permanent link">&para;</a></h2>
 <p>EUnit is based on the Epsilon platform, but it is designed to accommodate other technologies. In this section we will explain several strategies to add support for these technologies to EUnit.</p>
@@ -1616,19 +1612,18 @@ operation runETL() {
 </code></pre></div>
 
 <p>Another advantage in making model management tasks EMC-aware is that they can easily “export” their results as models, making them easier to test. For instance, the EVL Ant task allows for exporting its results as a model by setting the attribute <code>exportAsModel</code> to <code>true</code>. This way, EOL can query the results as any regular model. This is simpler than transforming the validated model to a problem metamodel. The example in the listing below checks that a single warning was produced due to the expected rule (<code>LabelsStartWithT</code>) and the expected model element.</p>
-<div class="highlight"><pre><span></span><code>@test
+<pre class="prettyprint lang-eol"><code>@test
 operation valid() {
   var tree := new Tree!Tree;
-  tree.label := &#39;1n&#39;;
-  runTarget(&#39;validate-tree&#39;);
+  tree.label := '1n';
+  runTarget('validate-tree');
   var errors := EVL!EvlUnsatisfiedConstraint.allInstances;
   assertEquals(1, errors.size);
   var error := errors.first;
   assertEquals(tree, error.instance);
   assertEquals(false, error.constraint.isCritique);
-  assertEquals(&#39;LabelsStartWithT&#39;, error.constraint.name);
-}
-</code></pre></div>
+  assertEquals('LabelsStartWithT', error.constraint.name);
+}</code></pre>
 
 <div class="footnote">
 <hr />

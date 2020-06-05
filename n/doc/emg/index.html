@@ -1220,33 +1220,32 @@ defined as follows:</p>
 <p>Consider the case of the PetriNet metamodel in the figure below. </p>
 <p><img alt="PetriNet metamodel" src="../images/PetriNetMM.png" /></p>
 <p>The code excerpt displayed below creates a PetriNet and then adds some places and transitions to it. Note that the instances annotation is executable and hence you can use absolute values, variables or expressions. The <code>list</code> annotation in the PetriNet creation will result in all PetriNet instances to be stored in a sequence called <em>net</em>. The list name is then used in the Place and Transition create operations to add the places and transitions to a random (<em>nextFromList</em>) PetriNet. In this example there is only one, but we could easily create more PetriNet instances and hence have them contain random number of Places and Transitions. The name of the elements is generated using the random string generation facilities.</p>
-<div class="highlight"><pre><span></span><code>pre {
+<pre class="prettyprint lang-epl"><code>pre {
     var num_p = 10
 }
 
 $instances 1
 @list net
 operation PetriNet create() {
-    self.name = nextCamelCaseWords(&quot;LETTER_LOWER&quot;, 15, 10);
+    self.name = nextCamelCaseWords("LETTER_LOWER", 15, 10);
 }
 
 $instances num_p
 operation Place create() {
-    self.name = &quot;P_&quot; + nextString(&quot;LETTER_LOWER&quot;, 15);
-    nextFromList(&quot;net&quot;).transitions.add(self);
+    self.name = "P_" + nextString("LETTER_LOWER", 15);
+    nextFromList("net").transitions.add(self);
 }
 
 $instances num_p / 2
 operation Transition create() {
-    self.name = &quot;T_&quot; + nextString(&quot;LETTER_LOWER&quot;, 15);
-    nextFromList(&quot;net&quot;).transitions.add(self);
-}
-</code></pre></div>
+    self.name = "T_" + nextString("LETTER_LOWER", 15);
+    nextFromList("net").transitions.add(self);
+}</code></pre>
 
 <h2 id="creating-model-links">Creating Model Links<a class="headerlink" href="#creating-model-links" title="Permanent link">&para;</a></h2>
 <p>In the previous section, the <em>places</em> and <em>transitions</em> references of the PetriNet were defined during the creation of the Place and Transition elements. For more complex reference patterns, EMG leverages the use of EPL patterns. For example, Arcs can have complex constraints in order to determine the source and target transition/place, and possibly even having separate rules for each type of Arc.</p>
 <p>The EPL pattern in the listing below creates two arcs in order to connect a source and a target Place via a Transition. The pattern matches all transitions in a given PetriNet. The pattern body selects a random Place for the source and a random Place for the target (the while loops are used to pick places that have the lowest incoming/outgoing arcs possible). The weight of the arc is generated randomly from 0 to 10 (<em>nextInt(10)</em>). The pattern has been annotated with the \@probability annotation which will effectively only use 70% of the transitions to create arcs (i.e. of all the possible PetriNet-Transition matches, the code of the pattern will only be executed with a probability of 0.70).</p>
-<div class="highlight"><pre><span></span><code>@probability 0.7
+<pre class="prettyprint lang-epl"><code>@probability 0.7
 pattern Transition
 net:PetriNet,
 tra:Transition
@@ -1279,8 +1278,7 @@ from: net.transitions {
         net.places.add(target);
         net.arcs.add(a2);
     }
-}
-</code></pre></div>
+}</code></pre>
 
 <h2 id="meaningful-strings">Meaningful Strings<a class="headerlink" href="#meaningful-strings" title="Permanent link">&para;</a></h2>
 <p>In some scenarios having completely random Strings for some of the element fields might not be desirable. In this case EMG has an embedded mechanism to facilitate the use of meaningful attribute values (not only for Strings) and we show a second approach based on additional models.</p>

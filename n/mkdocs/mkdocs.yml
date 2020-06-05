@@ -80,7 +80,33 @@ markdown_extensions:
         - name: etl
           class: prettyprint lang-etl
           format: !!python/name:pymdownx.superfences.fence_code_format  
-
+        - name: ecl
+          class: prettyprint lang-ecl
+          format: !!python/name:pymdownx.superfences.fence_code_format  
+        - name: eml
+          class: prettyprint lang-eml
+          format: !!python/name:pymdownx.superfences.fence_code_format  
+        - name: epl
+          class: prettyprint lang-epl
+          format: !!python/name:pymdownx.superfences.fence_code_format  
+        - name: evl
+          class: prettyprint lang-evl
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: mig
+          class: prettyprint lang-mig
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: eunit
+          class: prettyprint lang-eol
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: egx
+          class: prettyprint lang-egx
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: egl
+          class: prettyprint lang-egl
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: emf
+          class: prettyprint lang-emf
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - admonition
   - meta
   - footnotes

@@ -9,7 +9,7 @@ In this section the syntax of EOL is presented in a top-down manner. An EOL prog
 ```eol
 // file imported.eol
 operation hello() {
-'Hello world!'.println();
+  'Hello world!'.println();
 }
 
 // file importer.eol
@@ -75,11 +75,11 @@ operation Integer add2() : Integer {
 add2(add1(1)).println();
 
 operation add1(base : Integer) : Integer {
-    return base + 1;
+  return base + 1;
 }
 
 operation add2(base : Integer) : Integer {
-    return base + 2;
+  return base + 2;
 }
 ```
 
@@ -90,11 +90,11 @@ EOL supports polymorphic operations using a runtime dispatch mechanism. Multiple
 1.test();
 
 operation String test() {
-(self + " is a string").println();
+  (self + " is a string").println();
 }
 
 operation Integer test() {
-(self + "is an integer").println();
+  (self + "is an integer").println();
 }
 ```
 
@@ -131,7 +131,7 @@ A number of `pre` and `post` executable annotations can be attached to EOL opera
 $pre i > 0 
 $post _result > self 
 operation Integer add(i : Integer) : Integer {
-    return self + i;
+  return self + i;
 }
 ```
 
@@ -148,12 +148,12 @@ It is worth noting that caching works `by reference`, which means that all clien
 
 @cached
 operation Integer fibonacci() : Integer {
-    if (self = 1 or self = 0) {
-        return 1;
-    }
-    else {
-        return (self-1).fibonacci() + (self-2).fibonacci();
-    }
+  if (self = 1 or self = 0) {
+    return 1;
+  }
+  else {
+    return (self-1).fibonacci() + (self-2).fibonacci();
+  }
 }
 ```
 
@@ -463,7 +463,7 @@ In terms of concrete syntax, `.` is used as a uniform operator to access a prope
 "Something".println();
 
 operation Any println() : Any {
-    ("Printing : " + self)->println();
+  ("Printing : " + self)->println();
 }
 ```
 
@@ -558,8 +558,8 @@ var i : Integer = 5;
 var c : new Uml!Class;
 //i = "somevalue";
 if (c.isDefined()) {
-    var i : String;
-    i = "somevalue";
+  var i : String;
+  i = "somevalue";
 }
 i = 3;
 ```
@@ -612,20 +612,20 @@ In task-specific languages, an assignment operator with task-specific semantics 
 
 ```etl
 rule Class2Table
-    transform c : OO!Class
-    to t : DB!Table {
-    
-        t.name = c.name;
-    }
+  transform c : OO!Class
+  to t : DB!Table {
+
+    t.name = c.name;
+}
 
 rule Attribute2Column
-    transform a : OO!Attribute
-    to c : DB!Column {
+  transform a : OO!Attribute
+  to c : DB!Column {
     
-        c.name = a.name;
-        //c.owningTable = a.owningClass;
-        c.owningTable ::= a.owningClass;
-    }
+    c.name = a.name;
+    //c.owningTable = a.owningClass;
+    c.owningTable ::= a.owningClass;
+}
 ```
 
 The Class2Table rule transforms a Class of the OO model into a Table in the DB model and sets the name of the table to be the same as the name of the class. Rule Atribute2Column transforms an Attribute from the OO model into a column in the DB model. Except for setting its name (line 12), it also needs to define that the column belongs to the table which corresponds to the class that defines the source attribute. The commented-out assignment statement of line 13 cannot be used for this purpose since it would illegaly attempt to assign the owningTable feature of the column to a model element of an inappropriate type (OO!Class). However, the special assignment operator in the task-specific language implements the semantics discussed in Section [\[sec:Design.ETL.SpecialAssignmentOperator\]](#sec:Design.ETL.SpecialAssignmentOperator){reference-type="ref"reference="sec:Design.ETL.SpecialAssignmentOperator"}, and thus in line 14 it assigns to the owningTable feature not the class that owns the attribute but its corresponding table (calculated using the Class2Table rule) in the DB model.
@@ -636,7 +636,7 @@ As in most programming languages, an if statement consists of a condition, a blo
 
 ```eol
 if (a > 0) {
-    "A is greater than 0".println();
+  "A is greater than 0".println();
 }
 else { "A is less equal than 0".println(); }
 ```
@@ -649,10 +649,10 @@ A switch statement consists of an expression and a set of cases, and can be used
 var i = "2";
 
 switch (i) {
-    case "1" : "1".println(); 
-    case "2" : "2".println();
-    case "3" : "3".println();
-    default : "default".println(); 
+  case "1" : "1".println(); 
+  case "2" : "2".println();
+  case "3" : "3".println();
+  default : "default".println(); 
 }
 ```
 
@@ -660,10 +660,10 @@ switch (i) {
 var i = "2";
 
 switch (i) {
-    case "1" : "1".println(); 
-    case "2" : "2".println(); continue;
-    case "3" : "3".println();
-    default : "default".println(); 
+  case "1" : "1".println(); 
+  case "2" : "2".println(); continue;
+  case "3" : "3".println();
+  default : "default".println(); 
 }
 ```
 
@@ -689,8 +689,8 @@ In EOL, for statements are used to iterate the contents of collections. A for st
 ```eol
 var col : Sequence = Sequence{"a", 1, 2, 2.5, "b"};
 for (r : Real in col) {
-    r.print();
-    if (hasMore){",".print();}
+  r.print();
+  if (hasMore){",".print();}
 }
 ```
 
@@ -702,12 +702,12 @@ To exit from for and while loops on demand, EOL provides the break and breakAll 
 
 ```eol
 for (i in Sequence{1..3}) {
-    if (i = 1) {continue;}
-    for (j in Sequence{1..4}) {
-        if (j = 2) {break;}
-        if (j = 3) {breakAll;}
-        (i + "," + j).println();
-    }
+  if (i = 1) {continue;}
+  for (j in Sequence{1..4}) {
+    if (j = 2) {break;}
+    if (j = 3) {breakAll;}
+    (i + "," + j).println();
+  }
 }
 ```
 
@@ -729,23 +729,23 @@ var system : System.allInstances.first();
 
 for (i in Sequence {1..100}) {
 
-    transaction {
+  transaction {
     
-        var failedProcessors : Set; 
-        
-        while (failedProcessors.size() < 10) {
-            failedProcessors.add(system.processors.random());
-        }
-        
-        for (processor in failedProcessors) {
-            processor.failed = true;
-            processor.moveTasksElsewhere();
-        }
-        
-        system.evaluateAvailability();
-        
-        abort; /`@\label{line:Abort}@`/
+    var failedProcessors : Set; 
+
+    while (failedProcessors.size() < 10) {
+        failedProcessors.add(system.processors.random());
     }
+
+    for (processor in failedProcessors) {
+        processor.failed = true;
+        processor.moveTasksElsewhere();
+    }
+
+    system.evaluateAvailability();
+
+    abort; /`@\label{line:Abort}@`/
+  }
 
 }
 ```
@@ -766,18 +766,18 @@ As the Tree metamodel doesn't support a `depth` property in the Tree metaclass, 
 var depths = new Map;
 
 for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
-    n.setDepth(0);
+  n.setDepth(0);
 }
 
 for (n in Tree.allInstances) {
-    (n.name + " " + depths.get(n)).println();
+  (n.name + " " + depths.get(n)).println();
 }
 
 operation Tree setDepth(depth : Integer) {
-    depths.put(self,depth);
-    for (c in self.children) {
-        c.setDepth(depth + 1);
-		}
+  depths.put(self,depth);
+  for (c in self.children) {
+    c.setDepth(depth + 1);
+  }
 }
 ```
 
@@ -785,18 +785,18 @@ To simplify the code required in such cases, EOL provides the concept of *extend
 
 ```eol
 for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
-    n.setDepth(0);
+  n.setDepth(0);
 }
 
 for (n in Tree.allInstances) {
-    (n.name + " " + n.~depth).println();
+  (n.name + " " + n.~depth).println();
 }
 
 operation Tree setDepth(depth : Integer) {
-    self.~depth = depth;
-    for (c in self.children) {
-        c.setDepth(depth + 1);
-    }
+  self.~depth = depth;
+  for (c in self.children) {
+    c.setDepth(depth + 1);
+  }
 }
 ```
 

@@ -824,15 +824,14 @@
 <p>Below are some frequently-asked questions related to querying and modifying EMF-based models with Epsilon.</p>
 <h2 id="what-is-the-difference-between-containment-and-non-containment-references-in-emf">What is the difference between containment and non-containment references in EMF?<a class="headerlink" href="#what-is-the-difference-between-containment-and-non-containment-references-in-emf" title="Permanent link">&para;</a></h2>
 <p>Briefly, a model element can belong to as most one containment reference at a time. Containment references also demonstrate a cascade-delete behaviour. For example, consider the following Ecore metamodel (captured in Emfatic).</p>
-<div class="highlight"><pre><span></span><code>package cars;
+<pre class="prettyprint lang-emf"><code>package cars;
 
 class Person {
   ref Person[*] friends; //non-containment reference
   val Car[*] cars; // containment reference
 }
 
-class Car { }
-</code></pre></div>
+class Car { }</code></pre>
 
 <p>Now consider the following EOL code which demonstrates the similarities/differences of containment and non-containment references.</p>
 <pre class="prettyprint lang-eol"><code>// Set up a few model elements to play with

@@ -778,7 +778,7 @@
                 
                 <h1 id="eugenia-affixed-nodes-in-gmf">EuGENia: Affixed Nodes in GMF<a class="headerlink" href="#eugenia-affixed-nodes-in-gmf" title="Permanent link">&para;</a></h1>
 <p>From the following annotated Ecore metamodel (in Emfatic)</p>
-<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;components&quot;, prefix=&quot;components&quot;)
+<pre class="prettyprint lang-emf"><code>@namespace(uri="components", prefix="components")
 package components;
 
 @gmf.diagram
@@ -791,25 +791,24 @@ abstract class NamedElement {
    attr String name;
 }
 
-@gmf.node(label=&quot;name&quot;)
+@gmf.node(label="name")
 class Component extends NamedElement {
    @gmf.affixed
    val Port[*] ports;
 }
 
-@gmf.node(figure=&quot;rectangle&quot;, size=&quot;20,20&quot;, label=&quot;name&quot;,
-  label.placement=&quot;external&quot;, label.icon=&quot;false&quot;)
+@gmf.node(figure="rectangle", size="20,20", label="name",
+  label.placement="external", label.icon="false")
 class Port extends NamedElement {
 
 }
 
-@gmf.link(source=&quot;source&quot;, target=&quot;target&quot;, label=&quot;name&quot;,
-  target.decoration=&quot;arrow&quot;)
+@gmf.link(source="source", target="target", label="name",
+  target.decoration="arrow")
 class Connector extends NamedElement {
    ref Port source;
    ref Port target;
-}
-</code></pre></div>
+}</code></pre>
 
 <p>EuGENia can automatically generate this GMF editor:</p>
 <p><img alt="" src="Components.jpg" /></p>

@@ -120,23 +120,23 @@ migrating models from the original to the evolved metamodel.
 
 The Flock migration strategy that implements this design is shown below. Three type mappings constructs (on lines 1-4) are used to control the way in which instances of `Port` are migrated. For example, line 3 specifies that instances of `Port` that are referenced via the `from` feature of a `Connector` are retyped, becoming `InputPort`s. Instances of `Connector` are migrated using the rule on lines 6-9, which specifies the way in which the `from` and `to` features have evolved to form the `in` and `out` features.
 
-```flock
+```mig
 delete Port when: not (original.isInput() xor original.isOutput())
 
 retype Port to InputPort  when: original.isInput()
 retype Port to OutputPort when: original.isOutput()
 
 migrate Connector {
-migrated.`in` = original.from.equivalent();
-migrated.out = original.`to`.equivalent();
+    migrated.`in` = original.from.equivalent();
+    migrated.out = original.`to`.equivalent();
 }
 
 operation Original!Port isInput() : Boolean {
-return Original!Connector.all.exists(c|c.from == self);
+    return Original!Connector.all.exists(c|c.from == self);
 }
 
 operation Original!Port isOutput() : Boolean {
-return Original!Connector.all.exists(c|c.`to` == self);
+    return Original!Connector.all.exists(c|c.`to` == self);
 }
 ```
 

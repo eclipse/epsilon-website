@@ -998,7 +998,7 @@
 <p><img alt="" src="picto-eclipse.png" /></p>
 <h2 id="metamodel">Metamodel<a class="headerlink" href="#metamodel" title="Permanent link">&para;</a></h2>
 <p>We start with the metamodel of our social network DSL expressed in <a href="https://www.eclipse.org/emfatic/">Emfatic</a> (the <code>.ecore</code> version of the metamodel is also provided in the repository). The DSL allows modelling people in a network and likes/dislikes relationships between them.</p>
-<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;socialnetwork&quot;, prefix=&quot;&quot;)
+<pre class="prettyprint lang-emf"><code>@namespace(uri="socialnetwork", prefix="")
 package socialnetwork;
 
 class SocialNetwork {
@@ -1009,8 +1009,7 @@ class Person {
     attr String name;
     ref Person[*] likes;
     ref Person[*] dislikes;
-}
-</code></pre></div>
+}</code></pre>
 
 <h2 id="model">Model<a class="headerlink" href="#model" title="Permanent link">&para;</a></h2>
 <p>Below is a model that conforms to the social network metamodel. The model is defined for convenience in <a href="../flexmi">Flexmi</a>, however Picto also works with XMI-based models (see below).</p>
@@ -1029,20 +1028,20 @@ class Person {
 <p>In line 2 of the model, notice the <code>render-egx</code> processing instruction, which specifies a model-to-text transformation written in EGX/EGL, that Picto should use to visualise this model.</p>
 <h2 id="model-to-text-transformation">Model-to-Text Transformation<a class="headerlink" href="#model-to-text-transformation" title="Permanent link">&para;</a></h2>
 <p>The <code>socialnetwork.egx</code> EGX model-to-text transformation is as follows:</p>
-<div class="highlight"><pre><span></span><code>rule Network2Graphviz 
+<pre class="prettyprint lang-egx"><code>rule Network2Graphviz 
     transform n : socialnetwork::SocialNetwork {
 
-    template : &quot;socialnetwork2graphviz.egl&quot;
+    template : "socialnetwork2graphviz.egl"
 
     parameters : Map{
-        &quot;path&quot; = Sequence{&quot;Social Network&quot;},
-        &quot;icon&quot; = &quot;diagram-ffffff&quot;,
-        &quot;format&quot; = &quot;graphviz-circo&quot;,
-        &quot;layers&quot; = Sequence {
-            Map {&quot;id&quot;=&quot;likes&quot;, &quot;title&quot;=&quot;Likes&quot;, &quot;active&quot;=true},
-            Map {&quot;id&quot;=&quot;dislikes&quot;, &quot;title&quot;=&quot;Dislikes&quot;, &quot;active&quot;=true}
+        "path" = Sequence{"Social Network"},
+        "icon" = "diagram-ffffff",
+        "format" = "graphviz-circo",
+        "layers" = Sequence {
+            Map {"id"="likes", "title"="Likes", "active"=true},
+            Map {"id"="dislikes", "title"="Dislikes", "active"=true}
         },
-        &quot;people&quot; = n.people
+        "people" = n.people
     }
 
 }
@@ -1050,21 +1049,20 @@ class Person {
 rule Person2Graphviz 
     transform p : socialnetwork::Person {
 
-    template : &quot;socialnetwork2graphviz.egl&quot;
+    template : "socialnetwork2graphviz.egl"
 
     parameters : Map{
-        &quot;path&quot; = Sequence{&quot;Social Network&quot;, p.name},
-        &quot;icon&quot; = &quot;diagram-c0c0c0&quot;,
-        &quot;format&quot; = &quot;graphviz-dot&quot;,
-        &quot;layers&quot; = Sequence {
-            Map {&quot;id&quot;=&quot;likes&quot;, &quot;title&quot;=&quot;Likes&quot;, &quot;active&quot;=true},
-            Map {&quot;id&quot;=&quot;dislikes&quot;, &quot;title&quot;=&quot;Dislikes&quot;, &quot;active&quot;=true}
+        "path" = Sequence{"Social Network", p.name},
+        "icon" = "diagram-c0c0c0",
+        "format" = "graphviz-dot",
+        "layers" = Sequence {
+            Map {"id"="likes", "title"="Likes", "active"=true},
+            Map {"id"="dislikes", "title"="Dislikes", "active"=true}
         },
-        &quot;people&quot; = Sequence{p}
+        "people" = Sequence{p}
     }
 
-}   
-</code></pre></div>
+}   </code></pre>
 
 <p>The transformation consists of two rules:</p>
 <ul>
@@ -1079,25 +1077,25 @@ rule Person2Graphviz
 <li><code>layers</code>: A sequence of maps, each of which represents a layer of the view. Each layer needs to define an <code>id</code>, a <code>title</code> and (optionally), whether it is <code>active</code> by default</li>
 </ul>
 <p>The EGL template <code>socialnetwork2graphviz.egl</code> is as follows:</p>
-<div class="highlight"><pre><span></span><code>digraph G {
-    node[shape=rectangle, fontname=Tahoma, fontsize=10, style=&quot;filled&quot;, 
-        gradientangle=&quot;270&quot;, fillcolor=&quot;bisque:floralwhite&quot;]
+<pre class="prettyprint lang-egl"><code>digraph G {
+    node[shape=rectangle, fontname=Tahoma, fontsize=10, style="filled", 
+        gradientangle="270", fillcolor="bisque:floralwhite"]
 
     edge[penwidth=3, style=tapered, arrowhead=none]
 
 [%for (p in people){%]
 
-    [%=p.name%] [%if (people.size()==1){%][fillcolor=&quot;azure2:ghostwhite&quot;][%}%]
+    [%=p.name%] [%if (people.size()==1){%][fillcolor="azure2:ghostwhite"][%}%]
 
-    [%if (isLayerActive(&quot;likes&quot;)){%]
+    [%if (isLayerActive("likes")){%]
         [%for (l in p.likes){%]
-            [%=p.name%] -&gt; [%=l.name%] [color=&quot;#2A6C41&quot;]
+            [%=p.name%] -&gt; [%=l.name%] [color="#2A6C41"]
         [%}%]
     [%}%]
 
-    [%if (isLayerActive(&quot;dislikes&quot;)){%]
+    [%if (isLayerActive("dislikes")){%]
         [%for (l in p.dislikes){%]
-            [%=p.name%] -&gt; [%=l.name%] [color=&quot;#B43431&quot;]
+            [%=p.name%] -&gt; [%=l.name%] [color="#B43431"]
         [%}%]
     [%}%]
 
@@ -1115,8 +1113,7 @@ operation isLayerActive(id : String) {
         return true;
     }
 }
-%]
-</code></pre></div>
+%]</code></pre>
 
 <h2 id="result">Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h2>
 <p>Every time <code>socialnetwork.flexmi</code> is saved, Picto will run the EGX/EGL transformation and display the results in a view that consists of a tree viewer and a browser. For this model, Picto produces 7 diagrams; one for the network as a whole through the application of the <code>Network2Graphviz</code> rule and one for each person in the network through the application of the <code>Person2Graphviz</code> rule. Screenshots of the populated Picto view appear below.</p>
@@ -1130,21 +1127,20 @@ operation isLayerActive(id : String) {
 <p>When targeting Graphviz or PlantUML it is also advisable to keep your generated diagrams relatively small as auto-layout is computationally expensive (particularly routing edges) and rendering your views can take a long time. For example, generating the Graphviz representation of the full UML metamodel class diagram (260+ classes/650+ references) is instantaneous but getting Graphviz's dot program to render it takes hours. In any event, such a diagram would have been unreadable, and hence pointless (see the 20-class/50-references diagram of Ecore.ecore below, which is generated and rendered instantaneously).</p>
 <p><img alt="" src="picto-all-ecore.png" /></p>
 <p>To "protect" your visualisation rules from input that is bound to generate meaningless output you can use guards as shown below.</p>
-<div class="highlight"><pre><span></span><code>rule ClassDiagram {
+<pre class="prettyprint lang-egx"><code>rule ClassDiagram {
 
     guard : EClass.all.size() &lt; 30
 
     parameters : Map {
-        &quot;classes&quot; = EClass.all, 
-        &quot;format&quot; = &quot;graphviz-dot&quot;,
-        &quot;path&quot; = List{&quot;Model&quot;, &quot;(All Classes)&quot;},
-        &quot;icon&quot; = &quot;diagram-ff0000&quot;
+        "classes" = EClass.all, 
+        "format" = "graphviz-dot",
+        "path" = List{"Model", "(All Classes)"},
+        "icon" = "diagram-ff0000"
     }
 
-    template: &quot;ecore2dot.egl&quot;
+    template: "ecore2dot.egl"
 
-}   
-</code></pre></div>
+}   </code></pre>
 
 <p>In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions showcased <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/eclass2dot.egl">here</a>.</p>
 <p><img alt="" src="picto-eclassifier.png" /></p>

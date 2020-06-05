@@ -826,18 +826,17 @@
 </code></pre></div>
 
 <p>More specifically, we will generate one HTML file for each <code>&lt;book&gt;</code> element that has a <code>public</code> attribute set to <code>true</code>. Below is an EGL template (<code>book2page.egl</code>) that can generate an HTML file from a single <code>&lt;book&gt;</code> element. For more details on using EGL's expression language to navigate and query XML documents, please refer to <a href="plain-xml">this article</a>.</p>
-<div class="highlight"><pre><span></span><code>&lt;h1&gt;Book [%=index%]: [%=book.a_title%]&lt;/h1&gt;
+<pre class="prettyprint lang-egl"><code>&lt;h1&gt;Book [%=index%]: [%=book.a_title%]&lt;/h1&gt;
 
 &lt;h2&gt;Authors&lt;/h2&gt;
 &lt;ul&gt;
 [%for (author in book.c_author) { %]
   &lt;li&gt;[%=author.text%]
 [%}%]
-&lt;/ul&gt;
-</code></pre></div>
+&lt;/ul&gt;</code></pre>
 
 <p>The template above can generate one HTML file from one <code>&lt;book&gt;</code> element. To run this template against '''all''' <code>&lt;book&gt;</code> elements anywhere in the XML document, and generate appropriately-named HTML files, we need to use an EGX co-ordination program such as the one illustrated below (<code>main.egx</code>). The <code>Book2Page</code> rule of the EGX program will <code>transform</code> every <code>&lt;book&gt;</code> element (<code>t_book</code>) that satisfies the declared <code>guard</code> (has a <code>public</code> attribute set to <code>true</code>), into a <code>target</code> file, using the specified <code>template</code> (<code>book2page.egl</code>). In addition, the EGX program specifies a <code>Library2Page</code> rule, that generates an HTML (index) file for each <code>&lt;library&gt;</code> element in the document.</p>
-<div class="highlight"><pre><span></span><code>rule Book2Page 
+<pre class="prettyprint lang-egx"><code>rule Book2Page 
   transform book : t_book {
 
   // We only want to generate pages
@@ -849,36 +848,34 @@
     // These parameters will be made available
     // to the invoked template as variables
     var params : new Map;
-    params.put(&quot;index&quot;, t_book.all.indexOf(book) + 1);
+    params.put("index", t_book.all.indexOf(book) + 1);
     return params;
   }
 
   // The EGL template to be invoked
-  template : &quot;book2page.egl&quot;
+  template : "book2page.egl"
 
   // Output file
-  target : &quot;gen/&quot; + book.e_id.text + &quot;.html&quot;
+  target : "gen/" + book.e_id.text + ".html"
 
 }
 
 rule Library2Page 
   transform library : t_library {
 
-  template : &quot;library2page.egl&quot;
+  template : "library2page.egl"
 
-  target : &quot;gen/index.html&quot;
-}
-</code></pre></div>
+  target : "gen/index.html"
+}</code></pre>
 
 <p>For completeness, the source code of the <code>library2page.egl</code> template appears below.</p>
-<div class="highlight"><pre><span></span><code>&lt;h1&gt;Books&lt;/h1&gt;
+<pre class="prettyprint lang-egl"><code>&lt;h1&gt;Books&lt;/h1&gt;
 
 &lt;ul&gt;
 [%for (book in library.c_book.select(b|b.b_public)) { %]
-  &lt;li&gt;&lt;a href=&quot;[%=book.e_id.text%].html&quot;&gt;[%=book.a_title%]&lt;/a&gt;
+  &lt;li&gt;&lt;a href="[%=book.e_id.text%].html"&gt;[%=book.a_title%]&lt;/a&gt;
 [%}%]
-&lt;/ul&gt;
-</code></pre></div>
+&lt;/ul&gt;</code></pre>
 
 <h2 id="running-the-code-generator-from-eclipse">Running the Code Generator from Eclipse<a class="headerlink" href="#running-the-code-generator-from-eclipse" title="Permanent link">&para;</a></h2>
 <p>Screenshots of the Eclipse run configuration appear below. The complete source for this example is available <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.egl.library">here</a>.</p>

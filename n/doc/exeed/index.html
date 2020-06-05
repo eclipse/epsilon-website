@@ -971,22 +971,22 @@
 <p>The images show the tree view of a OO Model with the EMF Reflective Editor (left) and the Exeed Editor (right).</p>
 <p><img alt="EMF Reflective Editor" src="normaltree.png" /><img alt="Exeed Editor" src="exeedtree.png" /></p>
 <p>The following code presents the annotated OO metamodel (in Emfatic) that was used to obtain the Exeed result above (the example is available from the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.exeedoo">examples</a> folder of the Git repository):</p>
-<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;OO&quot;, prefix=&quot;&quot;)
+<pre class="prettyprint lang-emf"><code>@namespace(uri="OO", prefix="")
 package OO;
 
-@exeed(classIcon=&quot;model&quot;)
+@exeed(classIcon="model")
 class Model extends Package {
 }
 
-@exeed(referenceLabel=&quot;
+@exeed(referenceLabel="
 var str : String;
-str = self.closure(pe:PackageableElement|pe.package).collect(p|p.name).invert().concat(&#39;.&#39;);
+str = self.closure(pe:PackageableElement|pe.package).collect(p|p.name).invert().concat('.');
 if (self.package.isDefined()){
-    str = str + &#39;.&#39;;
+    str = str + '.';
 }
 str = str + self.name;
 return str;
-&quot;)
+")
 abstract class PackageableElement extends NamedElement {
    ref Package#contents ~package;
 }
@@ -995,18 +995,18 @@ abstract class AnnotatedElement {
   val Annotation[*] annotations;
 }
 
-@exeed(label=&quot;return self.key + &#39; -&gt; &#39; + self.value;&quot;, classIcon=&quot;annotation&quot;)
+@exeed(label="return self.key + ' -&gt; ' + self.value;", classIcon="annotation")
 class Annotation {
   attr String key;
   attr String value;
 }
 
-@exeed(label=&quot;return self.name;&quot;)
+@exeed(label="return self.name;")
 abstract class NamedElement extends AnnotatedElement {
   attr String name;
 }
 
-@exeed(classIcon=&quot;package&quot;, label=&quot;return self.name;&quot;)
+@exeed(classIcon="package", label="return self.name;")
 class Package extends PackageableElement {
   val PackageableElement[*]#~package contents;
   ref Package[*] uses;
@@ -1016,14 +1016,14 @@ abstract class Classifier extends PackageableElement { }
 
 class ExternalClass extends Class { }
 
-@exeed(classIcon=&quot;class&quot;, label=&quot;
+@exeed(classIcon="class", label="
 var label : String;
 label = self.name;
 if (self.extends.isDefined()){
-    label = label + &#39; extends &#39; + self.extends.name;
+    label = label + ' extends ' + self.extends.name;
 }
 return label;
-&quot;)
+")
 class Class extends Classifier {
   ref Class#extendedBy ~extends;
   ref Class[*]#~extends extendedBy;
@@ -1031,7 +1031,7 @@ class Class extends Classifier {
   attr Boolean isAbstract;
 }
 
-@exeed(classIcon=&quot;datatype&quot;)
+@exeed(classIcon="datatype")
 class Datatype extends Classifier {
 }
 
@@ -1041,58 +1041,58 @@ abstract class Feature extends NamedElement {
   attr VisibilityEnum visibility;
 }
 
-@exeed(label=&quot;
+@exeed(label="
 var label : String;
 label = self.name;
 if (self.type.isDefined()){
     if (self.isMany) {
-        label = label + &#39; [*]&#39;;
+        label = label + ' [*]';
     }
-    label = label + &#39;  : &#39; + self.type.name;
+    label = label + '  : ' + self.type.name;
 }
-return label;&quot;, 
-icon=&quot;
+return label;", 
+icon="
 if (self.visibility = VisibilityEnum#private) {
-    return &#39;private&#39;;
+    return 'private';
 }
 else {
-    return &#39;public&#39;;
+    return 'public';
 }
-&quot;)
+")
 abstract class StructuralFeature extends Feature {
     attr Boolean isMany;
 }
 
-@exeed(label=&quot;
+@exeed(label="
 var label : String;
-label = self.name + &#39; (&#39;;
+label = self.name + ' (';
 for (p in self.parameters) {
     label = label + p.name;
     if (p.type.isDefined()) {
-        label = label + &#39; : &#39; + p.type.name;
+        label = label + ' : ' + p.type.name;
     }
     if (hasMore) {
-        label = label + &#39;, &#39;;
+        label = label + ', ';
     }
 }
-label = label + &#39;)&#39;;
+label = label + ')';
 if (self.type.isDefined()) {
-    label = label + &#39; : &#39; + self.type.name;
+    label = label + ' : ' + self.type.name;
 }
 return label;
-&quot;, classIcon=&quot;operation&quot;)
+", classIcon="operation")
 class Operation extends Feature {
    val Parameter[*]#owner parameters;
 }
 
-@exeed(label=&quot;
+@exeed(label="
 var label : String;
 label = self.name;
 if (self.type.isDefined()){
-    label = label + &#39; : &#39; + self.type.name;
+    label = label + ' : ' + self.type.name;
 }
 return label;
-&quot;, classIcon=&quot;parameter&quot;)
+", classIcon="parameter")
 class Parameter extends NamedElement {
   ref Classifier type;
   ref Operation#parameters owner;
@@ -1106,7 +1106,7 @@ enum VisibilityEnum {
   public = 1;
   private = 2;
 }
-</code></pre></div>
+</code></pre>
 
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <ul>

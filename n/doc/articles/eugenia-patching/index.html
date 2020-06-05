@@ -931,35 +931,34 @@ index d0684d6..f162365 100644
 </li>
 </ul>
 <p>In our running example, we can generalise our <strong>State</strong> patch (above) such that it is applied to any element in our metamodel that has an external label. First, we create a <code>GeneratePatches.egx</code> file that produces a <code>.patch</code> file for every EClass in our ECore file that is annotated with <code>label.placement</code> set to <code>external</code>:</p>
-<div class="highlight"><pre><span></span><code>// Imports the EClass#getLabelPlacement() operation from Eugenia
-import &quot;platform:/plugin/org.eclipse.epsilon.eugenia/transformations/ECoreUtil.eol&quot;;
+<pre class="prettyprint lang-egx"><code>// Imports the EClass#getLabelPlacement() operation from Eugenia
+import "platform:/plugin/org.eclipse.epsilon.eugenia/transformations/ECoreUtil.eol";
 
 rule FixExternalLabelMargins
   // apply this rule to all EClasses where...
   transform c : ECore!EClass
 {
 
-  // ... the EClass is annotated with @gmf.node(label.placement=&quot;external&quot;)
-  guard: c.getLabelPlacement() == &quot;external&quot;
+  // ... the EClass is annotated with @gmf.node(label.placement="external")
+  guard: c.getLabelPlacement() == "external"
 
   // invoke the following EGL template on the EClass
-  template : &quot;FixExternalLabelMargin.egl&quot;
+  template : "FixExternalLabelMargin.egl"
 
   // make the source directory and name of the node available to the template
-  parameters : Map{ &quot;srcDir&quot; = getSourceDirectory(), &quot;node&quot; = c.name }
+  parameters : Map{ "srcDir" = getSourceDirectory(), "node" = c.name }
 
   // and save the generated text to the following .patch file
-  target : &quot;FixExternalLabelMarginsFor&quot; + c.name + &quot;.patch&quot;
+  target : "FixExternalLabelMarginsFor" + c.name + ".patch"
 }
 
 // Determine source directory from GMF Gen model
 @cache
 operation getSourceDirectory() {
   var genEditor = GmfGen!GenEditorGenerator.all.first;
-  return genEditor.pluginDirectory.substring(1) + &quot;/&quot; +
-         genEditor.packageNamePrefix.replace(&quot;\\.&quot;, &quot;/&quot;);
-}
-</code></pre></div>
+  return genEditor.pluginDirectory.substring(1) + "/" +
+         genEditor.packageNamePrefix.replace("\\.", "/");
+}</code></pre>
 
 <p>We'll also need to provide a parameterised version of our <strong>State</strong>
 patch, saving it as an EGL template at <code>FixExternalLabelMargin.egl</code>:</p>

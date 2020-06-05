@@ -39,7 +39,7 @@ The implementation of the PublicField pattern above is fully functional but not 
 
 There are two types of domains in EPL: static domains which are computed once for all applications of the pattern, and which **are not** dependent on the bindings of other roles of the pattern (denoted using the *in* keyword in terms of the concrete syntax), and dynamic domains which are recomputed every time the candidate values of the role are iterated, and which **are** dependent on the bindings of other roles (denoted using the *from* keyword). Beyond a domain, each role can also specify a *guard* expression that further prunes unnecessary evaluations of the match condition. Using dynamic domains and guards, the *PublicField* pattern can be expressed in a more efficient way, as illustrated below. To further illustrate the difference between dynamic and static domains, changing *from* to *in* in line 4 would trigger a runtime exception as the domain would become static and therefore not able to access bindings of other roles (i.e. *class*).
 
-```
+```epl
 pattern PublicField
     class : ClassDeclaration,
     field : FieldDeclaration
@@ -60,7 +60,7 @@ methods. To achieve this we can employ memoisation: we create a hash map
 of method names and methods once before pattern matching (line 2), and use it to identify candidate setters and
 getters (lines 9 and 12-13).
 
-```
+```epl
 pre {
     var methodMap = MethodDeclaration.all.mapBy(m|m.name);
 }

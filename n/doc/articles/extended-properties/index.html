@@ -778,14 +778,13 @@
                 
                 <h1 id="extended-properties">Extended Properties<a class="headerlink" href="#extended-properties" title="Permanent link">&para;</a></h1>
 <p>This article demonstrates the extended properties mechanism in EOL (and by inheritance, in all languages in Epsilon). We present the rationale and semantics of extended properties using the following simple metamodel (in Emfatic):</p>
-<div class="highlight"><pre><span></span><code>package SimpleTree;
+<pre class="prettyprint lang-emf"><code>package SimpleTree;
 
 class Tree {
   attr String name;
   ref Tree#children parent;
   val Tree[*]#parent children;
-}
-</code></pre></div>
+}</code></pre>
 
 <p>Now, what we want to do is to traverse a model that conforms to this metamodel and calculate and print the depth of each Tree in it. We can do this using this simple EOL program:</p>
 <pre class="prettyprint lang-eol"><code>var depths = new Map;

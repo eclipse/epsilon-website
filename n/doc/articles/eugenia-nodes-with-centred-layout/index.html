@@ -780,7 +780,7 @@
 <p>This recipe shows how to create nodes in your GMF editor whose contents are centred both horizontally and vertically. The resulting editor will produce nodes like this:</p>
 <p><img alt="" src="Centred.png" /></p>
 <p>We'll start with the following metamodel and EuGENia annotations:</p>
-<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;www.eclipse.org/epsilon/examples/widgets&quot;, prefix=&quot;w&quot;)
+<pre class="prettyprint lang-emf"><code>@namespace(uri="www.eclipse.org/epsilon/examples/widgets", prefix="w")
 package widgets;
 
 @gmf.diagram
@@ -788,11 +788,10 @@ class System {
    val Widget[*] widgets;
 }
 
-@gmf.node(label=&quot;name&quot;, label.icon=&quot;false&quot;)
+@gmf.node(label="name", label.icon="false")
 class Widget {
    attr String[1] name;
-}
-</code></pre></div>
+}</code></pre>
 
 <p>In this case, we only have one child node (the label for the node). We need to add a polishing transformation to our project (described in more detail in <a href="../eugenia-polishing/">this article</a>) to use a grid layout and specify the appropriate layout data for the label. In a file named ECore2GMF.eol, place the following code:</p>
 <pre class="prettyprint lang-eol"><code>var shape = findShape('WidgetFigure');

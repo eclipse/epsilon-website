@@ -778,33 +778,32 @@
                 
                 <h1 id="co-ordinating-egl-template-execution-with-egx">Co-ordinating EGL template execution with EGX<a class="headerlink" href="#co-ordinating-egl-template-execution-with-egx" title="Permanent link">&para;</a></h1>
 <p>Suppose you're using Epsilon to make a compiler for a domain-specific language (DSL). Specifically, for every Library in the DSL, you want to generate a separate XML file with all of the properties of the Library and its Books. With EGX, you can parameterize your EGL templates to achieve this, like so:</p>
-<div class="highlight"><pre><span></span><code>pre {
-    var outDirLib : String = &quot;../libraries/&quot;;
-    var extension : String = &quot;.xml&quot;;
-    var specialBook : String = &quot;Art of War&quot;;
+<pre class="prettyprint lang-egx"><code>pre {
+    var outDirLib : String = "../libraries/";
+    var extension : String = ".xml";
+    var specialBook : String = "Art of War";
     var bigLibThreshold : Integer = 9000;
 }
 
 rule Libraries transform lib : Library {
     parameters : Map {
-        &quot;library&quot; = lib,
-        &quot;name&quot; = lib.name,
-        &quot;books&quot; = lib.books,
-        &quot;hasSpecialBook&quot; = lib.books.exists(book | book.title == specialBook),
-        &quot;isBigLibrary&quot; = lib.books.size() &gt; bigLibThreshold
+        "library" = lib,
+        "name" = lib.name,
+        "books" = lib.books,
+        "hasSpecialBook" = lib.books.exists(book | book.title == specialBook),
+        "isBigLibrary" = lib.books.size() &gt; bigLibThreshold
     }
-    template: &quot;/path/to/Lib2XML.egl&quot;
+    template: "/path/to/Lib2XML.egl"
     target: outDirLib+lib.name+extension
-}
-</code></pre></div>
+}</code></pre>
 
 <p>In this example, the Lib2XML EGL template will be invoked for every Library instance in the model, and the output will be written to the file specified in the "target". The Lib2XML template will receive all of the parameters put in the "params" variable in the parameters block of the rule. The variable is a mapping from variable name (that the EGL template will use to refer to it) and variable value. For reference, the Lib2XML template is shown below.</p>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
 <p>There is no limit on the number of rules you can declare in an EGX program.</p>
 </div>
-<div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;library id=[%=lib.id%] name=&quot;[%=name%]&quot; isBigLibrary=&quot;[%=isBigLibrary.asString()%]&quot;&gt;
+<pre class="prettyprint lang-egl"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;library id=[%=lib.id%] name="[%=name%]" isBigLibrary="[%=isBigLibrary.asString()%]"&gt;
 [% for (book in books) {%]
     &lt;book&gt;
         &lt;title&gt;[%=book.title%]&lt;/title&gt;
@@ -812,13 +811,12 @@ rule Libraries transform lib : Library {
         &lt;pages&gt;[%=book.pages.asString()%]&lt;/pages&gt;
         &lt;authors&gt;
         [% for (author in book.authors) {%]
-            &lt;author name=&quot;[%=author.name%]&quot;/&gt;
+            &lt;author name="[%=author.name%]"/&gt;
         [%}%]
         &lt;/authors&gt;
     &lt;/book&gt;
 [%}%]
-&lt;/library&gt;
-</code></pre></div>
+&lt;/library&gt;</code></pre>
                 
                   
                 

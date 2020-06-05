@@ -833,12 +833,11 @@
 <p>First we need to create an <code>imagePath</code> attribute that will store the path of the image for each component.</p>
 <h2 id="set-the-figure-of-component-to-a-custom-componentfigure">Set the figure of Component to a custom ComponentFigure<a class="headerlink" href="#set-the-figure-of-component-to-a-custom-componentfigure" title="Permanent link">&para;</a></h2>
 <p>The next step is to set the figure of Component in EuGENia to a custom figure. After those two steps, our definition of Component looks like this:</p>
-<div class="highlight"><pre><span></span><code>@gmf.node(label=&quot;name&quot;, figure=&quot;ccdl.diagram.figures.ComponentFigure&quot;, label.placement=&quot;external&quot;)
+<pre class="prettyprint lang-emf"><code>@gmf.node(label="name", figure="ccdl.diagram.figures.ComponentFigure", label.placement="external")
 class Component {
   attr String name;
   attr String imagePath;
-}
-</code></pre></div>
+}</code></pre>
 
 <p>Once we generate the diagram code, we'll get an error because <code>ComponentFigure</code> has not been found. We need to create the <code>ComponentFigure</code> class and set its code to the following:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
