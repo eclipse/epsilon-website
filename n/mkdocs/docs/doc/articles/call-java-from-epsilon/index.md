@@ -60,4 +60,4 @@ context.getNativeTypeDelegates().
 ```
 
 You can get the source code of this example
-[here](../../../examples/index.php?example=org.eclipse.epsilon.examples.tools).
+[here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.tools).

@@ -94,4 +94,4 @@ The result looks like this:
 ![](Friends.png)
 
 For more details, please check the [full
-example](../../../examples/index.php?example=org.eclipse.epsilon.eugenia.examples.friends).
+example](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.eugenia.examples.friends).

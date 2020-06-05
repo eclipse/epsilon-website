@@ -88,7 +88,7 @@ For completeness, the source code of the `library2page.egl` template appears bel
 ```
  
 ## Running the Code Generator from Eclipse
-Screenshots of the Eclipse run configuration appear below. The complete source for this example is available [here](../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library).
+Screenshots of the Eclipse run configuration appear below. The complete source for this example is available [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.egl.library).
 
 ![](run-configuration.png)
 
@@ -98,7 +98,7 @@ Screenshots of the Eclipse run configuration appear below. The complete source f
  
 ## Running the Code Generator from Java
  
-The following snippet demonstrates using Epsilon's Java API to parse the XML document and execute the EGX program. The complete source for this example is available [here](../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library) (please read `lib/readme.txt` for instructions on how to obtain the missing Epsilon JAR). 
+The following snippet demonstrates using Epsilon's Java API to parse the XML document and execute the EGX program. The complete source for this example is available [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.egl.library) (please read `lib/readme.txt` for instructions on how to obtain the missing Epsilon JAR). 
 
 ```java
 import java.io.File;

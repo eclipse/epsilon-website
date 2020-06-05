@@ -74,10 +74,6 @@ This page contains an index of articles presenting a range of tools and language
 - [Customising Epsilon HUTN documents with configuration](hutn-configuration): This article demonstrates how to customise Epsilon HUTN documents with a configuration model.
 - [Compliance of Epsilon HUTN to the OMG HUTN Standard](hutn-compliance): This article summarises the similarities and differences between the Epsilon HUTN implementation and the OMG HUTN standard.
 
-## Concordance
-
-- [Using Concordance to manage and reconcile cross-model references](concordance-cross-references): This article demonstrates how to use Concordance to automatically maintain the integrity of cross-model references.
-
 ## Teaching Material
 
 - [MDE Exercises](exercises): This article provides a number of exercises which enable you to test your knowledge on MDE, EMF and Epsilon.

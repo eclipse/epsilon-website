@@ -1,7 +1,7 @@
 site_name: Epsilon
 nav:
   - Home: index.md
-  - Download : 'download'
+  - Download : 'download/index.md'
   - Documentation:
     - Overview: 'doc/index.md'
     - Model connectivity: 'doc/emc.md'    
@@ -21,7 +21,7 @@ nav:
         - Flexmi: 'doc/flexmi/index.md'
         - Eugenia: 'doc/eugenia/index.md'
         - Exeed: 'doc/exeed/index.md'
-        - Modelink: 'doc/modelink.md'
+        - Modelink: 'doc/modelink/index.md'
         - HUTN: 'doc/hutn.md'
         - Workflow (Ant tasks): 'doc/workflow.md'
     - Articles: 'doc/articles/index.md'
