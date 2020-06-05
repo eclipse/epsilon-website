@@ -4,7 +4,47 @@ The aim of EPL is to contribute *pattern matching* capabilities to Epsilon. This
 
 The aim of the pattern developed here (which we will call *PublicField*) is to identify quartets of `<ClassDeclaration, FieldDeclaration, MethodDeclaration, MethodDeclaration>`, each representing a field of a Java class for which appropriately named accessor/getter (getX/isX) and mutator/setter (setX) methods are defined by the class.
 
-![](images/Java.png)
+```mermaid
+classDiagram
+class ClassDeclaration {
+    +name: String
+    +bodyDeclarations: BodyDeclaration[*]
+}
+class BodyDeclaration {
+    +name: String
+    +modifiers: Modifier[*]
+}
+class VariableDeclarationFragment {
+    +name: String
+}
+class FieldDeclaration {
+    +fragments: VariableDeclarationFragment[*]
+    +type: TypeAccess
+}
+class MethodDeclaration {
+    +returnType: TypeAccess
+}
+class VariableDeclarationFragment {
+    +name: String
+}
+class Modifier {
+    +visibility: VisibilityKind
+}
+class VisibilityKind {
+    #none
+    #public
+    #protected
+    #private
+}
+ClassDeclaration -- BodyDeclaration: bodyDeclarations *
+BodyDeclaration -- Modifier: modifiers *
+Modifier -- VisibilityKind: visibility
+BodyDeclaration <|-- FieldDeclaration
+MethodDeclaration --|> BodyDeclaration
+FieldDeclaration -- VariableDeclarationFragment: fragments *
+FieldDeclaration -- TypeAccess: type
+MethodDeclaration -- TypeAccess: returnType
+```
 
 ## Syntax
 
@@ -159,7 +199,15 @@ Pattern Matching Output
 
 The output of the execution of an EPL module on a set of models is a collection of matches encapsulated in a *PatternMatchModel*, as illustrated in the figure below. As *PatternMatchModel* implements the *IModel* [EMC](../emc) interface, its instances can be accessed from other programs expressed in languages of the Epsilon family.
 
-![Pattern Matching Output](images/PatternMatchModel.png)
+```mermaid-60
+classDiagram
+class Match {
+    +bindings: Map<String, Object>
+}
+IModel --|> PatternMatchModel
+PatternMatchModel -- Pattern: patterns *
+PatternMatchModel -- Match: matches *
+```
 
 A *PatternMatchModel* introduces one model element type for each pattern and one type for each field of each pattern (the name of these types are derived by concatenating the name of the pattern with a camel-case version of the name of the field). Instances of the prior are the matches of the pattern while instances of the latter are elements that have been matched in this particular role. For example, after executing the EPL module above, the produced *PatternMatchModel* contains 5 types: *PublicField*, instances of which are all the identified matches of the *PublicField* pattern, *PublicFieldClass*, instances of which are all the classes in the input model which have been matched to the *class* role in instances of the *PublicField* pattern, and similarly *PublicFieldField*, *PublicFieldSetter* and *PublicFieldGetter*.
 

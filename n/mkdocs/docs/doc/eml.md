@@ -6,7 +6,39 @@ The aim of EML is to contribute model merging capabilities to Epsilon. More spec
 
 In EML, merging specifications are organized in modules (*EmlModule*). As displayed below, *EmlModule* inherits from *EtlModule*.
 
-![](images/EmlAbstractSyntax.png)
+```mermaid-90
+classDiagram
+class MergeRule {
+    -name: String
+    -abstract: Boolean
+    -lazy: Boolean
+    -primary: Boolean
+    -greedy: Boolean
+    -guard: ExecutableBlock<Boolean>
+    -compare: ExecutableBlock<Boolean>
+    -do: ExecutableBlock<Void>
+}
+class Parameter {
+    -name: String
+    -type: EolType 
+}
+class NamedStatementBlockRule {
+    -name: String
+    -body: StatementBlock
+}
+EolModule <|-- ErlModule
+EtlModule <|-- EmlModule
+Pre --|> NamedStatementBlockRule
+Post --|> NamedStatementBlockRule
+EtlModule <|-- ErlModule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+EmlModule -- MergeRule: rules *
+MergeRule -- Parameter: left
+MergeRule -- Parameter: right
+MergeRule -- Parameter: target
+MergeRule -- MergeRule: extends *
+```
 
 By extending *EtlModule*, an EML module can contain a number of transformation rules and user-defined operations. An EML module can also contain one or more merge rules as well as a set of *pre* and *post* named EOL statement blocks. As usual, *pre* and *post* blocks will be run before and after all rules, respectively.
 
@@ -63,7 +95,19 @@ As with model transformation, in model merging it is often required to resolve t
 
 Similarly to ETL, the order of the results of the *equivalents()* operation respects the order of the (merge or transform) rules that have produced them. An exception to that occurs if one of the rules has been declared as primary, in which case its results are prepended to the list of elements returned by equivalent.
 
-![](images/EmlRuntime.png)
+```mermaid-60
+classDiagram
+class Merge {
+    -left: Object
+    -right: Object
+    -targets: Object[*]
+}
+EtlContext <|-- EmlContext
+EmlContext -- MatchTrace: matchTrace
+MergeTrace -- EmlContext: mergeTrace
+MergeTrace -- Merge: merges *
+Merge -- MergeRule
+```
 
 ## Homogeneous Model Merging Example
 
@@ -190,8 +234,33 @@ and the label of their counterparts in the input models.
 
 Executing the ECL and EML modules on the exemplar models displayed in the following two figures creates the target model of the final figure.
 
-![](images/LeftGraph.png)
+```mermaid-40
+graph LR
+    n1 --> n2
+    n1 --> n3
+    n3 --> n5
+    n2 --> n4
+```
+Left model
 
-![](images/RightGraph.png)
+```mermaid-50
+graph LR
+    n1 --> n8
+    n1 --> n6
+    n8 --> n6
+    n6 --> n3
+```
+Right model
 
-![](images/MergedGraph.png)
+```mermaid-90
+graph LR
+    c_n1 --> g1_n2
+    g1_n2 --> c_n4
+    c_n1 --> g2_n8
+    g2_n8 --> g2_n6
+    c_n1 --> g2_n6
+    c_n1 --> c_n3
+    c_n3 --> g1_n5
+    g2_n6 --> c_n3
+```
+Merged model

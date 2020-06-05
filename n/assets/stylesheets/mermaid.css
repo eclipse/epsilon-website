@@ -1,7 +1,12 @@
 :root {
   --mermaid-text-color: #494949;
-  --mermaid-background-color: #f0f0f0;
+  --mermaid-background-color: #F5F5F5;
   --mermaid-stroke-color: #494949;
+}
+
+g.node rect {
+    fill: var(--mermaid-background-color) !important;
+    stroke: var(--mermaid-stroke-color) !important;
 }
 
 g.classGroup rect {
