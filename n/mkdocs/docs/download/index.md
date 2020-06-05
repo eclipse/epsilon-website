@@ -22,8 +22,8 @@ Alternatively, you can use the following update sites through the `Help->Install
 
 | Site | Location |
 | - | - |
-| Stable | `https://download.eclipse.org/epsilon/updates/`|
-| Interim | `https://download.eclipse.org/epsilon/interim/`|
+| Stable | `http://download.eclipse.org/epsilon/updates/`|
+| Interim | `http://download.eclipse.org/epsilon/interim/`|
 
 ### Archived Update Sites
 
