@@ -1,0 +1,1058 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Epsilon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    
+      
+    
+    
+<!-- FAVICON -->
+
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#using-egl-as-a-server-side-scripting-language-in-tomcat" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Epsilon" class="md-header-nav__button md-logo">
+          
+            <img src="../../../assets/images/epsilonlogo.big.sphere.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Epsilon
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Using EGL as a server-side scripting language in Tomcat
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source" data-md-source="">
+  
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Epsilon" class="md-nav__button md-logo">
+      
+        <img src="../../../assets/images/epsilonlogo.big.sphere.png" width="48" height="48">
+      
+    </a>
+    Epsilon
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source" data-md-source="">
+  
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../download" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../emc/" title="Model connectivity" class="md-nav__link">
+      Model connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Languages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eol/" title="Object language (EOL)" class="md-nav__link">
+      Object language (EOL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../egl/" title="Code generation (EGL)" class="md-nav__link">
+      Code generation (EGL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../evl/" title="Model validation (EVL)" class="md-nav__link">
+      Model validation (EVL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../etl/" title="Model transformation (ETL)" class="md-nav__link">
+      Model transformation (ETL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ecl/" title="Model comparison (ECL)" class="md-nav__link">
+      Model comparison (ECL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eml/" title="Model merging (EML)" class="md-nav__link">
+      Model merging (EML)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../epl/" title="Pattern matching (EPL)" class="md-nav__link">
+      Pattern matching (EPL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../flock/" title="Model Migration (Flock)" class="md-nav__link">
+      Model Migration (Flock)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../emg/" title="Model generation (EMG)" class="md-nav__link">
+      Model generation (EMG)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
+      Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Tools
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../picto/" title="Picto" class="md-nav__link">
+      Picto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../flexmi/" title="Flexmi" class="md-nav__link">
+      Flexmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eugenia/" title="Eugenia" class="md-nav__link">
+      Eugenia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../exeed/" title="Exeed" class="md-nav__link">
+      Exeed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modelink/" title="Modelink" class="md-nav__link">
+      Modelink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hutn/" title="HUTN" class="md-nav__link">
+      HUTN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
+      Workflow (Ant tasks)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
+      Lectures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Javadoc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/2.0/javadoc/" title="Stable" class="md-nav__link">
+      Stable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/interim/javadoc/" title="Interim" class="md-nav__link">
+      Interim
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Community
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Who is using Epsilon?
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Who is using Epsilon?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/" title="Industry" class="md-nav__link">
+      Industry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/education/" title="Education" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/open-source/" title="Open-source projects" class="md-nav__link">
+      Open-source projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
+      Who is developing Epsilon?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
+      Forum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faq/" title="Frequently asked questions" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-hello-world-web-application" class="md-nav__link">
+    Create a Hello World web application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-parameters-from-the-url" class="md-nav__link">
+    Accessing parameters from the URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-built-in-objects" class="md-nav__link">
+    Other built-in objects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    Caching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-emf-models-in-egl-pages" class="md-nav__link">
+    Loading EMF models in EGL pages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-model-manager" class="md-nav__link">
+    The Model Manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sharing-models-between-templates" class="md-nav__link">
+    Sharing models between templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-egl-on-google-app-engine" class="md-nav__link">
+    Running EGL on Google App Engine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-big-models" class="md-nav__link">
+    Working with big models
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="using-egl-as-a-server-side-scripting-language-in-tomcat">Using EGL as a server-side scripting language in Tomcat<a class="headerlink" href="#using-egl-as-a-server-side-scripting-language-in-tomcat" title="Permanent link">&para;</a></h1>
+<p>The original purpose of <a href="../../egl">EGL</a> was to enable batch generation of source code and other textual artefacts from EMF models. However, since there is no hard binding between the language and the file system, it is also possible to use EGL in other contexts.</p>
+<p>In this article, we demonstrate using <a href="../../egl">EGL</a> as a server-side scripting language in Tomcat, to produce web pages from EMF models on the fly.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Download a fresh copy of Tomcat 6.0
+<a href="http://tomcat.apache.org/download-60.cgi">here</a> and extract it</li>
+<li>Download <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/serverside/org.eclipse.epsilon.egl.servlet/egl-servlet-full.zip">egl-servlet-full.zip</a></li>
+<li>Extract all .jar files from the zip into the <code>lib</code> folder of Tomcat</li>
+<li>Open <code>web.xml</code> in the <code>conf</code> directory of Tomcat and add the following
+snippet</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;servlet&gt;</span>
+  <span class="nt">&lt;servlet-name&gt;</span>egl<span class="nt">&lt;/servlet-name&gt;</span>
+  <span class="nt">&lt;servlet-class&gt;</span>
+    org.eclipse.epsilon.egl.servlet.EglServlet
+  <span class="nt">&lt;/servlet-class&gt;</span>
+  <span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
+<span class="nt">&lt;/servlet&gt;</span>
+<span class="nt">&lt;servlet-mapping&gt;</span>
+  <span class="nt">&lt;servlet-name&gt;</span>egl<span class="nt">&lt;/servlet-name&gt;</span>
+  <span class="nt">&lt;url-pattern&gt;</span>*.egl<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/servlet-mapping&gt;</span>
+</code></pre></div>
+
+
+<ul>
+<li>Make sure that there is an environment variable called <code>JRE_HOME</code> and it's pointing to your JRE installation directory (the root, not the <code>bin</code>). In Windows, you can create this variable from System Properties→Advanced→Environment Variables→System Variables→New...</li>
+</ul>
+<h2 id="create-a-hello-world-web-application">Create a Hello World web application<a class="headerlink" href="#create-a-hello-world-web-application" title="Permanent link">&para;</a></h2>
+<p>To create a hello world web application and test your installation, you need to go through the following steps:</p>
+<ul>
+<li>
+<p>Go to the <code>webapps</code> folder and create a new directory named <code>helloworld</code></p>
+</li>
+<li>
+<p>Inside <code>helloworld</code>, create a new file called <code>index.egl</code> and add to it the following code</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>[%=&quot;Hello World&quot;%]
+</code></pre></div>
+
+
+<ul>
+<li>Start Tomcat using <code>bin/startup.bat</code> (or <code>startup.sh</code> in Linux/MacOS)</li>
+<li>Open your browser and go to <a href="http://localhost:8080/helloworld/index.egl">http://localhost:8080/helloworld/index.egl</a></li>
+<li>A web-page with the text <code>Hello World</code> should appear. If not, please make sure you've followed all the steps above and if it still doesn't work, please drop by the forum and we'll be happy to help.</li>
+</ul>
+<h2 id="accessing-parameters-from-the-url">Accessing parameters from the URL<a class="headerlink" href="#accessing-parameters-from-the-url" title="Permanent link">&para;</a></h2>
+<p>To access parameters from the URL (or fields of a submitted form) you can use the <code>request.getParameter('parameter-name')</code> method. For example, by modifying the source code of <code>index.egl</code> to the following</p>
+<div class="codehilite"><pre><span></span><code>[%=&quot;Hello &quot;+request.getParameter(&quot;visitor&quot;)%]
+</code></pre></div>
+
+
+<p>and navigating to <a href="http://localhost:8080/helloworld/index.egl?visitor=John">http://localhost:8080/helloworld/index.egl?visitor=John</a>, you should get a page reading <code>Hello John</code> as a result.</p>
+<h2 id="other-built-in-objects">Other built-in objects<a class="headerlink" href="#other-built-in-objects" title="Permanent link">&para;</a></h2>
+<p>EGL provides the following built-in objects which (should) function
+exactly like they do in JSP</p>
+<ul>
+<li><code>request</code></li>
+<li><code>response</code></li>
+<li><code>config</code></li>
+<li><code>application</code></li>
+<li><code>session</code></li>
+</ul>
+<p>You may want to have a look <a href="http://www.exforsys.com/tutorials/jsp/jsp-implicit-and-session-objects.html">here</a> for a tutorial that explains their functionality.</p>
+<h2 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h2>
+<p>EGL provides the built-in <code>cache</code> object to facilitate two types of caching. Page caching can be used to ensure that repeated requests to the same URL do not result in the execution of EGL templates. Fragment caching can be used to share the text generated by a template between requests for different URLs.</p>
+<p>For example, the following code is used to ensure that repeated requests for pages matching the regular expression <code>index.*</code> are served from the page cache:</p>
+<div class="codehilite"><pre><span></span><code>[% cache.pages(&quot;index.*&quot;); %]
+</code></pre></div>
+
+
+<p>The page cache can be expired programmatically, as shown below, or by restarting the Tomcat server.</p>
+<div class="codehilite"><pre><span></span><code>[% cache.expirePages(&quot;index.*&quot;); %]
+</code></pre></div>
+
+
+<p>In addition to page caching, EGL supports fragment caching which allows the contents of a sub-template to be cached. For example, the following code processes <code>sidebar.egl</code> only the first time that the template is executed:</p>
+<div class="codehilite"><pre><span></span><code>[% var sidebarTemplate = TemplateFactory.load(&quot;Sidebar.egl&quot;); %]
+[%=cache.fragment(sidebarTemplate) %]
+</code></pre></div>
+
+
+<p>Note that the <code>fragment</code> method should be used in a dynamic output section. Like pages, fragments can be expired programmatically (or by restarting the Tomcat server):</p>
+<div class="codehilite"><pre><span></span><code>[% cache.expireFragment(sidebarTemplate); %]
+</code></pre></div>
+
+
+<p>A simple caching strategy is to populate the page and fragment caches from your main EGL templates, and to provide a <code>ClearCache.egl</code> template in a sub-directory that only administrators that can access.</p>
+<h2 id="loading-emf-models-in-egl-pages">Loading EMF models in EGL pages<a class="headerlink" href="#loading-emf-models-in-egl-pages" title="Permanent link">&para;</a></h2>
+<p>The main motivation for turning EGL into a server-side scripting language is its ability to work well with EMF models. EGL provides the <code>modelManager</code> built-in object to let you load EMF models that reside in the web application.</p>
+<p>To experiment with <code>modelManager</code>, download the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/serverside/org.eclipse.epsilon.egl.servlet/Graph.ecore">Graph.ecore</a> and <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/serverside/org.eclipse.epsilon.egl.servlet/Ecore.ecore">Ecore.ecore</a> models and place them in your helloworld directory. Then, change your <code>index.egl</code> to look like this</p>
+<div class="codehilite"><pre><span></span><code>[%
+modelManager.registerMetamodel(&quot;Ecore.ecore&quot;);
+modelManager.loadModel(&quot;Sample&quot;, &quot;Graph.ecore&quot;, &quot;http://www.eclipse.org/emf/2002/Ecore&quot;);
+%]
+
+The metamodel has [%=EClass.all.size()%] classes
+</code></pre></div>
+
+
+<p>Refresh the page in your browser and it should now read:</p>
+<div class="codehilite"><pre><span></span><code>The metamodel has 3 classes
+</code></pre></div>
+
+
+<h2 id="the-model-manager">The Model Manager<a class="headerlink" href="#the-model-manager" title="Permanent link">&para;</a></h2>
+<p>The <code>modelManager</code> built-in object provides the following methods:</p>
+<ul>
+<li><code>registerMetamodel(file : String)</code>: Registers the file (should be an Ecore metamodel) in <code>EPackage.Registry.INSTANCE</code></li>
+<li><code>loadModel(name : String, modelFile : String, metamodelURI : String)</code>: Loads the model stored in <code>modelFile</code> using the registered metamodel <code>metamodelURI</code>.</li>
+<li><code>loadModelByFile(name : String, modelFile : String, metamodelFile : String)</code>: Loads the model stored in <code>modelFile</code> using the metamodel in <code>metamodelFile</code>.</li>
+<li><code>loadModel(name : String, aliases : String, modelFile : String, metamodel : String, expand : Boolean, metamodelIsFilebased : Boolean)</code>: Provides more parameters for loading models.</li>
+<li><code>uncacheModel(modelFile : String)</code>: Removes the <code>modelFile</code> from the cache (next call to <code>loadModel()</code> will actually reload it)</li>
+<li><code>clear()</code>: Clears cached models and metamodels</li>
+</ul>
+<h2 id="sharing-models-between-templates">Sharing models between templates<a class="headerlink" href="#sharing-models-between-templates" title="Permanent link">&para;</a></h2>
+<p>Currently, each model is only loaded once (the first time the <code>loadModel()</code> or <code>loadModelByFile()</code> is called). If multiple pages need to access the same model, add the model loading logic in an operation in a separate <code>models.eol</code> file:</p>
+<div class="codehilite"><pre><span></span><code>operation loadModels() {
+  modelManager.registerMetamodel(&quot;Ecore.ecore&quot;);
+  modelManager.loadModel(&quot;Sample&quot;, &quot;Graph.ecore&quot;, &quot;http://www.eclipse.org/emf/2002/Ecore&quot;);
+}
+</code></pre></div>
+
+
+<p>and then import and call it from each one of your pages:</p>
+<div class="codehilite"><pre><span></span><code>[%
+import &quot;models.eol&quot;;
+loadModels();
+%]
+
+// Page code here
+</code></pre></div>
+
+
+<h2 id="running-egl-on-google-app-engine">Running EGL on Google App Engine<a class="headerlink" href="#running-egl-on-google-app-engine" title="Permanent link">&para;</a></h2>
+<p>By default App Engine will treat EGL files as static content and serve their source code instead of executing them. To work around this, add the following snippet under the root element of the <code>appengine-web.xml</code> configuration file of your App Engine application.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;static-files&gt;</span>
+  <span class="nt">&lt;exclude</span> <span class="na">path=</span><span class="s">&quot;*.egl&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/static-files&gt;</span>
+</code></pre></div>
+
+
+<h2 id="working-with-big-models">Working with big models<a class="headerlink" href="#working-with-big-models" title="Permanent link">&para;</a></h2>
+<p>If you encounter a Java <code>OutOfMemoryError</code> while querying a big model you'll need to start Tomcat with more memory than the default 256 MB. To do this, go to <code>bin/catalina.bat</code> (on Windows -- if you're on Linux you should modify <code>catalina.sh</code> accordingly) and change line</p>
+<div class="codehilite"><pre><span></span><code>set JAVA_OPTS=%JAVA_OPTS% %LOGGING_MANAGER%
+</code></pre></div>
+
+
+<p>to</p>
+<div class="codehilite"><pre><span></span><code>set JAVA_OPTS=%JAVA_OPTS% %LOGGING_MANAGER% -Xms1024m -Xmx1024m -XX:MaxPermSize=128m
+</code></pre></div>
+
+
+<p>If you keep getting out of memory errors, you may find <a href="https://github.com/psi-probe/psi-probe">PSI Probe</a> useful for figuring out what's going wrong.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © Eclipse Foundation, Inc. All Rights Reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+      </div>
+      <div class="md-footer-copyright epsilon-eclipse-links">
+          <ul>
+              <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

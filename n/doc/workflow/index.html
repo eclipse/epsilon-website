@@ -1,0 +1,1622 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Workflow (Ant tasks) - Epsilon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    
+      
+    
+    
+<!-- FAVICON -->
+
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#orchestration-workflow" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Epsilon" class="md-header-nav__button md-logo">
+          
+            <img src="../../assets/images/epsilonlogo.big.sphere.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Epsilon
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Workflow (Ant tasks)
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source" data-md-source="">
+  
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Epsilon" class="md-nav__button md-logo">
+      
+        <img src="../../assets/images/epsilonlogo.big.sphere.png" width="48" height="48">
+      
+    </a>
+    Epsilon
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source" data-md-source="">
+  
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../download" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emc/" title="Model connectivity" class="md-nav__link">
+      Model connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Languages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eol/" title="Object language (EOL)" class="md-nav__link">
+      Object language (EOL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../egl/" title="Code generation (EGL)" class="md-nav__link">
+      Code generation (EGL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../evl/" title="Model validation (EVL)" class="md-nav__link">
+      Model validation (EVL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../etl/" title="Model transformation (ETL)" class="md-nav__link">
+      Model transformation (ETL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ecl/" title="Model comparison (ECL)" class="md-nav__link">
+      Model comparison (ECL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eml/" title="Model merging (EML)" class="md-nav__link">
+      Model merging (EML)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../epl/" title="Pattern matching (EPL)" class="md-nav__link">
+      Pattern matching (EPL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flock/" title="Model Migration (Flock)" class="md-nav__link">
+      Model Migration (Flock)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emg/" title="Model generation (EMG)" class="md-nav__link">
+      Model generation (EMG)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
+      Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Tools
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../picto/" title="Picto" class="md-nav__link">
+      Picto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flexmi/" title="Flexmi" class="md-nav__link">
+      Flexmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eugenia/" title="Eugenia" class="md-nav__link">
+      Eugenia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exeed/" title="Exeed" class="md-nav__link">
+      Exeed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modelink/" title="Modelink" class="md-nav__link">
+      Modelink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hutn/" title="HUTN" class="md-nav__link">
+      HUTN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Workflow (Ant tasks)
+      </label>
+    
+    <a href="./" title="Workflow (Ant tasks)" class="md-nav__link md-nav__link--active">
+      Workflow (Ant tasks)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ant-tool" class="md-nav__link">
+    The ANT Tool
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    Structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concrete-syntax" class="md-nav__link">
+    Concrete Syntax
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-ant" class="md-nav__link">
+    Extending ANT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-challenges" class="md-nav__link">
+    Integration Challenges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framework-design-and-core-tasks" class="md-nav__link">
+    Framework Design and Core Tasks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-epsilontask-task" class="md-nav__link">
+    The EpsilonTask task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-loading-tasks" class="md-nav__link">
+    Model Loading Tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-storing-task" class="md-nav__link">
+    Model Storing Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-disposal-tasks" class="md-nav__link">
+    Model Disposal Tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-starttransaction-task" class="md-nav__link">
+    The StartTransaction Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-committransaction-and-rollbacktransaction-tasks" class="md-nav__link">
+    The CommitTransaction and RollbackTransaction Tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-abstract-executable-module-task" class="md-nav__link">
+    The Abstract Executable Module Task
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0n-model-nested-elements" class="md-nav__link">
+    0..n model nested elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0n-parameter-nested-elements" class="md-nav__link">
+    0..n parameter nested elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0n-exports-nested-elements" class="md-nav__link">
+    0..n exports nested elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0n-uses-nested-elements" class="md-nav__link">
+    0..n uses nested elements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-management-tasks" class="md-nav__link">
+    Model Management Tasks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generic-model-management-task" class="md-nav__link">
+    Generic Model Management Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-validation-task" class="md-nav__link">
+    Model Validation Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-to-model-transformation-task" class="md-nav__link">
+    Model-to-Model Transformation Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-comparison-task" class="md-nav__link">
+    Model Comparison Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-merging-task" class="md-nav__link">
+    Model Merging Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-to-text-transformation-task" class="md-nav__link">
+    Model-to-Text Transformation Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-migration-task" class="md-nav__link">
+    Model Migration Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-matching-task" class="md-nav__link">
+    Pattern Matching Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-class-static-method-execution-task" class="md-nav__link">
+    Java Class Static Method Execution Task
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../articles/" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
+      Lectures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Javadoc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/2.0/javadoc/" title="Stable" class="md-nav__link">
+      Stable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/interim/javadoc/" title="Interim" class="md-nav__link">
+      Interim
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Community
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Who is using Epsilon?
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        Who is using Epsilon?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/" title="Industry" class="md-nav__link">
+      Industry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/education/" title="Education" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/open-source/" title="Open-source projects" class="md-nav__link">
+      Open-source projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
+      Who is developing Epsilon?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
+      Forum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="Frequently asked questions" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ant-tool" class="md-nav__link">
+    The ANT Tool
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    Structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concrete-syntax" class="md-nav__link">
+    Concrete Syntax
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-ant" class="md-nav__link">
+    Extending ANT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-challenges" class="md-nav__link">
+    Integration Challenges
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framework-design-and-core-tasks" class="md-nav__link">
+    Framework Design and Core Tasks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-epsilontask-task" class="md-nav__link">
+    The EpsilonTask task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-loading-tasks" class="md-nav__link">
+    Model Loading Tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-storing-task" class="md-nav__link">
+    Model Storing Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-disposal-tasks" class="md-nav__link">
+    Model Disposal Tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-starttransaction-task" class="md-nav__link">
+    The StartTransaction Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-committransaction-and-rollbacktransaction-tasks" class="md-nav__link">
+    The CommitTransaction and RollbackTransaction Tasks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-abstract-executable-module-task" class="md-nav__link">
+    The Abstract Executable Module Task
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0n-model-nested-elements" class="md-nav__link">
+    0..n model nested elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0n-parameter-nested-elements" class="md-nav__link">
+    0..n parameter nested elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0n-exports-nested-elements" class="md-nav__link">
+    0..n exports nested elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0n-uses-nested-elements" class="md-nav__link">
+    0..n uses nested elements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-management-tasks" class="md-nav__link">
+    Model Management Tasks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generic-model-management-task" class="md-nav__link">
+    Generic Model Management Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-validation-task" class="md-nav__link">
+    Model Validation Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-to-model-transformation-task" class="md-nav__link">
+    Model-to-Model Transformation Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-comparison-task" class="md-nav__link">
+    Model Comparison Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-merging-task" class="md-nav__link">
+    Model Merging Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-to-text-transformation-task" class="md-nav__link">
+    Model-to-Text Transformation Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-migration-task" class="md-nav__link">
+    Model Migration Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-matching-task" class="md-nav__link">
+    Pattern Matching Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-class-static-method-execution-task" class="md-nav__link">
+    Java Class Static Method Execution Task
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="orchestration-workflow">Orchestration Workflow<a class="headerlink" href="#orchestration-workflow" title="Permanent link">&para;</a></h1>
+<p>In practice, model management tasks are seldom carried out in isolation; instead, they are often combined together to form complex workflows. Therefore, of similar importance to the existence of individual task-specific management languages is the provision of a mechanism that enables developers to compose modular and reusable tasks into complex automated processes. In a broader context, to facilitate implementation of seamless workflows, an appropriate MDE workflow mechanism should also support mainstream development tasks such as file management, version control management, source code compilation and invocation of external programs and services.</p>
+<h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
+<p>As a motivating example, an exemplar workflow that consists of both MDE tasks (1-4, 6) and mainstream software development tasks (5, 7) is displayed below.</p>
+<ol>
+<li>
+<p>Load a UML model</p>
+</li>
+<li>
+<p>Validate it</p>
+</li>
+<li>
+<p>Transform it into a Database Schema model</p>
+</li>
+<li>
+<p>Generate Java code from the UML model</p>
+</li>
+<li>
+<p>Compile the Java code</p>
+</li>
+<li>
+<p>Generate SQL code from the Database model</p>
+</li>
+<li>
+<p>Deploy the SQL code in a Database Management System (DBMS)</p>
+</li>
+</ol>
+<p>In the above workflow, if the validation step (2) fails, the entire process should be aborted and the identified errors should be reported to the user. This example demonstrates that to be of practical use, a task orchestration framework needs to be able to coordinate both model management and mainstream development tasks and provide mechanisms for establishing dependencies between different tasks.</p>
+<p>This page discusses such a framework for orchestrating modular model management tasks implemented using languages of the Epsilon platform. As the problem of task coordination is common in software development, many technical solutions have been already proposed and are widely used by software practitioners. In this context, designing a new general-purpose workflow management solution was deemed inappropriate. Therefore, the task orchestration solution discussed here has been designed as an extension to the robust and widely used <a href="https://ant.apache.org">ANT</a> framework. A brief overview of ANT as well as a discussion on the choice to design the orchestration workflow of Epsilon atop it is provided below.</p>
+<h2 id="the-ant-tool">The ANT Tool<a class="headerlink" href="#the-ant-tool" title="Permanent link">&para;</a></h2>
+<p>ANT, named so because it is <em>a little thing that can be used to build big things</em>, is a robust and widely-used framework for composing automated workflows from small reusable activities. The most important advantages of ANT, compared to traditional build tools such as <em>gnumake</em>, is that it is platform independent and easily extensible. Platform independence is achieved by building atop Java, and extensibility is realized through a lightweight binding mechanism that enables developers to contribute custom tasks using well defined interfaces and extension points.</p>
+<p>This section provides a brief discussion of the structure and concrete syntax of ANT workflows, as well as the extensibility mechanisms that ANT provides to enable users contribute custom tasks.</p>
+<h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h3>
+<p>In ANT, each workflow is captured as a <em>project</em>. A simplified illustration of the structure of an ANT project is displayed in the figure below. Each ANT project consists of a number of <em>targets</em>. The one specified as the <em>default</em> is executed automatically when the project is executed. Each <em>target</em> contains a number of <em>tasks</em> and <em>depends</em> on other targets that must be executed before it. An ANT task is responsible for a distinct activity and can either succeed or fail. Exemplar activities implemented by ANT tasks include file system management, compiler invocation, version management and remote artefact deployment.</p>
+<p><img alt="Simplified ANT object model" src="../images/AntCore.png" /></p>
+<h3 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h3>
+<p>In terms of concrete syntax, ANT provides an XML-based syntax. In the lisging below, an exemplar ANT project that compiles a set of Java files is illustrated. The project contains one target (<em>main</em>) which is also set to be the <em>default</em> target. The <em>main</em> target contains one <em>javac</em> task that specifies attributes such as <em>srcdir</em>, <em>destdir</em> and <em>classpath</em>, which define that the Java compiler will compile a set of Java files contained into the <em>src</em> directory into classes that should be placed in the <em>build</em> directory using <em>dependencies.jar</em> as an external library.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;javac</span> <span class="na">srcdir=</span><span class="s">&quot;${src}&quot;</span>
+             <span class="na">destdir=</span><span class="s">&quot;${build}&quot;</span>
+             <span class="na">classpath=</span><span class="s">&quot;dependencies.jar&quot;</span>
+             <span class="na">debug=</span><span class="s">&quot;on&quot;</span>
+             <span class="na">source=</span><span class="s">&quot;1.4&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+
+<h3 id="extending-ant">Extending ANT<a class="headerlink" href="#extending-ant" title="Permanent link">&para;</a></h3>
+<p>Binding between the XML tags that describe the tasks and the actual implementations of the tasks is achieved through a light-weight mechanism at two levels. First, the tag (in the example above, <em>javac</em>) is resolved to a Java class that extends the <em>org.apache.ant.Task</em> abstract class (in the case of <em>javac</em>, the class is <em>org.apache.tools.ant.taskdefs.Javac</em>) via a configuration file. Then, the attributes of the tasks (e.g. <em>srcdir</em>) are set using the reflective features that Java provides. Finally, the <em>execute()</em> method of the task is invoked to perform the actual job.</p>
+<p>ANT also supports more advanced features including nested XML elements and <em>filesets</em>, however providing a complete discussion is beyond the scope of this page.</p>
+<h2 id="integration-challenges">Integration Challenges<a class="headerlink" href="#integration-challenges" title="Permanent link">&para;</a></h2>
+<p>A simple approach to extending ANT with support for model management tasks would be to implement one standalone task for each language in Epsilon. However, such an approach demonstrates a number of integration and performance shortcomings which are discussed below.</p>
+<p>Since models are typically serialized in the file system, before a task is executed, the models it needs to access/modify must be parsed and loaded in memory. In the absence of a more elaborate framework, each model management task would have to take responsibility for loading and storing the models it operates on. Also, in most workflows, more than one task operates on the same models sequentially, and needlessly loading/storing the same models many times in the context of the same workflow is an expensive operation both time and memory-wise, particularly as the size of models increases.</p>
+<p>Another weakness of this primitive approach is limited inter-task communication. In the absence of a communication framework that allows model management tasks to exchange information with each other, it is often the case that many tasks end up performing the same (potentially expensive) queries on models. By contrast, an inter-task communication framework would enable time and resource intensive calculations to be performed once and their results to be communicated to all interested subsequent tasks.</p>
+<p>Having discussed ANT, Epsilon and the challenges their integration poses, the following sections presents the design of a solution that enables developers to invoke model management tasks in the context of ANT workflows. The solution consists of a core framework that addresses the challenges discussed above, a set of specific tasks, each of which implements a distinct model management activity, and a set of tasks that enable developers to initiate and manage transactions on models using the respective facilities provided by Epsilon's <a href="../emc">model connectivity layer</a>.</p>
+<h2 id="framework-design-and-core-tasks">Framework Design and Core Tasks<a class="headerlink" href="#framework-design-and-core-tasks" title="Permanent link">&para;</a></h2>
+<p>The role of the core framework, illustrated below, is to provide model loading and storing facilities as well as runtime communication facilities to the individual model management tasks that build atop it. This section provides a detailed discussion of the components it consists of.</p>
+<p><img alt="image" src="../images/AntEpsilon.png" /></p>
+<p><img alt="Core Models Framework" src="../images/AntEpsilonModels.png" /></p>
+<h3 id="the-epsilontask-task">The EpsilonTask task<a class="headerlink" href="#the-epsilontask-task" title="Permanent link">&para;</a></h3>
+<p>An ANT task can access the project in which it is contained by invoking the <em>Task.getProject()</em> method. To facilitate sharing of arbitrary information between tasks, ANT projects provide two convenience methods, namely <em>addReference(String key, Object ref)</em> and <em>getReference(String key) : Object</em>. The former is used to add key-value pairs, which are then accessible using the latter from other tasks of the project.</p>
+<p>To avoid loading models multiple times and to enable on-the-fly management of models from different Epsilon modules without needing to store and re-load the models after each task, a reference to a project-wide model repository has been added to the current ANT project using the <em>addReference</em> method discussed above. In this way, all the subclasses of the abstract <em>EpsilonTask</em> can invoke the <em>getProjectRepository()</em> method to access the project model repository.</p>
+<p>Also, to support a variable sharing mechanism that enables inter-task communication, the same technique has been employed; a shared context, accessible by all Epsilon tasks via the <em>getProjectContext()</em> method, has been added. Through this mechanism, model management tasks can export variables to the project context (e.g. traces or lists containing results of expensive queries) which other tasks can then reuse.</p>
+<p><em>EpsilonTask</em> also specifies a <em>profile</em> attribute that defines if the execution of the task must be profiled using the profiling features provided by Epsilon. Profiling is a particularly important aspect of workflow execution, especially where model management languages are involved. The main reason is that model management languages tend to provide convenient features which can however be computationally expensive (such as the <em>allInstances()</em> EOL built-in feature that returns all the instances of a specific metaclass in the model) and when used more often than really needed, can significantly degrade the overall performance.</p>
+<p>The workflow leverages the model-transaction services provided by the model connectivity framework of Epsilon by providing three tasks for managing transactions in the context of workflows.</p>
+<h3 id="model-loading-tasks">Model Loading Tasks<a class="headerlink" href="#model-loading-tasks" title="Permanent link">&para;</a></h3>
+<p>The <em>LoadModelTask (epsilon.loadModel)</em> loads a model from an arbitrary location (e.g. file-system, database) and adds it to the project repository so that subsequent Epsilon tasks can query or modify it. Since Epsilon supports many modelling technologies (e.g. EMF, MDR, XML), the <em>LoadModelTask</em> defines only three generic attributes. The <em>name</em> attribute specifies the name of the model in the project repository. The <em>type</em> attribute specifies the modelling technology with which the model is captured and is used to resolve the technology-specific model loading functionality. Finally, the <em>aliases</em> attribute defines a comma-separated list of alternative names by which the model can be accessed in the model repository.</p>
+<p>The rest of the information needed to load a model is implementation-specific and is therefore provided through <em>parameter</em> nested elements, each one defining a pair of <em>name</em>-<em>value</em> attributes. As an example, a task for loading an EMF model that has a file-based ECore metamodel is displayed below.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;modelFile&quot;</span> <span class="na">value=</span><span class="s">&quot;TreeInstance.ecore&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;metamodelFile&quot;</span> <span class="na">path=</span><span class="s">&quot;Tree.ecore&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;isMetamodelFileBased&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;readOnLoad&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/epsilon.loadModel&gt;</span>
+</code></pre></div>
+
+
+<p><em>LoadEmfModelTask</em> is a specialised version of <em>LoadModelTask</em> only for EMF models. While the <em>type</em> attribute is no longer available, the task still supports the <em>name</em> and <em>aliases</em> attributes. In addition, some of the values which had to be provided through <em>parameter</em> nested elements can now be set using regular attributes, such as <em>modelFile</em>, <em>modelUri</em>, <em>metamodelFile</em> (which implicitly indicates that the metamodel is file-based), <em>metamodelUri</em>, <em>reuseUnmodifiedMetamodelFile</em> (which can be set to "false" to avoid reusing file-based metamodels that have not been modified since the last time they were loaded), <em>read</em> (equivalent to <em>readOnLoad</em>) and <em>store</em> (equivalent to <em>storeOnDisposal</em>). The listing below shows the equivalent fragment required to produce the same result as in the listing above.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span>
+  <span class="na">modelFile=</span><span class="s">&quot;TreeInstance.ecore&quot;</span>
+  <span class="na">metamodelFile=</span><span class="s">&quot;Tree.ecore&quot;</span> <span class="nt">/&gt;</span>
+</code></pre></div>
+
+
+<h3 id="model-storing-task">Model Storing Task<a class="headerlink" href="#model-storing-task" title="Permanent link">&para;</a></h3>
+<p>The <em>StoreModelTask (epsilon.storeModel)</em> is used to store a model residing in the project repository. The <em>StoreModelTask</em> defines three attributes:</p>
+<ul>
+<li>
+<p><em>name</em> (required): name of the model to be stored.</p>
+</li>
+<li>
+<p><em>targetUri</em> (optional): URI where the model will be stored (e.g. "file:/path/to/destination").</p>
+</li>
+<li>
+<p><em>target</em> (optional): file path where the model will be stored (e.g. "file.xmi").</p>
+</li>
+</ul>
+<p><em>targetUri</em> takes precedence over <em>target</em>. If neither is defined, then the model is stored in the location from which it was originally loaded.</p>
+<h3 id="model-disposal-tasks">Model Disposal Tasks<a class="headerlink" href="#model-disposal-tasks" title="Permanent link">&para;</a></h3>
+<p>When a model is no longer required by tasks of the workflow, it can be disposed using the <em>epsilon.disposeModel</em> task. The task provides the <em>model</em> attribute that defines the name of the model to be disposed. Also, the attribute-less <em>epsilon.disposeModels</em> task is provided that disposes all the models in the project model repository. This task is typically invoked when the model management part of the workflow has finished.</p>
+<h3 id="the-starttransaction-task">The StartTransaction Task<a class="headerlink" href="#the-starttransaction-task" title="Permanent link">&para;</a></h3>
+<p>The <em>epsilon.startTransaction</em> task defines a <em>name</em> attribute that identifies the transaction. It also optionally defines a comma-separated list of model names (<em>models</em>) that the transaction will manage. If the <em>models</em> attribute is not specified, the transaction involves all the models contained in the common project model repository.</p>
+<h3 id="the-committransaction-and-rollbacktransaction-tasks">The CommitTransaction and RollbackTransaction Tasks<a class="headerlink" href="#the-committransaction-and-rollbacktransaction-tasks" title="Permanent link">&para;</a></h3>
+<p>The <em>epsilon.commitTransaction</em> and <em>epsilon.rollbackTransaction</em> tasks define a <em>name</em> attribute through which the transaction to be committed/rolled-back is located in the project's active transactions. If several active transactions with the same name exist the more recent one is selected.</p>
+<p>The example below demonstrates an exemplar usage of the <em>epsilon.startTransaction</em> and <em>epsilon.rollbackTransaction</em> tasks. In this example, two empty models Tree1 and Tree2 are loaded in lines 1,2. Then, the EOL task of line 4 queries the models and prints the number of instances of the <em>Tree</em> metaclass in each one of them (which is 0 for both). Then, in line 13, a transaction named T1 is started on model Tree1. The EOL task of line 15, creates a new instance of Tree in both Tree1 and Tree2 and prints the number of instances of Tree in the two models (which is 1 for both models). Then, in line 26, the T1 transaction is rolled-back and any changes done in its context to model Tree1 (but not Tree2) are undone. Therefore, the EOL task of line 28, which prints the number of instances of Tree in both models, prints 0 for Tree1 but 1 for Tree2.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/epsilon.loadModel&gt;</span>
+<span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree2&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/epsilon.loadModel&gt;</span>
+
+<span class="nt">&lt;epsilon.eol&gt;</span>
+    <span class="cp">&lt;![CDATA[</span>
+<span class="cp">    Tree1!Tree.allInstances.size().println(); // prints 0 </span>
+<span class="cp">    Tree2!Tree.allInstances.size().println(); // prints 0</span>
+<span class="cp">    ]]&gt;</span>
+    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree2&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/epsilon.eol&gt;</span>
+
+<span class="nt">&lt;epsilon.startTransaction</span> <span class="na">name=</span><span class="s">&quot;T1&quot;</span> <span class="na">models=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;epsilon.eol&gt;</span> 
+    <span class="cp">&lt;![CDATA[</span>
+<span class="cp">    var t1 : new Tree1!Tree; </span>
+<span class="cp">    Tree1!Tree.allInstances.size().println(); // prints 1</span>
+<span class="cp">    var t2 : new Tree2!Tree;</span>
+<span class="cp">    Tree2!Tree.allInstances.size().println(); // prints 1</span>
+<span class="cp">    ]]&gt;</span>
+    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree2&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/epsilon.eol&gt;</span>
+
+<span class="nt">&lt;epsilon.rollbackTransaction</span> <span class="na">name=</span><span class="s">&quot;T1&quot;</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;epsilon.eol&gt;</span>
+    <span class="cp">&lt;![CDATA[</span>
+<span class="cp">    Tree1!Tree.allInstances.size().println(); // prints 0 </span>
+<span class="cp">    Tree2!Tree.allInstances.size().println(); // prints 1 </span>
+<span class="cp">    ]]&gt;</span>
+    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree2&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/epsilon.eol&gt;</span>
+</code></pre></div>
+
+
+<p><img alt="Model Management Tasks" src="../images/Tasks.png" /></p>
+<h3 id="the-abstract-executable-module-task">The Abstract Executable Module Task<a class="headerlink" href="#the-abstract-executable-module-task" title="Permanent link">&para;</a></h3>
+<p>This task is the base of all the model management tasks presented in the following section. Its aim is to encapsulate the commonalities of Epsilon tasks in order to reduce duplication among them. As already discussed, in Epsilon, specifications of model management tasks are organized in executable modules. While modules can be stored anywhere, in the case of the workflow it is assumed that they are either stored as separate files in the file-system or they are provided inline within the worfklow. Thus, this abstract task defines an <em>src</em> attribute that specifies the path of the source file in which the Epsilon module is stored, but also supports inline specification of the source of the module. The two alternatives are demonstrated in the listings below.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;HelloWorld.eol&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;epsilon.eol&gt;</span>
+            <span class="cp">&lt;![CDATA[</span>
+<span class="cp">                &quot;Hello world&quot;.println();</span>
+<span class="cp">            ]]&gt;</span>
+        <span class="nt">&lt;/epsilon.eol&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+
+<p>Optionally, users can enable debugging for the module to be run by setting the <em>debug</em> attribute to <em>true</em>. An example is shown below. If the module reaches a breakpoint, users will be able to run the code step by step and inspect the stack trace and its variables.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;HelloWorld.eol&quot;</span> <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+
+<p>The task also defines the following nested elements:</p>
+<h4 id="0n-model-nested-elements">0..n model nested elements<a class="headerlink" href="#0n-model-nested-elements" title="Permanent link">&para;</a></h4>
+<p>Through the <em>model</em> nested elements, each task can define which of the models, loaded in the project repository it needs to access. Each <em>model</em> element defines three attributes. The <em>ref</em> attribute specifies the name of the model that the task needs to access, the <em>as</em> attribute defines the name by which the model will be accessible in the context of the task, and the <em>aliases</em> defines a comma-delimited sequence of aliases for the model in the context of the task.</p>
+<h4 id="0n-parameter-nested-elements">0..n parameter nested elements<a class="headerlink" href="#0n-parameter-nested-elements" title="Permanent link">&para;</a></h4>
+<p>The <em>parameter</em> nested elements enable users to communicate String parameters to tasks. Each <em>parameter</em> element defines a <em>name</em> and a <em>value</em> attribute. Before executing the module, each <em>parameter</em> element is transformed into a String variable with the respective name and value which is then made accessible to the module.</p>
+<h4 id="0n-exports-nested-elements">0..n exports nested elements<a class="headerlink" href="#0n-exports-nested-elements" title="Permanent link">&para;</a></h4>
+<p>To facilitate low-level integration between different Epsilon tasks, each task can export a number of variables to the project context, so that subsequent tasks can access them later. Each <em>export</em> nested element defines the three attributes. The <em>ref</em> attribute specifies the name of the variable to be exported, the <em>as</em> string attribute defines the name by which the variable is stored in the project context and the <em>optional</em> boolean attribute specifies whether the variable is mandatory. If <em>optional</em> is set to <em>false</em> and the module does not specify such a variable, an ANT <em>BuildException</em> is raised.</p>
+<h4 id="0n-uses-nested-elements">0..n uses nested elements<a class="headerlink" href="#0n-uses-nested-elements" title="Permanent link">&para;</a></h4>
+<p>The <em>uses</em> nested elements enable tasks to import variables exported by previous Epsilon tasks. Each use element supports three attributes. The <em>ref</em> attribute specifies the name of the variable to be used. If there is no variable with this name in the project context, the ANT project properties are queried. This enables Epsilon modules to access ANT parameters (e.g. provided using command-line arguments). The <em>as</em> attribute specifies the name by which the variable is accessible in the context of the task. Finally, the <em>optional</em> boolean paramter specifies if the variable must exist in the project context.</p>
+<p>To better illustrate the runtime communication mechanism, a minimal example is provided below. In  the first listing, <em>Exporter.eol</em> defines a String variable named <em>x</em> and assigns a value to it. The workflow below specifies that after executing <em>Exporter.eol</em>, it must export a variable named <em>x</em> with the new name <em>y</em> to the project context. Finally, it defines that before executing <em>User.eol</em>, it must query the project context for a variable named <em>y</em> and in case this is available, add the variable to the module's context and then execute it. Thus, the result of executing the workflow is <em>Some String</em> printed in the output console.</p>
+<div class="codehilite"><pre><span></span><code>// Exporter.eol
+var x : String = &quot;Some string&quot;;
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code>// User.eol
+z.println();
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;Exporter.eol&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;exports</span> <span class="na">ref=</span><span class="s">&quot;x&quot;</span> <span class="na">as=</span><span class="s">&quot;y&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/epsilon.eol&gt;</span>
+
+<span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;User.eol&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;uses</span> <span class="na">ref=</span><span class="s">&quot;y&quot;</span> <span class="na">as=</span><span class="s">&quot;z&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/epsilon.eol&gt;</span>
+</code></pre></div>
+
+
+<h2 id="model-management-tasks">Model Management Tasks<a class="headerlink" href="#model-management-tasks" title="Permanent link">&para;</a></h2>
+<p>Having discussed the core framework, this section presents the model management tasks that have been implemented atop it, using languages of the Epsilon platform.</p>
+<h3 id="generic-model-management-task">Generic Model Management Task<a class="headerlink" href="#generic-model-management-task" title="Permanent link">&para;</a></h3>
+<p>The <em>epsilon.eol</em> task executes an EOL module, defined using the <em>src</em> attribute on the models that are specified using the <em>model</em> nested elements.</p>
+<h3 id="model-validation-task">Model Validation Task<a class="headerlink" href="#model-validation-task" title="Permanent link">&para;</a></h3>
+<p>The <em>epsilon.evl</em> task executes an EVL module, defined using the <em>src</em> attribute on the models that are specified using the <em>model</em> nested elements. In addition to the attributes defined by the ExecutableModuleTask, this task also provides the following attributes:</p>
+<ul>
+<li>
+<p><em>failOnErrors</em> : Errors are the results of unsatisfied constraints. Setting the value of this attribute to <em>true</em> (default is <em>false</em>) causes a <em>BuildException</em> to be raised if one or more errors are identified during the validation process.</p>
+</li>
+<li>
+<p><em>failOnWarnings</em> : Similarly to errors, warnings are the results of unsatisfied critiques. Setting the value of this atrribute to <em>true</em> (default is also <em>false</em>) causes a <em>BuildException</em> to be raised if one or more warnings are identified during the validation process.</p>
+</li>
+<li>
+<p><em>exportConstraintTrace</em> : This attribute enables developers to export the internal constraint trace constructed during model validation to the project context so that it can be later accessed by other tasks - which could for example attempt to automatically repair the identified inconsistencies.</p>
+</li>
+<li>
+<p><em>exportAsModel</em> : Setting the value of this attribute to <em>true</em> (default is <em>false</em>) causes EVL to export the results of the validation as a new model in the project repository, named "EVL". This model contains all the s found by EVL. These instances contain several useful attributes: <em>constraint</em> points to the with the definition of the constraint and <em>instance</em> points to the model element which did not satisfy the constraint. From the , <em>isCritique</em> can be used to check if it is a critique or not, and <em>name</em> contains the name of the constraint.</p>
+</li>
+</ul>
+<h3 id="model-to-model-transformation-task">Model-to-Model Transformation Task<a class="headerlink" href="#model-to-model-transformation-task" title="Permanent link">&para;</a></h3>
+<p>The <em>epsilon.etl</em> task executes an ETL module, defined using the <em>src</em> attribute to transform between the models that are specified using the <em>model</em> nested elements. In addition to the attributes defined by the ExecutableModuleTask, this task also provides the <em>exportTransformationTrace</em> attribute that enables the developer to export the internal transformation trace to the project context. In this way this trace can be reused by subsequent tasks; for example another task can serialize it in the form of a separate traceability model.</p>
+<h3 id="model-comparison-task">Model Comparison Task<a class="headerlink" href="#model-comparison-task" title="Permanent link">&para;</a></h3>
+<p>The <em>epsilon.ecl</em> task executes an ECL module, defined using the <em>src</em> attribute to establish matches between elements of the models that are specified using the <em>model</em> nested elements. In addition to the attributes defined by the ExecutableModuleTask, this task also provides the <em>exportMatchTrace</em> attribute that enables users to export the match-trace calculated during the comparison to the project context so that subsequent tasks can reuse it. For example, as discussed in the sequel, an EML model merging task can use it as a means of identifying correspondences on which to perform merging. In another example, the match-trace can be stored by a subsequent EOL task in the form of an stand-alone weaving model.</p>
+<h3 id="model-merging-task">Model Merging Task<a class="headerlink" href="#model-merging-task" title="Permanent link">&para;</a></h3>
+<p>The <em>epsilon.eml</em> task executes an EML module, defined using the <em>src</em> attribute on the models that are specified using the <em>model</em> nested elements. In addition to the attributes defined by the ExecutableModuleTask, this task also provides the following attributes:</p>
+<ul>
+<li>
+<p><em>useMatchTrace</em> : To merge a set of models, an EML module needs an established match-trace between elements of the models. The <em>useMatchTrace</em> attribute enables the EML task to use a match-trace exported by a preceeding ECL task (using its <em>exportMatchTrace</em> attribute).</p>
+</li>
+<li>
+<p><em>exportMergeTrace, exportTransformationTrace</em> : Similarly to ETL, through these attributes an EML task can export the internal traces calculated during merging for subsequent tasks to use.</p>
+</li>
+</ul>
+<h3 id="model-to-text-transformation-task">Model-to-Text Transformation Task<a class="headerlink" href="#model-to-text-transformation-task" title="Permanent link">&para;</a></h3>
+<p>To support model to text transformations, <em>EglTask (epsilon.egl)</em> task is provided that executes an Epsilon Generation Language (EGL) module. In addition to the attributes defined by <em>ExecutableModuleTask</em>, <em>EglTask</em> also defines the following attributes:</p>
+<ul>
+<li>
+<p><em>target</em> : Defines a file in which all of the generated text will be stored.</p>
+</li>
+<li>
+<p><em>templateFactoryType</em> : Defines the Java class that will be instantiated to provide a <em>TemplateFactory</em> for the EGL program. The specified class must be on the classpath and must subtype <em>EglTemplateFactory</em>.</p>
+</li>
+</ul>
+<p><em>EglTask</em> may nest any number of <em>formatter</em> elements. The <em>formatter</em> nested element has the following attributes:</p>
+<ul>
+<li><em>implementation</em> (required) : Defines the Java class that will be instantiated to provide a <em>Formatter</em> for the EGL program. The specified class must be on the classpath and must subtype <em>Formatter</em>.</li>
+</ul>
+<h3 id="model-migration-task">Model Migration Task<a class="headerlink" href="#model-migration-task" title="Permanent link">&para;</a></h3>
+<p>To support model migration, <em>FlockTask (epsilon.flock)</em> is provided for executing an Epsilon <a href="../flock">Flock</a> module. In addition to the attributes defined by <em>ExecutableModuleTask</em>, <em>FlockTask</em> also defines the following mandatory attributes:</p>
+<ul>
+<li>
+<p><em>originalModel</em> : Specifies which of the currently loaded models should be used as the source of the model migration.</p>
+</li>
+<li>
+<p><em>migratedModel</em> : Specifies which of the currently loaded models should be used as the target of the model migration.</p>
+</li>
+</ul>
+<h3 id="pattern-matching-task">Pattern Matching Task<a class="headerlink" href="#pattern-matching-task" title="Permanent link">&para;</a></h3>
+<p>The <em>epsilon.epl</em> task executes an EPL module, defined using the <em>src</em> attribute to perform pattern matching on the models that are specified using the <em>model</em> nested elements. In addition to the attributes defined by the ExecutableModuleTask, this task also provides the following attributes.</p>
+<ul>
+<li>
+<p><em>repeatWhileMatches</em>: A boolean specifying whether the pattern matching process should continue to execute for as long as matches are found.</p>
+</li>
+<li>
+<p><em>maxLoops</em>: An integer specifying the maximum number of pattern matching iterations.</p>
+</li>
+<li>
+<p><em>exportAs</em>: The name under which the computed pattern match model should be made available to other Epsilon tasks of the workflow.</p>
+</li>
+</ul>
+<h3 id="java-class-static-method-execution-task">Java Class Static Method Execution Task<a class="headerlink" href="#java-class-static-method-execution-task" title="Permanent link">&para;</a></h3>
+<p>The <em>epsilon.java.executeStaticMethod</em> task executes a parameter-less static method, defined using the <em>method</em> attribute, of a Java class, defined using the <em>javaClass</em> attribute. This task can be useful for setting up the infrastructure of Xtext-based languages.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../hutn/" title="HUTN" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                HUTN
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../articles/" title="Articles" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Articles
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © Eclipse Foundation, Inc. All Rights Reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+      </div>
+      <div class="md-footer-copyright epsilon-eclipse-links">
+          <ul>
+              <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

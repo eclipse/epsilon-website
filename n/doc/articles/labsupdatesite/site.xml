@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.epsilon.{type}.{project}.feature_{version, e.g. 1.1.3.qualifier}.jar" id="org.eclipse.epsilon.{type}.{project}.feature" version="{version}}">
+      <category name="{project_category}"/>
+   </feature>
+   <category-def name="{project_category}" label="{project_category}">
+      <description>
+         {project_category} Drivers/Langauge
+      </description>
+   </category-def>
+</site>

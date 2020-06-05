@@ -1,0 +1,72 @@
+site_name: Epsilon
+nav:
+  - Home: index.md
+  - Download : 'download'
+  - Documentation:
+    - Overview: 'doc/index.md'
+    - Model connectivity: 'doc/emc.md'    
+    - Languages:
+        - Object language (EOL): 'doc/eol.md'
+        - Code generation (EGL): 'doc/egl.md'
+        - Model validation (EVL): 'doc/evl.md'
+        - Model transformation (ETL): 'doc/etl.md'
+        - Model comparison (ECL): 'doc/ecl.md'
+        - Model merging (EML): 'doc/eml.md'
+        - Pattern matching (EPL): 'doc/epl.md'
+        - Model Migration (Flock): 'doc/flock.md'
+        - Model generation (EMG): 'doc/emg.md'
+        - Unit testing (EUnit): 'doc/eunit.md'
+    - Tools:
+        - Picto: 'doc/picto/index.md'
+        - Flexmi: 'doc/flexmi/index.md'
+        - Eugenia: 'doc/eugenia/index.md'
+        - Exeed: 'doc/exeed/index.md'
+        - Modelink: 'doc/modelink.md'
+        - HUTN: 'doc/hutn.md'
+        - Workflow (Ant tasks): 'doc/workflow.md'
+    - Articles: 'doc/articles/index.md'
+    - Screencasts: 'https://www.youtube.com/epsilondevs'
+    - Lectures: 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
+    - Javadoc:
+      - Stable: 'https://download.eclipse.org/epsilon/2.0/javadoc/'
+      - Interim: 'https://download.eclipse.org/epsilon/interim/javadoc/'
+  - Community:
+      - Who is using Epsilon?:
+        - Industry: 'users/index.md'
+        - Education: 'users/education.md'
+        - Open-source projects: 'users/open-source.md'
+      - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
+      - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'
+      - Frequently asked questions: 'faq.md'   
+theme: 
+  name: material
+  custom_dir: custom_theme
+  logo: 'assets/images/epsilonlogo.big.sphere.png'
+  palette:
+    primary: 'black'
+    accent: 'orange'
+repo_name: 'Git repository @ Eclipse'
+repo_url: 'https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/'
+markdown_extensions:
+  - admonition
+  - meta
+  - footnotes
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - toc:
+      permalink: true
+plugins:
+    - search
+    - redirects:
+        redirect_maps:
+            'forum': 'https://www.eclipse.org/forums/index.php/f/22/'
+            'doc/articles/emfatic.md': 'https://www.eclipse.org/emfatic'
+            'doc/articles/eugenia-gmf-tutorial/index.md': 'doc/eugenia/index.md'
+            'doc/articles/flexmi/index.md': 'doc/flexmi/index.md'
+            'doc/articles/picto/index.md': 'doc/picto/index.md'
+            'doc/articles/exeed-reference/index.md': 'doc/exeed/index.md'
+
+copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
+extra_css:
+  - 'assets/stylesheets/extra.css'

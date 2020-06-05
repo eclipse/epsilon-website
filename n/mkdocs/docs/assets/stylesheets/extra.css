@@ -1,0 +1,24 @@
+.md-logo {
+	display: none;
+}
+
+[data-md-color-primary=black] .md-header {
+	background-color: #494949;
+}
+
+.md-header-nav {
+	background-color: #494949;
+}
+
+.epsilon-eclipse-links {
+    display: table;
+}
+
+.epsilon-eclipse-links ul {
+    display: table-row;
+}
+
+.epsilon-eclipse-links li {
+    display: table-cell;
+    padding: 1em;
+}
