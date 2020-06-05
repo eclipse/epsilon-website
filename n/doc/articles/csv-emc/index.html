@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -915,20 +917,19 @@ access has to be done using that type.</p>
 </code></pre></div>
 
 <p>Since there are no headers, we need to access the information via the general <em>field</em> attribute and index (0 based):</p>
-<div class="highlight"><pre><span></span><code>// Get all Rows elements
+<pre class="prettyprint lang-eol"><code>// Get all Rows elements
 var people = Row.all;
 
 // Get a random person
 var p = people.random();
 
 // Check the gender of p (field 4)
-// Prints &#39;Male&#39; or &#39;Female&#39;
+// Prints 'Male' or 'Female'
 p.field.at(4).println();
 
 // Get the emails (field 3) of people that like Horror movies (field 7) so we can let them know a new movie is out.
-// Prints &#39;Sequence {rdwyr0@parallels.com, mmacer2@sogou.com, rsobieski5@usatoday.com, rvarrand@jugem.jp}&#39;
-people.select(p | p.field.at(7) == &#39;Horror&#39;).collect(p | p.field.at(3)).println();
-</code></pre></div>
+// Prints 'Sequence {rdwyr0@parallels.com, mmacer2@sogou.com, rsobieski5@usatoday.com, rvarrand@jugem.jp}'
+people.select(p | p.field.at(7) == 'Horror').collect(p | p.field.at(3)).println();</code></pre>
 
 <h3 id="header-full-csv-model">Header-full CSV Model<a class="headerlink" href="#header-full-csv-model" title="Permanent link">&para;</a></h3>
 <p>Consider that we add headers to the previous CSV model (<code>Headers.csv</code>)</p>
@@ -939,32 +940,31 @@ people.select(p | p.field.at(7) == &#39;Horror&#39;).collect(p | p.field.at(3)).
 </code></pre></div>
 
 <p>We can query the same information as before, but this time we can use the field names defined by the header:</p>
-<div class="highlight"><pre><span></span><code>// Get all Rows elements
+<pre class="prettyprint lang-eol"><code>// Get all Rows elements
 var people = Row.all;
 
 // Get a random person
 var p = people.random();
 
 // Check the gender of p
-// Prints &#39;Male&#39; or &#39;Female&#39;
+// Prints 'Male' or 'Female'
 p.gender.println();
 
 // Get the emails of people that like Horror movies so we can let them know a new movie is out.
-// Prints &#39;Sequence {rdwyr0@parallels.com, mmacer2@sogou.com, rsobieski5@usatoday.com, rvarrand@jugem.jp}&#39;
-people.select(p | p.movies == &#39;Horror&#39;).collect(p | p.email).println();
+// Prints 'Sequence {rdwyr0@parallels.com, mmacer2@sogou.com, rsobieski5@usatoday.com, rvarrand@jugem.jp}'
+people.select(p | p.movies == 'Horror').collect(p | p.email).println();
 
 // Get all males and females that like Thrillers and set up dates
 // Prints
 //    Olvan and Cosetta is a match made in heaven!
 //    Olvan and Lissa is a match made in heaven!
-var mt = people.select(p | p.movies == &#39;Thriller&#39; and p.gender == &#39;Male&#39;);
-var ft = people.select(p | p.movies == &#39;Thriller&#39; and p.gender == &#39;Female&#39;);
+var mt = people.select(p | p.movies == 'Thriller' and p.gender == 'Male');
+var ft = people.select(p | p.movies == 'Thriller' and p.gender == 'Female');
 for (m in mt) {
   for (f in ft) {
-    (m.first_name + &quot; and &quot; + f.first_name + &quot; is a match made in heaven!&quot;).println();
+    (m.first_name + " and " + f.first_name + " is a match made in heaven!").println();
   }
-}
-</code></pre></div>
+}</code></pre>
 
 <h3 id="header-full-with-varargs-csv-model">Header-full with Varargs CSV Model<a class="headerlink" href="#header-full-with-varargs-csv-model" title="Permanent link">&para;</a></h3>
 <p>Last, we have a CSV model with some vararg information, is the same as before, but in this case persons are allowed to have multiple movies. We have also added a <code>quote</code> field that shows the <em>quote character</em> in action.</p>
@@ -991,34 +991,33 @@ for (m in mt) {
 101-82-2564,Hew,Goble,hgoblej@ocn.ne.jp,Male,VP Accounting,,Etiam pretium iaculis justo.,Comedy
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>// Get all Rows elements
+<pre class="prettyprint lang-eol"><code>// Get all Rows elements
 var people = Row.all;
 
 // Random thoughts
 for (p in people) {
-  if (p.gender == &quot;Female&quot; and p.movies.includes(&quot;Thriller&quot;)) {
-    (p.first_name + &quot; screams &#39;&quot; + p.quote + &quot;&#39; when watching a Thriller. She is afraid of being a &quot; + p.job + &quot;.&quot;).println();
+  if (p.gender == "Female" and p.movies.includes("Thriller")) {
+    (p.first_name + " screams '" + p.quote + "' when watching a Thriller. She is afraid of being a " + p.job + ".").println();
   }
-  else if (p.gender == &quot;Male&quot; and p.movies.includes(&quot;Drama&quot;)) {
-    (p.first_name + &quot; sighs, but blames &#39;&quot; + p.quote + &quot;&#39; for the tear in his eye. Being a &quot; + p.job + &quot; will never be the same.&quot;).println();
+  else if (p.gender == "Male" and p.movies.includes("Drama")) {
+    (p.first_name + " sighs, but blames '" + p.quote + "' for the tear in his eye. Being a " + p.job + " will never be the same.").println();
   }
 }
 
 // Output
-//Norry screams &#39;Aenean sit amet justo. Morbi ut odio.&#39; when watching a Thriller. She is afraid of being a Legal Assistant.
-//Link sighs, but blames &#39;Suspendisse accumsan tortor quis turpis. Sed ante.&#39; for the tear in his eye. Being a Paralegal will never be the same.
-//Tull sighs, but blames &#39;Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.&#39; for the tear in his eye. Being a VP Quality Control will never be the same.
-//Derry sighs, but blames &#39;Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.&#39; for the tear in his eye. Being a Software Test Engineer I will never be the same.
-//Cosetta screams &#39;In hac habitasse platea dictumst.&#39; when watching a Thriller. She is afraid of being a Nurse Practicioner.
-//Lissa screams &#39;Pellentesque at nulla.&#39; when watching a Thriller. She is afraid of being a Analyst Programmer.
-//Nickolas sighs, but blames &#39;Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.&#39; for the tear in his eye. Being a Web Designer IV will never be the same.
-//Mattie sighs, but blames &#39;Duis at velit eu est congue elementum. In hac habitasse platea dictumst.&#39; for the tear in his eye. Being a Structural Engineer will never be the same.
-</code></pre></div>
+//Norry screams 'Aenean sit amet justo. Morbi ut odio.' when watching a Thriller. She is afraid of being a Legal Assistant.
+//Link sighs, but blames 'Suspendisse accumsan tortor quis turpis. Sed ante.' for the tear in his eye. Being a Paralegal will never be the same.
+//Tull sighs, but blames 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.' for the tear in his eye. Being a VP Quality Control will never be the same.
+//Derry sighs, but blames 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.' for the tear in his eye. Being a Software Test Engineer I will never be the same.
+//Cosetta screams 'In hac habitasse platea dictumst.' when watching a Thriller. She is afraid of being a Nurse Practicioner.
+//Lissa screams 'Pellentesque at nulla.' when watching a Thriller. She is afraid of being a Analyst Programmer.
+//Nickolas sighs, but blames 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.' for the tear in his eye. Being a Web Designer IV will never be the same.
+//Mattie sighs, but blames 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst.' for the tear in his eye. Being a Structural Engineer will never be the same.</code></pre>
 
 <h2 id="queryingmodifying-csv-documents-in-eol">Querying/modifying CSV documents in EOL<a class="headerlink" href="#queryingmodifying-csv-documents-in-eol" title="Permanent link">&para;</a></h2>
 <p>The CSV driver support direct query and modification of attribute
 values:</p>
-<div class="highlight"><pre><span></span><code>// Get all Rows elements
+<pre class="prettyprint lang-eol"><code>// Get all Rows elements
 var people = Row.all;
 
 // Get a random person
@@ -1026,23 +1025,21 @@ var p = people.random();
 p.name.println();
 
 // Change the name
-p.name = &quot;Maria Antonieta&quot;
-p.name.println();
-</code></pre></div>
+p.name = "Maria Antonieta"
+p.name.println();</code></pre>
 
 <h3 id="how-do-i-create-an-element">How do I create an element?<a class="headerlink" href="#how-do-i-create-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>new</code> operator for this, and remember that all CSV elements are rows! New Rows will be added at the end of the file when persisting the changes.</p>
-<div class="highlight"><pre><span></span><code>// Check how many entries are in the model
-// Prints &#39;20&#39;
+<pre class="prettyprint lang-eol"><code>// Check how many entries are in the model
+// Prints '20'
 Row.all.size().println();
 
 // Creates a new book element
 var b = new Row;
 
 // Check again
-// Prints &#39;21&#39;
-Row.all.size().println();
-</code></pre></div>
+// Prints '21'
+Row.all.size().println();</code></pre>
 
 <h2 id="loading-an-csv-document-in-your-ant-buildfile">Loading an CSV document in your ANT buildfile<a class="headerlink" href="#loading-an-csv-document-in-your-ant-buildfile" title="Permanent link">&para;</a></h2>
 <p>The following ANT build file demonstrates how you can use ANT to load/store and process CSV documents with Epsilon.</p>
@@ -1129,6 +1126,16 @@ Row.all.size().println();
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

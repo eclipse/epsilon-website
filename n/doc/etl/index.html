@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -1112,7 +1114,7 @@ Edge -- Node</div>
 <p>More specifically, we need to transform each <code>Tree</code> element to a <code>Node</code>, and
 an <code>Edge</code> that connects it with the <code>Node</code> that is equivalent to the
 tree's <code>parent</code>. This is achieved using the rule below.</p>
-<div class="highlight"><pre><span></span><code>rule Tree2Node
+<pre class="prettyprint lang-etl"><code>rule Tree2Node
     transform t : Tree!Tree
     to n : Graph!Node {
 
@@ -1123,8 +1125,7 @@ tree's <code>parent</code>. This is achieved using the rule below.</p>
         edge.source = n;
         edge.target = t.parent.equivalent();
     }
-}
-</code></pre></div>
+}</code></pre>
 
 <p>In lines 1--3, the <code>Tree2Node</code> rule specifies that
 it can transform elements of the <code>Tree</code> type in the <code>Tree</code> model into
@@ -1165,12 +1166,12 @@ that uses the user-input facilities of EOL (more specifically the
 <code>UserInput.confirm(String,Boolean)</code> operation) to enable the user select
 manually at runtime which of the Tree elements need to be transformed to
 respective Node elements in the target model and which not.</p>
-<div class="highlight"><pre><span></span><code>rule Tree2Node
+<pre class="prettyprint lang-etl"><code>rule Tree2Node
     transform t : Tree!Tree
     to n : Graph!Node {
 
     guard : UserInput.confirm
-        (&quot;Transform tree &quot; + t.label + &quot;?&quot;, true)
+        ("Transform tree " + t.label + "?", true)
 
     n.label = t.label;
     var target : Graph!Node ::= t.parent;
@@ -1179,8 +1180,7 @@ respective Node elements in the target model and which not.</p>
         edge.source = n;
         edge.target = target;
     }
-}
-</code></pre></div>
+}</code></pre>
 
 <div class="footnote">
 <hr />
@@ -1276,6 +1276,16 @@ respective Node elements in the target model and which not.</p>
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

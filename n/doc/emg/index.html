@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -1285,24 +1287,22 @@ from: net.transitions {
 <h3 id="values-as-a-parameter">Values as a parameter<a class="headerlink" href="#values-as-a-parameter" title="Permanent link">&para;</a></h3>
 <p>The <em>nextFromList()</em> operation will first look for a list with that name, if it can't find it will look for a parameter (from the run configuration) with that name. The value of the parameter can be either an absolute path to a file or a comma separated list of values.</p>
 <p>If it is a comma separated list of values, then the individual values will be loaded as a Collection. For example, if we added the parameter <code>names: John, Rose, Juan, Xiang, Joe</code> to the run configuration, the listing below shows how to use that information to define the instance attributes.</p>
-<div class="highlight"><pre><span></span><code>$instances num_p
+<pre class="prettyprint lang-eol"><code>$instances num_p
 operation Place create() {
-    self.name = nextFromList(&quot;name&quot;);
-    nextFromList(&quot;net&quot;).transitions.add(self);
-}
-</code></pre></div>
+    self.name = nextFromList("name");
+    nextFromList("net").transitions.add(self);
+}</code></pre>
 
 <p>If it is a file path, then each line of the file will be loaded as an item to the Collection. Note that the distinction between paths and comma separated values is the assumption that paths don't contain commas.</p>
 <h3 id="values-as-a-model">Values as a model<a class="headerlink" href="#values-as-a-model" title="Permanent link">&para;</a></h3>
 <p>A more powerful approach would be to use an existing model to serve as the source for attribute values. Given that there are several websites<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> to generate random data in the form of CSV files, we recommend the use of a CSV model to serve as an attribute value source. A CSV file with <em>name</em>, <em>lastName</em>, and <em>email</em> can be easily generated and loaded as a second model the the EMG script. Then, a Row of data can be picked randomly to set an element's attributes. The listing below shows this approach.</p>
-<div class="highlight"><pre><span></span><code>$instances num_p
+<pre class="prettyprint lang-eol"><code>$instances num_p
 operation Person create() {
     var p = nextFromCollection(dataModel.Row.all());
     self.name = p.name;
     self.lastName = p.lastName;
     self.email = p.email;
-}
-</code></pre></div>
+}</code></pre>
 
 <p>Note that in this case, by using different rows for each value you can further randomize the data.</p>
 <div class="footnote">
@@ -1400,6 +1400,16 @@ www.freedatagenerator.com/, etc.&#160;<a class="footnote-backref" href="#fnref:1
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

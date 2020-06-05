@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -833,14 +835,14 @@ class Car { }
 </code></pre></div>
 
 <p>Now consider the following EOL code which demonstrates the similarities/differences of containment and non-containment references.</p>
-<div class="highlight"><pre><span></span><code>// Set up a few model elements to play with
+<pre class="prettyprint lang-eol"><code>// Set up a few model elements to play with
 var c1 = new Car;
 var c2 = new Car;
 var p1 = new Person;
 var p2 = new Person;
 var p3 = new Person;
 
-// p1&#39;s car is c1 and p2&#39;s car is c2
+// p1's car is c1 and p2's car is c2
 p1.cars.add(c1);
 p2.cars.add(c2);
 
@@ -851,7 +853,7 @@ p2.friends.add(p3);
 p1.friends.println(); // prints {p3}
 p2.friends.println(); // prints {p3}
 
-//add c2 to p1&#39;s cars
+//add c2 to p1's cars
 p1.cars.add(c2);
 p1.cars.println(); // prints {c1, c2}
 
@@ -873,8 +875,7 @@ Person.all.println(); // prints {p2, p3}
 // were also deleted from the model. Note how the friends of p1 (p2 and p3)
 // were not deleted from the model, since they were referenced through a 
 // non-containment reference (friends)
-Car.all.println();
-</code></pre></div>
+Car.all.println();</code></pre>
 
 <h2 id="how-can-i-get-all-children-of-a-model-element">How can I get all children of a model element?<a class="headerlink" href="#how-can-i-get-all-children-of-a-model-element" title="Permanent link">&para;</a></h2>
 <p>Epsilon does not provide a built-in method for this but you can use EObject's <code>eContents()</code> method if you're working with EMF. To get all descendants of an element, something like the following should do the trick: <code>o.asSequence().closure(x | x.eContents())</code>. See <a href="https://www.eclipse.org/forums/index.php/t/855628/">https://www.eclipse.org/forums/index.php/t/855628/</a> for more details.</p>
@@ -937,6 +938,16 @@ Car.all.println();
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

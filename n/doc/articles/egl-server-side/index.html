@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -964,11 +966,10 @@ The metamodel has [%=EClass.all.size()%] classes
 </ul>
 <h2 id="sharing-models-between-templates">Sharing models between templates<a class="headerlink" href="#sharing-models-between-templates" title="Permanent link">&para;</a></h2>
 <p>Currently, each model is only loaded once (the first time the <code>loadModel()</code> or <code>loadModelByFile()</code> is called). If multiple pages need to access the same model, add the model loading logic in an operation in a separate <code>models.eol</code> file:</p>
-<div class="highlight"><pre><span></span><code>operation loadModels() {
-  modelManager.registerMetamodel(&quot;Ecore.ecore&quot;);
-  modelManager.loadModel(&quot;Sample&quot;, &quot;Graph.ecore&quot;, &quot;http://www.eclipse.org/emf/2002/Ecore&quot;);
-}
-</code></pre></div>
+<pre class="prettyprint lang-eol"><code>operation loadModels() {
+  modelManager.registerMetamodel("Ecore.ecore");
+  modelManager.loadModel("Sample", "Graph.ecore", "http://www.eclipse.org/emf/2002/Ecore");
+}</code></pre>
 
 <p>and then import and call it from each one of your pages:</p>
 <div class="highlight"><pre><span></span><code>[%
@@ -1049,6 +1050,16 @@ loadModels();
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

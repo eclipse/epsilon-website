@@ -6,7 +6,7 @@ The primary aim of EOL is to provide a reusable set of common model management f
 
 In this section the syntax of EOL is presented in a top-down manner. An EOL programs are organized in `modules`. Each module defines a `body` and a number of `operations`. The body is a block of statements that are evaluated when the module is executed[^1]. Each operation defines the kind of objects on which it is applicable (`context`), a `name`, a set of `parameters` and optionally a `return type`. Modules can also import other modules using `import` statements and access their operations, as shown in the listing below.
 
-```
+```eol
 // file imported.eol
 operation hello() {
 'Hello world!'.println();
@@ -63,11 +63,11 @@ For eample, consider the code excerts displayed in the listings below. In the fi
 1.add1().add2().println();
 
 operation Integer add1() : Integer {
-return self + 1;
+  return self + 1;
 }
 
 operation Integer add2() : Integer {
-return self + 2;
+  return self + 2;
 }
 ```
 
@@ -85,7 +85,7 @@ operation add2(base : Integer) : Integer {
 
 EOL supports polymorphic operations using a runtime dispatch mechanism. Multiple operations with the same name and parameters can be defined, each defining a distinct context type. For example, in the listing below, the statement in line 1 invokes the test operation defined in line 4, while the statement in line 2 invokes the test operation defined in line 8.
 
-```
+```eol
 "1".test();
 1.test();
 
@@ -102,7 +102,7 @@ operation Integer test() {
 
 EOL supports two types of annotations: simple and executable. A simple annotation specifies a name and a set of String values while an executable annotation specifies a name and an expression. The concrete syntaxes of simple and executable annotations are displayed in the listing below.
 
-``` 
+```eol
 // Simple annotation
 @name value(,value)
 
@@ -143,7 +143,7 @@ EOL supports caching the results of parameter-less operations using the `@cached
 
 It is worth noting that caching works `by reference`, which means that all clients of a cached method for a given context will receive the same returned object. As such, if the first client modifies the returned object in some way (e.g. sets a property in the case of an object or adds an element in the case of the collection), subsequent clients of the method for the same context will receive the modified object/collection.
 
-```
+```eol
 15.fibonacci().println();
 
 @cached
@@ -459,7 +459,7 @@ expressions](images/EOLExpressions.png
 
 In terms of concrete syntax, `.` is used as a uniform operator to access a property of an object and to invoke an operation on it. The `->` operator, which is used in OCL to invoke first-order logic operations on sets, has been also preserved for syntax compatibility reasons. In EOL, every operation can be invoked both using the `.` or the `->` operators, with a slightly different semantics to enable overriding the built-in operations. If the `.` operator is used, precedence is given to the user-defined operations, otherwise precedence is given to the built-in operations. For instance, the Any type defines a println() method that prints the string representation of an object to the standard output stream. In the listing below, the user has defined another parameterless println() operation in the context of Any. Therefore the call to `println()` in line 1 will be dispatched to the user-defined `println()` operation defined in line 3. In its body the operation uses the `->` operator to invoke the built-in `println()` operation (line 4).
 
-```
+```eol
 "Something".println();
 
 operation Any println() : Any {
@@ -469,7 +469,7 @@ operation Any println() : Any {
 
 It should be noted that due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. The backtick operator is used to circumvent this. For example, if a model element contains a feature called "operation", then this can be navigated as shown in the listing below.
 
-```
+```eol
 var op = modelElement.`operation`;
 ```
 
@@ -523,7 +523,7 @@ false|false|true
 
 As of 1.6, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this[^5]. Note that is also possible to use the `else` keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.
 
-```
+```eol
 var result = 2+2==4 ? "Yes" : "No";
 return ((result == "Yes" ? 1 : 0) ` 2 == 2).mod(2) == 0;
 ```
@@ -553,7 +553,7 @@ The scope of variables in EOL is generally limited to the block of statements wh
 
 In the listing below, an example of declaring and using variables is provided. Line 1 defines a variable named `i` of type `Integer` and assigns it an initial value of `5`. Line 2 defines a variable named `c` of type `Class` (from model Uml) and creates a new instance of the type in the model (by using the `new` keyword). The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a `String` value to an `Integer` variable. The condition of line 4 returns true since the `c` variable has been initialized before. Line 5 defines a new variable also named `i` that is of type `String` and which overrides the `Integer` variable declared in line 1. Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String. Finally, as the program has exited the scope of the `if` statement, the assignment statement of line 7 is also legitimate as it refers to the `i` variable defined in line 1.
 
-```
+```eol
 var i : Integer = 5;
 var c : new Uml!Class;
 //i = "somevalue";
@@ -572,7 +572,7 @@ The assignment statement is used to update the values of variables and propertie
 
 When the left hand side of an assignment statement is a variable, the value of the variable is updated to the object to which the right hand side evaluates to. If the type of the right hand side is not compatible (kind-of relationship) with the type of the variable, the assignment is illegal and a runtime error is raised. Assignment to objects of primitive types is performed by value while assignment to instances of non-primitive values is performed by reference. For example, in the listing below, in line 1 the value of the a variable is set to a new Class in the Uml model. In line 2, a new untyped variable b is declared and its value is assigned to a. In line 3 the name of the class is updated to Customer and thus, line 4 prints Customer to the standard output stream.
 
-```
+```eol
 var a : new Uml!Class;
 var b = a;
 a.name = "Customer";
@@ -581,7 +581,7 @@ b.name.println();
 
 On the other hand, in the listing below, in line 1 the a String variable is declared. In line 2 an untyped variable b is declared. In line 3, the value of a is changed to Customer (which is an instance of the primitive `String` type). This has no effect on b and thus line 4 prints an empty string to the standard output stream.
 
-```
+```eol
 var a : String;
 var b = a;
 a = "Customer";
@@ -596,12 +596,12 @@ When the left hand side of the assignment is a property of a native object, deci
 
 When the left hand side of the assignment is a property of a model element, the model that owns the particular model element (accessible using the `ModelRepository.getOwningModel()` operation) is responsible for implementing the semantics of the assignment using its [associated](../emc) `propertyGetter`. For example, if x is a model element, the statement `x.y = a` may be interpreted using the Java code of the first listing below if x belongs to an EMF-based model or using the Java code of the second listing if it belongs to an MDR-based model.
 
-```
+```java
 EStructuralFeature feature = x.eClass().getEStructuralFeature("y");
 x.eSet(feature, a);
 ```
 
-```
+```java
 StructuralFeature feature = findStructuralFeature(x.refClass(), "y");
 x.refSetValue(feature, a);
 ```
@@ -610,7 +610,7 @@ x.refSetValue(feature, a);
 
 In task-specific languages, an assignment operator with task-specific semantics is often required. Therefore, EOL provides an additional assignment operator. In standalone EOL, the operator has the same semantics with the primary assignment operator discussed above, however task-specific languages can redefine its semantics to implement custom assignment behaviour. For example, consider the simple model-to-model transformation of the listing below where a simple object oriented model is transformed to a simple database model using an ETL transformation.
 
-```
+```etl
 rule Class2Table
     transform c : OO!Class
     to t : DB!Table {
@@ -634,7 +634,7 @@ The Class2Table rule transforms a Class of the OO model into a Table in the DB m
 
 As in most programming languages, an if statement consists of a condition, a block of statements that is executed if the condition is satisfied and (optionally) a block of statements that is executed otherwise. As an example, in the listing below, if variable a holds a value that is greater than 0 the statement of line 3 is executed, otherwise the statement of line 5 is executed.
 
-```
+```eol
 if (a > 0) {
     "A is greater than 0".println();
 }
@@ -645,7 +645,7 @@ else { "A is less equal than 0".println(); }
 
 A switch statement consists of an expression and a set of cases, and can be used to implement multi-branching. Unlike Java/C, switch in EOL doesn't by default fall through to the next case after a successful one. Therefore, it is not necessary to add a `break` statement after each case. To enable falling through to all subsequent cases you can use the `continue` statement. Also, unlike Java/C, the switch expression can return anything (not only integers). As an example, when executed, the code in the listing below prints `2` while the code in the following listing prints `2,3,default`.
 
-```
+```eol
 var i = "2";
 
 switch (i) {
@@ -656,7 +656,7 @@ switch (i) {
 }
 ```
 
-```
+```eol
 var i = "2";
 
 switch (i) {
@@ -671,7 +671,7 @@ switch (i) {
 
 A while statement consists of a condition and a block of statements which are executed as long as the condition is satisfied. For example, in the listing below, the body of the while statement is executed 5 times printing the numbers 0 to 4 to the output console. Inside the body of a `while` statement, the built-in read-only `loopCount` integer variable holds the number of times the innermost loop has been executed so far (including the current iteration). Right after entering the loop for the first time and before running the first statement in its body, `loopCount` is set to 1, and it is incremented after each following iteration.
 
-```
+```eol
 var i : Integer = 0;
 while (i < 5) {
   // both lines print the same thing
@@ -686,7 +686,7 @@ while (i < 5) {
 
 In EOL, for statements are used to iterate the contents of collections. A for statement defines a typed iterator and an iterated collection as well as a block of statements that is executed for every item in the collection that has a kind-of relationship with the type defined by the iterator. As with the majority of programming languages, modifying a collection while iterating it raises a runtime error. To avoid this situation, users can use the clone() built-in operation of the [Collection](#collections-and-maps) type.
 
-```
+```eol
 var col : Sequence = Sequence{"a", 1, 2, 2.5, "b"};
 for (r : Real in col) {
     r.print();
@@ -700,7 +700,7 @@ Inside the body of a `for` statement, two built-in read-only variables are visib
 
 To exit from for and while loops on demand, EOL provides the break and breakAll statements. The break statement exits the innermost loop while the breakAll statement exits all outer loops as well. On the other hand, to skip a particular loop and proceed with the next one, EOL provides the continue statement. For example, the program in the listing below, prints `2,1 3,1` to the standard output stream.
 
-```
+```eol
 for (i in Sequence{1..3}) {
     if (i = 1) {continue;}
     for (j in Sequence{1..4}) {
@@ -715,7 +715,7 @@ for (i in Sequence{1..3}) {
 
 EOL provides the throw statement for throwing a value as an Java exception. This is especially useful when invoking EOL scripts from Java code: by catching and processing the exception, the Java code may be able to automatically handle the problem without requiring user input. Any value can be thrown, as shown in the listing below where we throw a number and a string.
 
-```
+```eol
 throw 42;
 throw "Error!";
 ```
@@ -723,7 +723,8 @@ throw "Error!";
 ### Transaction Statement
 
 The underlying [EMC layer](../emc) provides support for transactions in models. To utilize this feature EOL provides the transaction statement. A transaction statement (optionally) defines the models that participate in the transaction. If no models are defined, it is assumed that all the models that are accessible from the enclosing program participate. When the statement is executed, a transaction is started on each participating model. If no errors are raised during the execution of the contained statements, any changes made to model elements are committed. On the other hand, if an error is raised the transaction is rolled back and any changes made to the models in the context of the transaction are undone. The user can also use the abort statement to explicitly exit a transaction and roll-back any changes done in its context. In the listing below, an example of using this feature in a simulation problem is illustrated.
-```
+
+```eol
 var system : System.allInstances.first();
 
 for (i in Sequence {1..100}) {
@@ -761,7 +762,7 @@ Quite often, during a model management operation it is necessary to associate mo
 
 As the Tree metamodel doesn't support a `depth` property in the Tree metaclass, each Tree has to be associated with its calculated depth using the `depths` map defined in line 1. Another approach would be to extend the Tree metamodel to support the desired `depth` property; however, applying this technique every time an additional property is needed for some model management operation would quickly pollute the metamodel with properties of secondary importance.
 
-```
+```eol
 var depths = new Map;
 
 for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
@@ -782,7 +783,7 @@ operation Tree setDepth(depth : Integer) {
 
 To simplify the code required in such cases, EOL provides the concept of *extended properties*. In terms of concrete syntax, an extended property is a normal property, the name of which starts with the tilde character (`~`). With regards to its execution semantics, the first time the value of an extended property of an object is assigned, the property is created and associated with the object. Then, the property can be accessed as a normal property. If an extended property is accessed before it is assigned, it returns `null`. The listing below demonstrates using a `~depth` extended property to eliminate the need for using the `depths` map in the listing that follows it.
 
-```
+```eol
 for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
     n.setDepth(0);
 }

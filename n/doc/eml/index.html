@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -1056,7 +1058,7 @@ rule MergeEdges
 <p>In line 3, the <em>MergeGraphs</em> merge rule specifies that two matching Graphs (<em>l</em> and <em>r</em>) are to be merged into one Graph <em>t</em> in the target model that has as a label, the concatenation of the labels of the two input graphs separated using 'and'. The <em>mergeNodes</em> rule In line 22 specifies that two matching Nodes are merged into a single Node in the target model. The label of the merged node is derived by concatenating the c (for common) static string with the label of the source Node from the left model. Similarly, the <em>MergeEdges</em> rule specifies that two matching Edges are merged into a single Edge in the target model. The source and target nodes of the merged Edge are set to the equivalents (::=) of the source and target nodes of the edge from the left model.</p>
 <p>To reduce duplication, the <em>MergeNodes</em> and <em>MergeEdges</em> rules extend the abstract <em>MergeGraphElements</em> rule specified in line 13 which assigns the <em>graph</em> property of the graph element to the equivalent of the left graph.</p>
 <p>The rules displayed above address only the matching elements of the two models. To also copy the elements for which no equivalent has been found in the opposite model, the EML module imports the ETL module below.</p>
-<div class="highlight"><pre><span></span><code>rule TransformGraph 
+<pre class="prettyprint lang-etl"><code>rule TransformGraph 
     transform s : Source!Graph
     to t : Target!Graph {
 
@@ -1077,7 +1079,7 @@ rule TransformNode
     to t : Target!Node 
     extends TransformGraphElement {
 
-    t.label = s.graph.label + &quot;_&quot; + s.label;
+    t.label = s.graph.label + "_" + s.label;
 }
 
 rule TransformEdge 
@@ -1087,8 +1089,7 @@ rule TransformEdge
 
     t.source ::= s.source;
     t.target ::= s.target;  
-} 
-</code></pre></div>
+} </code></pre>
 
 <p>The rules of the ETL module apply to model elements of both the Left and
 the Right model as both have been aliased as Source. Of special interest
@@ -1186,6 +1187,16 @@ and the label of their counterparts in the input models.</p>
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

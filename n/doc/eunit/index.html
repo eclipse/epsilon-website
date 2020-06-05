@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -1500,12 +1502,11 @@ the table below.</p>
 </code></pre></div>
 
 <p>The EOL script is shown in the listing below: it invokes the helper task (line 3) and checks that the obtained model is equal to the expected model (line 4). Internally, EMC will perform the comparison using EMF Compare.</p>
-<div class="highlight"><pre><span></span><code>@test
+<pre class="prettyprint lang-eol"><code>@test
 operation transformationWorksAsExpected() {
-  runTarget(&quot;tree2graph&quot;);
-  assertEqualModels(&quot;GraphExpected&quot;, &quot;Graph&quot;);
-}
-</code></pre></div>
+  runTarget("tree2graph");
+  assertEqualModels("GraphExpected", "Graph");
+}</code></pre>
 
 <h3 id="models-and-tasks-in-the-eol-script">Models and Tasks in the EOL Script<a class="headerlink" href="#models-and-tasks-in-the-eol-script" title="Permanent link">&para;</a></h3>
 <p>In the previous section, the EOL file is kept very concise because the model setup and model management tasks under test were specified in the Ant buildfile. In this section, we will inline the models and the tasks into the EOL script instead.</p>
@@ -1729,6 +1730,16 @@ operation valid() {
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

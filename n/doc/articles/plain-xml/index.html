@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -932,35 +934,33 @@
 <p>The PlainXML driver uses predefined naming conventions to allow developers to programmatically access and modify XML documents in a concise way. This section outlines the supported conventions in the form of questions and answers followed by relevant examples.</p>
 <h3 id="how-can-i-access-elements-by-tag-name">How can I access elements by tag name?<a class="headerlink" href="#how-can-i-access-elements-by-tag-name" title="Permanent link">&para;</a></h3>
 <p>The <code>t_</code> prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, <code>t_book.all</code> can be used to get all elements tagged as <code>&lt;book&gt;</code> in the document, <code>t_author.all</code> to retrieve all <code>&lt;author&gt;</code> elements etc. Also, if <code>b</code> is an element with a <code>&lt;book&gt;</code> tag, then <code>b.isTypeOf(t_book)</code> shall return true.</p>
-<div class="highlight"><pre><span></span><code>// Get all &lt;book&gt; elements
+<pre class="prettyprint lang-eol"><code>// Get all &lt;book&gt; elements
 var books = t_book.all;
 
 // Get a random book
 var b = books.random();
 
 // Check if b is a book
-// Prints &#39;true&#39;
+// Prints 'true'
 b.isTypeOf(t_book).println();
 
 // Check if b is a library
-// Prints &#39;false&#39;
-b.isTypeOf(t_library).println();
-</code></pre></div>
+// Prints 'false'
+b.isTypeOf(t_library).println();</code></pre>
 
 <h3 id="how-can-i-get-the-tag-name-of-an-element">How can I get the tag name of an element?<a class="headerlink" href="#how-can-i-get-the-tag-name-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.tagName</code> property for this purpose. For instance, if <code>b</code> is an element tagged as <code>&lt;book&gt;</code>, <code>b.tagName</code> shall return <code>book</code>. The <code>tagName</code> property is read-only.</p>
-<div class="highlight"><pre><span></span><code>// Get a random &lt;book&gt; element
+<pre class="prettyprint lang-eol"><code>// Get a random &lt;book&gt; element
 var b = t_book.all.random();
 
 // Print its tag
-// Prints &#39;book&#39;
-b.tagName.println();
-</code></pre></div>
+// Prints 'book'
+b.tagName.println();</code></pre>
 
 <h3 id="how-can-i-getset-the-attributes-of-an-element">How can I get/set the attributes of an element?<a class="headerlink" href="#how-can-i-getset-the-attributes-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the attribute name as a property of the element object, prefixed by <code>a_</code>. For example, if <code>b</code> is the first book of <code>library.xml</code>, <code>b.a_title</code> will return <code>EMF Eclipse Modeling Framework</code>. Attribute properties are read/write.</p>
 <p>In this example, <code>b.a_pages</code> will return <code>744</code> as a string. For <code>744</code> to be returned as an integer instead, the <code>i_</code> prefix should be used instead (i.e. <code>b.i_pages</code>. The driver also supports the following preffixes: <code>b_</code> for boolean, <code>s_</code> for string (alias of <code>a_</code>) and <code>r_</code> for real values. </p>
-<div class="highlight"><pre><span></span><code>// Print all the titles of the books in the library
+<pre class="prettyprint lang-eol"><code>// Print all the titles of the books in the library
 for (b in t_book.all) {
     b.a_title.println();
 }
@@ -974,46 +974,42 @@ total.print();
 
 // ... the same using collect() and sum() 
 // instead of a for loop
-t_book.all.collect(b|b.i_pages).sum();
-</code></pre></div>
+t_book.all.collect(b|b.i_pages).sum();</code></pre>
 
 <h3 id="how-can-i-getset-the-text-of-an-element">How can I get/set the text of an element?<a class="headerlink" href="#how-can-i-getset-the-text-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.text</code> read-write property for this.</p>
-<div class="highlight"><pre><span></span><code>for (author in t_author.all) {
+<pre class="prettyprint lang-eol"><code>for (author in t_author.all) {
     author.text.println();
-}
-</code></pre></div>
+}</code></pre>
 
 <h3 id="how-do-i-get-the-parent-of-an-element">How do I get the parent of an element?<a class="headerlink" href="#how-do-i-get-the-parent-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.parentNode</code> read-only property for this.</p>
-<div class="highlight"><pre><span></span><code>// Get a random book
+<pre class="prettyprint lang-eol"><code>// Get a random book
 var b = t_book.all.random();
 
 // Print the tag of its parent node
-// Prints &#39;library&#39;
-b.parentNode.tagName.println();
-</code></pre></div>
+// Prints 'library'
+b.parentNode.tagName.println();</code></pre>
 
 <h3 id="how-do-i-get-the-children-of-an-element">How do I get the children of an element?<a class="headerlink" href="#how-do-i-get-the-children-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.children</code> read-only property for this.</p>
-<div class="highlight"><pre><span></span><code>// Get the &lt;library&gt; element
+<pre class="prettyprint lang-eol"><code>// Get the &lt;library&gt; element
 var lib = t_library.all.first();
 
 // Iterate through its children
 for (b in lib.children) {
     // Print the title of each child
     b.a_title.println();
-}
-</code></pre></div>
+}</code></pre>
 
 <h3 id="how-do-i-get-child-elements-with-a-specific-tag-name">How do I get child elements with a specific tag name?<a class="headerlink" href="#how-do-i-get-child-elements-with-a-specific-tag-name" title="Permanent link">&para;</a></h3>
 <p>Using what you've learned so far, you can do this using a combination of the <code>.children</code> property and the select/selectOne() operations. However, the driver also supports <code>e_</code> and <code>c_</code>-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. <code>e_</code> and <code>c_</code> properties are read-only.</p>
-<div class="highlight"><pre><span></span><code>// Get a random book
+<pre class="prettyprint lang-eol"><code>// Get a random book
 var b = t_book.all.random();
 
 // Get its &lt;author&gt; children using the 
 // .children property
-var authors = b.children.select(a|a.tagName = &quot;author&quot;);
+var authors = b.children.select(a|a.tagName = "author");
 
 // Do the same using the shorthand
 authors = b.c_author;
@@ -1021,45 +1017,41 @@ authors = b.c_author;
 // Get its &lt;published&gt; child and print
 // its text using the
 // .children property
-b.children.selectOne(p|p.tagName = &quot;published&quot;).text.println();
+b.children.selectOne(p|p.tagName = "published").text.println();
 
 // Do the same using the shorthand
 // (e_ instead of c_ this time as 
 // we only want one element, 
 // not a collection of them)
-b.e_published.text.println();
-</code></pre></div>
+b.e_published.text.println();</code></pre>
 
 <h3 id="how-do-i-create-an-element">How do I create an element?<a class="headerlink" href="#how-do-i-create-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>new</code> operator for this. </p>
-<div class="highlight"><pre><span></span><code>// Check how many &lt;books&gt; are in the library
-// Prints &#39;3&#39;
+<pre class="prettyprint lang-eol"><code>// Check how many &lt;books&gt; are in the library
+// Prints '3'
 t_book.all.size().println();
 
 // Creates a new book element
 var b = new t_book;
 
 // Check again
-// Prints &#39;4&#39;
-t_book.all.size().println();
-</code></pre></div>
+// Prints '4'
+t_book.all.size().println();</code></pre>
 
 <h3 id="how-can-i-add-a-child-to-an-existing-element">How can I add a child to an existing element?<a class="headerlink" href="#how-can-i-add-a-child-to-an-existing-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.appendChild(child)</code> operation for this.</p>
-<div class="highlight"><pre><span></span><code>// Create a new book
+<pre class="prettyprint lang-eol"><code>// Create a new book
 var b = new t_book;
 
 // Get the library element
 var lib = t_library.all.first();
 
 // Add the book to the library
-lib.appendChild(b);
-</code></pre></div>
+lib.appendChild(b);</code></pre>
 
 <h3 id="how-can-i-set-the-root-element-of-an-xml-document">How can I set the root element of an XML document?<a class="headerlink" href="#how-can-i-set-the-root-element-of-an-xml-document" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.root</code> property for this.</p>
-<div class="highlight"><pre><span></span><code>XMLDoc.root = new t_library;
-</code></pre></div>
+<pre class="prettyprint lang-eol"><code>XMLDoc.root = new t_library;</code></pre>
 
 <h2 id="adding-an-xml-document-to-your-launch-configuration">Adding an XML document to your launch configuration<a class="headerlink" href="#adding-an-xml-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
 <p>To add an XML document to your Epsilon launch configuration, you need to select "Plain XML document" from the list of available model types.</p>
@@ -1153,6 +1145,16 @@ lib.appendChild(b);
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -859,40 +861,36 @@ syntax for querying BibTeX files.</p>
 
 <h2 id="how-can-i-access-all-publications">How can I access all publications?<a class="headerlink" href="#how-can-i-access-all-publications" title="Permanent link">&para;</a></h2>
 <p>Presuming that we have specified the name <code>MyPubs</code> when loading the BibTeX file as a model, the <code>allContents</code> method can be used to access all of the entries in the BibTeX file:</p>
-<div class="highlight"><pre><span></span><code>// Get all publications
-var publications = MyPubs.allContents();
-</code></pre></div>
+<pre class="prettyprint lang-eol"><code>// Get all publications
+var publications = MyPubs.allContents();</code></pre>
 
 <h2 id="how-can-i-access-a-publication">How can I access a publication?<a class="headerlink" href="#how-can-i-access-a-publication" title="Permanent link">&para;</a></h2>
 <p>Publications (entries) in a BibTeX file can be accessed by type:</p>
-<div class="highlight"><pre><span></span><code>// Get all @book elements
+<pre class="prettyprint lang-eol"><code>// Get all @book elements
 var books = Book.all;
 
 // Get a random book
-var b = Book.all.random();
-</code></pre></div>
+var b = Book.all.random();</code></pre>
 
 <p>Note that the BibTeX driver recognises only those types defined in your BibTeX file. For example, attempting to call <code>Phdthesis.all</code> will result in an error for the BibTeX file shown above, as that BibTeX file contains no <code>@phdthesis</code> entries.</p>
 <h2 id="how-can-i-access-and-change-the-properties-of-a-particular-publication">How can I access and change the properties of a particular publication?<a class="headerlink" href="#how-can-i-access-and-change-the-properties-of-a-particular-publication" title="Permanent link">&para;</a></h2>
 <p>Properties are accessed via the dot notation:</p>
-<div class="highlight"><pre><span></span><code>// Get a random book
+<pre class="prettyprint lang-eol"><code>// Get a random book
 var b = Book.all.random();
 
 // Get the title of the random book
 var t = b.title;
 
 // Get the Amazon rating of the random book
-var a = b.amazonRating;
-</code></pre></div>
+var a = b.amazonRating;</code></pre>
 
 <p>Note that the empty string is returned when accessing a property that does not exist (such as the amazonRating property in the example above).</p>
 <p>Properties can be changed using an assignment statement:</p>
-<div class="highlight"><pre><span></span><code>// Get a random book
+<pre class="prettyprint lang-eol"><code>// Get a random book
 var b = Book.all.random();
 
 // Get the title of the random book
-b.title = &quot;On the Criteria To Be Used in Decomposing Systems into Modules&quot;
-</code></pre></div>
+b.title = "On the Criteria To Be Used in Decomposing Systems into Modules"</code></pre>
 
 <p>Note that the current version of the BibTeX driver does not support saving changes to disk. Any changes made to properties are volatile (and persist only during the duration of the Epsilon program's execution).</p>
 <h2 id="adding-a-bibtex-file-to-your-launch-configuration">Adding a BibTeX file to your launch configuration<a class="headerlink" href="#adding-a-bibtex-file-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
@@ -960,6 +958,16 @@ if you require -- or can provide a patch for -- these features.</p>
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

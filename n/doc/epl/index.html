@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -1100,7 +1102,7 @@ operation FieldDeclaration getVisibility() {
 </code></pre></div>
 
 <p>If validation is successful, both the <em>Java</em> and the <em>Patterns</em> model are passed on to an ETL transformation that transforms the <em>Java</em> model to a UML model, a fragment of which is presented below. The transformation encodes <code>&lt;field, setter, getter&gt;</code> triplets in the <em>Java</em> model as public properties in the UML model. As such, in line 6 of the transformation, the <em>Patterns</em> model is used to check whether field <em>s</em> has been matched under the <em>PublicField</em> pattern, and if so, the next line ignores the field's declared visibility and sets the visibility of the respective UML property to <em>public</em>.</p>
-<div class="highlight"><pre><span></span><code>rule FieldDeclaration2Property
+<pre class="prettyprint lang-etl"><code>rule FieldDeclaration2Property
     transform s: Java!FieldDeclaration
     to t: Uml!Property {
 
@@ -1112,8 +1114,7 @@ operation FieldDeclaration getVisibility() {
         t.visibility = s.toUmlVisibility();
     }
     ...
-}
-</code></pre></div>
+}</code></pre>
 
 <p>As Epsilon provides ANT tasks for all its languages, the same technique can be used to pass the result of pattern matching on to model-to-text transformations, as well as model comparison and model merging programs.</p>
 <div class="footnote">
@@ -1210,6 +1211,16 @@ operation FieldDeclaration getVisibility() {
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -839,16 +841,16 @@ class Attribute {
 <p>so that we can get this:</p>
 <p><img alt="" src="Gmfgraphcustomized.png" /></p>
 <p>To perform these changes automatically every time EuGENia is executed on <code>classdiagram.ecore</code>, we can create a new EOL transformation called <code>ECore2GMF.eol</code> and place it in the same folder with <code>classdiagram.ecore</code>. EuGENia will then pick it up and execute it after the built-in transformation every time we invoke <code>Generate GMF tool, graph and map models</code> action. In our case, the <code>ECore2GMF.eol</code> customization transformation looks like this:</p>
-<div class="highlight"><pre><span></span><code>// Find the compartment figure
+<pre class="prettyprint lang-eol"><code>// Find the compartment figure
 var clazzAttributesCompartmentFigure = GmfGraph!Rectangle.all.
-    selectOne(r|r.name = &#39;ClazzAttributesCompartmentFigure&#39;);
+    selectOne(r|r.name = 'ClazzAttributesCompartmentFigure');
 
 // ... and add a stack layout to it
 clazzAttributesCompartmentFigure.layout = new GmfGraph!StackLayout;
 
 // Find the attribute figure
 var attributeFigure = GmfGraph!Rectangle.all.
-    selectOne(r|r.name = &#39;AttributeFigure&#39;);
+    selectOne(r|r.name = 'AttributeFigure');
 
 // ... delete its border
 delete attributeFigure.border;
@@ -860,8 +862,7 @@ attributeFigure.outline = false;
 var preferredSize = new GmfGraph!Dimension;
 preferredSize.dx = 100;
 preferredSize.dy = 16;
-attributeFigure.preferredSize = preferredSize;
-</code></pre></div>
+attributeFigure.preferredSize = preferredSize;</code></pre>
 
 <p>Similarly, if we needed to customize the logic behind the <code>Synchronize GMF Gen model</code> action, we'd need to define a <code>FixGMFGen.eol</code> transformation next to <code>classdiagram.ecore</code>.</p>
 <h2 id="what-models-can-i-access-from-the-ecore2gmfeol-and-fixgmfgeneol-transformations">What models can I access from the ECore2GMF.eol and FixGMFGen.eol transformations?<a class="headerlink" href="#what-models-can-i-access-from-the-ecore2gmfeol-and-fixgmfgeneol-transformations" title="Permanent link">&para;</a></h2>
@@ -929,6 +930,16 @@ attributeFigure.preferredSize = preferredSize;
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

@@ -73,7 +73,14 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_div_format
         - name: mermaid-30
           class: mermaid mermaid-30
-          format: !!python/name:pymdownx.superfences.fence_div_format  
+          format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: eol
+          class: prettyprint lang-eol
+          format: !!python/name:pymdownx.superfences.fence_code_format  
+        - name: etl
+          class: prettyprint lang-etl
+          format: !!python/name:pymdownx.superfences.fence_code_format  
+
   - admonition
   - meta
   - footnotes
@@ -97,7 +104,13 @@ copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
 extra_css:
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/mermaid.css'
+  - 'assets/javascript/google-code-prettify/prettify.css'
   - https://unpkg.com/mermaid@8.5.1/dist/mermaid.css
 extra_javascript:
   - https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js
   - 'assets/javascript/mermaid.js'
+  - 'assets/javascript/jquery.js'
+  - 'assets/javascript/google-code-prettify/prettify.js'
+  - 'assets/javascript/google-code-prettify/lang-emfatic.js'    
+  - 'assets/javascript/google-code-prettify/lang-epsilon.js'    
+  - 'assets/javascript/google-code-prettify/prettyprint.js'

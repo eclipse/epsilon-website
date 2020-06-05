@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -848,11 +850,10 @@ extension point</li>
 </ul>
 <h3 id="invoke-the-tool">Invoke the tool<a class="headerlink" href="#invoke-the-tool" title="Permanent link">&para;</a></h3>
 <p>To invoke the tool you have two options: You can either run a new Eclipse instance, or export the plugin and place it in the <code>dropins</code> folder of your installation. Then you can invoke the tool using the following EOL program.</p>
-<div class="highlight"><pre><span></span><code>var sampleTool = 
-  new Native(&quot;org.eclipse.epsilon.examples.tools.SampleTool&quot;);
-sampleTool.name = &quot;George&quot;;
-sampleTool.sayHello().println(); // Prints Hello George
-</code></pre></div>
+<pre class="prettyprint lang-eol"><code>var sampleTool = 
+  new Native("org.eclipse.epsilon.examples.tools.SampleTool");
+sampleTool.name = "George";
+sampleTool.sayHello().println(); // Prints Hello George</code></pre>
 
 <h3 id="standalone-setup">Standalone setup<a class="headerlink" href="#standalone-setup" title="Permanent link">&para;</a></h3>
 <p>To use tools contributed via extensions in a standalone Java setup within Eclipse you'll need to add the following line of code.</p>
@@ -913,6 +914,16 @@ sampleTool.sayHello().println(); // Prints Hello George
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

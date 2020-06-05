@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -829,7 +831,7 @@
 <p>The purpose of this article is to provide an overview and a usage example of the Epsilon profiling tools. Profiling is particularly useful in order to obtain metrics for theperformance of Epsilon code, and to identify blocks of code that are either executed more often than anticipated or take too much time to execute.</p>
 <h2 id="adding-profiling-statements-to-your-epsilon-code">Adding profiling statements to your Epsilon code<a class="headerlink" href="#adding-profiling-statements-to-your-epsilon-code" title="Permanent link">&para;</a></h2>
 <p>Code-level support for profiling in Epsilon has been implemented in the form of a tool called <code>ProfilerTool</code> (<code>org.eclipse.epsilon.eol.tools.ProfilerTool</code>). To add support for profiling in your Epsilon program you must instantiate the tool and call its <code>start()</code> and <code>stop()</code> methods. The following EOL example contains an operation <code>fib()</code> that calculates the Fibonacci number of a given integer, and a call to the <code>fib()</code> operation with an initial value of 15.</p>
-<div class="highlight"><pre><span></span><code>15.fib();
+<pre class="prettyprint lang-eol"><code>15.fib();
 operation Integer fib() : Integer {
   var fib : Integer;
   if (self = 1 or self = 0){ 
@@ -838,17 +840,16 @@ operation Integer fib() : Integer {
     fib = (self-1).fib()+(self-2).fib();
   }
   return fib;
-}
-</code></pre></div>
+}</code></pre>
 
 <p>Our aim in this example is to enrich the program with profiling statements so that we canget to know how many times the <code>fib()</code> operation is executed and how much time each calltakes to execute. To achieve this we modify our program as follows:</p>
-<div class="highlight"><pre><span></span><code>var profiler : new Native(&#39;org.eclipse.epsilon.eol.tools.ProfilerTool&#39;);
-profiler.start(&#39;Program&#39;);
+<pre class="prettyprint lang-eol"><code>var profiler : new Native('org.eclipse.epsilon.eol.tools.ProfilerTool');
+profiler.start('Program');
 15.fib();
 profiler.stop();
 
 operation Integer fib() : Integer {
-  profiler.start(&#39;fib&#39;,self);
+  profiler.start('fib',self);
   var fib : Integer;
   if (self = 1 or self = 0){ 
     fib = 1;
@@ -857,8 +858,7 @@ operation Integer fib() : Integer {
   }
   profiler.stop();
   return fib;
-}
-</code></pre></div>
+}</code></pre>
 
 <p>We add an instantiation statement that creates a new instance of the <code>ProfilerTool</code> in Line 1. Then we define two profiling targets. The first one is called "Program" and measures the performance of line 3 and the second one is called "fib" and measures the performance of the body of the <code>fib()</code> operation. Note that the first call to the <code>start()</code> method has only one argument (the mandatory <code>targetName : String</code> argument) while the second one has an additional argument. This extra (optional) argument (<code>data : Any</code>) enables users to capture context-specific information where multiple calls to the specific <code>start()</code> method are anticipated. In our example, we store the value of the integer on which the operation is executed (<code>self</code>). Here we should note that since profiling has been implemented in the context of EOL, the same technique can be used to profile code in all task-specific languages of Epsilon (ETL, ECL, EML etc).</p>
 <h2 id="inspecting-profiling-information">Inspecting Profiling Information<a class="headerlink" href="#inspecting-profiling-information" title="Permanent link">&para;</a></h2>
@@ -939,6 +939,16 @@ operation Integer fib() : Integer {
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -858,20 +860,19 @@ top of EOL.</p>
 replaced by ` `) are non-breaking: the old syntax (<code>''</code> for strings,
 <code>=</code> for comparison and <code>:=</code> for assignment still work). Below is an
 example demonstrating the new syntax:</p>
-<div class="highlight"><pre><span></span><code>/*
+<pre class="prettyprint lang-eol"><code>/*
  This is a multi line comment
 */
 // This is a single line comment
 var i = 1;
 if (i == 1) {
-  &quot;Hello World&quot;.println();
+  "Hello World".println();
 }
 
 i = 2; // Assigns the value 2 to i
 
 var `variable with spaces` = 3;
-`variable with spaces`.println(); // Prints 3
-</code></pre></div>
+`variable with spaces`.println(); // Prints 3</code></pre>
 
 <p>If you have suggestions for further Java-ifications of the EOL syntax,
 please post your comments to the <a href="http://eclipse.org/epsilon/doc/articles/eol-syntax-updates/../../../forum">Epsilon
@@ -929,6 +930,16 @@ or add them to <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=292403">bu
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>

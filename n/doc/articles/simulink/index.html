@@ -67,6 +67,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
     
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
       <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
     
     
@@ -824,7 +826,7 @@
 <li>Create a new EOL file (e.g. <code>demo.eol</code>) and add the content below to
     it:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>// Create elements
+<pre class="prettyprint lang-eol"><code>// Create elements
 var sineWave = new `simulink/Sources/Sine Wave`;
 var gain = new `simulink/Math Operations/Gain`;
 var saturation = new `simulink/Discontinuities/Saturation`;
@@ -832,11 +834,11 @@ var busCreator = new `simulink/Signal Routing/Bus Creator`;
 var scope = new `simulink/Sinks/Scope`;
 
 // Position them on the diagram
-sineWave.position = &quot;[100 100 130 130]&quot;;
-gain.position = &quot;[200 100 230 130]&quot;;
-saturation.position = &quot;[300 100 330 130]&quot;;
-busCreator.position = &quot;[400 70 410 300]&quot;;
-scope.position = &quot;[500 175 530 205]&quot;;
+sineWave.position = "[100 100 130 130]";
+gain.position = "[200 100 230 130]";
+saturation.position = "[300 100 330 130]";
+busCreator.position = "[400 70 410 300]";
+scope.position = "[500 175 530 205]";
 
 // Set their properties
 gain.gain = 2;
@@ -848,8 +850,7 @@ gain.link(saturation);
 saturation.link(busCreator);
 gain.linkTo(busCreator, 2);
 sineWave.linkTo(busCreator, 3);
-busCreator.link(scope);
-</code></pre></div>
+busCreator.link(scope);</code></pre>
 
 <ul>
 <li>Create a new Run configuration for your EOL program and add a Simulink model to it, pointing at your .slx (e.g. <code>empty.slx</code>) model</li>
@@ -907,6 +908,16 @@ busCreator.link(scope);
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
         <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
       
     
   </body>
