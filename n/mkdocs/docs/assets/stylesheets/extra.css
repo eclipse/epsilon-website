@@ -2,12 +2,6 @@
 	display: none;
 }
 
-/*For mermaid diagrams*/
-svg {
-    width:100% !important;
-    height:auto !important;
-}
-
 [data-md-color-primary=black] .md-header {
 	background-color: #494949;
 }

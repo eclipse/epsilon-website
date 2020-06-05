@@ -5,6 +5,7 @@ g.classGroup rect {
 
 g.classGroup text {
 	fill: black !important;
+	font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
 g.classGroup line {
@@ -17,6 +18,7 @@ g.classLabel rect {
 
 g.classLabel text {
 	fill: black !important;
+	font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
 .relation {
@@ -31,4 +33,10 @@ g.classLabel text {
 #extensionEnd {
 	fill: white !important;
 	stroke: black !important;
+}
+
+/*For mermaid diagrams*/
+svg {
+    width:100% !important;
+    height:auto !important;
 }

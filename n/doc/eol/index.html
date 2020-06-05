@@ -1366,14 +1366,7 @@
               
                 
                 
-                <style>
-  svg {
-    width:100% !important;
-    height:auto !important;
-  }
-</style>
-
-<h1 id="the-epsilon-object-language-eol">The Epsilon Object Language (EOL)<a class="headerlink" href="#the-epsilon-object-language-eol" title="Permanent link">&para;</a></h1>
+                <h1 id="the-epsilon-object-language-eol">The Epsilon Object Language (EOL)<a class="headerlink" href="#the-epsilon-object-language-eol" title="Permanent link">&para;</a></h1>
 <p>The primary aim of EOL is to provide a reusable set of common model management facilities, atop which task-specific languages can be implemented. However, EOL can also be used as a general-purpose standalone model management language for automating tasks that do not fall into the patterns targeted by task-specific languages. This section presents the syntax and semantics of the language using a combination of abstract syntax diagrams, concrete syntax examples and informal discussion.</p>
 <h2 id="module-organization">Module Organization<a class="headerlink" href="#module-organization" title="Permanent link">&para;</a></h2>
 <p>In this section the syntax of EOL is presented in a top-down manner. An EOL programs are organized in <code>modules</code>. Each module defines a <code>body</code> and a number of <code>operations</code>. The body is a block of statements that are evaluated when the module is executed<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Each operation defines the kind of objects on which it is applicable (<code>context</code>), a <code>name</code>, a set of <code>parameters</code> and optionally a <code>return type</code>. Modules can also import other modules using <code>import</code> statements and access their operations, as shown in the listing below.</p>

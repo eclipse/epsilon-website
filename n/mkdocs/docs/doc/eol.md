@@ -1,9 +1,3 @@
-<style>
-  svg {
-    width:100% !important;
-    height:auto !important;
-  }
-</style>
 # The Epsilon Object Language (EOL)
 
 The primary aim of EOL is to provide a reusable set of common model management facilities, atop which task-specific languages can be implemented. However, EOL can also be used as a general-purpose standalone model management language for automating tasks that do not fall into the patterns targeted by task-specific languages. This section presents the syntax and semantics of the language using a combination of abstract syntax diagrams, concrete syntax examples and informal discussion.
