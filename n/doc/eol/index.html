@@ -1367,14 +1367,7 @@
                 
                 
                 <h1 id="the-epsilon-object-language-eol">The Epsilon Object Language (EOL)<a class="headerlink" href="#the-epsilon-object-language-eol" title="Permanent link">&para;</a></h1>
-<p>The primary aim of EOL is to provide a reusable set of common model
-management facilities, atop which task-specific languages can be
-implemented. However, EOL can also be used as a general-purpose
-standalone model management language for automating tasks that do not
-fall into the patterns targeted by task-specific languages. This section
-presents the syntax and semantics of the language using a combination of
-abstract syntax diagrams, concrete syntax examples and informal
-discussion.</p>
+<p>The primary aim of EOL is to provide a reusable set of common model management facilities, atop which task-specific languages can be implemented. However, EOL can also be used as a general-purpose standalone model management language for automating tasks that do not fall into the patterns targeted by task-specific languages. This section presents the syntax and semantics of the language using a combination of abstract syntax diagrams, concrete syntax examples and informal discussion.</p>
 <h2 id="module-organization">Module Organization<a class="headerlink" href="#module-organization" title="Permanent link">&para;</a></h2>
 <p>In this section the syntax of EOL is presented in a top-down manner. An EOL programs are organized in <code>modules</code>. Each module defines a <code>body</code> and a number of <code>operations</code>. The body is a block of statements that are evaluated when the module is executed<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Each operation defines the kind of objects on which it is applicable (<code>context</code>), a <code>name</code>, a set of <code>parameters</code> and optionally a <code>return type</code>. Modules can also import other modules using <code>import</code> statements and access their operations, as shown in the listing below.</p>
 <div class="highlight"><pre><span></span><code>// file imported.eol
@@ -1422,27 +1415,8 @@ Annotation &lt;|-- SimpleAnnotation</div>
 <!--![image](images/EOLModule.png)-->
 
 <h2 id="user-defined-operations">User-Defined Operations<a class="headerlink" href="#user-defined-operations" title="Permanent link">&para;</a></h2>
-<p>In mainstream object oriented languages such as Java and C++, operations
-are defined inside classes and can be invoked on instances of those
-classes. EOL on the other hand is not object-oriented in the sense that
-it does not define classes itself, but nevertheless needs to manage
-objects of types defined externally to it (e.g. in metamodels). By
-defining the context-type of an operation explicitly, the operation can
-be called on instances of the type as if it was natively defined by the
-type. Alternatively, context-less operations could be defined; however
-the adopted technique significantly improves readability of the concrete
-syntax.</p>
-<p>For eample, consider the code excerts displayed in the listings below. In the first listing, the operations <code>add1</code> and <code>add2</code> are
-defined in the context of the built-in <code>Integer</code> type, which is
-specified before their names. Therefore, they can be invoked in line 1
-using the <code>1.add1().add2()</code> expression: the context (the integer <code>1</code>)
-will be assigned to the special variable <code>self</code>. On the other hand, in
-the second listing where no context is defined, they
-have to be invoked in a nested manner which follows an in-to-out
-direction instead of the left to right direction used by the former
-excerpt. As complex model queries often involve invoking multiple
-properties and operations, this technique is particularly beneficial to
-the overall readability of the code.</p>
+<p>In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type. Alternatively, context-less operations could be defined; however the adopted technique significantly improves readability of the concrete syntax.</p>
+<p>For eample, consider the code excerts displayed in the listings below. In the first listing, the operations <code>add1</code> and <code>add2</code> are defined in the context of the built-in <code>Integer</code> type, which is specified before their names. Therefore, they can be invoked in line 1 using the <code>1.add1().add2()</code> expression: the context (the integer <code>1</code>) will be assigned to the special variable <code>self</code>. On the other hand, in the second listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.</p>
 <div class="highlight"><pre><span></span><code>1.add1().add2().println();
 
 operation Integer add1() : Integer {
@@ -1465,11 +1439,7 @@ operation add2(base : Integer) : Integer {
 }
 </code></pre></div>
 
-<p>EOL supports polymorphic operations using a runtime dispatch mechanism.
-Multiple operations with the same name and parameters can be defined,
-each defining a distinct context type. For example, in the listing below, the statement in line 1 invokes the test
-operation defined in line 4, while the statement in line 2 invokes the
-test operation defined in line 8.</p>
+<p>EOL supports polymorphic operations using a runtime dispatch mechanism. Multiple operations with the same name and parameters can be defined, each defining a distinct context type. For example, in the listing below, the statement in line 1 invokes the test operation defined in line 4, while the statement in line 2 invokes the test operation defined in line 8.</p>
 <div class="highlight"><pre><span></span><code>&quot;1&quot;.test();
 1.test();
 
@@ -1483,10 +1453,7 @@ operation Integer test() {
 </code></pre></div>
 
 <h3 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h3>
-<p>EOL supports two types of annotations: simple and executable. A simple
-annotation specifies a name and a set of String values while an
-executable annotation specifies a name and an expression. The concrete
-syntaxes of simple and executable annotations are displayed in the listing below. </p>
+<p>EOL supports two types of annotations: simple and executable. A simple annotation specifies a name and a set of String values while an executable annotation specifies a name and an expression. The concrete syntaxes of simple and executable annotations are displayed in the listing below.</p>
 <div class="highlight"><pre><span></span><code>// Simple annotation
 @name value(,value)
 
@@ -1494,36 +1461,15 @@ syntaxes of simple and executable annotations are displayed in the listing below
 $name expression
 </code></pre></div>
 
-<p>Several examples
-for simple annotations are shown the listing below. Examples for executable
-annotations will be given in the following sections.</p>
+<p>Several examples for simple annotations are shown the listing below. Examples for executable annotations will be given in the following sections.</p>
 <div class="highlight"><pre><span></span><code>@colors red
 @colors red, blue
 @colors red, blue, green
 </code></pre></div>
 
-<p>In stand-alone EOL, annotations are supported only in the context of
-operations, however as discussed in the sequel, task-specific languages
-also make use of annotations in their constructs, each with
-task-specific semantics. EOL operations support three particular
-annotations: the <code>pre</code> and <code>post</code> executable annotations for specifying
-pre and post-conditions, and the <code>cached</code> simple annotation, which are
-discussed below.</p>
+<p>In stand-alone EOL, annotations are supported only in the context of operations, however as discussed in the sequel, task-specific languages also make use of annotations in their constructs, each with task-specific semantics. EOL operations support three particular annotations: the <code>pre</code> and <code>post</code> executable annotations for specifying pre and post-conditions, and the <code>cached</code> simple annotation, which are discussed below.</p>
 <h3 id="prepost-conditions-in-user-defined-operations">Pre/post conditions in user-defined operations<a class="headerlink" href="#prepost-conditions-in-user-defined-operations" title="Permanent link">&para;</a></h3>
-<p>A number of <code>pre</code> and <code>post</code> executable annotations can be attached to
-EOL operations to specify the pre- and post-conditions of the operation.
-When an operation is invoked, before its body is evaluated, the
-expressions of the <code>pre</code> annotations are evaluated. If all of them
-return <code>true</code>, the body of the operation is executed, otherwise, an
-error is raised. Similarly, once the body of the operation has been
-executed, the expressions of the <code>post</code> annotations of the operation are
-executed to ensure that the operation has had the desired effects. <code>Pre</code>
-and <code>post</code> annotations can access all the variables in the parent scope,
-as well as the parameters of the operation and the object on which the
-operation is invoked (through the <code>self</code> variable). Moreover, in <code>post</code>
-annotations, the returned value of the operation is accessible through
-the built-in <code>_result</code> variable. An example of using pre and post
-conditions in EOL appears below.</p>
+<p>A number of <code>pre</code> and <code>post</code> executable annotations can be attached to EOL operations to specify the pre- and post-conditions of the operation. When an operation is invoked, before its body is evaluated, the expressions of the <code>pre</code> annotations are evaluated. If all of them return <code>true</code>, the body of the operation is executed, otherwise, an error is raised. Similarly, once the body of the operation has been executed, the expressions of the <code>post</code> annotations of the operation are executed to ensure that the operation has had the desired effects. <code>Pre</code> and <code>post</code> annotations can access all the variables in the parent scope, as well as the parameters of the operation and the object on which the operation is invoked (through the <code>self</code> variable). Moreover, in <code>post</code> annotations, the returned value of the operation is accessible through the built-in <code>_result</code> variable. An example of using pre and post conditions in EOL appears below.</p>
 <div class="highlight"><pre><span></span><code>1.add(2); 
 1.add(-1);
 
@@ -1534,36 +1480,10 @@ operation Integer add(i : Integer) : Integer {
 }
 </code></pre></div>
 
-<p>In line 4 the <code>add</code> operation defines a
-pre-condition stating that the parameter <code>i</code> must be a positive number.
-In line 5, the operation defines that result of
-the operation (<code>_result</code>) must be greater than the number on which it
-was invoked (<code>self</code>). Thus, when executed in the context of the
-statement in line
-1 the operation succeeds, while when
-executed in the context of the statement in line
-2, the pre-condition is not satisfied
-and an error is raised.</p>
+<p>In line 4 the <code>add</code> operation defines a pre-condition stating that the parameter <code>i</code> must be a positive number. In line 5, the operation defines that result of the operation (<code>_result</code>) must be greater than the number on which it was invoked (<code>self</code>). Thus, when executed in the context of the statement in line 1 the operation succeeds, while when executed in the context of the statement in line 2, the pre-condition is not satisfied and an error is raised.</p>
 <h3 id="operation-result-caching">Operation Result Caching<a class="headerlink" href="#operation-result-caching" title="Permanent link">&para;</a></h3>
-<p>EOL supports caching the results of parameter-less operations using the
-<code>@cached</code> simple annotation. In the following example, the Fibonacci
-number of a given Integer is calculated using the <code>fibonacci</code> recursive
-operation displayed in the listing below. Since the <code>fibonacci</code> operation is declared
-as <code>cached</code>, it is only executed once for each distinct Integer and
-subsequent calls on the same target return the cached result. Therefore,
-when invoked in line 1, the body of the operation is called 16
-times. By contrast, if no <code>@cached</code> annotation was specified, the body
-of the operation would be called recursively 1973 times. This feature is
-particularly useful for performing queries on large models and caching
-their results without needing to introduce explicit variables that store
-the cached results.</p>
-<p>It is worth noting that caching works <code>by reference</code>, which means that
-all clients of a cached method for a given context will receive the same
-returned object. As such, if the first client modifies the returned
-object in some way (e.g. sets a property in the case of an object or
-adds an element in the case of the collection), subsequent clients of
-the method for the same context will receive the modified
-object/collection.</p>
+<p>EOL supports caching the results of parameter-less operations using the <code>@cached</code> simple annotation. In the following example, the Fibonacci number of a given Integer is calculated using the <code>fibonacci</code> recursive operation displayed in the listing below. Since the <code>fibonacci</code> operation is declared as <code>cached</code>, it is only executed once for each distinct Integer and subsequent calls on the same target return the cached result. Therefore, when invoked in line 1, the body of the operation is called 16 times. By contrast, if no <code>@cached</code> annotation was specified, the body of the operation would be called recursively 1973 times. This feature is particularly useful for performing queries on large models and caching their results without needing to introduce explicit variables that store the cached results.</p>
+<p>It is worth noting that caching works <code>by reference</code>, which means that all clients of a cached method for a given context will receive the same returned object. As such, if the first client modifies the returned object in some way (e.g. sets a property in the case of an object or adds an element in the case of the collection), subsequent clients of the method for the same context will receive the modified object/collection.</p>
 <div class="highlight"><pre><span></span><code>15.fibonacci().println();
 
 @cached
@@ -1578,10 +1498,7 @@ operation Integer fibonacci() : Integer {
 </code></pre></div>
 
 <h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&para;</a></h2>
-<p>As is the case for most programming languages, EOL defines a built-in
-system of types, illustrated in the figure below. The
-<code>Any</code> type, inspired by the <code>OclAny</code> type of OCL, is the basis of all
-types in EOL including Collection types. </p>
+<p>As is the case for most programming languages, EOL defines a built-in system of types, illustrated in the figure below. The <code>Any</code> type, inspired by the <code>OclAny</code> type of OCL, is the basis of all types in EOL including Collection types.</p>
 <div class="mermaid">classDiagram
 class ModelElementType {
   -model: String
@@ -1713,9 +1630,7 @@ instances of the Any type are outlined in the table below<sup id="fnref:2"><a cl
 </tbody>
 </table>
 <h3 id="primitive-types">Primitive Types<a class="headerlink" href="#primitive-types" title="Permanent link">&para;</a></h3>
-<p>EOL provides four primitive types: String, Integer, Real and Boolean.
-The String type represents a finite sequence of characters and supports
-the following operations which can be invoked on its instances.</p>
+<p>EOL provides four primitive types: String, Integer, Real and Boolean. The String type represents a finite sequence of characters and supports the following operations which can be invoked on its instances.</p>
 <table>
 <thead>
 <tr>
@@ -1779,8 +1694,7 @@ toCharSequence() : Sequence(String)                                 |Returns a s
 toLowerCase() : String                                              |Returns a new string where all the characters have been converted to lower case
 toUpperCase() : String                                              |Returns a new string where all the characters have been converted to upper case
 trim() : String                                                     |Returns a trimmed copy of the string</p>
-<p>The Real type represents real numbers and provides the following
-operations.</p>
+<p>The Real type represents real numbers and provides the following operations.</p>
 <table>
 <thead>
 <tr>
@@ -1827,8 +1741,7 @@ operations.</p>
 </tr>
 </tbody>
 </table>
-<p>The Integer type represents natural numbers and negatives and extends
-the Real primitive type. It also defines the following operations:</p>
+<p>The Integer type represents natural numbers and negatives and extends the Real primitive type. It also defines the following operations:</p>
 <table>
 <thead>
 <tr>
@@ -1859,17 +1772,10 @@ the Real primitive type. It also defines the following operations:</p>
 </tr>
 </tbody>
 </table>
-<p>Finally, the Boolean type represents true/false states and provides no
-additional operations to those provided by the base Any type.</p>
+<p>Finally, the Boolean type represents true/false states and provides no additional operations to those provided by the base Any type.</p>
 <h3 id="collections-and-maps">Collections and Maps<a class="headerlink" href="#collections-and-maps" title="Permanent link">&para;</a></h3>
-<p>EOL provides four types of collections and a Map type. The Bag type
-represents non-unique, unordered collections, the Sequence type
-represents non-unique, ordered collections, the Set type represents
-unique and unordered collections and the OrderedSet represents unique
-and ordered collections.</p>
-<p>All collection types inherit from the abstract Collection type. Apart
-from simple operations, EOL also supports logic operations on
-collections. The following operations apply to all types of collections:</p>
+<p>EOL provides four types of collections and a Map type. The Bag type represents non-unique, unordered collections, the Sequence type represents non-unique, ordered collections, the Set type represents unique and unordered collections and the OrderedSet represents unique and ordered collections.</p>
+<p>All collection types inherit from the abstract Collection type. Apart from simple operations, EOL also supports logic operations on collections. The following operations apply to all types of collections:</p>
 <table>
 <thead>
 <tr>
@@ -2012,8 +1918,7 @@ collections. The following operations apply to all types of collections:</p>
 </tr>
 </tbody>
 </table>
-<p>The following operations apply to ordered collection types (i.e.
-Sequence and OrderedSet):</p>
+<p>The following operations apply to ordered collection types (i.e. Sequence and OrderedSet):</p>
 <table>
 <thead>
 <tr>
@@ -2060,17 +1965,8 @@ Sequence and OrderedSet):</p>
 </tr>
 </tbody>
 </table>
-<p>Also, EOL collections support the following first-order operations.
-Apart from <code>aggregate</code> and <code>closure</code>, all of these operations have a
-parallel variant which can take advantage of multiple cores to improve
-performance. All computations contained in these operations are assumed
-to be free from side-effects (i.e. do not mutatate global variables).</p>
-<p>Aside from the following built-in first-order operations which are
-evaluated eagerly, all Collection types in the Java implementation of
-EOL support Streams. This allows for chains of queries and
-transformations on collections to be evaluated more efficiently. A
-stream can be obtained by calling the <code>stream()</code> method on the
-collection. The API is defined by the Java standard library<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
+<p>Also, EOL collections support the following first-order operations. Apart from <code>aggregate</code> and <code>closure</code>, all of these operations have a parallel variant which can take advantage of multiple cores to improve performance. All computations contained in these operations are assumed to be free from side-effects (i.e. do not mutatate global variables).</p>
+<p>Aside from the following built-in first-order operations which are evaluated eagerly, all Collection types in the Java implementation of EOL support Streams. This allows for chains of queries and transformations on collections to be evaluated more efficiently. A stream can be obtained by calling the <code>stream()</code> method on the collection. The API is defined by the Java standard library<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
 <table>
 <thead>
 <tr>
@@ -2145,8 +2041,7 @@ collection. The API is defined by the Java standard library<sup id="fnref:4"><a 
 </tr>
 </tbody>
 </table>
-<p>The Map type represents an array of key-value pairs in which the keys
-are unique. The type provides the following operations.</p>
+<p>The Map type represents an array of key-value pairs in which the keys are unique. The type provides the following operations.</p>
 <table>
 <thead>
 <tr>
@@ -2202,58 +2097,26 @@ are unique. The type provides the following operations.</p>
 </tbody>
 </table>
 <h3 id="native-types">Native Types<a class="headerlink" href="#native-types" title="Permanent link">&para;</a></h3>
-<p>As discussed earlier, while the purpose of EOL is to provide significant
-expressive power to enable users to manage models at a high level of
-abstraction, it is not intended to be a general-purpose programming
-language. Therefore, there may be cases where users need to implement
-some functionality that is either not efficiently supported by the EOL
-runtime (e.g. complex mathematical computations) or that EOL does not
-support at all (e.g. developing user interfaces, accessing databases).
-To overcome this problem, EOL enables users to create objects of the
-underlying programming environment by using <code>native</code> types. A native
-type specifies an $implementation$ property that indicates the unique
-identifier for an underlying platform type. For instance, in a Java
-implementation of EOL the user can instantiate and use a Java class via
-its class identifier. Thus, the EOL excerpt in the listing below creates a Java window (Swing
-JFrame) and uses its methods to change its title and dimensions and make
-it visible.</p>
+<p>As discussed earlier, while the purpose of EOL is to provide significant expressive power to enable users to manage models at a high level of abstraction, it is not intended to be a general-purpose programming language. Therefore, there may be cases where users need to implement some functionality that is either not efficiently supported by the EOL runtime (e.g. complex mathematical computations) or that EOL does not support at all (e.g. developing user interfaces, accessing databases). To overcome this problem, EOL enables users to create objects of the underlying programming environment by using <code>native</code> types. A native type specifies an $implementation$ property that indicates the unique identifier for an underlying platform type. For instance, in a Java implementation of EOL the user can instantiate and use a Java class via its class identifier. Thus, the EOL excerpt in the listing below creates a Java window (Swing JFrame) and uses its methods to change its title and dimensions and make it visible.</p>
 <div class="highlight"><pre><span></span><code>var frame = new Native(&quot;javax.swing.JFrame&quot;);
 frame.title = &quot;Opened with EOL&quot;;
 frame.setBounds(100,100,300,200);
 frame.visible = true;
 </code></pre></div>
 
-<p>To pass arguments to the constructor of a native type, a parameter list
-must be added, such as that in the listing below. </p>
+<p>To pass arguments to the constructor of a native type, a parameter list must be added, such as that in the listing below. </p>
 <div class="highlight"><pre><span></span><code>var file = new Native(&quot;java.io.File&quot;)(&quot;myfile.txt&quot;);
 file.absolutePath.println();
 </code></pre></div>
 
-<p>Static types can also be referenced in
-EOL and stored in a variable for convenience, as shown below.</p>
+<p>Static types can also be referenced in EOL and stored in a variable for convenience, as shown below.</p>
 <div class="highlight"><pre><span></span><code>var Collectors = Native(&quot;java.util.stream.Collectors&quot;);
 </code></pre></div>
 
 <h3 id="model-element-types">Model Element Types<a class="headerlink" href="#model-element-types" title="Permanent link">&para;</a></h3>
-<p>A model element type represents a meta-level classifier. Epsilon intentionally refrains from
-defining more details about the meaning of a model element type to be
-able to support diverse modelling technologies where a type has
-different semantics. For instance a MOF class, an XSD complex type and a
-Java class can all be regarded as model element types according to the
-implementation of the underlying modelling framework.</p>
-<p>In case of multiple models, as well as the name of the type, the name of
-the model is also required to resolve a particular type since different
-models may contain elements of homonymous but different model element
-types. In case a model defines more than one type with the same name
-(e.g. in different packages), a fully qualified type name must be
-provided.</p>
-<p>In terms of concrete syntax, inspired by ATL, the ! character is used to
-separate the name of the type from the name of the model it is defined
-in. For instance <code>Ma!A</code> represents the type <code>A</code> of model <code>Ma</code>. Also, to
-support modelling technologies that provide hierarchical grouping of
-types (e.g. using packages) the <code>::</code> notation is used to separate between
-packages and classes. A model element type supports the following
-operations:</p>
+<p>A model element type represents a meta-level classifier. Epsilon intentionally refrains from defining more details about the meaning of a model element type to be able to support diverse modelling technologies where a type has different semantics. For instance a MOF class, an XSD complex type and a Java class can all be regarded as model element types according to the implementation of the underlying modelling framework.</p>
+<p>In case of multiple models, as well as the name of the type, the name of the model is also required to resolve a particular type since different models may contain elements of homonymous but different model element types. In case a model defines more than one type with the same name (e.g. in different packages), a fully qualified type name must be provided.</p>
+<p>In terms of concrete syntax, inspired by ATL, the ! character is used to separate the name of the type from the name of the model it is defined in. For instance <code>Ma!A</code> represents the type <code>A</code> of model <code>Ma</code>. Also, to support modelling technologies that provide hierarchical grouping of types (e.g. using packages) the <code>::</code> notation is used to separate between packages and classes. A model element type supports the following operations:</p>
 <table>
 <thead>
 <tr>
@@ -2333,27 +2196,10 @@ in <code>(1 = 2) = 3</code>.</p>
 </li>
 </ul>
 <h3 id="feature-navigation">Feature Navigation<a class="headerlink" href="#feature-navigation" title="Permanent link">&para;</a></h3>
-<p>Since EOL needs to manage models defined using object oriented modelling
-technologies, it provides expressions to navigate properties and invoke
-simple and declarative operations on objects (as presented in the figure below).</p>
+<p>Since EOL needs to manage models defined using object oriented modelling technologies, it provides expressions to navigate properties and invoke simple and declarative operations on objects (as presented in the figure below).</p>
 <p>![Overview of the feature navigation EOL
 expressions](images/EOLExpressions.png</p>
-<p>In terms of concrete syntax, <code>.</code> is used as a uniform operator to access
-a property of an object and to invoke an operation on it. The
-<code>-&gt;</code> operator, which is used in OCL to invoke first-order
-logic operations on sets, has been also preserved for syntax
-compatibility reasons. In EOL, every operation can be invoked both using
-the <code>.</code> or the <code>-&gt;</code> operators, with a slightly different
-semantics to enable overriding the built-in operations. If the <code>.</code>
-operator is used, precedence is given to the user-defined operations,
-otherwise precedence is given to the built-in operations. For instance,
-the Any type defines a println() method that prints the string
-representation of an object to the standard output stream. In the listing below, the user has defined another parameterless
-println() operation in the context of Any. Therefore the call to
-<code>println()</code> in line 1 will be dispatched to the user-defined <code>println()</code>
-operation defined in line 3. In its body the operation uses the
-<code>-&gt;</code> operator to invoke the built-in <code>println()</code> operation
-(line 4).</p>
+<p>In terms of concrete syntax, <code>.</code> is used as a uniform operator to access a property of an object and to invoke an operation on it. The <code>-&gt;</code> operator, which is used in OCL to invoke first-order logic operations on sets, has been also preserved for syntax compatibility reasons. In EOL, every operation can be invoked both using the <code>.</code> or the <code>-&gt;</code> operators, with a slightly different semantics to enable overriding the built-in operations. If the <code>.</code> operator is used, precedence is given to the user-defined operations, otherwise precedence is given to the built-in operations. For instance, the Any type defines a println() method that prints the string representation of an object to the standard output stream. In the listing below, the user has defined another parameterless println() operation in the context of Any. Therefore the call to <code>println()</code> in line 1 will be dispatched to the user-defined <code>println()</code> operation defined in line 3. In its body the operation uses the <code>-&gt;</code> operator to invoke the built-in <code>println()</code> operation (line 4).</p>
 <div class="highlight"><pre><span></span><code>&quot;Something&quot;.println();
 
 operation Any println() : Any {
@@ -2361,19 +2207,12 @@ operation Any println() : Any {
 }
 </code></pre></div>
 
-<p>It should be noted that due to the variable nature of (meta-)models and
-the various domain-specific languages of Epsilon (including EOL itself),
-feature navigation calls may clash with reserved keywords, leading to a
-parsing error. The backtick operator is used to circumvent this. For
-example, if a model element contains a feature called "operation", then
-this can be navigated as shown in
-the listing below.</p>
+<p>It should be noted that due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. The backtick operator is used to circumvent this. For example, if a model element contains a feature called "operation", then this can be navigated as shown in the listing below.</p>
 <div class="highlight"><pre><span></span><code>var op = modelElement.`operation`;
 </code></pre></div>
 
 <h3 id="arithmetical-and-comparison-operators">Arithmetical and Comparison Operators<a class="headerlink" href="#arithmetical-and-comparison-operators" title="Permanent link">&para;</a></h3>
-<p>EOL provides common operators for performing arithmetical computations
-and comparisons illustrated in the following two tables respectively.</p>
+<p>EOL provides common operators for performing arithmetical computations and comparisons illustrated in the following two tables respectively.</p>
 <table>
 <thead>
 <tr>
@@ -2520,39 +2359,16 @@ instances of the Boolean primitive type.</p>
 </tbody>
 </table>
 <h3 id="ternary-operator">Ternary Operator<a class="headerlink" href="#ternary-operator" title="Permanent link">&para;</a></h3>
-<p>As of 1.6, EOL has a ternary operator which is a concise way of using
-if/else as an expression. The semantics and syntax are similar to Java,
-but can be used anywhere as an expression, not only in variable
-assignments or return statements.
-Listing <a href="#lst:Ternary">[lst:Ternary]</a>{reference-type="ref"
-reference="lst:Ternary"} shows some examples of this<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. Note that is
-also possible to use the <code>else</code> keyword in place of the colon for
-separating the true and false expressions for greater clarity. As one
-would expect, the branches are evaluated lazily: only one of the
-branches is executed and returned as the result of the expression
-depending on the value of the Boolean expression before the question
-mark.</p>
+<p>As of 1.6, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. Note that is also possible to use the <code>else</code> keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.</p>
 <div class="highlight"><pre><span></span><code>var result = 2+2==4 ? &quot;Yes&quot; : &quot;No&quot;;
 return ((result == &quot;Yes&quot; ? 1 : 0) ` 2 == 2).mod(2) == 0;
 </code></pre></div>
 
 <h3 id="enumerations">Enumerations<a class="headerlink" href="#enumerations" title="Permanent link">&para;</a></h3>
-<p>EOL provides the # operator for accessing enumeration literals. For
-example, the VisibilityEnum#vk_public expression returns the value of
-the literal <code>vk\_public</code> of the <code>VisibilityEnum</code> enumeration. For EMF
-metamodels, <code>VisibilityEnum\#vk\_public.instance</code> can also be used.</p>
+<p>EOL provides the # operator for accessing enumeration literals. For example, the VisibilityEnum#vk_public expression returns the value of the literal <code>vk\_public</code> of the <code>VisibilityEnum</code> enumeration. For EMF metamodels, <code>VisibilityEnum\#vk\_public.instance</code> can also be used.</p>
 <h2 id="statements">Statements<a class="headerlink" href="#statements" title="Permanent link">&para;</a></h2>
 <h3 id="variable-declaration-statement">Variable Declaration Statement<a class="headerlink" href="#variable-declaration-statement" title="Permanent link">&para;</a></h3>
-<p>A variable declaration statement declares the name and (optionally) the
-type and initial value of a variable in an EOL program. If no type is
-explicitly declared, the variable is assumed to be of type Any. For
-variables of primitive type, declaration automatically creates an
-instance of the type with the default values presented in the table below. For non-primitive types
-the user has to explicitly assign the value of the variable either by
-using the <code>new</code> keyword or by providing an initial value expression. If
-neither is done the value of the variable is undefined. Variables in EOL
-are strongly-typed. Therefore a variable can only be assigned values
-that conform to its type (or a sub-type of it).</p>
+<p>A variable declaration statement declares the name and (optionally) the type and initial value of a variable in an EOL program. If no type is explicitly declared, the variable is assumed to be of type Any. For variables of primitive type, declaration automatically creates an instance of the type with the default values presented in the table below. For non-primitive types the user has to explicitly assign the value of the variable either by using the <code>new</code> keyword or by providing an initial value expression. If neither is done the value of the variable is undefined. Variables in EOL are strongly-typed. Therefore a variable can only be assigned values that conform to its type (or a sub-type of it).</p>
 <table>
 <thead>
 <tr>
@@ -2580,27 +2396,8 @@ that conform to its type (or a sub-type of it).</p>
 </tbody>
 </table>
 <h5 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h5>
-<p>The scope of variables in EOL is generally limited to the block of
-statements where they are defined, including any nested blocks.
-Nevertheless, as discussed in the sequel, there are cases in
-task-specific languages that build atop EOL where the scope of variables
-is expanded to other non-nested blocks as well. EOL also allows variable
-shadowing; that is to define a variable with the same name in a nested
-block that overrides a variable defined in an outer block.</p>
-<p>In the listing below, an example of declaring and using variables
-is provided. Line 1 defines a variable named <code>i</code> of type <code>Integer</code> and
-assigns it an initial value of <code>5</code>. Line 2 defines a variable named <code>c</code>
-of type <code>Class</code> (from model Uml) and creates a new instance of the type
-in the model (by using the <code>new</code> keyword). The commented out assignment
-statement of line 3 would raise a runtime error since it would attempt
-to assign a <code>String</code> value to an <code>Integer</code> variable. The condition of
-line 4 returns true since the <code>c</code> variable has been initialized before.
-Line 5 defines a new variable also named <code>i</code> that is of type <code>String</code>
-and which overrides the <code>Integer</code> variable declared in line 1. Therefore
-the assignment statement of line 6 is legitimate as it assigns a string
-value to a variable of type String. Finally, as the program has exited
-the scope of the <code>if</code> statement, the assignment statement of line 7 is
-also legitimate as it refers to the <code>i</code> variable defined in line 1.</p>
+<p>The scope of variables in EOL is generally limited to the block of statements where they are defined, including any nested blocks. Nevertheless, as discussed in the sequel, there are cases in task-specific languages that build atop EOL where the scope of variables is expanded to other non-nested blocks as well. EOL also allows variable shadowing; that is to define a variable with the same name in a nested block that overrides a variable defined in an outer block.</p>
+<p>In the listing below, an example of declaring and using variables is provided. Line 1 defines a variable named <code>i</code> of type <code>Integer</code> and assigns it an initial value of <code>5</code>. Line 2 defines a variable named <code>c</code> of type <code>Class</code> (from model Uml) and creates a new instance of the type in the model (by using the <code>new</code> keyword). The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a <code>String</code> value to an <code>Integer</code> variable. The condition of line 4 returns true since the <code>c</code> variable has been initialized before. Line 5 defines a new variable also named <code>i</code> that is of type <code>String</code> and which overrides the <code>Integer</code> variable declared in line 1. Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String. Finally, as the program has exited the scope of the <code>if</code> statement, the assignment statement of line 7 is also legitimate as it refers to the <code>i</code> variable defined in line 1.</p>
 <div class="highlight"><pre><span></span><code>var i : Integer = 5;
 var c : new Uml!Class;
 //i = &quot;somevalue&quot;;
@@ -2612,31 +2409,16 @@ i = 3;
 </code></pre></div>
 
 <h3 id="assignment-statement">Assignment Statement<a class="headerlink" href="#assignment-statement" title="Permanent link">&para;</a></h3>
-<p>The assignment statement is used to update the values of variables and
-properties of native objects and model elements.</p>
+<p>The assignment statement is used to update the values of variables and properties of native objects and model elements.</p>
 <h5 id="variable-assignment">Variable Assignment<a class="headerlink" href="#variable-assignment" title="Permanent link">&para;</a></h5>
-<p>When the left hand side of an assignment statement is a variable, the
-value of the variable is updated to the object to which the right hand
-side evaluates to. If the type of the right hand side is not compatible
-(kind-of relationship) with the type of the variable, the assignment is
-illegal and a runtime error is raised. Assignment to objects of
-primitive types is performed by value while assignment to instances of
-non-primitive values is performed by reference. For example, in the listing below, in line 1 the value of
-the a variable is set to a new Class in the Uml model. In line 2, a new
-untyped variable b is declared and its value is assigned to a. In line 3
-the name of the class is updated to Customer and thus, line 4 prints
-Customer to the standard output stream. </p>
+<p>When the left hand side of an assignment statement is a variable, the value of the variable is updated to the object to which the right hand side evaluates to. If the type of the right hand side is not compatible (kind-of relationship) with the type of the variable, the assignment is illegal and a runtime error is raised. Assignment to objects of primitive types is performed by value while assignment to instances of non-primitive values is performed by reference. For example, in the listing below, in line 1 the value of the a variable is set to a new Class in the Uml model. In line 2, a new untyped variable b is declared and its value is assigned to a. In line 3 the name of the class is updated to Customer and thus, line 4 prints Customer to the standard output stream.</p>
 <div class="highlight"><pre><span></span><code>var a : new Uml!Class;
 var b = a;
 a.name = &quot;Customer&quot;;
 b.name.println();
 </code></pre></div>
 
-<p>On the other hand, in the listing below, in line 1 the a String
-variable is declared. In line 2 an untyped variable b is declared. In
-line 3, the value of a is changed to Customer (which is an instance of
-the primitive <code>String</code> type). This has no effect on b and thus line 4
-prints an empty string to the standard output stream.</p>
+<p>On the other hand, in the listing below, in line 1 the a String variable is declared. In line 2 an untyped variable b is declared. In line 3, the value of a is changed to Customer (which is an instance of the primitive <code>String</code> type). This has no effect on b and thus line 4 prints an empty string to the standard output stream.</p>
 <div class="highlight"><pre><span></span><code>var a : String;
 var b = a;
 a = &quot;Customer&quot;;
@@ -2644,30 +2426,9 @@ b.println();
 </code></pre></div>
 
 <h5 id="native-object-property-assignment">Native Object Property Assignment<a class="headerlink" href="#native-object-property-assignment" title="Permanent link">&para;</a></h5>
-<p>When the left hand side of the assignment is a property of a native
-object, deciding on the legality and providing the semantics of the
-assignment is delegated to the execution engine. For example, in a
-Java-based execution engine, given that x is a native object, the
-statement <code>x.y = a</code> may be interpreted as <code>x.setY(a)</code> or if x is an
-instance of a map <code>x.put("y",a)</code>. By contrast, in a C# implementation,
-it can be interpreted as <code>x.y = a</code> since the language natively supports
-properties in classes.</p>
+<p>When the left hand side of the assignment is a property of a native object, deciding on the legality and providing the semantics of the assignment is delegated to the execution engine. For example, in a Java-based execution engine, given that x is a native object, the statement <code>x.y = a</code> may be interpreted as <code>x.setY(a)</code> or if x is an instance of a map <code>x.put("y",a)</code>. By contrast, in a C# implementation, it can be interpreted as <code>x.y = a</code> since the language natively supports properties in classes.</p>
 <h5 id="model-element-property-assignment">Model Element Property Assignment<a class="headerlink" href="#model-element-property-assignment" title="Permanent link">&para;</a></h5>
-<p>When the left hand side of the assignment is a property of a model
-element, the model that owns the particular model element (accessible
-using the <code>ModelRepository.getOwningModel()</code> operation) is responsible
-for implementing the semantics of the assignment using its associated
-<code>propertyGetter</code> as discussed in Section
-<a href="#sec:Design.EMC.CRUD">[sec:Design.EMC.CRUD]</a>{reference-type="ref"
-reference="sec:Design.EMC.CRUD"}. For example, if x is a model element,
-the statement <code>x.y = a</code> may be interpreted using the Java code of
-Listing
-<a href="#lst:EmfModelElementPropertyAssignment">[lst:EmfModelElementPropertyAssignment]</a>{reference-type="ref"
-reference="lst:EmfModelElementPropertyAssignment"} if x belongs to an
-EMF-based model or using the Java code of Listing
-<a href="#lst:MdrModelElementPropertyAssignment">[lst:MdrModelElementPropertyAssignment]</a>{reference-type="ref"
-reference="lst:MdrModelElementPropertyAssignment"} if it belongs to an
-MDR-based model.</p>
+<p>When the left hand side of the assignment is a property of a model element, the model that owns the particular model element (accessible using the <code>ModelRepository.getOwningModel()</code> operation) is responsible for implementing the semantics of the assignment using its <a href="../emc">associated</a> <code>propertyGetter</code>. For example, if x is a model element, the statement <code>x.y = a</code> may be interpreted using the Java code of the first listing below if x belongs to an EMF-based model or using the Java code of the second listing if it belongs to an MDR-based model.</p>
 <div class="highlight"><pre><span></span><code>EStructuralFeature feature = x.eClass().getEStructuralFeature(&quot;y&quot;);
 x.eSet(feature, a);
 </code></pre></div>
@@ -2677,14 +2438,7 @@ x.refSetValue(feature, a);
 </code></pre></div>
 
 <h3 id="special-assignment-statement">Special Assignment Statement<a class="headerlink" href="#special-assignment-statement" title="Permanent link">&para;</a></h3>
-<p>In task-specific languages, an assignment operator with task-specific
-semantics is often required. Therefore, EOL provides an additional
-assignment operator. In standalone EOL, the operator has the same
-semantics with the primary assignment operator discussed above, however
-task-specific languages can redefine its semantics to implement custom
-assignment behaviour. For example, consider the simple model-to-model
-transformation of the listing below where a simple object
-oriented model is transformed to a simple database model using an ETL transformation.</p>
+<p>In task-specific languages, an assignment operator with task-specific semantics is often required. Therefore, EOL provides an additional assignment operator. In standalone EOL, the operator has the same semantics with the primary assignment operator discussed above, however task-specific languages can redefine its semantics to implement custom assignment behaviour. For example, consider the simple model-to-model transformation of the listing below where a simple object oriented model is transformed to a simple database model using an ETL transformation.</p>
 <div class="highlight"><pre><span></span><code>rule Class2Table
     transform c : OO!Class
     to t : DB!Table {
@@ -2702,29 +2456,9 @@ rule Attribute2Column
     }
 </code></pre></div>
 
-<p>The Class2Table rule transforms a Class of the OO model into a Table in
-the DB model and sets the name of the table to be the same as the name
-of the class. Rule Atribute2Column transforms an Attribute from the OO
-model into a column in the DB model. Except for setting its name (line
-12), it also needs to define that the column belongs to the table which
-corresponds to the class that defines the source attribute. The
-commented-out assignment statement of line 13 cannot be used for this
-purpose since it would illegaly attempt to assign the owningTable
-feature of the column to a model element of an inappropriate type
-(OO!Class). However, the special assignment operator in the
-task-specific language implements the semantics discussed in Section
-<a href="#sec:Design.ETL.SpecialAssignmentOperator">[sec:Design.ETL.SpecialAssignmentOperator]</a>{reference-type="ref"
-reference="sec:Design.ETL.SpecialAssignmentOperator"}, and thus in line
-14 it assigns to the owningTable feature not the class that owns the
-attribute but its corresponding table (calculated using the Class2Table
-rule) in the DB model.</p>
+<p>The Class2Table rule transforms a Class of the OO model into a Table in the DB model and sets the name of the table to be the same as the name of the class. Rule Atribute2Column transforms an Attribute from the OO model into a column in the DB model. Except for setting its name (line 12), it also needs to define that the column belongs to the table which corresponds to the class that defines the source attribute. The commented-out assignment statement of line 13 cannot be used for this purpose since it would illegaly attempt to assign the owningTable feature of the column to a model element of an inappropriate type (OO!Class). However, the special assignment operator in the task-specific language implements the semantics discussed in Section <a href="#sec:Design.ETL.SpecialAssignmentOperator">[sec:Design.ETL.SpecialAssignmentOperator]</a>{reference-type="ref"reference="sec:Design.ETL.SpecialAssignmentOperator"}, and thus in line 14 it assigns to the owningTable feature not the class that owns the attribute but its corresponding table (calculated using the Class2Table rule) in the DB model.</p>
 <h3 id="if-statement">If Statement<a class="headerlink" href="#if-statement" title="Permanent link">&para;</a></h3>
-<p>As in most programming languages, an if statement consists of a
-condition, a block of statements that is executed if the condition is
-satisfied and (optionally) a block of statements that is executed
-otherwise. As an example, in the listing below, if variable a holds a value that is
-greater than 0 the statement of line 3 is executed, otherwise the
-statement of line 5 is executed.</p>
+<p>As in most programming languages, an if statement consists of a condition, a block of statements that is executed if the condition is satisfied and (optionally) a block of statements that is executed otherwise. As an example, in the listing below, if variable a holds a value that is greater than 0 the statement of line 3 is executed, otherwise the statement of line 5 is executed.</p>
 <div class="highlight"><pre><span></span><code>if (a &gt; 0) {
     &quot;A is greater than 0&quot;.println();
 }
@@ -2732,14 +2466,7 @@ else { &quot;A is less equal than 0&quot;.println(); }
 </code></pre></div>
 
 <h3 id="switch-statement">Switch Statement<a class="headerlink" href="#switch-statement" title="Permanent link">&para;</a></h3>
-<p>A switch statement consists of an expression and a set of cases, and can
-be used to implement multi-branching. Unlike Java/C, switch in EOL
-doesn't by default fall through to the next case after a successful one.
-Therefore, it is not necessary to add a <code>break</code> statement after each
-case. To enable falling through to all subsequent cases you can use the
-<code>continue</code> statement. Also, unlike Java/C, the switch expression can
-return anything (not only integers). As an example, when executed, the
-code in the listing below prints <code>2</code> while the code in the following listing prints <code>2,3,default</code>.</p>
+<p>A switch statement consists of an expression and a set of cases, and can be used to implement multi-branching. Unlike Java/C, switch in EOL doesn't by default fall through to the next case after a successful one. Therefore, it is not necessary to add a <code>break</code> statement after each case. To enable falling through to all subsequent cases you can use the <code>continue</code> statement. Also, unlike Java/C, the switch expression can return anything (not only integers). As an example, when executed, the code in the listing below prints <code>2</code> while the code in the following listing prints <code>2,3,default</code>.</p>
 <div class="highlight"><pre><span></span><code>var i = &quot;2&quot;;
 
 switch (i) {
@@ -2761,16 +2488,7 @@ switch (i) {
 </code></pre></div>
 
 <h3 id="while-statement">While Statement<a class="headerlink" href="#while-statement" title="Permanent link">&para;</a></h3>
-<p>A while statement consists of a condition and a block of statements
-which are executed as long as the condition is satisfied. For example,
-in the listing below, the body of the while statement is
-executed 5 times printing the numbers 0 to 4 to the output console.
-Inside the body of a <code>while</code> statement, the built-in read-only
-<code>loopCount</code> integer variable holds the number of times the innermost
-loop has been executed so far (including the current iteration). Right
-after entering the loop for the first time and before running the first
-statement in its body, <code>loopCount</code> is set to 1, and it is incremented
-after each following iteration.</p>
+<p>A while statement consists of a condition and a block of statements which are executed as long as the condition is satisfied. For example, in the listing below, the body of the while statement is executed 5 times printing the numbers 0 to 4 to the output console. Inside the body of a <code>while</code> statement, the built-in read-only <code>loopCount</code> integer variable holds the number of times the innermost loop has been executed so far (including the current iteration). Right after entering the loop for the first time and before running the first statement in its body, <code>loopCount</code> is set to 1, and it is incremented after each following iteration.</p>
 <div class="highlight"><pre><span></span><code>var i : Integer = 0;
 while (i &lt; 5) {
   // both lines print the same thing
@@ -2782,14 +2500,7 @@ while (i &lt; 5) {
 </code></pre></div>
 
 <h3 id="for-statement">For Statement<a class="headerlink" href="#for-statement" title="Permanent link">&para;</a></h3>
-<p>In EOL, for statements are used to iterate the contents of collections.
-A for statement defines a typed iterator and an iterated collection as
-well as a block of statements that is executed for every item in the
-collection that has a kind-of relationship with the type defined by the
-iterator. As with the majority of programming languages, modifying a
-collection while iterating it raises a runtime error. To avoid this
-situation, users can use the clone() built-in operation of the
-<a href="#collections-and-maps">Collection</a> type.</p>
+<p>In EOL, for statements are used to iterate the contents of collections. A for statement defines a typed iterator and an iterated collection as well as a block of statements that is executed for every item in the collection that has a kind-of relationship with the type defined by the iterator. As with the majority of programming languages, modifying a collection while iterating it raises a runtime error. To avoid this situation, users can use the clone() built-in operation of the <a href="#collections-and-maps">Collection</a> type.</p>
 <div class="highlight"><pre><span></span><code>var col : Sequence = Sequence{&quot;a&quot;, 1, 2, 2.5, &quot;b&quot;};
 for (r : Real in col) {
     r.print();
@@ -2797,23 +2508,9 @@ for (r : Real in col) {
 }
 </code></pre></div>
 
-<p>Inside the body of a <code>for</code> statement, two built-in read-only variables
-are visible: the <code>loopCount</code> integer variable and the <code>hasMore</code> boolean variable.
-<code>hasMore</code> is used to determine if there are more items if the collection
-for which the loop will be executed. For example, in the listing below the <code>col</code> heterogeneous <code>Sequence</code> is defined
-that contains two strings (<code>a</code> and <code>b</code>), two integers (<code>1</code>,<code>2</code>) and one real
-(<code>2.5</code>). The for loop of line 2 only iterates through the items of the
-collection that are of kind Real and therefore prints <code>1,2,2.5</code> to the
-standard output stream.</p>
+<p>Inside the body of a <code>for</code> statement, two built-in read-only variables are visible: the <code>loopCount</code> integer variable and the <code>hasMore</code> boolean variable. <code>hasMore</code> is used to determine if there are more items if the collection for which the loop will be executed. For example, in the listing below the <code>col</code> heterogeneous <code>Sequence</code> is defined that contains two strings (<code>a</code> and <code>b</code>), two integers (<code>1</code>,<code>2</code>) and one real (<code>2.5</code>). The for loop of line 2 only iterates through the items of the collection that are of kind Real and therefore prints <code>1,2,2.5</code> to the standard output stream.</p>
 <h3 id="break-breakall-and-continue-statements">Break, BreakAll and Continue Statements<a class="headerlink" href="#break-breakall-and-continue-statements" title="Permanent link">&para;</a></h3>
-<p>To exit from for and while loops on demand, EOL provides the break and
-breakAll statements. The break statement exits the innermost loop while
-the breakAll statement exits all outer loops as well. On the other hand,
-to skip a particular loop and proceed with the next one, EOL provides
-the continue statement. For example, the excerpt of Listing
-<a href="#lst:BreakStatement">[lst:BreakStatement]</a>{reference-type="ref"
-reference="lst:BreakStatement"}, prints <code>2,1 3,1</code> to the standard output
-stream.</p>
+<p>To exit from for and while loops on demand, EOL provides the break and breakAll statements. The break statement exits the innermost loop while the breakAll statement exits all outer loops as well. On the other hand, to skip a particular loop and proceed with the next one, EOL provides the continue statement. For example, the program in the listing below, prints <code>2,1 3,1</code> to the standard output stream.</p>
 <div class="highlight"><pre><span></span><code>for (i in Sequence{1..3}) {
     if (i = 1) {continue;}
     for (j in Sequence{1..4}) {
@@ -2825,31 +2522,13 @@ stream.</p>
 </code></pre></div>
 
 <h3 id="throw-statement">Throw Statement<a class="headerlink" href="#throw-statement" title="Permanent link">&para;</a></h3>
-<p>EOL provides the throw statement for throwing a value as an Java
-exception. This is especially useful when invoking EOL scripts from Java
-code: by catching and processing the exception, the Java code may be
-able to automatically handle the problem without requiring user input.
-Any value can be thrown, as shown in
-the listing below where we throw a number and a string.</p>
+<p>EOL provides the throw statement for throwing a value as an Java exception. This is especially useful when invoking EOL scripts from Java code: by catching and processing the exception, the Java code may be able to automatically handle the problem without requiring user input. Any value can be thrown, as shown in the listing below where we throw a number and a string.</p>
 <div class="highlight"><pre><span></span><code>throw 42;
 throw &quot;Error!&quot;;
 </code></pre></div>
 
 <h3 id="transaction-statement">Transaction Statement<a class="headerlink" href="#transaction-statement" title="Permanent link">&para;</a></h3>
-<p>The underlying <a href="emc">EMC layer</a>
-provides support for transactions in models. To utilize this feature EOL
-provides the transaction statement. A transaction statement (optionally)
-defines the models that participate in the transaction. If no models are
-defined, it is assumed that all the models that are accessible from the
-enclosing program participate. When the statement is executed, a
-transaction is started on each participating model. If no errors are
-raised during the execution of the contained statements, any changes
-made to model elements are committed. On the other hand, if an error is
-raised the transaction is rolled back and any changes made to the models
-in the context of the transaction are undone. The user can also use the
-abort statement to explicitly exit a transaction and roll-back any
-changes done in its context. In the listing below, an example of using this feature
-in a simulation problem is illustrated.</p>
+<p>The underlying <a href="../emc">EMC layer</a> provides support for transactions in models. To utilize this feature EOL provides the transaction statement. A transaction statement (optionally) defines the models that participate in the transaction. If no models are defined, it is assumed that all the models that are accessible from the enclosing program participate. When the statement is executed, a transaction is started on each participating model. If no errors are raised during the execution of the contained statements, any changes made to model elements are committed. On the other hand, if an error is raised the transaction is rolled back and any changes made to the models in the context of the transaction are undone. The user can also use the abort statement to explicitly exit a transaction and roll-back any changes done in its context. In the listing below, an example of using this feature in a simulation problem is illustrated.
 <div class="highlight"><pre><span></span><code>var system : System.allInstances.first();
 
 for (i in Sequence {1..100}) {
@@ -2873,39 +2552,13 @@ for (i in Sequence {1..100}) {
     }
 
 }
-</code></pre></div>
-
-<p>In this problem, a system consists of a number of processors. A
-processor manages some tasks and can fail at any time. The EOL program
-in the listing above performs 100 simulation steps, in
-every one of which 10 random processors from the model (lines 7-11) are
-marked as failed by setting their <code>failed</code> property to true (line 14).
-Then, the tasks that the failed processors manage are moved to other
-processors (line 15). Finally the availability of the system in this
-state is evaluated.</p>
-<p>After a simulation step, the state of the model has been drastically
-changed since processors have failed and tasks have been relocated. To
-be able to restore the model to its original state after every
-simulation step, each step is executed in the context of a transaction
-which is explicitly aborted (line 20) after evaluating the availability of the
-system. Therefore after each simulation step the model is restored to
-its original state for the next step to be executed.</p>
+</code></pre></div></p>
+<p>In this problem, a system consists of a number of processors. A processor manages some tasks and can fail at any time. The EOL program in the listing above performs 100 simulation steps, in every one of which 10 random processors from the model (lines 7-11) are marked as failed by setting their <code>failed</code> property to true (line 14). Then, the tasks that the failed processors manage are moved to other processors (line 15). Finally the availability of the system in this state is evaluated.</p>
+<p>After a simulation step, the state of the model has been drastically changed since processors have failed and tasks have been relocated. To be able to restore the model to its original state after every simulation step, each step is executed in the context of a transaction which is explicitly aborted (line 20) after evaluating the availability of the system. Therefore after each simulation step the model is restored to its original state for the next step to be executed.</p>
 <h3 id="extended-properties">Extended Properties<a class="headerlink" href="#extended-properties" title="Permanent link">&para;</a></h3>
-<p>Quite often, during a model management operation it is necessary to
-associate model elements with information that is not supported by the
-metamodel they conform to. For instance, the EOL program in listing
-<a href="#lst:NoExtendedProperties">[lst:NoExtendedProperties]</a>{reference-type="ref"
-reference="lst:NoExtendedProperties"} calculates the depth of each Tree
-element in a model that conforms to the Tree metamodel displayed below.</p>
+<p>Quite often, during a model management operation it is necessary to associate model elements with information that is not supported by the metamodel they conform to. For instance, the EOL program in the listing below calculates the depth of each Tree element in a model that conforms to the Tree metamodel displayed below.</p>
 <p><img alt="The Tree Metamodel" src="../images/metamodels/Tree.png" /></p>
-<p>As the Tree metamodel doesn't support a <code>depth</code> property in the Tree
-metaclass, each Tree has to be associated with its calculated depth
-(line <a href="#line:PutDepthInMap">[line:PutDepthInMap]</a>{reference-type="ref"
-reference="line:PutDepthInMap"}) using the <code>depths</code> map defined in line 1. Another approach would be to extend the
-Tree metamodel to support the desired <code>depth</code> property; however,
-applying this technique every time an additional property is needed for
-some model management operation would quickly pollute the metamodel with
-properties of secondary importance.</p>
+<p>As the Tree metamodel doesn't support a <code>depth</code> property in the Tree metaclass, each Tree has to be associated with its calculated depth using the <code>depths</code> map defined in line 1. Another approach would be to extend the Tree metamodel to support the desired <code>depth</code> property; however, applying this technique every time an additional property is needed for some model management operation would quickly pollute the metamodel with properties of secondary importance.</p>
 <div class="highlight"><pre><span></span><code>var depths = new Map;
 
 for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
@@ -2917,23 +2570,14 @@ for (n in Tree.allInstances) {
 }
 
 operation Tree setDepth(depth : Integer) {
-    depths.put(self,depth); /`@\label{line:PutDepthInMap}@`/
+    depths.put(self,depth);
     for (c in self.children) {
         c.setDepth(depth + 1);
-}
+        }
 }
 </code></pre></div>
 
-<p>To simplify the code required in such cases, EOL provides the concept of
-<em>extended properties</em>. In terms of concrete syntax, an extended property
-is a normal property, the name of which starts with the tilde character
-(<code>~</code>). With regards to its execution semantics, the first time the value
-of an extended property of an object is assigned, the property is
-created and associated with the object. Then, the property can be
-accessed as a normal property. If an extended property is accessed
-before it is assigned, it returns <code>null</code>. The listing below demonstrates using a <code>~depth</code>
-extended property to eliminate the need for using the <code>depths</code> map in
-the listing that follows it.</p>
+<p>To simplify the code required in such cases, EOL provides the concept of <em>extended properties</em>. In terms of concrete syntax, an extended property is a normal property, the name of which starts with the tilde character (<code>~</code>). With regards to its execution semantics, the first time the value of an extended property of an object is assigned, the property is created and associated with the object. Then, the property can be accessed as a normal property. If an extended property is accessed before it is assigned, it returns <code>null</code>. The listing below demonstrates using a <code>~depth</code> extended property to eliminate the need for using the <code>depths</code> map in the listing that follows it.</p>
 <div class="highlight"><pre><span></span><code>for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
     n.setDepth(0);
 }
@@ -2951,23 +2595,8 @@ operation Tree setDepth(depth : Integer) {
 </code></pre></div>
 
 <h3 id="context-independent-user-input">Context-Independent User Input<a class="headerlink" href="#context-independent-user-input" title="Permanent link">&para;</a></h3>
-<p>A common assumption in model management languages is that model
-management tasks are only executed in a batch-manner without human
-intervention. However, as demonstrated in the sequel, it is often useful
-for the user to provide feedback that can precisely drive the execution
-of a model management operation.</p>
-<p>Model management operations can be executed in a number of runtime
-environments in each of which a different user-input method is more
-appropriate. For instance when executed in the context of an IDE (such
-as Eclipse) visual dialogs are preferable, while when executed in the
-context of a server or from within an ANT workflow, a command-line user
-input interface is deemed more suitable. To abstract away from the
-different runtime environments and enable the user to specify user
-interaction statements uniformly and regardless of the runtime context,
-EOL provides the <code>IUserInput</code> interface that can be realized in
-different ways according to the execution environment and attached to
-the runtime context via the <code>IEolContext.setUserInput(IUserInput
-userInput)</code> method. The <code>IUserInput</code> specifies the methods presented in the table below.</p>
+<p>A common assumption in model management languages is that model management tasks are only executed in a batch-manner without human intervention. However, as demonstrated in the sequel, it is often useful for the user to provide feedback that can precisely drive the execution of a model management operation.</p>
+<p>Model management operations can be executed in a number of runtime environments in each of which a different user-input method is more appropriate. For instance when executed in the context of an IDE (such as Eclipse) visual dialogs are preferable, while when executed in the context of a server or from within an ANT workflow, a command-line user input interface is deemed more suitable. To abstract away from the different runtime environments and enable the user to specify user interaction statements uniformly and regardless of the runtime context, EOL provides the <code>IUserInput</code> interface that can be realized in different ways according to the execution environment and attached to the runtime context via the <code>IEolContext.setUserInput(IUserInput userInput)</code> method. The <code>IUserInput</code> specifies the methods presented in the table below.</p>
 <table>
 <thead>
 <tr>
@@ -3022,20 +2651,12 @@ implementation respectively.</p>
 implementation" src="../images/EclipseUserInput.png" /></p>
 <p><img alt="Example of a command-line-based IUserInput
 implementation" src="../images/ConsoleUserInput.png" /></p>
-<p>User-input facilities have been found to be particularly useful in all
-model management tasks. Such facilities are essential for performing
-operations on live models such as model validation and model refactoring
-but can also be useful in model comparison where marginal matching
-decisions can be delegated to the user and model transformation where
-the user can interactively specify the elements that will be transformed
-into corresponding elements in the target model.</p>
+<p>User-input facilities have been found to be particularly useful in all model management tasks. Such facilities are essential for performing operations on live models such as model validation and model refactoring but can also be useful in model comparison where marginal matching decisions can be delegated to the user and model transformation where the user can interactively specify the elements that will be transformed into corresponding elements in the target model.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Although the EOL parser permits loose statements (e.g. not
-contained in operations) between/after operations, these are ignored
-at runtime.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Although the EOL parser permits loose statements (e.g. not contained in operations) between/after operations, these are ignored at runtime.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p>Parameters within square brackets are optional&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
@@ -3047,8 +2668,7 @@ at runtime.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to
 <p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:5">
-<p>For further examples of ternary operator, see
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol">https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>For further examples of ternary operator, see <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol">https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
