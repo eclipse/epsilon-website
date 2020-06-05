@@ -58,13 +58,14 @@ instance, to use the `epsilon-core` JAR from your `pom.xml`:
 ```xml
 <dependencies>
   ...
-  <dependency>
-    <groupId>org.eclipse.epsilon</groupId>
-    <artifactId>epsilon-core</artifactId>
-    <version>2.0</version>
-  </dependency>
+	<dependency>
+	    <groupId>org.eclipse.epsilon</groupId>
+	    <artifactId>org.eclipse.epsilon.eol.engine</artifactId>
+	    <version>2.0.0</version>
+	</dependency>
   ...
 </dependencies>
+
 ```
 
 ## Older versions
