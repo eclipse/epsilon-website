@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -801,7 +805,7 @@
 <p>Note that when choosing a parallel implementation, first-order operations such as <code>select</code>, <code>exists</code> etc. will also be parallelised automatically where appropriate. This applies in particular to the parallel EOL implementation.</p>
 <h2 id="annotation-based-parallelism">Annotation-based parallelism<a class="headerlink" href="#annotation-based-parallelism" title="Permanent link">&para;</a></h2>
 <p>In cases where an "Annotation-based" implementation is available, you can choose which rules are parallelised with the <code>@parallel</code> annotation. For example in EVL:</p>
-<div class="codehilite"><pre><span></span><code>context ModelElementType {
+<div class="highlight"><pre><span></span><code>context ModelElementType {
   @parallel
   constraint Invariant {
     check {
@@ -810,9 +814,8 @@
   }
 </code></pre></div>
 
-
 <p>If further control is required, you can also choose whether a rule will be executed in parallel on a per-element basis using an executable annotation. This allows you to write a Boolean EOL expression to determine whether a given model element should be executed in parallel for the annotated rule. You can access the model element in the annotation with <code>self</code> as usual, and also any operations or variables in scope. Any rules not annotated will be executed sequentially.</p>
-<div class="codehilite"><pre><span></span><code>pre {
+<div class="highlight"><pre><span></span><code>pre {
   var parallelThreshold = 9001;
 }
 context ModelElementType {
@@ -823,7 +826,6 @@ context ModelElementType {
     }
   }
 </code></pre></div>
-
 
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
 <p>Currently Epsilon does not support assignment of extended properties when executing in parallel. Parallel operations also cannot be nested.</p>
@@ -874,6 +876,10 @@ context ModelElementType {
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

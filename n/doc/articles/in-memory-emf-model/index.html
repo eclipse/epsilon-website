@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -772,7 +776,7 @@
                 
                 <h1 id="working-with-custom-emf-resources">Working with custom EMF resources<a class="headerlink" href="#working-with-custom-emf-resources" title="Permanent link">&para;</a></h1>
 <p>Epsilon's default EMF driver (<a href="http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/EmfModel.html">EmfModel</a>), provides little support for customising the underlying EMF resource loading/persistence process (e.g. using custom resource factories, passing parameters to the resources's load/save methods etc.). If you're invoking an Epsilon program from Java and you need more flexibility in this respect, you can use <a href="http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/InMemoryEmfModel.html">InMemoryEmfModel</a> instead, which is essentially a wrapper for a pre-loaded EMF resource. A skeleton example follows.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="o">...;</span>
+<div class="highlight"><pre><span></span><code><span class="n">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="o">...;</span>
 <span class="n">InMemoryEmfModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InMemoryEmfModel</span><span class="o">(</span><span class="n">resource</span><span class="o">);</span>
 <span class="n">model</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;M&quot;</span><span class="o">);</span>
 <span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="o">();</span>
@@ -828,6 +832,10 @@
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

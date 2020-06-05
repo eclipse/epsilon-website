@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -976,13 +980,12 @@ Contributors: <Your Name>
 <p>Fork the EpsilonLabs update site repository and add your project in two places:</p>
 <p>Add a new entry(line) to the projects.txt file. The line should have your project name (the name of the project in GitHub) and the target platform information. In most cases this can be <em>Any</em>. If you only support a specific platform you should provide the correct values.</p>
 <p>Add a new local repository to the updasite's root pom (the <strong>project</strong> name should match the entry in the projects file):</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;repository&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;repository&gt;</span>
     <span class="nt">&lt;id&gt;</span>epsilonlabs-{project}<span class="nt">&lt;/id&gt;</span>
     <span class="nt">&lt;url&gt;</span>file:///${main.basedir}/repository/{project}}<span class="nt">&lt;/url&gt;</span>
     <span class="nt">&lt;layout&gt;</span>p2<span class="nt">&lt;/layout&gt;</span>
 <span class="nt">&lt;/repository&gt;</span>
 </code></pre></div>
-
 
 <ul>
 <li>Make a <em>pull request</em> to the main EpsilonLabs update site project.</li>
@@ -1039,6 +1042,10 @@ Contributors: <Your Name>
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

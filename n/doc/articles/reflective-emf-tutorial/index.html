@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -848,7 +852,7 @@
 <p>This is where we'll specify our Ecore metamodel using the Emfatic textual syntax</p>
 <h2 id="add-content-to-libraryemf">Add content to library.emf<a class="headerlink" href="#add-content-to-libraryemf" title="Permanent link">&para;</a></h2>
 <p>Now <code>library.emf</code> should be open and you can copy-paste the following text into it (our sample metamodel) and save.</p>
-<div class="codehilite"><pre><span></span><code>@namespace(uri=&quot;library&quot;, prefix=&quot;&quot;)
+<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;library&quot;, prefix=&quot;&quot;)
 package library;
 
 class Library {
@@ -873,7 +877,6 @@ enum BookCategory {
    Biography;
 }
 </code></pre></div>
-
 
 <p>Now your <code>library.emf</code> editor should look like this:</p>
 <p><img alt="" src="emfatic-editor.png" /></p>
@@ -957,6 +960,10 @@ enum BookCategory {
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

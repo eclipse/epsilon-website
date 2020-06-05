@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -795,7 +799,7 @@
                 
                 <h1 id="code-generation-tutorial-with-egl">Code Generation Tutorial with EGL<a class="headerlink" href="#code-generation-tutorial-with-egl" title="Permanent link">&para;</a></h1>
 <p>EGL is a template-based language that can be used to generate code (or any other kind of text) from different types of models supported by Epsilon (e.g. EMF, UML, XML). This example demonstrates using EGL to generate HTML code from the XML document below.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
   <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;EMF Eclipse Modeling Framework&quot;</span> <span class="na">pages=</span><span class="s">&quot;744&quot;</span> <span class="na">public=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;id&gt;</span>EMFBook<span class="nt">&lt;/id&gt;</span>
     <span class="nt">&lt;author&gt;</span>Dave Steinberg<span class="nt">&lt;/author&gt;</span>
@@ -819,9 +823,8 @@
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
 
-
 <p>More specifically, we will generate one HTML file for each <code>&lt;book&gt;</code> element that has a <code>public</code> attribute set to <code>true</code>. Below is an EGL template (<code>book2page.egl</code>) that can generate an HTML file from a single <code>&lt;book&gt;</code> element. For more details on using EGL's expression language to navigate and query XML documents, please refer to <a href="plain-xml">this article</a>.</p>
-<div class="codehilite"><pre><span></span><code>&lt;h1&gt;Book [%=index%]: [%=book.a_title%]&lt;/h1&gt;
+<div class="highlight"><pre><span></span><code>&lt;h1&gt;Book [%=index%]: [%=book.a_title%]&lt;/h1&gt;
 
 &lt;h2&gt;Authors&lt;/h2&gt;
 &lt;ul&gt;
@@ -831,9 +834,8 @@
 &lt;/ul&gt;
 </code></pre></div>
 
-
 <p>The template above can generate one HTML file from one <code>&lt;book&gt;</code> element. To run this template against '''all''' <code>&lt;book&gt;</code> elements anywhere in the XML document, and generate appropriately-named HTML files, we need to use an EGX co-ordination program such as the one illustrated below (<code>main.egx</code>). The <code>Book2Page</code> rule of the EGX program will <code>transform</code> every <code>&lt;book&gt;</code> element (<code>t_book</code>) that satisfies the declared <code>guard</code> (has a <code>public</code> attribute set to <code>true</code>), into a <code>target</code> file, using the specified <code>template</code> (<code>book2page.egl</code>). In addition, the EGX program specifies a <code>Library2Page</code> rule, that generates an HTML (index) file for each <code>&lt;library&gt;</code> element in the document.</p>
-<div class="codehilite"><pre><span></span><code>rule Book2Page 
+<div class="highlight"><pre><span></span><code>rule Book2Page 
   transform book : t_book {
 
   // We only want to generate pages
@@ -866,9 +868,8 @@ rule Library2Page
 }
 </code></pre></div>
 
-
 <p>For completeness, the source code of the <code>library2page.egl</code> template appears below.</p>
-<div class="codehilite"><pre><span></span><code>&lt;h1&gt;Books&lt;/h1&gt;
+<div class="highlight"><pre><span></span><code>&lt;h1&gt;Books&lt;/h1&gt;
 
 &lt;ul&gt;
 [%for (book in library.c_book.select(b|b.b_public)) { %]
@@ -877,7 +878,6 @@ rule Library2Page
 &lt;/ul&gt;
 </code></pre></div>
 
-
 <h2 id="running-the-code-generator-from-eclipse">Running the Code Generator from Eclipse<a class="headerlink" href="#running-the-code-generator-from-eclipse" title="Permanent link">&para;</a></h2>
 <p>Screenshots of the Eclipse run configuration appear below. The complete source for this example is available <a href="../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library">here</a>.</p>
 <p><img alt="" src="run-configuration.png" /></p>
@@ -885,7 +885,7 @@ rule Library2Page
 <p><img alt="" src="run-configuration-model.png" /></p>
 <h2 id="running-the-code-generator-from-java">Running the Code Generator from Java<a class="headerlink" href="#running-the-code-generator-from-java" title="Permanent link">&para;</a></h2>
 <p>The following snippet demonstrates using Epsilon's Java API to parse the XML document and execute the EGX program. The complete source for this example is available <a href="../../../examples/index.php?example=org.eclipse.epsilon.examples.egl.library">here</a> (please read <code>lib/readme.txt</code> for instructions on how to obtain the missing Epsilon JAR). </p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EgxModule</span><span class="o">;</span>
@@ -965,6 +965,10 @@ rule Library2Page
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

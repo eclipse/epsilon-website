@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -1072,7 +1076,7 @@ technologies.</p>
 <p>An EVL module can define a number of named <em>pre</em> and a <em>post</em> blocks that contain EOL statements which are executed before and after evaluating the invariants respectively. These should not be confused with the pre-/post-condition annotations available for EOL user-defined operations.</p>
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>
 <p>The following listing demonstrates the concrete sytnax of the <em>context</em>, <em>invariant</em> and <em>fix</em> abstract syntax constructs discussed above.</p>
-<div class="codehilite"><pre><span></span><code>(@lazy)?
+<div class="highlight"><pre><span></span><code>(@lazy)?
 context &lt;name&gt; {
     (guard (:expression)|({statementBlock}))?
     (invariant)* 
@@ -1095,13 +1099,11 @@ fix {
 }
 </code></pre></div>
 
-
 <p><em>Pre</em> and <em>post</em> blocks have a simple syntax that, as presented in the listing below, consists of the identifier (<em>pre</em> or <em>post</em>), an optional name and the set of statements to be executed enclosed in curly braces.</p>
-<div class="codehilite"><pre><span></span><code>(pre|post) &lt;name&gt; {
+<div class="highlight"><pre><span></span><code>(pre|post) &lt;name&gt; {
     statement+
 }
 </code></pre></div>
-
 
 <h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
 <p>Having discussed the abstract and concrete syntaxes of EVL, this section provides an informal discussion of the execution semantics of the language. The execution of an EVL module is separated into four phases:</p>
@@ -1199,6 +1201,10 @@ fix {
       <script src="../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
       
     
   </body>

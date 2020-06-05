@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -965,7 +969,7 @@
 <p>The images show the tree view of a OO Model with the EMF Reflective Editor (left) and the Exeed Editor (right).</p>
 <p><img alt="EMF Reflective Editor" src="normaltree.png" /><img alt="Exeed Editor" src="exeedtree.png" /></p>
 <p>The following code presents the annotated OO metamodel (in Emfatic) that was used to obtain the Exeed result above (the example is available from the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.exeedoo">examples</a> folder of the Git repository):</p>
-<div class="codehilite"><pre><span></span><code>@namespace(uri=&quot;OO&quot;, prefix=&quot;&quot;)
+<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;OO&quot;, prefix=&quot;&quot;)
 package OO;
 
 @exeed(classIcon=&quot;model&quot;)
@@ -1102,7 +1106,6 @@ enum VisibilityEnum {
 }
 </code></pre></div>
 
-
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../articles/inspect-models-exeed">Article: Inspecting EMF Models with Exeed</a></li>
@@ -1189,6 +1192,10 @@ enum VisibilityEnum {
       <script src="../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
       
     
   </body>

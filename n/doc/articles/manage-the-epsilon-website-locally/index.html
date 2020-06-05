@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -785,7 +789,7 @@
 </ul>
 <h1 id="using-lighttpd-instead-of-xampp">Using lighttpd instead of XAMPP<a class="headerlink" href="#using-lighttpd-instead-of-xampp" title="Permanent link">&para;</a></h1>
 <p>You can also use <a href="http://www.lighttpd.net/">lighttpd</a> with PHP instead of XAMPP, following <a href="http://redmine.lighttpd.net/wiki/1/TutorialLighttpdAndPHP">this tutorial</a> and pointing <code>server.document-root</code> to your <code>htdocs</code> directory, checked out as above. Alternatively, in most Debian-based GNU/Linux distributions, installing the <code>lighttpd</code> and <code>php5-cgi</code> packages and adapting this minimal configuration should be enough:</p>
-<div class="codehilite"><pre><span></span><code>server.document-root = &quot;/path/to/htdocs&quot;
+<p><div class="highlight"><pre><span></span><code>server.document-root = &quot;/path/to/htdocs&quot;
 server.port          = 8080
 index-file.names    += ( &quot;index.html&quot;, &quot;index.htm&quot;, &quot;index.php&quot; )
 
@@ -796,12 +800,9 @@ mimetype.assign = ( &quot;.html&quot; =&gt; &quot;text/html&quot;, &quot;.htm&qu
 server.modules += ( &quot;mod_cgi&quot; )
 cgi.assign      = ( &quot;.php&quot; =&gt; &quot;/path/to/php-cgi&quot; )
 </code></pre></div>
-
-
-<p>You can then launch the lighttpd server and leave it running on the foreground with:</p>
-<div class="codehilite"><pre><span></span><code>lighttpd -D -f lighttpd-epsilon.conf
+You can then launch the lighttpd server and leave it running on the foreground with:</p>
+<div class="highlight"><pre><span></span><code>lighttpd -D -f lighttpd-epsilon.conf
 </code></pre></div>
-
 
 <p>If you use lighttpd in Windows, use Windows-style paths (<code>c:\...</code>) instead of Cygwin-style (<code>/cygdrive/c/...</code>) paths. Otherwise, PHP will not work correctly.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
@@ -811,9 +812,8 @@ cgi.assign      = ( &quot;.php&quot; =&gt; &quot;/path/to/php-cgi&quot; )
 </ul>
 <h2 id="finding-broken-links">Finding broken links<a class="headerlink" href="#finding-broken-links" title="Permanent link">&para;</a></h2>
 <p><code>wget</code> and <code>grep</code> can be used to find broken links in the Epsilon website. First, we will traverse the website using <code>wget</code> with this command:</p>
-<div class="codehilite"><pre><span></span><code>wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8080/epsilon/
+<div class="highlight"><pre><span></span><code>wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8080/epsilon/
 </code></pre></div>
-
 
 <p>We have used these options:</p>
 <ul>
@@ -824,9 +824,8 @@ cgi.assign      = ( &quot;.php&quot; =&gt; &quot;/path/to/php-cgi&quot; )
 <li><code>-o wget_errors.txt</code> collects all messages in the <code>wget_errors.txt</code> file</li>
 </ul>
 <p>Once it's done, we can simply search for the word "404" in the log, with:</p>
-<div class="codehilite"><pre><span></span><code>grep -B2 -w 404 wget_errors.txt
+<div class="highlight"><pre><span></span><code>grep -B2 -w 404 wget_errors.txt
 </code></pre></div>
-
 
 <p>We will get a list of all the URLs which reported 404 (Not Found) HTTP error codes.</p>
 <p>To find broken links in the <a href="http://epsilonblog.wordpress.com">Epsilon blog</a>, it is better to use <code>-l 3</code> (3 levels of recursion for the spider) rather than <code>--no-parent</code>, as we might want to check if external links are broken as well. We use three levels so we can go to the month in the "Archives", then to the full article, and finally to the external link itself.</p>
@@ -877,6 +876,10 @@ cgi.assign      = ( &quot;.php&quot; =&gt; &quot;/path/to/php-cgi&quot; )
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

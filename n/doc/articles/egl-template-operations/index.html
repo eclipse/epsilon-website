@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -789,7 +793,7 @@
                 <h1 id="using-template-operations-in-egl">Using template operations in EGL<a class="headerlink" href="#using-template-operations-in-egl" title="Permanent link">&para;</a></h1>
 <p>Template operations provide a way to re-use small fragments of <a href="../../egl">EGL</a> code. This article shows how to write <a href="../../egl">EGL</a> template operations and discusses when you might want to use them.</p>
 <p>Suppose we are writing a code generator for plain-old Java objects, and we have the following EGL code (which assumes the presence of a class object):</p>
-<div class="codehilite"><pre><span></span><code>class [%=class.name%] {
+<div class="highlight"><pre><span></span><code>class [%=class.name%] {
 [% for (feature in class.features) { %]
   /**
    * Gets the value of [%=feature.firstToLowerCase()%]
@@ -808,10 +812,9 @@
 }
 </code></pre></div>
 
-
 <p>While the above code will work, it has a couple of drawbacks. Firstly, the code to generate getters and setters cannot be re-used in other templates. Secondly, the template is arguably hard to read - the purpose of the loop's body is not immediately clear.</p>
 <p>Using EGL template operations, the above code becomes:</p>
-<div class="codehilite"><pre><span></span><code>class [%=class.name%] {
+<div class="highlight"><pre><span></span><code>class [%=class.name%] {
 [% for (feature in class.features) { %]
   [%=feature.getter()%]
   [%=feature.setter()%]
@@ -839,7 +842,6 @@
    [% }
 %]
 </code></pre></div>
-
 
 <p>Notice that, in the body of the loop, we call the template operations, <code>getter</code> and <code>setter</code>, to generate the getter and setter methods for each feature. This makes the loop arguably easier to read, and the <code>getter</code> and <code>setter</code> operations can be re-used in other templates.</p>
 <p>Template operations are annotated with <code>@template</code> and can mix dynamic and static sections, just like the main part of an EGL template. Operations are defined on metamodel types (Feature in the code above), and may be called on any model element that instantiates that type. In the body of an operation, the keyword <code>self</code> is used to refer to the model element on which the operation has been called.</p>
@@ -894,6 +896,10 @@
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

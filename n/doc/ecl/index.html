@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -997,7 +1001,7 @@ discussed in the sequel are executed before and after the match-rules
 have been executed respectively.</p>
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>
 <p>The concrete syntax of a match-rule is displayed below.</p>
-<div class="codehilite"><pre><span></span><code>(@lazy)?
+<div class="highlight"><pre><span></span><code>(@lazy)?
 (@greedy)?
 (@abstract)?
 rule &lt;name&gt;
@@ -1011,13 +1015,11 @@ rule &lt;name&gt;
 }
 </code></pre></div>
 
-
 <p><em>Pre</em> and <em>post</em> blocks have a simple syntax that, as shown below, consists of the identifier (<em>pre</em> or <em>post</em>), an optional name and the set of statements to be executed enclosed in curly braces.</p>
-<div class="codehilite"><pre><span></span><code>(pre|post) &lt;name&gt; {
+<div class="highlight"><pre><span></span><code>(pre|post) &lt;name&gt; {
     statement+
 }
 </code></pre></div>
-
 
 <h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
 <h3 id="rule-and-block-overriding">Rule and Block Overriding<a class="headerlink" href="#rule-and-block-overriding" title="Permanent link">&para;</a></h3>
@@ -1036,7 +1038,7 @@ rule &lt;name&gt;
 <p>Providing the built-in <em>matches</em> operation significantly simplifies comparison specifications. It also enhances decoupling between match-rules from each other as when a rule needs to compare two elements that are outside its scope, it does not need to know/specify which other rule can compare those elements explicitly.</p>
 <p>On the other hand, it is possible - and quite common indeed - for two rules to implicitly invoke each other. For example consider the match rule below that attempts to match nodes of the simple Tree metamodel.</p>
 <p><img alt="" src="../images/metamodels/Tree.png" /></p>
-<div class="codehilite"><pre><span></span><code><span class="kt">rule</span> <span class="n">Tree2Tree</span> 
+<div class="highlight"><pre><span></span><code><span class="kt">rule</span> <span class="n">Tree2Tree</span> 
     <span class="n">match</span> <span class="n">l</span> <span class="o">:</span> <span class="n">T1</span><span class="o">!</span><span class="n">Tree</span>
     <span class="n">with</span> <span class="n">r</span> <span class="o">:</span> <span class="n">T2</span><span class="o">!</span><span class="n">Tree</span> <span class="p">{</span>
 
@@ -1046,13 +1048,12 @@ rule &lt;name&gt;
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>The rule specifies that for two Tree nodes (<em>l</em> and <em>r</em>) to match, they should have the same label, belong to matching parents and have matching children. In the absence of a dedicated mechanism for cycle detection and resolution, the rule would end up in an infinite loop. To address this problem, ECL provides a temporary match-trace which is used to detect and resolve cyclic invocations of the <em>match()</em> built-in operation.</p>
 <p>As discussed above, a match is added to the primary match-trace as soon as the compare part of the rule has been executed to completion. By contrast, a temporary match (with its <em>matching</em> property set to <em>true</em>) is added to the temporary trace before the compare part is executed. In this way, any subsequent attempts to match the two elements from invoked rules will not re-invoke the rule. Finally, when a top-level rule returns, the temporary match trace is reset.</p>
 <h2 id="fuzzy-and-dictionary-based-string-matching">Fuzzy and Dictionary-based String Matching<a class="headerlink" href="#fuzzy-and-dictionary-based-string-matching" title="Permanent link">&para;</a></h2>
 <p>In the example above, the rule specifies that to match, two trees must - among other criteria - have the same label. However, there are cases when a less-strict approach to matching string properties of model elements is desired. For instance, when comparing two UML models originating from different organizations, it is common to encounter ontologically equivalent classes which however have different names (e.g. Client and Customer). In this case, to achieve a more sound matching, the use of a dictionary or a lexical database (e.g. WordNet) is necessary. Alternatively, fuzzy string matching algorithms can be used.</p>
 <p>As several such tools and algorithms have been implemented in various programming languages, it is a sensible approach to reuse them instead of re-implementing them. For example, in the listing below a wrapper for the Simmetrics fuzzy string comparison tool is used to compare the labels of the trees using the Levenshtein algorithm. To achieve this, line 11 invokes the <em>fuzzyMatch()</em> operation defined in lines 16-18 which uses the simmterics native tool (instantiated in lines 2-4) to match the two labels using their Levenshtein distance with a threshold of 0.5.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">pre</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="n">pre</span> <span class="p">{</span>
     <span class="n">var</span> <span class="n">simmetrics</span> <span class="o">=</span> 
         <span class="n">new</span> <span class="n">Native</span><span class="p">(</span><span class="s">&quot;org.epsilon.ecl.tools.</span>
 <span class="s">            textcomparison.simmetrics.SimMetricsTool&quot;</span><span class="p">);</span> 
@@ -1071,7 +1072,6 @@ rule &lt;name&gt;
     <span class="kr">return</span> <span class="n">simmetrics</span><span class="p">.</span><span class="n">similarity</span><span class="p">(</span><span class="kr">self</span><span class="p">,</span><span class="n">other</span><span class="p">,</span><span class="s">&quot;Levenshtein&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <h2 id="the-match-trace">The Match Trace<a class="headerlink" href="#the-match-trace" title="Permanent link">&para;</a></h2>
 <p>Users can query and modify the match trace calculated during the comparison process in the post sections of the module or export it into another application or Epsilon program. For example, in a post section, the trace can be printed to the default output stream or serialized into a model of an arbitrary metamodel. In another use case, the trace may be exported to be used in the context of a validation module that will use the identified matches to evaluate inter-model constraints, or in a merging module that will use the matches to identify the elements on which the two models will be merged.</p>
@@ -1157,6 +1157,10 @@ rule &lt;name&gt;
       <script src="../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
       
     
   </body>

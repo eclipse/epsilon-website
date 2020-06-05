@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -772,7 +776,7 @@
                 
                 <h1 id="eugenia-affixed-nodes-in-gmf">EuGENia: Affixed Nodes in GMF<a class="headerlink" href="#eugenia-affixed-nodes-in-gmf" title="Permanent link">&para;</a></h1>
 <p>From the following annotated Ecore metamodel (in Emfatic)</p>
-<div class="codehilite"><pre><span></span><code>@namespace(uri=&quot;components&quot;, prefix=&quot;components&quot;)
+<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;components&quot;, prefix=&quot;components&quot;)
 package components;
 
 @gmf.diagram
@@ -804,7 +808,6 @@ class Connector extends NamedElement {
    ref Port target;
 }
 </code></pre></div>
-
 
 <p>EuGENia can automatically generate this GMF editor:</p>
 <p><img alt="" src="Components.jpg" /></p>
@@ -855,6 +858,10 @@ class Connector extends NamedElement {
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

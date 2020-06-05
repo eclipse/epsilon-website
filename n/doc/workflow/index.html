@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -1291,7 +1295,7 @@
 <p><img alt="Simplified ANT object model" src="../images/AntCore.png" /></p>
 <h3 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h3>
 <p>In terms of concrete syntax, ANT provides an XML-based syntax. In the lisging below, an exemplar ANT project that compiles a set of Java files is illustrated. The project contains one target (<em>main</em>) which is also set to be the <em>default</em> target. The <em>main</em> target contains one <em>javac</em> task that specifies attributes such as <em>srcdir</em>, <em>destdir</em> and <em>classpath</em>, which define that the Java compiler will compile a set of Java files contained into the <em>src</em> directory into classes that should be placed in the <em>build</em> directory using <em>dependencies.jar</em> as an external library.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;javac</span> <span class="na">srcdir=</span><span class="s">&quot;${src}&quot;</span>
              <span class="na">destdir=</span><span class="s">&quot;${build}&quot;</span>
@@ -1301,7 +1305,6 @@
     <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 
 <h3 id="extending-ant">Extending ANT<a class="headerlink" href="#extending-ant" title="Permanent link">&para;</a></h3>
 <p>Binding between the XML tags that describe the tasks and the actual implementations of the tasks is achieved through a light-weight mechanism at two levels. First, the tag (in the example above, <em>javac</em>) is resolved to a Java class that extends the <em>org.apache.ant.Task</em> abstract class (in the case of <em>javac</em>, the class is <em>org.apache.tools.ant.taskdefs.Javac</em>) via a configuration file. Then, the attributes of the tasks (e.g. <em>srcdir</em>) are set using the reflective features that Java provides. Finally, the <em>execute()</em> method of the task is invoked to perform the actual job.</p>
@@ -1324,7 +1327,7 @@
 <h3 id="model-loading-tasks">Model Loading Tasks<a class="headerlink" href="#model-loading-tasks" title="Permanent link">&para;</a></h3>
 <p>The <em>LoadModelTask (epsilon.loadModel)</em> loads a model from an arbitrary location (e.g. file-system, database) and adds it to the project repository so that subsequent Epsilon tasks can query or modify it. Since Epsilon supports many modelling technologies (e.g. EMF, MDR, XML), the <em>LoadModelTask</em> defines only three generic attributes. The <em>name</em> attribute specifies the name of the model in the project repository. The <em>type</em> attribute specifies the modelling technology with which the model is captured and is used to resolve the technology-specific model loading functionality. Finally, the <em>aliases</em> attribute defines a comma-separated list of alternative names by which the model can be accessed in the model repository.</p>
 <p>The rest of the information needed to load a model is implementation-specific and is therefore provided through <em>parameter</em> nested elements, each one defining a pair of <em>name</em>-<em>value</em> attributes. As an example, a task for loading an EMF model that has a file-based ECore metamodel is displayed below.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;modelFile&quot;</span> <span class="na">value=</span><span class="s">&quot;TreeInstance.ecore&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;metamodelFile&quot;</span> <span class="na">path=</span><span class="s">&quot;Tree.ecore&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;isMetamodelFileBased&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
@@ -1332,13 +1335,11 @@
 <span class="nt">&lt;/epsilon.loadModel&gt;</span>
 </code></pre></div>
 
-
 <p><em>LoadEmfModelTask</em> is a specialised version of <em>LoadModelTask</em> only for EMF models. While the <em>type</em> attribute is no longer available, the task still supports the <em>name</em> and <em>aliases</em> attributes. In addition, some of the values which had to be provided through <em>parameter</em> nested elements can now be set using regular attributes, such as <em>modelFile</em>, <em>modelUri</em>, <em>metamodelFile</em> (which implicitly indicates that the metamodel is file-based), <em>metamodelUri</em>, <em>reuseUnmodifiedMetamodelFile</em> (which can be set to "false" to avoid reusing file-based metamodels that have not been modified since the last time they were loaded), <em>read</em> (equivalent to <em>readOnLoad</em>) and <em>store</em> (equivalent to <em>storeOnDisposal</em>). The listing below shows the equivalent fragment required to produce the same result as in the listing above.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span>
   <span class="na">modelFile=</span><span class="s">&quot;TreeInstance.ecore&quot;</span>
   <span class="na">metamodelFile=</span><span class="s">&quot;Tree.ecore&quot;</span> <span class="nt">/&gt;</span>
 </code></pre></div>
-
 
 <h3 id="model-storing-task">Model Storing Task<a class="headerlink" href="#model-storing-task" title="Permanent link">&para;</a></h3>
 <p>The <em>StoreModelTask (epsilon.storeModel)</em> is used to store a model residing in the project repository. The <em>StoreModelTask</em> defines three attributes:</p>
@@ -1361,7 +1362,7 @@
 <h3 id="the-committransaction-and-rollbacktransaction-tasks">The CommitTransaction and RollbackTransaction Tasks<a class="headerlink" href="#the-committransaction-and-rollbacktransaction-tasks" title="Permanent link">&para;</a></h3>
 <p>The <em>epsilon.commitTransaction</em> and <em>epsilon.rollbackTransaction</em> tasks define a <em>name</em> attribute through which the transaction to be committed/rolled-back is located in the project's active transactions. If several active transactions with the same name exist the more recent one is selected.</p>
 <p>The example below demonstrates an exemplar usage of the <em>epsilon.startTransaction</em> and <em>epsilon.rollbackTransaction</em> tasks. In this example, two empty models Tree1 and Tree2 are loaded in lines 1,2. Then, the EOL task of line 4 queries the models and prints the number of instances of the <em>Tree</em> metaclass in each one of them (which is 0 for both). Then, in line 13, a transaction named T1 is started on model Tree1. The EOL task of line 15, creates a new instance of Tree in both Tree1 and Tree2 and prints the number of instances of Tree in the two models (which is 1 for both models). Then, in line 26, the T1 transaction is rolled-back and any changes done in its context to model Tree1 (but not Tree2) are undone. Therefore, the EOL task of line 28, which prints the number of instances of Tree in both models, prints 0 for Tree1 but 1 for Tree2.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/epsilon.loadModel&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/epsilon.loadModel&gt;</span>
 <span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree2&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/epsilon.loadModel&gt;</span>
 
 <span class="nt">&lt;epsilon.eol&gt;</span>
@@ -1398,19 +1399,17 @@
 <span class="nt">&lt;/epsilon.eol&gt;</span>
 </code></pre></div>
 
-
 <p><img alt="Model Management Tasks" src="../images/Tasks.png" /></p>
 <h3 id="the-abstract-executable-module-task">The Abstract Executable Module Task<a class="headerlink" href="#the-abstract-executable-module-task" title="Permanent link">&para;</a></h3>
 <p>This task is the base of all the model management tasks presented in the following section. Its aim is to encapsulate the commonalities of Epsilon tasks in order to reduce duplication among them. As already discussed, in Epsilon, specifications of model management tasks are organized in executable modules. While modules can be stored anywhere, in the case of the workflow it is assumed that they are either stored as separate files in the file-system or they are provided inline within the worfklow. Thus, this abstract task defines an <em>src</em> attribute that specifies the path of the source file in which the Epsilon module is stored, but also supports inline specification of the source of the module. The two alternatives are demonstrated in the listings below.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;HelloWorld.eol&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;epsilon.eol&gt;</span>
             <span class="cp">&lt;![CDATA[</span>
@@ -1421,15 +1420,13 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 
-
 <p>Optionally, users can enable debugging for the module to be run by setting the <em>debug</em> attribute to <em>true</em>. An example is shown below. If the module reaches a breakpoint, users will be able to run the code step by step and inspect the stack trace and its variables.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;HelloWorld.eol&quot;</span> <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 
 <p>The task also defines the following nested elements:</p>
 <h4 id="0n-model-nested-elements">0..n model nested elements<a class="headerlink" href="#0n-model-nested-elements" title="Permanent link">&para;</a></h4>
@@ -1441,17 +1438,15 @@
 <h4 id="0n-uses-nested-elements">0..n uses nested elements<a class="headerlink" href="#0n-uses-nested-elements" title="Permanent link">&para;</a></h4>
 <p>The <em>uses</em> nested elements enable tasks to import variables exported by previous Epsilon tasks. Each use element supports three attributes. The <em>ref</em> attribute specifies the name of the variable to be used. If there is no variable with this name in the project context, the ANT project properties are queried. This enables Epsilon modules to access ANT parameters (e.g. provided using command-line arguments). The <em>as</em> attribute specifies the name by which the variable is accessible in the context of the task. Finally, the <em>optional</em> boolean paramter specifies if the variable must exist in the project context.</p>
 <p>To better illustrate the runtime communication mechanism, a minimal example is provided below. In  the first listing, <em>Exporter.eol</em> defines a String variable named <em>x</em> and assigns a value to it. The workflow below specifies that after executing <em>Exporter.eol</em>, it must export a variable named <em>x</em> with the new name <em>y</em> to the project context. Finally, it defines that before executing <em>User.eol</em>, it must query the project context for a variable named <em>y</em> and in case this is available, add the variable to the module's context and then execute it. Thus, the result of executing the workflow is <em>Some String</em> printed in the output console.</p>
-<div class="codehilite"><pre><span></span><code>// Exporter.eol
+<div class="highlight"><pre><span></span><code>// Exporter.eol
 var x : String = &quot;Some string&quot;;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>// User.eol
+<div class="highlight"><pre><span></span><code>// User.eol
 z.println();
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;Exporter.eol&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;Exporter.eol&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;exports</span> <span class="na">ref=</span><span class="s">&quot;x&quot;</span> <span class="na">as=</span><span class="s">&quot;y&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/epsilon.eol&gt;</span>
 
@@ -1459,7 +1454,6 @@ z.println();
     <span class="nt">&lt;uses</span> <span class="na">ref=</span><span class="s">&quot;y&quot;</span> <span class="na">as=</span><span class="s">&quot;z&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/epsilon.eol&gt;</span>
 </code></pre></div>
-
 
 <h2 id="model-management-tasks">Model Management Tasks<a class="headerlink" href="#model-management-tasks" title="Permanent link">&para;</a></h2>
 <p>Having discussed the core framework, this section presents the model management tasks that have been implemented atop it, using languages of the Epsilon platform.</p>
@@ -1616,6 +1610,10 @@ z.println();
       <script src="../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
       
     
   </body>

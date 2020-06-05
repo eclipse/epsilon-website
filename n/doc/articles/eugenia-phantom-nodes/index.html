@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -772,7 +776,7 @@
                 
                 <h1 id="eugenia-phantom-nodes-in-gmf-editors">EuGENia: Phantom nodes in GMF editors<a class="headerlink" href="#eugenia-phantom-nodes-in-gmf-editors" title="Permanent link">&para;</a></h1>
 <p>Containment references in Ecore metamodels are usually depicted in GMF as spatial containment (e.g. in the sense that a class is contained inside the figure of a package). However, it is sometimes needed to represent containment references using links instead. To achieve this, GMF provides the notion of <em>phantom nodes.</em> EuGENia provides first-class support for phantom nodes in GMF using the <em>phantom</em> annotation detail. The following listing provides such an example:</p>
-<div class="codehilite"><pre><span></span><code>@namespace(uri=&quot;phantom&quot;, prefix=&quot;phantom&quot;)
+<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;phantom&quot;, prefix=&quot;phantom&quot;)
 package phantom;
 
 @gmf.diagram
@@ -795,7 +799,6 @@ class Member extends NamedElement {
 
 }
 </code></pre></div>
-
 
 <p>In this example, a Model contains many groups and a Group contains many members. To represent the Group.members containment reference as a normal link, we the phantom detail of the gmf.node annotation of Member to true and add a gmf.link anotation to Group.members. The result looks like this:</p>
 <p><img alt="" src="Phantomgmf.png" /></p>
@@ -847,6 +850,10 @@ class Member extends NamedElement {
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -1113,7 +1117,7 @@
 <p>Eugenia builds on top of the <a href="https://www.eclipse.org/gmf-tooling/">GMF Tooling</a> framework, which is no longer actively maintained. While you can still use Eugenia/GMF to develop fully-functional editors, you may want to consider more actively-maintained tools such as <a href="https://eclipse.org/sirius">Eclipse Sirius</a> if you need to develop a graphical editor, or <a href="../picto">Picto</a> if you are only interested in producing read-only views from models.</p>
 </div>
 <h2 id="the-filesystem-metamodel">The Filesystem metamodel<a class="headerlink" href="#the-filesystem-metamodel" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>@namespace(uri=&quot;filesystem&quot;, prefix=&quot;filesystem&quot;)
+<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;filesystem&quot;, prefix=&quot;filesystem&quot;)
 @gmf
 package filesystem;
 
@@ -1148,7 +1152,6 @@ class File {
     attr String name;
 }
 </code></pre></div>
-
 
 <h2 id="the-generated-editor">The generated editor<a class="headerlink" href="#the-generated-editor" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="Filesystemscreenshot2.png" /></p>
@@ -1382,6 +1385,10 @@ EuGENia is a part of the main Epsilon distribution. The update site of Epsilon i
       <script src="../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
       
     
   </body>

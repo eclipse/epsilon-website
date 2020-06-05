@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -772,7 +776,7 @@
                 
                 <h1 id="re-using-egl-templates">Re-using EGL templates<a class="headerlink" href="#re-using-egl-templates" title="Permanent link">&para;</a></h1>
 <p>Sometimes it may be handy to send the output of one EGL template into another EGL template. This is a great idea because it will make your templates more modular, cohesive and lead to less code overall. For example, suppose you've been generating an XML file for each Book in your model. Hence, you have a Book2XML.egl template with the following contents:</p>
-<div class="codehilite"><pre><span></span><code>&lt;book&gt;
+<div class="highlight"><pre><span></span><code>&lt;book&gt;
   &lt;title&gt;[%=title%]&lt;/title&gt;
   &lt;isbn&gt;[%=isbn%]&lt;/isbn&gt;
   &lt;pages&gt;[%=pages.asString()%]&lt;/pages&gt;
@@ -784,9 +788,8 @@
 &lt;/book&gt;
 </code></pre></div>
 
-
 <p>Suppose that now you also want to generate a single XML for each Library; where a Library is a collection of Books. Instead of duplicating the code in Book2XML.egl, you can re-use it by calling it from Library2XML.egl, like so:</p>
-<div class="codehilite"><pre><span></span><code>&lt;library id=[%=lib.id%] name=&quot;[%=lib.name%]&quot;&gt;
+<div class="highlight"><pre><span></span><code>&lt;library id=[%=lib.id%] name=&quot;[%=lib.name%]&quot;&gt;
 [% for (book in lib.books) {
   var bookTemplate : Template = TemplateFactory.load(&quot;/path/to/Book2XML.egl&quot;);
   bookTemplate.populate(&quot;book&quot;, book);
@@ -799,7 +802,6 @@
   [%=bookTemplate.process()%]
 [%}%]
 </code></pre></div>
-
 
 <p>As with EGX, you can pass parameters to the invoked template using the "populate" operation, where the first parameter is the variable name (that the invoked template will see) and the second parameter is the value.</p>
                 
@@ -849,6 +851,10 @@
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

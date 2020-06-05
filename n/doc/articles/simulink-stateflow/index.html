@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -881,11 +885,10 @@ created as new <code>simulink/Sources/Step</code>; To create Simulink Blocks you
 may instantiate them using the following syntax. The full path of the
 block matches their location in the Simulink "Library Browser". The EOL
 syntax to create this blocks is as follows:</p>
-<div class="codehilite"><pre><span></span><code>var step = new `simulink/Sources/Step`;
+<div class="highlight"><pre><span></span><code>var step = new `simulink/Sources/Step`;
 var sum = new `simulink/Math Operations/Sum`;
 var chart = new `sflib/Chart`;
 </code></pre></div>
-
 
 <p>In contrast to Simulink Blocks, Stateflow Blocks don't require the full
 library path but have to be instantiated with the Stateflow prefix (e.g.
@@ -899,10 +902,9 @@ state.parent = parent;</p>
 <h3 id="child-blocks">Child Blocks<a class="headerlink" href="#child-blocks" title="Permanent link">&para;</a></h3>
 <p>You can also retrieve the child blocks of a given Simulink or Stateflow
 block using either syntax for both kinds of blocks:</p>
-<div class="codehilite"><pre><span></span><code>state.getChildren();
+<div class="highlight"><pre><span></span><code>state.getChildren();
 chart.children;
 </code></pre></div>
-
 
 <p>Note that Stateflow Blocks will return Stateflow Blocks as children and
 Simulink Blocks will return their Simulink children Blocks.</p>
@@ -912,59 +914,52 @@ with your EOL script, then you may query for all the blocks of a given
 type.</p>
 <p>For Simulink Blocks you may do this without having to specify their full
 path.</p>
-<div class="codehilite"><pre><span></span><code>// var sum = new `simulink/Math Operations/Sum`; // Full path 
+<div class="highlight"><pre><span></span><code>// var sum = new `simulink/Math Operations/Sum`; // Full path 
 var sumBlockList = Sum.all; // Type only
 </code></pre></div>
 
-
 <p>For Stateflow Blocks you must specify the fully qualified type i.e. the
 same used for creation:</p>
-<div class="codehilite"><pre><span></span><code>// var state= new `Stateflow.State`; // Fully qualified type
+<div class="highlight"><pre><span></span><code>// var state= new `Stateflow.State`; // Fully qualified type
 var stateBlockList = `Stateflow.State`.all; 
 </code></pre></div>
 
-
 <p>Be aware that some Simulink Blocks have different "BlockTypes" than the
 path used for their construction.</p>
-<div class="codehilite"><pre><span></span><code>var pidController = new `simulink/Continuous/PID Controller`; 
+<div class="highlight"><pre><span></span><code>var pidController = new `simulink/Continuous/PID Controller`; 
 var subsystemBlockList = SubSystem.all; // Includes PID Controller
 // PIDController.all or `PID Controller`.all would return an error
 var transferFcn = new `simulink/Continuous/Transfer Fcn`;
 var transferFcnBlockList = TransferFcn.all; // Removed the space
 </code></pre></div>
 
-
 <p>You may find the real Simulink Block type of the element by retrieving
 the "BlockType" property of the Simulink Block.</p>
-<div class="codehilite"><pre><span></span><code>var pidController = new `simulink/Continuous/PID Controller`;
+<div class="highlight"><pre><span></span><code>var pidController = new `simulink/Continuous/PID Controller`;
 pidController.BlockType.println; // prints &quot;SubSystem&quot;
 </code></pre></div>
-
 
 <p>Note that Simulink and Stateflow Block types are case sensitive for
 instantiation and collection.</p>
 <h2 id="reading-and-updating-the-block-properties">Reading and Updating the block properties<a class="headerlink" href="#reading-and-updating-the-block-properties" title="Permanent link">&para;</a></h2>
 <p>You may read and update properties of Simulink and Stateflow blocks as
 follows:</p>
-<div class="codehilite"><pre><span></span><code>state.Name = &quot;State A&quot;; // Set
+<div class="highlight"><pre><span></span><code>state.Name = &quot;State A&quot;; // Set
 state.name.println; // Get
 </code></pre></div>
 
-
 <p>You may also set and get positioning attributes.</p>
-<div class="codehilite"><pre><span></span><code>state.Position = &quot;[50 50 310 200]&quot;; // Set (receives a string type)
+<div class="highlight"><pre><span></span><code>state.Position = &quot;[50 50 310 200]&quot;; // Set (receives a string type)
 var seq = state.position; // Get position (returns a sequence type)
 assert(seq.at(0) = 50); // element 0 of state block position
 </code></pre></div>
 
-
 <p>Note that properties are case insensitive.</p>
 <h2 id="deleting-blocks">Deleting blocks<a class="headerlink" href="#deleting-blocks" title="Permanent link">&para;</a></h2>
 <p>You can also delete blocks using the following syntax:</p>
-<div class="codehilite"><pre><span></span><code>delete state; // `Stateflow.State`
+<div class="highlight"><pre><span></span><code>delete state; // `Stateflow.State`
 delete chart; // `sflib/Chart`
 </code></pre></div>
-
 
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <p>In this tutorial we've seen how to create, read, update, and delete
@@ -1022,6 +1017,10 @@ folder in the official epsilon repository.</p>
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

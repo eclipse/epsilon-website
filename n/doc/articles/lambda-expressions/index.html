@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -789,7 +793,7 @@
                 <h1 id="native-lambda-expressions">Native lambda expressions<a class="headerlink" href="#native-lambda-expressions" title="Permanent link">&para;</a></h1>
 <p>Whilst EOL has many useful declarative operations built in, some applications and developers may benefit from using alternative implementations, such as the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">Java Streams API</a>.</p>
 <p>Epsilon now allows you to invoke functional interfaces using EOL first-order operation syntax. Provided that the method being invoked takes one or more <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html">functional interface</a>s as a parameter and the correct number of parameters are supplied to each interface, this integration should work seamlessly as with regular first-order operation call expressions. For lambda expressions which do not require a parameter, you can either omit the parameter, use <code>null</code> or <code>_</code> in place of the parameter, like so:</p>
-<div class="codehilite"><pre><span></span><code>  var optional = Native(&quot;java.util.stream.IntStream&quot;)
+<div class="highlight"><pre><span></span><code>  var optional = Native(&quot;java.util.stream.IntStream&quot;)
     .range(0, 16)
     .filter(i | i / 4 &gt;= 2)
     .findFirst();
@@ -799,9 +803,8 @@
   optional.orElseThrow(| new Native(&quot;org.eclipse.epsilon.eol.exceptions.EolRuntimeException&quot;));
 </code></pre></div>
 
-
 <p>Here is an example of how one could use Java Streams and the equivalent approach using EOL (i.e. without native delegation):</p>
-<div class="codehilite"><pre><span></span><code>  var Collectors = Native(&quot;java.util.stream.Collectors&quot;);
+<div class="highlight"><pre><span></span><code>  var Collectors = Native(&quot;java.util.stream.Collectors&quot;);
 
   var testData = Sequence{-1024..1024};
 
@@ -818,10 +821,9 @@
   assertEquals(positiveOddsSquaredEol, positiveOddsSquaredJava);
 </code></pre></div>
 
-
 <p>One benefits of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements. This can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly. As with built-in EOL operations, Streams also support parallel execution, although this must be explicitly specified with the <code>.parallel()</code> property on the stream.</p>
 <p>Currently EOL does not support operations which require a simple variable and non-functional interface as a parameter, such as the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-">iterate</a> operation. To work around this, you can assign lambda expressions to variables, deriving them by calling a built-in operation to obtain the desired type.</p>
-<div class="codehilite"><pre><span></span><code>  // UnaryOperator
+<div class="highlight"><pre><span></span><code>  // UnaryOperator
   var doubler = unary(i | i * 2);
   assertEquals(16, doubler.apply(8));
 
@@ -845,7 +847,6 @@
   var sayHi = runnable( | &quot;Hello, World!&quot;.println());
   sayHi.run();
 </code></pre></div>
-
 
 <h3 id="streams-vs-eol-cheat-sheet">Streams vs EOL cheat sheet<a class="headerlink" href="#streams-vs-eol-cheat-sheet" title="Permanent link">&para;</a></h3>
 <p>Aside from the fact that streams are lazy and Epsilon operations are eager, there is some inevitable overlap in their functionality. This section provides an equivalence mapping from Epsilon to Java Streams to help you migrate from one to the other.</p>
@@ -929,6 +930,10 @@
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

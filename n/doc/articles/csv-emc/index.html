@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -888,7 +892,7 @@ models.</p>
 access has to be done using that type.</p>
 <h3 id="header-less-csv-model">Header-less CSV Model<a class="headerlink" href="#header-less-csv-model" title="Permanent link">&para;</a></h3>
 <p>Consider the following <code>NoHeaders.csv</code> input.</p>
-<div class="codehilite"><pre><span></span><code>604-78-8459,Ricoriki,Dwyr,rdwyr0@parallels.com,Male,VP Quality Control,2558058636921002,Horror
+<div class="highlight"><pre><span></span><code>604-78-8459,Ricoriki,Dwyr,rdwyr0@parallels.com,Male,VP Quality Control,2558058636921002,Horror
 272-41-1349,Norry,Halpin,nhalpin1@slashdot.org,Female,Legal Assistant,,Drama
 844-07-0023,Matteo,Macer,mmacer2@sogou.com,Male,Tax Accountant,3542981651057648,Horror
 429-41-4964,Kattie,Fysh,kfysh3@angelfire.com,Female,Senior Financial Analyst,,Comedy
@@ -910,9 +914,8 @@ access has to be done using that type.</p>
 101-82-2564,Hew,Goble,hgoblej@ocn.ne.jp,Male,VP Accounting,,Comedy
 </code></pre></div>
 
-
 <p>Since there are no headers, we need to access the information via the general <em>field</em> attribute and index (0 based):</p>
-<div class="codehilite"><pre><span></span><code>// Get all Rows elements
+<div class="highlight"><pre><span></span><code>// Get all Rows elements
 var people = Row.all;
 
 // Get a random person
@@ -927,18 +930,16 @@ p.field.at(4).println();
 people.select(p | p.field.at(7) == &#39;Horror&#39;).collect(p | p.field.at(3)).println();
 </code></pre></div>
 
-
 <h3 id="header-full-csv-model">Header-full CSV Model<a class="headerlink" href="#header-full-csv-model" title="Permanent link">&para;</a></h3>
 <p>Consider that we add headers to the previous CSV model (<code>Headers.csv</code>)</p>
-<div class="codehilite"><pre><span></span><code>id,first_name,last_name,email,gender,job,credit_card,movies
+<div class="highlight"><pre><span></span><code>id,first_name,last_name,email,gender,job,credit_card,movies
 604-78-8459,Ricoriki,Dwyr,rdwyr0@parallels.com,Male,VP Quality Control,2558058636921002,Horror
 272-41-1349,Norry,Halpin,nhalpin1@slashdot.org,Female,Legal Assistant,,Drama
 ...
 </code></pre></div>
 
-
 <p>We can query the same information as before, but this time we can use the field names defined by the header:</p>
-<div class="codehilite"><pre><span></span><code>// Get all Rows elements
+<div class="highlight"><pre><span></span><code>// Get all Rows elements
 var people = Row.all;
 
 // Get a random person
@@ -965,10 +966,9 @@ for (m in mt) {
 }
 </code></pre></div>
 
-
 <h3 id="header-full-with-varargs-csv-model">Header-full with Varargs CSV Model<a class="headerlink" href="#header-full-with-varargs-csv-model" title="Permanent link">&para;</a></h3>
 <p>Last, we have a CSV model with some vararg information, is the same as before, but in this case persons are allowed to have multiple movies. We have also added a <code>quote</code> field that shows the <em>quote character</em> in action.</p>
-<div class="codehilite"><pre><span></span><code>id,first_name,last_name,email,gender,job,credit_card,quote,movies
+<div class="highlight"><pre><span></span><code>id,first_name,last_name,email,gender,job,credit_card,quote,movies
 604-78-8459,Ricoriki,Dwyr,rdwyr0@parallels.com,Male,VP Quality Control,,Duis at velit eu est congue elementum.,Horror
 272-41-1349,Norry,Halpin,nhalpin1@slashdot.org,Female,Legal Assistant,,Aenean sit amet justo. Morbi ut odio.,Drama,Film-Noir,Thriller
 844-07-0023,Matteo,Macer,mmacer2@sogou.com,Male,Tax Accountant,3542981651057648,In hac habitasse platea dictumst.,Horror,Mystery,Thriller
@@ -991,8 +991,7 @@ for (m in mt) {
 101-82-2564,Hew,Goble,hgoblej@ocn.ne.jp,Male,VP Accounting,,Etiam pretium iaculis justo.,Comedy
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>// Get all Rows elements
+<div class="highlight"><pre><span></span><code>// Get all Rows elements
 var people = Row.all;
 
 // Random thoughts
@@ -1016,11 +1015,10 @@ for (p in people) {
 //Mattie sighs, but blames &#39;Duis at velit eu est congue elementum. In hac habitasse platea dictumst.&#39; for the tear in his eye. Being a Structural Engineer will never be the same.
 </code></pre></div>
 
-
 <h2 id="queryingmodifying-csv-documents-in-eol">Querying/modifying CSV documents in EOL<a class="headerlink" href="#queryingmodifying-csv-documents-in-eol" title="Permanent link">&para;</a></h2>
 <p>The CSV driver support direct query and modification of attribute
 values:</p>
-<div class="codehilite"><pre><span></span><code>// Get all Rows elements
+<div class="highlight"><pre><span></span><code>// Get all Rows elements
 var people = Row.all;
 
 // Get a random person
@@ -1032,10 +1030,9 @@ p.name = &quot;Maria Antonieta&quot;
 p.name.println();
 </code></pre></div>
 
-
 <h3 id="how-do-i-create-an-element">How do I create an element?<a class="headerlink" href="#how-do-i-create-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>new</code> operator for this, and remember that all CSV elements are rows! New Rows will be added at the end of the file when persisting the changes.</p>
-<div class="codehilite"><pre><span></span><code>// Check how many entries are in the model
+<div class="highlight"><pre><span></span><code>// Check how many entries are in the model
 // Prints &#39;20&#39;
 Row.all.size().println();
 
@@ -1047,10 +1044,9 @@ var b = new Row;
 Row.all.size().println();
 </code></pre></div>
 
-
 <h2 id="loading-an-csv-document-in-your-ant-buildfile">Loading an CSV document in your ANT buildfile<a class="headerlink" href="#loading-an-csv-document-in-your-ant-buildfile" title="Permanent link">&para;</a></h2>
 <p>The following ANT build file demonstrates how you can use ANT to load/store and process CSV documents with Epsilon.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
 
     <span class="nt">&lt;epsilon.csv.loadModel</span> <span class="na">name=</span><span class="s">&quot;people&quot;</span> <span class="na">file=</span><span class="s">&quot;people.csv&quot;</span>
@@ -1065,10 +1061,9 @@ Row.all.size().println();
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 
-
 <h2 id="loading-an-csv-document-through-java-code">Loading an CSV document through Java code<a class="headerlink" href="#loading-an-csv-document-through-java-code" title="Permanent link">&para;</a></h2>
 <p>The following excerpt demonstrates using CSV models using Epsilon\'s Java API.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="o">();</span>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="o">();</span>
 <span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">));</span>
 
 <span class="n">CsvModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CsvModel</span><span class="o">();</span>
@@ -1130,6 +1125,10 @@ Row.all.size().println();
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -775,7 +779,7 @@
 represented with images (png, jpg etc.) instead of the standard GMF
 shapes (rectangle, ellipse etc.). We'll use the simple <code>friends</code>
 metamodel as demonstration:</p>
-<div class="codehilite"><pre><span></span><code>@namespace(uri=&quot;friends&quot;, prefix=&quot;&quot;)
+<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;friends&quot;, prefix=&quot;&quot;)
 package friends;
 
 @gmf.diagram
@@ -797,13 +801,12 @@ class Person {
 }
 </code></pre></div>
 
-
 <p>We define a custom figure for Person (<code>figure="figures.PersonFigure"</code>)
 and also specify that the label should be placed externally to the node
 (<code>label.placement="external"</code>). Once we have generated our diagram code
 we need to go and define the <code>figure.PersonFigure</code> class. An example of
 an png image-based implementation is available below:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nn">figures</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">figures</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.eclipse.draw2d.ImageFigure</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">activator.PluginActivator</span><span class="o">;</span>
@@ -821,10 +824,9 @@ an png image-based implementation is available below:</p>
 <span class="o">}</span>
 </code></pre></div>
 
-
 <p>The PluginActivator extends AbstractUIPlugin, which provides methods for
 loading images from within our plug-in:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">package</span> <span class="nn">activator</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">activator</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.eclipse.core.runtime.Plugin</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.eclipse.ui.plugin.AbstractUIPlugin</span><span class="o">;</span>
@@ -855,7 +857,6 @@ loading images from within our plug-in:</p>
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-
 
 <p>The result looks like this:</p>
 <p><img alt="" src="Friends.png" /></p>
@@ -908,6 +909,10 @@ example</a>.</p>
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

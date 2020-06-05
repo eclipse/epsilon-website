@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -777,16 +781,12 @@
 <li>Create a new folder and cd to it: <code>git init</code></li>
 <li>Create a blank text file in that folder</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>git add .
+<p><div class="highlight"><pre><span></span><code>git add .
 git commit -m &quot;Reset repo&quot;
 git remote add origin &lt;forkrepo url&gt;
 git push -u --force origin master
 </code></pre></div>
-
-
-<ul>
-<li>Delete the folder you created.</li>
-</ul>
+- Delete the folder you created.</p>
 <p>Your repository should now be completely clean. Here are the main steps:</p>
 <ul>
 <li>Clone the main project repository: <code>git clone git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git</code></li>
@@ -851,6 +851,10 @@ git push -u --force origin master
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

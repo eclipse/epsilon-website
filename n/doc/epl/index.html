@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -933,7 +937,7 @@
 <p>As illustrated in the figure below, EPL patterns are organised in <em>modules</em>. Each module contains a number of named <em>patterns</em> and optionally, <em>pre</em> and <em>post</em> statement blocks that are executed before and after the pattern matching process, and helper EOL operations. EPL modules can import other EPL and EOL modules to facilitate reuse and modularity.</p>
 <p><img alt="Abstract Syntax of EPL" src="../images/EPL.png" /></p>
 <p>In its simplest form a <em>pattern</em> consists of a number of named and typed <em>roles</em> and a <em>match</em> condition. For example, in lines 2-3, the <em>PublicField</em> pattern below, defines four roles (<em>class</em>, <em>field</em>, <em>setter</em> and <em>getter</em>). The <em>match</em> condition of the pattern specifies that for a quartet to be a valid match, the field, setter and getter must all belong to the class (lines 5-7, and that the setter and getter methods must be appropriately named<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-<div class="codehilite"><pre><span></span><code>pattern PublicField
+<div class="highlight"><pre><span></span><code>pattern PublicField
     class : ClassDeclaration, field : FieldDeclaration, 
     setter : MethodDeclaration, getter : MethodDeclaration {
 
@@ -951,10 +955,9 @@ operation FieldDeclaration getName() {
 }
 </code></pre></div>
 
-
 <p>The implementation of the PublicField pattern above is fully functional but not particularly efficient as the <em>match</em> condition needs to be evaluated <code>#ClassDefinition * #FieldDeclaration * #MethodDeclaration^2</code> times. To enable pattern developers to reduce the search space, each <em>role</em> in an EPL pattern can specify a <em>domain</em> which is an EOL expression that returns a collection of model elements from which the role will draw values.</p>
 <p>There are two types of domains in EPL: static domains which are computed once for all applications of the pattern, and which <strong>are not</strong> dependent on the bindings of other roles of the pattern (denoted using the <em>in</em> keyword in terms of the concrete syntax), and dynamic domains which are recomputed every time the candidate values of the role are iterated, and which <strong>are</strong> dependent on the bindings of other roles (denoted using the <em>from</em> keyword). Beyond a domain, each role can also specify a <em>guard</em> expression that further prunes unnecessary evaluations of the match condition. Using dynamic domains and guards, the <em>PublicField</em> pattern can be expressed in a more efficient way, as illustrated below. To further illustrate the difference between dynamic and static domains, changing <em>from</em> to <em>in</em> in line 4 would trigger a runtime exception as the domain would become static and therefore not able to access bindings of other roles (i.e. <em>class</em>).</p>
-<div class="codehilite"><pre><span></span><code>pattern PublicField
+<div class="highlight"><pre><span></span><code>pattern PublicField
     class : ClassDeclaration,
     field : FieldDeclaration
         from: class.bodyDeclarations, @*\label{dynamicdomain}*@
@@ -967,14 +970,13 @@ operation FieldDeclaration getName() {
                  getter.name = &quot;is&quot; + field.getName()) { }
 </code></pre></div>
 
-
 <p>The implementation above is significantly more efficient than the
 previous implementation but can still be improved by further reducing
 the number of name comparisons of candidate <em>setter</em> and <em>getter</em>
 methods. To achieve this we can employ memoisation: we create a hash map
 of method names and methods once before pattern matching (line 2), and use it to identify candidate setters and
 getters (lines 9 and 12-13).</p>
-<div class="codehilite"><pre><span></span><code>pre {
+<div class="highlight"><pre><span></span><code>pre {
     var methodMap = MethodDeclaration.all.mapBy(m|m.name);
 }
 pattern PublicField
@@ -997,13 +999,12 @@ operation getMethods(name : String) : Sequence(MethodDeclaration) {
 }
 </code></pre></div>
 
-
 <p>The sections below discuss the remainder of the syntax of EPL.</p>
 <h3 id="negative-roles">Negative Roles<a class="headerlink" href="#negative-roles" title="Permanent link">&para;</a></h3>
 <p>Pattern roles can be negated using the <em>no</em> keyword. For instance, by adding the <em>no</em> keyword before the setter role in line 8 of the listing above, the pattern will match fields that have getters but no setters (i.e. read-only fields).</p>
 <h3 id="optional-and-active-roles">Optional and Active Roles<a class="headerlink" href="#optional-and-active-roles" title="Permanent link">&para;</a></h3>
 <p>Pattern roles can be designated as optional using the <em>optional</em> EOL expression. For example, adding <code>optional: true</code> to the setter role would also match all fields that only have a getter. By adding <code>optional: true</code> to the setter role and <code>optional: setter.isDefined()</code> to the getter role, the pattern would match fields that have at least a setter or a getter. Roles can be completely deactivated depending on the bindings of other roles through the <em>active</em> construct. For example, if the pattern developer prefers to specify separate roles for <em>getX</em> and <em>isX</em> getters, with a preference over getX getters, the pattern can be formulated as illustrated in the listing below so that if a <em>getX</em> getter is found, no attempt is even made to match an <em>isX</em> getter.</p>
-<div class="codehilite"><pre><span></span><code>pattern PublicField
+<div class="highlight"><pre><span></span><code>pattern PublicField
     class : ClassDeclaration,
     field : FieldDeclaration ...,
     setter : MethodDeclaration ...,
@@ -1013,7 +1014,6 @@ operation getMethods(name : String) : Sequence(MethodDeclaration) {
         active: getGetter.isUndefined() {
 }
 </code></pre></div>
-
 
 <h3 id="role-cardinality">Role Cardinality<a class="headerlink" href="#role-cardinality" title="Permanent link">&para;</a></h3>
 <p>The cardinality of a role (lower and upper bound) can be defined in
@@ -1025,7 +1025,7 @@ The listing below demonstrates the <em>ClassAndPrivateFields</em>
 pattern that detects instances of classes and all their private fields.
 If the cardinality of the field role in line 3 was [1..3] instead of [*], the
 pattern would only detect classes that own 1 to 3 private fields.</p>
-<div class="codehilite"><pre><span></span><code>pattern ClassAndPrivateFields
+<div class="highlight"><pre><span></span><code>pattern ClassAndPrivateFields
     class : ClassDeclaration,
     field : FieldDeclaration[*]
         from: class.bodyDeclarations
@@ -1051,7 +1051,6 @@ operation FieldDeclaration getVisibility() {
 }
 </code></pre></div>
 
-
 <h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
 <p>When an EPL module is executed, all of its <em>pre</em> statement blocks are first executed in order to define and initialise any global variables needed (e.g. the <em>methodMap</em> variable in the listing above or to print diagnostic messages to the user. Subsequently, patterns are executed in the order in which they appear. For each pattern, all combinations that conform to the type and constraints of the roles of the pattern are iterated, and the validity of each combination is evaluated in the <em>match</em> statement block of the pattern. In the absence of a <em>match</em> block, every combination that satisfies the constraints of the roles of the pattern is accepted as a valid instance of the pattern.</p>
 <p>Immediately after every successful match, the optional <em>onmatch</em> statement block of the pattern is invoked (see lines 7-11 of the listing above) and after every unsuccessful matching attempt, for combinations which however satisfy the constraints specified by the roles of the pattern, the optional <em>nomatch</em> statement block of the pattern (line 17) is executed . When matching of all patterns is complete, the <em>do</em> part (line 13) of each successful match is executed. In the <em>do</em> part, developers can modify the involved models (e.g to perform in-place transformation), without the risk of concurrent list modification errors (which can occur if elements are created/deleted during pattern matching). After pattern matching has been completed, the <em>post</em> statement blocks of the module are executed in order to perform any necessary finalisation actions.</p>
@@ -1063,7 +1062,7 @@ operation FieldDeclaration getVisibility() {
 <h2 id="interoperability-with-other-model-management-tasks">Interoperability with Other Model Management Tasks<a class="headerlink" href="#interoperability-with-other-model-management-tasks" title="Permanent link">&para;</a></h2>
 <p>As a <em>PatternMatchModel</em> is an instance of <em>IModel</em>, after its computation it can be manipulated by other Epsilon programs. For example, the listing below demonstrates running the EPL module and passing its output to the EVL constraints that follow and, if validation is successful, to an ETL transformation where it is used to guide the generation of a UML model.</p>
 <p>In lines 4-7, the Java model is loaded and is assigned the name <code>Java</code>. Then, in line 9, the Java model is passed on to <code>publicfield.epl</code> for pattern matching. The result of pattern matching, which is an instance of the <code>PatternMatchModel</code> class (and therefore also an instance of <code>IModel</code>) is exported to the global context under the name <code>Patterns</code>. Then, in line 13, both the <code>Patterns</code> and the <code>Java</code> models are passed on to the EVL model validation task which performs validation of the identified pattern matches.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
 
         <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Java&quot;</span>
@@ -1088,9 +1087,8 @@ operation FieldDeclaration getVisibility() {
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 
-
 <p>Line 1 below defines a set of constraints that will be applied to instances of the <em>PublicField</em> type from the <em>Patterns</em> model. As discussed above, these are all matched instances of the <em>PublicField</em> pattern. Line 4, specifies the condition that needs to be satisfied by instances of the pattern. Notice the <em>self.getter</em> and <em>self.field</em> expressions which return the <em>MethodDeclaration</em> and <em>FieldDeclaration</em> bound to the instance of the pattern. Then, line 5 defines the message that should be produced for instances of <em>PublicField</em> that do not satisfy this constraint.</p>
-<div class="codehilite"><pre><span></span><code>context Patterns!PublicField {
+<div class="highlight"><pre><span></span><code>context Patterns!PublicField {
     guard: self.field.type.isDefined()
     constraint GetterAndFieldSameType { 
         check : self.getter.returnType.type = self.field.type.type
@@ -1101,9 +1099,8 @@ operation FieldDeclaration getVisibility() {
 }
 </code></pre></div>
 
-
 <p>If validation is successful, both the <em>Java</em> and the <em>Patterns</em> model are passed on to an ETL transformation that transforms the <em>Java</em> model to a UML model, a fragment of which is presented below. The transformation encodes <code>&lt;field, setter, getter&gt;</code> triplets in the <em>Java</em> model as public properties in the UML model. As such, in line 6 of the transformation, the <em>Patterns</em> model is used to check whether field <em>s</em> has been matched under the <em>PublicField</em> pattern, and if so, the next line ignores the field's declared visibility and sets the visibility of the respective UML property to <em>public</em>.</p>
-<div class="codehilite"><pre><span></span><code>rule FieldDeclaration2Property
+<div class="highlight"><pre><span></span><code>rule FieldDeclaration2Property
     transform s: Java!FieldDeclaration
     to t: Uml!Property {
 
@@ -1117,7 +1114,6 @@ operation FieldDeclaration getVisibility() {
     ...
 }
 </code></pre></div>
-
 
 <p>As Epsilon provides ANT tasks for all its languages, the same technique can be used to pass the result of pattern matching on to model-to-text transformations, as well as model comparison and model merging programs.</p>
 <div class="footnote">
@@ -1210,6 +1206,10 @@ operation FieldDeclaration getVisibility() {
       <script src="../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
       
     
   </body>

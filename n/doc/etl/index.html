@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -973,7 +977,7 @@ Inside the curly braces ({}), the rule can optionally specify its
 guards) or as a block of statements in curly braces (for more complex
 guards). Finally, the <code>body</code> of the rule is specified as a sequence of
 EOL statements.</p>
-<div class="codehilite"><pre><span></span><code>(@abstract)?
+<div class="highlight"><pre><span></span><code>(@abstract)?
 (@lazy)?
 (@primary)?
 rule &lt;name&gt;
@@ -988,15 +992,13 @@ rule &lt;name&gt;
 }
 </code></pre></div>
 
-
 <p><code>Pre</code> and <code>post</code> blocks have a simple syntax that, as presented the listing below, consists of the identifier
 (<code>pre</code> or <code>post</code>), an optional name and the set of statements to be
 executed enclosed in curly braces.</p>
-<div class="codehilite"><pre><span></span><code>(pre|post) &lt;name&gt; {
+<div class="highlight"><pre><span></span><code>(pre|post) &lt;name&gt; {
     statement+
 }
 </code></pre></div>
-
 
 <h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
 <h3 id="rule-and-block-overriding">Rule and Block Overriding<a class="headerlink" href="#rule-and-block-overriding" title="Permanent link">&para;</a></h3>
@@ -1063,7 +1065,7 @@ into a model that conforms to the Graph metamodel, also displayed below. </p>
 <p>More specifically, we need to transform each <code>Tree</code> element to a <code>Node</code>, and
 an <code>Edge</code> that connects it with the <code>Node</code> that is equivalent to the
 tree's <code>parent</code>. This is achieved using the rule below.</p>
-<div class="codehilite"><pre><span></span><code>rule Tree2Node
+<div class="highlight"><pre><span></span><code>rule Tree2Node
     transform t : Tree!Tree
     to n : Graph!Node {
 
@@ -1076,7 +1078,6 @@ tree's <code>parent</code>. This is achieved using the rule below.</p>
     }
 }
 </code></pre></div>
-
 
 <p>In lines 1--3, the <code>Tree2Node</code> rule specifies that
 it can transform elements of the <code>Tree</code> type in the <code>Tree</code> model into
@@ -1105,9 +1106,8 @@ left-hand side, not to the element its right-hand side evaluates to, but
 to its <code>equivalent</code> as calculated using the <code>equivalent()</code> operation
 discussed above. Using this feature, line 10 of the <code>Tree2Node</code> rule can
 be rewritten as shown below.</p>
-<div class="codehilite"><pre><span></span><code>edge.target ::= t.parent;
+<div class="highlight"><pre><span></span><code>edge.target ::= t.parent;
 </code></pre></div>
-
 
 <h3 id="interactive-transformations">Interactive Transformations<a class="headerlink" href="#interactive-transformations" title="Permanent link">&para;</a></h3>
 <p>Using the user interaction facilities of EOL, an ETL transformation can become
@@ -1118,7 +1118,7 @@ that uses the user-input facilities of EOL (more specifically the
 <code>UserInput.confirm(String,Boolean)</code> operation) to enable the user select
 manually at runtime which of the Tree elements need to be transformed to
 respective Node elements in the target model and which not.</p>
-<div class="codehilite"><pre><span></span><code>rule Tree2Node
+<div class="highlight"><pre><span></span><code>rule Tree2Node
     transform t : Tree!Tree
     to n : Graph!Node {
 
@@ -1134,7 +1134,6 @@ respective Node elements in the target model and which not.</p>
     }
 }
 </code></pre></div>
-
 
 <div class="footnote">
 <hr />
@@ -1226,6 +1225,10 @@ respective Node elements in the target model and which not.</p>
       <script src="../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
       
     
   </body>

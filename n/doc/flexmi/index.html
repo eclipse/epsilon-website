@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -858,7 +862,7 @@
                 
                 <h1 id="flexmi">Flexmi<a class="headerlink" href="#flexmi" title="Permanent link">&para;</a></h1>
 <p>Flexmi is a <strong>flexible, reflective textual syntax for creating models conforming to Ecore metamodels</strong>. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (<code>messaging.flexmi</code>):</p>
-<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 <span class="cp">&lt;?nsuri http://messaging?&gt;</span>
 <span class="nt">&lt;sys&gt;</span>
   <span class="nt">&lt;u</span> <span class="na">name=</span><span class="s">&quot;tom&quot;</span><span class="nt">&gt;</span>
@@ -883,9 +887,8 @@
 <span class="nt">&lt;/sys&gt;</span>
 </code></pre></div>
 
-
 <p>is a valid instance of the Ecore metamodel (in Emfatic) below:</p>
-<div class="codehilite"><pre><span></span><code>@namespace(uri=&quot;http://messaging&quot;, prefix=&quot;&quot;)
+<div class="highlight"><pre><span></span><code>@namespace(uri=&quot;http://messaging&quot;, prefix=&quot;&quot;)
 package messaging;
 
 class System {
@@ -911,7 +914,6 @@ class Message {
 }
 </code></pre></div>
 
-
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Create a text file named <code>messaging.emf</code> in your workspace and place
@@ -926,7 +928,7 @@ class Message {
 <p><img alt="" src="screenshot.png" /></p>
 <h2 id="use-in-epsilon-and-java">Use in Epsilon and Java<a class="headerlink" href="#use-in-epsilon-and-java" title="Permanent link">&para;</a></h2>
 <p>Flexmi offers and registers an implementation of <a href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/resource/Resource.html">EMF's Resource interface</a> (<code>FlexmiResource</code>), and can be used like any other EMF resource implementation. For example, you can add <code>.flexmi</code> models as regular EMF models to the run configuration of your Epsilon program. An example of using Flexmi from Java follows.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ResourceSet</span> <span class="n">resourceSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResourceSetImpl</span><span class="o">();</span>
+<div class="highlight"><pre><span></span><code><span class="n">ResourceSet</span> <span class="n">resourceSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResourceSetImpl</span><span class="o">();</span>
 <span class="n">resourceSet</span><span class="o">.</span><span class="na">getResourceFactoryRegistry</span><span class="o">().</span>
   <span class="n">getExtensionToFactoryMap</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;flexmi&quot;</span><span class="o">,</span> 
     <span class="k">new</span> <span class="n">FlexmiResourceFactory</span><span class="o">());</span>
@@ -934,7 +936,6 @@ class Message {
   <span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">createFileURI</span><span class="o">(</span><span class="s">&quot;/../messaging.flexmi&quot;</span><span class="o">));</span>
 <span class="n">resource</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
 </code></pre></div>
-
 
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
 <p>Flexmi resources can't be saved programmatically (i.e. trying to call <code>resource.save(...)</code> will do nothing).</p>
@@ -1020,6 +1021,10 @@ class Message {
       <script src="../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
       
     
   </body>

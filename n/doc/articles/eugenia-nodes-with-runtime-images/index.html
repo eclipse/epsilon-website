@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -827,16 +831,15 @@
 <p>First we need to create an <code>imagePath</code> attribute that will store the path of the image for each component.</p>
 <h2 id="set-the-figure-of-component-to-a-custom-componentfigure">Set the figure of Component to a custom ComponentFigure<a class="headerlink" href="#set-the-figure-of-component-to-a-custom-componentfigure" title="Permanent link">&para;</a></h2>
 <p>The next step is to set the figure of Component in EuGENia to a custom figure. After those two steps, our definition of Component looks like this:</p>
-<div class="codehilite"><pre><span></span><code>@gmf.node(label=&quot;name&quot;, figure=&quot;ccdl.diagram.figures.ComponentFigure&quot;, label.placement=&quot;external&quot;)
+<div class="highlight"><pre><span></span><code>@gmf.node(label=&quot;name&quot;, figure=&quot;ccdl.diagram.figures.ComponentFigure&quot;, label.placement=&quot;external&quot;)
 class Component {
   attr String name;
   attr String imagePath;
 }
 </code></pre></div>
 
-
 <p>Once we generate the diagram code, we'll get an error because <code>ComponentFigure</code> has not been found. We need to create the <code>ComponentFigure</code> class and set its code to the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.eclipse.core.resources.IFile</span><span class="o">;</span>
@@ -894,10 +897,9 @@ class Component {
 <span class="o">}</span>
 </code></pre></div>
 
-
 <h2 id="create-the-image-path-property-descriptor">Create the image path property descriptor<a class="headerlink" href="#create-the-image-path-property-descriptor" title="Permanent link">&para;</a></h2>
 <p>The next step is to create the property descriptor for the image path so that we can eventually get a nice browse button in the properties view. To do this we need to create a new class named <code>ComponentImagePathPropertyDescriptor</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.emf.ecore.EAttribute</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.emf.ecore.EAttribute</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.eclipse.emf.edit.provider.IItemPropertyDescriptor</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.eclipse.gmf.runtime.emf.ui.properties.descriptors.EMFCompositeSourcePropertyDescriptor</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.eclipse.jface.viewers.CellEditor</span><span class="o">;</span>
@@ -923,9 +925,8 @@ class Component {
 <span class="o">}</span>
 </code></pre></div>
 
-
 <h2 id="create-the-image-path-property-cell-editor">Create the image path property cell editor<a class="headerlink" href="#create-the-image-path-property-cell-editor" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.core.resources.IFile</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.core.resources.IFile</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.eclipse.core.resources.IResource</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.eclipse.core.resources.ResourcesPlugin</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.eclipse.jface.viewers.DialogCellEditor</span><span class="o">;</span>
@@ -963,10 +964,9 @@ class Component {
 <span class="o">}</span>
 </code></pre></div>
 
-
 <h2 id="update-the-xxxpropertysection-under-xxxdiagramsheet">Update the XXXPropertySection under xxx.diagram.sheet<a class="headerlink" href="#update-the-xxxpropertysection-under-xxxdiagramsheet" title="Permanent link">&para;</a></h2>
 <p>Update the <code>getPropertySource</code> method as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">public</span> <span class="n">IPropertySource</span> <span class="nf">getPropertySource</span><span class="o">(</span><span class="n">Object</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="n">IPropertySource</span> <span class="nf">getPropertySource</span><span class="o">(</span><span class="n">Object</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
   <span class="k">if</span> <span class="o">(</span><span class="n">object</span> <span class="k">instanceof</span> <span class="n">IPropertySource</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="o">(</span><span class="n">IPropertySource</span><span class="o">)</span> <span class="n">object</span><span class="o">;</span>
   <span class="o">}</span>
@@ -1010,10 +1010,9 @@ class Component {
   <span class="o">}</span>
 </code></pre></div>
 
-
 <h2 id="modify-the-edit-part">Modify the edit part<a class="headerlink" href="#modify-the-edit-part" title="Permanent link">&para;</a></h2>
 <p>Modify the <code>handleNotificationEvent</code> method so that the figure is updated every time the value of <code>imagePath</code> changes</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">handleNotificationEvent</span><span class="o">(</span><span class="n">Notification</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">handleNotificationEvent</span><span class="o">(</span><span class="n">Notification</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
   <span class="k">if</span> <span class="o">(</span><span class="n">event</span><span class="o">.</span><span class="na">getNotifier</span><span class="o">()</span> <span class="o">==</span> <span class="n">getModel</span><span class="o">()</span>
       <span class="o">&amp;&amp;</span> <span class="n">EcorePackage</span><span class="o">.</span><span class="na">eINSTANCE</span><span class="o">.</span><span class="na">getEModelElement_EAnnotations</span><span class="o">()</span>
           <span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">event</span><span class="o">.</span><span class="na">getFeature</span><span class="o">()))</span> <span class="o">{</span>
@@ -1036,9 +1035,8 @@ class Component {
 <span class="o">}</span>
 </code></pre></div>
 
-
 <p>Modify the <code>createNodeShape</code> method so that the figure is initialized from the existing <code>imagePath</code> the first time.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">protected</span> <span class="n">IFigure</span> <span class="nf">createNodeShape</span><span class="o">()</span> <span class="o">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">protected</span> <span class="n">IFigure</span> <span class="nf">createNodeShape</span><span class="o">()</span> <span class="o">{</span>
   <span class="n">primaryShape</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComponentFigure</span><span class="o">();</span>
   <span class="n">Component</span> <span class="n">component</span> <span class="o">=</span> <span class="o">(</span><span class="n">Component</span><span class="o">)</span> <span class="o">((</span><span class="n">Node</span><span class="o">)</span><span class="n">getNotationView</span><span class="o">()).</span><span class="na">getElement</span><span class="o">();</span>
   <span class="o">((</span><span class="n">ComponentFigure</span><span class="o">)</span> <span class="n">primaryShape</span><span class="o">).</span><span class="na">setImagePath</span><span class="o">(</span><span class="n">component</span><span class="o">.</span><span class="na">getImagePath</span><span class="o">());</span>
@@ -1092,6 +1090,10 @@ class Component {
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

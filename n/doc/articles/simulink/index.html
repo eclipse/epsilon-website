@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -820,7 +824,7 @@
 <li>Create a new EOL file (e.g. <code>demo.eol</code>) and add the content below to
     it:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>// Create elements
+<div class="highlight"><pre><span></span><code>// Create elements
 var sineWave = new `simulink/Sources/Sine Wave`;
 var gain = new `simulink/Math Operations/Gain`;
 var saturation = new `simulink/Discontinuities/Saturation`;
@@ -846,7 +850,6 @@ gain.linkTo(busCreator, 2);
 sineWave.linkTo(busCreator, 3);
 busCreator.link(scope);
 </code></pre></div>
-
 
 <ul>
 <li>Create a new Run configuration for your EOL program and add a Simulink model to it, pointing at your .slx (e.g. <code>empty.slx</code>) model</li>
@@ -900,6 +903,10 @@ busCreator.link(scope);
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>

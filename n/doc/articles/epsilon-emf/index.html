@@ -65,6 +65,10 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
     
       
     
@@ -818,7 +822,7 @@
 <p>Below are some frequently-asked questions related to querying and modifying EMF-based models with Epsilon.</p>
 <h2 id="what-is-the-difference-between-containment-and-non-containment-references-in-emf">What is the difference between containment and non-containment references in EMF?<a class="headerlink" href="#what-is-the-difference-between-containment-and-non-containment-references-in-emf" title="Permanent link">&para;</a></h2>
 <p>Briefly, a model element can belong to as most one containment reference at a time. Containment references also demonstrate a cascade-delete behaviour. For example, consider the following Ecore metamodel (captured in Emfatic).</p>
-<div class="codehilite"><pre><span></span><code>package cars;
+<div class="highlight"><pre><span></span><code>package cars;
 
 class Person {
   ref Person[*] friends; //non-containment reference
@@ -828,9 +832,8 @@ class Person {
 class Car { }
 </code></pre></div>
 
-
 <p>Now consider the following EOL code which demonstrates the similarities/differences of containment and non-containment references.</p>
-<div class="codehilite"><pre><span></span><code>// Set up a few model elements to play with
+<div class="highlight"><pre><span></span><code>// Set up a few model elements to play with
 var c1 = new Car;
 var c2 = new Car;
 var p1 = new Person;
@@ -873,7 +876,6 @@ Person.all.println(); // prints {p2, p3}
 Car.all.println();
 </code></pre></div>
 
-
 <h2 id="how-can-i-get-all-children-of-a-model-element">How can I get all children of a model element?<a class="headerlink" href="#how-can-i-get-all-children-of-a-model-element" title="Permanent link">&para;</a></h2>
 <p>Epsilon does not provide a built-in method for this but you can use EObject's <code>eContents()</code> method if you're working with EMF. To get all descendants of an element, something like the following should do the trick: <code>o.asSequence().closure(x | x.eContents())</code>. See <a href="https://www.eclipse.org/forums/index.php/t/855628/">https://www.eclipse.org/forums/index.php/t/855628/</a> for more details.</p>
 <h2 id="how-can-i-get-the-container-of-a-model-element">How can I get the container of a model element?<a class="headerlink" href="#how-can-i-get-the-container-of-a-model-element" title="Permanent link">&para;</a></h2>
@@ -882,7 +884,7 @@ Car.all.println();
 <p>To use an existing EMF Resource in your Epsilon program, you should wrap it as an <a href="http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/InMemoryEmfModel.html">InMemoryEmfModel</a> first.</p>
 <h2 id="how-can-i-use-custom-loadsave-options-for-my-emf-model">How can I use custom load/save options for my EMF model?<a class="headerlink" href="#how-can-i-use-custom-loadsave-options-for-my-emf-model" title="Permanent link">&para;</a></h2>
 <p>You need to un-tick the "Read on load"/"Store on disposal" options in your model configuration dialog and use the underlying EMF resource's load/save methods directly from your EOL code. For example, to turn off the OPTION_DEFER_IDREF_RESOLUTION option, which is on by default in Epsilon's EMF driver and has been reported to <a href="https://www.eclipse.org/forums/index.php/m/1754026/#msg_1754026">slow down loading of models that use "id" attributes</a>, you can use the following EOL statement.</p>
-<div class="codehilite"><pre><span></span><code>M.resource.load(Map{&quot;DEFER_IDREF_RESOLUTION&quot; = false});
+<div class="highlight"><pre><span></span><code>M.resource.load(Map{&quot;DEFER_IDREF_RESOLUTION&quot; = false});
 </code></pre></div>
                 
                   
@@ -931,6 +933,10 @@ Car.all.println();
       <script src="../../../assets/javascripts/application.c648116f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
       
     
   </body>
