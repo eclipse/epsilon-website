@@ -7,35 +7,45 @@ The aim of the Epsilon Comparison Language (ECL) is to enable users to specify c
 
 ## Abstract Syntax
 
-In ECL, comparison specifications are organized in modules
-(*EcLModule*). As illustrated below,
-EclModule extends EOLLibraryModule which means that it can contain
-user-defined operations and import other library modules and ECL
-modules. Apart from operations, an ECL module contains a set of
-match-rules (*MatchRule*) and a set of *pre* and *post* blocks than run
-before and after all comparisons, respectively.
+In ECL, comparison specifications are organized in modules (*EcLModule*). As illustrated below, *EclModule* (indirectly) extends *EolModule* which means that it can contain user-defined operations and import other library modules and ECL modules. Apart from operations, an ECL module contains a set of match-rules (*MatchRule*) and a set of *pre* and *post* blocks than run before and after all comparisons, respectively.
 
-*MatchRules* enable users to perform comparison of model elements at a
-high level of abstraction. Each match-rule declares a name, and two
-parameters (*leftParameter* and *rightParameter*) that specify the types
-of elements it can compare. It also optionally defines a number of rules
-it inherits (*extends*) and if it is *abstract*, *lazy* and/or *greedy*.
-The semantics of the latter are discussed shortly.
+*MatchRules* enable users to perform comparison of model elements at a high level of abstraction. Each match-rule declares a name, and two parameters (*leftParameter* and *rightParameter*) that specify the types of elements it can compare. It also optionally defines a number of rules it inherits (*extends*) and if it is *abstract*, *lazy* and/or *greedy*. The semantics of the latter are discussed shortly.
 
-![](images/EclAbstractSyntax.png)
+```mermaid-90
+classDiagram
+class MatchRule {
+    -name: String
+    -abstract: Boolean
+    -lazy: Boolean
+    -unique: Boolean
+    -greedy: Boolean
+    -guard: ExecutableBlock<Boolean>
+    -compare: ExecutableBlock<Boolean>
+    -do: ExecutableBlock<Void>
+}
+class Parameter {
+    -name: String
+    -type: EolType 
+}
+class NamedStatementBlockRule {
+    -name: String
+    -body: StatementBlock
+}
+EolModule <|-- ErlModule
+EclModule --|> ErlModule
+Pre --|> NamedStatementBlockRule
+Post --|> NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+EclModule -- MatchRule: rules *
+MatchRule -- Parameter: left
+MatchRule -- Parameter: right
+MatchRule -- MatchRule: extends *
+```
 
-A match rule has three parts. The *guard* part is an EOL expression or
-statement block that further limits the applicability of the rule to an
-even narrower range of elements than that specified by the *left* and
-*right* parameters. The *compare* part is an EOL expression or statement
-block that is responsible for comparing a pair of elements and deciding
-if they match or not. Finally, the *do* part is an EOL expression or
-block that is executed if the *compare* part returns true to perform any
-additional actions required.
+A match rule has three parts. The *guard* part is an EOL expression or statement block that further limits the applicability of the rule to an even narrower range of elements than that specified by the *left* and *right* parameters. The *compare* part is an EOL expression or statement block that is responsible for comparing a pair of elements and deciding if they match or not. Finally, the *do* part is an EOL expression or block that is executed if the *compare* part returns true to perform any additional actions required.
 
-*Pre* and *post* blocks are named blocks of EOL statements which as
-discussed in the sequel are executed before and after the match-rules
-have been executed respectively.
+*Pre* and *post* blocks are named blocks of EOL statements which as discussed in the sequel are executed before and after the match-rules have been executed respectively.
 
 ## Concrete Syntax
 
@@ -74,7 +84,23 @@ An ECL module can import a number of other ECL modules. In such a case, the impo
 
 As illustrated below, the result of comparing two models with ECL is a trace (*MatchTrace*) that consists of a number of matches (*Match*). Each match holds a reference to the objects from the two models that have been compared (*left* and *right*), a boolean value that indicates if they have been found to be *matching* or not, a reference to the *rule* that has made the decision, and a Map (*info*) that is used to hold any additional information required by the user (accessible at runtime through the *matchInfo* implicit variable). During the matching process, a second, temporary, match trace is also used to detect and resolve cyclic invocation of match-rules as discussed in the sequel.
 
-![](images/ECLRuntime.png)
+```mermaid-80
+classDiagram
+class Match {
+    -left: Object
+    -right: Object
+    -matching: Boolean
+}
+class EclContext {
+    -matchTrace: MatchTrace
+    -tempMatchTrace: MatchTrace
+}
+MatchRule -- Match: rule
+MatchTrace -- Match: matches *
+EclContext --|> EolContext
+EclContext -- MatchTrace
+Map -- Match: info
+```
 
 ### Rule Execution Scheduling
 
@@ -96,7 +122,15 @@ Providing the built-in *matches* operation significantly simplifies comparison s
 
 On the other hand, it is possible - and quite common indeed - for two rules to implicitly invoke each other. For example consider the match rule below that attempts to match nodes of the simple Tree metamodel.
 
-![](images/metamodels/Tree.png)
+```mermaid-40
+classDiagram
+class Tree {
+    +label: String
+    +parent: Tree
+    +children: Tree[*]
+}
+Tree -- Tree
+```
 
 ```ecl
 rule Tree2Tree 

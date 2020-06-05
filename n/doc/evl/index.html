@@ -469,7 +469,7 @@
       
         <li class="md-nav__item">
   <a href="#capturing-dependencies-between-constraints" class="md-nav__link">
-    Capturing Dependencies Between constraints
+    Capturing Dependencies between Constraints
   </a>
   
 </li>
@@ -1016,7 +1016,7 @@
       
         <li class="md-nav__item">
   <a href="#capturing-dependencies-between-constraints" class="md-nav__link">
-    Capturing Dependencies Between constraints
+    Capturing Dependencies between Constraints
   </a>
   
 </li>
@@ -1042,7 +1042,7 @@
 <p>The aim of EVL is to contribute model validation capabilities to Epsilon. More specifically, EVL can be used to specify and evaluate constraints on models of arbitrary metamodels and modelling technologies.</p>
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
 <p>In EVL, validation specifications are organized in modules (<em>EvlModule</em>). As illustrated in the figure below, <em>EvlModule</em> (indirectly) extends <em>EolModule</em> which means that it can contain user-defined operations and import other EOL library modules and EVL modules. Apart from operations, an EVL module also contains a set of constraints grouped by the context they apply to, and, by extending <em>ErlModule</em>, a number of <em>pre</em> and <em>post</em> blocks.</p>
-<div class="mermaid">classDiagram
+<div class="mermaid mermaid-100">classDiagram
 class Constraint {
     -name: String
     -guard: ExecutableBlock&lt;Boolean&gt;
@@ -1130,7 +1130,7 @@ fix {
 <p>In this phase, the validation trace is examined for unsatisfied constraints and the user is presented with the message each one has produced. The user can then select one or more of the available <em>fixes</em> to be executed. Execution of <em>fixes</em> is performed in a transactional manner using the respective facilities provided by the model connectivity framework. This is to prevent runtime errors raised during the execution of a <em>fix</em> from compromising the validated model by leaving it in an inconsistent state.</p>
 <h3 id="phase-4">Phase 4<a class="headerlink" href="#phase-4" title="Permanent link">&para;</a></h3>
 <p>When the user has performed all the necessary <em>fixes</em> or chooses to end Phase 3 explicitly, the <em>post</em> section of the module is executed. There, the user can perform tasks such as serializing the validation trace or producing a summary of the validation process results.</p>
-<h2 id="capturing-dependencies-between-constraints">Capturing Dependencies Between constraints<a class="headerlink" href="#capturing-dependencies-between-constraints" title="Permanent link">&para;</a></h2>
+<h2 id="capturing-dependencies-between-constraints">Capturing Dependencies between Constraints<a class="headerlink" href="#capturing-dependencies-between-constraints" title="Permanent link">&para;</a></h2>
 <p>It is often the case that constraints conceptually depend on each other. To allow users capture such dependencies, EVL provides the <em>satisfies(constraint : String) : Boolean</em>, <em>satisfiesAll(constraints : Sequence(String)) : Boolean</em> and <em>satisfiesOne(constraints : Sequence(String)) : Boolean</em> built-in operations. Using these operations, an constraint can specify in its <em>guard</em> other constraints which need to be satisfied for it to be meaningful to evaluate.</p>
 <p>When one of these operations is invoked, if the required <em>constraints</em> (either lazy or non-lazy) have been evaluated for the instances on which the operation is invoked, the engine will return their cached results; otherwise it will evaluate them and return their results.</p>
                 

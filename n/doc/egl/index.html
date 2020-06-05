@@ -1123,19 +1123,19 @@
 <p>EGL is a <em>template-based</em> code generator (i.e. EGL programs resemble the text that they generate), and provides several features that simplify and support the generation of text from models, including: a sophisticated and language-independent merging engine (for preserving hand-written sections of generated text), an extensible template system (for generating text to a variety of sources, such as a file on disk, a database server, or even as a response issued by a web server), formatting algorithms (for producing generated text that is well-formatted and hence readable), and traceability mechanisms (for linking generated text with source models).</p>
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
 <p>The figure below shows the abstract syntax of EGL's core functionality.</p>
-<div class="mermaid">classDiagram
+<div class="mermaid mermaid-100">classDiagram
 class EglSection {
-    +getChildren() : List
-    +getText() : String
+    +getChildren(): List
+    +getText(): String
 }
 class EglDynamicSection {
-    +getText() : String
+    +getText(): String
 }
 class EglStaticSection {
-    +getText() : String
+    +getText(): String
 }
 class EglShortcutSection {
-    +getText() : String
+    +getText(): String
 }
 EglSection &lt;|-- EglDynamicSection
 EglSection &lt;|-- EglStaticSection

@@ -1,30 +1,44 @@
 # The Epsilon Transformation Language (ETL)
 
-The aim of ETL is to contribute model-to-model transformation
-capabilities to Epsilon. More specifically, ETL can be used to transform an arbitrary number of input models into an arbitrary number of output models of different modelling languages and technologies at a high level of abstraction.
+The aim of ETL is to contribute model-to-model transformation capabilities to Epsilon. More specifically, ETL can be used to transform an arbitrary number of input models into an arbitrary number of output models of different modelling languages and technologies at a high level of abstraction.
 
 ## Abstract Syntax
 
-As illustrated in the figure below, ETL transformations are organized in
-modules (`EtlModule`). A module can contain a number of transformation
-rules (`TransformationRule`). Each rule has a unique name (in the
-context of the module) and also specifies one `source` and many `target`
-parameters. A transformation rule can also `extend` a number of other
-transformation rules and be declared as `abstract`, `primary` and/or
-`lazy`[^1]. To limit its applicability to a subset of elements that
-conform to the type of the `source` parameter, a rule can optionally
-define a guard which is either an EOL expression or a block of EOL
-statements. Finally, each rule defines a block of EOL statements
-(`body`) where the logic for populating the property values of the
-target model elements is specified.
+As illustrated in the figure below, ETL transformations are organized in modules (`EtlModule`). A module can contain a number of transformation rules (`TransformRule`). Each rule has a unique name (in the context of the module) and also specifies one `source` and many `target` parameters. A transformation rule can also `extend` a number of other transformation rules and be declared as `abstract`, `primary` and/or `lazy`[^1]. To limit its applicability to a subset of elements that conform to the type of the `source` parameter, a rule can optionally define a guard which is either an EOL expression or a block of EOL statements. Finally, each rule defines a block of EOL statements (`body`) where the logic for populating the property values of the target model elements is specified.
 
-Besides transformation rules, an ETL module can also optionally contain
-a number of `pre` and `post` named blocks of EOL statements which, as
-discussed later, are executed before and after the transformation rules
-respectively. These should not be confused with the pre-/post-condition
-annotations available for EOL user-defined operations.
+Besides transformation rules, an ETL module can also optionally contain a number of `pre` and `post` named blocks of EOL statements which, as discussed later, are executed before and after the transformation rules respectively. These should not be confused with the pre-/post-condition annotations available for EOL user-defined operations.
 
-![image](images/EtlAbstractSyntax.png)
+```mermaid
+classDiagram
+class TransformRule {
+    -name: String
+    -abstract: Boolean
+    -lazy: Boolean
+    -primary: Boolean
+    -greedy: Boolean
+    -type: EolModelElementType
+    -guard: ExecutableBlock<Boolean>
+    -body: ExecutableBlock<Void>
+}
+class Parameter {
+    -name: String
+    -type: EolType 
+}
+class NamedStatementBlockRule {
+    -name: String
+    -body: StatementBlock
+}
+EolModule <|-- ErlModule
+EtlModule --|> ErlModule
+Pre --|> NamedStatementBlockRule
+Post --|> NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+EtlModule -- TransformRule: rules *
+TransformRule -- Parameter: source
+TransformRule -- Parameter: targets *
+TransformRule -- TransformRule: extends *
+```
 
 ## Concrete Syntax
 
@@ -127,7 +141,24 @@ rules that have created them. An exception to this occurs when one of
 the rules is declared as `primary`, in which case its results precede
 the results of all other rules.
 
-![image](images/EtlRuntime.png)
+```mermaid-80
+classDiagram
+
+class Transformation {
+    -source: Object
+    -targets: Object[*]
+}
+
+class ITransformationStrategy {
+    +transformModels(context : EtlContext)
+}
+
+EolContext <|-- EtlContext
+EtlContext -- TransformationTrace
+EtlContext -- ITransformationStrategy: strategy
+TransformationTrace -- Transformation: transformations *
+Transformation -- TransformRule: rule
+```
 
 ETL also provides the convenient `equivalent()` operation which, when
 applied to a single element, returns only the first element of the
@@ -143,7 +174,26 @@ through a simple example. In this example, we need to transform a model
 that conforms to the Tree metamodel displayed below
 into a model that conforms to the Graph metamodel, also displayed below. 
 
-![A Simple Graph Metamodel](images/Graph.png)
+```mermaid-70
+classDiagram
+class Node {
+    +label: String
+    +incoming: Edge[*]
+    +outgoing: Edge[*]
+}
+class Edge {
+    +source: Node
+    +target: Node
+}
+class Tree {
+    +name: String
+    +parent: Tree
+    +children: Tree[*]
+}
+Tree -- Tree
+Node -- Edge
+Edge -- Node
+```
 
 More specifically, we need to transform each `Tree` element to a `Node`, and
 an `Edge` that connects it with the `Node` that is equivalent to the

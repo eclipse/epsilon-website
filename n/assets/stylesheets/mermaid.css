@@ -1,42 +1,83 @@
+:root {
+  --mermaid-text-color: #494949;
+  --mermaid-background-color: #f0f0f0;
+  --mermaid-stroke-color: #494949;
+}
+
 g.classGroup rect {
-	fill: white !important;
-	stroke: black !important;
+	fill: var(--mermaid-background-color) !important;
+	stroke: var(--mermaid-stroke-color) !important;
 }
 
 g.classGroup text {
-	fill: black !important;
+	fill: var(--mermaid-text-color) !important;
 	font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
 g.classGroup line {
-	stroke: black !important;
+	stroke: var(--mermaid-stroke-color) !important;
 }
 
 g.classLabel rect {
-	fill: white !important;
+	fill: var(--mermaid-background-color) !important;
 }
 
 g.classLabel text {
-	fill: black !important;
+	fill: var(--mermaid-text-color) !important;
 	font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
 .relation {
-	stroke: black !important;
+	stroke: var(--mermaid-stroke-color) !important;
 }
 
 #extensionStart {
-	fill: white !important;
-	stroke: black !important;
+	fill: var(--mermaid-background-color) !important;
+	stroke: var(--mermaid-stroke-color) !important;
 }
 
 #extensionEnd {
-	fill: white !important;
-	stroke: black !important;
+	fill: var(--mermaid-background-color) !important;
+	stroke: var(--mermaid-stroke-color) !important;
 }
 
 /*For mermaid diagrams*/
-svg {
+.mermaid-100 svg {
     width:100% !important;
+    height:auto !important;
+}
+
+.mermaid-90 svg {
+    width:90% !important;
+    height:auto !important;
+}
+
+.mermaid-80 svg {
+    width:80% !important;
+    height:auto !important;
+}
+
+.mermaid-70 svg {
+    width:70% !important;
+    height:auto !important;
+}
+
+.mermaid-60 svg {
+    width:60% !important;
+    height:auto !important;
+}
+
+.mermaid-50 svg {
+    width:50% !important;
+    height:auto !important;
+}
+
+.mermaid-40 svg {
+    width:40% !important;
+    height:auto !important;
+}
+
+.mermaid-30 svg {
+    width:30% !important;
     height:auto !important;
 }

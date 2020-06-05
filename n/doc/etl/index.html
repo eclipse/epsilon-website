@@ -943,27 +943,40 @@
                 
                 
                 <h1 id="the-epsilon-transformation-language-etl">The Epsilon Transformation Language (ETL)<a class="headerlink" href="#the-epsilon-transformation-language-etl" title="Permanent link">&para;</a></h1>
-<p>The aim of ETL is to contribute model-to-model transformation
-capabilities to Epsilon. More specifically, ETL can be used to transform an arbitrary number of input models into an arbitrary number of output models of different modelling languages and technologies at a high level of abstraction.</p>
+<p>The aim of ETL is to contribute model-to-model transformation capabilities to Epsilon. More specifically, ETL can be used to transform an arbitrary number of input models into an arbitrary number of output models of different modelling languages and technologies at a high level of abstraction.</p>
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
-<p>As illustrated in the figure below, ETL transformations are organized in
-modules (<code>EtlModule</code>). A module can contain a number of transformation
-rules (<code>TransformationRule</code>). Each rule has a unique name (in the
-context of the module) and also specifies one <code>source</code> and many <code>target</code>
-parameters. A transformation rule can also <code>extend</code> a number of other
-transformation rules and be declared as <code>abstract</code>, <code>primary</code> and/or
-<code>lazy</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. To limit its applicability to a subset of elements that
-conform to the type of the <code>source</code> parameter, a rule can optionally
-define a guard which is either an EOL expression or a block of EOL
-statements. Finally, each rule defines a block of EOL statements
-(<code>body</code>) where the logic for populating the property values of the
-target model elements is specified.</p>
-<p>Besides transformation rules, an ETL module can also optionally contain
-a number of <code>pre</code> and <code>post</code> named blocks of EOL statements which, as
-discussed later, are executed before and after the transformation rules
-respectively. These should not be confused with the pre-/post-condition
-annotations available for EOL user-defined operations.</p>
-<p><img alt="image" src="../images/EtlAbstractSyntax.png" /></p>
+<p>As illustrated in the figure below, ETL transformations are organized in modules (<code>EtlModule</code>). A module can contain a number of transformation rules (<code>TransformRule</code>). Each rule has a unique name (in the context of the module) and also specifies one <code>source</code> and many <code>target</code> parameters. A transformation rule can also <code>extend</code> a number of other transformation rules and be declared as <code>abstract</code>, <code>primary</code> and/or <code>lazy</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. To limit its applicability to a subset of elements that conform to the type of the <code>source</code> parameter, a rule can optionally define a guard which is either an EOL expression or a block of EOL statements. Finally, each rule defines a block of EOL statements (<code>body</code>) where the logic for populating the property values of the target model elements is specified.</p>
+<p>Besides transformation rules, an ETL module can also optionally contain a number of <code>pre</code> and <code>post</code> named blocks of EOL statements which, as discussed later, are executed before and after the transformation rules respectively. These should not be confused with the pre-/post-condition annotations available for EOL user-defined operations.</p>
+<div class="mermaid mermaid-100">classDiagram
+class TransformRule {
+    -name: String
+    -abstract: Boolean
+    -lazy: Boolean
+    -primary: Boolean
+    -greedy: Boolean
+    -type: EolModelElementType
+    -guard: ExecutableBlock&lt;Boolean&gt;
+    -body: ExecutableBlock&lt;Void&gt;
+}
+class Parameter {
+    -name: String
+    -type: EolType 
+}
+class NamedStatementBlockRule {
+    -name: String
+    -body: StatementBlock
+}
+EolModule &lt;|-- ErlModule
+EtlModule --|&gt; ErlModule
+Pre --|&gt; NamedStatementBlockRule
+Post --|&gt; NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+EtlModule -- TransformRule: rules *
+TransformRule -- Parameter: source
+TransformRule -- Parameter: targets *
+TransformRule -- TransformRule: extends *</div>
+
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>
 <p>The concrete syntax of a transformation rule is displayed in the 
 listing below. The optional
@@ -1048,7 +1061,23 @@ operations, the returned elements appear in the respective order of the
 rules that have created them. An exception to this occurs when one of
 the rules is declared as <code>primary</code>, in which case its results precede
 the results of all other rules.</p>
-<p><img alt="image" src="../images/EtlRuntime.png" /></p>
+<div class="mermaid mermaid-80">classDiagram
+
+class Transformation {
+    -source: Object
+    -targets: Object[*]
+}
+
+class ITransformationStrategy {
+    +transformModels(context : EtlContext)
+}
+
+EolContext &lt;|-- EtlContext
+EtlContext -- TransformationTrace
+EtlContext -- ITransformationStrategy: strategy
+TransformationTrace -- Transformation: transformations *
+Transformation -- TransformRule: rule</div>
+
 <p>ETL also provides the convenient <code>equivalent()</code> operation which, when
 applied to a single element, returns only the first element of the
 respective result that would have been returned by the <code>equivalents()</code>
@@ -1061,7 +1090,25 @@ also be invoked with or without parameters.</p>
 through a simple example. In this example, we need to transform a model
 that conforms to the Tree metamodel displayed below
 into a model that conforms to the Graph metamodel, also displayed below. </p>
-<p><img alt="A Simple Graph Metamodel" src="../images/Graph.png" /></p>
+<div class="mermaid mermaid-70">classDiagram
+class Node {
+    +label: String
+    +incoming: Edge[*]
+    +outgoing: Edge[*]
+}
+class Edge {
+    +source: Node
+    +target: Node
+}
+class Tree {
+    +name: String
+    +parent: Tree
+    +children: Tree[*]
+}
+Tree -- Tree
+Node -- Edge
+Edge -- Node</div>
+
 <p>More specifically, we need to transform each <code>Tree</code> element to a <code>Node</code>, and
 an <code>Edge</code> that connects it with the <code>Node</code> that is equivalent to the
 tree's <code>parent</code>. This is achieved using the rule below.</p>

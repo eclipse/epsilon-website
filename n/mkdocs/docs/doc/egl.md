@@ -11,17 +11,17 @@ The figure below shows the abstract syntax of EGL's core functionality.
 ```mermaid
 classDiagram
 class EglSection {
-	+getChildren() : List
-	+getText() : String
+	+getChildren(): List
+	+getText(): String
 }
 class EglDynamicSection {
-	+getText() : String
+	+getText(): String
 }
 class EglStaticSection {
-	+getText() : String
+	+getText(): String
 }
 class EglShortcutSection {
-	+getText() : String
+	+getText(): String
 }
 EglSection <|-- EglDynamicSection
 EglSection <|-- EglStaticSection

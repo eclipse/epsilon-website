@@ -51,8 +51,29 @@ markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
-          class: mermaid
+          class: mermaid mermaid-100
           format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: mermaid-90
+          class: mermaid mermaid-90
+          format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: mermaid-80
+          class: mermaid mermaid-80
+          format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: mermaid-70
+          class: mermaid mermaid-70
+          format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: mermaid-60
+          class: mermaid mermaid-60
+          format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: mermaid-50
+          class: mermaid mermaid-50
+          format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: mermaid-40
+          class: mermaid mermaid-40
+          format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: mermaid-30
+          class: mermaid mermaid-30
+          format: !!python/name:pymdownx.superfences.fence_div_format  
   - admonition
   - meta
   - footnotes

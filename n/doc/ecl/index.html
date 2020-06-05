@@ -974,31 +974,40 @@
 <p>Model comparison is the task of identifying <em>matching</em> elements between models. In general, <em>matching</em> elements are elements that are involved in a relationship of interest. For example, before merging homogeneous models, it is essential to identify overlapping (common) elements so that they do not appear in duplicate in the merged model. Similarly, in heterogeneous model merging, it is a prerequisite to identify the elements on which the two models will be merged. Finally, in transformation testing, matching elements are pairs consisting of elements in the input model and their generated counterparts in the output model.</p>
 <p>The aim of the Epsilon Comparison Language (ECL) is to enable users to specify comparison algorithms in a rule-based manner to identify pairs of matching elements between two models of potentially different metamodels and modelling technologies. In this section, the abstract and concrete syntax, as well as the execution semantics of the language, are discussed in detail.</p>
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
-<p>In ECL, comparison specifications are organized in modules
-(<em>EcLModule</em>). As illustrated below,
-EclModule extends EOLLibraryModule which means that it can contain
-user-defined operations and import other library modules and ECL
-modules. Apart from operations, an ECL module contains a set of
-match-rules (<em>MatchRule</em>) and a set of <em>pre</em> and <em>post</em> blocks than run
-before and after all comparisons, respectively.</p>
-<p><em>MatchRules</em> enable users to perform comparison of model elements at a
-high level of abstraction. Each match-rule declares a name, and two
-parameters (<em>leftParameter</em> and <em>rightParameter</em>) that specify the types
-of elements it can compare. It also optionally defines a number of rules
-it inherits (<em>extends</em>) and if it is <em>abstract</em>, <em>lazy</em> and/or <em>greedy</em>.
-The semantics of the latter are discussed shortly.</p>
-<p><img alt="" src="../images/EclAbstractSyntax.png" /></p>
-<p>A match rule has three parts. The <em>guard</em> part is an EOL expression or
-statement block that further limits the applicability of the rule to an
-even narrower range of elements than that specified by the <em>left</em> and
-<em>right</em> parameters. The <em>compare</em> part is an EOL expression or statement
-block that is responsible for comparing a pair of elements and deciding
-if they match or not. Finally, the <em>do</em> part is an EOL expression or
-block that is executed if the <em>compare</em> part returns true to perform any
-additional actions required.</p>
-<p><em>Pre</em> and <em>post</em> blocks are named blocks of EOL statements which as
-discussed in the sequel are executed before and after the match-rules
-have been executed respectively.</p>
+<p>In ECL, comparison specifications are organized in modules (<em>EcLModule</em>). As illustrated below, <em>EclModule</em> (indirectly) extends <em>EolModule</em> which means that it can contain user-defined operations and import other library modules and ECL modules. Apart from operations, an ECL module contains a set of match-rules (<em>MatchRule</em>) and a set of <em>pre</em> and <em>post</em> blocks than run before and after all comparisons, respectively.</p>
+<p><em>MatchRules</em> enable users to perform comparison of model elements at a high level of abstraction. Each match-rule declares a name, and two parameters (<em>leftParameter</em> and <em>rightParameter</em>) that specify the types of elements it can compare. It also optionally defines a number of rules it inherits (<em>extends</em>) and if it is <em>abstract</em>, <em>lazy</em> and/or <em>greedy</em>. The semantics of the latter are discussed shortly.</p>
+<div class="mermaid mermaid-90">classDiagram
+class MatchRule {
+    -name: String
+    -abstract: Boolean
+    -lazy: Boolean
+    -unique: Boolean
+    -greedy: Boolean
+    -guard: ExecutableBlock&lt;Boolean&gt;
+    -compare: ExecutableBlock&lt;Boolean&gt;
+    -do: ExecutableBlock&lt;Void&gt;
+}
+class Parameter {
+    -name: String
+    -type: EolType 
+}
+class NamedStatementBlockRule {
+    -name: String
+    -body: StatementBlock
+}
+EolModule &lt;|-- ErlModule
+EclModule --|&gt; ErlModule
+Pre --|&gt; NamedStatementBlockRule
+Post --|&gt; NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+EclModule -- MatchRule: rules *
+MatchRule -- Parameter: left
+MatchRule -- Parameter: right
+MatchRule -- MatchRule: extends *</div>
+
+<p>A match rule has three parts. The <em>guard</em> part is an EOL expression or statement block that further limits the applicability of the rule to an even narrower range of elements than that specified by the <em>left</em> and <em>right</em> parameters. The <em>compare</em> part is an EOL expression or statement block that is responsible for comparing a pair of elements and deciding if they match or not. Finally, the <em>do</em> part is an EOL expression or block that is executed if the <em>compare</em> part returns true to perform any additional actions required.</p>
+<p><em>Pre</em> and <em>post</em> blocks are named blocks of EOL statements which as discussed in the sequel are executed before and after the match-rules have been executed respectively.</p>
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>
 <p>The concrete syntax of a match-rule is displayed below.</p>
 <div class="highlight"><pre><span></span><code>(@lazy)?
@@ -1026,7 +1035,22 @@ rule &lt;name&gt;
 <p>An ECL module can import a number of other ECL modules. In such a case, the importing ECL module inherits all the rules and pre/post blocks specified in the modules it imports (recursively). If the module specifies a rule or a pre/post block with the same name, the local rule/block overrides the imported one respectively.</p>
 <h3 id="comparison-outcome">Comparison Outcome<a class="headerlink" href="#comparison-outcome" title="Permanent link">&para;</a></h3>
 <p>As illustrated below, the result of comparing two models with ECL is a trace (<em>MatchTrace</em>) that consists of a number of matches (<em>Match</em>). Each match holds a reference to the objects from the two models that have been compared (<em>left</em> and <em>right</em>), a boolean value that indicates if they have been found to be <em>matching</em> or not, a reference to the <em>rule</em> that has made the decision, and a Map (<em>info</em>) that is used to hold any additional information required by the user (accessible at runtime through the <em>matchInfo</em> implicit variable). During the matching process, a second, temporary, match trace is also used to detect and resolve cyclic invocation of match-rules as discussed in the sequel.</p>
-<p><img alt="" src="../images/ECLRuntime.png" /></p>
+<div class="mermaid mermaid-80">classDiagram
+class Match {
+    -left: Object
+    -right: Object
+    -matching: Boolean
+}
+class EclContext {
+    -matchTrace: MatchTrace
+    -tempMatchTrace: MatchTrace
+}
+MatchRule -- Match: rule
+MatchTrace -- Match: matches *
+EclContext --|&gt; EolContext
+EclContext -- MatchTrace
+Map -- Match: info</div>
+
 <h3 id="rule-execution-scheduling">Rule Execution Scheduling<a class="headerlink" href="#rule-execution-scheduling" title="Permanent link">&para;</a></h3>
 <p>Non-abstract, non-lazy match-rules are evaluated automatically by the execution engine in a top-down fashion - with respect to their order of appearance - in two passes. In the first pass, each rule is evaluated for all the pairs of instances in the two models that have a type-of relationship with the types specified by the <em>leftParameter</em> and <em>rightParameter</em> of the rule. In the second pass, each rule that is marked as <em>greedy</em> is executed for all pairs that have not been compared in the first pass, and which have a kind-of relationship with the types specified by the rule. In both passes, to evaluate the compare part of the rule, the guard must be satisfied.</p>
 <p>Before the compare part of a rule is executed, the compare parts of all of the rules it extends (super-rules) must be executed (recursively). Before executing the compare part of a super-rule, the engine verifies that the super-rule is actually applicable to the elements under comparison by checking for type conformance and evaluating the guard part of the super-rule.</p>
@@ -1037,7 +1061,14 @@ rule &lt;name&gt;
 <h3 id="cyclic-invocation-of-matches">Cyclic invocation of <em>matches()</em><a class="headerlink" href="#cyclic-invocation-of-matches" title="Permanent link">&para;</a></h3>
 <p>Providing the built-in <em>matches</em> operation significantly simplifies comparison specifications. It also enhances decoupling between match-rules from each other as when a rule needs to compare two elements that are outside its scope, it does not need to know/specify which other rule can compare those elements explicitly.</p>
 <p>On the other hand, it is possible - and quite common indeed - for two rules to implicitly invoke each other. For example consider the match rule below that attempts to match nodes of the simple Tree metamodel.</p>
-<p><img alt="" src="../images/metamodels/Tree.png" /></p>
+<div class="mermaid mermaid-40">classDiagram
+class Tree {
+    +label: String
+    +parent: Tree
+    +children: Tree[*]
+}
+Tree -- Tree</div>
+
 <div class="highlight"><pre><span></span><code><span class="kt">rule</span> <span class="n">Tree2Tree</span> 
     <span class="n">match</span> <span class="n">l</span> <span class="o">:</span> <span class="n">T1</span><span class="o">!</span><span class="n">Tree</span>
     <span class="n">with</span> <span class="n">r</span> <span class="o">:</span> <span class="n">T2</span><span class="o">!</span><span class="n">Tree</span> <span class="p">{</span>
