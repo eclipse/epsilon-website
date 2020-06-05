@@ -49,13 +49,11 @@ class SimpleAnnotation {
 	+values: String[*]
 }
 EolModule -- ImportStatement: *
-EolModule -- Operation: *
-Operation -- Annotation: *
+EolModule -- Operation: operations *
+Operation -- Annotation: annotations *
 Operation -- StatmentBlock: body
 EolModule -- StatmentBlock: main
-StatmentBlock -- Statement
-Statement <|-- ForStatement
-Statement <|-- IfStatement
+StatmentBlock -- Statement: statements *
 Annotation <|-- ExecutableAnnotation
 Annotation <|-- SimpleAnnotation
 ```

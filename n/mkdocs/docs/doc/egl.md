@@ -8,8 +8,28 @@ EGL is a *template-based* code generator (i.e. EGL programs resemble the text th
 
 The figure below shows the abstract syntax of EGL's core functionality.
 
-![The abstract syntax of EGL's
-core.](images/EglAbstractSyntax.png)
+```mermaid
+classDiagram
+class EglSection {
+	+getChildren() : List
+	+getText() : String
+}
+class EglDynamicSection {
+	+getText() : String
+}
+class EglStaticSection {
+	+getText() : String
+}
+class EglShortcutSection {
+	+getText() : String
+}
+EglSection <|-- EglDynamicSection
+EglSection <|-- EglStaticSection
+EglSection <|-- EglShortcutSection
+```
+
+<!--[The abstract syntax of EGL's
+core.](images/EglAbstractSyntax.png)-->
 
 Conceptually, an EGL program comprises one or more *sections*. The contents of static sections are emitted verbatim and appear directly in the generated text. The contents of dynamic sections are executed and are used to control the text that is generated.
 

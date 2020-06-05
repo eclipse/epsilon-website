@@ -1411,13 +1411,11 @@ class SimpleAnnotation {
     +values: String[*]
 }
 EolModule -- ImportStatement: *
-EolModule -- Operation: *
-Operation -- Annotation: *
+EolModule -- Operation: operations *
+Operation -- Annotation: annotations *
 Operation -- StatmentBlock: body
 EolModule -- StatmentBlock: main
-StatmentBlock -- Statement
-Statement &lt;|-- ForStatement
-Statement &lt;|-- IfStatement
+StatmentBlock -- Statement: statements *
 Annotation &lt;|-- ExecutableAnnotation
 Annotation &lt;|-- SimpleAnnotation</div>
 

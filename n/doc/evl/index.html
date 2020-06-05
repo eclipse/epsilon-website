@@ -380,8 +380,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#invariant" class="md-nav__link">
-    Invariant
+  <a href="#constraint" class="md-nav__link">
+    Constraint
   </a>
   
 </li>
@@ -396,13 +396,6 @@
           <li class="md-nav__item">
   <a href="#fix" class="md-nav__link">
     Fix
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#constraint" class="md-nav__link">
-    Constraint
   </a>
   
 </li>
@@ -469,15 +462,15 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#capturing-dependencies-between-invariants" class="md-nav__link">
-    Capturing Dependencies Between Invariants
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturing-dependencies-between-constraints" class="md-nav__link">
+    Capturing Dependencies Between constraints
+  </a>
   
 </li>
       
@@ -934,8 +927,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#invariant" class="md-nav__link">
-    Invariant
+  <a href="#constraint" class="md-nav__link">
+    Constraint
   </a>
   
 </li>
@@ -950,13 +943,6 @@
           <li class="md-nav__item">
   <a href="#fix" class="md-nav__link">
     Fix
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#constraint" class="md-nav__link">
-    Constraint
   </a>
   
 </li>
@@ -1023,15 +1009,15 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#capturing-dependencies-between-invariants" class="md-nav__link">
-    Capturing Dependencies Between Invariants
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturing-dependencies-between-constraints" class="md-nav__link">
+    Capturing Dependencies Between constraints
+  </a>
   
 </li>
       
@@ -1053,33 +1039,61 @@
                 
                 
                 <h1 id="the-epsilon-validation-language-evl">The Epsilon Validation Language (EVL)<a class="headerlink" href="#the-epsilon-validation-language-evl" title="Permanent link">&para;</a></h1>
-<p>The aim of EVL is to contribute model validation capabilities to
-Epsilon. More specifically, EVL can be used to specify and evaluate
-constraints on models of arbitrary metamodels and modelling
-technologies.</p>
+<p>The aim of EVL is to contribute model validation capabilities to Epsilon. More specifically, EVL can be used to specify and evaluate constraints on models of arbitrary metamodels and modelling technologies.</p>
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
-<p>In EVL, validation specifications are organized in modules (<em>EvlModule</em>). As illustrated in the figure below, <em>EvlModule</em> extends <em>EolLibraryModule</em> which means that it can contain user-defined operations and import other EOL library modules and EVL modules. Apart from operations, an EVL module also contains a set of invariants grouped by the context they apply to, and a number of <em>pre</em> and <em>post</em> blocks.</p>
-<p><img alt="The abstract syntax of EVL" src="../images/EvlAbstractSyntax.png" /></p>
+<p>In EVL, validation specifications are organized in modules (<em>EvlModule</em>). As illustrated in the figure below, <em>EvlModule</em> (indirectly) extends <em>EolModule</em> which means that it can contain user-defined operations and import other EOL library modules and EVL modules. Apart from operations, an EVL module also contains a set of constraints grouped by the context they apply to, and, by extending <em>ErlModule</em>, a number of <em>pre</em> and <em>post</em> blocks.</p>
+<div class="mermaid">classDiagram
+class Constraint {
+    -name: String
+    -guard: ExecutableBlock&lt;Boolean&gt;
+    -check: ExecutableBlock&lt;Boolean&gt;
+    -message: ExecutableBlock&lt;String&gt;
+    -isCritique: boolean
+}
+class ConstraintContext {
+    -type: EolModelElementType
+    -guard: ExecutableBlock&lt;Boolean&gt;
+}
+class NamedStatementBlockRule {
+    -name: String
+    -body: StatementBlock
+}
+class Fix {
+    -guard: ExecutableBlock&lt;Boolean&gt;
+    -title: ExecutableBlock&lt;String&gt;
+    -body: ExecutableBlock&lt;Void&gt;
+}
+EolModule &lt;|-- ErlModule
+EvlModule --|&gt; ErlModule
+Pre --|&gt; NamedStatementBlockRule
+Post --|&gt; NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+EvlModule -- ConstraintContext: contexts *
+ConstraintContext -- Constraint: constraints *
+Constraint -- Fix: fixes *
+</div>
+
+<!--![The abstract syntax of EVL](images/EvlAbstractSyntax.png)-->
+
 <h3 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h3>
-<p>A context specifies the kind of instances on which the contained invariants will be evaluated. Each context can optionally define a guard which limits its applicability to a narrower subset of instances of its specified type. Thus, if the guard fails for a specific instance of the type, none of its contained invariants are evaluated.</p>
-<h3 id="invariant">Invariant<a class="headerlink" href="#invariant" title="Permanent link">&para;</a></h3>
-<p>As with OCL, each EVL invariant defines a <em>name</em> and a body (<em>check</em>). However, it can optionally also define a <em>guard</em> (defined in its abstract <em>GuardedElement</em> supertype) which further limits its applicability to a subset of the instances of the type defined by the embracing <em>context</em>. Each invariant can optionally define a <em>message</em> as an <em>ExpressionOrStatementBlock</em> that should return a String providing a description of the reason(s) for which the constraint has failed on a particular element. An invariant can also optionally define a number of <em>fixes</em>. Finally, as displayed in the figure above, <em>Invariant</em> is an abstract class that is used as a super-class for the specific types <em>Constraint</em> and <em>Critique</em>.</p>
-<h3 id="guard">Guard<a class="headerlink" href="#guard" title="Permanent link">&para;</a></h3>
-<p>Guards are used to limit the applicability of invariants. This can be achieved at two levels. At the <em>Context</em> level it limits the applicability of all invariants of the context and at the <em>Invariant</em> level it limits the applicability of a specific invariant.</p>
-<h3 id="fix">Fix<a class="headerlink" href="#fix" title="Permanent link">&para;</a></h3>
-<p>A fix defines a title using an <em>ExpressionOrStatementBlock</em> instead of a static String to allow users to specify context-aware titles (e.g. <em>Rename class customer to Customer</em> instead of a generic <em>Convert first letter to upper-case</em>). Moreover, the <em>do</em> part is a statement block where the fixing functionality can be defined using EOL. The developer is responsible for ensuring that the actions contained in the <em>fix</em> actually repair the identified inconsistency.</p>
+<p>A context specifies the kind of instances on which the contained constraints will be evaluated. Each context can optionally define a guard which limits its applicability to a narrower subset of instances of its specified type. Thus, if the guard fails for a specific instance of the type, none of its contained constraints are evaluated.</p>
 <h3 id="constraint">Constraint<a class="headerlink" href="#constraint" title="Permanent link">&para;</a></h3>
-<p><em>Constraints</em> in EVL are used to capture critical errors that invalidate the model. As discussed above, <em>Constraint</em> is a sub-class of <em>Invariant</em> and therefore inherits all its features.</p>
+<p>As with OCL, each EVL constraint defines a <em>name</em> and a body (<em>check</em>). However, it can optionally also define a <em>guard</em> which further limits its applicability to a subset of the instances of the type defined by the embracing <em>context</em>. Each constraint can optionally define a <em>message</em> as an <em>ExecutableBlock</em> that should return a String providing a description of the reason(s) for which the constraint has failed on a particular element. A constraint can also optionally define a number of <em>fixes</em>. Finally, as displayed in the figure above, <em>constraint</em> is an abstract class that is used as a super-class for the specific types <em>Constraint</em> and <em>Critique</em>.</p>
+<h3 id="guard">Guard<a class="headerlink" href="#guard" title="Permanent link">&para;</a></h3>
+<p>Guards are used to limit the applicability of constraints. This can be achieved at two levels. At the <em>Context</em> level it limits the applicability of all constraints of the context and at the <em>Constraint</em> level it limits the applicability of a specific constraint.</p>
+<h3 id="fix">Fix<a class="headerlink" href="#fix" title="Permanent link">&para;</a></h3>
+<p>A fix defines a title using an <em>ExecutableBlock</em> instead of a static String to allow users to specify context-aware titles (e.g. <em>Rename class customer to Customer</em> instead of a generic <em>Convert first letter to upper-case</em>). Moreover, the <em>do</em> (body) part is a statement block where the fixing functionality can be defined using EOL. The developer is responsible for ensuring that the actions contained in the <em>fix</em> actually repair the identified inconsistency.</p>
 <h3 id="critique">Critique<a class="headerlink" href="#critique" title="Permanent link">&para;</a></h3>
-<p>Unlike <em>Constraints</em>, <em>Critiques</em> are used to capture non-critical situations that do not invalidate the model, but should nevertheless be addressed by the user to enhance the quality of the model.</p>
+<p><em>Critiques</em> are constraints that are used to capture non-critical issues that do not invalidate the model, but should nevertheless be addressed by the user to enhance the quality of the model.</p>
 <h3 id="pre-and-post">Pre and Post<a class="headerlink" href="#pre-and-post" title="Permanent link">&para;</a></h3>
-<p>An EVL module can define a number of named <em>pre</em> and a <em>post</em> blocks that contain EOL statements which are executed before and after evaluating the invariants respectively. These should not be confused with the pre-/post-condition annotations available for EOL user-defined operations.</p>
+<p>An EVL module can define a number of named <em>pre</em> and a <em>post</em> blocks that contain EOL statements which are executed before and after evaluating the constraints respectively. These should not be confused with the pre-/post-condition annotations available for EOL user-defined operations.</p>
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>
-<p>The following listing demonstrates the concrete sytnax of the <em>context</em>, <em>invariant</em> and <em>fix</em> abstract syntax constructs discussed above.</p>
+<p>The following listing demonstrates the concrete sytnax of the <em>context</em>, <em>constraint</em> and <em>fix</em> abstract syntax constructs discussed above.</p>
 <div class="highlight"><pre><span></span><code>(@lazy)?
 context &lt;name&gt; {
     (guard (:expression)|({statementBlock}))?
-    (invariant)* 
+    (constraint)* 
 }
 
 ((@lazy)?
@@ -1108,17 +1122,17 @@ fix {
 <h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
 <p>Having discussed the abstract and concrete syntaxes of EVL, this section provides an informal discussion of the execution semantics of the language. The execution of an EVL module is separated into four phases:</p>
 <h3 id="phase-1">Phase 1<a class="headerlink" href="#phase-1" title="Permanent link">&para;</a></h3>
-<p>Before any invariant is evaluated, the <em>pre</em> sections of the module are executed in the order in which they have been specified.</p>
+<p>Before any constraint is evaluated, the <em>pre</em> blocks of the module are executed in the order in which they have been specified.</p>
 <h3 id="phase-2">Phase 2<a class="headerlink" href="#phase-2" title="Permanent link">&para;</a></h3>
-<p>For each non-lazy <em>context</em> with at least one non-lazy invariant, the instances of the meta-class it defines are collected. For each instance, the <em>guard</em> of the <em>context</em> is evaluated. If the <em>guard</em> is satisfied, then for each non-lazy invariant contained in the context the invariant's <em>guard</em> is also evaluated. If the <em>guard</em> of the invariant is satisfied, the <em>body</em> of the invariant is evaluated. In case the <em>body</em> evaluates to <em>false</em>, the <em>message</em> part of the rule is evaluated and the produced message is added along with the instance, the invariant and the available <em>fixes</em> to the <em>ValidationTrace</em>.</p>
-<p>The execution order of an EVL module follows a top-down depth-first scheme that respects the order in which the <em>contexts</em> and <em>invariants</em> appear in the module. However, the execution order can change in case one of the <em>satisfies</em>, <em>satisfiesOne</em>, <em>satisfiesAll</em> built-in operations, discussed in detail in the sequel, are called.</p>
+<p>For each non-lazy <em>context</em> with at least one non-lazy constraint, the instances of the meta-class it defines are collected. For each instance, the <em>guard</em> of the <em>context</em> is evaluated. If the <em>guard</em> is satisfied, then for each non-lazy constraint contained in the context the constraint's <em>guard</em> is also evaluated. If the <em>guard</em> of the constraint is satisfied, the <em>body</em> of the constraint is evaluated. In case the <em>body</em> evaluates to <em>false</em>, the <em>message</em> part of the rule is evaluated and the produced message is added along with the instance, the constraint and the available <em>fixes</em> to the <em>ValidationTrace</em>.</p>
+<p>The execution order of an EVL module follows a top-down depth-first scheme that respects the order in which the <em>contexts</em> and <em>constraints</em> appear in the module. However, the execution order can change in case one of the <em>satisfies</em>, <em>satisfiesOne</em>, <em>satisfiesAll</em> built-in operations, discussed in detail in the sequel, are called.</p>
 <h3 id="phase-3">Phase 3<a class="headerlink" href="#phase-3" title="Permanent link">&para;</a></h3>
 <p>In this phase, the validation trace is examined for unsatisfied constraints and the user is presented with the message each one has produced. The user can then select one or more of the available <em>fixes</em> to be executed. Execution of <em>fixes</em> is performed in a transactional manner using the respective facilities provided by the model connectivity framework. This is to prevent runtime errors raised during the execution of a <em>fix</em> from compromising the validated model by leaving it in an inconsistent state.</p>
 <h3 id="phase-4">Phase 4<a class="headerlink" href="#phase-4" title="Permanent link">&para;</a></h3>
 <p>When the user has performed all the necessary <em>fixes</em> or chooses to end Phase 3 explicitly, the <em>post</em> section of the module is executed. There, the user can perform tasks such as serializing the validation trace or producing a summary of the validation process results.</p>
-<h3 id="capturing-dependencies-between-invariants">Capturing Dependencies Between Invariants<a class="headerlink" href="#capturing-dependencies-between-invariants" title="Permanent link">&para;</a></h3>
-<p>It is often the case that invariants conceptually depend on each other. To allow users capture such dependencies, EVL provides the <em>satisfies(invariant : String) : Boolean</em>, <em>satisfiesAll(invariants : Sequence(String)) : Boolean</em> and <em>satisfiesOne(invariants : Sequence(String)) : Boolean</em> built-in operations. Using these operations, an invariant can specify in its <em>guard</em> other invariants which need to be satisfied for it to be meaningful to evaluate.</p>
-<p>When one of these operations is invoked, if the required <em>invariants</em> (either lazy or non-lazy) have been evaluated for the instances on which the operation is invoked, the engine will return their cached results; otherwise it will evaluate them and return their results.</p>
+<h2 id="capturing-dependencies-between-constraints">Capturing Dependencies Between constraints<a class="headerlink" href="#capturing-dependencies-between-constraints" title="Permanent link">&para;</a></h2>
+<p>It is often the case that constraints conceptually depend on each other. To allow users capture such dependencies, EVL provides the <em>satisfies(constraint : String) : Boolean</em>, <em>satisfiesAll(constraints : Sequence(String)) : Boolean</em> and <em>satisfiesOne(constraints : Sequence(String)) : Boolean</em> built-in operations. Using these operations, an constraint can specify in its <em>guard</em> other constraints which need to be satisfied for it to be meaningful to evaluate.</p>
+<p>When one of these operations is invoked, if the required <em>constraints</em> (either lazy or non-lazy) have been evaluated for the instances on which the operation is invoked, the engine will return their cached results; otherwise it will evaluate them and return their results.</p>
                 
                   
                 

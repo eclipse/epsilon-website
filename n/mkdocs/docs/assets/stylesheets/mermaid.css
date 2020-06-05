@@ -28,3 +28,7 @@ g.classLabel text {
 	stroke: black !important;
 }
 
+#extensionEnd {
+	fill: white !important;
+	stroke: black !important;
+}

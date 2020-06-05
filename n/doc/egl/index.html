@@ -1123,8 +1123,27 @@
 <p>EGL is a <em>template-based</em> code generator (i.e. EGL programs resemble the text that they generate), and provides several features that simplify and support the generation of text from models, including: a sophisticated and language-independent merging engine (for preserving hand-written sections of generated text), an extensible template system (for generating text to a variety of sources, such as a file on disk, a database server, or even as a response issued by a web server), formatting algorithms (for producing generated text that is well-formatted and hence readable), and traceability mechanisms (for linking generated text with source models).</p>
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
 <p>The figure below shows the abstract syntax of EGL's core functionality.</p>
-<p><img alt="The abstract syntax of EGL's
-core." src="../images/EglAbstractSyntax.png" /></p>
+<div class="mermaid">classDiagram
+class EglSection {
+    +getChildren() : List
+    +getText() : String
+}
+class EglDynamicSection {
+    +getText() : String
+}
+class EglStaticSection {
+    +getText() : String
+}
+class EglShortcutSection {
+    +getText() : String
+}
+EglSection &lt;|-- EglDynamicSection
+EglSection &lt;|-- EglStaticSection
+EglSection &lt;|-- EglShortcutSection</div>
+
+<!--[The abstract syntax of EGL's
+core.](images/EglAbstractSyntax.png)-->
+
 <p>Conceptually, an EGL program comprises one or more <em>sections</em>. The contents of static sections are emitted verbatim and appear directly in the generated text. The contents of dynamic sections are executed and are used to control the text that is generated.</p>
 <p>In its dynamic sections, EGL re-uses EOL's mechanisms for structuring program control flow, performing model inspection and navigation, and defining custom operations. In addition, EGL provides an EOL object, <code>out</code>, which is used in dynamic sections to perform operations on the generated text, such as appending and removing strings; and specifying the type of text to be generated.</p>
 <p>EGL also provides syntax for defining <em>dynamic output</em> sections, which provide a convenient shorthand for outputting text from within dynamic sections. Similar syntax is often provided by template-based code generators.</p>

@@ -1,8 +1,45 @@
 # The Epsilon Model Connectivity Layer (EMC)
 
-The Epsilon Model Connectivity (EMC) layer provides abstraction facilities over concrete modelling technologies such as EMF, XML etc. and enables Epsilon programs to interact with models conforming to these technologies in a uniform manner. A graphical overview of the design is displayed below.
+The Epsilon Model Connectivity (EMC) layer provides abstraction facilities over concrete modelling technologies such as EMF, XML etc. and enables Epsilon programs to interact with models conforming to these technologies in a uniform manner. A graphical overview of the core classes and methods of EMC is displayed below.
 
-![The Epsilon Model Connectivity Layer](images/EMC.png)
+```mermaid
+classDiagram
+class IModel {
+	-name: String
+	-aliases: String[*]
+	+load()
+	+load(properties : StringProperties)
+	+store()
+	+getAllOfKind(type: String): Object[*]
+	+isKindOf(element: Object, type: String): boolean
+	+getAllOfType(type: String): Object[*]
+	+isTypeOf(element: Object, type: String): boolean
+	+createInstance(type: String): Object
+	+deleteElement(element: Object)
+}
+
+class ModelRepository {
+	+getOwningModel(modelElement: Object)
+	+getModelByName(name: String)
+	+dispose()
+}
+
+class IPropertyGetter {
+	+invoke(object: Object, property: String)
+}
+
+class IPropertySetter {
+	+invoke(object: Object, property: String, value: Object)
+}
+
+ModelRepository -- IModel: models *
+ModelGroup -- IModel: models *
+IModel <|-- ModelGroup
+IModel -- IPropertySetter: propertySetter
+IModel -- IPropertyGetter: propertyGetter
+```
+
+<!--![The Epsilon Model Connectivity Layer](images/EMC.png)-->
 
 To abstract away from diverse model representations and APIs provided by different modelling technologies, EMC defines the *IModel* interface. *IModel* provides a number of methods that enable querying and modifying the model elements it contains at a higher level of abstraction. To enable languages and tools that build atop EMC to manage multiple models simultaneously, the *ModelRepository* class acts as a container that offers façade services. The following sections discuss these two core concepts in detail.
 
@@ -31,9 +68,11 @@ Model elements are created and deleted using the *createInstance( type : String 
 
 To retrieve and set the values of properties of its model elements, *IModel* uses its associated *propertyGetter* (*IPropertyGetter*) and *propertySetter* (*IPropertySetter*) respectively. Technology-specific implementations of those two interfaces are responsible for accessing and modifying the value of a property of a model element through their *invoke( element : Object, property : String)* and *invoke( value : Object )* respectively.
 
+<!--
 ## The IModelTransactionSupport interface
 
 In its *transactionSupport* property, a model can optionally (if the target modelling technology supports transactions) specify an instance of an implementation of the *IModelTransactionSupport* interface. The interface provides transaction-related services for the specific modelling technology. The interface provides the *startTransaction()*, *commitTransaction()* and *rollbackTransaction()* methods that start a new transaction, commit and roll back the current transaction respectively.
+-->
 
 ## The ModelRepository class
 
