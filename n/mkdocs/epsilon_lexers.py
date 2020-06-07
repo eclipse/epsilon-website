@@ -26,7 +26,7 @@ class EolLexer(RegexLexer):
         (r'null', Name.Builtin),
         (r'self|hasMore|loopCount', Name.Builtin.Pseudo),
         (r'Any|String|Integer|Real|Boolean|Native|Bag|Set|List|Sequence|Map|OrderedSet|Collection|ConcurrentBag|ConcurrentMap|ConcurrentSet', Name.Class),
-        (r'select|collect|exits|selectOne|one|forAll|reject|mapBy|aggregate|closure|sortBy|selectFirst|rejectOne|count|nMatch|atLeastNMatch|atMostNMatch|func|runnable|supplier|consumer', Name.Function),
+        (r'select|collect|exists|selectOne|one|forAll|reject|mapBy|aggregate|closure|sortBy|selectFirst|rejectOne|count|nMatch|atLeastNMatch|atMostNMatch|func|runnable|supplier|consumer', Name.Function),
         (r'func|runnable|supplier|consumer', Name.Function.Magic),
         (r'\.|\+|-|/|\*|=|==|<>|>=|<=|>|<|/\*|\+=|\*=|-=|/=|--|\+\+|=>|\||\?|->|#', Operator),
         (r',|;|:|(|)|\.\.|{|}|\[|\]|!', Punctuation)
