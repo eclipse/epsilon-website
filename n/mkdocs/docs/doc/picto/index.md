@@ -43,7 +43,7 @@ Below is a model that conforms to the social network metamodel. The model is def
 </socialnetwork>
 ```
 
-In line 2 of the model, notice the `render-egx` processing instruction, which specifies a model-to-text transformation written in EGX/EGL, that Picto should use to visualise this model.
+In line 2 of the model, notice the `render-egx` processing instruction, which specifies a model-to-text transformation written in [EGX/EGL](../egx/), that Picto should use to visualise this model.
 
 ## Model-to-Text Transformation
 The `socialnetwork.egx` EGX model-to-text transformation is as follows:
