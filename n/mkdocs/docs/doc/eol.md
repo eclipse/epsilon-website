@@ -274,9 +274,9 @@ Finally, the Boolean type represents true/false states and provides no additiona
 
 ### Collections and Maps
 
-EOL provides four types of collections and a Map type. The Bag type represents non-unique, unordered collections, the Sequence type represents non-unique, ordered collections, the Set type represents unique and unordered collections and the OrderedSet represents unique and ordered collections.
+EOL provides four types of collections and a Map type. The `Bag` type represents non-unique, unordered collections and implements the `java.util.Collection` interface, the Sequence type represents non-unique, ordered collections and implements the `java.util.List` interface, the Set type represents unique and unordered collections and implements the `java.util.Set` interface, the OrderedSet represents unique and ordered collections. Since version 2.0, there are also three concurrent collection types, which can safely be modified from multiple threads. These are `ConcurrentBag`, `ConcurrentMap` and `ConcurrentSet`. 
 
-All collection types inherit from the abstract Collection type. Apart from simple operations, EOL also supports logic operations on collections. The following operations apply to all types of collections:
+All collection types inherit from the abstract `Collection` type. Apart from simple operations, EOL also supports logic operations on collections. The following operations (along with any operations declared on the `java.util.Collection` interface) apply to all types of collections:
 
 Signature |Description
 ----------|----------- 
@@ -351,7 +351,7 @@ select(iterator : Type \| condition) : Collection                    |Returns a 
 selectOne(iterator : Type \| condition) : Any                        |Returns any element that satisfies the condition
 sortBy(iterator: Type \| expression) : Collection                    |Returns a copy of the collection sorted by the results of evaluating the expression on each item of the collection that conforms to the iterator type. The expression should return either an Integer, a String or an object that is an instance of Comparable. The ordering is calculated as follows: for integers, smaller to greater; for Strings, as defined by the compareTo method of Java strings; for Comparable objects, according to the semantics of the type's compareTo method implementation.
 
-The Map type represents an array of key-value pairs in which the keys are unique. The type provides the following operations.
+The Map type (corresponding to the `java.util.Map` interface) represents a Set of key-value pairs in which the keys are unique. The type provides the following operations.
 
 Signature |Description
 ----------|----------- 
@@ -482,16 +482,19 @@ Operator | Description
 +            | Adds reals/integers and concatenates strings
 -            | Subtracts reals/integers
 - (unary).   | Returns the negative of a real/integer
-*           | Multiplies reals/integers
+*            | Multiplies reals/integers
 /            | Divides reals/integers
 +=           | Adds the r-value to the l-value
 -=           | Subtracts the r-value from the l-value
 *=           | Multiplies the l-value by the r-value
 /=           | Divides the l-value by the r-value
+++           | Increments the integer by one
+--           | Decrements the integer by one
 
 Operator | Description
 ---------|------------
 =            | Returns true if the left hand side equals the right hand side. In the case of primitive types (String, Boolean, Integer, Real) the operator compares the values; in the case of objects it returns true if the two expressions evaluate to the same object
+==           | Same as =
 <>           | Is the logical negation of the (=) operator
 >            | For reals/integers returns true if the left hand side is greater than the right hand side number
 <            | For reals/integers returns true if the left hand side is less than the right hand side number
@@ -521,16 +524,16 @@ false|false|true
 
 ### Ternary Operator
 
-As of 1.6, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this[^5]. Note that is also possible to use the `else` keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.
+As of version 2.0, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this[^5]. Note that is also possible to use the `else` keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.
 
 ```eol
-var result = 2+2==4 ? "Yes" : "No";
-return ((result == "Yes" ? 1 : 0) ` 2 == 2).mod(2) == 0;
+var result = 2+2==4 ? "Yes" else "No";
+return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;
 ```
 
 ### Enumerations
 
-EOL provides the \# operator for accessing enumeration literals. For example, the VisibilityEnum\#vk\_public expression returns the value of the literal `vk\_public` of the `VisibilityEnum` enumeration. For EMF metamodels, `VisibilityEnum\#vk\_public.instance` can also be used.
+EOL provides the \# operator for accessing enumeration literals. For example, the VisibilityEnum\#vk\_public expression returns the value of the literal `vk_public` of the `VisibilityEnum` enumeration. For EMF metamodels, `VisibilityEnum#vk_public.instance` can also be used.
 
 Statements
 ----------

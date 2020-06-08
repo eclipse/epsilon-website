@@ -1768,8 +1768,8 @@ trim() : String                                                     |Returns a t
 </table>
 <p>Finally, the Boolean type represents true/false states and provides no additional operations to those provided by the base Any type.</p>
 <h3 id="collections-and-maps">Collections and Maps<a class="headerlink" href="#collections-and-maps" title="Permanent link">&para;</a></h3>
-<p>EOL provides four types of collections and a Map type. The Bag type represents non-unique, unordered collections, the Sequence type represents non-unique, ordered collections, the Set type represents unique and unordered collections and the OrderedSet represents unique and ordered collections.</p>
-<p>All collection types inherit from the abstract Collection type. Apart from simple operations, EOL also supports logic operations on collections. The following operations apply to all types of collections:</p>
+<p>EOL provides four types of collections and a Map type. The Bag type represents non-unique, unordered collections, the Sequence type represents non-unique, ordered collections and implements the <code>java.util.List</code> interface, the Set type represents unique and unordered collections and implements the <code>java.util.Set</code> interface, the OrderedSet represents unique and ordered collections and implements the <code>java.util.Set</code> interface.</p>
+<p>All collection types inherit from the abstract <code>Collection</code> type. Apart from simple operations, EOL also supports logic operations on collections. The following operations (along with any operations declared on the <code>java.util.Collection</code> interface) apply to all types of collections:</p>
 <table>
 <thead>
 <tr>
@@ -2035,7 +2035,7 @@ trim() : String                                                     |Returns a t
 </tr>
 </tbody>
 </table>
-<p>The Map type represents an array of key-value pairs in which the keys are unique. The type provides the following operations.</p>
+<p>The Map type (corresponding to the <code>java.util.Map</code> interface) represents a Set of key-value pairs in which the keys are unique. The type provides the following operations.</p>
 <table>
 <thead>
 <tr>
@@ -2246,6 +2246,14 @@ operation Any println() : Any {
 <td>/=</td>
 <td>Divides the l-value by the r-value</td>
 </tr>
+<tr>
+<td>++</td>
+<td>Increments the integer by one</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Decrements the integer by one</td>
+</tr>
 </tbody>
 </table>
 <table>
@@ -2259,6 +2267,10 @@ operation Any println() : Any {
 <tr>
 <td>=</td>
 <td>Returns true if the left hand side equals the right hand side. In the case of primitive types (String, Boolean, Integer, Real) the operator compares the values; in the case of objects it returns true if the two expressions evaluate to the same object</td>
+</tr>
+<tr>
+<td>==</td>
+<td>Same as =</td>
 </tr>
 <tr>
 <td>&lt;&gt;</td>
@@ -2348,12 +2360,12 @@ instances of the Boolean primitive type.</p>
 </tbody>
 </table>
 <h3 id="ternary-operator">Ternary Operator<a class="headerlink" href="#ternary-operator" title="Permanent link">&para;</a></h3>
-<p>As of 1.6, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. Note that is also possible to use the <code>else</code> keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.</p>
-<pre class="prettyprint lang-eol"><code>var result = 2+2==4 ? "Yes" : "No";
-return ((result == "Yes" ? 1 : 0) ` 2 == 2).mod(2) == 0;</code></pre>
+<p>As of version 2.0, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. Note that is also possible to use the <code>else</code> keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.</p>
+<pre class="prettyprint lang-eol"><code>var result = 2+2==4 ? "Yes" else "No";
+return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;</code></pre>
 
 <h3 id="enumerations">Enumerations<a class="headerlink" href="#enumerations" title="Permanent link">&para;</a></h3>
-<p>EOL provides the # operator for accessing enumeration literals. For example, the VisibilityEnum#vk_public expression returns the value of the literal <code>vk\_public</code> of the <code>VisibilityEnum</code> enumeration. For EMF metamodels, <code>VisibilityEnum\#vk\_public.instance</code> can also be used.</p>
+<p>EOL provides the # operator for accessing enumeration literals. For example, the VisibilityEnum#vk_public expression returns the value of the literal <code>vk_public</code> of the <code>VisibilityEnum</code> enumeration. For EMF metamodels, <code>VisibilityEnum#vk_public.instance</code> can also be used.</p>
 <h2 id="statements">Statements<a class="headerlink" href="#statements" title="Permanent link">&para;</a></h2>
 <h3 id="variable-declaration-statement">Variable Declaration Statement<a class="headerlink" href="#variable-declaration-statement" title="Permanent link">&para;</a></h3>
 <p>A variable declaration statement declares the name and (optionally) the type and initial value of a variable in an EOL program. If no type is explicitly declared, the variable is assumed to be of type Any. For variables of primitive type, declaration automatically creates an instance of the type with the default values presented in the table below. For non-primitive types the user has to explicitly assign the value of the variable either by using the <code>new</code> keyword or by providing an initial value expression. If neither is done the value of the variable is undefined. Variables in EOL are strongly-typed. Therefore a variable can only be assigned values that conform to its type (or a sub-type of it).</p>
