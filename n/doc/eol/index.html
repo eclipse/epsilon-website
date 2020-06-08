@@ -1768,7 +1768,7 @@ trim() : String                                                     |Returns a t
 </table>
 <p>Finally, the Boolean type represents true/false states and provides no additional operations to those provided by the base Any type.</p>
 <h3 id="collections-and-maps">Collections and Maps<a class="headerlink" href="#collections-and-maps" title="Permanent link">&para;</a></h3>
-<p>EOL provides four types of collections and a Map type. The Bag type represents non-unique, unordered collections, the Sequence type represents non-unique, ordered collections and implements the <code>java.util.List</code> interface, the Set type represents unique and unordered collections and implements the <code>java.util.Set</code> interface, the OrderedSet represents unique and ordered collections and implements the <code>java.util.Set</code> interface.</p>
+<p>EOL provides four types of collections and a Map type. The <code>Bag</code> type represents non-unique, unordered collections and implements the <code>java.util.Collection</code> interface, the Sequence type represents non-unique, ordered collections and implements the <code>java.util.List</code> interface, the Set type represents unique and unordered collections and implements the <code>java.util.Set</code> interface, the OrderedSet represents unique and ordered collections. Since version 2.0, there are also two concurrent collection types, which can safely be modified from multiple threads. These are <code>ConcurrentBag</code> and <code>ConcurrentSet</code>, which are thread-safe variants of the <code>Bag</code> and <code>Set</code> types respectively.</p>
 <p>All collection types inherit from the abstract <code>Collection</code> type. Apart from simple operations, EOL also supports logic operations on collections. The following operations (along with any operations declared on the <code>java.util.Collection</code> interface) apply to all types of collections:</p>
 <table>
 <thead>
@@ -2035,7 +2035,7 @@ trim() : String                                                     |Returns a t
 </tr>
 </tbody>
 </table>
-<p>The Map type (corresponding to the <code>java.util.Map</code> interface) represents a Set of key-value pairs in which the keys are unique. The type provides the following operations.</p>
+<p>The Map type (which implements the <code>java.util.Map</code> interface) represents a Set of key-value pairs in which the keys are unique. Since version 2.0, there is also a thread-safe <code>ConcurrentMap</code> type, which implements the <code>java.util.concurrent.ConcurrentMap</code> interface. The following operations are supported:</p>
 <table>
 <thead>
 <tr>

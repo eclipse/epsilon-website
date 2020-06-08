@@ -274,7 +274,7 @@ Finally, the Boolean type represents true/false states and provides no additiona
 
 ### Collections and Maps
 
-EOL provides four types of collections and a Map type. The `Bag` type represents non-unique, unordered collections and implements the `java.util.Collection` interface, the Sequence type represents non-unique, ordered collections and implements the `java.util.List` interface, the Set type represents unique and unordered collections and implements the `java.util.Set` interface, the OrderedSet represents unique and ordered collections. Since version 2.0, there are also three concurrent collection types, which can safely be modified from multiple threads. These are `ConcurrentBag`, `ConcurrentMap` and `ConcurrentSet`. 
+EOL provides four types of collections and a Map type. The `Bag` type represents non-unique, unordered collections and implements the `java.util.Collection` interface, the Sequence type represents non-unique, ordered collections and implements the `java.util.List` interface, the Set type represents unique and unordered collections and implements the `java.util.Set` interface, the OrderedSet represents unique and ordered collections. Since version 2.0, there are also two concurrent collection types, which can safely be modified from multiple threads. These are `ConcurrentBag` and `ConcurrentSet`, which are thread-safe variants of the `Bag` and `Set` types respectively.
 
 All collection types inherit from the abstract `Collection` type. Apart from simple operations, EOL also supports logic operations on collections. The following operations (along with any operations declared on the `java.util.Collection` interface) apply to all types of collections:
 
@@ -351,7 +351,7 @@ select(iterator : Type \| condition) : Collection                    |Returns a 
 selectOne(iterator : Type \| condition) : Any                        |Returns any element that satisfies the condition
 sortBy(iterator: Type \| expression) : Collection                    |Returns a copy of the collection sorted by the results of evaluating the expression on each item of the collection that conforms to the iterator type. The expression should return either an Integer, a String or an object that is an instance of Comparable. The ordering is calculated as follows: for integers, smaller to greater; for Strings, as defined by the compareTo method of Java strings; for Comparable objects, according to the semantics of the type's compareTo method implementation.
 
-The Map type (corresponding to the `java.util.Map` interface) represents a Set of key-value pairs in which the keys are unique. The type provides the following operations.
+The Map type (which implements the `java.util.Map` interface) represents a Set of key-value pairs in which the keys are unique. Since version 2.0, there is also a thread-safe `ConcurrentMap` type, which implements the `java.util.concurrent.ConcurrentMap` interface. The following operations are supported:
 
 Signature |Description
 ----------|----------- 
