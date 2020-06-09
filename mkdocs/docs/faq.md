@@ -16,7 +16,7 @@ With **more than 6000 posts** in the [Epsilon forum](../forum), it appears that 
 
 ## How do I get help?
 
-Epsilon has a dedicated [forum](../forum) where you can ask questions about the tools and languages it provides. Whenever possible, please use the forum instead of direct email. We\'re monitoring the forum very closely and there is practically no difference in terms of response time. Also, answered questions in the forum form a knowledge base, which other users can consult in case they face similar issues in the future, and an active forum is an indication of a healthy and actively maintained project (properties that the Eclipse Foundation takes very seriously). When posting messages to the forum we recommend that you use your full (or at least a realistic) name instead of a nickname (e.g. "ABC", "SomeGuy") as the latter can lead to pretty awkward sentences.
+Epsilon has a dedicated [forum](../forum) where you can ask questions about the tools and languages it provides. Whenever possible, please use the forum instead of direct email. We're monitoring the forum very closely and there is practically no difference in terms of response time. Also, answered questions in the forum form a knowledge base, which other users can consult in case they face similar issues in the future, and an active forum is an indication of a healthy and actively maintained project (properties that the Eclipse Foundation takes very seriously). When posting messages to the forum we recommend that you use your full (or at least a realistic) name instead of a nickname (e.g. "ABC", "SomeGuy") as the latter can lead to pretty awkward sentences.
 
 ## How do I get notified when a new version of Epsilon becomes available?
 
@@ -36,7 +36,7 @@ Second, Epsilon provides specialized languages for tasks that are currently not 
 
 ## What is the difference between E\*L and language X?
 
-If the available [documentation](../doc/) doesn\'t provide enough information for figuring this out, please feel free to ask in the [Epsilon forum](../forum).
+If the available [documentation](../doc/) doesn't provide enough information for figuring this out, please feel free to ask in the [Epsilon forum](../forum).
 
 ## Are Epsilon languages compiled or interpreted?
 

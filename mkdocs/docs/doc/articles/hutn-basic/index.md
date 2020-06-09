@@ -4,7 +4,7 @@ In this article we demonstrate how you can use a textual notation to create mode
 
 ## Getting started
 
-To create a model with HUTN, we first need to define our metamodel. In this example, we\'ll use the Families metamodel shown below:
+To create a model with HUTN, we first need to define our metamodel. In this example, we'll use the Families metamodel shown below:
 
 ![](families.png)
 

@@ -1,6 +1,6 @@
 # Scripting CSV documents using Epsilon
 
-In this article we demonstrate how you can create, query and modify CSV documents in Epsilon programs using the CSV driver. The examples in this article demonstrate using EOL and ETL to script CSV documents. However, it\'s worth stressing that CSV documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - XML or EMF-based -, or totext), compare and merge your CSV documents.
+In this article we demonstrate how you can create, query and modify CSV documents in Epsilon programs using the CSV driver. The examples in this article demonstrate using EOL and ETL to script CSV documents. However, it's worth stressing that CSV documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - XML or EMF-based -, or totext), compare and merge your CSV documents.
 
 **Note:** This article is consistent with Epsilon versions 1.5+.
 
