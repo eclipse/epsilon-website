@@ -110,6 +110,7 @@ markdown_extensions:
   - admonition
   - meta
   - footnotes
+  # - pymdownx.tabbed
   - codehilite:
       guess_lang: false
       linenums: false
@@ -135,6 +136,7 @@ extra_css:
   - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/mermaid.css'
   - 'assets/javascript/google-code-prettify/prettify.css'
+  #- 'assets/stylesheets/tabbed.css'
   - https://unpkg.com/mermaid@8.5.1/dist/mermaid.css
 extra_javascript:
   - https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js
