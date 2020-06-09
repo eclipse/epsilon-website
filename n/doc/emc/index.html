@@ -365,6 +365,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#emc-drivers" class="md-nav__link">
+    EMC Drivers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eclipse-modeling-framework" class="md-nav__link">
+    Eclipse Modeling Framework
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matlab-simulink" class="md-nav__link">
+    Matlab Simulink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xmlcsv" class="md-nav__link">
+    XML/CSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eclipse-hawk" class="md-nav__link">
+    Eclipse Hawk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-drivers" class="md-nav__link">
+    Other Drivers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -913,6 +961,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#emc-drivers" class="md-nav__link">
+    EMC Drivers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eclipse-modeling-framework" class="md-nav__link">
+    Eclipse Modeling Framework
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matlab-simulink" class="md-nav__link">
+    Matlab Simulink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xmlcsv" class="md-nav__link">
+    XML/CSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eclipse-hawk" class="md-nav__link">
+    Eclipse Hawk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-drivers" class="md-nav__link">
+    Other Drivers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -931,7 +1027,11 @@
                 
                 
                 <h1 id="the-epsilon-model-connectivity-layer-emc">The Epsilon Model Connectivity Layer (EMC)<a class="headerlink" href="#the-epsilon-model-connectivity-layer-emc" title="Permanent link">&para;</a></h1>
-<p>The Epsilon Model Connectivity (EMC) layer provides abstraction facilities over concrete modelling technologies such as EMF, XML etc. and enables Epsilon programs to interact with models conforming to these technologies in a uniform manner. A graphical overview of the core classes and methods of EMC is displayed below.</p>
+<p>The Epsilon Model Connectivity (EMC) layer provides abstraction facilities over concrete modelling technologies such as <a href="#eclipse-modeling-framework">EMF</a>, <a href="#xmlcsv">XML</a>, <a href="#matlab-simulink">Simulink</a> etc. and enables Epsilon programs to interact with models conforming to these technologies in a uniform manner. A graphical overview of the core classes and methods of EMC is displayed below.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are interested in examples of EMC-based drivers for Epsilon, rather than on the organisation of EMC itself, please scroll to the <a href="#emc-drivers">bottom of this page</a>.</p>
+</div>
 <div class="mermaid mermaid-100">classDiagram
 class IModel {
     -name: String
@@ -1004,6 +1104,29 @@ In its *transactionSupport* property, a model can optionally (if the target mode
 <p>Another reason is that if a heavy-weight approach was used, extending the platform with support for a new modelling technology would involve providing wrapping objects for the native objects which represent model elements and types in the specific modelling technology. Experiments in the early phases of the design of EMC demonstrated that such a heavy-weight approach significantly increases the amount of memory required to represent the models in memory, degrades performance and provides little benefits in reward.</p>
 </li>
 </ul>
+<h2 id="emc-drivers">EMC Drivers<a class="headerlink" href="#emc-drivers" title="Permanent link">&para;</a></h2>
+<p>Below are known drivers that implement the EMC interfaces.</p>
+<h3 id="eclipse-modeling-framework">Eclipse Modeling Framework<a class="headerlink" href="#eclipse-modeling-framework" title="Permanent link">&para;</a></h3>
+<p>The Eclipse Modelling Framework (EMF) is one of the most robust and widely used open-source modelling frameworks, and the cornerstone of an extensive ecosystem of technologies for graphical/textual model editing, model comparison and merging etc. Being an Eclipse project, Epsilon naturally provides support for all flavours of EMF models (e.g. textual, graphical, XSD-based XML), and most of the <a href="../screencasts">screencasts</a>, <a href="../articles/">articles</a> and <a href="../examples">examples</a> in Epsilon's Git repository use EMF models.</p>
+<h3 id="matlab-simulink">Matlab Simulink<a class="headerlink" href="#matlab-simulink" title="Permanent link">&para;</a></h3>
+<p>Epsilon also provides mature support for querying and modifying Matlab Simulink models as shown in <a href="../articles/#epsilon-and-simulink-models">these articles</a>.</p>
+<h3 id="xmlcsv">XML/CSV<a class="headerlink" href="#xmlcsv" title="Permanent link">&para;</a></h3>
+<p>For quick and dirty metamodel-less modelling, Epsilon also supports <a href="../articles/plain-xml">plain XML documents</a> and <a href="../articles/csv-emc">CSV files</a>.</p>
+<h3 id="eclipse-hawk">Eclipse Hawk<a class="headerlink" href="#eclipse-hawk" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.eclipse.org/hawk">Hawk</a> is an Eclipse project that provides tools for monitoring, indexing and querying <em>repositories</em> (i.e. local folders, Eclipse workspaces, Git/SVN repositories) containing models. Hawk provides an EMC driver through which model indices can be queried with Epsilon languages.</p>
+<h3 id="other-drivers">Other Drivers<a class="headerlink" href="#other-drivers" title="Permanent link">&para;</a></h3>
+<p>There are also less mature/well-documented drivers for Epsilon for tools and formats such as:</p>
+<ul>
+<li><a href="https://github.com/epsilonlabs/emc-cdt">Eclipse C/C++ Development tools</a></li>
+<li><a href="https://github.com/epsilonlabs/emc-ptcim">PTC Integrity Modeller</a></li>
+<li><a href="https://github.com/epsilonlabs/emc-metaedit">MetaEdit+</a></li>
+<li><a href="https://github.com/epsilonlabs/emc-jdt">Eclipse Java Development Tools</a></li>
+<li><a href="https://github.com/epsilonlabs/emc-jdbc/">Relational Databases (JDBC)</a></li>
+<li><a href="https://github.com/epsilonlabs/emc-argouml">ArgoUML</a></li>
+<li><a href="https://github.com/epsilonlabs/emc-cdo">Connected Data Objects (CDO)</a></li>
+<li><a href="https://github.com/gdaniel/emc-neoemf">NeoEMF</a></li>
+</ul>
+<p>These drivers have not had much external use historically, but if you're interested in them, please <a href="../../forum">give us a shout</a>.</p>
                 
                   
                 
