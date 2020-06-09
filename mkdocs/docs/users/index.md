@@ -1,7 +1,12 @@
 # Industry
 
+<style>
+	img { padding: 10px; }
+</style>
+
  Below is a list of known industrial users of Epsilon (based on bug reports, forum messages, blog posts, tweets and published articles). If you'd like to report additional users of Epsilon in industry or you've spotted any outdated content, please [let us know](../../forum).
 
+<center>
 ![BAE Systems](logos/bae.png)
 ![Bosch](logos/bosch.png)
 ![NASA](logos/nasa.png)
@@ -19,6 +24,7 @@
 ![Academa](logos/academa.png)
 ![Intelliment](logos/intelliment.png)
 ![Maiborn Wolff](logos/maibornwolff.png)
+</center>
 
 ## Sources
 
