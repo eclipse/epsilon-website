@@ -1,6 +1,6 @@
 <?php
 	require_once('../../template.php');
-	$pdf = "https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/doc/org.eclipse.epsilon.book/EpsilonBook.pdf";
+	$pdf = "https://www.eclipse.org/epsilon/n/doc/book/EpsilonBook.pdf";
 	h('The Epsilon Book');
 ?>
 <div class="row">
