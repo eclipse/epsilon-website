@@ -1,6 +1,0 @@
-# Ignore IntelliJ files
-*.iml
-*.idea/
-
-# Ignore Mac OS index files
-.DS_Store
