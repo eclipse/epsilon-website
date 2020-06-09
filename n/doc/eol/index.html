@@ -1677,17 +1677,44 @@ instances of the Any type are outlined in the table below<sup id="fnref:2"><a cl
 <td>pad(length : Integer, padding : String, right : Boolean) : String</td>
 <td>Pads the string up to the specified length with specified padding (e.g. <code>"foo".pad(5, "*", true)</code> returns <code>"foo**"</code>)</td>
 </tr>
+<tr>
+<td>replace(source : String, target : String) : String</td>
+<td>Returns a new string in which all instances of <code>source</code> have been replaced with instances of <code>target</code></td>
+</tr>
+<tr>
+<td>split(reg : String) : Sequence(String)</td>
+<td>Splits the string using as a delimiter the provided regular expression, <code>reg</code>, and returns a sequence containing the parts</td>
+</tr>
+<tr>
+<td>startsWith(str : String) : Boolean</td>
+<td>Returns true iff the string starts with <code>str</code></td>
+</tr>
+<tr>
+<td>substring(index : Integer) : String</td>
+<td>Returns a sub-string of the string starting from the specified <code>index</code> and extending to the end of the original string</td>
+</tr>
+<tr>
+<td>substring(startIndex : Integer, endIndex : Integer) : String</td>
+<td>Returns a sub-string of the string starting from the specified <code>startIndex</code> and ending at <code>endIndex</code></td>
+</tr>
+<tr>
+<td>toCharSequence() : Sequence(String)</td>
+<td>Returns a sequence containing all the characters of the string</td>
+</tr>
+<tr>
+<td>toLowerCase() : String</td>
+<td>Returns a new string where all the characters have been converted to lower case</td>
+</tr>
+<tr>
+<td>toUpperCase() : String</td>
+<td>Returns a new string where all the characters have been converted to upper case</td>
+</tr>
+<tr>
+<td>trim() : String</td>
+<td>Returns a trimmed copy of the string</td>
+</tr>
 </tbody>
 </table>
-<p>replace(source : String, target : String) : String                  |Returns a new string in which all instances of <code>source</code> have been replaced with instances of <code>target</code>
-split(reg : String) : Sequence(String)                              |Splits the string using as a delimiter the provided regular expression, <code>reg</code>, and returns a sequence containing the parts
-startsWith(str : String) : Boolean                                  |Returns true iff the string starts with <code>str</code>
-substring(index : Integer) : String                                 |Returns a sub-string of the string starting from the specified <code>index</code> and extending to the end of the original string
-substring(startIndex : Integer, endIndex : Integer) : String        |Returns a sub-string of the string starting from the specified <code>startIndex</code> and ending at <code>endIndex</code>
-toCharSequence() : Sequence(String)                                 |Returns a sequence containing all the characters of the string
-toLowerCase() : String                                              |Returns a new string where all the characters have been converted to lower case
-toUpperCase() : String                                              |Returns a new string where all the characters have been converted to upper case
-trim() : String                                                     |Returns a trimmed copy of the string</p>
 <p>The Real type represents real numbers and provides the following operations.</p>
 <table>
 <thead>
@@ -2091,7 +2118,7 @@ trim() : String                                                     |Returns a t
 </tbody>
 </table>
 <h3 id="native-types">Native Types<a class="headerlink" href="#native-types" title="Permanent link">&para;</a></h3>
-<p>As discussed earlier, while the purpose of EOL is to provide significant expressive power to enable users to manage models at a high level of abstraction, it is not intended to be a general-purpose programming language. Therefore, there may be cases where users need to implement some functionality that is either not efficiently supported by the EOL runtime (e.g. complex mathematical computations) or that EOL does not support at all (e.g. developing user interfaces, accessing databases). To overcome this problem, EOL enables users to create objects of the underlying programming environment by using <code>native</code> types. A native type specifies an $implementation$ property that indicates the unique identifier for an underlying platform type. For instance, in a Java implementation of EOL the user can instantiate and use a Java class via its class identifier. Thus, the EOL excerpt in the listing below creates a Java window (Swing JFrame) and uses its methods to change its title and dimensions and make it visible.</p>
+<p>As discussed earlier, while the purpose of EOL is to provide significant expressive power to enable users to manage models at a high level of abstraction, it is not intended to be a general-purpose programming language. Therefore, there may be cases where users need to implement some functionality that is either not efficiently supported by the EOL runtime (e.g. complex mathematical computations) or that EOL does not support at all (e.g. developing user interfaces, accessing databases). To overcome this problem, EOL enables users to create objects of the underlying programming environment by using <code>native</code> types. A native type specifies an <code>implementation</code> property that indicates the unique identifier for an underlying platform type. For instance, in a Java implementation of EOL the user can instantiate and use a Java class via its class identifier. Thus, the EOL excerpt in the listing below creates a Java window (Swing JFrame) and uses its methods to change its title and dimensions and make it visible.</p>
 <pre class="prettyprint lang-eol"><code>var frame = new Native("javax.swing.JFrame");
 frame.title = "Opened with EOL";
 frame.setBounds(100,100,300,200);

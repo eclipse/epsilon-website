@@ -1197,7 +1197,28 @@
 <p>Data bindings repeat all test cases with different values in one or more variables. They can implement parametric testing, as in JUnit 4. EUnit can nest several data bindings, running all test cases once for each combination.</p>
 <p>Model bindings are specific to EUnit: they allow developers to repeat a single test case with different subsets of models. Data and model bindings can be combined. One interesting approach is to set the names of the models to be used in the model binding from the data binding, as a quick way to try several test cases with the same subsets of models.</p>
 <p>The figure below shows an example of an EUnit test tree: nodes with data bindings are marked with <code>data</code>, and nodes with model bindings are marked with <code>model</code>.</p>
-<p><img alt="Example of an EUnit test tree" src="../images/test-organization.png" /></p>
+<div class="mermaid mermaid-90">graph TD
+    data1[data&lt;br/&gt;x=1]
+    data2[data&lt;br/&gt;x=2]
+    testa1[test A]
+    testb1[test B]
+    testa2[test A]
+    testb2[test B]
+    modelx1[model X]
+    modely1[model Y]
+    modelx2[model X]
+    modely2[model Y]
+    root --&gt; data1
+    root --&gt; data2
+    data1 --&gt; testa1
+    data1 --&gt; testb1
+    data2 --&gt; testa2
+    data2 --&gt; testb2
+    testa1 --&gt; modelx1
+    testa1 --&gt; modely1
+    testa2 --&gt; modelx2
+    testa2 --&gt; modely2</div>
+
 <p>EUnit will perform a preorder traversal of this tree, running the following tests:</p>
 <ol>
 <li>
@@ -1220,8 +1241,35 @@
 </li>
 </ol>
 <p>Optionally, EUnit can filter tests by name, running only <code>A</code> or <code>B</code>. Similarly to JUnit, EUnit logs start and finish times for each node in the tree, so the most expensive test cases can be quickly detected. However, EUnit logs CPU time<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> in addition to the usual wallclock time.</p>
-<p>Parametric testing is not to be confused with <em>theories</em>: both repeat a test case with different values, but results are reported quite differently. While parametric testing produces separate test cases with independent results, theories produce aggregated tests which only pass if the original test case passes for every data point. The figure below illustrates these differences. EUnit does not support theories yet: however, they can be approximated with data bindings.</p>
-<p><img alt="Comparison between parametric testing and theories" src="../images/parametric-vs-theory.png" /></p>
+<p>Parametric testing is not to be confused with <em>theories</em>: both repeat a test case with different values, but results are reported quite differently. While parametric testing produces separate test cases with independent results, theories produce aggregated tests which only pass if the original test case passes for every data point. The figures below illustrate these differences. EUnit does not support theories yet: however, they can be approximated with data bindings.</p>
+<p><div class="mermaid mermaid-50">graph TD
+    data1[data 1]
+    data2[data 2]
+    testa1[test 1]
+    testb1[test 2]
+    testa2[test 1]
+    testb2[test 2]
+    root --&gt; data1
+    root --&gt; data2
+    data1 --&gt; testa1
+    data1 --&gt; testb1
+    data2 --&gt; testa2
+    data2 --&gt; testb2</div>
+Parametric Testing</p>
+<p><div class="mermaid mermaid-50">graph TD
+    data1[test 1]
+    data2[test 2]
+    testa1[data 1]
+    testb1[data 2]
+    testa2[data 1]
+    testb2[data 2]
+    root --&gt; data1
+    root --&gt; data2
+    data1 --&gt; testa1
+    data1 --&gt; testb1
+    data2 --&gt; testa2
+    data2 --&gt; testb2</div>
+Theories</p>
 <h3 id="test-cases">Test Cases<a class="headerlink" href="#test-cases" title="Permanent link">&para;</a></h3>
 <p>The execution of a test case is divided into the following steps:</p>
 <ol>

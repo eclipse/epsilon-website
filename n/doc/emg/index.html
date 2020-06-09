@@ -1025,7 +1025,7 @@
 </tr>
 </tbody>
 </table>
-<p>All three annotations are executable and hence must be prefixed with a \$ symbol when used. Further, these annotations are only evaluated on <em>create</em> operations.</p>
+<p>All three annotations are executable and hence must be prefixed with a $ symbol when used. Further, these annotations are only evaluated on <em>create</em> operations.</p>
 <p>The EPL pattern annotations are:</p>
 <table>
 <thead>
@@ -1106,7 +1106,7 @@
 </tr>
 <tr>
 <td>nextReal() : Real</td>
-<td>Returns the next pseudorandom, uniformly distributed <code>real</code> value between $0.0$ and $1.0$.</td>
+<td>Returns the next pseudorandom, uniformly distributed <code>real</code> value between <code>0.0</code> and <code>1.0</code>.</td>
 </tr>
 <tr>
 <td>nextReal(upper : Real) : Real</td>
@@ -1118,7 +1118,7 @@
 </tr>
 <tr>
 <td>nextSample(c : Sequence, k : Integer) : Sequence(Any)</td>
-<td>Returns a Sequence of $k$ objects selected randomly from the Sequence $c$ using a uniform distribution. Sampling from <code>c</code> is without replacement; but if c contains identical objects, the sample may include repeats. If all elements of $c$ are distinct, the resulting object collection represents a Simple Random Sample of size $k$ from the elements of <code>c</code>.</td>
+<td>Returns a Sequence of <code>k</code> objects selected randomly from the Sequence <code>c</code> using a uniform distribution. Sampling from <code>c</code> is without replacement; but if c contains identical objects, the sample may include repeats. If all elements of <code>c</code> are distinct, the resulting object collection represents a Simple Random Sample of size <code>k</code> from the elements of <code>c</code>.</td>
 </tr>
 <tr>
 <td>nextSample(listID : String, k : Integer) : Sequence(Any)</td>
@@ -1154,7 +1154,7 @@
 </tr>
 <tr>
 <td>nextValue(d : String, p : Sequence) : Real</td>
-<td>Returns the next pseudorandom, from the provided distribution $d$. The parameters $p$ are used to configure the distribution (if required). The supported distributions are: Binomial, Exponential and Uniform. For Binomial parameters are: numberOfTrials and probabilityOfSuccess. For Exponential the mean. For Uniform the lower and upper values (lower inclusive).</td>
+<td>Returns the next pseudorandom, from the provided distribution <code>d</code>. The parameters <code>p</code> are used to configure the distribution (if required). The supported distributions are: Binomial, Exponential and Uniform. For Binomial parameters are: numberOfTrials and probabilityOfSuccess. For Exponential the mean. For Uniform the lower and upper values (lower inclusive).</td>
 </tr>
 <tr>
 <td>setNextValueDistribution(d : String, p : Sequence)</td>
@@ -1218,7 +1218,40 @@ defined as follows:</p>
 <h2 id="creating-model-elements">Creating Model Elements<a class="headerlink" href="#creating-model-elements" title="Permanent link">&para;</a></h2>
 <p>The EMG engine will search for EOL operations that follow a particular signature in order to determine what elements to create in the generated model. The signature is: <code>create &lt;OutputType&gt; () { ... }</code>. That is, the operation must be named <em>create</em>, the operation's context type defines the type of the created instance and no parameters should be passed. By default the create operation only creates one instance. Hence, the provided annotations can be used to tailor the behaviour of the operation.</p>
 <p>Consider the case of the PetriNet metamodel in the figure below. </p>
-<p><img alt="PetriNet metamodel" src="../images/PetriNetMM.png" /></p>
+<div class="mermaid mermaid-100">classDiagram
+class Element {
+    +name: String
+}
+class Place {
+    +outgoing: PlaceToTransArc[*]
+    +incoming: TransToPlaceArc[*]
+}
+class PetriNet {
+    +places: Place[*]
+    +transitions: Transition[*]
+    +arcs: Arc[*]
+}
+class Transition {
+    +incoming: PlaceToTransArc[*]
+    +outgoing: TransToPlaceArc[*]
+}
+class TransToPlaceArc {
+    +source: Transition
+    +target: Place
+}
+class PlaceToTransArc {
+    +target: Transition
+    +source: Place
+}
+Element &lt;|-- PetriNet
+Element &lt;|-- Place
+Transition --|&gt; Element
+PetriNet *-- Arc
+PetriNet *-- Place
+PetriNet *-- Transition
+Arc &lt;|-- TransToPlaceArc
+Arc &lt;|-- PlaceToTransArc</div>
+
 <p>The code excerpt displayed below creates a PetriNet and then adds some places and transitions to it. Note that the instances annotation is executable and hence you can use absolute values, variables or expressions. The <code>list</code> annotation in the PetriNet creation will result in all PetriNet instances to be stored in a sequence called <em>net</em>. The list name is then used in the Place and Transition create operations to add the places and transitions to a random (<em>nextFromList</em>) PetriNet. In this example there is only one, but we could easily create more PetriNet instances and hence have them contain random number of Places and Transitions. The name of the elements is generated using the random string generation facilities.</p>
 <pre class="prettyprint lang-epl"><code>pre {
     var num_p = 10

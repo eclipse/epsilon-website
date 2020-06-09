@@ -933,8 +933,58 @@
                 <h1 id="epsilon-flock-for-model-migration">Epsilon Flock for Model Migration<a class="headerlink" href="#epsilon-flock-for-model-migration" title="Permanent link">&para;</a></h1>
 <p>The aim of Epsilon Flock is to contribute <em>model migration</em> capabilities to Epsilon. Model migration is the process of updating models in response to metamodel changes. This section discusses the motivation for implementing Flock, introduces its syntax and execution semantics, and demonstrates the use of Flock with an example. Flock can be used to update models to a new version of their metamodel, or even to move from one modelling technology to another (e.g., from XML to EMF).</p>
 <p>To illustrate the challenges of model migration, we use the example of metamodel evolution below. In the top figure, a <code>Component</code> comprises other <code>Component</code>s, <code>Connector</code>s and <code>Port</code>s. A <code>Connector</code> joins two <code>Port</code>s. <code>Connector</code>s are unidirectional, and hence define <code>to</code> and <code>from</code> references to <code>Port</code>. The original metamodel allows a <code>Connector</code> to start and end at the same <code>Port</code>, and the metamodel was evolved to prevent this, as shown in the bottom figure. <code>Port</code> was made abstract, and split into two subtypes, <code>InputPort</code> and <code>OutputPort</code>. The references between <code>Connector</code> and (the subtypes of) <code>Port</code> were renamed for consistency with the names of the subtypes.</p>
-<p><img alt="" src="../images/FlockPOExampleOriginal.png" />
-<img alt="" src="../images/FlockPOExampleEvolved.png" /></p>
+<div class="mermaid mermaid-50">classDiagram
+class Component {
+    +subcomponents: Component[*]
+    +connectors: Connector[*]
+    +ports: Port[*]
+}
+class Port {
+    +name: String
+    +outgoing: Connector
+    +incoming: Connector
+}
+class Connector {
+    +name: String
+    +from: Port
+    +to: Port
+}
+Component *-- Connector: connectors *
+Component *-- Component
+Component *-- Port: ports *
+Connector -- Port: from
+Port -- Connector: to</div>
+
+<div class="mermaid mermaid-80">classDiagram
+class Component {
+    +subcomponents: Component[*]
+    +connectors: Connector[*]
+    +ports: Port[*]
+}
+class Port {
+    +name: String
+    +outgoing: Connector
+    +incoming: Connector
+}
+class Connector {
+    +name: String
+    +in: InPort
+    +out: OutPort
+}
+class InputPort {
+    +connector: Connector
+}
+class OutputPort {
+    +connector: Connector
+}
+Component *-- Connector: connectors *
+Component *-- Component
+Component *-- Port: ports *
+InputPort --|&gt; Port: in
+OutputPort --|&gt; Port: out
+Connector -- InputPort
+Connector -- OutputPort</div>
+
 <p>Some models that conform to the original metamodel do not conform to the evolved metamodel. Specifically, models might not conform to the evolved metamodel because:</p>
 <ol>
 <li>
@@ -948,7 +998,48 @@
 </li>
 </ol>
 <p>Model migration can be achieved with a general-purpose model-to-model transformation using a language such as ETL. However, this typically involves writing a large amount of repetitive and redundant code. Flock reduces the amount of repetitive and redundant code needed to specify model migration by automatically copying from the original to the migrated model all of the model elements that conform to the evolved metamodel as described below.</p>
-<p><img alt="" src="../images/FlockAbstractSyntax.png" /></p>
+<div class="mermaid mermaid-100">classDiagram
+class GuardedConstruct {
+    -guard: ExecutableBlock&lt;Boolean&gt;
+}
+class Deletion {
+    -originalType: String
+    -strict: Boolean
+    -cascade: Boolean
+}
+class Retyping {
+    -originalType: String
+    -strict: Boolean
+    -evolvedType: String
+}
+class PackageRetyping {
+    -originalType: String
+    -evolvedType: String
+}
+class PackageDeletion {
+    -originalType: String
+}
+class MigrateRule {
+    -originalType: String
+    -strict: Boolean
+    -ignoredFeatures: String[*]
+    -body: ExecutableBlock&lt;Void&gt;
+}
+FlockModule -- TypeMappingConstruct: typeMappings *
+Deletion --|&gt; TypeMappingConstruct
+TypeMappingConstruct &lt;|-- Retyping
+TypeMappingConstruct &lt;|-- PackageDeletion
+TypeMappingConstruct &lt;|-- PackageRetyping
+MigrationRule --|&gt; GuardedConstruct
+GuardedConstruct &lt;|-- TypeMappingConstruct
+FlockModule -- MigrateRule: rules *
+EolModule &lt;|-- ErlModule
+ErlModule &lt;|-- FlockModule
+Pre --|&gt; NamedStatementBlockRule
+Post --|&gt; NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *</div>
+
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
 <p>As illustrated in the figure above, Flock migration strategies are organised into individual modules (<code>FlockModule</code>). Flock modules inherit from EOL language constructs for specifying user-defined operations and for importing other (EOL and Flock) modules. Like the other rule-based of Epsilon, Flock modules may comprise any number of pre (post) blocks, which are executed before (after) all other constructs. Flock modules comprise any number of type mappings (<code>TypeMapping</code>) and rules (<code>Rule</code>). Type mappings operate on metamodel types (<code>Retyping</code> and <code>Deletion</code>) or on metamodel packages (<code>PackageRetyping</code> and <code>PackageDeletion</code>). Type mappings are applied to a type in the original metamodel (<code>originalType</code>) or to a package in the original metamodel (<code>originalPackage</code>) . Additionally, <code>Retyping</code>s apply to an evolved metamodel type (<code>evolvedType</code>) or package (<code>evolvedPackage</code>). Each rule has an original metamodel type (<code>originalType</code>), a <code>body</code> comprising a block of EOL statements, and zero or more <code>ignoredFeatures</code>. Type mappings and rules can optionally specify a <code>guard</code>, which is either an EOL statement or a block of EOL statements. Type mappings that operate on metamodel types and rules can be marked as <code>strict</code>.</p>
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>

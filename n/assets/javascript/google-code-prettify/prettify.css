@@ -10,7 +10,7 @@
   /*.typ { color: rgb(42, 0, 255); font-weight: bold }*/
   .lit { color: rgb(42, 0, 255) }
   .pun, .opn, .clo { color: #440 }
-  .tag { color: #006; font-weight: bold }
+  .tag { color: rgb(184, 160, 0)}
   .atn { color: #404 }
   .atv { color: #060 }
 }

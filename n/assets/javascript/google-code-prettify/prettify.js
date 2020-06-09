@@ -491,7 +491,7 @@ var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|\\!|\\!=|\\!==|\\#|\\%|\\%=|&|&&|&
    * @return {Object} source code and the text nodes in which they occur.
    */
   function extractSourceSpans(node) {
-    var nocode = /(?:^|\s)nocode(?:\s|$)/;
+    var nocode = /(?:^|\s)nocode(?:\s)/;
   
     var chunks = [];
     var length = 0;

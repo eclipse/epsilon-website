@@ -976,7 +976,43 @@ MethodDeclaration -- TypeAccess: returnType</div>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
 <p>The syntax of EPL is an extension of the syntax of the <a href="../eol">EOL language</a>, which is the core language of Epsilon. As such, any references to <em>expression</em> and <em>statement block</em> in this chapter, refer to EOL expressions and blocks of EOL statements respectively. It is also worth noting that EOL expressions and statements can produce side-effects on models, and therefore, it is the responsibility of the developer to decide which expressions used in the context of EPL patterns should be side-effect free and which not.</p>
 <p>As illustrated in the figure below, EPL patterns are organised in <em>modules</em>. Each module contains a number of named <em>patterns</em> and optionally, <em>pre</em> and <em>post</em> statement blocks that are executed before and after the pattern matching process, and helper EOL operations. EPL modules can import other EPL and EOL modules to facilitate reuse and modularity.</p>
-<p><img alt="Abstract Syntax of EPL" src="../images/EPL.png" /></p>
+<div class="mermaid mermaid-100">classDiagram
+class EplModule {
+    -iterative: Boolean
+    -maxLoops: Integer
+}
+class Pattern {
+    -name: String
+    -match: ExecutableBlock&lt;Boolean&gt;
+    -onMatch: ExecutableBlock&lt;Void&gt;
+    -noMatch: ExecutableBlock&lt;Void&gt;
+    -do: ExecutableBlock&lt;Void&gt;
+}
+class Role {
+    -parts: String[1..*]
+    -negative: Boolean
+    -type: EolType
+    -guard: ExecutableBlock&lt;Boolean&gt;
+    -active: ExecutableBlock&lt;Boolean&gt;
+    -optional: ExecutableBlock&lt;Boolean&gt;
+}
+class Cardinality {
+    -lowerBound: Integer
+    -upperBound: Integer
+}
+EolModule &lt;|-- ErlModule
+ErlModule &lt;|-- EplModule
+Pre --|&gt; NamedStatementBlockRule
+Post --|&gt; NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+EplModule -- Pattern: patterns *
+Pattern -- Role: roles *
+Role -- Domain: domain
+Domain &lt;|-- StaticDomain
+Domain &lt;|-- DynamicDomain
+Role -- Cardinality: cardinality</div>
+
 <p>In its simplest form a <em>pattern</em> consists of a number of named and typed <em>roles</em> and a <em>match</em> condition. For example, in lines 2-3, the <em>PublicField</em> pattern below, defines four roles (<em>class</em>, <em>field</em>, <em>setter</em> and <em>getter</em>). The <em>match</em> condition of the pattern specifies that for a quartet to be a valid match, the field, setter and getter must all belong to the class (lines 5-7, and that the setter and getter methods must be appropriately named<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 <pre class="prettyprint lang-epl"><code>pattern PublicField
     class : ClassDeclaration, field : FieldDeclaration, 
@@ -1055,7 +1091,7 @@ operation getMethods(name : String) : Sequence(MethodDeclaration) {
 <h3 id="role-cardinality">Role Cardinality<a class="headerlink" href="#role-cardinality" title="Permanent link">&para;</a></h3>
 <p>The cardinality of a role (lower and upper bound) can be defined in
 square brackets following the type of the role. Roles that have a
-cardinality with an upper bound $&gt;$ 1 are bound to the subset of
+cardinality with an upper bound &gt; 1 are bound to the subset of
 elements from the domain of the role which also satisfy the guard, if
 the size of that subset is within the bounds of the role's cardinality.
 The listing below demonstrates the <em>ClassAndPrivateFields</em>
