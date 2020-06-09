@@ -52,8 +52,8 @@ PR['registerLangHandler'](
           /^(?:"(?:(?:""(?:""?(?!")|[^\\"]|\\.)*"{0,3})|(?:[^"\r\n\\]|\\.)*"?))/,
           null, '"'],
          [PR['PR_LITERAL'],     /^`(?:[^\r\n\\`]|\\.)*`?/, null, '`'],
-         [PR['PR_PUNCTUATION'], /^[!#%&()*+,\-:;<=>?@\[\\\]^{|}~]+/, null,
-          '!#%&()*+,-:;<=>?@[\\]^{|}~']
+         [PR['PR_PUNCTUATION'], /^[!#%&()*+,\-:;<=>?\[\\\]^{|}~]+/, null,
+          '!#%&()*+,-:;<=>?[\\]^{|}~']
         ],
         [
          // A symbol literal is a single quote followed by an identifier with no
@@ -70,7 +70,7 @@ PR['registerLangHandler'](
          [PR['PR_COMMENT'],     /^\/(?:\/.*|\*(?:\/|\**[^*/])*(?:\*+\/?)?)/],
          [PR['PR_PUNCTUATION'], /^(?:\.+|\/)/],
          [PR['PR_TYPE'], new RegExp("^(?:Any|String|Integer|Real|Boolean|Native|Bag|Set|List|Sequence|Map|OrderedSet|Collection|ConcurrentBag|ConcurrentMap|ConcurrentSet)\\b")],
-        [PR['PR_TAG'],      /^'(?:(@|\$)\w+)'/],
+        [PR['PR_TAG'],      /^(@|\$)\w*/],
         ]),
     [language]);
 }
