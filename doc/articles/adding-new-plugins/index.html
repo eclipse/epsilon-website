@@ -798,7 +798,7 @@ Epsilon repository.</p>
 <li>If you want its tests to be run from Hudson as plug-in tests, add them to the <code>EpsilonHudsonPluggedInTestSuite</code> in <code>org.eclipse.epsilon.test</code>. </li>
 <li>Define a feature for the new plugins (feature project in features/, as usual, but with its own POM) and add it to the <code>site.xml</code> in the <code>org.eclipse.epsilon.updatesite.interim</code> project. </li>
 <li>Change the <code>plugins/pom.xml</code>, <code>tests/pom.xml</code> and <code>features/pom.xml</code> so they mention the new projects in their <code>&lt;modules&gt;</code> section. </li>
-<li>If you want a specific standalone JAR for this, you\'ll need to update the <code>jarmodel.xml</code>, rerun the <code>jarmodel2mvn.launch</code> launch config, and then mention the new Maven assembly descriptor in the <code>org.eclipse.epsilon.standalone/pom.xml</code> file. There\'s a readme.txt file in that folder that explains the process. </li>
+<li>If you want a specific standalone JAR for this, you\'ll need to update the <code>jarmodel.xml</code>, rerun the <code>jarmodel2mvn.launch</code> launch config, and then mention the new Maven assembly descriptor in the <code>org.eclipse.epsilon.standalone/pom.xml</code> file. There's a readme.txt file in that folder that explains the process. </li>
 <li>Update <code>org.eclipse.epsilon/standalone/org.eclipse.epsilon.standalone/pom.xml</code> with the details of the new plugins.</li>
 </ul>
                 
