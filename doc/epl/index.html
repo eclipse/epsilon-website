@@ -1,0 +1,1328 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>Pattern matching (EPL) - Epsilon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.b302131d.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="../../assets/javascript/google-code-prettify/prettify.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
+    
+      
+    
+    
+<!-- FAVICON -->
+
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-epsilon-pattern-language-epl" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Epsilon" class="md-header-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Epsilon
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Pattern matching (EPL)
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    Epsilon
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emc/" title="Model connectivity" class="md-nav__link">
+      Model connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Languages
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Languages" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eol/" title="Object language (EOL)" class="md-nav__link">
+      Object language (EOL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../egl/" title="Code generation (EGL)" class="md-nav__link">
+      Code generation (EGL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../evl/" title="Model validation (EVL)" class="md-nav__link">
+      Model validation (EVL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../etl/" title="Model transformation (ETL)" class="md-nav__link">
+      Model transformation (ETL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ecl/" title="Model comparison (ECL)" class="md-nav__link">
+      Model comparison (ECL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eml/" title="Model merging (EML)" class="md-nav__link">
+      Model merging (EML)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Pattern matching (EPL)
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Pattern matching (EPL)" class="md-nav__link md-nav__link--active">
+      Pattern matching (EPL)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#negative-roles" class="md-nav__link">
+    Negative Roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-and-active-roles" class="md-nav__link">
+    Optional and Active Roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-cardinality" class="md-nav__link">
+    Role Cardinality
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-semantics" class="md-nav__link">
+    Execution Semantics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-matching-output" class="md-nav__link">
+    Pattern Matching Output
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interoperability-with-other-model-management-tasks" class="md-nav__link">
+    Interoperability with Other Model Management Tasks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flock/" title="Model Migration (Flock)" class="md-nav__link">
+      Model Migration (Flock)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emg/" title="Model generation (EMG)" class="md-nav__link">
+      Model generation (EMG)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
+      Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Tools
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Tools" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../picto/" title="Picto" class="md-nav__link">
+      Picto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flexmi/" title="Flexmi" class="md-nav__link">
+      Flexmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eugenia/" title="Eugenia" class="md-nav__link">
+      Eugenia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exeed/" title="Exeed" class="md-nav__link">
+      Exeed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modelink/" title="Modelink" class="md-nav__link">
+      Modelink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hutn/" title="HUTN" class="md-nav__link">
+      HUTN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
+      Workflow (Ant tasks)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../articles/" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
+      Lectures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Javadoc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/2.0/javadoc/" title="Stable" class="md-nav__link">
+      Stable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/interim/javadoc/" title="Interim" class="md-nav__link">
+      Interim
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Community
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Community" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Who is using Epsilon?
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Who is using Epsilon?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/" title="Industry" class="md-nav__link">
+      Industry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/education/" title="Education" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/open-source/" title="Open-source projects" class="md-nav__link">
+      Open-source projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
+      Who is developing Epsilon?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
+      Forum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="Frequently asked questions" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#negative-roles" class="md-nav__link">
+    Negative Roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-and-active-roles" class="md-nav__link">
+    Optional and Active Roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-cardinality" class="md-nav__link">
+    Role Cardinality
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-semantics" class="md-nav__link">
+    Execution Semantics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pattern-matching-output" class="md-nav__link">
+    Pattern Matching Output
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interoperability-with-other-model-management-tasks" class="md-nav__link">
+    Interoperability with Other Model Management Tasks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="the-epsilon-pattern-language-epl">The Epsilon Pattern Language (EPL)<a class="headerlink" href="#the-epsilon-pattern-language-epl" title="Permanent link">&para;</a></h1>
+<p>The aim of EPL is to contribute <em>pattern matching</em> capabilities to Epsilon. This chapter discusses the abstract and concrete syntax of EPL as well as its execution semantics. To aid understanding, the discussion of the syntax and the semantics of the language revolves around an exemplar pattern which is developed incrementally throughout the chapter. The exemplar pattern is matched against models extracted from Java source code using tooling provided by the MoDisco project. MoDisco is an Eclipse project that provides a fine-grained Ecore-based metamodel of the Java language as well as tooling for extracting models that conform to this Java metamodel from Java source code. A simplified view of the relevant part of the MoDisco Java metamodel used in this running example is presented below.</p>
+<p>The aim of the pattern developed here (which we will call <em>PublicField</em>) is to identify quartets of <code>&lt;ClassDeclaration, FieldDeclaration, MethodDeclaration, MethodDeclaration&gt;</code>, each representing a field of a Java class for which appropriately named accessor/getter (getX/isX) and mutator/setter (setX) methods are defined by the class.</p>
+<div class="mermaid mermaid-100">classDiagram
+class ClassDeclaration {
+    +name: String
+    +bodyDeclarations: BodyDeclaration[*]
+}
+class BodyDeclaration {
+    +name: String
+    +modifiers: Modifier[*]
+}
+class VariableDeclarationFragment {
+    +name: String
+}
+class FieldDeclaration {
+    +fragments: VariableDeclarationFragment[*]
+    +type: TypeAccess
+}
+class MethodDeclaration {
+    +returnType: TypeAccess
+}
+class VariableDeclarationFragment {
+    +name: String
+}
+class Modifier {
+    +visibility: VisibilityKind
+}
+class VisibilityKind {
+    #none
+    #public
+    #protected
+    #private
+}
+ClassDeclaration -- BodyDeclaration: bodyDeclarations *
+BodyDeclaration -- Modifier: modifiers *
+Modifier -- VisibilityKind: visibility
+BodyDeclaration &lt;|-- FieldDeclaration
+MethodDeclaration --|&gt; BodyDeclaration
+FieldDeclaration -- VariableDeclarationFragment: fragments *
+FieldDeclaration -- TypeAccess: type
+MethodDeclaration -- TypeAccess: returnType</div>
+
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>The syntax of EPL is an extension of the syntax of the <a href="../eol">EOL language</a>, which is the core language of Epsilon. As such, any references to <em>expression</em> and <em>statement block</em> in this chapter, refer to EOL expressions and blocks of EOL statements respectively. It is also worth noting that EOL expressions and statements can produce side-effects on models, and therefore, it is the responsibility of the developer to decide which expressions used in the context of EPL patterns should be side-effect free and which not.</p>
+<p>As illustrated in the figure below, EPL patterns are organised in <em>modules</em>. Each module contains a number of named <em>patterns</em> and optionally, <em>pre</em> and <em>post</em> statement blocks that are executed before and after the pattern matching process, and helper EOL operations. EPL modules can import other EPL and EOL modules to facilitate reuse and modularity.</p>
+<div class="mermaid mermaid-100">classDiagram
+class EplModule {
+    -iterative: Boolean
+    -maxLoops: Integer
+}
+class Pattern {
+    -name: String
+    -match: ExecutableBlock&lt;Boolean&gt;
+    -onMatch: ExecutableBlock&lt;Void&gt;
+    -noMatch: ExecutableBlock&lt;Void&gt;
+    -do: ExecutableBlock&lt;Void&gt;
+}
+class Role {
+    -parts: String[1..*]
+    -negative: Boolean
+    -type: EolType
+    -guard: ExecutableBlock&lt;Boolean&gt;
+    -active: ExecutableBlock&lt;Boolean&gt;
+    -optional: ExecutableBlock&lt;Boolean&gt;
+}
+class Cardinality {
+    -lowerBound: Integer
+    -upperBound: Integer
+}
+EolModule &lt;|-- ErlModule
+ErlModule &lt;|-- EplModule
+Pre --|&gt; NamedStatementBlockRule
+Post --|&gt; NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+EplModule -- Pattern: patterns *
+Pattern -- Role: roles *
+Role -- Domain: domain
+Domain &lt;|-- StaticDomain
+Domain &lt;|-- DynamicDomain
+Role -- Cardinality: cardinality</div>
+
+<p>In its simplest form a <em>pattern</em> consists of a number of named and typed <em>roles</em> and a <em>match</em> condition. For example, in lines 2-3, the <em>PublicField</em> pattern below, defines four roles (<em>class</em>, <em>field</em>, <em>setter</em> and <em>getter</em>). The <em>match</em> condition of the pattern specifies that for a quartet to be a valid match, the field, setter and getter must all belong to the class (lines 5-7, and that the setter and getter methods must be appropriately named<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<pre class="prettyprint lang-epl"><code>pattern PublicField
+    class : ClassDeclaration, field : FieldDeclaration, 
+    setter : MethodDeclaration, getter : MethodDeclaration {
+
+    match : class.bodyDeclarations.includes(field) 
+        class.bodyDeclarations.includes(setter) and
+        class.bodyDeclarations.includes(getter) and 
+        setter.name = "set" + field.getName() and
+        (getter.name = "get" + field.getName() or
+        getter.name = "is" + field.getName()) 
+}
+
+@cached
+operation FieldDeclaration getName() {
+    return self.fragments.at(0).name.firstToUpperCase();
+}</code></pre>
+
+<p>The implementation of the PublicField pattern above is fully functional but not particularly efficient as the <em>match</em> condition needs to be evaluated <code>#ClassDefinition * #FieldDeclaration * #MethodDeclaration^2</code> times. To enable pattern developers to reduce the search space, each <em>role</em> in an EPL pattern can specify a <em>domain</em> which is an EOL expression that returns a collection of model elements from which the role will draw values.</p>
+<p>There are two types of domains in EPL: static domains which are computed once for all applications of the pattern, and which <strong>are not</strong> dependent on the bindings of other roles of the pattern (denoted using the <em>in</em> keyword in terms of the concrete syntax), and dynamic domains which are recomputed every time the candidate values of the role are iterated, and which <strong>are</strong> dependent on the bindings of other roles (denoted using the <em>from</em> keyword). Beyond a domain, each role can also specify a <em>guard</em> expression that further prunes unnecessary evaluations of the match condition. Using dynamic domains and guards, the <em>PublicField</em> pattern can be expressed in a more efficient way, as illustrated below. To further illustrate the difference between dynamic and static domains, changing <em>from</em> to <em>in</em> in line 4 would trigger a runtime exception as the domain would become static and therefore not able to access bindings of other roles (i.e. <em>class</em>).</p>
+<pre class="prettyprint lang-epl"><code>pattern PublicField
+    class : ClassDeclaration,
+    field : FieldDeclaration
+        from: class.bodyDeclarations, @*\label{dynamicdomain}*@
+    setter : MethodDeclaration
+        from: class.bodyDeclarations
+        guard: setter.name = "set" + field.getName(),
+    getter : MethodDeclaration
+        from: class.bodyDeclarations 
+        guard : (getter.name = "get" + field.getName() or
+                 getter.name = "is" + field.getName()) { }</code></pre>
+
+<p>The implementation above is significantly more efficient than the
+previous implementation but can still be improved by further reducing
+the number of name comparisons of candidate <em>setter</em> and <em>getter</em>
+methods. To achieve this we can employ memoisation: we create a hash map
+of method names and methods once before pattern matching (line 2), and use it to identify candidate setters and
+getters (lines 9 and 12-13).</p>
+<pre class="prettyprint lang-epl"><code>pre {
+    var methodMap = MethodDeclaration.all.mapBy(m|m.name);
+}
+pattern PublicField
+    class : ClassDeclaration,
+    field : FieldDeclaration
+        from: class.bodyDeclarations,
+    setter : MethodDeclaration
+        from: getMethods("set" + field.getName()) 
+        guard: setter.abstractTypeDeclaration = class,
+    getter : MethodDeclaration
+        from: getMethods("get" + field.getName())
+                .includingAll(getMethods("is" + field.getName())),
+        guard: getter.abstractTypeDeclaration = class {
+}
+
+operation getMethods(name : String) : Sequence(MethodDeclaration) {
+    var methods = methodMap.get(name);
+    if (methods.isDefined()) return methods;
+    else return new Sequence;
+}</code></pre>
+
+<p>The sections below discuss the remainder of the syntax of EPL.</p>
+<h3 id="negative-roles">Negative Roles<a class="headerlink" href="#negative-roles" title="Permanent link">&para;</a></h3>
+<p>Pattern roles can be negated using the <em>no</em> keyword. For instance, by adding the <em>no</em> keyword before the setter role in line 8 of the listing above, the pattern will match fields that have getters but no setters (i.e. read-only fields).</p>
+<h3 id="optional-and-active-roles">Optional and Active Roles<a class="headerlink" href="#optional-and-active-roles" title="Permanent link">&para;</a></h3>
+<p>Pattern roles can be designated as optional using the <em>optional</em> EOL expression. For example, adding <code>optional: true</code> to the setter role would also match all fields that only have a getter. By adding <code>optional: true</code> to the setter role and <code>optional: setter.isDefined()</code> to the getter role, the pattern would match fields that have at least a setter or a getter. Roles can be completely deactivated depending on the bindings of other roles through the <em>active</em> construct. For example, if the pattern developer prefers to specify separate roles for <em>getX</em> and <em>isX</em> getters, with a preference over getX getters, the pattern can be formulated as illustrated in the listing below so that if a <em>getX</em> getter is found, no attempt is even made to match an <em>isX</em> getter.</p>
+<pre class="prettyprint lang-epl"><code>pattern PublicField
+    class : ClassDeclaration,
+    field : FieldDeclaration ...,
+    setter : MethodDeclaration ...,
+    getGetter : MethodDeclaration ...,
+    isGetter: MethodDeclaration
+        ...
+        active: getGetter.isUndefined() {
+}</code></pre>
+
+<h3 id="role-cardinality">Role Cardinality<a class="headerlink" href="#role-cardinality" title="Permanent link">&para;</a></h3>
+<p>The cardinality of a role (lower and upper bound) can be defined in
+square brackets following the type of the role. Roles that have a
+cardinality with an upper bound &gt; 1 are bound to the subset of
+elements from the domain of the role which also satisfy the guard, if
+the size of that subset is within the bounds of the role's cardinality.
+The listing below demonstrates the <em>ClassAndPrivateFields</em>
+pattern that detects instances of classes and all their private fields.
+If the cardinality of the field role in line 3 was [1..3] instead of [*], the
+pattern would only detect classes that own 1 to 3 private fields.</p>
+<pre class="prettyprint lang-epl"><code>pattern ClassAndPrivateFields
+    class : ClassDeclaration,
+    field : FieldDeclaration[*]
+        from: class.bodyDeclarations
+        guard: field.getVisibility() = VisibilityKind#private {
+
+    onmatch { 
+        var message : String;
+        message = class.name + " matches";
+        message.println();
+    }
+
+    do { 
+        // More actions here
+    }
+
+    nomatch : (class.name + " does not match").println()
+
+}
+operation FieldDeclaration getVisibility() {
+    if (self.modifier.isDefined()) {
+        return self.modifier.visibility; }
+    else { return null; }
+}</code></pre>
+
+<h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
+<p>When an EPL module is executed, all of its <em>pre</em> statement blocks are first executed in order to define and initialise any global variables needed (e.g. the <em>methodMap</em> variable in the listing above or to print diagnostic messages to the user. Subsequently, patterns are executed in the order in which they appear. For each pattern, all combinations that conform to the type and constraints of the roles of the pattern are iterated, and the validity of each combination is evaluated in the <em>match</em> statement block of the pattern. In the absence of a <em>match</em> block, every combination that satisfies the constraints of the roles of the pattern is accepted as a valid instance of the pattern.</p>
+<p>Immediately after every successful match, the optional <em>onmatch</em> statement block of the pattern is invoked (see lines 7-11 of the listing above) and after every unsuccessful matching attempt, for combinations which however satisfy the constraints specified by the roles of the pattern, the optional <em>nomatch</em> statement block of the pattern (line 17) is executed . When matching of all patterns is complete, the <em>do</em> part (line 13) of each successful match is executed. In the <em>do</em> part, developers can modify the involved models (e.g to perform in-place transformation), without the risk of concurrent list modification errors (which can occur if elements are created/deleted during pattern matching). After pattern matching has been completed, the <em>post</em> statement blocks of the module are executed in order to perform any necessary finalisation actions.</p>
+<p>An EPL module can be executed in a one-off or iterative mode. In the one-off mode, patterns are only evaluated once, while in the iterative mode, the process is repeated until no more matches have been found or until the maximum number of iterations (specified by the developer) has been reached. The iterative mode is particularly suitable for patterns that perform reduction of the models they are evaluated against.</p>
+<h2 id="pattern-matching-output">Pattern Matching Output<a class="headerlink" href="#pattern-matching-output" title="Permanent link">&para;</a></h2>
+<p>The output of the execution of an EPL module on a set of models is a collection of matches encapsulated in a <em>PatternMatchModel</em>, as illustrated in the figure below. As <em>PatternMatchModel</em> implements the <em>IModel</em> <a href="../emc">EMC</a> interface, its instances can be accessed from other programs expressed in languages of the Epsilon family.</p>
+<div class="mermaid mermaid-60">classDiagram
+class Match {
+    +bindings: Map&lt;String, Object&gt;
+}
+IModel --|&gt; PatternMatchModel
+PatternMatchModel -- Pattern: patterns *
+PatternMatchModel -- Match: matches *</div>
+
+<p>A <em>PatternMatchModel</em> introduces one model element type for each pattern and one type for each field of each pattern (the name of these types are derived by concatenating the name of the pattern with a camel-case version of the name of the field). Instances of the prior are the matches of the pattern while instances of the latter are elements that have been matched in this particular role. For example, after executing the EPL module above, the produced <em>PatternMatchModel</em> contains 5 types: <em>PublicField</em>, instances of which are all the identified matches of the <em>PublicField</em> pattern, <em>PublicFieldClass</em>, instances of which are all the classes in the input model which have been matched to the <em>class</em> role in instances of the <em>PublicField</em> pattern, and similarly <em>PublicFieldField</em>, <em>PublicFieldSetter</em> and <em>PublicFieldGetter</em>.</p>
+<h2 id="interoperability-with-other-model-management-tasks">Interoperability with Other Model Management Tasks<a class="headerlink" href="#interoperability-with-other-model-management-tasks" title="Permanent link">&para;</a></h2>
+<p>As a <em>PatternMatchModel</em> is an instance of <em>IModel</em>, after its computation it can be manipulated by other Epsilon programs. For example, the listing below demonstrates running the EPL module and passing its output to the EVL constraints that follow and, if validation is successful, to an ETL transformation where it is used to guide the generation of a UML model.</p>
+<p>In lines 4-7, the Java model is loaded and is assigned the name <code>Java</code>. Then, in line 9, the Java model is passed on to <code>publicfield.epl</code> for pattern matching. The result of pattern matching, which is an instance of the <code>PatternMatchModel</code> class (and therefore also an instance of <code>IModel</code>) is exported to the global context under the name <code>Patterns</code>. Then, in line 13, both the <code>Patterns</code> and the <code>Java</code> models are passed on to the EVL model validation task which performs validation of the identified pattern matches.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Java&quot;</span>
+            <span class="na">modelfile=</span><span class="s">&quot;org.eclipse.epsilon.eol.engine_java.xmi&quot;</span> 
+            <span class="na">metamodeluri=</span><span class="s">&quot;...MoDisco/Java/0.2.incubation/java&quot;</span>
+            <span class="na">read=</span><span class="s">&quot;true&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;epsilon.epl</span> <span class="na">src=</span><span class="s">&quot;publicfield.epl&quot;</span> <span class="na">exportAs=</span><span class="s">&quot;Patterns&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Java&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/epsilon.epl&gt;</span> 
+
+        <span class="nt">&lt;epsilon.evl</span> <span class="na">src=</span><span class="s">&quot;constraints.evl&quot;</span><span class="nt">&gt;</span> 
+            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Patterns&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Java&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/epsilon.evl&gt;</span> 
+
+        <span class="nt">&lt;epsilon.etl</span> <span class="na">src=</span><span class="s">&quot;java2uml.etl&quot;</span><span class="nt">&gt;</span> 
+            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Patterns&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Java&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/epsilon.etl&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+<p>Line 1 below defines a set of constraints that will be applied to instances of the <em>PublicField</em> type from the <em>Patterns</em> model. As discussed above, these are all matched instances of the <em>PublicField</em> pattern. Line 4, specifies the condition that needs to be satisfied by instances of the pattern. Notice the <em>self.getter</em> and <em>self.field</em> expressions which return the <em>MethodDeclaration</em> and <em>FieldDeclaration</em> bound to the instance of the pattern. Then, line 5 defines the message that should be produced for instances of <em>PublicField</em> that do not satisfy this constraint.</p>
+<pre class="prettyprint lang-evl"><code>context Patterns!PublicField {
+    guard: self.field.type.isDefined()
+    constraint GetterAndFieldSameType { 
+        check : self.getter.returnType.type = self.field.type.type
+        message : "The getter of " + self.class.name + "."
+            + self.field.fragments.at(0).name +
+            " does not have the same type as the field itself"
+    }
+}</code></pre>
+
+<p>If validation is successful, both the <em>Java</em> and the <em>Patterns</em> model are passed on to an ETL transformation that transforms the <em>Java</em> model to a UML model, a fragment of which is presented below. The transformation encodes <code>&lt;field, setter, getter&gt;</code> triplets in the <em>Java</em> model as public properties in the UML model. As such, in line 6 of the transformation, the <em>Patterns</em> model is used to check whether field <em>s</em> has been matched under the <em>PublicField</em> pattern, and if so, the next line ignores the field's declared visibility and sets the visibility of the respective UML property to <em>public</em>.</p>
+<pre class="prettyprint lang-etl"><code>rule FieldDeclaration2Property
+    transform s: Java!FieldDeclaration
+    to t: Uml!Property {
+
+    t.name = s.getName();
+    if (s.instanceOf(Patterns!PublicFieldField)) {
+        t.visibility = Uml!VisibilityKind#public;
+    }
+    else {
+        t.visibility = s.toUmlVisibility();
+    }
+    ...
+}</code></pre>
+
+<p>As Epsilon provides ANT tasks for all its languages, the same technique can be used to pass the result of pattern matching on to model-to-text transformations, as well as model comparison and model merging programs.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>To maintain the running example simple and concise, the pattern does not check aspects such as matching/compatible parameter/return types in the field, setter and getter but the reader should easily be able to envision how this would be supported through additional clauses in the match condition.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../eml/" title="Model merging (EML)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Model merging (EML)
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../flock/" title="Model Migration (Flock)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Model Migration (Flock)
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © Eclipse Foundation, Inc. All Rights Reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+      </div>
+      <div class="md-footer-copyright epsilon-eclipse-links">
+          <ul>
+              <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettyprint.js"></script>
+      
+    
+  </body>
+</html>

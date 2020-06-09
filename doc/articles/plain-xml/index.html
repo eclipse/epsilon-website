@@ -1,0 +1,1182 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>Scripting XML documents using Epsilon - Epsilon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a676eddb.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.b302131d.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
+    
+      
+    
+    
+<!-- FAVICON -->
+
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scripting-xml-documents-using-epsilon" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Epsilon" class="md-header-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Epsilon
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Scripting XML documents using Epsilon
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    Epsilon
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../emc/" title="Model connectivity" class="md-nav__link">
+      Model connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Languages
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Languages" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eol/" title="Object language (EOL)" class="md-nav__link">
+      Object language (EOL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../egl/" title="Code generation (EGL)" class="md-nav__link">
+      Code generation (EGL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../evl/" title="Model validation (EVL)" class="md-nav__link">
+      Model validation (EVL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../etl/" title="Model transformation (ETL)" class="md-nav__link">
+      Model transformation (ETL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ecl/" title="Model comparison (ECL)" class="md-nav__link">
+      Model comparison (ECL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eml/" title="Model merging (EML)" class="md-nav__link">
+      Model merging (EML)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../epl/" title="Pattern matching (EPL)" class="md-nav__link">
+      Pattern matching (EPL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../flock/" title="Model Migration (Flock)" class="md-nav__link">
+      Model Migration (Flock)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../emg/" title="Model generation (EMG)" class="md-nav__link">
+      Model generation (EMG)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
+      Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Tools
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Tools" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../picto/" title="Picto" class="md-nav__link">
+      Picto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../flexmi/" title="Flexmi" class="md-nav__link">
+      Flexmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eugenia/" title="Eugenia" class="md-nav__link">
+      Eugenia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../exeed/" title="Exeed" class="md-nav__link">
+      Exeed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modelink/" title="Modelink" class="md-nav__link">
+      Modelink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hutn/" title="HUTN" class="md-nav__link">
+      HUTN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
+      Workflow (Ant tasks)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
+      Lectures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Javadoc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/2.0/javadoc/" title="Stable" class="md-nav__link">
+      Stable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/interim/javadoc/" title="Interim" class="md-nav__link">
+      Interim
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Community
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Community" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Who is using Epsilon?
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Who is using Epsilon?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/" title="Industry" class="md-nav__link">
+      Industry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/education/" title="Education" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/open-source/" title="Open-source projects" class="md-nav__link">
+      Open-source projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
+      Who is developing Epsilon?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
+      Forum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faq/" title="Frequently asked questions" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#querying-an-xml-document" class="md-nav__link">
+    Querying an XML document
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryingmodifying-xml-documents-in-eol" class="md-nav__link">
+    Querying/modifying XML documents in EOL
+  </a>
+  
+    <nav class="md-nav" aria-label="Querying/modifying XML documents in EOL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-access-elements-by-tag-name" class="md-nav__link">
+    How can I access elements by tag name?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-get-the-tag-name-of-an-element" class="md-nav__link">
+    How can I get the tag name of an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-getset-the-attributes-of-an-element" class="md-nav__link">
+    How can I get/set the attributes of an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-getset-the-text-of-an-element" class="md-nav__link">
+    How can I get/set the text of an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-get-the-parent-of-an-element" class="md-nav__link">
+    How do I get the parent of an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-get-the-children-of-an-element" class="md-nav__link">
+    How do I get the children of an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-get-child-elements-with-a-specific-tag-name" class="md-nav__link">
+    How do I get child elements with a specific tag name?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-create-an-element" class="md-nav__link">
+    How do I create an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-add-a-child-to-an-existing-element" class="md-nav__link">
+    How can I add a child to an existing element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-set-the-root-element-of-an-xml-document" class="md-nav__link">
+    How can I set the root element of an XML document?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-an-xml-document-to-your-launch-configuration" class="md-nav__link">
+    Adding an XML document to your launch configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-an-xml-document-in-your-ant-buildfile" class="md-nav__link">
+    Loading an XML document in your ANT buildfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-an-xml-document-through-java-code" class="md-nav__link">
+    Loading an XML document through Java code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="scripting-xml-documents-using-epsilon">Scripting XML documents using Epsilon<a class="headerlink" href="#scripting-xml-documents-using-epsilon" title="Permanent link">&para;</a></h1>
+<p>In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver added in version 0.8.9. All the examples in this article demonstrate using EOL to script XML documents. However, it's worth stressing that XML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - XML or EMF-based -, or to text), compare and merge your XML documents.</p>
+<iframe width="90%" height="494" src="https://www.youtube.com/embed/GV1Wyx4SiQQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="querying-an-xml-document">Querying an XML document<a class="headerlink" href="#querying-an-xml-document" title="Permanent link">&para;</a></h2>
+<p>We use the following <code>library.xml</code> as a base for demonstrating the EOL syntax for querying XML documents.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span>
+<span class="nt">&lt;library&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;EMF Eclipse Modeling Framework&quot;</span> <span class="na">pages=</span><span class="s">&quot;744&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Dave Steinberg<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Frank Budinsky<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Marcelo Paternostro<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Ed Merks<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;Eclipse Modeling Project: A Domain-Specific Language (DSL) Toolkit&quot;</span> <span class="na">pages=</span><span class="s">&quot;736&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Richard Gronback<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;Official Eclipse 3.0 FAQs&quot;</span> <span class="na">pages=</span><span class="s">&quot;432&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;author&gt;</span>John Arthorne<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Chris Laffra<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2004<span class="nt">&lt;/published&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+<span class="nt">&lt;/library&gt;</span>
+</code></pre></div>
+
+<h2 id="queryingmodifying-xml-documents-in-eol">Querying/modifying XML documents in EOL<a class="headerlink" href="#queryingmodifying-xml-documents-in-eol" title="Permanent link">&para;</a></h2>
+<p>The PlainXML driver uses predefined naming conventions to allow developers to programmatically access and modify XML documents in a concise way. This section outlines the supported conventions in the form of questions and answers followed by relevant examples.</p>
+<h3 id="how-can-i-access-elements-by-tag-name">How can I access elements by tag name?<a class="headerlink" href="#how-can-i-access-elements-by-tag-name" title="Permanent link">&para;</a></h3>
+<p>The <code>t_</code> prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, <code>t_book.all</code> can be used to get all elements tagged as <code>&lt;book&gt;</code> in the document, <code>t_author.all</code> to retrieve all <code>&lt;author&gt;</code> elements etc. Also, if <code>b</code> is an element with a <code>&lt;book&gt;</code> tag, then <code>b.isTypeOf(t_book)</code> shall return true.</p>
+<pre class="prettyprint lang-eol"><code>// Get all &lt;book&gt; elements
+var books = t_book.all;
+
+// Get a random book
+var b = books.random();
+
+// Check if b is a book
+// Prints 'true'
+b.isTypeOf(t_book).println();
+
+// Check if b is a library
+// Prints 'false'
+b.isTypeOf(t_library).println();</code></pre>
+
+<h3 id="how-can-i-get-the-tag-name-of-an-element">How can I get the tag name of an element?<a class="headerlink" href="#how-can-i-get-the-tag-name-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.tagName</code> property for this purpose. For instance, if <code>b</code> is an element tagged as <code>&lt;book&gt;</code>, <code>b.tagName</code> shall return <code>book</code>. The <code>tagName</code> property is read-only.</p>
+<pre class="prettyprint lang-eol"><code>// Get a random &lt;book&gt; element
+var b = t_book.all.random();
+
+// Print its tag
+// Prints 'book'
+b.tagName.println();</code></pre>
+
+<h3 id="how-can-i-getset-the-attributes-of-an-element">How can I get/set the attributes of an element?<a class="headerlink" href="#how-can-i-getset-the-attributes-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the attribute name as a property of the element object, prefixed by <code>a_</code>. For example, if <code>b</code> is the first book of <code>library.xml</code>, <code>b.a_title</code> will return <code>EMF Eclipse Modeling Framework</code>. Attribute properties are read/write.</p>
+<p>In this example, <code>b.a_pages</code> will return <code>744</code> as a string. For <code>744</code> to be returned as an integer instead, the <code>i_</code> prefix should be used instead (i.e. <code>b.i_pages</code>. The driver also supports the following preffixes: <code>b_</code> for boolean, <code>s_</code> for string (alias of <code>a_</code>) and <code>r_</code> for real values. </p>
+<pre class="prettyprint lang-eol"><code>// Print all the titles of the books in the library
+for (b in t_book.all) {
+    b.a_title.println();
+}
+
+// Print the total number of pages of all books
+var total = 0;
+for (b in t_book.all) {
+    total = total + b.i_pages;
+}
+total.print();
+
+// ... the same using collect() and sum() 
+// instead of a for loop
+t_book.all.collect(b|b.i_pages).sum();</code></pre>
+
+<h3 id="how-can-i-getset-the-text-of-an-element">How can I get/set the text of an element?<a class="headerlink" href="#how-can-i-getset-the-text-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.text</code> read-write property for this.</p>
+<pre class="prettyprint lang-eol"><code>for (author in t_author.all) {
+    author.text.println();
+}</code></pre>
+
+<h3 id="how-do-i-get-the-parent-of-an-element">How do I get the parent of an element?<a class="headerlink" href="#how-do-i-get-the-parent-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.parentNode</code> read-only property for this.</p>
+<pre class="prettyprint lang-eol"><code>// Get a random book
+var b = t_book.all.random();
+
+// Print the tag of its parent node
+// Prints 'library'
+b.parentNode.tagName.println();</code></pre>
+
+<h3 id="how-do-i-get-the-children-of-an-element">How do I get the children of an element?<a class="headerlink" href="#how-do-i-get-the-children-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.children</code> read-only property for this.</p>
+<pre class="prettyprint lang-eol"><code>// Get the &lt;library&gt; element
+var lib = t_library.all.first();
+
+// Iterate through its children
+for (b in lib.children) {
+    // Print the title of each child
+    b.a_title.println();
+}</code></pre>
+
+<h3 id="how-do-i-get-child-elements-with-a-specific-tag-name">How do I get child elements with a specific tag name?<a class="headerlink" href="#how-do-i-get-child-elements-with-a-specific-tag-name" title="Permanent link">&para;</a></h3>
+<p>Using what you've learned so far, you can do this using a combination of the <code>.children</code> property and the select/selectOne() operations. However, the driver also supports <code>e_</code> and <code>c_</code>-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. <code>e_</code> and <code>c_</code> properties are read-only.</p>
+<pre class="prettyprint lang-eol"><code>// Get a random book
+var b = t_book.all.random();
+
+// Get its &lt;author&gt; children using the 
+// .children property
+var authors = b.children.select(a|a.tagName = "author");
+
+// Do the same using the shorthand
+authors = b.c_author;
+
+// Get its &lt;published&gt; child and print
+// its text using the
+// .children property
+b.children.selectOne(p|p.tagName = "published").text.println();
+
+// Do the same using the shorthand
+// (e_ instead of c_ this time as 
+// we only want one element, 
+// not a collection of them)
+b.e_published.text.println();</code></pre>
+
+<h3 id="how-do-i-create-an-element">How do I create an element?<a class="headerlink" href="#how-do-i-create-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>new</code> operator for this. </p>
+<pre class="prettyprint lang-eol"><code>// Check how many &lt;books&gt; are in the library
+// Prints '3'
+t_book.all.size().println();
+
+// Creates a new book element
+var b = new t_book;
+
+// Check again
+// Prints '4'
+t_book.all.size().println();</code></pre>
+
+<h3 id="how-can-i-add-a-child-to-an-existing-element">How can I add a child to an existing element?<a class="headerlink" href="#how-can-i-add-a-child-to-an-existing-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.appendChild(child)</code> operation for this.</p>
+<pre class="prettyprint lang-eol"><code>// Create a new book
+var b = new t_book;
+
+// Get the library element
+var lib = t_library.all.first();
+
+// Add the book to the library
+lib.appendChild(b);</code></pre>
+
+<h3 id="how-can-i-set-the-root-element-of-an-xml-document">How can I set the root element of an XML document?<a class="headerlink" href="#how-can-i-set-the-root-element-of-an-xml-document" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.root</code> property for this.</p>
+<pre class="prettyprint lang-eol"><code>XMLDoc.root = new t_library;</code></pre>
+
+<h2 id="adding-an-xml-document-to-your-launch-configuration">Adding an XML document to your launch configuration<a class="headerlink" href="#adding-an-xml-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
+<p>To add an XML document to your Epsilon launch configuration, you need to select "Plain XML document" from the list of available model types.</p>
+<p><img alt="" src="select.png" /></p>
+<p>Then you can configure the details of your document (name, file etc.) in the screen that pops up. To load an XML document that is not in the Eclipse workspace, untick the "Workspace file" check box and provide a full uri for your document (e.g. <code>http://api.twitter.com/1/statuses/followers/epsilonews.xml</code> or <code>file:/c:/myxml.xml</code>). </p>
+<p><img alt="" src="configure.png" /></p>
+<h2 id="loading-an-xml-document-in-your-ant-buildfile">Loading an XML document in your ANT buildfile<a class="headerlink" href="#loading-an-xml-document-in-your-ant-buildfile" title="Permanent link">&para;</a></h2>
+<p>The following ANT build file demonstrates how you can use ANT to load/store and process XML documents with Epsilon.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;epsilon.xml.loadModel</span> <span class="na">name=</span><span class="s">&quot;XMLDoc&quot;</span> <span class="na">file=</span><span class="s">&quot;library.xml&quot;</span>
+            <span class="na">read=</span><span class="s">&quot;true&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/epsilon.xml.loadModel&gt;</span>
+
+        <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;my.eol&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;XMLDoc&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/epsilon.eol&gt;</span>
+
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+<h2 id="loading-an-xml-document-through-java-code">Loading an XML document through Java code<a class="headerlink" href="#loading-an-xml-document-through-java-code" title="Permanent link">&para;</a></h2>
+<p>The following excerpt demonstrates using XML models using Epsilon's Java API.</p>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
+
+<span class="n">PlainXmlModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PlainXmlModel</span><span class="p">();</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setFile</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
+<span class="n">model</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
+
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setModule</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+</code></pre></div>
+
+<h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html">http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html</a>: Complete list of the operations that are applicable to XML elements</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © Eclipse Foundation, Inc. All Rights Reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+      </div>
+      <div class="md-footer-copyright epsilon-eclipse-links">
+          <ul>
+              <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
+      
+    
+  </body>
+</html>

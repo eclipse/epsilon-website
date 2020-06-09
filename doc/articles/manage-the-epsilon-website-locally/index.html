@@ -1,0 +1,918 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>Manage the Epsilon web site locally - Epsilon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a676eddb.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.b302131d.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
+    
+      
+    
+    
+<!-- FAVICON -->
+
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#manage-the-epsilon-web-site-locally" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Epsilon" class="md-header-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Epsilon
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Manage the Epsilon web site locally
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    Epsilon
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../emc/" title="Model connectivity" class="md-nav__link">
+      Model connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Languages
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Languages" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eol/" title="Object language (EOL)" class="md-nav__link">
+      Object language (EOL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../egl/" title="Code generation (EGL)" class="md-nav__link">
+      Code generation (EGL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../evl/" title="Model validation (EVL)" class="md-nav__link">
+      Model validation (EVL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../etl/" title="Model transformation (ETL)" class="md-nav__link">
+      Model transformation (ETL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ecl/" title="Model comparison (ECL)" class="md-nav__link">
+      Model comparison (ECL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eml/" title="Model merging (EML)" class="md-nav__link">
+      Model merging (EML)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../epl/" title="Pattern matching (EPL)" class="md-nav__link">
+      Pattern matching (EPL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../flock/" title="Model Migration (Flock)" class="md-nav__link">
+      Model Migration (Flock)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../emg/" title="Model generation (EMG)" class="md-nav__link">
+      Model generation (EMG)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
+      Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Tools
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Tools" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../picto/" title="Picto" class="md-nav__link">
+      Picto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../flexmi/" title="Flexmi" class="md-nav__link">
+      Flexmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eugenia/" title="Eugenia" class="md-nav__link">
+      Eugenia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../exeed/" title="Exeed" class="md-nav__link">
+      Exeed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modelink/" title="Modelink" class="md-nav__link">
+      Modelink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hutn/" title="HUTN" class="md-nav__link">
+      HUTN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
+      Workflow (Ant tasks)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
+      Lectures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Javadoc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/2.0/javadoc/" title="Stable" class="md-nav__link">
+      Stable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/interim/javadoc/" title="Interim" class="md-nav__link">
+      Interim
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Community
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Community" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Who is using Epsilon?
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Who is using Epsilon?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/" title="Industry" class="md-nav__link">
+      Industry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/education/" title="Education" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/open-source/" title="Open-source projects" class="md-nav__link">
+      Open-source projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
+      Who is developing Epsilon?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
+      Forum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faq/" title="Frequently asked questions" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="manage-the-epsilon-web-site-locally">Manage the Epsilon web site locally<a class="headerlink" href="#manage-the-epsilon-web-site-locally" title="Permanent link">&para;</a></h1>
+<p>This article provides a step-by-step guide for obtaining a local copy of the Epsilon website.</p>
+<ul>
+<li>Download and install
+    <a href="http://portableapps.com/apps/development/xampp">XAMPP</a>.</li>
+<li>The folder where web-content is placed is <code>htdocs</code>.</li>
+<li>Create an <code>epsilon</code> folder inside <code>htdocs</code>.</li>
+<li>Clone the Git repository at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#115;&#104;&#58;&#47;&#47;&#117;&#115;&#101;&#114;&#95;&#105;&#100;&#64;&#103;&#105;&#116;&#46;&#101;&#99;&#108;&#105;&#112;&#115;&#101;&#46;&#111;&#114;&#103;&#58;&#50;&#57;&#52;&#49;&#56;&#47;&#119;&#119;&#119;&#46;&#101;&#99;&#108;&#105;&#112;&#115;&#101;&#46;&#111;&#114;&#103;&#47;&#101;&#112;&#115;&#105;&#108;&#111;&#110;&#46;&#103;&#105;&#116;">&#115;&#115;&#104;&#58;&#47;&#47;&#117;&#115;&#101;&#114;&#95;&#105;&#100;&#64;&#103;&#105;&#116;&#46;&#101;&#99;&#108;&#105;&#112;&#115;&#101;&#46;&#111;&#114;&#103;&#58;&#50;&#57;&#52;&#49;&#56;&#47;&#119;&#119;&#119;&#46;&#101;&#99;&#108;&#105;&#112;&#115;&#101;&#46;&#111;&#114;&#103;&#47;&#101;&#112;&#115;&#105;&#108;&#111;&#110;&#46;&#103;&#105;&#116;</a> using EGit, specifying your Eclipse committer username in <code>user_id</code>. Eclipse will ask for your committer password. The destination directory should be the <code>epsilon</code> directory created in the previous step.</li>
+<li>Import the working directory of the Git repository as a single general project.</li>
+<li>Start XAMPP and go to <code>http://localhost/epsilon</code>.</li>
+<li>You are now ready to start playing with the Epsilon site locally.</li>
+<li>Once you've happy with the changes you've made, go back to the epsilon project in Eclipse, refresh and then commit and push the changes to Git. The site should be updated within a few minutes.</li>
+</ul>
+<h1 id="using-lighttpd-instead-of-xampp">Using lighttpd instead of XAMPP<a class="headerlink" href="#using-lighttpd-instead-of-xampp" title="Permanent link">&para;</a></h1>
+<p>You can also use <a href="http://www.lighttpd.net/">lighttpd</a> with PHP instead of XAMPP, following <a href="http://redmine.lighttpd.net/wiki/1/TutorialLighttpdAndPHP">this tutorial</a> and pointing <code>server.document-root</code> to your <code>htdocs</code> directory, checked out as above. Alternatively, in most Debian-based GNU/Linux distributions, installing the <code>lighttpd</code> and <code>php5-cgi</code> packages and adapting this minimal configuration should be enough:</p>
+<p><div class="highlight"><pre><span></span><code>server.document-root = &quot;/path/to/htdocs&quot;
+server.port          = 8080
+index-file.names    += ( &quot;index.html&quot;, &quot;index.htm&quot;, &quot;index.php&quot; )
+
+mimetype.assign = ( &quot;.html&quot; =&gt; &quot;text/html&quot;, &quot;.htm&quot; =&gt; &quot;text/html&quot;,
+                    &quot;.css&quot; =&gt; &quot;text/css&quot;,   &quot;.txt&quot; =&gt; &quot;text/plain&quot;,
+                    &quot;.jpg&quot; =&gt; &quot;image/jpeg&quot;, &quot;.png&quot; =&gt; &quot;image/png&quot; )
+
+server.modules += ( &quot;mod_cgi&quot; )
+cgi.assign      = ( &quot;.php&quot; =&gt; &quot;/path/to/php-cgi&quot; )
+</code></pre></div>
+You can then launch the lighttpd server and leave it running on the foreground with:</p>
+<div class="highlight"><pre><span></span><code>lighttpd -D -f lighttpd-epsilon.conf
+</code></pre></div>
+
+<p>If you use lighttpd in Windows, use Windows-style paths (<code>c:\...</code>) instead of Cygwin-style (<code>/cygdrive/c/...</code>) paths. Otherwise, PHP will not work correctly.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The HTML output includes bits of PHP code: make sure that <code>short_open_tag</code> is set to <code>On</code> in your <code>php.ini</code> file. It seems to be set to <code>Off</code> by default in the latest distributions of XAMPP and PHP.</li>
+<li>All you get is <code>No input file specified</code>: make sure that <code>doc_root</code> is set to the path to the <code>htdocs</code> folder in your <code>php.ini</code> file.</li>
+</ul>
+<h2 id="finding-broken-links">Finding broken links<a class="headerlink" href="#finding-broken-links" title="Permanent link">&para;</a></h2>
+<p><code>wget</code> and <code>grep</code> can be used to find broken links in the Epsilon website. First, we will traverse the website using <code>wget</code> with this command:</p>
+<div class="highlight"><pre><span></span><code>wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8080/epsilon/
+</code></pre></div>
+
+<p>We have used these options:</p>
+<ul>
+<li><code>-e robots=off</code> makes <code>wget</code> ignore <code>robots.txt</code>. This is OK in this case, as we're running the spider on our own local server.</li>
+<li><code>--spider</code> prevents <code>wget</code> from downloading page requisites that do not contain links</li>
+<li><code>-r</code> makes <code>wget</code> traverse through links</li>
+<li><code>--no-parent</code> prevents <code>wget</code> from leaving <code>/gmt/epsilon/</code></li>
+<li><code>-o wget_errors.txt</code> collects all messages in the <code>wget_errors.txt</code> file</li>
+</ul>
+<p>Once it's done, we can simply search for the word "404" in the log, with:</p>
+<div class="highlight"><pre><span></span><code>grep -B2 -w 404 wget_errors.txt
+</code></pre></div>
+
+<p>We will get a list of all the URLs which reported 404 (Not Found) HTTP error codes.</p>
+<p>To find broken links in the <a href="http://epsilonblog.wordpress.com">Epsilon blog</a>, it is better to use <code>-l 3</code> (3 levels of recursion for the spider) rather than <code>--no-parent</code>, as we might want to check if external links are broken as well. We use three levels so we can go to the month in the "Archives", then to the full article, and finally to the external link itself.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © Eclipse Foundation, Inc. All Rights Reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+      </div>
+      <div class="md-footer-copyright epsilon-eclipse-links">
+          <ul>
+              <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
+      
+    
+  </body>
+</html>

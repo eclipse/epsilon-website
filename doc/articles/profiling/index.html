@@ -1,0 +1,976 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>Profiling Epsilon Programs - Epsilon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a676eddb.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.b302131d.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="../../../assets/javascript/google-code-prettify/prettify.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
+    
+      
+    
+    
+<!-- FAVICON -->
+
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#profiling-epsilon-programs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Epsilon" class="md-header-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Epsilon
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Profiling Epsilon Programs
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    Epsilon
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../emc/" title="Model connectivity" class="md-nav__link">
+      Model connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Languages
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Languages" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eol/" title="Object language (EOL)" class="md-nav__link">
+      Object language (EOL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../egl/" title="Code generation (EGL)" class="md-nav__link">
+      Code generation (EGL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../evl/" title="Model validation (EVL)" class="md-nav__link">
+      Model validation (EVL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../etl/" title="Model transformation (ETL)" class="md-nav__link">
+      Model transformation (ETL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ecl/" title="Model comparison (ECL)" class="md-nav__link">
+      Model comparison (ECL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eml/" title="Model merging (EML)" class="md-nav__link">
+      Model merging (EML)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../epl/" title="Pattern matching (EPL)" class="md-nav__link">
+      Pattern matching (EPL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../flock/" title="Model Migration (Flock)" class="md-nav__link">
+      Model Migration (Flock)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../emg/" title="Model generation (EMG)" class="md-nav__link">
+      Model generation (EMG)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
+      Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Tools
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Tools" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../picto/" title="Picto" class="md-nav__link">
+      Picto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../flexmi/" title="Flexmi" class="md-nav__link">
+      Flexmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../eugenia/" title="Eugenia" class="md-nav__link">
+      Eugenia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../exeed/" title="Exeed" class="md-nav__link">
+      Exeed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modelink/" title="Modelink" class="md-nav__link">
+      Modelink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hutn/" title="HUTN" class="md-nav__link">
+      HUTN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
+      Workflow (Ant tasks)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
+      Lectures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Javadoc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/2.0/javadoc/" title="Stable" class="md-nav__link">
+      Stable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/interim/javadoc/" title="Interim" class="md-nav__link">
+      Interim
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Community
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Community" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Who is using Epsilon?
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Who is using Epsilon?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/" title="Industry" class="md-nav__link">
+      Industry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/education/" title="Education" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../users/open-source/" title="Open-source projects" class="md-nav__link">
+      Open-source projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
+      Who is developing Epsilon?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
+      Forum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faq/" title="Frequently asked questions" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-profiling-statements-to-your-epsilon-code" class="md-nav__link">
+    Adding profiling statements to your Epsilon code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-profiling-information" class="md-nav__link">
+    Inspecting Profiling Information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-time-measuring-modes" class="md-nav__link">
+    Execution Time Measuring Modes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-profiling-in-epsilon-run-configurations" class="md-nav__link">
+    Enabling Profiling in Epsilon Run Configurations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-profiling-in-epsilon-ant-tasks" class="md-nav__link">
+    Enabling Profiling in Epsilon ANT tasks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-using-the-profiling-tools" class="md-nav__link">
+    Notes on Using the Profiling Tools
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="profiling-epsilon-programs">Profiling Epsilon Programs<a class="headerlink" href="#profiling-epsilon-programs" title="Permanent link">&para;</a></h1>
+<p>The purpose of this article is to provide an overview and a usage example of the Epsilon profiling tools. Profiling is particularly useful in order to obtain metrics for theperformance of Epsilon code, and to identify blocks of code that are either executed more often than anticipated or take too much time to execute.</p>
+<h2 id="adding-profiling-statements-to-your-epsilon-code">Adding profiling statements to your Epsilon code<a class="headerlink" href="#adding-profiling-statements-to-your-epsilon-code" title="Permanent link">&para;</a></h2>
+<p>Code-level support for profiling in Epsilon has been implemented in the form of a tool called <code>ProfilerTool</code> (<code>org.eclipse.epsilon.eol.tools.ProfilerTool</code>). To add support for profiling in your Epsilon program you must instantiate the tool and call its <code>start()</code> and <code>stop()</code> methods. The following EOL example contains an operation <code>fib()</code> that calculates the Fibonacci number of a given integer, and a call to the <code>fib()</code> operation with an initial value of 15.</p>
+<pre class="prettyprint lang-eol"><code>15.fib();
+operation Integer fib() : Integer {
+  var fib : Integer;
+  if (self = 1 or self = 0){ 
+    fib = 1;
+  } else {
+    fib = (self-1).fib()+(self-2).fib();
+  }
+  return fib;
+}</code></pre>
+
+<p>Our aim in this example is to enrich the program with profiling statements so that we canget to know how many times the <code>fib()</code> operation is executed and how much time each calltakes to execute. To achieve this we modify our program as follows:</p>
+<pre class="prettyprint lang-eol"><code>var profiler : new Native('org.eclipse.epsilon.eol.tools.ProfilerTool');
+profiler.start('Program');
+15.fib();
+profiler.stop();
+
+operation Integer fib() : Integer {
+  profiler.start('fib',self);
+  var fib : Integer;
+  if (self = 1 or self = 0){ 
+    fib = 1;
+  } else {
+    fib = (self-1).fib()+(self-2).fib();
+  }
+  profiler.stop();
+  return fib;
+}</code></pre>
+
+<p>We add an instantiation statement that creates a new instance of the <code>ProfilerTool</code> in Line 1. Then we define two profiling targets. The first one is called "Program" and measures the performance of line 3 and the second one is called "fib" and measures the performance of the body of the <code>fib()</code> operation. Note that the first call to the <code>start()</code> method has only one argument (the mandatory <code>targetName : String</code> argument) while the second one has an additional argument. This extra (optional) argument (<code>data : Any</code>) enables users to capture context-specific information where multiple calls to the specific <code>start()</code> method are anticipated. In our example, we store the value of the integer on which the operation is executed (<code>self</code>). Here we should note that since profiling has been implemented in the context of EOL, the same technique can be used to profile code in all task-specific languages of Epsilon (ETL, ECL, EML etc).</p>
+<h2 id="inspecting-profiling-information">Inspecting Profiling Information<a class="headerlink" href="#inspecting-profiling-information" title="Permanent link">&para;</a></h2>
+<p>Once we've executed the program, we can inspect the profiling information gathered, by activating the "Profiling" Eclipse view. Upon activation the view will look like this:</p>
+<p><img alt="" src="profiling-view.png" /></p>
+<p>To populate the view with the information gathered during profiling, we click the "Refresh view" button in the toolbar of the view. This makes the view look like this:</p>
+<p><img alt="" src="profiling-view-1.png" /></p>
+<p>From this summary view we see that the Program target has been executed 1 time and has taken 1292 ms to execute. Similarly, the fib target has been executed 1973 times with a total time of 1292 ms and an average of 0.6548. By clicking on the respective column headers of the summary table we can sort the targets by name, # times executed, total execution time etc.</p>
+<p>To obtain a more detailed view on the profiling data, we can switch to the "Details" tab located at the bottom of the view.</p>
+<p><img alt="" src="profiling-view-2.png" /></p>
+<p>Unlike the table-oriented "Summary" view, the "Details" view contains a tree-table combination that visualizes each target instance and displays its execution time, the context specific data, as well as the location of the profiling statement in the source code. By default, the children of each target are ordered by execution order. However, by checking the "Sort children by execution time" button on the view toolbar we can sort the children by execution time as well. Also, double-clicking a particular target should bring up the respective editor and highlight the line in which the call to the <code>start()</code> method of the ProfilerTool exists.</p>
+<h2 id="execution-time-measuring-modes">Execution Time Measuring Modes<a class="headerlink" href="#execution-time-measuring-modes" title="Permanent link">&para;</a></h2>
+<p>The Epsilon profiling tools support two different modes for measuring the time each target has consumed to execute. In the individual mode, each target is assigned only the time it has taken to execute itself. In the aggregated mode, the execution time of a target is that of the target itself plus the execution times of its children (recursively). To change between the two modes, we can check/uncheck the "Show aggregated execution times" button on the toolbar.</p>
+<h2 id="enabling-profiling-in-epsilon-run-configurations">Enabling Profiling in Epsilon Run Configurations<a class="headerlink" href="#enabling-profiling-in-epsilon-run-configurations" title="Permanent link">&para;</a></h2>
+<p>You can turn profiling on through the "Profiling" tab of the run configuration of your Epsilon program.</p>
+<h2 id="enabling-profiling-in-epsilon-ant-tasks">Enabling Profiling in Epsilon ANT tasks<a class="headerlink" href="#enabling-profiling-in-epsilon-ant-tasks" title="Permanent link">&para;</a></h2>
+<p>In addition to profiling specific code blocks, we can use the Epsilon profiling tools to profile entire model management operations invoked as ANT tasks by setting the optional profile attribute to true. In the following example, we have created an ANT build-file that invokes the Fib.eol EOL program we demonstrated above.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;Fib.eol&quot;</span> <span class="na">profile=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+<p>Executing the ANT build-file and refreshing the following Profiling view makes it look like this:</p>
+<p><img alt="" src="profiling-view-3.png" /></p>
+<p>We can see that a new target named after the filename of the executed EOL program has been created along with the targets created using the in-line calls to the <code>start()</code> method of the <code>ProfilerTool</code>.</p>
+<h2 id="notes-on-using-the-profiling-tools">Notes on Using the Profiling Tools<a class="headerlink" href="#notes-on-using-the-profiling-tools" title="Permanent link">&para;</a></h2>
+<p>The underlying profiler is loosely coupled with Epsilon. This means that it records profiling information when asked to, and which is never cleared automatically. To clear the profile, you must click the "Reset profiler" button in the Profiling view. To enable real-time preview of the profiling data as they are being recorded, we have added an "Auto Refresh" button to the view. However, this should be used with caution as real-time rendering of the results may lead to (significantly) increased execution times due to the time consumed to actually query the profiler and display the data in the widgets. With regard to the impact of the profiling code on the produced metrics we have tried to minimize it by using an elaborated stopwatch mechanism. Initial tests have shown that each <code>start()</code> -- <code>stop()</code> pair introduces a 0-10ms overhead of the measured time; however this is only indicative and may vary according to the execution platform.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © Eclipse Foundation, Inc. All Rights Reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+      </div>
+      <div class="md-footer-copyright epsilon-eclipse-links">
+          <ul>
+              <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../../assets/javascript/google-code-prettify/prettyprint.js"></script>
+      
+    
+  </body>
+</html>

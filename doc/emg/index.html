@@ -1,0 +1,1472 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>Model generation (EMG) - Epsilon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.b302131d.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="../../assets/javascript/google-code-prettify/prettify.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
+    
+      
+    
+    
+<!-- FAVICON -->
+
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-epsilon-model-generation-language-emg" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Epsilon" class="md-header-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Epsilon
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Model generation (EMG)
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    Epsilon
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emc/" title="Model connectivity" class="md-nav__link">
+      Model connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Languages
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Languages" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eol/" title="Object language (EOL)" class="md-nav__link">
+      Object language (EOL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../egl/" title="Code generation (EGL)" class="md-nav__link">
+      Code generation (EGL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../evl/" title="Model validation (EVL)" class="md-nav__link">
+      Model validation (EVL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../etl/" title="Model transformation (ETL)" class="md-nav__link">
+      Model transformation (ETL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ecl/" title="Model comparison (ECL)" class="md-nav__link">
+      Model comparison (ECL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eml/" title="Model merging (EML)" class="md-nav__link">
+      Model merging (EML)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../epl/" title="Pattern matching (EPL)" class="md-nav__link">
+      Pattern matching (EPL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flock/" title="Model Migration (Flock)" class="md-nav__link">
+      Model Migration (Flock)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Model generation (EMG)
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Model generation (EMG)" class="md-nav__link md-nav__link--active">
+      Model generation (EMG)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#approaches-to-model-generation" class="md-nav__link">
+    Approaches to Model Generation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emg-predefined-operations" class="md-nav__link">
+    EMG predefined operations
+  </a>
+  
+    <nav class="md-nav" aria-label="EMG predefined operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#character-sets-for-string-operations" class="md-nav__link">
+    Character Sets for String operations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-model-elements" class="md-nav__link">
+    Creating Model Elements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-model-links" class="md-nav__link">
+    Creating Model Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meaningful-strings" class="md-nav__link">
+    Meaningful Strings
+  </a>
+  
+    <nav class="md-nav" aria-label="Meaningful Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#values-as-a-parameter" class="md-nav__link">
+    Values as a parameter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values-as-a-model" class="md-nav__link">
+    Values as a model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
+      Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Tools
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Tools" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../picto/" title="Picto" class="md-nav__link">
+      Picto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flexmi/" title="Flexmi" class="md-nav__link">
+      Flexmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eugenia/" title="Eugenia" class="md-nav__link">
+      Eugenia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exeed/" title="Exeed" class="md-nav__link">
+      Exeed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modelink/" title="Modelink" class="md-nav__link">
+      Modelink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hutn/" title="HUTN" class="md-nav__link">
+      HUTN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
+      Workflow (Ant tasks)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../articles/" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
+      Lectures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Javadoc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/2.0/javadoc/" title="Stable" class="md-nav__link">
+      Stable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/interim/javadoc/" title="Interim" class="md-nav__link">
+      Interim
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Community
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Community" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Who is using Epsilon?
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Who is using Epsilon?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/" title="Industry" class="md-nav__link">
+      Industry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/education/" title="Education" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/open-source/" title="Open-source projects" class="md-nav__link">
+      Open-source projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
+      Who is developing Epsilon?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
+      Forum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="Frequently asked questions" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#approaches-to-model-generation" class="md-nav__link">
+    Approaches to Model Generation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emg-predefined-operations" class="md-nav__link">
+    EMG predefined operations
+  </a>
+  
+    <nav class="md-nav" aria-label="EMG predefined operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#character-sets-for-string-operations" class="md-nav__link">
+    Character Sets for String operations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-model-elements" class="md-nav__link">
+    Creating Model Elements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-model-links" class="md-nav__link">
+    Creating Model Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meaningful-strings" class="md-nav__link">
+    Meaningful Strings
+  </a>
+  
+    <nav class="md-nav" aria-label="Meaningful Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#values-as-a-parameter" class="md-nav__link">
+    Values as a parameter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values-as-a-model" class="md-nav__link">
+    Values as a model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="the-epsilon-model-generation-language-emg">The Epsilon Model Generation Language (EMG)<a class="headerlink" href="#the-epsilon-model-generation-language-emg" title="Permanent link">&para;</a></h1>
+<p>At some point, programs written in any of the Epsilon model management languages might need to be tested in order to find defects (bugs) and assert their correctness, or benchmarked in order to assess their performance. Both testing and benchmarking activities require appropriate test data, i.e. models that conform to specific metamodels and their constraints, satisfy additional requirements or characteristics (e.g. certain size), and/or contain data and provide a structure that exercises particular aspects of the program under test.</p>
+<p>Manual assembly of test models is an error prone, time and labour consuming activity. This type of activities are perfect candidates for automation. Given that it is also a model management activity, it follows that the automation can be provided by a model generation engine that can execute model generation scripts. The scripts should be written in a model generation language that allows the user to generate models that conform to specific metamodels and its arbitrarily complex constraints (e.g constraints formulated in compound first-order OCL operations), satisfy particular characteristics, and contain specific data and exhibit particular structures. The model generation engine should exhibit characteristics such as randomness, repeatability, scalability and easy parametrization. The Epsilon Model Generation Language addresses the automated generation of complex models.</p>
+<h3 id="approaches-to-model-generation">Approaches to Model Generation<a class="headerlink" href="#approaches-to-model-generation" title="Permanent link">&para;</a></h3>
+<p>The model generation approaches found in literature provide fully-automated behaviour. In a fully-automated approach, the tool loads the metamodel (and in some cases its constraints) and generates models that conform to the metamodel (and satisfy the constraints, if constraints are supported). However, the existing solutions can generate invalid models and in the case where constraints are supported, only simple constraints are supported.</p>
+<p>The Epsilon Model Generation follows a semi-automated generation approach. There are three main tasks in model generation:</p>
+<ul>
+<li>
+<p>Create instances of types in the metamodel(s).</p>
+</li>
+<li>
+<p>Assign values to the instance's attributes (properties typed by primitive types: String, Integer, etc.).</p>
+</li>
+<li>
+<p>Create links between instances to assign values to references (properties typed by complex types: other types in the metamodel).</p>
+</li>
+</ul>
+<p>In the semi-automated approach, all of these tasks can be configured to execute statically or dynamically (with randomness). Statically, the user must specify every single aspect of the generation. Dynamically, for example, the number of instances to create of a given type can be random, or the value of a given attribute can be set to random values, or the links between elements can be done between random pairs of elements. The combination of random and static definition of the generation tasks allows the user to generate models that can satisfy complex constraints, guarantee additional characteristics and exercise particular aspects of the program under test.</p>
+<p>This chapter discusses the concrete syntax of EMG as well as its execution semantics. To aid understanding, the discussion of the syntax and the semantics of the language revolves around an exemplar generation which is developed incrementally throughout the chapter.</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>The EMG language does not provide additional syntax. Instead it provides a set of predefined annotations that can be added to EOL operations and EPL patterns in order to perform the model generation. The predefined EOL operation annotations are:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instances</td>
+<td>Defines the number of instances to create. This annotation accepts one parameter. The parameter can be an expression that resolves to an Integer (e.g. literal, variable name, etc.) or a sequence in the form <code>Sequence {min, max}</code>). An integer value statically defines how many instances are to be created. A sequence defines a range that is used by the engine to generates a random number <em>n</em> of instances, with <code>min &lt;= n &lt;= max</code>.</td>
+</tr>
+<tr>
+<td>list</td>
+<td>Defines an identifier (listID) for a placeholder list for the elements created. This annotation accepts one parameter. The parameter is the identifier (String) that can later be used in operations that accept it as an argument in order to access the elements created by the operation.</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td>If the instantiated type accepts/needs arguments for instantiation, the parameters annotation can be used to provide them. This annotation accepts one parameter. The parameter must be a Sequence that contains the desired arguments in the order expected by the constructor.</td>
+</tr>
+</tbody>
+</table>
+<p>All three annotations are executable and hence must be prefixed with a $ symbol when used. Further, these annotations are only evaluated on <em>create</em> operations.</p>
+<p>The EPL pattern annotations are:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td>This limits the number of times the pattern is matched, to constraint the number of links created between elements. This annotation accepts one parameter. The parameter can be an expression that resolves to an Integer (e.g. literal, variable name, etc.) or a sequence in the form <code>Sequence {min, max}</code>). An integer value statically defines how many instances are to be created. A sequence defines a range that is used by the engine to generates a random number <em>n</em> of instances, with <code>min &lt;= n &lt;= max</code>.</td>
+</tr>
+<tr>
+<td>probability</td>
+<td>This defines the probability that the body of the pattern will be executed for a matching set of elements. The effect is that not all matching elements are linked. Effectively this also limits the number of times links are created.</td>
+</tr>
+<tr>
+<td>noRepeat</td>
+<td>This forbids previous matched elements to be re-linked.</td>
+</tr>
+</tbody>
+</table>
+<p>The first two annotations are executable and hence must be prefixed with a <code>$</code> symbol when used and the last one is a simple annotation and must be prefixed with <code>@</code>.</p>
+<p>Additionally the EMG engine provides a set of predefined operations that provide support for generating random data that can be used to set the attributes and references of the generated model elements, to select random elements from collections, etc.</p>
+<h3 id="emg-predefined-operations">EMG predefined operations<a class="headerlink" href="#emg-predefined-operations" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Signature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nextAddTo(n : Integer, m : Integer): Sequence(Integer)</td>
+<td>Returns a sequence of n integers who's sum is equal to m.</td>
+</tr>
+<tr>
+<td>nextBoolean()</td>
+<td>Returns the next pseudorandom, uniformly distributed <code>boolean</code> value.</td>
+</tr>
+<tr>
+<td>nextCamelCaseWords(charSet : String, length : Integer, minWordLength : Integer) : String</td>
+<td>Generates a string of the given length formatted as CamelCase, with subwords of a minimum length of the minWordLength argument, using characters from the given charSet.</td>
+</tr>
+<tr>
+<td>nextCapitalisedWord(charSet : String, length : Integer) : String</td>
+<td>Generate a Capitalized string of the given length using characters from the given charSet.</td>
+</tr>
+<tr>
+<td>nextFromCollection(c : Sequence) : Any</td>
+<td>Returns the next <code>object</code> from the collection, selected pseudoramdomly using the uniform distribution. If the collection is empty, returns null.</td>
+</tr>
+<tr>
+<td>nextFromList(listID : String) : Any</td>
+<td>Returns the next <code>object</code> from the list, selected pseudoramdomly using the uniform distribution. If the list is empty, returns null. The <em>listID</em> can either be a name defined by the \@list annotation or a parameter name from the run configuration. In the latter case, the parameter value can be either a comma separated string or a file path. If it is a comma separated string, then a list is created by splitting the string, if the value is a path, then the file will be read and each line will be treated as a list element.</td>
+</tr>
+<tr>
+<td>nextFromListAsSample(listID : String) : Any</td>
+<td>Same as nextFromList, but in this case the list is treated as a sample without replacement, i.e. each call will return a unique member of the list.</td>
+</tr>
+<tr>
+<td>nextHttpURI(addPort : Boolean, addPath : Boolean, addQuery : Boolean, addFragment : Boolean) : String</td>
+<td>Generates a random URI that complies to http:[//host[:port]][/]path [?query][#fragment]. The path, query and fragment parts are optional and will be added if the respective argument is True.</td>
+</tr>
+<tr>
+<td>nextInt() : Integer</td>
+<td>Returns the next pseudorandom, uniformly distributed integer. All <code>2^32</code> possible integer values should be produced with (approximately) equal probability.</td>
+</tr>
+<tr>
+<td>nextInt(upper : Integer) : Integer</td>
+<td>Returns a pseudorandom, uniformly distributed integer value between 0 (inclusive) and <em>upper</em> (exclusive). The argument must be positive.</td>
+</tr>
+<tr>
+<td>nextInt(lower: Integer, upper : Integer) : Integer</td>
+<td>Returns a pseudorandom, uniformly distributed integer value between lower and upper (endpoints included). The arguments must be positive and <code>upper &gt;= lower</code>.</td>
+</tr>
+<tr>
+<td>nextReal() : Real</td>
+<td>Returns the next pseudorandom, uniformly distributed <code>real</code> value between <code>0.0</code> and <code>1.0</code>.</td>
+</tr>
+<tr>
+<td>nextReal(upper : Real) : Real</td>
+<td>Returns the next pseudorandom, uniformly distributed <code>real</code> value between <code>0.0</code> and <em>upper</em> (inclusive).</td>
+</tr>
+<tr>
+<td>nextReal(lower: Real, upper : Real) : Real</td>
+<td>Returns a pseudorandom, uniformly distributed <code>real</code> value between <em>lower</em> and <em>upper</em> (endpoints included).</td>
+</tr>
+<tr>
+<td>nextSample(c : Sequence, k : Integer) : Sequence(Any)</td>
+<td>Returns a Sequence of <code>k</code> objects selected randomly from the Sequence <code>c</code> using a uniform distribution. Sampling from <code>c</code> is without replacement; but if c contains identical objects, the sample may include repeats. If all elements of <code>c</code> are distinct, the resulting object collection represents a Simple Random Sample of size <code>k</code> from the elements of <code>c</code>.</td>
+</tr>
+<tr>
+<td>nextSample(listID : String, k : Integer) : Sequence(Any)</td>
+<td>Same as nextSample but the sequence is referenced by <em>listID</em>. The <em>listID</em> has the same meanings as for operation <em>nextFromList</em>.</td>
+</tr>
+<tr>
+<td>nextString() : String</td>
+<td>Returns the next string made up from characters of the <code>LETTER</code> character set, pseudorandomly selected with a uniform distribution. The length of the string is between 4 and 10 characters.</td>
+</tr>
+<tr>
+<td>nextString(length : Integer) : String</td>
+<td>Returns the next String made up from characters of the <code>LETTER</code> character set, pseudorandomly selected with a uniform distribution. The length of the String is equal to <em>length</em>.</td>
+</tr>
+<tr>
+<td>nextString(charSet : String, length : Integer) : String</td>
+<td>Returns the next String of the given <em>length</em> using the specified character set, pseudorandomly selected with a uniform distribution.</td>
+</tr>
+<tr>
+<td>nextURI() : String</td>
+<td>Generates a random URI that complies to: scheme:[//[user:password]host[:port]][/]path [?query][#fragment]. The port, path, query and fragment are added randomly. The scheme is randomly selected from: http, ssh and ftp. For ssh and ftp, a user and pasword are randomly generated. The host is generated from a random string and uses a top-level domain. The number of paths and queries are random between 1 and 4.</td>
+</tr>
+<tr>
+<td>nextURI(addPort : Boolean, addPath : Boolean, addQuery : Boolean, addFragment : Boolean) : String</td>
+<td>Same as nextURI, but the given arguments control what additional port, path, query and fragment information is added.</td>
+</tr>
+<tr>
+<td>nextUUID() : String</td>
+<td>Returns a type 4 (pseudo randomly generated) UUID. The UUID is generated using a cryptographically strong pseudo random number generator.</td>
+</tr>
+<tr>
+<td>nextValue() : Real</td>
+<td>Returns the next pseudorandom value, picked from the configured distribution (by default the uniform distribution is used).</td>
+</tr>
+<tr>
+<td>nextValue(d : String, p : Sequence) : Real</td>
+<td>Returns the next pseudorandom, from the provided distribution <code>d</code>. The parameters <code>p</code> are used to configure the distribution (if required). The supported distributions are: Binomial, Exponential and Uniform. For Binomial parameters are: numberOfTrials and probabilityOfSuccess. For Exponential the mean. For Uniform the lower and upper values (lower inclusive).</td>
+</tr>
+<tr>
+<td>setNextValueDistribution(d : String, p : Sequence)</td>
+<td>Define the distribution to use for calls to <em>nextValue()</em>. Parameters are the same as for nextValue(d, p).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="character-sets-for-string-operations">Character Sets for String operations<a class="headerlink" href="#character-sets-for-string-operations" title="Permanent link">&para;</a></h4>
+<p>For the operations that accept a character set, the supported sets are
+defined as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890</td>
+</tr>
+<tr>
+<td>NUMERIC</td>
+<td>1234567890</td>
+</tr>
+<tr>
+<td>LETTER</td>
+<td>abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</td>
+</tr>
+<tr>
+<td>LETTER_UPPER</td>
+<td>ABCDEFGHIJKLMNOPQRSTUVWXYZ</td>
+</tr>
+<tr>
+<td>LETTER_LOWER</td>
+<td>abcdefghijklmnopqrstuvwxyz</td>
+</tr>
+<tr>
+<td>UPPER_NUM</td>
+<td>ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890</td>
+</tr>
+<tr>
+<td>LOWER_NUM</td>
+<td>abcdefghijklmnopqrstuvwxyz 1234567890</td>
+</tr>
+<tr>
+<td>ID_SYMBOL</td>
+<td>abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890 ~{}!@#\$%\^&amp;( ) _+-=[] \|;': \" \&lt; > ? , . /\</td>
+</tr>
+<tr>
+<td>HEX_LOWER</td>
+<td>abcdef1234567890</td>
+</tr>
+<tr>
+<td>HEX_UPPER</td>
+<td>ABCDEF1234567890</td>
+</tr>
+</tbody>
+</table>
+<h2 id="creating-model-elements">Creating Model Elements<a class="headerlink" href="#creating-model-elements" title="Permanent link">&para;</a></h2>
+<p>The EMG engine will search for EOL operations that follow a particular signature in order to determine what elements to create in the generated model. The signature is: <code>create &lt;OutputType&gt; () { ... }</code>. That is, the operation must be named <em>create</em>, the operation's context type defines the type of the created instance and no parameters should be passed. By default the create operation only creates one instance. Hence, the provided annotations can be used to tailor the behaviour of the operation.</p>
+<p>Consider the case of the PetriNet metamodel in the figure below. </p>
+<div class="mermaid mermaid-100">classDiagram
+class Element {
+    +name: String
+}
+class Place {
+    +outgoing: PlaceToTransArc[*]
+    +incoming: TransToPlaceArc[*]
+}
+class PetriNet {
+    +places: Place[*]
+    +transitions: Transition[*]
+    +arcs: Arc[*]
+}
+class Transition {
+    +incoming: PlaceToTransArc[*]
+    +outgoing: TransToPlaceArc[*]
+}
+class TransToPlaceArc {
+    +source: Transition
+    +target: Place
+}
+class PlaceToTransArc {
+    +target: Transition
+    +source: Place
+}
+Element &lt;|-- PetriNet
+Element &lt;|-- Place
+Transition --|&gt; Element
+PetriNet *-- Arc
+PetriNet *-- Place
+PetriNet *-- Transition
+Arc &lt;|-- TransToPlaceArc
+Arc &lt;|-- PlaceToTransArc</div>
+
+<p>The code excerpt displayed below creates a PetriNet and then adds some places and transitions to it. Note that the instances annotation is executable and hence you can use absolute values, variables or expressions. The <code>list</code> annotation in the PetriNet creation will result in all PetriNet instances to be stored in a sequence called <em>net</em>. The list name is then used in the Place and Transition create operations to add the places and transitions to a random (<em>nextFromList</em>) PetriNet. In this example there is only one, but we could easily create more PetriNet instances and hence have them contain random number of Places and Transitions. The name of the elements is generated using the random string generation facilities.</p>
+<pre class="prettyprint lang-epl"><code>pre {
+    var num_p = 10
+}
+
+$instances 1
+@list net
+operation PetriNet create() {
+    self.name = nextCamelCaseWords("LETTER_LOWER", 15, 10);
+}
+
+$instances num_p
+operation Place create() {
+    self.name = "P_" + nextString("LETTER_LOWER", 15);
+    nextFromList("net").transitions.add(self);
+}
+
+$instances num_p / 2
+operation Transition create() {
+    self.name = "T_" + nextString("LETTER_LOWER", 15);
+    nextFromList("net").transitions.add(self);
+}</code></pre>
+
+<h2 id="creating-model-links">Creating Model Links<a class="headerlink" href="#creating-model-links" title="Permanent link">&para;</a></h2>
+<p>In the previous section, the <em>places</em> and <em>transitions</em> references of the PetriNet were defined during the creation of the Place and Transition elements. For more complex reference patterns, EMG leverages the use of EPL patterns. For example, Arcs can have complex constraints in order to determine the source and target transition/place, and possibly even having separate rules for each type of Arc.</p>
+<p>The EPL pattern in the listing below creates two arcs in order to connect a source and a target Place via a Transition. The pattern matches all transitions in a given PetriNet. The pattern body selects a random Place for the source and a random Place for the target (the while loops are used to pick places that have the lowest incoming/outgoing arcs possible). The weight of the arc is generated randomly from 0 to 10 (<em>nextInt(10)</em>). The pattern has been annotated with the \@probability annotation which will effectively only use 70% of the transitions to create arcs (i.e. of all the possible PetriNet-Transition matches, the code of the pattern will only be executed with a probability of 0.70).</p>
+<pre class="prettyprint lang-epl"><code>@probability 0.7
+pattern Transition
+net:PetriNet,
+tra:Transition
+from: net.transitions {
+    onmatch {
+        var size = 0;
+        var freeSources = Place.all().select(s | s.incoming.size() == size);
+        while (freeSources.isEmpty()) {
+            size += 1;
+            freeSources = Place.all().select(s | s.incoming.size() == size);
+        }
+        size = 0;
+        var freeTarget = Place.all().select(s | s.outgoing.size() == size);
+        while (freeTarget.isEmpty()) {
+            size += 1;
+            freeTarget = Place.all().select(s | s.outgoing.size() == size);
+        }
+        var source = nextFromCollection(freeSources);
+        var target = nextFromCollection(freeTarget);
+        var a1:Arc = new PlaceToTransArc();
+        a1.weight = nextInt(10);
+        a1.source = source;
+        net.places.add(source);
+        a1.target = tra;
+        net.arcs.add(a1);
+        var a2:Arc = new TransToPlaceArc();
+        a1.weight = nextInt(10);
+        a2.source = tra;
+        a2.target = target;
+        net.places.add(target);
+        net.arcs.add(a2);
+    }
+}</code></pre>
+
+<h2 id="meaningful-strings">Meaningful Strings<a class="headerlink" href="#meaningful-strings" title="Permanent link">&para;</a></h2>
+<p>In some scenarios having completely random Strings for some of the element fields might not be desirable. In this case EMG has an embedded mechanism to facilitate the use of meaningful attribute values (not only for Strings) and we show a second approach based on additional models.</p>
+<h3 id="values-as-a-parameter">Values as a parameter<a class="headerlink" href="#values-as-a-parameter" title="Permanent link">&para;</a></h3>
+<p>The <em>nextFromList()</em> operation will first look for a list with that name, if it can't find it will look for a parameter (from the run configuration) with that name. The value of the parameter can be either an absolute path to a file or a comma separated list of values.</p>
+<p>If it is a comma separated list of values, then the individual values will be loaded as a Collection. For example, if we added the parameter <code>names: John, Rose, Juan, Xiang, Joe</code> to the run configuration, the listing below shows how to use that information to define the instance attributes.</p>
+<pre class="prettyprint lang-eol"><code>$instances num_p
+operation Place create() {
+    self.name = nextFromList("name");
+    nextFromList("net").transitions.add(self);
+}</code></pre>
+
+<p>If it is a file path, then each line of the file will be loaded as an item to the Collection. Note that the distinction between paths and comma separated values is the assumption that paths don't contain commas.</p>
+<h3 id="values-as-a-model">Values as a model<a class="headerlink" href="#values-as-a-model" title="Permanent link">&para;</a></h3>
+<p>A more powerful approach would be to use an existing model to serve as the source for attribute values. Given that there are several websites<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> to generate random data in the form of CSV files, we recommend the use of a CSV model to serve as an attribute value source. A CSV file with <em>name</em>, <em>lastName</em>, and <em>email</em> can be easily generated and loaded as a second model the the EMG script. Then, a Row of data can be picked randomly to set an element's attributes. The listing below shows this approach.</p>
+<pre class="prettyprint lang-eol"><code>$instances num_p
+operation Person create() {
+    var p = nextFromCollection(dataModel.Row.all());
+    self.name = p.name;
+    self.lastName = p.lastName;
+    self.email = p.email;
+}</code></pre>
+
+<p>Note that in this case, by using different rows for each value you can further randomize the data.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>https://www.mockaroo.com/, https://www.generatedata.com/,
+www.freedatagenerator.com/, etc.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../flock/" title="Model Migration (Flock)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Model Migration (Flock)
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../eunit/" title="Unit testing (EUnit)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Unit testing (EUnit)
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © Eclipse Foundation, Inc. All Rights Reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+      </div>
+      <div class="md-footer-copyright epsilon-eclipse-links">
+          <ul>
+              <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettyprint.js"></script>
+      
+    
+  </body>
+</html>

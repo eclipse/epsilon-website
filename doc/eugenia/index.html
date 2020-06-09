@@ -1,0 +1,1431 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>Eugenia - Epsilon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.b302131d.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="../../assets/javascript/google-code-prettify/prettify.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
+    
+      
+    
+    
+<!-- FAVICON -->
+
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#graphical-model-editor-development-with-eugeniagmf" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Epsilon" class="md-header-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Epsilon
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Eugenia
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../assets/images/epsilonlogo.big.sphere.png" alt="logo">
+
+    </a>
+    Epsilon
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emc/" title="Model connectivity" class="md-nav__link">
+      Model connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Languages
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Languages" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eol/" title="Object language (EOL)" class="md-nav__link">
+      Object language (EOL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../egl/" title="Code generation (EGL)" class="md-nav__link">
+      Code generation (EGL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../evl/" title="Model validation (EVL)" class="md-nav__link">
+      Model validation (EVL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../etl/" title="Model transformation (ETL)" class="md-nav__link">
+      Model transformation (ETL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ecl/" title="Model comparison (ECL)" class="md-nav__link">
+      Model comparison (ECL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eml/" title="Model merging (EML)" class="md-nav__link">
+      Model merging (EML)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../epl/" title="Pattern matching (EPL)" class="md-nav__link">
+      Pattern matching (EPL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flock/" title="Model Migration (Flock)" class="md-nav__link">
+      Model Migration (Flock)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emg/" title="Model generation (EMG)" class="md-nav__link">
+      Model generation (EMG)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
+      Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Tools
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Tools" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../picto/" title="Picto" class="md-nav__link">
+      Picto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flexmi/" title="Flexmi" class="md-nav__link">
+      Flexmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Eugenia
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Eugenia" class="md-nav__link md-nav__link--active">
+      Eugenia
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-filesystem-metamodel" class="md-nav__link">
+    The Filesystem metamodel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-generated-editor" class="md-nav__link">
+    The generated editor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-annotations" class="md-nav__link">
+    Supported Annotations
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported Annotations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gmf" class="md-nav__link">
+    gmf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmfdiagram" class="md-nav__link">
+    gmf.diagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmfnode" class="md-nav__link">
+    gmf.node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmflink" class="md-nav__link">
+    gmf.link
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmflink-for-eclass" class="md-nav__link">
+    gmf.link (for EClass)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmflink-for-non-containment-ereference" class="md-nav__link">
+    gmf.link (for non-containment EReference)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmfcompartment-for-containment-ereference" class="md-nav__link">
+    gmf.compartment (for containment EReference)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmfaffixed-for-containment-ereference" class="md-nav__link">
+    gmf.affixed (for containment EReference)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmflabel-for-eattribute" class="md-nav__link">
+    gmf.label (for EAttribute)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-eugenia" class="md-nav__link">
+    Running EuGENia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-running-eugenia" class="md-nav__link">
+    Re-running EuGENia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recipes" class="md-nav__link">
+    Recipes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-your-editor" class="md-nav__link">
+    Customizing your editor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-copyright" class="md-nav__link">
+    Adding Copyright
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-do" class="md-nav__link">
+    To do
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exeed/" title="Exeed" class="md-nav__link">
+      Exeed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modelink/" title="Modelink" class="md-nav__link">
+      Modelink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hutn/" title="HUTN" class="md-nav__link">
+      HUTN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
+      Workflow (Ant tasks)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../articles/" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
+      Lectures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Javadoc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/2.0/javadoc/" title="Stable" class="md-nav__link">
+      Stable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/interim/javadoc/" title="Interim" class="md-nav__link">
+      Interim
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Community
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Community" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      Who is using Epsilon?
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Who is using Epsilon?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/" title="Industry" class="md-nav__link">
+      Industry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/education/" title="Education" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/open-source/" title="Open-source projects" class="md-nav__link">
+      Open-source projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
+      Who is developing Epsilon?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
+      Forum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="Frequently asked questions" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-filesystem-metamodel" class="md-nav__link">
+    The Filesystem metamodel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-generated-editor" class="md-nav__link">
+    The generated editor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-annotations" class="md-nav__link">
+    Supported Annotations
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported Annotations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gmf" class="md-nav__link">
+    gmf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmfdiagram" class="md-nav__link">
+    gmf.diagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmfnode" class="md-nav__link">
+    gmf.node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmflink" class="md-nav__link">
+    gmf.link
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmflink-for-eclass" class="md-nav__link">
+    gmf.link (for EClass)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmflink-for-non-containment-ereference" class="md-nav__link">
+    gmf.link (for non-containment EReference)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmfcompartment-for-containment-ereference" class="md-nav__link">
+    gmf.compartment (for containment EReference)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmfaffixed-for-containment-ereference" class="md-nav__link">
+    gmf.affixed (for containment EReference)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gmflabel-for-eattribute" class="md-nav__link">
+    gmf.label (for EAttribute)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-eugenia" class="md-nav__link">
+    Running EuGENia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-running-eugenia" class="md-nav__link">
+    Re-running EuGENia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recipes" class="md-nav__link">
+    Recipes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-your-editor" class="md-nav__link">
+    Customizing your editor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-copyright" class="md-nav__link">
+    Adding Copyright
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-do" class="md-nav__link">
+    To do
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="graphical-model-editor-development-with-eugeniagmf">Graphical Model Editor development with EuGENia/GMF<a class="headerlink" href="#graphical-model-editor-development-with-eugeniagmf" title="Permanent link">&para;</a></h1>
+<p>Eugenia is a tool that simplifies the development of GMF-based graphical model editors by automatically generating the <code>.gmfgraph</code>, <code>.gmftool</code> and <code>.gmfmap</code> models needed by GMF editor from a single annotated Ecore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic; an Ecore version is available <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.eugenia.examples.filesystem/model/filesystem.ecore">here</a>) it can generate a fully functional GMF editor, a screenshot of which is displayed below.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Eugenia builds on top of the <a href="https://www.eclipse.org/gmf-tooling/">GMF Tooling</a> framework, which is no longer actively maintained. While you can still use Eugenia/GMF to develop fully-functional editors, you may want to consider more actively-maintained tools such as <a href="https://eclipse.org/sirius">Eclipse Sirius</a> if you need to develop a graphical editor, or <a href="../picto">Picto</a> if you are only interested in producing read-only views from models.</p>
+</div>
+<h2 id="the-filesystem-metamodel">The Filesystem metamodel<a class="headerlink" href="#the-filesystem-metamodel" title="Permanent link">&para;</a></h2>
+<pre class="prettyprint lang-emf"><code>@namespace(uri="filesystem", prefix="filesystem")
+@gmf
+package filesystem;
+
+@gmf.diagram
+class Filesystem {
+    val Drive[*] drives;
+    val Sync[*] syncs;
+}
+
+class Drive extends Folder {
+
+}
+
+class Folder extends File {
+    @gmf.compartment
+    val File[*] contents;
+}
+
+class Shortcut extends File {
+    @gmf.link(target.decoration="arrow", style="dash")
+    ref File target;
+}
+
+@gmf.link(source="source", target="target", style="dot", width="2")
+class Sync {
+    ref File source;
+    ref File target;
+}
+
+@gmf.node(label = "name")
+class File {
+    attr String name;
+}</code></pre>
+
+<h2 id="the-generated-editor">The generated editor<a class="headerlink" href="#the-generated-editor" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="Filesystemscreenshot2.png" /></p>
+<h2 id="supported-annotations">Supported Annotations<a class="headerlink" href="#supported-annotations" title="Permanent link">&para;</a></h2>
+<p>EuGENia supports the following annotations on Ecore elements.</p>
+<h3 id="gmf">gmf<a class="headerlink" href="#gmf" title="Permanent link">&para;</a></h3>
+<p>Applies to the top <code>EPackage</code> only and denotes that GMF-related annotations are expected in its elements. This doesn't affect the forthcoming model transformations, only the Ecore validation process.</p>
+<h3 id="gmfdiagram">gmf.diagram<a class="headerlink" href="#gmfdiagram" title="Permanent link">&para;</a></h3>
+<p>Denotes the root object of the metamodel. Only one (non-abstract) <code>EClass</code> must be annotated as <code>gmf.diagram</code>. Accepts the following details:</p>
+<ul>
+<li><code>diagram.extension</code> (optional) : the file extension for the diagram file</li>
+<li><code>model.extension</code> (optional) : the file extension for the domain model. To make the generated tree-based editor work with the same extension, you need to add an <code>@emf.gen(fileExtensions="model-file-extension")</code> annotation <code>to the root package</code> of your metamodel.</li>
+<li><code>onefile</code> (optional) : a value of <code>true</code> specifies that the domain model and the diagram should be stored in the same file</li>
+<li><code>rcp</code> (optional) : a value of <code>true</code> specifies that the editor is intended to be part of a RCP product (printing is disabled)</li>
+<li><code>units</code> (optional) : the units for the diagram (e.g. <code>Pixels</code>)</li>
+</ul>
+<h3 id="gmfnode">gmf.node<a class="headerlink" href="#gmfnode" title="Permanent link">&para;</a></h3>
+<p>Applies to an <code>EClass</code> and denotes that it should appear on the diagram as a node. Accepts the following details:</p>
+<ul>
+<li><code>border.color</code> (optional) : an RGB color that will be set as the node's border color.</li>
+<li><code>border.style</code> (optional) : the style of the node's border. Can be set to <code>solid</code> (default), <code>dash</code> or <code>dot</code>.</li>
+<li><code>border.width</code> (optional) : an integer that specifies the width of the node's border.</li>
+<li><code>color</code> (optional) : an RGB color that will be set as the node's background color (e.g. <code>255,0,0</code>).</li>
+<li><code>figure</code> (optional) : the figure that will represent the node. Can be set to <code>rectangle</code>, <code>ellipse</code>, <code>rounded</code> (default), <code>svg</code> (see <code>svg.uri</code>), <code>polygon</code> (see <code>polygon.x</code> and <code>polygon.y</code>) or the fully qualified name of a Java class that implements Figure.</li>
+<li><code>label</code>: the name(s) of the <code>EAttribute</code>(s) of the <code>EClass</code>, the value(s) of which will be displayed as the label of the node. If <code>label.placement</code> is set to <code>none</code>, this detail is not required.</li>
+<li><code>label.color</code> (optional, since 1.5.0) : an RGB color that will be set as the node's foreground color. Labels will have a fixed font of this color.</li>
+<li><code>label.icon</code> (optional) : if set to <code>true</code> (default) a small icon appears on the left of the label.</li>
+<li><code>label.parser</code> (optional) : indicates the unqualified name of the class that will parse the text entered by the user into the label. By default, a <a href="http://download.oracle.com/javase/6/docs/api/java/text/MessageFormat.html">MessageFormat</a>-based parser is generated, but it can be manually customized after generation. </li>
+<li><code>label.edit.pattern</code> (optional) : like <code>label.pattern</code>, but only for editing the label.</li>
+<li><code>label.pattern</code> (optional) : if more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. <code>{0} : {1}</code>). The same pattern is used for editing and viewing the label.</li>
+<li><code>label.view.pattern</code> (optional) : like <code>label.pattern</code>, but only for viewing the label.</li>
+<li><code>label.placement</code> (optional) : defines the placement of the label in relation to the node. Can be set to <code>internal</code>, <code>external</code> or <code>none</code> (no label will be shown). ''(The default distance of an external label in GMF is 20pt which is a bit too far away for my taste. <a href="../gmf-fix-label-offset">Read more</a> about fixing this without changing the generated code every time)''.</li>
+<li><code>label.text</code> (optional) : defines the default text to be used when the <code>EAttribute</code>(s) in <code>label</code> are not set. By default, it is set to the name of the <code>EClass</code>.</li>
+<li><code>label.readOnly</code> (optional) : a value of <code>true</code> denotes that the label cannot be changed in the generated diagram editor.</li>
+<li><code>margin</code> (optional) : inset margin (5 units by default) for the node.</li>
+<li><code>phantom</code> (optional) : defines if the node is phantom (<code>true</code>/<code>false</code>). Phantom nodes are particularly useful in order to visualize containment references using links instead of spatial containment (<a href="../eugenia-phantom-nodes">read more...</a>).</li>
+<li><code>polygon.x</code> (when <code>figure</code> is set to <code>polygon</code>) : list of space-separated integers with the X coordinates of the polygon used as figure. </li>
+<li><code>polygon.y</code> (when <code>figure</code> is set to <code>polygon</code>) : list of space-separated integers with the Y coordinates of the polygon used as figure.</li>
+<li><code>resizable</code> (optional) : a value of <code>false</code> disables all the resize handles for the node</li>
+<li><code>size</code> (optional) : a GMF dimension that will be used as the node's preferred size (e.g. <code>10,5</code>). Width is specified before height.</li>
+<li><code>svg.uri</code> (when <code>figure</code> is set to <code>svg</code>) : URI of the <code>.svg</code> file to be used as figure for the node. For instance, <code>platform:/plugin/my.plugin/my.svg</code> will access the <code>my.svg</code> file in the <code>my.plugin</code> plugin. Note: until Kepler, using SVG figures required the GMF Tooling Experimental SDK (available from <a href="http://download.eclipse.org/modeling/gmp/gmf-tooling/updates/releases/">this update site</a>). Remember to add the <code>.svg</code> file to the binary builds of your plugin.</li>
+<li><code>tool.description</code> (optional) : the description of the creation tool.</li>
+<li><code>tool.large.bundle</code> (optional) : the bundle of the large icon of the creation tool.</li>
+<li><code>tool.large.path</code> (optional) : the path of the large icon of the creation tool.</li>
+<li><code>tool.name</code> (optional) : the name of the creation tool.</li>
+<li><code>tool.small.bundle</code> (optional) : the bundle of the small icon of the creation tool.</li>
+<li><code>tool.small.path</code> (optional) : the path of the small icon of the creation tool.</li>
+</ul>
+<h3 id="gmflink">gmf.link<a class="headerlink" href="#gmflink" title="Permanent link">&para;</a></h3>
+<p>Applies to <code>EClass</code>es that should appear on the diagram as links and to non-containment <code>EReference</code>s.</p>
+<h3 id="gmflink-for-eclass">gmf.link (for EClass)<a class="headerlink" href="#gmflink-for-eclass" title="Permanent link">&para;</a></h3>
+<p>It accepts the following details:</p>
+<ul>
+<li><code>color</code> (optional) : the RGB color of the link.</li>
+<li><code>incoming</code> (optional) : Boolean value which specifies whether the generated editor should allow links to be created from target to source. Defaults to <code>false</code>.</li>
+<li><code>label</code> (optional) : the names of the <code>EAttribute</code>s of the <code>EClass</code> the value of which will be displayed as the label of the link.</li>
+<li><code>label.parser</code> (optional) : indicates the unqualified name of the class that will parse the text entered by the user into the label. By default, a <a href="http://download.oracle.com/javase/6/docs/api/java/text/MessageFormat.html">MessageFormat</a>-based parser is generated, but it can be manually customized after generation. </li>
+<li><code>label.text</code> (optional) : defines the default text to be used when the <code>EAttribute</code>(s) in <code>label</code> are not set. By default, it is set to the name of the <code>EClass</code>.</li>
+<li><code>source</code> : the source non-containment <code>EReference</code> of the link.</li>
+<li><code>source.constraint</code> (optional) : OCL assertion that should be checked by the graphical editor when creating a link. For instance, <code>self &lt;&gt; oppositeEnd</code> would forbid users for creating a link from a node to itself (a self-loop): <code>self</code> is the source of the link, and <code>oppositeEnd</code> is the target of the link.</li>
+<li><code>source.decoration</code> (optional) : the decoration of the source end of the link. Can be set to <code>none</code>, <code>arrow</code>, <code>rhomb</code>, <code>filledrhomb</code>, <code>square</code>, <code>filledsquare</code>, <code>closedarrow</code>, <code>filledclosedarrow</code>, or the fully qualified name of a Java class that implements the <code>org.eclipse.draw2d.RotatableDecoration</code> interface</li>
+<li><code>style</code> (optional) : the style of the link (see <code>border.style</code> above).</li>
+<li><code>target</code> : the target non-containment <code>EReference</code> of the link.</li>
+<li><code>target.constraint</code> (optional) : OCL assertion that should be checked by the graphical editor when creating a link. For instance, <code>self &lt;&gt; oppositeEnd</code> would forbid users for creating a link from a node to itself (a self-loop): <code>self</code> is the target of the link, and <code>oppositeEnd</code> is the source of the link.</li>
+<li><code>target.decoration</code> (optional) : See <code>source.decoration</code>.</li>
+<li><code>tool.description</code> (optional) : the description of the creation tool.</li>
+<li><code>tool.large.bundle</code> (optional) : the bundle of the large icon of the creation tool.</li>
+<li><code>tool.large.path</code> (optional) : the path of the large icon of the creation tool.</li>
+<li><code>tool.name</code> (optional) : the name of the creation tool.</li>
+<li><code>tool.small.bundle</code> (optional) : the bundle of the small icon of the creation tool.</li>
+<li><code>tool.small.path</code> (optional) : the path of the small icon of the creation tool.</li>
+<li><code>width</code> (optional) : the width of the link.</li>
+</ul>
+<p>For an example see the <code>Sync</code> class in the <code>filesystem</code> metamodel</p>
+<h3 id="gmflink-for-non-containment-ereference">gmf.link (for non-containment EReference)<a class="headerlink" href="#gmflink-for-non-containment-ereference" title="Permanent link">&para;</a></h3>
+<p>It accepts the following details:</p>
+<ul>
+<li><code>color</code> (optional) : the RGB color of the link</li>
+<li><code>label</code> (optional) : The static text that will be displayed as the label of the link. If no label is specified, the name of the reference is displayed instead.</li>
+<li><code>label.text</code> (optional) : equivalent to <code>label</code> in this case.</li>
+<li><code>source.decoration</code> (optional) : The decoration of the source end of the link. Can be set to <code>none</code>, <code>arrow</code>, <code>rhomb</code>, <code>filledrhomb</code>, <code>square</code>, <code>filledsquare</code>, <code>closedarrow</code>, <code>filledclosedarrow</code>, or the fully qualified name of a Java class that implements an appropriate interface</li>
+<li><code>style</code> (optional) : the style of the link (see <code>border.style</code> above)</li>
+<li><code>target.decoration</code> (optional) : As above.</li>
+<li><code>tool.description</code> (optional) : the description of the creation tool</li>
+<li><code>tool.large.bundle</code> (optional) : The bundle of the large icon of the creation tool</li>
+<li><code>tool.large.path</code> (optional) : The path of the large icon of the creation tool</li>
+<li><code>tool.name</code> (optional) : the name of the creation tool</li>
+<li><code>tool.small.bundle</code> (optional) : The bundle of the small icon of the creation tool</li>
+<li><code>tool.small.path</code> (optional) : The path of the small icon of the creation tool</li>
+<li><code>width</code> (optional) : the width of the link</li>
+</ul>
+<h3 id="gmfcompartment-for-containment-ereference">gmf.compartment (for containment EReference)<a class="headerlink" href="#gmfcompartment-for-containment-ereference" title="Permanent link">&para;</a></h3>
+<p>Defines that the containment reference will create a compartment where model elements that conform to the type of the reference can be placed. It accepts the following details:</p>
+<ul>
+<li><code>collapsible</code> (optional) : Set to <code>false</code> to prevent the compartment from collapsing (default is <code>true</code>)</li>
+<li><code>layout</code> (optional) : The layout of the compartment. Can be set to free (default) or list</li>
+</ul>
+<h3 id="gmfaffixed-for-containment-ereference">gmf.affixed (for containment EReference)<a class="headerlink" href="#gmfaffixed-for-containment-ereference" title="Permanent link">&para;</a></h3>
+<p>Defines that the containment reference will create nodes which are affixed to the edges of the containing node. <a href="../eugenia-affixed-nodes|">See an example</a>.</p>
+<h3 id="gmflabel-for-eattribute">gmf.label (for EAttribute)<a class="headerlink" href="#gmflabel-for-eattribute" title="Permanent link">&para;</a></h3>
+<p>Defines additional labels for the containing <code>EClass</code>. These labels will be displayed underneath the default label for the containing <code>EClass</code>. It accepts the following details:</p>
+<ul>
+<li><code>label.edit.pattern</code> (optional) : like <code>label.pattern</code>, but only for editing the label.</li>
+<li><code>label.parser</code> (optional) : indicates the unqualified name of the class that will parse the text entered by the user into the label. By default, a <a href="http://download.oracle.com/javase/6/docs/api/java/text/MessageFormat.html">MessageFormat</a>-based parser is generated, but it can be manually customized after generation. </li>
+<li><code>label.pattern</code> (optional) : if more than one attributes are specified in the label, the format detail is necessary to show how their values will be rendered in the label. The format follows the Java Message Format style (e.g. <code>{0} : {1}</code>). The same pattern is used for editing and viewing the label.</li>
+<li><code>label.readOnly</code> (optional) : A value of <code>true</code> denotes that the label cannot be changed in the generated diagram editor.</li>
+<li><code>label.text</code> (optional) : defines the default text to be used when the attribute is not set.</li>
+<li><code>label.view.pattern</code> (optional) : like <code>label.pattern</code>, but only for viewing the label.</li>
+</ul>
+<p>==Installing EuGENia ''(New Instructions!)''==
+EuGENia is a part of the main Epsilon distribution. The update site of Epsilon is <code>http://download.eclipse.org/epsilon/updates</code>, and detailed instructions for installing it are available <a href="http://www.eclipse.org/gmt/epsilon/download">here</a>.</p>
+<p>Although not necessary, you should also install the Emfatic toolkit mentioned above through the following update site: <code>http://download.eclipse.org/emfatic/update/</code></p>
+<h2 id="running-eugenia">Running EuGENia<a class="headerlink" href="#running-eugenia" title="Permanent link">&para;</a></h2>
+<p>To run EuGENia you need to do the following:</p>
+<ul>
+<li>Create a new project</li>
+<li>Create and annotate your Ecore metamodel in the "model" folder of your project</li>
+<li>Right-click your Ecore metamodel (or Emfatic file) and select Eugenia-&gt;Generate GMF editor</li>
+<li>Launch a new Eclipse instance from the "Run - Eclipse Application" menu using "-XX:PermSize=64M -XX:MaxPermSize=128M -Xms512M -Xmx1024M" as VM arguments in the Run Configuration</li>
+<li>In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the File-&gt;New-&gt;Other... dialog</li>
+</ul>
+<h2 id="re-running-eugenia">Re-running EuGENia<a class="headerlink" href="#re-running-eugenia" title="Permanent link">&para;</a></h2>
+<p>If you now change your metamodel you'll have to rerun EuGENia to generate your updated editor:</p>
+<ul>
+<li>Right-click your Ecore metamodel (or Emfatic file) and select Eugenia-&gt;Generate GMF editor</li>
+<li>Run a new instance of Eclipse</li>
+</ul>
+<p>(Please note that any changes you have done manually to .gmfgraph, .gmftool and .gmfmap will be <code>overwritten</code>. Have a look <a href="../eugenia-polishing">here</a> for an alternative way to customize these models)</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Certain versions of Emfatic do not support annotations without details (e.g. <code>@gmf</code> or <code>@gmf.diagram</code>). You can use dummy details as a workaround (e.g. <code>@gmf(foo="bar")</code>)</li>
+<li>Should you run across the "Node is referenced from multiple containers with different 'List Layout' values" message during validation please ignore it and proceed with the editor code generation.</li>
+<li>Eugenia does not work with Ecore metamodels that span across multiple files/sub-packages</li>
+<li>Ensure that the name of your package is different to the names of the classes it contains (i.e. a package Foo should not contain a Foo class)</li>
+</ul>
+<h2 id="recipes">Recipes<a class="headerlink" href="#recipes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../eugenia-nodes-with-images">Nodes with user defined images</a> (e.g. jpg, png, gif)</li>
+<li><a href="../eugenia-nodes-with-runtime-images">Nodes with user defined images at runtime</a></li>
+</ul>
+<h2 id="customizing-your-editor">Customizing your editor<a class="headerlink" href="#customizing-your-editor" title="Permanent link">&para;</a></h2>
+<p><a href="../eugenia-polishing">Click here</a> to find out how you can further customize the generated <code>.gmfgraph</code>, <code>.gmfmap</code> and <code>.gmftool</code> models in ways that are not supported by the annotations provided by EuGENia, and still preserve the customizations when EuGENia is re-invoked.</p>
+<h2 id="adding-copyright">Adding Copyright<a class="headerlink" href="#adding-copyright" title="Permanent link">&para;</a></h2>
+<p>To add copyright information to your generated .gmfgen model, simply create a file named copyright.txt next to it. Next time you invoke <code>Eugenia-&gt;Synchronize GMF gen model</code>, EuGENia will pick it up and place its contents in the root GenDiagramEditor of your .gmfgen model. If you have added the copyright.txt file, you can also inject its contents to your .genmodel model (EMF generator model) by right-clicking it and invoking <code>Eugenia-&gt;Synchronize EMF gen model</code>.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>Now that you've learned how to generate a GMF-based editor using EuGENia, you may also want to add some constraints to your editor, which you can then evaluate (explicitly or on-save) to <a href="../evl-gmf-integration">check the correctness/consistency of your models</a>:</p>
+<p><img alt="" src="Filesystemwitherrorshighlighted.png" /></p>
+<h2 id="to-do">To do<a class="headerlink" href="#to-do" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Provide a generic image-loading class in org.eclipse.epsilon.eugenia.runtime which can be extended by users to load their image nodes</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../flexmi/" title="Flexmi" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Flexmi
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../exeed/" title="Exeed" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Exeed
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © Eclipse Foundation, Inc. All Rights Reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+      </div>
+      <div class="md-footer-copyright epsilon-eclipse-links">
+          <ul>
+              <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettyprint.js"></script>
+      
+    
+  </body>
+</html>
