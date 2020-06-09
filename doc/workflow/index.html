@@ -1312,7 +1312,39 @@
 <p>This section provides a brief discussion of the structure and concrete syntax of ANT workflows, as well as the extensibility mechanisms that ANT provides to enable users contribute custom tasks.</p>
 <h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h3>
 <p>In ANT, each workflow is captured as a <em>project</em>. A simplified illustration of the structure of an ANT project is displayed in the figure below. Each ANT project consists of a number of <em>targets</em>. The one specified as the <em>default</em> is executed automatically when the project is executed. Each <em>target</em> contains a number of <em>tasks</em> and <em>depends</em> on other targets that must be executed before it. An ANT task is responsible for a distinct activity and can either succeed or fail. Exemplar activities implemented by ANT tasks include file system management, compiler invocation, version management and remote artefact deployment.</p>
-<p><img alt="Simplified ANT object model" src="../images/AntCore.png" /></p>
+<div class="mermaid mermaid-80">classDiagram
+class Project {
+  -targets: Target[*]
+  -default: Target
+  -properties: Property[*]
+}
+class Task {
+  -typeName: String
+  -name: String
+  -attributes: Attribute[*]
+}
+class Attribute {
+  -name: String
+  -value: String
+}
+class Target {
+  -name: String
+  -tasks: Task[*]
+  -depends: Target[*]
+}
+class HashTable {
+  +put(key: String, object: Object)
+  +get(key: String) : Object
+}
+Project -- Property: properties *
+Project -- Target: targets *
+Target -- Project: default
+Property --|&gt; Task
+Task -- Attribute: attributes *
+Task -- Target: tasks *
+Target -- Target: depends *
+Project -- HashTable</div>
+
 <h3 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h3>
 <p>In terms of concrete syntax, ANT provides an XML-based syntax. In the lisging below, an exemplar ANT project that compiles a set of Java files is illustrated. The project contains one target (<em>main</em>) which is also set to be the <em>default</em> target. The <em>main</em> target contains one <em>javac</em> task that specifies attributes such as <em>srcdir</em>, <em>destdir</em> and <em>classpath</em>, which define that the Java compiler will compile a set of Java files contained into the <em>src</em> directory into classes that should be placed in the <em>build</em> directory using <em>dependencies.jar</em> as an external library.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
@@ -1336,8 +1368,79 @@
 <p>Having discussed ANT, Epsilon and the challenges their integration poses, the following sections presents the design of a solution that enables developers to invoke model management tasks in the context of ANT workflows. The solution consists of a core framework that addresses the challenges discussed above, a set of specific tasks, each of which implements a distinct model management activity, and a set of tasks that enable developers to initiate and manage transactions on models using the respective facilities provided by Epsilon's <a href="../emc">model connectivity layer</a>.</p>
 <h2 id="framework-design-and-core-tasks">Framework Design and Core Tasks<a class="headerlink" href="#framework-design-and-core-tasks" title="Permanent link">&para;</a></h2>
 <p>The role of the core framework, illustrated below, is to provide model loading and storing facilities as well as runtime communication facilities to the individual model management tasks that build atop it. This section provides a detailed discussion of the components it consists of.</p>
-<p><img alt="image" src="../images/AntEpsilon.png" /></p>
-<p><img alt="Core Models Framework" src="../images/AntEpsilonModels.png" /></p>
+<div class="mermaid mermaid-90">classDiagram
+class Task {
+  -name: String
+  -type: String
+}
+class VariableNestedElement {
+  -ref: String
+  -as: String
+  -optional: String
+}
+class EpsilonTask {
+  -profile: Boolean
+  +getProjectRepository(): ModelRepository
+  +getProjectContext(): IEolContext
+}
+class ExecutableModuleTask {
+  -src: String
+  -code: String
+  -models: ModelNestedElement[*]
+  -exports: ExportNestedElement[*]
+  -uses: UsesNestedElement[*]
+}
+class ModelNestedElement {
+  -ref: String
+  -as: String
+  -optional: String
+}
+Task &lt;|-- EpsilonTask
+EpsilonTask &lt;|-- ExecutableModuleTask
+ExecutableModuleTask *-- ModelNestedElement: models *
+ExecutableModuleTask *-- UsesNestedElement: uses *
+ExecutableModuleTask *-- ExportsNestedElement: exports *
+ExportsNestedElement --|&gt; VariableNestedElement
+UsesNestedElement --|&gt; VariableNestedElement</div>
+
+<div class="mermaid mermaid-100">classDiagram
+class LoadModelTask {
+  -name: String
+  -type: String
+  -aliases: String
+  -parameters: ParameterNestedElement[*]
+}
+class ParameterNestedElement {
+  -name: String
+  -value: String
+  -file: String
+}
+class StoreModelTask {
+  -model: String
+  -target: String
+}
+class DisposeModelTask {
+  -model: String
+}
+class StartTransactionTask {
+  -name: String
+  -models: String
+}
+class CommitTransactionTask {
+  -name: String
+}
+class RollbackTransactionTask {
+  -name: String
+}
+EpsilonTask &lt;|-- CommitTransactionTask
+EpsilonTask &lt;|-- StartTransactionTask
+RollbackTransactionTask --|&gt; EpsilonTask
+EpsilonTask &lt;|-- LoadModelTask
+StoreModelTask --|&gt; EpsilonTask
+DisposeModelTask --|&gt; EpsilonTask
+DisposeModelsTask --|&gt; EpsilonTask
+LoadModelTask *-- ParameterNestedElement: parametes *</div>
+
 <h3 id="the-epsilontask-task">The EpsilonTask task<a class="headerlink" href="#the-epsilontask-task" title="Permanent link">&para;</a></h3>
 <p>An ANT task can access the project in which it is contained by invoking the <em>Task.getProject()</em> method. To facilitate sharing of arbitrary information between tasks, ANT projects provide two convenience methods, namely <em>addReference(String key, Object ref)</em> and <em>getReference(String key) : Object</em>. The former is used to add key-value pairs, which are then accessible using the latter from other tasks of the project.</p>
 <p>To avoid loading models multiple times and to enable on-the-fly management of models from different Epsilon modules without needing to store and re-load the models after each task, a reference to a project-wide model repository has been added to the current ANT project using the <em>addReference</em> method discussed above. In this way, all the subclasses of the abstract <em>EpsilonTask</em> can invoke the <em>getProjectRepository()</em> method to access the project model repository.</p>
@@ -1419,7 +1522,37 @@
 <span class="nt">&lt;/epsilon.eol&gt;</span>
 </code></pre></div>
 
-<p><img alt="Model Management Tasks" src="../images/Tasks.png" /></p>
+<div class="mermaid mermaid-90">classDiagram
+class ExecutableModuleTask {
+  -src: String
+}
+class EmlTask {
+  -useMatchTrace: String
+  -exportTransformationTrace: String
+  -exportMergeTrace: String
+}
+class EtlTask {
+  -exportTransformationTrace: String
+}
+class EglTask {
+  -target: String
+}
+class EclTask {
+  -exportMatchTrace: String
+  -useMatchTrace: String
+}
+class EvlTask {
+  -failOnErrors: Boolean
+  -failOnWarnings: Boolean
+  -exportConstraintTrace: String
+}
+ExecutableModuleTask &lt;|-- EclTask
+ExecutableModuleTask &lt;|-- EvlTask
+ExecutableModuleTask &lt;|-- EglTask
+EmlTask --|&gt; ExecutableModuleTask
+EtlTask --|&gt; ExecutableModuleTask
+EolTask --|&gt; ExecutableModuleTask</div>
+
 <h3 id="the-abstract-executable-module-task">The Abstract Executable Module Task<a class="headerlink" href="#the-abstract-executable-module-task" title="Permanent link">&para;</a></h3>
 <p>This task is the base of all the model management tasks presented in the following section. Its aim is to encapsulate the commonalities of Epsilon tasks in order to reduce duplication among them. As already discussed, in Epsilon, specifications of model management tasks are organized in executable modules. While modules can be stored anywhere, in the case of the workflow it is assumed that they are either stored as separate files in the file-system or they are provided inline within the worfklow. Thus, this abstract task defines an <em>src</em> attribute that specifies the path of the source file in which the Epsilon module is stored, but also supports inline specification of the source of the module. The two alternatives are demonstrated in the listings below.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
