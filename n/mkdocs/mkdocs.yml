@@ -120,11 +120,15 @@ plugins:
     - redirects:
         redirect_maps:
             'forum': 'https://www.eclipse.org/forums/index.php/f/22/'
+            'doc/screencasts' : 'https://www.youtube.com/epsilondevs'
+            'doc/lectures' : 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
+            'doc/examples' : 'https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples'
             'doc/articles/emfatic.md': 'https://www.eclipse.org/emfatic'
             'doc/articles/eugenia-gmf-tutorial/index.md': 'doc/eugenia/index.md'
             'doc/articles/flexmi/index.md': 'doc/flexmi/index.md'
             'doc/articles/picto/index.md': 'doc/picto/index.md'
             'doc/articles/exeed-reference/index.md': 'doc/exeed/index.md'
+
 
 copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
 extra_css:

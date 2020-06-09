@@ -1,6 +1,6 @@
 # Eclipse Epsilon
 
-Epsilon is a family of languages tailored for model-based software engineering tasks such as [code generation](doc/egl), [model-to-model transformation](doc/etl) and [model validation](doc/evl), that work out of the box with EMF (including Xtext and Sirius), UML, Simulink, XML and other types of models. It also includes tools for [reflective textual modelling](doc/flexmi), [model visualisation](doc/picto), and integration with [Apache Ant](doc/workflow).
+Epsilon is a family of languages tailored for model-based software engineering tasks such as [code generation](doc/egl), [model-to-model transformation](doc/etl) and [model validation](doc/evl), that work out of the box with EMF (including [Xtext](https://www.eclipse.org/Xtext) and [Sirius](https://www.eclipse.org/sirius)), UML, Simulink, XML and other types of models. It also includes convenient reflective tools for [textual modelling](doc/flexmi) and [model visualisation](doc/picto), and integration with [Apache Ant](doc/workflow).
 
 ## Installation
 

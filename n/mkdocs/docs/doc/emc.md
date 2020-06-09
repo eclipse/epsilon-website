@@ -1,6 +1,9 @@
 # The Epsilon Model Connectivity Layer (EMC)
 
-The Epsilon Model Connectivity (EMC) layer provides abstraction facilities over concrete modelling technologies such as EMF, XML etc. and enables Epsilon programs to interact with models conforming to these technologies in a uniform manner. A graphical overview of the core classes and methods of EMC is displayed below.
+The Epsilon Model Connectivity (EMC) layer provides abstraction facilities over concrete modelling technologies such as [EMF](#eclipse-modeling-framework), [XML](#xmlcsv), [Simulink](#matlab-simulink) etc. and enables Epsilon programs to interact with models conforming to these technologies in a uniform manner. A graphical overview of the core classes and methods of EMC is displayed below.
+
+!!! tip
+	If you are interested in examples of EMC-based drivers for Epsilon, rather than on the organisation of EMC itself, please scroll to the [bottom of this page](#emc-drivers).
 
 ```mermaid
 classDiagram
@@ -91,3 +94,38 @@ The discussion provided above has demonstrated that EMC makes only minimal assum
 - The primary reason is that by minimizing the assumptions about the underlying technologies EMC becomes more resistant to future changes of the implementations of the current technologies and can also embrace new technologies without changes.
 
 - Another reason is that if a heavy-weight approach was used, extending the platform with support for a new modelling technology would involve providing wrapping objects for the native objects which represent model elements and types in the specific modelling technology. Experiments in the early phases of the design of EMC demonstrated that such a heavy-weight approach significantly increases the amount of memory required to represent the models in memory, degrades performance and provides little benefits in reward.
+
+## EMC Drivers
+
+Below are known drivers that implement the EMC interfaces.
+
+### Eclipse Modeling Framework
+
+The Eclipse Modelling Framework (EMF) is one of the most robust and widely used open-source modelling frameworks, and the cornerstone of an extensive ecosystem of technologies for graphical/textual model editing, model comparison and merging etc. Being an Eclipse project, Epsilon naturally provides support for all flavours of EMF models (e.g. textual, graphical, XSD-based XML), and most of the [screencasts](../screencasts), [articles](../articles/) and [examples](../examples) in Epsilon's Git repository use EMF models.
+
+### Matlab Simulink
+
+Epsilon also provides mature support for querying and modifying Matlab Simulink models as shown in [these articles](../articles/#epsilon-and-simulink-models).
+
+### XML/CSV
+
+For quick and dirty metamodel-less modelling, Epsilon also supports [plain XML documents](../articles/plain-xml) and [CSV files](../articles/csv-emc).
+
+### Eclipse Hawk
+
+[Hawk](https://www.eclipse.org/hawk) is an Eclipse project that provides tools for monitoring, indexing and querying *repositories* (i.e. local folders, Eclipse workspaces, Git/SVN repositories) containing models. Hawk provides an EMC driver through which model indices can be queried with Epsilon languages.
+
+### Other Drivers
+
+There are also less mature/well-documented drivers for Epsilon for tools and formats such as:
+
+- [Eclipse C/C++ Development tools](https://github.com/epsilonlabs/emc-cdt)
+- [PTC Integrity Modeller](https://github.com/epsilonlabs/emc-ptcim)
+- [MetaEdit+](https://github.com/epsilonlabs/emc-metaedit)
+- [Eclipse Java Development Tools](https://github.com/epsilonlabs/emc-jdt)
+- [Relational Databases (JDBC)](https://github.com/epsilonlabs/emc-jdbc/)
+- [ArgoUML](https://github.com/epsilonlabs/emc-argouml)
+- [Connected Data Objects (CDO)](https://github.com/epsilonlabs/emc-cdo)
+- [NeoEMF](https://github.com/gdaniel/emc-neoemf)
+
+These drivers have not had much external use historically, but if you're interested in them, please [give us a shout](../../forum).
