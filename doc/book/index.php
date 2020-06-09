@@ -25,7 +25,7 @@
 
 		<div class="row">
 			<div class="span12">
-				<iframe id="bookPreview" src="https://drive.google.com/viewerng/viewer?url=https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/doc/org.eclipse.epsilon.book/EpsilonBook.pdf&embedded=true"></iframe>
+				<iframe id="bookPreview" src="https://drive.google.com/viewerng/viewer?url=<?=$pdf?>&embedded=true"></iframe>
 			</div>
 		</div>
 
