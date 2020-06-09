@@ -35,7 +35,40 @@ This section provides a brief discussion of the structure and concrete syntax of
 
 In ANT, each workflow is captured as a *project*. A simplified illustration of the structure of an ANT project is displayed in the figure below. Each ANT project consists of a number of *targets*. The one specified as the *default* is executed automatically when the project is executed. Each *target* contains a number of *tasks* and *depends* on other targets that must be executed before it. An ANT task is responsible for a distinct activity and can either succeed or fail. Exemplar activities implemented by ANT tasks include file system management, compiler invocation, version management and remote artefact deployment.
 
-![Simplified ANT object model](images/AntCore.png)
+```mermaid-80
+classDiagram
+class Project {
+  -targets: Target[*]
+  -default: Target
+  -properties: Property[*]
+}
+class Task {
+  -typeName: String
+  -name: String
+  -attributes: Attribute[*]
+}
+class Attribute {
+  -name: String
+  -value: String
+}
+class Target {
+  -name: String
+  -tasks: Task[*]
+  -depends: Target[*]
+}
+class HashTable {
+  +put(key: String, object: Object)
+  +get(key: String) : Object
+}
+Project -- Property: properties *
+Project -- Target: targets *
+Target -- Project: default
+Property --|> Task
+Task -- Attribute: attributes *
+Task -- Target: tasks *
+Target -- Target: depends *
+Project -- HashTable
+```
 
 ### Concrete Syntax
 
@@ -73,9 +106,82 @@ Having discussed ANT, Epsilon and the challenges their integration poses, the fo
 
 The role of the core framework, illustrated below, is to provide model loading and storing facilities as well as runtime communication facilities to the individual model management tasks that build atop it. This section provides a detailed discussion of the components it consists of.
 
-![image](images/AntEpsilon.png)
+```mermaid-90
+classDiagram
+class Task {
+  -name: String
+  -type: String
+}
+class VariableNestedElement {
+  -ref: String
+  -as: String
+  -optional: String
+}
+class EpsilonTask {
+  -profile: Boolean
+  +getProjectRepository(): ModelRepository
+  +getProjectContext(): IEolContext
+}
+class ExecutableModuleTask {
+  -src: String
+  -code: String
+  -models: ModelNestedElement[*]
+  -exports: ExportNestedElement[*]
+  -uses: UsesNestedElement[*]
+}
+class ModelNestedElement {
+  -ref: String
+  -as: String
+  -optional: String
+}
+Task <|-- EpsilonTask
+EpsilonTask <|-- ExecutableModuleTask
+ExecutableModuleTask *-- ModelNestedElement: models *
+ExecutableModuleTask *-- UsesNestedElement: uses *
+ExecutableModuleTask *-- ExportsNestedElement: exports *
+ExportsNestedElement --|> VariableNestedElement
+UsesNestedElement --|> VariableNestedElement
+```
 
-![Core Models Framework](images/AntEpsilonModels.png)
+```mermaid
+classDiagram
+class LoadModelTask {
+  -name: String
+  -type: String
+  -aliases: String
+  -parameters: ParameterNestedElement[*]
+}
+class ParameterNestedElement {
+  -name: String
+  -value: String
+  -file: String
+}
+class StoreModelTask {
+  -model: String
+  -target: String
+}
+class DisposeModelTask {
+  -model: String
+}
+class StartTransactionTask {
+  -name: String
+  -models: String
+}
+class CommitTransactionTask {
+  -name: String
+}
+class RollbackTransactionTask {
+  -name: String
+}
+EpsilonTask <|-- CommitTransactionTask
+EpsilonTask <|-- StartTransactionTask
+RollbackTransactionTask --|> EpsilonTask
+EpsilonTask <|-- LoadModelTask
+StoreModelTask --|> EpsilonTask
+DisposeModelTask --|> EpsilonTask
+DisposeModelsTask --|> EpsilonTask
+LoadModelTask *-- ParameterNestedElement: parametes *
+```
 
 ### The EpsilonTask task
 
@@ -176,7 +282,38 @@ The example below demonstrates an exemplar usage of the *epsilon.startTransactio
 </epsilon.eol>
 ```
 
-![Model Management Tasks](images/Tasks.png)
+```mermaid-90
+classDiagram
+class ExecutableModuleTask {
+  -src: String
+}
+class EmlTask {
+  -useMatchTrace: String
+  -exportTransformationTrace: String
+  -exportMergeTrace: String
+}
+class EtlTask {
+  -exportTransformationTrace: String
+}
+class EglTask {
+  -target: String
+}
+class EclTask {
+  -exportMatchTrace: String
+  -useMatchTrace: String
+}
+class EvlTask {
+  -failOnErrors: Boolean
+  -failOnWarnings: Boolean
+  -exportConstraintTrace: String
+}
+ExecutableModuleTask <|-- EclTask
+ExecutableModuleTask <|-- EvlTask
+ExecutableModuleTask <|-- EglTask
+EmlTask --|> ExecutableModuleTask
+EtlTask --|> ExecutableModuleTask
+EolTask --|> ExecutableModuleTask
+```
 
 ### The Abstract Executable Module Task
 
