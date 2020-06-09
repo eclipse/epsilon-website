@@ -60,7 +60,29 @@ Model bindings are specific to EUnit: they allow developers to repeat a single t
 
 The figure below shows an example of an EUnit test tree: nodes with data bindings are marked with `data`, and nodes with model bindings are marked with `model`.
 
-![Example of an EUnit test tree](images/test-organization.png)
+```mermaid-90
+graph TD
+	data1[data<br/>x=1]
+	data2[data<br/>x=2]
+	testa1[test A]
+	testb1[test B]
+	testa2[test A]
+	testb2[test B]
+	modelx1[model X]
+	modely1[model Y]
+	modelx2[model X]
+	modely2[model Y]
+    root --> data1
+    root --> data2
+    data1 --> testa1
+    data1 --> testb1
+    data2 --> testa2
+    data2 --> testb2
+    testa1 --> modelx1
+    testa1 --> modely1
+    testa2 --> modelx2
+    testa2 --> modely2
+```
 
 EUnit will perform a preorder traversal of this tree, running the following tests:
 
@@ -78,9 +100,41 @@ EUnit will perform a preorder traversal of this tree, running the following test
 
 Optionally, EUnit can filter tests by name, running only `A` or `B`. Similarly to JUnit, EUnit logs start and finish times for each node in the tree, so the most expensive test cases can be quickly detected. However, EUnit logs CPU time[^1] in addition to the usual wallclock time.
 
-Parametric testing is not to be confused with *theories*: both repeat a test case with different values, but results are reported quite differently. While parametric testing produces separate test cases with independent results, theories produce aggregated tests which only pass if the original test case passes for every data point. The figure below illustrates these differences. EUnit does not support theories yet: however, they can be approximated with data bindings.
+Parametric testing is not to be confused with *theories*: both repeat a test case with different values, but results are reported quite differently. While parametric testing produces separate test cases with independent results, theories produce aggregated tests which only pass if the original test case passes for every data point. The figures below illustrate these differences. EUnit does not support theories yet: however, they can be approximated with data bindings.
 
-![Comparison between parametric testing and theories](images/parametric-vs-theory.png)
+```mermaid-50
+graph TD
+	data1[data 1]
+	data2[data 2]
+	testa1[test 1]
+	testb1[test 2]
+	testa2[test 1]
+	testb2[test 2]
+    root --> data1
+    root --> data2
+    data1 --> testa1
+    data1 --> testb1
+    data2 --> testa2
+    data2 --> testb2
+```
+Parametric Testing
+
+```mermaid-50
+graph TD
+	data1[test 1]
+	data2[test 2]
+	testa1[data 1]
+	testb1[data 2]
+	testa2[data 1]
+	testb2[data 2]
+    root --> data1
+    root --> data2
+    data1 --> testa1
+    data1 --> testb1
+    data2 --> testa2
+    data2 --> testb2
+```
+Theories
 
 ### Test Cases
 

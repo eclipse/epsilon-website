@@ -30,7 +30,7 @@ instances | Defines the number of instances to create. This annotation accepts o
 list | Defines an identifier (listID) for a placeholder list for the elements created. This annotation accepts one parameter. The parameter is the identifier (String) that can later be used in operations that accept it as an argument in order to access the elements created by the operation.|
 parameters | If the instantiated type accepts/needs arguments for instantiation, the parameters annotation can be used to provide them. This annotation accepts one parameter. The parameter must be a Sequence that contains the desired arguments in the order expected by the constructor.
 
-All three annotations are executable and hence must be prefixed with a \$ symbol when used. Further, these annotations are only evaluated on *create* operations.
+All three annotations are executable and hence must be prefixed with a $ symbol when used. Further, these annotations are only evaluated on *create* operations.
 
 The EPL pattern annotations are:
 
@@ -59,10 +59,10 @@ nextHttpURI(addPort : Boolean, addPath : Boolean, addQuery : Boolean, addFragmen
 nextInt() : Integer | Returns the next pseudorandom, uniformly distributed integer. All `2^32` possible integer values should be produced with (approximately) equal probability.
 nextInt(upper : Integer) : Integer | Returns a pseudorandom, uniformly distributed integer value between 0 (inclusive) and *upper* (exclusive). The argument must be positive.
 nextInt(lower: Integer, upper : Integer) : Integer | Returns a pseudorandom, uniformly distributed integer value between lower and upper (endpoints included). The arguments must be positive and `upper >= lower`.
-nextReal() : Real | Returns the next pseudorandom, uniformly distributed `real` value between $0.0$ and $1.0$.
+nextReal() : Real | Returns the next pseudorandom, uniformly distributed `real` value between `0.0` and `1.0`.
 nextReal(upper : Real) : Real | Returns the next pseudorandom, uniformly distributed `real` value between `0.0` and *upper* (inclusive).
 nextReal(lower: Real, upper : Real) : Real | Returns a pseudorandom, uniformly distributed `real` value between *lower* and *upper* (endpoints included).
-nextSample(c : Sequence, k : Integer) : Sequence(Any) | Returns a Sequence of $k$ objects selected randomly from the Sequence $c$ using a uniform distribution. Sampling from `c` is without replacement; but if c contains identical objects, the sample may include repeats. If all elements of $c$ are distinct, the resulting object collection represents a Simple Random Sample of size $k$ from the elements of `c`.
+nextSample(c : Sequence, k : Integer) : Sequence(Any) | Returns a Sequence of `k` objects selected randomly from the Sequence `c` using a uniform distribution. Sampling from `c` is without replacement; but if c contains identical objects, the sample may include repeats. If all elements of `c` are distinct, the resulting object collection represents a Simple Random Sample of size `k` from the elements of `c`.
 nextSample(listID : String, k : Integer) : Sequence(Any) | Same as nextSample but the sequence is referenced by *listID*. The *listID* has the same meanings as for operation *nextFromList*.
 nextString() : String | Returns the next string made up from characters of the `LETTER` character set, pseudorandomly selected with a uniform distribution. The length of the string is between 4 and 10 characters. 
 nextString(length : Integer) : String | Returns the next String made up from characters of the `LETTER` character set, pseudorandomly selected with a uniform distribution. The length of the String is equal to *length*.
@@ -71,7 +71,7 @@ nextURI() : String | Generates a random URI that complies to: scheme:\[//\[user:
 nextURI(addPort : Boolean, addPath : Boolean, addQuery : Boolean, addFragment : Boolean) : String | Same as nextURI, but the given arguments control what additional port, path, query and fragment information is added.
 nextUUID() : String | Returns a type 4 (pseudo randomly generated) UUID. The UUID is generated using a cryptographically strong pseudo random number generator.
 nextValue() : Real | Returns the next pseudorandom value, picked from the configured distribution (by default the uniform distribution is used).
-nextValue(d : String, p : Sequence) : Real | Returns the next pseudorandom, from the provided distribution $d$. The parameters $p$ are used to configure the distribution (if required). The supported distributions are: Binomial, Exponential and Uniform. For Binomial parameters are: numberOfTrials and probabilityOfSuccess. For Exponential the mean. For Uniform the lower and upper values (lower inclusive).
+nextValue(d : String, p : Sequence) : Real | Returns the next pseudorandom, from the provided distribution `d`. The parameters `p` are used to configure the distribution (if required). The supported distributions are: Binomial, Exponential and Uniform. For Binomial parameters are: numberOfTrials and probabilityOfSuccess. For Exponential the mean. For Uniform the lower and upper values (lower inclusive).
 setNextValueDistribution(d : String, p : Sequence) | Define the distribution to use for calls to *nextValue()*. Parameters are the same as for nextValue(d, p).
 
 #### Character Sets for String operations
@@ -98,7 +98,41 @@ The EMG engine will search for EOL operations that follow a particular signature
 
 Consider the case of the PetriNet metamodel in the figure below. 
 
-![PetriNet metamodel](images/PetriNetMM.png)
+```mermaid
+classDiagram
+class Element {
+    +name: String
+}
+class Place {
+    +outgoing: PlaceToTransArc[*]
+    +incoming: TransToPlaceArc[*]
+}
+class PetriNet {
+    +places: Place[*]
+    +transitions: Transition[*]
+    +arcs: Arc[*]
+}
+class Transition {
+    +incoming: PlaceToTransArc[*]
+    +outgoing: TransToPlaceArc[*]
+}
+class TransToPlaceArc {
+    +source: Transition
+    +target: Place
+}
+class PlaceToTransArc {
+    +target: Transition
+    +source: Place
+}
+Element <|-- PetriNet
+Element <|-- Place
+Transition --|> Element
+PetriNet *-- Arc
+PetriNet *-- Place
+PetriNet *-- Transition
+Arc <|-- TransToPlaceArc
+Arc <|-- PlaceToTransArc
+```
 
 The code excerpt displayed below creates a PetriNet and then adds some places and transitions to it. Note that the instances annotation is executable and hence you can use absolute values, variables or expressions. The `list` annotation in the PetriNet creation will result in all PetriNet instances to be stored in a sequence called *net*. The list name is then used in the Place and Transition create operations to add the places and transitions to a random (*nextFromList*) PetriNet. In this example there is only one, but we could easily create more PetriNet instances and hence have them contain random number of Places and Transitions. The name of the elements is generated using the random string generation facilities.
 

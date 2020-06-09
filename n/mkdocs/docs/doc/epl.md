@@ -52,7 +52,44 @@ The syntax of EPL is an extension of the syntax of the [EOL language](../eol), w
 
 As illustrated in the figure below, EPL patterns are organised in *modules*. Each module contains a number of named *patterns* and optionally, *pre* and *post* statement blocks that are executed before and after the pattern matching process, and helper EOL operations. EPL modules can import other EPL and EOL modules to facilitate reuse and modularity.
 
-![Abstract Syntax of EPL](images/EPL.png)
+```mermaid
+classDiagram
+class EplModule {
+    -iterative: Boolean
+    -maxLoops: Integer
+}
+class Pattern {
+    -name: String
+    -match: ExecutableBlock<Boolean>
+    -onMatch: ExecutableBlock<Void>
+    -noMatch: ExecutableBlock<Void>
+    -do: ExecutableBlock<Void>
+}
+class Role {
+    -parts: String[1..*]
+    -negative: Boolean
+    -type: EolType
+    -guard: ExecutableBlock<Boolean>
+    -active: ExecutableBlock<Boolean>
+    -optional: ExecutableBlock<Boolean>
+}
+class Cardinality {
+    -lowerBound: Integer
+    -upperBound: Integer
+}
+EolModule <|-- ErlModule
+ErlModule <|-- EplModule
+Pre --|> NamedStatementBlockRule
+Post --|> NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+EplModule -- Pattern: patterns *
+Pattern -- Role: roles *
+Role -- Domain: domain
+Domain <|-- StaticDomain
+Domain <|-- DynamicDomain
+Role -- Cardinality: cardinality
+```
 
 In its simplest form a *pattern* consists of a number of named and typed *roles* and a *match* condition. For example, in lines 2-3, the *PublicField* pattern below, defines four roles (*class*, *field*, *setter* and *getter*). The *match* condition of the pattern specifies that for a quartet to be a valid match, the field, setter and getter must all belong to the class (lines 5-7, and that the setter and getter methods must be appropriately named[^1].
 
@@ -150,7 +187,7 @@ pattern PublicField
 
 The cardinality of a role (lower and upper bound) can be defined in
 square brackets following the type of the role. Roles that have a
-cardinality with an upper bound $>$ 1 are bound to the subset of
+cardinality with an upper bound > 1 are bound to the subset of
 elements from the domain of the role which also satisfy the guard, if
 the size of that subset is within the bounds of the role's cardinality.
 The listing below demonstrates the *ClassAndPrivateFields*

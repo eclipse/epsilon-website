@@ -46,6 +46,16 @@ g.classLabel text {
 	stroke: var(--mermaid-stroke-color) !important;
 }
 
+#compositionStart {
+    fill: var(--mermaid-stroke-color) !important;
+    stroke: var(--mermaid-stroke-color) !important;
+}
+
+#compositionEnd {
+    fill: var(--mermaid-stroke-color) !important;
+    stroke: var(--mermaid-stroke-color) !important;
+}
+
 /*For mermaid diagrams*/
 .mermaid-100 svg {
     width:100% !important;

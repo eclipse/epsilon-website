@@ -4,8 +4,61 @@ The aim of Epsilon Flock is to contribute *model migration* capabilities to Epsi
 
 To illustrate the challenges of model migration, we use the example of metamodel evolution below. In the top figure, a `Component` comprises other `Component`s, `Connector`s and `Port`s. A `Connector` joins two `Port`s. `Connector`s are unidirectional, and hence define `to` and `from` references to `Port`. The original metamodel allows a `Connector` to start and end at the same `Port`, and the metamodel was evolved to prevent this, as shown in the bottom figure. `Port` was made abstract, and split into two subtypes, `InputPort` and `OutputPort`. The references between `Connector` and (the subtypes of) `Port` were renamed for consistency with the names of the subtypes.
 
-![](images/FlockPOExampleOriginal.png)
-![](images/FlockPOExampleEvolved.png)
+```mermaid-50
+classDiagram
+class Component {
+    +subcomponents: Component[*]
+    +connectors: Connector[*]
+    +ports: Port[*]
+}
+class Port {
+    +name: String
+    +outgoing: Connector
+    +incoming: Connector
+}
+class Connector {
+    +name: String
+    +from: Port
+    +to: Port
+}
+Component *-- Connector: connectors *
+Component *-- Component
+Component *-- Port: ports *
+Connector -- Port: from
+Port -- Connector: to
+```
+
+```mermaid-80
+classDiagram
+class Component {
+    +subcomponents: Component[*]
+    +connectors: Connector[*]
+    +ports: Port[*]
+}
+class Port {
+    +name: String
+    +outgoing: Connector
+    +incoming: Connector
+}
+class Connector {
+    +name: String
+    +in: InPort
+    +out: OutPort
+}
+class InputPort {
+    +connector: Connector
+}
+class OutputPort {
+    +connector: Connector
+}
+Component *-- Connector: connectors *
+Component *-- Component
+Component *-- Port: ports *
+InputPort --|> Port: in
+OutputPort --|> Port: out
+Connector -- InputPort
+Connector -- OutputPort
+```
 
 Some models that conform to the original metamodel do not conform to the evolved metamodel. Specifically, models might not conform to the evolved metamodel because:
 
@@ -17,7 +70,49 @@ Some models that conform to the original metamodel do not conform to the evolved
 
 Model migration can be achieved with a general-purpose model-to-model transformation using a language such as ETL. However, this typically involves writing a large amount of repetitive and redundant code. Flock reduces the amount of repetitive and redundant code needed to specify model migration by automatically copying from the original to the migrated model all of the model elements that conform to the evolved metamodel as described below.
 
-![](images/FlockAbstractSyntax.png)
+```mermaid
+classDiagram
+class GuardedConstruct {
+    -guard: ExecutableBlock<Boolean>
+}
+class Deletion {
+    -originalType: String
+    -strict: Boolean
+    -cascade: Boolean
+}
+class Retyping {
+    -originalType: String
+    -strict: Boolean
+    -evolvedType: String
+}
+class PackageRetyping {
+    -originalType: String
+    -evolvedType: String
+}
+class PackageDeletion {
+    -originalType: String
+}
+class MigrateRule {
+    -originalType: String
+    -strict: Boolean
+    -ignoredFeatures: String[*]
+    -body: ExecutableBlock<Void>
+}
+FlockModule -- TypeMappingConstruct: typeMappings *
+Deletion --|> TypeMappingConstruct
+TypeMappingConstruct <|-- Retyping
+TypeMappingConstruct <|-- PackageDeletion
+TypeMappingConstruct <|-- PackageRetyping
+MigrationRule --|> GuardedConstruct
+GuardedConstruct <|-- TypeMappingConstruct
+FlockModule -- MigrateRule: rules *
+EolModule <|-- ErlModule
+ErlModule <|-- FlockModule
+Pre --|> NamedStatementBlockRule
+Post --|> NamedStatementBlockRule
+ErlModule -- Pre: pre *
+ErlModule -- Post: post *
+```
 
 ## Abstract Syntax
 

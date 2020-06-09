@@ -70,7 +70,7 @@ PR['registerLangHandler'](
          [PR['PR_COMMENT'],     /^\/(?:\/.*|\*(?:\/|\**[^*/])*(?:\*+\/?)?)/],
          [PR['PR_PUNCTUATION'], /^(?:\.+|\/)/],
          [PR['PR_TYPE'], new RegExp("^(?:Any|String|Integer|Real|Boolean|Native|Bag|Set|List|Sequence|Map|OrderedSet|Collection|ConcurrentBag|ConcurrentMap|ConcurrentSet)\\b")],
-        [PR['PR_TAG'],      /^(@|\$)\w*/],
+        [PR['PR_TAG'],      /^(?:(@|\$)\w+)/],
         ]),
     [language]);
 }

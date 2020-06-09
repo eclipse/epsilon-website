@@ -235,7 +235,6 @@ isSubstringOf(str : String) : Boolean                               |Returns tru
 length() : Integer                                                  |Returns the number of characters in the string
 matches(reg : String) : Boolean                                     |Returns true if there are occurrences of the regular expression `reg` in the string
 pad(length : Integer, padding : String, right : Boolean) : String   |Pads the string up to the specified length with specified padding (e.g. `"foo".pad(5, "*", true)` returns `"foo**"`)
-
 replace(source : String, target : String) : String                  |Returns a new string in which all instances of `source` have been replaced with instances of `target`
 split(reg : String) : Sequence(String)                              |Splits the string using as a delimiter the provided regular expression, `reg`, and returns a sequence containing the parts
 startsWith(str : String) : Boolean                                  |Returns true iff the string starts with `str`
@@ -369,7 +368,7 @@ values() : Bag                         |Returns the values of the map
 
 ### Native Types
 
-As discussed earlier, while the purpose of EOL is to provide significant expressive power to enable users to manage models at a high level of abstraction, it is not intended to be a general-purpose programming language. Therefore, there may be cases where users need to implement some functionality that is either not efficiently supported by the EOL runtime (e.g. complex mathematical computations) or that EOL does not support at all (e.g. developing user interfaces, accessing databases). To overcome this problem, EOL enables users to create objects of the underlying programming environment by using `native` types. A native type specifies an $implementation$ property that indicates the unique identifier for an underlying platform type. For instance, in a Java implementation of EOL the user can instantiate and use a Java class via its class identifier. Thus, the EOL excerpt in the listing below creates a Java window (Swing JFrame) and uses its methods to change its title and dimensions and make it visible.
+As discussed earlier, while the purpose of EOL is to provide significant expressive power to enable users to manage models at a high level of abstraction, it is not intended to be a general-purpose programming language. Therefore, there may be cases where users need to implement some functionality that is either not efficiently supported by the EOL runtime (e.g. complex mathematical computations) or that EOL does not support at all (e.g. developing user interfaces, accessing databases). To overcome this problem, EOL enables users to create objects of the underlying programming environment by using `native` types. A native type specifies an `implementation` property that indicates the unique identifier for an underlying platform type. For instance, in a Java implementation of EOL the user can instantiate and use a Java class via its class identifier. Thus, the EOL excerpt in the listing below creates a Java window (Swing JFrame) and uses its methods to change its title and dimensions and make it visible.
 
 ```eol
 var frame = new Native("javax.swing.JFrame");
