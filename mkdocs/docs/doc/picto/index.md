@@ -213,7 +213,7 @@ Picto also suports a standalone mode, where the details of the models to be visu
 
 ## Troubleshooting
 
-* If you can't find the Picto view, you will need to upgrade to the latest interim version of Epsilon
+* If you can't find the Picto view, you will need to upgrade to the latest a version of Epsilon >= 2.0
 * Graphviz (on which the PlantUML integration also depends) does not ship as part of Picto. You will need to install it manually on your computer.
 
 ## Philosophy
