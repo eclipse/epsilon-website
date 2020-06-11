@@ -8,76 +8,50 @@ At the core of Epsilon is the [Epsilon Object Language (EOL)](eol), a scripting 
 
 Epsilon languages are underpinnd by a [model connectivity layer](emc) that shields them from the specifics of individual modeling technologies and allows them to query and modify models that conform to different technologies in a uniform way (e.g. transform an EMF model into Simulink, cross-validate an XML document and a UML model).
 
-<style>
-td {
-	border : 1px solid #808080;
-	text-align: center;
-	padding:5px;
-}
-.separator {
-	border : 0px;
-	padding-top:10px;
-	padding-bottom:10px;
-}
-.driver{
-	background-color: #E8E8E8;
-}
-</style>
-<table class="table" style="width:100%;table-layout:fixed;margin-top:10px;margin-bottom:10px">
-<tr>
-	<td colspan="4">Model Refactoring (EWL)</td>
-	<td colspan="4">Model comparison (ECL)</td>
-	<td colspan="3">Unit testing (EUnit)</td>
-	<td colspan="1">...</td>
-</tr>
-<tr>
-	<td colspan="4">Pattern matching (EPL)</td>
-	<td colspan="4">Model merging (EML)</td>
-	<td colspan="4">Model migration (Flock)</td>
-</tr>
-<tr>
-	<td colspan="4">Model validation (EVL)</td>
+```mermaid
+graph TD
+	ECL["Model<br/>comparison<br/>(ECL)"]
+	Flock["Model<br/>migration<br/>(Flock)"]
+	EGL["Code<br/>generation<br/>(EGL)"]
+	EVL["Model<br/>validation<br/>(EVL)"]
+	EPL["Pattern<br/>Matching<br/>(EPL)"]
+	EML["Model<br/>Merging<br/>(EML)"]
+	ETL["M2M<br/>Transformation<br/>(ETL)"]
+	EOL["Epsilon Object Language (EOL)"]
+	ETL --> |extends|EOL
+	EML --> |uses for matching|ECL
+	EML --> |extends|ETL
+	EPL --> |extends|EOL
+	ECL --> |extends|EOL
+	EGL --> |preprocessed into|EOL
+	EVL --> |extends|EOL
+	Flock --> |extends|EOL
+	
+	EMC["Epsilon Model Connectivity (EMC)"]
+	EMF["Eclipse Modeling<br/> Framework (EMF)"]
+	Simulink["MATLAB<br/>Simulink"]
+	Excel["Excel<br/>Speadsheets"]
+	PTC["PTC Integrity<br/>Modeller"]
+	Dots["..."]
 
-	<td colspan="4">Code generation (EGL)</td>
-	<td colspan="4">Model transformation (ETL)</td>
-</tr>
-<tr>
-	<td colspan="12" class="separator"> &darr; extend </td>
-</tr>
-<tr>
-	<td colspan="12" style="background-color:#8B8B8B;color:white;">Epsilon Object Language (EOL)</td>
-</tr>
-<tr>
-	<td colspan="12" style="background-color:#494949;color:white">Epsilon Model Connectivity (EMC)</td>
-</tr>
-<tr>
-	<td colspan="12" class="separator"> &uarr; implement </td>
-</tr>
-<tr>
-	<td colspan="6" class="driver">Eclipse Modeling Framework (EMF)</td>
-	<td colspan="2" class="driver">Simulink</td>
-	<td colspan="4" class="driver">PTC Integrity Modeller</td>
-</tr>
-<tr>
-	<td colspan="4" class="driver">Excel/Google Spreadsheets</td>
-	<td colspan="2" class="driver">GraphML</td>
-	<td colspan="4" class="driver">Schema-less XML</td>
-	<td colspan="2" class="driver">CSV</td>
-</tr>
-<tr>
-	<td colspan="2" class="driver">Z (CZT)</td>
-	<td colspan="3" class="driver">ArgoUML</td>
-	<td colspan="2" class="driver">MongoDB</td>
-	<td colspan="3" class="driver">CDO</td>
-	<td colspan="2" class="driver">JSON</td>
-</tr>
-<tr>
-	<td colspan="3" class="driver">XSD-backed XML</td>
-	<td colspan="2" class="driver">MySQL</td>
-	<td colspan="3" class="driver">MetaEdit+</td>
-	<td colspan="4" class="driver">...</td>
-</tr>	
-</table>
+	EOL -->|accesses models through| EMC
+	EMC --- EMF
+	EMC --- Simulink
+	EMC --- XML
+	EMC --- Excel
+	EMC --- PTC
+	EMC --- CSV
+	EMC --- Dots
+
+	classDef eol fill:#CCCCCC;
+	class EOL eol;
+	classDef emc fill:#AFAFAF;
+	class EMC emc;
+	classDef language fill:#ffffff;
+	class ETL,Flock,EGL,EVL,ECL,EPL,EML language;
+	classDef driver fill:#E8E8E8;
+	class EMF,XML,CSV,Simulink,Excel,PTC,Dots driver;
+```
 
 ### Task-Specific Languages
 
