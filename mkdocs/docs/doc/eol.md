@@ -55,7 +55,7 @@ Annotation <|-- SimpleAnnotation
 
 ## User-Defined Operations 
 
-In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type. Alternatively, context-less operations could be defined; however the adopted technique significantly improves readability of the concrete syntax.
+In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type.
 
 For eample, consider the code excerts displayed in the listings below. In the first listing, the operations `add1` and `add2` are defined in the context of the built-in `Integer` type, which is specified before their names. Therefore, they can be invoked in line 1 using the `1.add1().add2()` expression: the context (the integer `1`) will be assigned to the special variable `self`. On the other hand, in the second listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.
 
@@ -298,7 +298,7 @@ flatten() : Collection                        |Recursively flattens all items th
 includes(item : Any) : Boolean                |Returns true if the collection includes the `item`
 includesAll(col : Collection) : Boolean       |Returns true if the collection includes all the items of collection `col`
 including(item : Any) : Collection            |Returns a new collection that also contains the `item` -- unlike the add() operation that adds the `item` to the collection itself
-includingAll(col : Collection) : Collection   Returns a new collection that is a union of the two collections. The type of the returned collection (i.e. Bag, Sequence, Set, OrderedSet) is same as the type of the collection on which the operation is invoked
+includingAll(col : Collection) : Collection   |Returns a new collection that is a union of the two collections. The type of the returned collection (i.e. Bag, Sequence, Set, OrderedSet) is same as the type of the collection on which the operation is invoked
 isEmpty() : Boolean                           |Returns true if the collection does not contain any elements and false otherwise
 min() : Real                                  |Returns the minimum of all reals/integers in the collection, or 0 if it is empty
 min(default : Real) : Real                    |Returns the minimum of all reals/integers in the collection, or the default value if it is empty
@@ -630,7 +630,7 @@ rule Attribute2Column
 }
 ```
 
-The Class2Table rule transforms a Class of the OO model into a Table in the DB model and sets the name of the table to be the same as the name of the class. Rule Atribute2Column transforms an Attribute from the OO model into a column in the DB model. Except for setting its name (line 12), it also needs to define that the column belongs to the table which corresponds to the class that defines the source attribute. The commented-out assignment statement of line 13 cannot be used for this purpose since it would illegaly attempt to assign the owningTable feature of the column to a model element of an inappropriate type (OO!Class). However, the special assignment operator in the task-specific language implements the semantics discussed in Section [\[sec:Design.ETL.SpecialAssignmentOperator\]](#sec:Design.ETL.SpecialAssignmentOperator){reference-type="ref"reference="sec:Design.ETL.SpecialAssignmentOperator"}, and thus in line 14 it assigns to the owningTable feature not the class that owns the attribute but its corresponding table (calculated using the Class2Table rule) in the DB model.
+The `Class2Table` rule transforms a `Class` of the OO model into a `Table` in the DB model and sets the name of the table to be the same as the name of the class. Rule `Atribute2Column` transforms an `Attribute` from the OO model into a `Column` in the DB model. Except for setting its name (line 12), it also needs to define that the column belongs to the table which corresponds to the class that defines the source attribute. The commented-out assignment statement of line 13 cannot be used for this purpose since it would illegaly attempt to assign the owningTable feature of the column to a model element of an inappropriate type (`OO!Class`). However, the special assignment operator in ETL has [language-specific semantics](../etl/#overriding-the-semantics-of-the-eol-specialassignmentoperator), and thus in line 14 it assigns to the `owningTable` feature not the class that owns the attribute but its corresponding table (calculated using the `Class2Table` rule) in the DB model.
 
 ### If Statement
 
@@ -760,7 +760,15 @@ After a simulation step, the state of the model has been drastically changed sin
 
 Quite often, during a model management operation it is necessary to associate model elements with information that is not supported by the metamodel they conform to. For instance, the EOL program in the listing below calculates the depth of each Tree element in a model that conforms to the Tree metamodel displayed below.
 
-![The Tree Metamodel](images/metamodels/Tree.png)
+```mermaid-30
+classDiagram
+class Tree {
+  +label: String
+  +parent: Tree
+  +children: Tree[*]
+}
+Tree -- Tree  
+```
 
 As the Tree metamodel doesn't support a `depth` property in the Tree metaclass, each Tree has to be associated with its calculated depth using the `depths` map defined in line 1. Another approach would be to extend the Tree metamodel to support the desired `depth` property; however, applying this technique every time an additional property is needed for some model management operation would quickly pollute the metamodel with properties of secondary importance.
 

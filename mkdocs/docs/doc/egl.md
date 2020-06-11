@@ -387,7 +387,7 @@ EGL also provides a traceability API, as a debugging aid, to support auditing of
 API.](images/TraceView.png)
 
 ```java
-IEolExecutableModule module = 
+EglTemplateFactoryModuleAdapter module = 
       new EglTemplateFactoryModuleAdapter(new EglTemplateFactory());
     
     boolean parsed = module.parse(new File("myTemplate.egl"));
