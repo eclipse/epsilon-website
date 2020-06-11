@@ -1434,7 +1434,7 @@ Annotation &lt;|-- SimpleAnnotation</div>
 <!--![image](images/EOLModule.png)-->
 
 <h2 id="user-defined-operations">User-Defined Operations<a class="headerlink" href="#user-defined-operations" title="Permanent link">&para;</a></h2>
-<p>In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type. Alternatively, context-less operations could be defined; however the adopted technique significantly improves readability of the concrete syntax.</p>
+<p>In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type.</p>
 <p>For eample, consider the code excerts displayed in the listings below. In the first listing, the operations <code>add1</code> and <code>add2</code> are defined in the context of the built-in <code>Integer</code> type, which is specified before their names. Therefore, they can be invoked in line 1 using the <code>1.add1().add2()</code> expression: the context (the integer <code>1</code>) will be assigned to the special variable <code>self</code>. On the other hand, in the second listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.</p>
 <pre class="prettyprint lang-eol"><code>1.add1().add2().println();
 
@@ -1900,8 +1900,8 @@ instances of the Any type are outlined in the table below<sup id="fnref:2"><a cl
 <td>Returns a new collection that also contains the <code>item</code> -- unlike the add() operation that adds the <code>item</code> to the collection itself</td>
 </tr>
 <tr>
-<td>includingAll(col : Collection) : Collection   Returns a new collection that is a union of the two collections. The type of the returned collection (i.e. Bag, Sequence, Set, OrderedSet) is same as the type of the collection on which the operation is invoked</td>
-<td></td>
+<td>includingAll(col : Collection) : Collection</td>
+<td>Returns a new collection that is a union of the two collections. The type of the returned collection (i.e. Bag, Sequence, Set, OrderedSet) is same as the type of the collection on which the operation is invoked</td>
 </tr>
 <tr>
 <td>isEmpty() : Boolean</td>
@@ -2497,7 +2497,7 @@ rule Attribute2Column
     c.owningTable ::= a.owningClass;
 }</code></pre>
 
-<p>The Class2Table rule transforms a Class of the OO model into a Table in the DB model and sets the name of the table to be the same as the name of the class. Rule Atribute2Column transforms an Attribute from the OO model into a column in the DB model. Except for setting its name (line 12), it also needs to define that the column belongs to the table which corresponds to the class that defines the source attribute. The commented-out assignment statement of line 13 cannot be used for this purpose since it would illegaly attempt to assign the owningTable feature of the column to a model element of an inappropriate type (OO!Class). However, the special assignment operator in the task-specific language implements the semantics discussed in Section <a href="#sec:Design.ETL.SpecialAssignmentOperator">[sec:Design.ETL.SpecialAssignmentOperator]</a>{reference-type="ref"reference="sec:Design.ETL.SpecialAssignmentOperator"}, and thus in line 14 it assigns to the owningTable feature not the class that owns the attribute but its corresponding table (calculated using the Class2Table rule) in the DB model.</p>
+<p>The <code>Class2Table</code> rule transforms a <code>Class</code> of the OO model into a <code>Table</code> in the DB model and sets the name of the table to be the same as the name of the class. Rule <code>Atribute2Column</code> transforms an <code>Attribute</code> from the OO model into a <code>Column</code> in the DB model. Except for setting its name (line 12), it also needs to define that the column belongs to the table which corresponds to the class that defines the source attribute. The commented-out assignment statement of line 13 cannot be used for this purpose since it would illegaly attempt to assign the owningTable feature of the column to a model element of an inappropriate type (<code>OO!Class</code>). However, the special assignment operator in ETL has <a href="../etl/#overriding-the-semantics-of-the-eol-specialassignmentoperator">language-specific semantics</a>, and thus in line 14 it assigns to the <code>owningTable</code> feature not the class that owns the attribute but its corresponding table (calculated using the <code>Class2Table</code> rule) in the DB model.</p>
 <h3 id="if-statement">If Statement<a class="headerlink" href="#if-statement" title="Permanent link">&para;</a></h3>
 <p>As in most programming languages, an if statement consists of a condition, a block of statements that is executed if the condition is satisfied and (optionally) a block of statements that is executed otherwise. As an example, in the listing below, if variable a holds a value that is greater than 0 the statement of line 3 is executed, otherwise the statement of line 5 is executed.</p>
 <pre class="prettyprint lang-eol"><code>if (a &gt; 0) {
@@ -2591,7 +2591,14 @@ for (i in Sequence {1..100}) {
 <p>After a simulation step, the state of the model has been drastically changed since processors have failed and tasks have been relocated. To be able to restore the model to its original state after every simulation step, each step is executed in the context of a transaction which is explicitly aborted (line 20) after evaluating the availability of the system. Therefore after each simulation step the model is restored to its original state for the next step to be executed.</p>
 <h3 id="extended-properties">Extended Properties<a class="headerlink" href="#extended-properties" title="Permanent link">&para;</a></h3>
 <p>Quite often, during a model management operation it is necessary to associate model elements with information that is not supported by the metamodel they conform to. For instance, the EOL program in the listing below calculates the depth of each Tree element in a model that conforms to the Tree metamodel displayed below.</p>
-<p><img alt="The Tree Metamodel" src="../images/metamodels/Tree.png" /></p>
+<div class="mermaid mermaid-30">classDiagram
+class Tree {
+  +label: String
+  +parent: Tree
+  +children: Tree[*]
+}
+Tree -- Tree  </div>
+
 <p>As the Tree metamodel doesn't support a <code>depth</code> property in the Tree metaclass, each Tree has to be associated with its calculated depth using the <code>depths</code> map defined in line 1. Another approach would be to extend the Tree metamodel to support the desired <code>depth</code> property; however, applying this technique every time an additional property is needed for some model management operation would quickly pollute the metamodel with properties of secondary importance.</p>
 <pre class="prettyprint lang-eol"><code>var depths = new Map;
 

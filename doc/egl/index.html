@@ -1566,7 +1566,7 @@ System.out.println(foo);
 <p>EGL also provides a traceability API, as a debugging aid, to support auditing of the M2T transformation process, and to facilitate change propagation. This API facilitates exploration of the templates executed, files affected and protected regions processed during a transformation. The figure below shows sample output from the traceability API after execution of an EGL M2T transformation to generate Java code from an instance of an OO metamodel. The view shown is accessed via the ... menu in Eclipse. Traceability information can also be accessed programmatically, as demonstrated in the listing below.</p>
 <p><img alt="Sample output from the traceability
 API." src="../images/TraceView.png" /></p>
-<div class="highlight"><pre><span></span><code><span class="n">IEolExecutableModule</span> <span class="n">module</span> <span class="o">=</span> 
+<div class="highlight"><pre><span></span><code><span class="n">EglTemplateFactoryModuleAdapter</span> <span class="n">module</span> <span class="o">=</span> 
       <span class="k">new</span> <span class="n">EglTemplateFactoryModuleAdapter</span><span class="p">(</span><span class="k">new</span> <span class="n">EglTemplateFactory</span><span class="p">());</span>
 
     <span class="kt">boolean</span> <span class="n">parsed</span> <span class="o">=</span> <span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;myTemplate.egl&quot;</span><span class="p">));</span>
