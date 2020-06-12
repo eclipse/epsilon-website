@@ -1140,7 +1140,12 @@
                 
                 <h1 id="the-epsilon-generation-language-egl">The Epsilon Generation Language (EGL)<a class="headerlink" href="#the-epsilon-generation-language-egl" title="Permanent link">&para;</a></h1>
 <p>EGL provides a language tailored for model-to-text transformation (M2T). EGL can be used to transform models into various types of textual artefact, including executable code (e.g. Java), reports (e.g. in HTML), images (e.g. using DOT), formal specifications (e.g. Z notation), or even entire applications comprising code in multiple languages (e.g. HTML, Javascript and CSS).</p>
-<p>EGL is a <em>template-based</em> code generator (i.e. EGL programs resemble the text that they generate), and provides several features that simplify and support the generation of text from models, including: a sophisticated and language-independent merging engine (for preserving hand-written sections of generated text), an extensible template system (for generating text to a variety of sources, such as a file on disk, a database server, or even as a response issued by a web server), formatting algorithms (for producing generated text that is well-formatted and hence readable), and traceability mechanisms (for linking generated text with source models).</p>
+<p>EGL is a <em>template-based</em> language (i.e. EGL programs resemble the text that they generate), and provides several features that simplify and support the generation of text from models, including: </p>
+<ul>
+<li>a sophisticated and language-independent merging engine (for preserving hand-written sections of generated text), </li>
+<li>an extensible template system (for generating text to a variety of sources, such as a file on disk, a database server, or even as a response issued by a web server), </li>
+<li>formatting algorithms (for producing generated text that is well-formatted and hence readable), and traceability mechanisms (for linking generated text with source models).</li>
+</ul>
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
 <p>The figure below shows the abstract syntax of EGL's core functionality.</p>
 <div class="mermaid mermaid-100">classDiagram
@@ -1161,11 +1166,8 @@ EglSection &lt;|-- EglDynamicSection
 EglSection &lt;|-- EglStaticSection
 EglSection &lt;|-- EglShortcutSection</div>
 
-<!--[The abstract syntax of EGL's
-core.](images/EglAbstractSyntax.png)-->
-
 <p>Conceptually, an EGL program comprises one or more <em>sections</em>. The contents of static sections are emitted verbatim and appear directly in the generated text. The contents of dynamic sections are executed and are used to control the text that is generated.</p>
-<p>In its dynamic sections, EGL re-uses EOL's mechanisms for structuring program control flow, performing model inspection and navigation, and defining custom operations. In addition, EGL provides an EOL object, <code>out</code>, which is used in dynamic sections to perform operations on the generated text, such as appending and removing strings; and specifying the type of text to be generated.</p>
+<p>In its dynamic sections, EGL re-uses EOL's syntax for structuring program control flow, performing model inspection and navigation, and defining custom operations. In addition, EGL provides an EOL object, <code>out</code>, which is used in dynamic sections to perform operations on the generated text, such as appending and removing strings; and specifying the type of text to be generated.</p>
 <p>EGL also provides syntax for defining <em>dynamic output</em> sections, which provide a convenient shorthand for outputting text from within dynamic sections. Similar syntax is often provided by template-based code generators.</p>
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>
 <p>The concrete syntax of EGL closely resembles the style of other template-based code generation languages, such as PHP. The tag pair <em>[% %]</em> is used to delimit a dynamic section. Any text not enclosed in such a tag pair is contained in a static section. The listing below illustrates the use of dynamic and static sections to form a basic EGL template.</p>

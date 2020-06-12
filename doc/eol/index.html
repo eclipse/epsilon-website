@@ -441,6 +441,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#escaping-reserved-keywords" class="md-nav__link">
+    Escaping Reserved Keywords
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#arithmetical-and-comparison-operators" class="md-nav__link">
     Arithmetical and Comparison Operators
   </a>
@@ -1196,6 +1203,13 @@
           <li class="md-nav__item">
   <a href="#feature-navigation" class="md-nav__link">
     Feature Navigation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escaping-reserved-keywords" class="md-nav__link">
+    Escaping Reserved Keywords
   </a>
   
 </li>
@@ -2150,9 +2164,13 @@ file.absolutePath.println();</code></pre>
 <pre class="prettyprint lang-eol"><code>var Collectors = Native("java.util.stream.Collectors");</code></pre>
 
 <h3 id="model-element-types">Model Element Types<a class="headerlink" href="#model-element-types" title="Permanent link">&para;</a></h3>
-<p>A model element type represents a meta-level classifier. Epsilon intentionally refrains from defining more details about the meaning of a model element type to be able to support diverse modelling technologies where a type has different semantics. For instance a MOF class, an XSD complex type and a Java class can all be regarded as model element types according to the implementation of the underlying modelling framework.</p>
+<p>A model element type represents a meta-level classifier for model elements. Epsilon intentionally refrains from defining more details about the meaning of a model element type, to be able to support diverse modelling technologies where a type has different semantics. For instance an Ecore EClass, an XSD complex type and a Java class can all be regarded as model element types according to the implementation of the underlying modelling framework.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>As EOL is decoupled from modelling technologies (e.g. EMF, Simulink), through <a href="../emc">Epsilon's Model Connectivity Layer</a>, we refrain from referring to specific modelling technologies in this section as much as possible.</p>
+</div>
 <p>In case of multiple models, as well as the name of the type, the name of the model is also required to resolve a particular type since different models may contain elements of homonymous but different model element types. In case a model defines more than one type with the same name (e.g. in different packages), a fully qualified type name must be provided.</p>
-<p>In terms of concrete syntax, inspired by ATL, the ! character is used to separate the name of the type from the name of the model it is defined in. For instance <code>Ma!A</code> represents the type <code>A</code> of model <code>Ma</code>. Also, to support modelling technologies that provide hierarchical grouping of types (e.g. using packages) the <code>::</code> notation is used to separate between packages and classes. A model element type supports the following operations:</p>
+<p>In terms of concrete syntax, inspired by <a href="https://eclipse.org/atl">ATL</a>, the <code>!</code> character is used to separate the name of the type from the name of the model it is defined in. For instance, <code>Ma!A</code> represents the type <code>A</code> of model <code>Ma</code>. Also, to support modelling technologies that provide hierarchical grouping of types (e.g. using packages) the <code>::</code> notation is used to separate between packages and classes. A model element type supports the following operations:</p>
 <table>
 <thead>
 <tr>
@@ -2232,9 +2250,7 @@ in <code>(1 = 2) = 3</code>.</p>
 </li>
 </ul>
 <h3 id="feature-navigation">Feature Navigation<a class="headerlink" href="#feature-navigation" title="Permanent link">&para;</a></h3>
-<p>Since EOL needs to manage models defined using object oriented modelling technologies, it provides expressions to navigate properties and invoke simple and declarative operations on objects (as presented in the figure below).</p>
-<p>![Overview of the feature navigation EOL
-expressions](images/EOLExpressions.png</p>
+<p>Since EOL needs to manage models defined using object oriented modelling technologies, it provides expressions to navigate properties and invoke simple and declarative operations on objects.</p>
 <p>In terms of concrete syntax, <code>.</code> is used as a uniform operator to access a property of an object and to invoke an operation on it. The <code>-&gt;</code> operator, which is used in OCL to invoke first-order logic operations on sets, has been also preserved for syntax compatibility reasons. In EOL, every operation can be invoked both using the <code>.</code> or the <code>-&gt;</code> operators, with a slightly different semantics to enable overriding the built-in operations. If the <code>.</code> operator is used, precedence is given to the user-defined operations, otherwise precedence is given to the built-in operations. For instance, the Any type defines a println() method that prints the string representation of an object to the standard output stream. In the listing below, the user has defined another parameterless println() operation in the context of Any. Therefore the call to <code>println()</code> in line 1 will be dispatched to the user-defined <code>println()</code> operation defined in line 3. In its body the operation uses the <code>-&gt;</code> operator to invoke the built-in <code>println()</code> operation (line 4).</p>
 <pre class="prettyprint lang-eol"><code>"Something".println();
 
@@ -2242,7 +2258,8 @@ operation Any println() : Any {
   ("Printing : " + self)-&gt;println();
 }</code></pre>
 
-<p>It should be noted that due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. The backtick operator is used to circumvent this. For example, if a model element contains a feature called "operation", then this can be navigated as shown in the listing below.</p>
+<h3 id="escaping-reserved-keywords">Escaping Reserved Keywords<a class="headerlink" href="#escaping-reserved-keywords" title="Permanent link">&para;</a></h3>
+<p>Due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. Backticks can be used to escape such keywords. For example, if a model element contains a feature called <code>operation</code>, then this can be navigated as shown in the listing below.</p>
 <pre class="prettyprint lang-eol"><code>var op = modelElement.`operation`;</code></pre>
 
 <h3 id="arithmetical-and-comparison-operators">Arithmetical and Comparison Operators<a class="headerlink" href="#arithmetical-and-comparison-operators" title="Permanent link">&para;</a></h3>
@@ -2413,7 +2430,7 @@ return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;</code></pre>
 <p>EOL provides the # operator for accessing enumeration literals. For example, the VisibilityEnum#vk_public expression returns the value of the literal <code>vk_public</code> of the <code>VisibilityEnum</code> enumeration. For EMF metamodels, <code>VisibilityEnum#vk_public.instance</code> can also be used.</p>
 <h2 id="statements">Statements<a class="headerlink" href="#statements" title="Permanent link">&para;</a></h2>
 <h3 id="variable-declaration-statement">Variable Declaration Statement<a class="headerlink" href="#variable-declaration-statement" title="Permanent link">&para;</a></h3>
-<p>A variable declaration statement declares the name and (optionally) the type and initial value of a variable in an EOL program. If no type is explicitly declared, the variable is assumed to be of type Any. For variables of primitive type, declaration automatically creates an instance of the type with the default values presented in the table below. For non-primitive types the user has to explicitly assign the value of the variable either by using the <code>new</code> keyword or by providing an initial value expression. If neither is done the value of the variable is undefined. Variables in EOL are strongly-typed. Therefore a variable can only be assigned values that conform to its type (or a sub-type of it).</p>
+<p>A variable declaration statement declares the name and (optionally) the type and initial value of a variable in an EOL program. If no type is explicitly declared, the variable is assumed to be of type <code>Any</code>. For variables of primitive type, declaration automatically creates an instance of the type with the default values presented in the table below. For non-primitive types the user has to explicitly assign the value of the variable either by using the <code>new</code> keyword or by providing an initial value expression. If neither is done the value of the variable is undefined. Variables in EOL are strongly-typed. Therefore a variable can only be assigned values that conform to its type (or a sub-type of it).</p>
 <table>
 <thead>
 <tr>
@@ -2442,7 +2459,16 @@ return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;</code></pre>
 </table>
 <h5 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h5>
 <p>The scope of variables in EOL is generally limited to the block of statements where they are defined, including any nested blocks. Nevertheless, as discussed in the sequel, there are cases in task-specific languages that build atop EOL where the scope of variables is expanded to other non-nested blocks as well. EOL also allows variable shadowing; that is to define a variable with the same name in a nested block that overrides a variable defined in an outer block.</p>
-<p>In the listing below, an example of declaring and using variables is provided. Line 1 defines a variable named <code>i</code> of type <code>Integer</code> and assigns it an initial value of <code>5</code>. Line 2 defines a variable named <code>c</code> of type <code>Class</code> (from model Uml) and creates a new instance of the type in the model (by using the <code>new</code> keyword). The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a <code>String</code> value to an <code>Integer</code> variable. The condition of line 4 returns true since the <code>c</code> variable has been initialized before. Line 5 defines a new variable also named <code>i</code> that is of type <code>String</code> and which overrides the <code>Integer</code> variable declared in line 1. Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String. Finally, as the program has exited the scope of the <code>if</code> statement, the assignment statement of line 7 is also legitimate as it refers to the <code>i</code> variable defined in line 1.</p>
+<p>The listing below provides an example of declaring and using variables. </p>
+<ul>
+<li>Line 1 defines a variable named <code>i</code> of type <code>Integer</code> and assigns it an initial value of <code>5</code>. </li>
+<li>Line 2 defines a variable named <code>c</code> of type <code>Class</code> (from model Uml) and creates a new instance of the type in the model (by using the <code>new</code> keyword). </li>
+<li>The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a <code>String</code> value to an <code>Integer</code> variable. </li>
+<li>The condition of line 4 returns true since the <code>c</code> variable has been initialized before. </li>
+<li>Line 5 defines a new variable also named <code>i</code> that is of type <code>String</code> and which overrides the <code>Integer</code> variable declared in line 1. </li>
+<li>Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String. </li>
+<li>Finally, as the program has exited the scope of the <code>if</code> statement, the assignment statement of line 7 is also legitimate as it refers to the <code>i</code> variable defined in line 1.</li>
+</ul>
 <pre class="prettyprint lang-eol"><code>var i : Integer = 5;
 var c : new Uml!Class;
 //i = "somevalue";
@@ -2582,7 +2608,7 @@ for (i in Sequence {1..100}) {
 
     system.evaluateAvailability();
 
-    abort; /`@\label{line:Abort}@`/
+    abort;
   }
 
 }</code></pre>
