@@ -2,7 +2,11 @@
 
 EGL provides a language tailored for model-to-text transformation (M2T). EGL can be used to transform models into various types of textual artefact, including executable code (e.g. Java), reports (e.g. in HTML), images (e.g. using DOT), formal specifications (e.g. Z notation), or even entire applications comprising code in multiple languages (e.g. HTML, Javascript and CSS).
 
-EGL is a *template-based* code generator (i.e. EGL programs resemble the text that they generate), and provides several features that simplify and support the generation of text from models, including: a sophisticated and language-independent merging engine (for preserving hand-written sections of generated text), an extensible template system (for generating text to a variety of sources, such as a file on disk, a database server, or even as a response issued by a web server), formatting algorithms (for producing generated text that is well-formatted and hence readable), and traceability mechanisms (for linking generated text with source models).
+EGL is a *template-based* language (i.e. EGL programs resemble the text that they generate), and provides several features that simplify and support the generation of text from models, including: 
+
+- a sophisticated and language-independent merging engine (for preserving hand-written sections of generated text), 
+- an extensible template system (for generating text to a variety of sources, such as a file on disk, a database server, or even as a response issued by a web server), 
+- formatting algorithms (for producing generated text that is well-formatted and hence readable), and traceability mechanisms (for linking generated text with source models).
 
 ## Abstract Syntax
 
@@ -28,12 +32,9 @@ EglSection <|-- EglStaticSection
 EglSection <|-- EglShortcutSection
 ```
 
-<!--[The abstract syntax of EGL's
-core.](images/EglAbstractSyntax.png)-->
-
 Conceptually, an EGL program comprises one or more *sections*. The contents of static sections are emitted verbatim and appear directly in the generated text. The contents of dynamic sections are executed and are used to control the text that is generated.
 
-In its dynamic sections, EGL re-uses EOL's mechanisms for structuring program control flow, performing model inspection and navigation, and defining custom operations. In addition, EGL provides an EOL object, `out`, which is used in dynamic sections to perform operations on the generated text, such as appending and removing strings; and specifying the type of text to be generated.
+In its dynamic sections, EGL re-uses EOL's syntax for structuring program control flow, performing model inspection and navigation, and defining custom operations. In addition, EGL provides an EOL object, `out`, which is used in dynamic sections to perform operations on the generated text, such as appending and removing strings; and specifying the type of text to be generated.
 
 EGL also provides syntax for defining *dynamic output* sections, which provide a convenient shorthand for outputting text from within dynamic sections. Similar syntax is often provided by template-based code generators.
 

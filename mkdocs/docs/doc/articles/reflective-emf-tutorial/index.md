@@ -64,8 +64,7 @@ The next step is to generate a proper XMI-based Ecore metamodel from the Emfatic
 Once you've done this you should have a new file called `library.ecore` sitting next to your `library.emf`. Congratulations! You're half-way there!
 
 !!! info "Tip"
-
-   If at some point you change `library.emf`, you need to repeat this step in order to update `library.ecore`.
+    If at some point you change `library.emf`, you need to repeat this step in order to update `library.ecore`.
 
 ## Register library.ecore
  
@@ -110,4 +109,4 @@ Then, in the `Title` field of the `Properties` view, you can type the name of th
 ![](set-book-name.jpg)
 
 !!! success "Congratulations!"
-   You've just created your first EMF model!
+    You've just created your first EMF model!

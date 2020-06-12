@@ -392,11 +392,14 @@ var Collectors = Native("java.util.stream.Collectors");
 
 ### Model Element Types
 
-A model element type represents a meta-level classifier. Epsilon intentionally refrains from defining more details about the meaning of a model element type to be able to support diverse modelling technologies where a type has different semantics. For instance a MOF class, an XSD complex type and a Java class can all be regarded as model element types according to the implementation of the underlying modelling framework.
+A model element type represents a meta-level classifier for model elements. Epsilon intentionally refrains from defining more details about the meaning of a model element type, to be able to support diverse modelling technologies where a type has different semantics. For instance an Ecore EClass, an XSD complex type and a Java class can all be regarded as model element types according to the implementation of the underlying modelling framework.
+
+!!! info
+    As EOL is decoupled from modelling technologies (e.g. EMF, Simulink), through [Epsilon's Model Connectivity Layer](../emc), we refrain from referring to specific modelling technologies in this section as much as possible.
 
 In case of multiple models, as well as the name of the type, the name of the model is also required to resolve a particular type since different models may contain elements of homonymous but different model element types. In case a model defines more than one type with the same name (e.g. in different packages), a fully qualified type name must be provided.
 
-In terms of concrete syntax, inspired by ATL, the ! character is used to separate the name of the type from the name of the model it is defined in. For instance `Ma!A` represents the type `A` of model `Ma`. Also, to support modelling technologies that provide hierarchical grouping of types (e.g. using packages) the `::` notation is used to separate between packages and classes. A model element type supports the following operations:
+In terms of concrete syntax, inspired by [ATL](https://eclipse.org/atl), the `!` character is used to separate the name of the type from the name of the model it is defined in. For instance, `Ma!A` represents the type `A` of model `Ma`. Also, to support modelling technologies that provide hierarchical grouping of types (e.g. using packages) the `::` notation is used to separate between packages and classes. A model element type supports the following operations:
 
 Signature |Description
 ----------|----------- 
@@ -451,10 +454,7 @@ the built-in types:
 
 ### Feature Navigation
 
-Since EOL needs to manage models defined using object oriented modelling technologies, it provides expressions to navigate properties and invoke simple and declarative operations on objects (as presented in the figure below).
-
-![Overview of the feature navigation EOL
-expressions](images/EOLExpressions.png
+Since EOL needs to manage models defined using object oriented modelling technologies, it provides expressions to navigate properties and invoke simple and declarative operations on objects.
 
 In terms of concrete syntax, `.` is used as a uniform operator to access a property of an object and to invoke an operation on it. The `->` operator, which is used in OCL to invoke first-order logic operations on sets, has been also preserved for syntax compatibility reasons. In EOL, every operation can be invoked both using the `.` or the `->` operators, with a slightly different semantics to enable overriding the built-in operations. If the `.` operator is used, precedence is given to the user-defined operations, otherwise precedence is given to the built-in operations. For instance, the Any type defines a println() method that prints the string representation of an object to the standard output stream. In the listing below, the user has defined another parameterless println() operation in the context of Any. Therefore the call to `println()` in line 1 will be dispatched to the user-defined `println()` operation defined in line 3. In its body the operation uses the `->` operator to invoke the built-in `println()` operation (line 4).
 
@@ -466,7 +466,9 @@ operation Any println() : Any {
 }
 ```
 
-It should be noted that due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. The backtick operator is used to circumvent this. For example, if a model element contains a feature called "operation", then this can be navigated as shown in the listing below.
+### Escaping Reserved Keywords
+
+Due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. Backticks can be used to escape such keywords. For example, if a model element contains a feature called `operation`, then this can be navigated as shown in the listing below.
 
 ```eol
 var op = modelElement.`operation`;
@@ -539,7 +541,7 @@ Statements
 
 ### Variable Declaration Statement
 
-A variable declaration statement declares the name and (optionally) the type and initial value of a variable in an EOL program. If no type is explicitly declared, the variable is assumed to be of type Any. For variables of primitive type, declaration automatically creates an instance of the type with the default values presented in the table below. For non-primitive types the user has to explicitly assign the value of the variable either by using the `new` keyword or by providing an initial value expression. If neither is done the value of the variable is undefined. Variables in EOL are strongly-typed. Therefore a variable can only be assigned values that conform to its type (or a sub-type of it).
+A variable declaration statement declares the name and (optionally) the type and initial value of a variable in an EOL program. If no type is explicitly declared, the variable is assumed to be of type `Any`. For variables of primitive type, declaration automatically creates an instance of the type with the default values presented in the table below. For non-primitive types the user has to explicitly assign the value of the variable either by using the `new` keyword or by providing an initial value expression. If neither is done the value of the variable is undefined. Variables in EOL are strongly-typed. Therefore a variable can only be assigned values that conform to its type (or a sub-type of it).
 
 Type|Default value
 ----|-------------
@@ -553,7 +555,15 @@ Real|0.0
 
 The scope of variables in EOL is generally limited to the block of statements where they are defined, including any nested blocks. Nevertheless, as discussed in the sequel, there are cases in task-specific languages that build atop EOL where the scope of variables is expanded to other non-nested blocks as well. EOL also allows variable shadowing; that is to define a variable with the same name in a nested block that overrides a variable defined in an outer block.
 
-In the listing below, an example of declaring and using variables is provided. Line 1 defines a variable named `i` of type `Integer` and assigns it an initial value of `5`. Line 2 defines a variable named `c` of type `Class` (from model Uml) and creates a new instance of the type in the model (by using the `new` keyword). The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a `String` value to an `Integer` variable. The condition of line 4 returns true since the `c` variable has been initialized before. Line 5 defines a new variable also named `i` that is of type `String` and which overrides the `Integer` variable declared in line 1. Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String. Finally, as the program has exited the scope of the `if` statement, the assignment statement of line 7 is also legitimate as it refers to the `i` variable defined in line 1.
+The listing below provides an example of declaring and using variables. 
+
+- Line 1 defines a variable named `i` of type `Integer` and assigns it an initial value of `5`. 
+- Line 2 defines a variable named `c` of type `Class` (from model Uml) and creates a new instance of the type in the model (by using the `new` keyword). 
+- The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a `String` value to an `Integer` variable. 
+- The condition of line 4 returns true since the `c` variable has been initialized before. 
+- Line 5 defines a new variable also named `i` that is of type `String` and which overrides the `Integer` variable declared in line 1. 
+- Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String. 
+- Finally, as the program has exited the scope of the `if` statement, the assignment statement of line 7 is also legitimate as it refers to the `i` variable defined in line 1.
 
 ```eol
 var i : Integer = 5;
@@ -746,7 +756,7 @@ for (i in Sequence {1..100}) {
 
     system.evaluateAvailability();
 
-    abort; /`@\label{line:Abort}@`/
+    abort;
   }
 
 }
