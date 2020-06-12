@@ -1,5 +1,10 @@
 .md-logo {
-	display: none;
+	display1: none;
+}
+
+.md-header-nav__title {
+	padding-left: 0px;
+	margin-left:0px;
 }
 
 [data-md-color-primary=black] .md-header {
