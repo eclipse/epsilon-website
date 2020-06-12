@@ -41,7 +41,7 @@ nav:
 theme: 
   name: material
   custom_dir: custom_theme
-  logo: 'assets/images/epsilonlogo.big.sphere.png'
+  logo: 'assets/images/epsilon-white-background.png'
   palette:
     primary: 'black'
     accent: 'orange'
