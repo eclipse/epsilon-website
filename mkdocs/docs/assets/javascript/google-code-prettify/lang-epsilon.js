@@ -34,7 +34,7 @@ registerEpsilonLanguageHandler("egx", egxKeywords);
 registerEpsilonLanguageHandler("evl", erlKeywords + "|context|constraint|critique|check|do|message|title|fix|guard");
 registerEpsilonLanguageHandler("eml", etlKeywords + "|with|merge");
 registerEpsilonLanguageHandler("ecl", erlKeywords + "|rule|compare|match|with");
-registerEpsilonLanguageHandler("mig", erlKeywords + "|migrate|from|to|ignoring|retype|delete|when");
+registerEpsilonLanguageHandler("mig", erlKeywords + "|migrate|to|ignoring|retype|delete|when");
 registerEpsilonLanguageHandler("epl", erlKeywords + "|onmatch|nomatch|pattern|do|from");
 
 
