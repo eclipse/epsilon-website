@@ -45,7 +45,7 @@ PR['registerLangHandler'](
     PR['createSimpleLexer'](
         [
          // Whitespace
-         [PR['PR_PLAIN'],       /^[\t\n\r \xA0]+/, null, '\t\n\r \xA0'],
+         //[PR['PR_PLAIN'],       /^[\t\n\r \xA0]+/, null, '\t\n\r \xA0'],
          // A double or single quoted string 
           // or a triple double-quoted multi-line string.
          [PR['PR_STRING'],
@@ -63,14 +63,16 @@ PR['registerLangHandler'](
          [PR['PR_LITERAL'],     /^'[a-zA-Z_$][\w$]*(?!['$\w])/],
          [PR['PR_KEYWORD'],     new RegExp("^(?:not|delete|import|for|while|in|and|or|operation|return|var|throw|if|new|else|transaction|abort|break|continue|assert|assertError|not|function|default|switch|case|as|ext|driver|alias|model|breakAll|async|group|nor|xor|implies" + keywords + ")\\b")],
          [PR['PR_LITERAL'],     /^(?:true|false|null|this)\b/],
+         [PR['PR_DECLARATION'],     /^(?:self)\b/],
          [PR['PR_LITERAL'],     /^(?:(?:0(?:[0-7]+|X[0-9A-F]+))L?|(?:(?:0|[1-9][0-9]*)(?:(?:\.[0-9]+)?(?:E[+\-]?[0-9]+)?F?|L?|l?|f))|\\.[0-9]+(?:E[+\-]?[0-9]+)?F?)/i],
          // Treat upper camel case identifiers as types.
          // [PR['PR_TYPE'],        /^[$_]*[A-Z][_$A-Z0-9]*[a-z][\w$]*/],
-         [PR['PR_PLAIN'],       /^[$a-zA-Z_][\w$]*/],
          [PR['PR_COMMENT'],     /^\/(?:\/.*|\*(?:\/|\**[^*/])*(?:\*+\/?)?)/],
          [PR['PR_PUNCTUATION'], /^(?:\.+|\/)/],
          [PR['PR_TYPE'], new RegExp("^(?:Any|String|Integer|Real|Boolean|Native|Bag|Set|List|Sequence|Map|OrderedSet|Collection|ConcurrentBag|ConcurrentMap|ConcurrentSet)\\b")],
         [PR['PR_TAG'],      /^(?:(@|\$)\w+)/],
+        [PR['PR_PLAIN'],       /^[$a-zA-Z_][\w$]*/],
+         
         ]),
     [language]);
 }

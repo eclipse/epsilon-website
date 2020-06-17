@@ -7,12 +7,13 @@
   .str { color: rgb(42, 0, 255) }
   .kwd { color: rgb(127, 0, 85); font-weight: bold }
   .com { color: rgb(63, 127, 95);}
-  /*.typ { color: rgb(42, 0, 255); font-weight: bold }*/
+  .typ { color: rgb(0, 192, 0); font-weight: bold }
   .lit { color: rgb(42, 0, 255) }
   .pun, .opn, .clo { color: #440 }
   .tag { color: rgb(184, 160, 0)}
   .atn { color: #404 }
   .atv { color: #060 }
+  .dec { color: rgb(42, 0, 255); font-style:italic; }
 }
 
 /* Specify class=linenums on a pre to get line numbering */
