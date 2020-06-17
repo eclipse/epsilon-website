@@ -2357,9 +2357,11 @@ operation Any println() : Any {
 </tbody>
 </table>
 <h3 id="logical-operators">Logical Operators<a class="headerlink" href="#logical-operators" title="Permanent link">&para;</a></h3>
-<p>EOL provides common operators for performing logical computations
-illustrated in the table below. Logical operations apply only to
-instances of the Boolean primitive type.</p>
+<p>EOL provides common operators for performing logical computations illustrated in the table below. Logical operations apply only to instances of the Boolean primitive type.</p>
+<div class="admonition warning">
+<p class="admonition-title">Operator Precedence</p>
+<p>All logical operators in EOL have the same priority. This is in contrast to other languages like Java where e.g. <code>and</code> has a higher priority than <code>or</code>. As a result, while <code>true || true &amp;&amp; false</code> returns <code>true</code> in Java, the equivalent <code>true or true and false</code> expression in EOL returns <code>false</code>. Default priorities can be overridden using brackets (<code>true or (true and false)</code> in this case.)</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -2382,7 +2384,7 @@ instances of the Boolean primitive type.</p>
 </tr>
 <tr>
 <td>implies</td>
-<td>Returns the logical implication of the two expressions. Implication is calculated according to the truth table below</td>
+<td>Returns the logical implication of the two expressions (see below)</td>
 </tr>
 <tr>
 <td>xor</td>
@@ -2390,6 +2392,7 @@ instances of the Boolean primitive type.</p>
 </tr>
 </tbody>
 </table>
+<p>The truth table for the <code>implies</code> logical operator is below.</p>
 <table>
 <thead>
 <tr>
