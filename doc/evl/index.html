@@ -1062,7 +1062,7 @@
 <p>The aim of EVL is to contribute model validation capabilities to Epsilon. More specifically, EVL can be used to specify and evaluate constraints on models of arbitrary metamodels and modelling technologies.</p>
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
 <p>In EVL, validation specifications are organized in modules (<em>EvlModule</em>). As illustrated in the figure below, <em>EvlModule</em> (indirectly) extends <em>EolModule</em> which means that it can contain user-defined operations and import other EOL library modules and EVL modules. Apart from operations, an EVL module also contains a set of constraints grouped by the context they apply to, and, by extending <em>ErlModule</em>, a number of <em>pre</em> and <em>post</em> blocks.</p>
-<div class="mermaid mermaid-100">classDiagram
+<div class="mermaid mermaid-80">classDiagram
 class Constraint {
     -name: String
     -guard: ExecutableBlock&lt;Boolean&gt;
