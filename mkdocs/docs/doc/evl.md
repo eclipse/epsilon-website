@@ -6,7 +6,7 @@ The aim of EVL is to contribute model validation capabilities to Epsilon. More s
 
 In EVL, validation specifications are organized in modules (*EvlModule*). As illustrated in the figure below, *EvlModule* (indirectly) extends *EolModule* which means that it can contain user-defined operations and import other EOL library modules and EVL modules. Apart from operations, an EVL module also contains a set of constraints grouped by the context they apply to, and, by extending *ErlModule*, a number of *pre* and *post* blocks.
 
-```mermaid
+```mermaid-80
 classDiagram
 class Constraint {
     -name: String
