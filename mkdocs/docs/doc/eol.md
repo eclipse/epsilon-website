@@ -504,17 +504,20 @@ Operator | Description
 
 ### Logical Operators
 
-EOL provides common operators for performing logical computations
-illustrated in the table below. Logical operations apply only to
-instances of the Boolean primitive type.
+EOL provides common operators for performing logical computations illustrated in the table below. Logical operations apply only to instances of the Boolean primitive type.
+
+!!! warning "Operator Precedence"
+    All logical operators in EOL have the same priority. This is in contrast to other languages like Java where e.g. `and` has a higher priority than `or`. As a result, while `true || true && false` returns `true` in Java, the equivalent `true or true and false` expression in EOL returns `false`. Default priorities can be overridden using brackets (`true or (true and false)` in this case.)
 
 Operator | Description
 ---------|------------
 and            |Returns the logical conjunction of the two expressions
 or             |Returns the logical disjunction of the two expressions
 not            |Returns the logical negation of the expression
-implies        |Returns the logical implication of the two expressions. Implication is calculated according to the truth table below
+implies        |Returns the logical implication of the two expressions (see below)
 xor            |Returns true if only one of the involved expressions evaluates to true and false otherwise
+
+The truth table for the `implies` logical operator is below.
 
 Left|Right|Result
 ----|-----|------
