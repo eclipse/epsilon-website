@@ -1,10 +1,10 @@
 # Orchestration Workflow
 
-In practice, model management tasks are seldom carried out in isolation; instead, they are often combined together to form complex workflows. Therefore, of similar importance to the existence of individual task-specific management languages is the provision of a mechanism that enables developers to compose modular and reusable tasks into complex automated processes. In a broader context, to facilitate implementation of seamless workflows, an appropriate MDE workflow mechanism should also support mainstream development tasks such as file management, version control management, source code compilation and invocation of external programs and services.
+In practice, model management tasks are seldom carried out in isolation; instead, they are often combined together to form complex workflows. Therefore, in addition to task-specific languages for individual tasks, Epsilon provides an orchestration mechanism for composing tasks into automated build processes.
 
 ## Motivation
 
-As a motivating example, an exemplar workflow that consists of both MDE tasks (1-4, 6) and mainstream software development tasks (5, 7) is displayed below.
+As a motivating example, an exemplar workflow that consists of both model management tasks (1-4, 6) and mainstream software development tasks (5, 7) is displayed below.
 
 1.  Load a UML model
 
@@ -56,9 +56,9 @@ class Target {
   -tasks: Task[*]
   -depends: Target[*]
 }
-class HashTable {
+class HashMap {
   +put(key: String, object: Object)
-  +get(key: String) : Object
+  +get(key: String): Object
 }
 Project -- Property: properties *
 Project -- Target: targets *
@@ -67,7 +67,7 @@ Property --|> Task
 Task -- Attribute: attributes *
 Task -- Target: tasks *
 Target -- Target: depends *
-Project -- HashTable
+Project -- HashMap: references *
 ```
 
 ### Concrete Syntax
