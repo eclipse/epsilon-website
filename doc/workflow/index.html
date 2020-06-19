@@ -1279,9 +1279,9 @@
                 
                 
                 <h1 id="orchestration-workflow">Orchestration Workflow<a class="headerlink" href="#orchestration-workflow" title="Permanent link">&para;</a></h1>
-<p>In practice, model management tasks are seldom carried out in isolation; instead, they are often combined together to form complex workflows. Therefore, of similar importance to the existence of individual task-specific management languages is the provision of a mechanism that enables developers to compose modular and reusable tasks into complex automated processes. In a broader context, to facilitate implementation of seamless workflows, an appropriate MDE workflow mechanism should also support mainstream development tasks such as file management, version control management, source code compilation and invocation of external programs and services.</p>
+<p>In practice, model management tasks are seldom carried out in isolation; instead, they are often combined together to form complex workflows. Therefore, in addition to task-specific languages for individual tasks, Epsilon provides an orchestration mechanism for composing tasks into automated build processes.</p>
 <h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
-<p>As a motivating example, an exemplar workflow that consists of both MDE tasks (1-4, 6) and mainstream software development tasks (5, 7) is displayed below.</p>
+<p>As a motivating example, an exemplar workflow that consists of both model management tasks (1-4, 6) and mainstream software development tasks (5, 7) is displayed below.</p>
 <ol>
 <li>
 <p>Load a UML model</p>
@@ -1332,9 +1332,9 @@ class Target {
   -tasks: Task[*]
   -depends: Target[*]
 }
-class HashTable {
+class HashMap {
   +put(key: String, object: Object)
-  +get(key: String) : Object
+  +get(key: String): Object
 }
 Project -- Property: properties *
 Project -- Target: targets *
@@ -1343,7 +1343,7 @@ Property --|&gt; Task
 Task -- Attribute: attributes *
 Task -- Target: tasks *
 Target -- Target: depends *
-Project -- HashTable</div>
+Project -- HashMap: references *</div>
 
 <h3 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h3>
 <p>In terms of concrete syntax, ANT provides an XML-based syntax. In the lisging below, an exemplar ANT project that compiles a set of Java files is illustrated. The project contains one target (<em>main</em>) which is also set to be the <em>default</em> target. The <em>main</em> target contains one <em>javac</em> task that specifies attributes such as <em>srcdir</em>, <em>destdir</em> and <em>classpath</em>, which define that the Java compiler will compile a set of Java files contained into the <em>src</em> directory into classes that should be placed in the <em>build</em> directory using <em>dependencies.jar</em> as an external library.</p>
