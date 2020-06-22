@@ -25,6 +25,7 @@ nav:
         - HUTN: 'doc/hutn.md'
         - Workflow (Ant tasks): 'doc/workflow.md'
     - Articles: 'doc/articles/index.md'
+    - Examples: 'examples.md'
     - Screencasts: 'https://www.youtube.com/epsilondevs'
     - Lectures: 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
     - Javadoc:
