@@ -2,7 +2,7 @@
 
 In this page we provide answers to common questions about Epsilon. If your question is not answered here, please feel free to [ask in the forum](../forum).
 
-## What is the relationship between Epsilon and EMF? {#epsilon-and-emf}
+## What is the relationship between Epsilon and EMF?
 
 Briefly, with EMF you can specify metamodels and construct models that conform to these metamodels, while with Epsilon you can process these EMF models and metamodels (e.g. validate them, transform them, generate code from them etc.).
 
@@ -22,11 +22,11 @@ Epsilon has a dedicated [forum](../forum) where you can ask questions about the 
 
 To get notified when a new version of Epsilon becomes available you can configure Eclipse to check for updates automatically by going to `Window->Preferences->Install/Update/Automatic Updates` and checking the "Automatically find new updates and notify me" option.
 
-## Can I use Epsilon in a non-Eclipse-based standalone Java application? {#epsilon-standalone}
+## Can I use Epsilon in a non-Eclipse-based standalone Java application?
 
-Yes. There are several examples of doing just that in the [examples/org.eclipse.epsilon.examples.standalone](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone) project in the Git repository. Just grab a standalone JAR from the [downloads page](../download).
+Yes. There are several examples of doing just that in the [examples/org.eclipse.epsilon.examples.standalone](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone) project in the Git repository. Just grab your JARs through [Maven Central](../download).
 
-## How does Epsilon compare to the OMG family of languages? {#epsilon-omg}
+## How does Epsilon compare to the OMG family of languages?
 
 There are two main differences:
 
@@ -45,3 +45,19 @@ All Epsilon languages are interpreted. With the exception of EGL templates which
 ## How can I contribute to Epsilon?
 
 There are several ways to contribute to Epsilon. In the first phase you can ask questions in the forum and help with maintaining the vibrant community around Epsilon. You may also want to let other developers know about Epsilon by sharing your experiences online. If you are interested in contributing code to Epsilon, you should start by submitting bug reports, feature requests - and hopefully patches that fix/implement them. This will demonstrate your commitment and long-term interest in the project - which is required by the Eclipse Foundation in order to later on be nominated for a committer account.
+
+## How do I get all children of a model element?
+
+Epsilon does not provide a built-in method for this but you can use EObject's eContents() method if you're working with EMF. To get all descendants of an element, something like the following should do the trick: `o.asSequence().closure(x | x.eContents())`. See <https://www.eclipse.org/forums/index.php/t/855628/> for more details.
+
+## How do I get the container of a model element?
+
+Epsilon does not provide a built-in method for this but you can use EObject's `eConainer()` method if you're working with EMF.
+
+## Where is the metamodel of ETL/EVL etc.?
+
+Epsilon languages do not have Ecore-based metamodels.
+
+## How do I enable code-completion/assistance in the Epsilon editors?
+
+Epsilon does not provide support for type-aware code completion as Epsilon languages are dynamically typed. However, `ctrl+space` provides a list of previously typed tokens to speed up typing.
