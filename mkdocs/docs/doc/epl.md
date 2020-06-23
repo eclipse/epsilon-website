@@ -120,7 +120,7 @@ There are two types of domains in EPL: static domains which are computed once fo
 pattern PublicField
     class : ClassDeclaration,
     field : FieldDeclaration
-        from: class.bodyDeclarations, @*\label{dynamicdomain}*@
+        from: class.bodyDeclarations,
     setter : MethodDeclaration
         from: class.bodyDeclarations
         guard: setter.name = "set" + field.getName(),
