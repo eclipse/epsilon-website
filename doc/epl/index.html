@@ -1132,7 +1132,7 @@ operation FieldDeclaration getName() {
 <pre class="prettyprint lang-epl"><code>pattern PublicField
     class : ClassDeclaration,
     field : FieldDeclaration
-        from: class.bodyDeclarations, @*\label{dynamicdomain}*@
+        from: class.bodyDeclarations,
     setter : MethodDeclaration
         from: class.bodyDeclarations
         guard: setter.name = "set" + field.getName(),
