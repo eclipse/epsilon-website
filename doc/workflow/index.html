@@ -1529,7 +1529,7 @@ EpsilonTask &lt;|-- LoadModelTask
 StoreModelTask --|&gt; EpsilonTask
 DisposeModelTask --|&gt; EpsilonTask
 DisposeModelsTask --|&gt; EpsilonTask
-LoadModelTask *-- ParameterNestedElement: parametes *</div>
+LoadModelTask *-- ParameterNestedElement: parameters *</div>
 
 <h3 id="the-epsilontask-task">The EpsilonTask task<a class="headerlink" href="#the-epsilontask-task" title="Permanent link">&para;</a></h3>
 <p>An ANT task can access the project in which it is contained by invoking the <em>Task.getProject()</em> method. To facilitate sharing of arbitrary information between tasks, ANT projects provide two convenience methods, namely <em>addReference(String key, Object ref)</em> and <em>getReference(String key) : Object</em>. The former is used to add key-value pairs, which are then accessible using the latter from other tasks of the project.</p>
