@@ -66,7 +66,7 @@ class Pattern {
     -do: ExecutableBlock<Void>
 }
 class Role {
-    -parts: String[1..*]
+    -names: String[1..*]
     -negative: Boolean
     -type: EolType
     -guard: ExecutableBlock<Boolean>
