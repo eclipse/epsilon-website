@@ -25,6 +25,9 @@ Alternatively, you can use the following update sites through the `Help->Install
 | Stable | `http://download.eclipse.org/epsilon/updates/`|
 | Interim | `http://download.eclipse.org/epsilon/interim/`|
 
+!!! info
+    The interim update site is rebuilt automatically with every push to the main branch of the Epsilon repo. Bugs fixed in the interim version (compared to the latest stable version) are listed [here](https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced)
+
 ### Archived Update Sites
 
 Below are also links to compressed versions of the Epsilon update sites for long-term archival and to support users who are behind corporate firewalls.
