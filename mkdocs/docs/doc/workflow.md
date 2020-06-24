@@ -180,7 +180,7 @@ EpsilonTask <|-- LoadModelTask
 StoreModelTask --|> EpsilonTask
 DisposeModelTask --|> EpsilonTask
 DisposeModelsTask --|> EpsilonTask
-LoadModelTask *-- ParameterNestedElement: parametes *
+LoadModelTask *-- ParameterNestedElement: parameters *
 ```
 
 ### The EpsilonTask task
