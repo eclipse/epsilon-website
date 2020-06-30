@@ -103,5 +103,6 @@ This page contains an index of articles presenting a range of tools and language
 - [Preparing the MacOSX distribution](preparing-the-macosx-distribution): This article outlines the process of signing the Eclipse MacOSX distribution.
 - [Forking Epsilon as a non-committer with Git](git-fork-epsilon): This article shows how to branch Epsilon into a different remote repository whilst still getting updates from the main project.
 - [Publishing to the EpsilonLabs Updatesite](labsupdatesite): This article outlines the process for publishing a plugin (EMC driver/language/tool) from the EpsilonLabs Github organisation to the EpsilonLabs updatesite.
+- [Releasing a new version of Epsilon](release-tasks): This article lists all the tasks required for releasing a version of Epsilon.
 - [Releasing a new version to Maven Central](maven-release): This article outlines how to release a new version of the Epsilon standalone artifacts to Maven Central.
 
