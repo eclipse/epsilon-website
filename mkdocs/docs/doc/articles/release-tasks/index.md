@@ -18,7 +18,7 @@ These tasks are automated by a [shell script](https://git.eclipse.org/c/epsilon/
 
 ### Build and release to Maven Central
 
-See [../maven-release](this article).
+See [this article](../maven-release).
 
 ### Tagging the release
 
@@ -42,4 +42,3 @@ Run the following commands from the root of the repository, replacing `X.Y.Z` wi
 ### Announce release on forum
 
 It would be courteous to let users know of the new release, along with the new features, on the [Epsilon Forum](https://www.eclipse.org/forums/index.php/f/22/).
-
