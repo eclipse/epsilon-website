@@ -1,16 +1,21 @@
 <style>
-	td img { max-height: 150px; margin-left: auto; margin-right: auto; display: block;}
+	td { width: 300px; }
+	td img { width: 150px; margin-left: auto; margin-right: auto; display: block; vertical-align: middle;}
 </style>
 
 # Branding
 
 Below are different versions of the Epsilon logo to use in posters, presentations, demos etc. To download a copy of a logo, right-click on it and select `Save Image As...` in your browser. The SVG version is infinitely scalable and the PNG images are much larger than their thumbnails on this page. The font of the text in the logo is [Lucida Grande](https://en.wikipedia.org/wiki/Lucida_Grande).
 
-| Description | Format | Logo |
+| Description | SVG | PNG |
 |---|---|---|
-| Sphere and text | SVG | ![](epsilon-logo.svg) |
-| Sphere and text | PNG | ![](epsilon-logo.png) |
-| Sphere only | PNG | ![](epsilon-logo-sphere.png) |
+| Sphere and text | ![](epsilon-logo.svg) | ![](epsilon-logo.png) |
+| Sphere only | ![](epsilon-logo-sphere.svg) | ![](epsilon-logo-sphere.png) |
+| Text only | ![](epsilon-logo-text.svg) | ![](epsilon-logo-text.png) |
+
+## What do the name and the logo mean?
+
+Epsilon (pronounced [ɛpsɪlɒn](https://youtu.be/Z2MJ_oBcfYE?t=10)) stands for **E**xtensible **P**latform for **S**pecification of I**n**teroperable **L**anguages for M**o**del Ma**n**agement. The dark blue jigsaw pieces in the logo represent the [different languages in Epsilon](../doc/#languages), while the purple pieces represent the [different modelling technologies](../doc/emc/#emc-drivers) that Epsilon programs can operate on.
 
 ## License
 
