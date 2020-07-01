@@ -45,7 +45,8 @@ nav:
       - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
       - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'
       - Epsilon Labs: 'labs.md'
-      - Frequently asked questions: 'faq.md' 
+      - Frequently asked questions: 'faq.md'
+  - Branding: 'branding/index.md'
 theme: 
   name: material
   custom_dir: custom_theme
