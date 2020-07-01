@@ -407,16 +407,24 @@ all() : Set                  |Alias for allOfKind() (for syntax-compactness purp
 allInstances() : Set         |Alias for allOfKind() (for compatibility with OCL)
 allOfKind() : Set            |Returns all the elements in the model that are instances either of the type itself or of one of its subtypes
 allOfType() : Set            |Returns all the elements in the model that are instances of the type
-createInstance() : Any       |Creates an instance of the type in the model
+createInstance() : Any       |Creates an instance of the type in the model. The same can be achieved using the `new` operator (see below)
 isInstantiable() : Boolean   |Returns true if the type is instantiable (i.e. non-abstract)
 
-As an example of the concrete syntax, the listing below retrieves all the instances of the
-Class type (including instances of its subtypes) defined in the Core
-package of the UML 1.4 metamodel that are contained in the model named
+As an example of the concrete syntax, the listing below retrieves all the instances of the Class type (including instances of its subtypes) defined in the Core package of the UML 1.4 metamodel that are contained in the model named
 UML14.
 
 ```
 UML14!Core::Foundation::Class.allInstances();
+```
+
+### Creating and Deleting Model Elements
+
+EOL provides the `new` and `delete` operators for creating and deleting model elements as shown below. The `new` operator is an alias for the `createInstance()` method above, and can also be used to create instances of primitive and [native types](#native-types) (i.e Java classes).
+
+```eol
+var t : new Tree; // Creates a new instance of type Tree
+var p : new Source!Person; // Creates a new Person in model Source
+delete t; // Deletes the element created in line 1
 ```
 
 ## Expressions
