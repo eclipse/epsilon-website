@@ -4,7 +4,7 @@
 
 # Branding
 
-Below are different versions of the Epsilon logo to use in posters, presentations, demos etc. To download a copy of a logo, right-click on it and select `Save as...` in your browser. The SVG logo is infinitely scalable and the PNG images are much larger than their thumbnails on this page. The font of the text in the logo is [Lucida Grande](https://en.wikipedia.org/wiki/Lucida_Grande).
+Below are different versions of the Epsilon logo to use in posters, presentations, demos etc. To download a copy of a logo, right-click on it and select `Save Image As...` in your browser. The SVG version is infinitely scalable and the PNG images are much larger than their thumbnails on this page. The font of the text in the logo is [Lucida Grande](https://en.wikipedia.org/wiki/Lucida_Grande).
 
 | Description | Format | Logo |
 |---|---|---|
