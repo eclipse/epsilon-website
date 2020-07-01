@@ -419,6 +419,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#creating-and-deleting-model-elements" class="md-nav__link">
+    Creating and Deleting Model Elements
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1265,6 +1272,13 @@
           <li class="md-nav__item">
   <a href="#model-element-types" class="md-nav__link">
     Model Element Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-deleting-model-elements" class="md-nav__link">
+    Creating and Deleting Model Elements
   </a>
   
 </li>
@@ -2287,7 +2301,7 @@ file.absolutePath.println();</code></pre>
 </tr>
 <tr>
 <td>createInstance() : Any</td>
-<td>Creates an instance of the type in the model</td>
+<td>Creates an instance of the type in the model. The same can be achieved using the <code>new</code> operator (see below)</td>
 </tr>
 <tr>
 <td>isInstantiable() : Boolean</td>
@@ -2295,12 +2309,16 @@ file.absolutePath.println();</code></pre>
 </tr>
 </tbody>
 </table>
-<p>As an example of the concrete syntax, the listing below retrieves all the instances of the
-Class type (including instances of its subtypes) defined in the Core
-package of the UML 1.4 metamodel that are contained in the model named
+<p>As an example of the concrete syntax, the listing below retrieves all the instances of the Class type (including instances of its subtypes) defined in the Core package of the UML 1.4 metamodel that are contained in the model named
 UML14.</p>
 <div class="highlight"><pre><span></span><code>UML14!Core::Foundation::Class.allInstances();
 </code></pre></div>
+
+<h3 id="creating-and-deleting-model-elements">Creating and Deleting Model Elements<a class="headerlink" href="#creating-and-deleting-model-elements" title="Permanent link">&para;</a></h3>
+<p>EOL provides the <code>new</code> and <code>delete</code> operators for creating and deleting model elements as shown below. The <code>new</code> operator is an alias for the <code>createInstance()</code> method above, and can also be used to create instances of primitive and <a href="#native-types">native types</a> (i.e Java classes).</p>
+<pre class="prettyprint lang-eol"><code>var t : new Tree; // Creates a new instance of type Tree
+var p : new Source!Person; // Creates a new Person in model Source
+delete t; // Deletes the element created in line 1</code></pre>
 
 <h2 id="expressions">Expressions<a class="headerlink" href="#expressions" title="Permanent link">&para;</a></h2>
 <h3 id="literal-values">Literal Values<a class="headerlink" href="#literal-values" title="Permanent link">&para;</a></h3>
