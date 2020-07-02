@@ -23,13 +23,13 @@ Language's syntax in each release.
     or JavaScript-style `=>` for [invoking functional
     interfaces.](http://eclipse.org/epsilon/doc/articles/eol-syntax-updates/../lambda-expressions)
 -   Removed old-style OCL comments (`-*` and `--`).
--   \-- can be used to increment and decrement integers.
+-   `--` can be used to increment and decrement integers.
 -   Thread-safe collection types: `ConcurrentBag`, `ConcurrentMap` and
     `ConcurrentSet`.
 
 ### 1.4
 
--   Added support for postfix increment operator (i.e. i++) and for
+-   Added support for postfix increment operator (i.e. `i++`) and for
     composite assignment statements (i.e.
     `a +=1; a -= 2; a *= 3; a /= 4;`)
 
