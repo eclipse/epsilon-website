@@ -90,17 +90,18 @@ This page contains an index of articles presenting a range of tools and language
 ## Installation
 
 - [Working with Epsilon 1.x](epsilon-1.x): This article contains instructions for installing legacy versions of Epsilon prior to 2.0.
+- [Setting up Eclipse for Epsilon development](dev-setup): This article explains how to easily set up and configure an Eclipse IDE for contributing to Epsilon.
 
 ## Epsilon Developers
 
-- [Running Epsilon from source](running-from-source): This article demonstrates how to run Epsilon from source  in your machine.
+- [Running Epsilon from source](running-from-source): This article demonstrates how to run Epsilon from source in your machine.
 - [Call for User Stories](call-for-user-stories): This is a kind request to all Epsilon Users.
 - [Manage the Epsilon website locally](manage-the-epsilon-website-locally): This article demonstrates how to manage the Epsilon website in your machine.
 - [Epsilon development principles](development-principles): These are the guiding principles used by the developers of Epsilon.
 - [Resolved bugs](resolved-bugs): This article discusses the different types of resolved bugs in Epsilon.
 - [Managing the target platform](target-platform): This article outlines how to manage the target platform that Epsilon is built against.
 - [Adding new plugins](adding-new-plugins): This article outlines the process of adding new plugins to the main Epsilon repository.
-- [Preparing the MacOSX distribution](preparing-the-macosx-distribution): This article outlines the process of signing the Eclipse MacOSX distribution.
+- [Preparing the macOS distribution](preparing-the-macosx-distribution): This article outlines the process of signing the Eclipse macOS distribution.
 - [Forking Epsilon as a non-committer with Git](git-fork-epsilon): This article shows how to branch Epsilon into a different remote repository whilst still getting updates from the main project.
 - [Publishing to the EpsilonLabs Updatesite](labsupdatesite): This article outlines the process for publishing a plugin (EMC driver/language/tool) from the EpsilonLabs Github organisation to the EpsilonLabs updatesite.
 - [Releasing a new version of Epsilon](release-tasks): This article lists all the tasks required for releasing a version of Epsilon.
