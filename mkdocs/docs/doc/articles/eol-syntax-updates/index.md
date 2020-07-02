@@ -3,6 +3,16 @@
 The following is a brief description of changes to the Epsilon Object
 Language's syntax in each release.
 
+### 2.1
+
+-   [Elvis operator](https://en.wikipedia.org/wiki/Elvis_operator) as a convenient
+    shorthand to use an alternative value if an expression is null.
+    `a ?: b` is a concise way of writing `a <> null ? a else b`.
+
+-   [Null-safe navigation operator](https://en.wikipedia.org/wiki/Safe_navigation_operator)
+    to allow for easy chaining of feature calls without resorting to null checks.
+    For example, `null?.getClass()?.getName()` will return `null` without crashing.
+
 ### 2.0
 
 -   Ternary expressions, which can be used almost anywhere, not just in
