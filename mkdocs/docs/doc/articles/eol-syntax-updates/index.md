@@ -13,6 +13,8 @@ Language's syntax in each release.
     to allow for easy chaining of feature calls without resorting to null checks.
     For example, `null?.getClass()?.getName()` will return `null` without crashing.
 
+-   `!=` can be used as an alias for `<>` (i.e. "not equals").
+
 ### 2.0
 
 -   Ternary expressions, which can be used almost anywhere, not just in
