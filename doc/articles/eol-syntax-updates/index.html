@@ -889,6 +889,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#20" class="md-nav__link">
     2.0
   </a>
@@ -936,6 +943,19 @@
                 <h1 id="eol-syntax-updates">EOL Syntax Updates<a class="headerlink" href="#eol-syntax-updates" title="Permanent link">&para;</a></h1>
 <p>The following is a brief description of changes to the Epsilon Object
 Language's syntax in each release.</p>
+<h3 id="21">2.1<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Elvis_operator">Elvis operator</a> as a convenient
+    shorthand to use an alternative value if an expression is null.
+    <code>a ?: b</code> is a concise way of writing <code>a &lt;&gt; null ? a else b</code>.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Safe_navigation_operator">Null-safe navigation operator</a>
+    to allow for easy chaining of feature calls without resorting to null checks.
+    For example, <code>null?.getClass()?.getName()</code> will return <code>null</code> without crashing.</p>
+</li>
+</ul>
 <h3 id="20">2.0<a class="headerlink" href="#20" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Ternary expressions, which can be used almost anywhere, not just in
