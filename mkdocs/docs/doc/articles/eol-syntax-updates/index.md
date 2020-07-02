@@ -23,7 +23,7 @@ Language's syntax in each release.
     or JavaScript-style `=>` for [invoking functional
     interfaces.](http://eclipse.org/epsilon/doc/articles/eol-syntax-updates/../lambda-expressions)
 -   Removed old-style OCL comments (`-*` and `--`).
--   `--` can be used to increment and decrement integers.
+-   `--` can be used to decrement integers.
 -   Thread-safe collection types: `ConcurrentBag`, `ConcurrentMap` and
     `ConcurrentSet`.
 
