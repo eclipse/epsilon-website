@@ -482,6 +482,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#save-navigation-and-elvis-operator" class="md-nav__link">
+    Save Navigation and Elvis Operator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#enumerations" class="md-nav__link">
     Enumerations
   </a>
@@ -1351,6 +1358,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#save-navigation-and-elvis-operator" class="md-nav__link">
+    Save Navigation and Elvis Operator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#enumerations" class="md-nav__link">
     Enumerations
   </a>
@@ -2201,6 +2215,14 @@ instances of the Any type are outlined in the table below<sup id="fnref:2"><a cl
 <td>Returns a sub-collection containing only items of the specified type that satisfy the condition</td>
 </tr>
 <tr>
+<td>selectByKind(Type) : Collection</td>
+<td>Returns a sub-collection containing only items of the specified type and subtypes</td>
+</tr>
+<tr>
+<td>selectByType(Type) : Collection</td>
+<td>Returns a sub-collection containing only items of the specified type only</td>
+</tr>
+<tr>
 <td>selectOne(iterator : Type | condition) : Any</td>
 <td>Returns any element that satisfies the condition</td>
 </tr>
@@ -2459,6 +2481,10 @@ operation Any println() : Any {
 <td>Is the logical negation of the (=) operator</td>
 </tr>
 <tr>
+<td>!=</td>
+<td>Same as &lt;&gt;</td>
+</tr>
+<tr>
 <td>&gt;</td>
 <td>For reals/integers returns true if the left hand side is greater than the right hand side number</td>
 </tr>
@@ -2549,6 +2575,18 @@ operation Any println() : Any {
 <pre class="prettyprint lang-eol"><code>var result = 2+2==4 ? "Yes" else "No";
 return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;</code></pre>
 
+<h3 id="save-navigation-and-elvis-operator">Save Navigation and Elvis Operator<a class="headerlink" href="#save-navigation-and-elvis-operator" title="Permanent link">&para;</a></h3>
+<p>As of version 2.1, EOL supports <a href="https://en.wikipedia.org/wiki/Safe_navigation_operator">safe null navigation</a> <code>?.</code>, which makes it more concise to chain feature call expressions without resorting to defensive <code>null</code> / <code>isDefined()</code> checks. In the following example, the variable <code>result</code> will be <code>null</code>, and the program won't crash since the safe navigation operator is used.</p>
+<pre class="prettyprint lang-eol"><code>var a = null;
+var result = a?.someProperty?.anotherProperty;</code></pre>
+
+<p>The null variant of the <a href="https://en.wikipedia.org/wiki/Elvis_operator#Object_reference_variant">"Elvis operator"</a> can also be used to simplify null check ternary expressions, as shown in the example below.</p>
+<p><pre class="prettyprint lang-eol"><code>var a = null;
+var b = "result";
+var c = a != null ? a : b;
+var d = a ?: b;
+assert(c == d);</code></pre>
+As with the ternary operator, the Elvis operator can also be used anywhere an expression is expected, not just in assignments.</p>
 <h3 id="enumerations">Enumerations<a class="headerlink" href="#enumerations" title="Permanent link">&para;</a></h3>
 <p>EOL provides the # operator for accessing enumeration literals. For example, the VisibilityEnum#vk_public expression returns the value of the literal <code>vk_public</code> of the <code>VisibilityEnum</code> enumeration. For EMF metamodels, <code>VisibilityEnum#vk_public.instance</code> can also be used.</p>
 <h2 id="statements">Statements<a class="headerlink" href="#statements" title="Permanent link">&para;</a></h2>

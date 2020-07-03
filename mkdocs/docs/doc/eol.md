@@ -347,6 +347,8 @@ one(iterator : Type \| condition) : Boolean                          |Returns tr
 reject(iterator : Type \| condition) : Collection                    |Returns a sub-collection containing only items of the specified type that do not satisfy the condition
 rejectOne(iterator : Type \| condition) : Collection                 |Returns a sub-collection containing all elements except the first element which does not satisfy the condition
 select(iterator : Type \| condition) : Collection                    |Returns a sub-collection containing only items of the specified type that satisfy the condition
+selectByKind(Type) : Collection                    |Returns a sub-collection containing only items of the specified type and subtypes
+selectByType(Type) : Collection                    |Returns a sub-collection containing only items of the specified type only
 selectOne(iterator : Type \| condition) : Any                        |Returns any element that satisfies the condition
 sortBy(iterator: Type \| expression) : Collection                    |Returns a copy of the collection sorted by the results of evaluating the expression on each item of the collection that conforms to the iterator type. The expression should return either an Integer, a String or an object that is an instance of Comparable. The ordering is calculated as follows: for integers, smaller to greater; for Strings, as defined by the compareTo method of Java strings; for Comparable objects, according to the semantics of the type's compareTo method implementation.
 
