@@ -482,8 +482,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#save-navigation-and-elvis-operator" class="md-nav__link">
-    Save Navigation and Elvis Operator
+  <a href="#safe-navigation-and-elvis-operator" class="md-nav__link">
+    Safe Navigation and Elvis Operator
   </a>
   
 </li>
@@ -1358,8 +1358,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#save-navigation-and-elvis-operator" class="md-nav__link">
-    Save Navigation and Elvis Operator
+  <a href="#safe-navigation-and-elvis-operator" class="md-nav__link">
+    Safe Navigation and Elvis Operator
   </a>
   
 </li>
@@ -2575,7 +2575,7 @@ operation Any println() : Any {
 <pre class="prettyprint lang-eol"><code>var result = 2+2==4 ? "Yes" else "No";
 return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;</code></pre>
 
-<h3 id="save-navigation-and-elvis-operator">Save Navigation and Elvis Operator<a class="headerlink" href="#save-navigation-and-elvis-operator" title="Permanent link">&para;</a></h3>
+<h3 id="safe-navigation-and-elvis-operator">Safe Navigation and Elvis Operator<a class="headerlink" href="#safe-navigation-and-elvis-operator" title="Permanent link">&para;</a></h3>
 <p>As of version 2.1, EOL supports <a href="https://en.wikipedia.org/wiki/Safe_navigation_operator">safe null navigation</a> <code>?.</code>, which makes it more concise to chain feature call expressions without resorting to defensive <code>null</code> / <code>isDefined()</code> checks. In the following example, the variable <code>result</code> will be <code>null</code>, and the program won't crash since the safe navigation operator is used.</p>
 <pre class="prettyprint lang-eol"><code>var a = null;
 var result = a?.someProperty?.anotherProperty;</code></pre>
