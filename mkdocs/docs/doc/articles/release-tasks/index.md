@@ -41,6 +41,8 @@ Run the following commands from the root of the repository, replacing `X.Y.Z` wi
 `mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=X.Y.Z-SNAPSHOT`
 `mvn -f pom-plain.xml versions:set -DnewVersion=X.Y.Z-SNAPSHOT`
 
+You may also need to manually bump up the version of the releng/org.eclipse.epsilon.target project. Specifically, the MANIFEST.MF, but it's also worth checking the pom.xml to make sure they're consistent with each other.
+
 ### Announce release on forum
 
 It would be courteous to let users know of the new release, along with the new features, on the [Epsilon Forum](https://www.eclipse.org/forums/index.php/f/22/).
