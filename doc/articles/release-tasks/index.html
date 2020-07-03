@@ -967,7 +967,8 @@ There are two ways this can be run, but in any case, it needs to be run from the
 <h3 id="build-and-release-to-maven-central">Build and release to Maven Central<a class="headerlink" href="#build-and-release-to-maven-central" title="Permanent link">&para;</a></h3>
 <p>See <a href="../maven-release">this article</a>.</p>
 <h3 id="tagging-the-release">Tagging the release<a class="headerlink" href="#tagging-the-release" title="Permanent link">&para;</a></h3>
-<p>You should run <code>git tag x.y</code>, replacing x.y with the version. Then do <code>git push --follow-tags</code>.</p>
+<p>You should run <code>git tag x.y</code>, replacing x.y with the version. Then do <code>git push origin x.y</code> (again, <code>x.y</code> is the version).
+You can verify the tag was pushed by checking the output of <code>git ls-remote --tags origin</code>.</p>
 <h3 id="update-the-website">Update the website<a class="headerlink" href="#update-the-website" title="Permanent link">&para;</a></h3>
 <p>The Epsilon website's <a href="https://www.eclipse.org/epsilon/download/">Download page</a> should be the only place in the <a href="https://git.eclipse.org/c/www.eclipse.org/epsilon.git">website repo</a> that needs updating. Specifically, you will need to change two source files in the <a href="https://git.eclipse.org/c/www.eclipse.org/epsilon.git/tree/mkdocs/docs/download">source directory</a>.
 Add the new release info to all-versions.md. Then update index.md to mentioned the new release. Generally it should be as easy as Find and Replacing the old version with the new one.</p>

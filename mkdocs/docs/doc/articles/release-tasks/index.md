@@ -23,7 +23,8 @@ See [this article](../maven-release).
 
 ### Tagging the release
 
-You should run `git tag x.y`, replacing x.y with the version. Then do `git push --follow-tags`.
+You should run `git tag x.y`, replacing x.y with the version. Then do `git push origin x.y` (again, `x.y` is the version).
+You can verify the tag was pushed by checking the output of `git ls-remote --tags origin`.
 
 ### Update the website
 
