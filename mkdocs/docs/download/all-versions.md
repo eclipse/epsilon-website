@@ -2,6 +2,7 @@
 
 | Version             | Eclipse Release | Release Date | Release Type       |
 | ------------------- | --------------- | ------------ | ------------------ |
+[2.1](../../download) | 4.16 (2020-06)  | 3 July 2020  | Scheduled release
 [2.0](../../download) | 4.15 (2020-03)  | 30 May 2020  | Major release
 [1.5.1](../1.x)       | 4.8 (Photon) 	  | 30 Sep 2018  | Service release
 [1.5](../1.x)         | 4.8 (Photon)    | 12 Aug 2018  | Scheduled release

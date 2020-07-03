@@ -1,6 +1,6 @@
 # Download
 
-The simplest way to get a copy of Eclipse with Epsilon 2.0 and all its dependencies installed, is to download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer) and select Epsilon. Note that you will need a [Java Runtime Environment](https://adoptopenjdk.net/) installed on your system.
+The simplest way to get a copy of Eclipse with Epsilon 2.1 and all its dependencies installed, is to download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer) and select Epsilon. Note that you will need a [Java Runtime Environment](https://adoptopenjdk.net/) installed on your system.
 
 ![Epsilon in Eclipse Installer](../assets/images/eclipse-installer.png)
 
@@ -34,7 +34,7 @@ Below are also links to compressed versions of the Epsilon update sites for long
 
 | Site | Zip Archive |
 | - | - |
-| Stable | <https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/2.0/epsilon-2.0-site.zip> |
+| Stable | <https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/2.1/epsilon-2.1-site.zip> |
 | Interim | <https://www.eclipse.org/downloads/download.php?file=/epsilon/interim/epsilon-interim-site.zip> |
 
 ## Eclipse Marketplace
@@ -49,7 +49,7 @@ The source code of Epsilon is in the following Git repository.
 | - | - |
 | Users | `git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git`|
 | Committers | `ssh://user_id@git.eclipse.org:29418/epsilon/org.eclipse.epsilon.git`|
-| Release tag | `https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=2.0`|
+| Release tag | `https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=2.1`|
 
 Additional projects which are experimental or have dependencies which are incompatible with the Eclipse Public License are available in [Epsilon Labs](https://github.com/epsilonlabs). 
 
@@ -64,7 +64,7 @@ instance, to use the `epsilon-core` JAR from your `pom.xml`:
 	<dependency>
 	    <groupId>org.eclipse.epsilon</groupId>
 	    <artifactId>org.eclipse.epsilon.eol.engine</artifactId>
-	    <version>2.0.0</version>
+	    <version>2.1.0</version>
 	</dependency>
   ...
 </dependencies>
