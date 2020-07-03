@@ -546,7 +546,7 @@ var result = 2+2==4 ? "Yes" else "No";
 return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;
 ```
 
-### Save Navigation and Elvis Operator
+### Safe Navigation and Elvis Operator
 
 As of version 2.1, EOL supports [safe null navigation](https://en.wikipedia.org/wiki/Safe_navigation_operator) `?.`, which makes it more concise to chain feature call expressions without resorting to defensive `null` / `isDefined()` checks. In the following example, the variable `result` will be `null`, and the program won't crash since the safe navigation operator is used.
 
