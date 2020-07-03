@@ -505,6 +505,7 @@ Operator | Description
 =            | Returns true if the left hand side equals the right hand side. In the case of primitive types (String, Boolean, Integer, Real) the operator compares the values; in the case of objects it returns true if the two expressions evaluate to the same object
 ==           | Same as =
 <>           | Is the logical negation of the (=) operator
+!=           | Same as <>
 >            | For reals/integers returns true if the left hand side is greater than the right hand side number
 <            | For reals/integers returns true if the left hand side is less than the right hand side number
 >=           | For reals/integers returns true if the left hand side is greater or equal to the right hand side number
@@ -542,6 +543,26 @@ As of version 2.0, EOL has a ternary operator which is a concise way of using if
 var result = 2+2==4 ? "Yes" else "No";
 return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;
 ```
+
+### Save Navigation and Elvis Operator
+
+As of version 2.1, EOL supports [safe null navigation](https://en.wikipedia.org/wiki/Safe_navigation_operator) `?.`, which makes it more concise to chain feature call expressions without resorting to defensive `null` / `isDefined()` checks. In the following example, the variable `result` will be `null`, and the program won't crash since the safe navigation operator is used.
+
+```eol
+var a = null;
+var result = a?.someProperty?.anotherProperty;
+```
+
+The null variant of the ["Elvis operator"](https://en.wikipedia.org/wiki/Elvis_operator#Object_reference_variant) can also be used to simplify null check ternary expressions, as shown in the example below.
+
+```eol
+var a = null;
+var b = "result";
+var c = a != null ? a : b;
+var d = a ?: b;
+assert(c == d);
+```
+As with the ternary operator, the Elvis operator can also be used anywhere an expression is expected, not just in assignments.
 
 ### Enumerations
 
