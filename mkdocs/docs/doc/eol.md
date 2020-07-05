@@ -566,6 +566,16 @@ assert(c == d);
 ```
 As with the ternary operator, the Elvis operator can also be used anywhere an expression is expected, not just in assignments.
 
+As of Epsilon 2.2, there is also the `?=` shortcut assignment operator. This is useful for reassigning a variable if it is null.
+In other words, `a ?= b` is equivalent to `if (a == null) a = b;`.
+
+```eol
+var a = null;
+var b = "result";
+a ?= b;
+assert(a == b);
+```
+
 ### Enumerations
 
 EOL provides the \# operator for accessing enumeration literals. For example, the VisibilityEnum\#vk\_public expression returns the value of the literal `vk_public` of the `VisibilityEnum` enumeration. For EMF metamodels, `VisibilityEnum#vk_public.instance` can also be used.
