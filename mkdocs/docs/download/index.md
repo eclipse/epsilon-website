@@ -39,7 +39,7 @@ Below are also links to compressed versions of the Epsilon update sites for long
 
 ## Eclipse Marketplace
 
-If you prefer to install Epsilon through the Eclipse Marketplace, you can drag and drop <a style="position:relative;top:7px" href="https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="https://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> into a running instance of Eclipse.
+If you prefer to install Epsilon through the Eclipse Marketplace, you can drag and drop <a style="position:relative;top:8px" href="https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=400" title="install"><img src="https://marketplace.eclipse.org/sites/all/modules/custom/marketplace/images/installbutton.png"/></a> into a running instance of Eclipse.
 
 ## Source Code <a href="https://ci.eclipse.org/epsilon/job/interim-kubernetes/job/master/lastBuild/"><img src="https://ci.eclipse.org/epsilon/job/interim-kubernetes/job/master/badge/icon" style="float:right;position:relative;top:7px"></a>
 
