@@ -2587,6 +2587,13 @@ var c = a != null ? a : b;
 var d = a ?: b;
 assert(c == d);</code></pre>
 As with the ternary operator, the Elvis operator can also be used anywhere an expression is expected, not just in assignments.</p>
+<p>As of Epsilon 2.2, there is also the <code>?=</code> shortcut assignment operator. This is useful for reassigning a variable if it is null.
+In other words, <code>a ?= b</code> is equivalent to <code>if (a == null) a = b;</code>.</p>
+<pre class="prettyprint lang-eol"><code>var a = null;
+var b = "result";
+a ?= b;
+assert(a == b);</code></pre>
+
 <h3 id="enumerations">Enumerations<a class="headerlink" href="#enumerations" title="Permanent link">&para;</a></h3>
 <p>EOL provides the # operator for accessing enumeration literals. For example, the VisibilityEnum#vk_public expression returns the value of the literal <code>vk_public</code> of the <code>VisibilityEnum</code> enumeration. For EMF metamodels, <code>VisibilityEnum#vk_public.instance</code> can also be used.</p>
 <h2 id="statements">Statements<a class="headerlink" href="#statements" title="Permanent link">&para;</a></h2>
