@@ -27,3 +27,7 @@ Download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer) and
 ## License
 
 Epsilon is licensed under the [Eclipse Public License 2.0](https://www.eclipse.org/legal/epl-2.0/). 
+
+## Build Status
+
+[![](https://ci.eclipse.org/epsilon/job/interim-kubernetes/job/master/badge/icon)](https://ci.eclipse.org/epsilon/job/interim-kubernetes/job/master/lastBuild/)
