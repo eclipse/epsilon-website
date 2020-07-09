@@ -119,7 +119,7 @@ markdown_extensions:
   - admonition
   - meta
   - footnotes
-  # - pymdownx.tabbed
+  - pymdownx.tabbed
   - codehilite:
       guess_lang: false
       linenums: false
