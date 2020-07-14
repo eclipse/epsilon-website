@@ -181,7 +181,7 @@ rule ClassDiagram {
 }	
 ```
 
-In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions showcased [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/eclass2dot.egl).
+In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions showcased [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl).
 
 ![](picto-eclassifier.png)
 
@@ -202,7 +202,7 @@ Picto also suports a standalone mode, where the details of the models to be visu
 
 ```xml
 <?nsuri picto?>
-<picto format="egx" template="picto/socialnetwork.egx" standalone="true">
+<picto format="egx" transformation="picto/socialnetwork.egx" standalone="true">
 	<model type="EMF">
 		<parameter name="name" value="M"/>
 		<parameter name="metamodelUri" value="socialnetwork"/>
