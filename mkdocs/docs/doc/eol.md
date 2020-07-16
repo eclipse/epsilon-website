@@ -476,6 +476,9 @@ operation Any println() : Any {
 }
 ```
 
+!!! info "Navigating to the parent/children of model elements"
+    EOL does not provide a technology-independent way of navigating to the parent/children of a model element. If you need to do this, you should use any methods provided by the underlying modelling platform. For example, as all elements of EMF models are instances of the [EObject](https://download.eclipse.org/modeling/emf/emf/javadoc/2.5.0/org/eclipse/emf/ecore/EObject.html) Java class, the `me.eContainer()` and `me.eContents()` method calls in EMF return the parent and children of element `me` respectively.
+
 ### Escaping Reserved Keywords
 
 Due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. Backticks can be used to escape such keywords. For example, if a model element contains a feature called `operation`, then this can be navigated as shown in the listing below.
