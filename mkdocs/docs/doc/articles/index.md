@@ -24,6 +24,10 @@ This page contains an index of articles presenting a range of tools and language
 - [Co-ordinating EGL templates with EGX](egx-parameters): This article demonstrates how to parameterize EGL templates and execute them multiple times to produce multiple files.
 - [Re-using EGL templates](egl-invoke-egl): This article demonstrates how to invoke other EGL templates and direct their output to calling EGL template.
 
+## Epsilon Transformation Language
+
+- [XML to EMF Transformation](xml-to-emf): This article shows how to transform an XML document into an EMF model using the Epsilon Transformation Language and Epsilon's XML driver
+
 ## Epsilon and EMF models
 
 - [Emfatic language reference](https://www.eclipse.org/emfatic/): Emfatic is a language designed to represent EMF Ecore models in a textual form.  This article details the syntax of Emfatic and the mapping between Emfatic declarations and the corresponding Ecore constructs.
