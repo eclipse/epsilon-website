@@ -10,7 +10,7 @@ The simplest way to get a copy of Eclipse with Epsilon 2.1 and all its dependenc
 | Mac | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-mac64.dmg> |
 | Linux | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-linux64.tar.gz> |
 
-!!! tip
+!!! tip "Can't find Epsilon?"
 	 If you don't see Epsilon in the list, click on the three vertical bars on the top right, then Product Catalogs and check "Eclipse.org Applications". Epsilon should be near the bottom of the list (you can also use the search bar). If the Product Catalogs option is missing, switch to Advanced Mode and look for Epsilon under "Eclipse.org Applications" (if this category is missing, click on the small yellow folder icon in the top right corner and select it). Keep pressing Next (you don't need to change anything) and then Finish. Accept the licenses when prompted.
 
 !!! warning
@@ -25,7 +25,12 @@ Alternatively, you can use the following update sites through the `Help->Install
 | Stable | `http://download.eclipse.org/epsilon/updates/`|
 | Interim | `http://download.eclipse.org/epsilon/interim/`|
 
-!!! info
+!!! warning "Eclipse failing to find dependencies?"
+    While Epsilon update sites contain references to all 3rd party dependencies and shouldn't require installing any prerequisites separately, Eclipse's installation system (p2) can be [temperamental](https://bugs.eclipse.org/bugs/show_bug.cgi?id=565859#c5) and occasionally fail to find libraries from Eclipse's Orbit project. In this case, installation can fail with the following message: `Cannot complete the install because one or more required items could not be found`. 
+
+    When this happens, please [install the missing dependences from Orbit manually](https://www.eclipse.org/forums/index.php?t=msg&th=1104436&goto=1829681&#msg_1829681) and try again. Alternatively, you can try installing Epsilon through the Eclipse installer (see above), which is much more reliable. If in doubt, please post a message to the forum.
+
+!!! info "How often is the interim update site rebuilt?"
     The interim update site is rebuilt automatically with every push to the main branch of the Epsilon repo. Bugs fixed in the interim version (compared to the latest stable version) are listed [here](https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced)
 
 ### Archived Update Sites
