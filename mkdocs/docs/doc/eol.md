@@ -227,8 +227,11 @@ EOL provides four primitive types: String, Integer, Real and Boolean. The String
 characterAt(index : Integer) : String                               |Returns the character in the specified index
 concat(str : String) : String                                       |Returns a concatenated form of the string with the `str` parameter
 endsWith(str : String) : Boolean                                    |Returns true iff the string ends with `str`
+escapeXml() : String |Returns a new string with escaped XML-reserved characters
 firstToLowerCase() : String                                         |Returns a new string the first character of which has been converted to lower case
+ftlc() : String |Alias for `firstToLowerCase()`
 firstToUpperCase() : String                                         |Returns a new string, the first character of which has been converted to upper case
+ftuc : String |Alias for `firstToUpperCase()`
 isInteger() : Boolean                                               |Returns true iff the string is an integer
 isReal() : Boolean                                                  |Returns true iff the string is a real number
 isSubstringOf(str : String) : Boolean                               |Returns true iff the string the operation is invoked on is a substring of `str`
