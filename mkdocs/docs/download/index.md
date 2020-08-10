@@ -61,7 +61,7 @@ Additional projects which are experimental or have dependencies which are incomp
 ## Maven
 
 Epsilon JARs are available from [Maven Central](https://mvnrepository.com/artifact/org.eclipse.epsilon). For
-instance, to use the `epsilon-core` JAR from your `pom.xml`:
+instance, to use the `EOL engine` JAR from your `pom.xml`:
 
 ```xml
 <dependencies>
@@ -75,6 +75,8 @@ instance, to use the `epsilon-core` JAR from your `pom.xml`:
 </dependencies>
 
 ```
+
+To use the latest SNAPSHOT (interim) version of Epsilon, please see [the standalone example POM](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.standalone/pom.xml).
 
 ## Older versions
 
