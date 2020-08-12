@@ -3,6 +3,11 @@
 The following is a brief description of changes to the Epsilon Object
 Language's syntax in each release.
 
+### 2.2
+
+-   `Tuple` type. Similar to a Map with String keys, but its properties can be
+    accessed like a regular object (using the `.` operator).
+
 ### 2.1
 
 -   [Elvis operator](https://en.wikipedia.org/wiki/Elvis_operator) as a convenient

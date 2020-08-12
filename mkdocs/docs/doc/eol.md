@@ -371,6 +371,34 @@ remove(key : Any) : Any                |Removes the mapping for the specified ke
 size() : Integer                       |Returns the number of key-value mappings in this map.
 values() : Bag                         |Returns the values of the map
 
+### Tuples
+
+Since version 2.2, EOL supports Tuples, which can be used to compose arbitrary data structures on-the-fly. A `Tuple` in EOL behaves like a `Map<String, Object>`, except that the values of the map can be accessed using literal property call expressions. There are three ways to instantiate a tuple, as shown below.
+
+```eol
+// After construction
+var t1 = new Tuple;
+t1.myProperty = "a string";
+t2.x = 6;
+
+// During construction
+var t2 = new Tuple(field1 = "my field", f2 = "another field", numberz = Sequence{0..9});
+
+// Map Literal
+var t3 = Tuple {"id" = 998, "someRandomFlag" = true, anotherProperty = "Y"};
+```
+
+If a non-existent property on a Tuple is accessed, an exception is thrown.
+
+```eol
+var t = new Tuple(p1 = "a value", p2 = null);
+
+t.p1.substring(0, 1);       // "a"
+t.p2 == null;               // true
+t.nonExistent.isDefined();  // false
+t.nonExistent.getClass();   // Property 'nonExistent' not found in object Tuple {p1->a value, p2->}
+```
+
 ### Native Types
 
 As discussed earlier, while the purpose of EOL is to provide significant expressive power to enable users to manage models at a high level of abstraction, it is not intended to be a general-purpose programming language. Therefore, there may be cases where users need to implement some functionality that is either not efficiently supported by the EOL runtime (e.g. complex mathematical computations) or that EOL does not support at all (e.g. developing user interfaces, accessing databases). To overcome this problem, EOL enables users to create objects of the underlying programming environment by using `native` types. A native type specifies an `implementation` property that indicates the unique identifier for an underlying platform type. For instance, in a Java implementation of EOL the user can instantiate and use a Java class via its class identifier. Thus, the EOL excerpt in the listing below creates a Java window (Swing JFrame) and uses its methods to change its title and dimensions and make it visible.
