@@ -1243,7 +1243,7 @@
                 
                 
                 <h1 id="flexmi">Flexmi<a class="headerlink" href="#flexmi" title="Permanent link">&para;</a></h1>
-<p>Flexmi (pronounced <em>flex-em-eye</em>) is a <strong>flexible, reflective textual syntax for creating models conforming to Ecore metamodels</strong>. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (<code>acme.flexmi</code>):</p>
+<p>Flexmi (pronounced <em>flex-em-eye</em>) is a <strong>reflective textual syntax for EMF models</strong>. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (<code>acme.flexmi</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;person</span> <span class="na">name=</span><span class="s">&quot;Alice&quot;</span><span class="nt">/&gt;</span>
@@ -1354,7 +1354,7 @@ class Skill {
 <h3 id="attribute-assignment">Attribute Assignment<a class="headerlink" href="#attribute-assignment" title="Permanent link">&para;</a></h3>
 <p>The Flexmi parser uses an implementation of the <a href="https://en.wikipedia.org/wiki/Hungarian_algorithm">Hungarian algorithm</a> to decide the best match of XML attribute names to EAttibute/(non-containment) EReference names.</p>
 <h2 id="executable-attributes">Executable Attributes<a class="headerlink" href="#executable-attributes" title="Permanent link">&para;</a></h2>
-<p>Prepending <code>:</code> to the name of an attribute instructs the Flexmi parser to interpret its value as an executable <a href="../eol">EOL</a> expression instead of a literal value. Also, Flexmi supports attaching a <code>:var</code> attribute to XML elements, to declare local variables that can be used in EOL expressions.</p>
+<p>Prepending <code>:</code> to the name of an attribute instructs the Flexmi parser to interpret its value as an executable <a href="../eol">EOL</a> expression instead of a literal value. Also, Flexmi supports attaching a <code>:var</code> or a <code>:global</code> attribute to XML elements, to declare local/global variables that can be used in EOL expressions. The scope of local variables includes siblings of the element, and their descendants, while global variables can be accessed from anywhere in the model.</p>
 <p>For example, in the Flexmi model below, the <code>Design</code> task is assigned to a local variable named <code>design</code>, which is then used to compute the value of the <code>start</code> time of the implementation task. </p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span><span class="nt">&gt;</span>
@@ -1373,7 +1373,7 @@ class Skill {
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 
-<p>You can also use <code>:var</code> and EOL attributes to refer to model elements without using names/ids as identifiers. For example, in the version, below, <code>Alice</code> is attached to the local variable name <code>alice</code>, which is then used in the <code>:person</code> reference of the second effort of the <code>Implementation</code> task.</p>
+<p>You can also use <code>:var</code>/<code>:global</code> and EOL attributes to refer to model elements without using names/ids as identifiers. For example, in the version, below, <code>Alice</code> is attached to the local variable name <code>alice</code>, which is then used in the <code>:person</code> reference of the second effort of the <code>Implementation</code> task.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;person</span> <span class="na">name=</span><span class="s">&quot;Alice&quot;</span> <span class="na">:var=</span><span class="s">&quot;alice&quot;</span><span class="nt">/&gt;</span>
@@ -1479,7 +1479,7 @@ class Skill {
 <p>You can convert a Flexmi model to standard XMI (with no templates, executable attributes etc.) by right-clicking on it in the Project Explorer view and selecting <code>Generate XMI</code>.</p>
 <p>Converting a Flexmi model to XMI is not supported as there's no unique mapping in this direction.</p>
 <h2 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h2>
-<p>Flexmi was originally developed as a quick and dirty way to type in EMF models without having to define an Xtext grammar or adhere to the rigid naming rules of XMI or HUTN.</p>
+<p>Flexmi was originally developed as a quick and dirty way to type in EMF models without having to define an Xtext grammar or adhere to the rigid naming rules of XMI or HUTN. The name is a combination of the word "flexible" and the "XMI" acronym.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Flexmi resources can't be saved programmatically (i.e. trying to call <code>resource.save(...)</code> will do nothing).</li>
