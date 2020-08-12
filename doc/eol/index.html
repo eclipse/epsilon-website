@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
@@ -19,9 +19,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.947af8d5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7f672a1f.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
       
       
         
@@ -2342,23 +2342,23 @@ instances of the Any type are outlined in the table below<sup id="fnref:2"><a cl
 <h3 id="tuples">Tuples<a class="headerlink" href="#tuples" title="Permanent link">&para;</a></h3>
 <p>Since version 2.2, EOL supports Tuples, which can be used to compose arbitrary data structures on-the-fly. A <code>Tuple</code> in EOL behaves like a <code>Map&lt;String, Object&gt;</code>, except that the values of the map can be accessed using literal property call expressions. There are three ways to instantiate a tuple, as shown below.</p>
 <pre class="prettyprint lang-eol"><code>// After construction
-var t1 = new Tuple;
-t1.myProperty = "a string";
-t2.x = 6;
+var alice = new Tuple;
+alice.name = "Alice";
+alice.age = 32;
 
 // During construction
-var t2 = new Tuple(field1 = "my field", f2 = "another field", numberz = Sequence{0..9});
+var bob = new Tuple(name = "Bob", age = 28);
 
 // Map Literal
-var t3 = Tuple {"id" = 998, "someRandomFlag" = true, anotherProperty = "Y"};</code></pre>
+var charlie = Tuple{"name" = "Charlie", "age" = 36};</code></pre>
 
 <p>If a non-existent property on a Tuple is accessed, an exception is thrown.</p>
-<pre class="prettyprint lang-eol"><code>var t = new Tuple(p1 = "a value", p2 = null);
+<pre class="prettyprint lang-eol"><code>var p = new Tuple(name = "Alice", age = 32);
 
-t.p1.substring(0, 1);       // "a"
-t.p2 == null;               // true
-t.nonExistent.isDefined();  // false
-t.nonExistent.getClass();   // Property 'nonExistent' not found in object Tuple {p1-&gt;a value, p2-&gt;}</code></pre>
+p.name.substring(0, 1); // "a"
+p.age; // 32
+p.occupation.isDefined(); // false
+p.occupation.toUpperCase(); // Property 'occupation' not found</code></pre>
 
 <h3 id="native-types">Native Types<a class="headerlink" href="#native-types" title="Permanent link">&para;</a></h3>
 <p>As discussed earlier, while the purpose of EOL is to provide significant expressive power to enable users to manage models at a high level of abstraction, it is not intended to be a general-purpose programming language. Therefore, there may be cases where users need to implement some functionality that is either not efficiently supported by the EOL runtime (e.g. complex mathematical computations) or that EOL does not support at all (e.g. developing user interfaces, accessing databases). To overcome this problem, EOL enables users to create objects of the underlying programming environment by using <code>native</code> types. A native type specifies an <code>implementation</code> property that indicates the unique identifier for an underlying platform type. For instance, in a Java implementation of EOL the user can instantiate and use a Java class via its class identifier. Thus, the EOL excerpt in the listing below creates a Java window (Swing JFrame) and uses its methods to change its title and dimensions and make it visible.</p>
@@ -3059,15 +3059,15 @@ implementation" src="../images/ConsoleUserInput.png" /></p>
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
-      <script src="../../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
