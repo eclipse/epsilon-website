@@ -284,7 +284,7 @@ resource.load(null);
 
 You can convert a Flexmi model to standard XMI (with no templates, executable attributes etc.) by right-clicking on it in the Project Explorer view and selecting `Generate XMI`.
 
-Converting a Flexmi model to XMI is not supported as there's no unique mapping in this direction.
+Converting an XMI model to Flexmi on the other hand is not supported as there's no unique mapping in this direction.
 
 ## Philosophy
 

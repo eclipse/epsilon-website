@@ -377,26 +377,26 @@ Since version 2.2, EOL supports Tuples, which can be used to compose arbitrary d
 
 ```eol
 // After construction
-var t1 = new Tuple;
-t1.myProperty = "a string";
-t2.x = 6;
+var alice = new Tuple;
+alice.name = "Alice";
+alice.age = 32;
 
 // During construction
-var t2 = new Tuple(field1 = "my field", f2 = "another field", numberz = Sequence{0..9});
+var bob = new Tuple(name = "Bob", age = 28);
 
 // Map Literal
-var t3 = Tuple {"id" = 998, "someRandomFlag" = true, anotherProperty = "Y"};
+var charlie = Tuple{"name" = "Charlie", "age" = 36};
 ```
 
 If a non-existent property on a Tuple is accessed, an exception is thrown.
 
 ```eol
-var t = new Tuple(p1 = "a value", p2 = null);
+var p = new Tuple(name = "Alice", age = 32);
 
-t.p1.substring(0, 1);       // "a"
-t.p2 == null;               // true
-t.nonExistent.isDefined();  // false
-t.nonExistent.getClass();   // Property 'nonExistent' not found in object Tuple {p1->a value, p2->}
+p.name.substring(0, 1); // "a"
+p.age; // 32
+p.occupation.isDefined(); // false
+p.occupation.toUpperCase(); // Property 'occupation' not found
 ```
 
 ### Native Types
