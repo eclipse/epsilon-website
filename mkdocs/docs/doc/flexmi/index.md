@@ -1,6 +1,6 @@
 # Flexmi
 
-Flexmi (pronounced *flex-em-eye*) is a **flexible, reflective textual syntax for creating models conforming to Ecore metamodels**. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (`acme.flexmi`):
+Flexmi (pronounced *flex-em-eye*) is a **reflective textual syntax for EMF models**. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (`acme.flexmi`):
 
 ```xml
 <?nsuri psl?>
@@ -134,7 +134,7 @@ The Flexmi parser uses an implementation of the [Hungarian algorithm](https://en
 
 ## Executable Attributes
 
-Prepending `:` to the name of an attribute instructs the Flexmi parser to interpret its value as an executable [EOL](../eol) expression instead of a literal value. Also, Flexmi supports attaching a `:var` attribute to XML elements, to declare local variables that can be used in EOL expressions.
+Prepending `:` to the name of an attribute instructs the Flexmi parser to interpret its value as an executable [EOL](../eol) expression instead of a literal value. Also, Flexmi supports attaching a `:var` or a `:global` attribute to XML elements, to declare local/global variables that can be used in EOL expressions. The scope of local variables includes siblings of the element, and their descendants, while global variables can be accessed from anywhere in the model.
 
 For example, in the Flexmi model below, the `Design` task is assigned to a local variable named `design`, which is then used to compute the value of the `start` time of the implementation task. 
 
@@ -156,7 +156,7 @@ For example, in the Flexmi model below, the `Design` task is assigned to a local
 </project>
 ```
 
-You can also use `:var` and EOL attributes to refer to model elements without using names/ids as identifiers. For example, in the version, below, `Alice` is attached to the local variable name `alice`, which is then used in the `:person` reference of the second effort of the `Implementation` task.
+You can also use `:var`/`:global` and EOL attributes to refer to model elements without using names/ids as identifiers. For example, in the version, below, `Alice` is attached to the local variable name `alice`, which is then used in the `:person` reference of the second effort of the `Implementation` task.
 
 ```xml
 <?nsuri psl?>
@@ -288,7 +288,7 @@ Converting a Flexmi model to XMI is not supported as there's no unique mapping i
 
 ## Philosophy
 
-Flexmi was originally developed as a quick and dirty way to type in EMF models without having to define an Xtext grammar or adhere to the rigid naming rules of XMI or HUTN.
+Flexmi was originally developed as a quick and dirty way to type in EMF models without having to define an Xtext grammar or adhere to the rigid naming rules of XMI or HUTN. The name is a combination of the word "flexible" and the "XMI" acronym.
 
 ## Limitations
 
