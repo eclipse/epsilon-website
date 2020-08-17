@@ -129,3 +129,42 @@ When the user has performed all the necessary *fixes* or chooses to end Phase 3 
 It is often the case that constraints conceptually depend on each other. To allow users capture such dependencies, EVL provides the *satisfies(constraint : String) : Boolean*, *satisfiesAll(constraints : Sequence(String)) : Boolean* and *satisfiesOne(constraints : Sequence(String)) : Boolean* built-in operations. Using these operations, an constraint can specify in its *guard* other constraints which need to be satisfied for it to be meaningful to evaluate.
 
 When one of these operations is invoked, if the required *constraints* (either lazy or non-lazy) have been evaluated for the instances on which the operation is invoked, the engine will return their cached results; otherwise it will evaluate them and return their results.
+
+## Example
+
+The following is an EVL program demonstrating some of the language features, which validates models confirming to the Movies metamodel shown below. Execution begins from the *pre* block, which simply computes the average number of actors per Movie and stores it into a global variable, which can be accessed at any point. The *ValidActors* constraint checks that for every instance of *Movie* which has more than the average number of actors, all of the actors have valid names. This is achieved through a dependency on the *HashValidName* invariant declared in the context of *Person* type. This constraint is marked as lazy, which means it is only executed when invoked by *satisfies*, so avoiding unnecessary or duplicate invocations. The *HasValidName* constraint makes use of a helper operation (*isPlain()*) on Strings. Once all Movie instances have been checked, the execution engine then proceeds to validate all *Person* instances, which consists of only one non-lazy constraint *ValidMovieYears*. This checks that all of the movies the actor has played in were released at least 3 years after the actor was born. Finally, the *post* block is executed, which in this case simply prints some basic information about the model.
+
+![IMDb metamodel](images/moviesMM.png)
+
+```evl
+pre {
+  var numMovies = Movie.all.size();
+  var numActors = Person.all.size();
+  var apm = numActors / numMovies;
+}
+operation String isPlain() : Boolean {
+  return self.matches("[A-Za-z\\s]+");
+}
+context Movie {
+  constraint ValidActors {
+    guard : self.persons.size() > apm
+    check : self.persons.forAll(p | p.satisfies("HasValidName"))
+  }
+}
+context Person {
+  @lazy
+  constraint HasValidName {
+    check : self.name.isPlain()
+  } 
+  constraint ValidMovieYears {
+    check : self.movies.forAll(m |
+      m.year + 1 > self.birthYear
+    )
+  }
+}
+post {
+  ("Actors per Movie="+apm).println();
+  ("# Movies="+numMovies).println();
+  ("# Actors="+numActors).println();
+}
+```
