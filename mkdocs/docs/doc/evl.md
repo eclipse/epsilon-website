@@ -159,8 +159,7 @@ pre {
 context Movie {
   
   constraint ValidActors {
-    guard : self.persons.size() > apm
-    
+    guard : self.persons.size() > apm    
     check : self.persons.forAll(p | p.satisfies("HasValidName"))
   }
 }
@@ -173,9 +172,7 @@ context Person {
   } 
   
   constraint ValidMovieYears {
-    check : self.movies.forAll(m |
-      m.year + 1 > self.birthYear
-    )
+    check : self.movies.forAll(m |  m.year + 1 > self.birthYear)
   }
 }
 
