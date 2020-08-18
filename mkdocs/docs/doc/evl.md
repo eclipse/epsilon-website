@@ -134,7 +134,20 @@ When one of these operations is invoked, if the required *constraints* (either l
 
 The following is an EVL program demonstrating some of the language features, which validates models confirming to the Movies metamodel shown below. Execution begins from the *pre* block, which simply computes the average number of actors per Movie and stores it into a global variable, which can be accessed at any point. The *ValidActors* constraint checks that for every instance of *Movie* which has more than the average number of actors, all of the actors have valid names. This is achieved through a dependency on the *HashValidName* invariant declared in the context of *Person* type. This constraint is marked as lazy, which means it is only executed when invoked by *satisfies*, so avoiding unnecessary or duplicate invocations. The *HasValidName* constraint makes use of a helper operation (*isPlain()*) on Strings. Once all Movie instances have been checked, the execution engine then proceeds to validate all *Person* instances, which consists of only one non-lazy constraint *ValidMovieYears*. This checks that all of the movies the actor has played in were released at least 3 years after the actor was born. Finally, the *post* block is executed, which in this case simply prints some basic information about the model.
 
-![IMDb metamodel](images/moviesMM.png)
+```mermaid-30
+classDiagram
+class Movie {
+    -title: String
+    -rating: Double
+    -year: Int
+}
+class Person {
+    -name: String
+    -birthYear: Int
+}
+
+Movie -- Person: movies * / persons *
+```
 
 ```evl
 pre {
@@ -142,26 +155,34 @@ pre {
   var numActors = Person.all.size();
   var apm = numActors / numMovies;
 }
-operation String isPlain() : Boolean {
-  return self.matches("[A-Za-z\\s]+");
-}
+
 context Movie {
+  
   constraint ValidActors {
     guard : self.persons.size() > apm
+    
     check : self.persons.forAll(p | p.satisfies("HasValidName"))
   }
 }
+
 context Person {
+  
   @lazy
   constraint HasValidName {
     check : self.name.isPlain()
   } 
+  
   constraint ValidMovieYears {
     check : self.movies.forAll(m |
       m.year + 1 > self.birthYear
     )
   }
 }
+
+operation String isPlain() : Boolean {
+  return self.matches("[A-Za-z\\s]+");
+}
+
 post {
   ("Actors per Movie="+apm).println();
   ("# Movies="+numMovies).println();
