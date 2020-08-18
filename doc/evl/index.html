@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
@@ -19,9 +19,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.947af8d5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7f672a1f.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
       
       
         
@@ -1297,32 +1297,52 @@ fix {
 <p>When one of these operations is invoked, if the required <em>constraints</em> (either lazy or non-lazy) have been evaluated for the instances on which the operation is invoked, the engine will return their cached results; otherwise it will evaluate them and return their results.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>The following is an EVL program demonstrating some of the language features, which validates models confirming to the Movies metamodel shown below. Execution begins from the <em>pre</em> block, which simply computes the average number of actors per Movie and stores it into a global variable, which can be accessed at any point. The <em>ValidActors</em> constraint checks that for every instance of <em>Movie</em> which has more than the average number of actors, all of the actors have valid names. This is achieved through a dependency on the <em>HashValidName</em> invariant declared in the context of <em>Person</em> type. This constraint is marked as lazy, which means it is only executed when invoked by <em>satisfies</em>, so avoiding unnecessary or duplicate invocations. The <em>HasValidName</em> constraint makes use of a helper operation (<em>isPlain()</em>) on Strings. Once all Movie instances have been checked, the execution engine then proceeds to validate all <em>Person</em> instances, which consists of only one non-lazy constraint <em>ValidMovieYears</em>. This checks that all of the movies the actor has played in were released at least 3 years after the actor was born. Finally, the <em>post</em> block is executed, which in this case simply prints some basic information about the model.</p>
-<p><img alt="IMDb metamodel" src="../images/moviesMM.png" /></p>
+<div class="mermaid mermaid-30">classDiagram
+class Movie {
+    -title: String
+    -rating: Double
+    -year: Int
+}
+class Person {
+    -name: String
+    -birthYear: Int
+}
+
+Movie -- Person: movies * / persons *</div>
+
 <pre class="prettyprint lang-evl"><code>pre {
   var numMovies = Movie.all.size();
   var numActors = Person.all.size();
   var apm = numActors / numMovies;
 }
-operation String isPlain() : Boolean {
-  return self.matches("[A-Za-z\\s]+");
-}
+
 context Movie {
+
   constraint ValidActors {
     guard : self.persons.size() &gt; apm
+
     check : self.persons.forAll(p | p.satisfies("HasValidName"))
   }
 }
+
 context Person {
+
   @lazy
   constraint HasValidName {
     check : self.name.isPlain()
   } 
+
   constraint ValidMovieYears {
     check : self.movies.forAll(m |
       m.year + 1 &gt; self.birthYear
     )
   }
 }
+
+operation String isPlain() : Boolean {
+  return self.matches("[A-Za-z\\s]+");
+}
+
 post {
   ("Actors per Movie="+apm).println();
   ("# Movies="+numMovies).println();
@@ -1405,15 +1425,15 @@ post {
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
-      <script src="../../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
