@@ -8,6 +8,9 @@ Language's syntax in each release.
 -   `Tuple` type. Similar to a Map with String keys, but its properties can be
     accessed like a regular object (using the `.` operator).
 
+- Assign if null operator `?=` as convenient shorthand for `a = a ?: b`, that is:
+`a = a <> null ? a : b`.
+
 ### 2.1
 
 -   [Elvis operator](https://en.wikipedia.org/wiki/Elvis_operator) as a convenient
