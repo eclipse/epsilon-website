@@ -4,7 +4,7 @@ nav:
   - Download : 'download/index.md'
   - Documentation:
     - Overview: 'doc/index.md'
-    - Model connectivity: 'doc/emc.md'    
+    - Model connectivity: 'doc/emc.md'
     - Languages:
         - Object language (EOL): 'doc/eol.md'
         - Code generation (EGL): 'doc/egl.md'
@@ -16,6 +16,7 @@ nav:
         - Model Migration (Flock): 'doc/flock.md'
         - Model generation (EMG): 'doc/emg.md'
         - Unit testing (EUnit): 'doc/eunit.md'
+        - Dataset extraction (Pinset): 'doc/pinset.md'
     - Tools:
         - Picto: 'doc/picto/index.md'
         - Flexmi: 'doc/flexmi/index.md'
@@ -47,7 +48,7 @@ nav:
       - Epsilon Labs: 'labs.md'
       - Frequently asked questions: 'faq.md'
   - Branding: 'branding/index.md'
-theme: 
+theme:
   name: material
   custom_dir: custom_theme
   logo: 'assets/images/epsilon-white-background.png'
@@ -85,19 +86,19 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_div_format
         - name: eol
           class: prettyprint lang-eol
-          format: !!python/name:pymdownx.superfences.fence_code_format  
+          format: !!python/name:pymdownx.superfences.fence_code_format
         - name: etl
           class: prettyprint lang-etl
-          format: !!python/name:pymdownx.superfences.fence_code_format  
+          format: !!python/name:pymdownx.superfences.fence_code_format
         - name: ecl
           class: prettyprint lang-ecl
-          format: !!python/name:pymdownx.superfences.fence_code_format  
+          format: !!python/name:pymdownx.superfences.fence_code_format
         - name: eml
           class: prettyprint lang-eml
-          format: !!python/name:pymdownx.superfences.fence_code_format  
+          format: !!python/name:pymdownx.superfences.fence_code_format
         - name: epl
           class: prettyprint lang-epl
-          format: !!python/name:pymdownx.superfences.fence_code_format  
+          format: !!python/name:pymdownx.superfences.fence_code_format
         - name: evl
           class: prettyprint lang-evl
           format: !!python/name:pymdownx.superfences.fence_code_format
@@ -115,6 +116,9 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
         - name: emf
           class: prettyprint lang-emf
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: pinset
+          class: prettyprint lang-pinset
           format: !!python/name:pymdownx.superfences.fence_code_format
   - admonition
   - meta
@@ -152,6 +156,6 @@ extra_javascript:
   - 'assets/javascript/mermaid.js'
   - 'assets/javascript/jquery.js'
   - 'assets/javascript/google-code-prettify/prettify.js'
-  - 'assets/javascript/google-code-prettify/lang-emfatic.js'    
-  - 'assets/javascript/google-code-prettify/lang-epsilon.js'    
+  - 'assets/javascript/google-code-prettify/lang-emfatic.js'
+  - 'assets/javascript/google-code-prettify/lang-epsilon.js'
   - 'assets/javascript/google-code-prettify/prettyprint.js'
