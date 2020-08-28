@@ -1,0 +1,1821 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
+    
+    
+      
+        <title>Dataset extraction (Pinset) - Epsilon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#000000">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/mermaid.css">
+    
+      <link rel="stylesheet" href="../../assets/javascript/google-code-prettify/prettify.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.5.1/dist/mermaid.css">
+    
+    
+      
+    
+    
+<!-- FAVICON -->
+
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dataset-extraction-pinset" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Epsilon" class="md-header-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../assets/images/epsilon-white-background.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Epsilon
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Dataset extraction (Pinset)
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon">
+      
+  <img src="../../assets/images/epsilon-white-background.png" alt="logo">
+
+    </a>
+    Epsilon
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git repository @ Eclipse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../download/" title="Download" class="md-nav__link">
+      Download
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emc/" title="Model connectivity" class="md-nav__link">
+      Model connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Languages
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Languages" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Languages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eol/" title="Object language (EOL)" class="md-nav__link">
+      Object language (EOL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../egl/" title="Code generation (EGL)" class="md-nav__link">
+      Code generation (EGL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../evl/" title="Model validation (EVL)" class="md-nav__link">
+      Model validation (EVL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../etl/" title="Model transformation (ETL)" class="md-nav__link">
+      Model transformation (ETL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ecl/" title="Model comparison (ECL)" class="md-nav__link">
+      Model comparison (ECL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eml/" title="Model merging (EML)" class="md-nav__link">
+      Model merging (EML)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../epl/" title="Pattern matching (EPL)" class="md-nav__link">
+      Pattern matching (EPL)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flock/" title="Model Migration (Flock)" class="md-nav__link">
+      Model Migration (Flock)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../emg/" title="Model generation (EMG)" class="md-nav__link">
+      Model generation (EMG)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
+      Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Dataset extraction (Pinset)
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Dataset extraction (Pinset)" class="md-nav__link md-nav__link--active">
+      Dataset extraction (Pinset)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-example" class="md-nav__link">
+    Model example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties-accessors" class="md-nav__link">
+    Properties accessors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#row-filtering" class="md-nav__link">
+    Row filtering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-columns-grid" class="md-nav__link">
+    Multiple columns: grid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typeless-dataset-rules" class="md-nav__link">
+    Typeless dataset rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-column-generators" class="md-nav__link">
+    Nested column generators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-post-processing" class="md-nav__link">
+    Column post-processing
+  </a>
+  
+    <nav class="md-nav" aria-label="Column post-processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fill-nulls" class="md-nav__link">
+    Fill nulls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normalisation" class="md-nav__link">
+    Normalisation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coming-soon" class="md-nav__link">
+    Coming soon
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Tools
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Tools" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../picto/" title="Picto" class="md-nav__link">
+      Picto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../flexmi/" title="Flexmi" class="md-nav__link">
+      Flexmi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eugenia/" title="Eugenia" class="md-nav__link">
+      Eugenia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exeed/" title="Exeed" class="md-nav__link">
+      Exeed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modelink/" title="Modelink" class="md-nav__link">
+      Modelink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hutn/" title="HUTN" class="md-nav__link">
+      HUTN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
+      Workflow (Ant tasks)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../articles/" title="Articles" class="md-nav__link">
+      Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../examples/" title="Examples" class="md-nav__link">
+      Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
+      Lectures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
+    
+    <label class="md-nav__link" for="nav-3-9">
+      Javadoc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Javadoc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/2.0/javadoc/" title="Stable" class="md-nav__link">
+      Stable
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://download.eclipse.org/epsilon/interim/javadoc/" title="Interim" class="md-nav__link">
+      Interim
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Issues
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Issues" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Issues
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon" title="Report a new issue" class="md-nav__link">
+      Report a new issue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial" title="View open bugs" class="md-nav__link">
+      View open bugs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement" title="View enhancement requests" class="md-nav__link">
+      View enhancement requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced" title="View issues resolved since the last stable release" class="md-nav__link">
+      View issues resolved since the last stable release
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time" title="View all issues" class="md-nav__link">
+      View all issues
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Community
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Community" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Community
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      Who is using Epsilon?
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Who is using Epsilon?
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/" title="Industry" class="md-nav__link">
+      Industry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/education/" title="Education" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/open-source/" title="Open-source projects" class="md-nav__link">
+      Open-source projects
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
+      Who is developing Epsilon?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
+      Forum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../labs/" title="Epsilon Labs" class="md-nav__link">
+      Epsilon Labs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="Frequently asked questions" class="md-nav__link">
+      Frequently asked questions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../branding/" title="Branding" class="md-nav__link">
+      Branding
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-example" class="md-nav__link">
+    Model example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties-accessors" class="md-nav__link">
+    Properties accessors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#row-filtering" class="md-nav__link">
+    Row filtering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-columns-grid" class="md-nav__link">
+    Multiple columns: grid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typeless-dataset-rules" class="md-nav__link">
+    Typeless dataset rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-column-generators" class="md-nav__link">
+    Nested column generators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-post-processing" class="md-nav__link">
+    Column post-processing
+  </a>
+  
+    <nav class="md-nav" aria-label="Column post-processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fill-nulls" class="md-nav__link">
+    Fill nulls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normalisation" class="md-nav__link">
+    Normalisation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coming-soon" class="md-nav__link">
+    Coming soon
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="dataset-extraction-pinset">Dataset Extraction (Pinset)<a class="headerlink" href="#dataset-extraction-pinset" title="Permanent link">&para;</a></h1>
+<p>The Pinset language offers specific syntax constructs to <strong>extract table-like datasets from models</strong>. The main objective of Pinset is to facilitate the analysis of models data via conventional data mining and machine learning techniques, which impose a tabular input format. In addition, tables can be useful as an extra viewpoint when creating model visualisations.</p>
+<h2 id="model-example">Model example<a class="headerlink" href="#model-example" title="Permanent link">&para;</a></h2>
+<p>We use as running example a course model, which contains the enrolled students along with their grades. All models and Pinset scripts shown in this documentation can be found in an <a href="">example project</a> in the Epsilon repository.</p>
+<p>All Pinset scripts query the following metamodel:</p>
+<div class="mermaid mermaid-70">classDiagram
+class Course {
+    name: String
+}
+class Student {
+    ID: String
+    name: String
+    isRemote: Boolean
+}
+class ContactDetails {
+    email: String
+    phone: String
+}
+class EvaluationItem {
+    name: String
+    percentage: int
+}
+class Grade {
+    points: int
+}
+Course *--&gt; Student: students *
+Course *--&gt; EvaluationItem: items *
+Student *--&gt; ContactDetails: contact
+Student *--&gt; Grade: grades *
+Grade --&gt; EvaluationItem: item</div>
+
+<p>As for the data shown as a result of the Pinset scripts, we use the following <a href="../flexmi">Flexmi</a> model, which conforms to the metamodel above:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri grades?&gt;</span>
+<span class="nt">&lt;course</span> <span class="na">name=</span><span class="s">&quot;Model-Driven Engineering&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;Lab 1&quot;</span> <span class="na">perc=</span><span class="s">&quot;15&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;Lab 2&quot;</span> <span class="na">perc=</span><span class="s">&quot;15&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;Partial Test&quot;</span> <span class="na">perc=</span><span class="s">&quot;20&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;Final Exam&quot;</span> <span class="na">perc=</span><span class="s">&quot;50&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;student</span> <span class="na">id=</span><span class="s">&quot;S1&quot;</span> <span class="na">name=</span><span class="s">&quot;Alice&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;contact</span> <span class="na">email=</span><span class="s">&quot;alice@university.com&quot;</span> <span class="na">phone=</span><span class="s">&quot;+44 101&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Lab 1&quot;</span> <span class="na">points=</span><span class="s">&quot;60&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Lab 2&quot;</span> <span class="na">points=</span><span class="s">&quot;90&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Partial Test&quot;</span> <span class="na">points=</span><span class="s">&quot;80&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Final Exam&quot;</span> <span class="na">points=</span><span class="s">&quot;85&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/student&gt;</span>
+    <span class="nt">&lt;student</span> <span class="na">id=</span><span class="s">&quot;S2&quot;</span> <span class="na">name=</span><span class="s">&quot;Bob&quot;</span> <span class="na">remote=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;contact</span> <span class="na">email=</span><span class="s">&quot;bob@university.com&quot;</span> <span class="na">phone=</span><span class="s">&quot;+44 654&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Lab 1&quot;</span> <span class="na">points=</span><span class="s">&quot;60&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Final Exam&quot;</span> <span class="na">points=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/student&gt;</span>
+    <span class="nt">&lt;student</span> <span class="na">id=</span><span class="s">&quot;S3&quot;</span> <span class="na">name=</span><span class="s">&quot;Charlie&quot;</span> <span class="na">remote=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;contact</span> <span class="na">email=</span><span class="s">&quot;charlie@university.com&quot;</span> <span class="na">phone=</span><span class="s">&quot;+44 333&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Lab 1&quot;</span> <span class="na">points=</span><span class="s">&quot;50&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Lab 2&quot;</span> <span class="na">points=</span><span class="s">&quot;35&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Partial Test&quot;</span> <span class="na">points=</span><span class="s">&quot;20&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/student&gt;</span>
+    <span class="nt">&lt;student</span> <span class="na">id=</span><span class="s">&quot;S4&quot;</span> <span class="na">name=</span><span class="s">&quot;Dana&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;contact</span> <span class="na">email=</span><span class="s">&quot;dana@university.com&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Lab 1&quot;</span> <span class="na">points=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Lab 2&quot;</span> <span class="na">points=</span><span class="s">&quot;90&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Partial Test&quot;</span> <span class="na">points=</span><span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;grade</span> <span class="na">item=</span><span class="s">&quot;Final Exam&quot;</span> <span class="na">points=</span><span class="s">&quot;95&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/student&gt;</span>
+<span class="nt">&lt;/course&gt;</span>
+</code></pre></div>
+
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This first Pinset example defines a dataset from students data, containing some basic information such as name and student ID, contact details, the number of completed evaluation items, and the final grade for the course:</p>
+<pre class="prettyprint lang-pinset"><code>dataset studentsSummary over s : Student {
+    column id: s.ID
+    column name: s.name
+    column phone: s.contact.phone
+
+    column items_completed: s.grades.size
+    column final_grade : s.getFinalGrade()
+
+    column course_outcome {
+        if (final_grade &lt; 50) {
+            return "fail";
+        }
+        else if (final_grade &lt; 70) {
+            return "good";
+        }
+        else if (final_grade &lt; 90) {
+            return "notable";
+        }
+        else {
+            return "excellent";
+        }
+    }
+}
+
+@cached
+operation Student getFinalGrade() {
+    return self.grades
+            .collect(g | g.points * g.item.percentage)
+            .sum() / 100;
+}</code></pre>
+
+<p>From that Pinset script, the following dataset is generated:</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>phone</th>
+<th>items_completed</th>
+<th>final_grade</th>
+<th>course_outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>Alice</td>
+<td>+44 101</td>
+<td>4</td>
+<td>81</td>
+<td>notable</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>Bob</td>
+<td>+44 654</td>
+<td>2</td>
+<td>59</td>
+<td>good</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>Charlie</td>
+<td>+44 333</td>
+<td>3</td>
+<td>16</td>
+<td>fail</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>Dana</td>
+<td></td>
+<td>4</td>
+<td>90</td>
+<td>excellent</td>
+</tr>
+</tbody>
+</table>
+<p>As the above example shows, Pinset offers a rule-based syntax to declare datasets.
+These rules are specified as a set of column generators that capture data from instances of a type included in an input model.
+That type is defined as a parameter, after the <code>over</code> keyword.
+In the example, the chosen type is <code>Student</code>, which by default means that each Student instance of the input model will be used to populate a row of the output dataset.</p>
+<p>Pinset offers different column generators.
+This first example uses the <code>column</code> one, which is composed of the name of the column header and an EOL expression to calculate the cell value over the row element.</p>
+<p>Other common EOL constructs are also available in Pinset scripts.
+For instance, an EOL block can be used for those column calculations that might be better organised in an imperative set of statements, such as the <code>course_outcome</code> column that shows the final course result in a textual format as used in the Spanish education system.
+In addition, external operations can be invoked in the column expressions, such as the <code>getFinalGrade()</code> operation used in the example.</p>
+<p>As a last comment for the <code>column</code> generator, values of previously calculated columns of an element can be used in subsequent definitions. For instance, the <code>course_outcome</code> column uses the <code>finalGrade</code></p>
+<p>After this overview, next sections describe extra column generators, as well as on other functionalities offered by Pinset for an easier dataset extraction specification.</p>
+<h2 id="properties-accessors">Properties accessors<a class="headerlink" href="#properties-accessors" title="Permanent link">&para;</a></h2>
+<p>As a way to facilitate the definition of columns that simply hold element properties, Pinset offers some column generators to access these properties:</p>
+<pre class="prettyprint lang-pinset"><code>dataset studentsContact over s : Student {
+    properties [ID as StudentId, name]
+    reference contact[email, phone]
+}</code></pre>
+
+<p>The previous dataset rule results in:</p>
+<table>
+<thead>
+<tr>
+<th>StudentId</th>
+<th>name</th>
+<th>contact_email</th>
+<th>contact_phone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>Alice</td>
+<td>alice@university.com</td>
+<td>+44 101</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>Bob</td>
+<td>bob@university.com</td>
+<td>+44 654</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>Charlie</td>
+<td>charlie@university.com</td>
+<td>+44 333</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>Dana</td>
+<td>dana@university.com</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Precisely, Pinset offers two property accessors: the <code>properties</code> generator can be used to generate columns for attributes of the selected type (e.g. <code>ID</code> and <code>name</code> in the example), while the <code>references</code> one allows getting attributes from single references (i.e. upper bound of 1) of the type, such as <code>contact</code>.</p>
+<p>When using the <code>properties</code> accessor, the name of the attribute is used as column name, while for the <code>references</code> accessor a combination of the name of the reference with the name of the attribute is used (e.g. <code>contact_phone</code>). This default behaviour can be altered by using the <code>as</code> keyword.</p>
+<p>These accessors also offer null safety. If any attributes or the traversed reference point to null, Pinset automatically inserts a blank value in the cell.</p>
+<h2 id="row-filtering">Row filtering<a class="headerlink" href="#row-filtering" title="Permanent link">&para;</a></h2>
+<p>By default, all elements of the selected type are processed into rows.
+As this might sometimes not be desired, Pinset offers some ways to filter out rows from the resulting dataset:</p>
+<pre class="prettyprint lang-pinset"><code>dataset remoteStudents over s : Student {
+    guard: s.isRemote
+
+    properties[ID, name]
+}
+
+dataset finalExamAssistants over s : Student
+    from : Student.all.select(s |
+            s.grades.exists(g | g.item.name == "Final Exam")) {
+
+    properties[ID, name]
+}</code></pre>
+
+<p>These dataset rules show the two ways that can be used to perform filtering in Pinset:</p>
+<ul>
+<li>
+<p>The <code>remoteStudents</code> dataset uses a <code>guard</code> to limit the processed students to the remote ones (based in their boolean attribute). Any element not meeting the guard requirements is excluded from the dataset generation step.</p>
+</li>
+<li>
+<p>The <code>finalExamAssistants</code> dataset uses a <code>from</code> expression to only include those students that took the final exam of the course. A <code>from</code> expression must return a collection of elements of the selected type to be used for the dataset generation. Therefore, this expression can be used for row filtering, and for other things such as performance improvements (i.e. calculate a collection, and use it for multiple dataset generations).</p>
+</li>
+</ul>
+<p>If necessary, both filtering mechanisms can be used simultaneously. For instance, if we combine the <code>guard</code> and <code>from</code> expressions shown above, we would obtain a dataset with the remote students that took the final exam of the course.</p>
+<h2 id="multiple-columns-grid">Multiple columns: grid<a class="headerlink" href="#multiple-columns-grid" title="Permanent link">&para;</a></h2>
+<p>In some cases, we might want to generate a set of columns that are calculated using the same expression, just by changing the parameter(s) of such expression. In the course example, this happens when generating a table including the detailed grades of the students for all the evaluated items of the course, such as the following:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>name</th>
+<th>Lab_1</th>
+<th>Lab_2</th>
+<th>Partial_Test</th>
+<th>Final_Exam</th>
+<th>final_grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>Alice</td>
+<td>60</td>
+<td>90</td>
+<td>80</td>
+<td>85</td>
+<td>81</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>Bob</td>
+<td>60</td>
+<td></td>
+<td></td>
+<td>100</td>
+<td>59</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>Charlie</td>
+<td>50</td>
+<td>35</td>
+<td>20</td>
+<td></td>
+<td>16</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>Dana</td>
+<td>100</td>
+<td>90</td>
+<td>70</td>
+<td>95</td>
+<td>90</td>
+</tr>
+</tbody>
+</table>
+<p>Defining this table with the <code>column</code> generator would quickly become very verbose and tedious, as we would need to use one expression for each evaluated item of the course. Also, using that strategy would match the Pinset script to the specific course, as the script would include the name of the grades that are being represented as columns. Any new item added to future editions of the course, or any new course we might want to suport, would require updating the Pinset script / creating a new one.</p>
+<p>To prevent this, Pinset offers the <code>grid</code> generator, which allows the batch-definition of similar columns. A <code>grid</code> has three components:</p>
+<ul>
+<li><code>keys</code>: determine the elements to use as seeds or parameters of each column.</li>
+<li><code>header</code>: used to create the name or header of the column, based on the value of each individual <code>key</code>.</li>
+<li><code>body</code>: used to calculate the value of each cell of the column. Generally, both the row element and the grid <code>key</code> intervene here.</li>
+</ul>
+<p>This generator is used in the following dataset rule, which generates the grades table depicted above:</p>
+<pre class="prettyprint lang-pinset"><code>dataset studentGrades over s : Student {
+    properties[ID, name]
+
+    grid {
+        keys: EvaluationItem.all
+        header: key.name
+        body: s.grades.selectOne(g | g.item == key)?.points
+    }
+
+    column final_grade : s.getFinalGrade()
+}</code></pre>
+
+<p>In that grid generator, the course evaluation items are used as <code>keys</code>, which means that each one of these items would be evaluated over the <code>header</code> and <code>body</code> expressions to generate a new column. The <code>header</code> of the columns uses the item name, and the <code>body</code> is calculated by looking for a grade of the student for the evaluation item. The body uses the <code>?.</code> <a href="../eol#safe-navigation-and-elvis-operator">safe null navigation operator</a> in case the student does not have a grade for certain item.</p>
+<h2 id="typeless-dataset-rules">Typeless dataset rules<a class="headerlink" href="#typeless-dataset-rules" title="Permanent link">&para;</a></h2>
+<p>The <code>from</code> expression presented above to filter rows during the generation can be also used to define datasets where the row elements are not instances coming from an input model. This can be useful to perform data aggregations, or to generate synthetic tables starting from a custom collection of values.</p>
+<p>The following dataset rule generates a basic table using a sequence of numbers as row elements and different column generators:</p>
+<pre class="prettyprint lang-pinset"><code>dataset numbers over n from : 1.to(5) {
+    column number : n
+    column squared : n * n
+
+    grid {
+        keys: 2.to(5)
+        header: "times_" + key
+        body: n * key
+    }
+}</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>number</th>
+<th>squared</th>
+<th>times_2</th>
+<th>times_3</th>
+<th>times_4</th>
+<th>times_5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>6</td>
+<td>8</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>9</td>
+<td>6</td>
+<td>9</td>
+<td>12</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>16</td>
+<td>8</td>
+<td>12</td>
+<td>16</td>
+<td>20</td>
+</tr>
+<tr>
+<td>5</td>
+<td>25</td>
+<td>10</td>
+<td>15</td>
+<td>20</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nested-column-generators">Nested column generators<a class="headerlink" href="#nested-column-generators" title="Permanent link">&para;</a></h2>
+<p>When certain intermediate value has to be used in several column calculations, Pinset offers a nested, composite column generator. This generator is defined by a <code>from</code> expression that calculates a value, followed by a block containing column generators that can use that value:</p>
+<pre class="prettyprint lang-pinset"><code>dataset gradesDetails over g : Grade {
+    properties[points]
+    reference item[name]
+    from student : g.eContainer {
+        column id : student.ID
+        column final_grade : student.getFinalGrade()
+        column grade_lowerthan_final : g.points &lt; final_grade
+    }
+}</code></pre>
+
+<p>The rule above generates a dataset with one row per grade in the course. The rule includes a <code>from</code> expression, which obtains the student that obtained the grade through the containment reference. Then, it is used to obtain the student id and final grade, and an extra column that determines whether a grade contributed negatively to the final grade of the student, by checking if it has less points than the final grade.</p>
+<p>The names of the nested column generators are prefixed with the name given to the object calculated by the <code>from</code> expression:</p>
+<table>
+<thead>
+<tr>
+<th>points</th>
+<th>item_name</th>
+<th>student_id</th>
+<th>student_final_grade</th>
+<th>student_grade_lowerthan_final</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>60</td>
+<td>Lab 1</td>
+<td>S1</td>
+<td>81</td>
+<td>true</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Lab 2</td>
+<td>S1</td>
+<td>81</td>
+<td>false</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Partial Test</td>
+<td>S1</td>
+<td>81</td>
+<td>true</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Final Exam</td>
+<td>S1</td>
+<td>81</td>
+<td>false</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Lab 1</td>
+<td>S2</td>
+<td>59</td>
+<td>false</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Final Exam</td>
+<td>S2</td>
+<td>59</td>
+<td>false</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Lab 1</td>
+<td>S3</td>
+<td>16</td>
+<td>false</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Lab 2</td>
+<td>S3</td>
+<td>16</td>
+<td>false</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Partial Test</td>
+<td>S3</td>
+<td>16</td>
+<td>false</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Lab 1</td>
+<td>S4</td>
+<td>90</td>
+<td>false</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Lab 2</td>
+<td>S4</td>
+<td>90</td>
+<td>false</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Partial Test</td>
+<td>S4</td>
+<td>90</td>
+<td>true</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Final Exam</td>
+<td>S4</td>
+<td>90</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h2 id="column-post-processing">Column post-processing<a class="headerlink" href="#column-post-processing" title="Permanent link">&para;</a></h2>
+<p>Pinset offers some column post-processing operations that are frequently used to prepare a dataset for an analysis.
+These operations are invoked by annotating the column generators.</p>
+<pre class="prettyprint lang-pinset"><code>dataset studentGradesPostProcessed over s : Student {
+    properties[ID]
+
+    @fillNulls 0
+    grid {
+        keys: EvaluationItem.all
+        header: key.name
+        body: s.grades.selectOne(g | g.item == key)?.points
+    }
+
+    column final_grade : s.getFinalGrade()
+    @normalize 100
+    column final_grade_normalized : final_grade
+}</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lab_1</th>
+<th>Lab_2</th>
+<th>Partial_Test</th>
+<th>Final_Exam</th>
+<th>final_grade</th>
+<th>final_grade_normalized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>60</td>
+<td>90</td>
+<td>80</td>
+<td>85</td>
+<td>81</td>
+<td>0.81</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>60</td>
+<td>0</td>
+<td>0</td>
+<td>100</td>
+<td>59</td>
+<td>0.59</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>50</td>
+<td>35</td>
+<td>20</td>
+<td>0</td>
+<td>16</td>
+<td>0.16</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>100</td>
+<td>90</td>
+<td>70</td>
+<td>95</td>
+<td>90</td>
+<td>0.9</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fill-nulls">Fill nulls<a class="headerlink" href="#fill-nulls" title="Permanent link">&para;</a></h3>
+<p>It is possible to <code>@fillNulls</code> with a custom value, or with a special and sometimes used value, such as the <code>mean</code> or the <code>mode</code> of the column values. The following dataset rule</p>
+<p>By annotating the grid in the detailed grades example, we can fill with zeros those cells where a student did not took an evaluation item.</p>
+<h3 id="normalisation">Normalisation<a class="headerlink" href="#normalisation" title="Permanent link">&para;</a></h3>
+<p>We can <code>@normalize</code> data columns between the [0,1] interval (useful when applying distance-based algorithms with numeric columns in different scales). A value can be provided to the annotation to perform the normalisation. If no value is given, the maximum value encountered in the column is used instead.</p>
+<p>The dataset rule above contains a column with the normalised final grade of the course.</p>
+<h2 id="coming-soon">Coming soon<a class="headerlink" href="#coming-soon" title="Permanent link">&para;</a></h2>
+<p>An integration of Pinset with <a href="../picto">Picto</a> to ease the creation of advanced table visualisations inside the Eclipse IDE is on the way.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../eunit/" title="Unit testing (EUnit)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Unit testing (EUnit)
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../picto/" title="Picto" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Picto
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © Eclipse Foundation, Inc. All Rights Reserved.
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+      </div>
+      <div class="md-footer-copyright epsilon-eclipse-links">
+          <ul>
+              <li><a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+              <li><a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+              <li><a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../assets/javascript/mermaid.js"></script>
+      
+        <script src="../../assets/javascript/jquery.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettify.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-emfatic.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/lang-epsilon.js"></script>
+      
+        <script src="../../assets/javascript/google-code-prettify/prettyprint.js"></script>
+      
+    
+  </body>
+</html>

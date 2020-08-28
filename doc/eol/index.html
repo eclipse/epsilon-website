@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
     
     
       
@@ -19,14 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
       
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#000000">
       
     
     
@@ -751,6 +751,18 @@
   <li class="md-nav__item">
     <a href="../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
       Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pinset/" title="Dataset extraction (Pinset)" class="md-nav__link">
+      Dataset extraction (Pinset)
     </a>
   </li>
 
@@ -2742,12 +2754,12 @@ b.println();</code></pre>
 <p>When the left hand side of the assignment is a property of a native object, deciding on the legality and providing the semantics of the assignment is delegated to the execution engine. For example, in a Java-based execution engine, given that x is a native object, the statement <code>x.y = a</code> may be interpreted as <code>x.setY(a)</code> or if x is an instance of a map <code>x.put("y",a)</code>. By contrast, in a C# implementation, it can be interpreted as <code>x.y = a</code> since the language natively supports properties in classes.</p>
 <h5 id="model-element-property-assignment">Model Element Property Assignment<a class="headerlink" href="#model-element-property-assignment" title="Permanent link">&para;</a></h5>
 <p>When the left hand side of the assignment is a property of a model element, the model that owns the particular model element (accessible using the <code>ModelRepository.getOwningModel()</code> operation) is responsible for implementing the semantics of the assignment using its <a href="../emc">associated</a> <code>propertyGetter</code>. For example, if x is a model element, the statement <code>x.y = a</code> may be interpreted using the Java code of the first listing below if x belongs to an EMF-based model or using the Java code of the second listing if it belongs to an MDR-based model.</p>
-<div class="highlight"><pre><span></span><code><span class="n">EStructuralFeature</span> <span class="n">feature</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="na">eClass</span><span class="o">().</span><span class="na">getEStructuralFeature</span><span class="o">(</span><span class="s">&quot;y&quot;</span><span class="o">);</span>
-<span class="n">x</span><span class="o">.</span><span class="na">eSet</span><span class="o">(</span><span class="n">feature</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">EStructuralFeature</span> <span class="n">feature</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="na">eClass</span><span class="p">().</span><span class="na">getEStructuralFeature</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">);</span>
+<span class="n">x</span><span class="p">.</span><span class="na">eSet</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">StructuralFeature</span> <span class="n">feature</span> <span class="o">=</span> <span class="n">findStructuralFeature</span><span class="o">(</span><span class="n">x</span><span class="o">.</span><span class="na">refClass</span><span class="o">(),</span> <span class="s">&quot;y&quot;</span><span class="o">);</span>
-<span class="n">x</span><span class="o">.</span><span class="na">refSetValue</span><span class="o">(</span><span class="n">feature</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">StructuralFeature</span> <span class="n">feature</span> <span class="o">=</span> <span class="n">findStructuralFeature</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="na">refClass</span><span class="p">(),</span> <span class="s">&quot;y&quot;</span><span class="p">);</span>
+<span class="n">x</span><span class="p">.</span><span class="na">refSetValue</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
 </code></pre></div>
 
 <h3 id="special-assignment-statement">Special Assignment Statement<a class="headerlink" href="#special-assignment-statement" title="Permanent link">&para;</a></h3>
@@ -3059,15 +3071,15 @@ implementation" src="../images/ConsoleUserInput.png" /></p>
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

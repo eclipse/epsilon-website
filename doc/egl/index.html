@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
     
     
       
@@ -19,14 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
       
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#000000">
       
     
     
@@ -599,6 +599,18 @@
   <li class="md-nav__item">
     <a href="../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
       Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pinset/" title="Dataset extraction (Pinset)" class="md-nav__link">
+      Dataset extraction (Pinset)
     </a>
   </li>
 
@@ -1534,50 +1546,50 @@ operations.</p>
 <h4 id="implementing-a-custom-templatefactory">Implementing a custom TemplateFactory<a class="headerlink" href="#implementing-a-custom-templatefactory" title="Permanent link">&para;</a></h4>
 <p>A custom <em>TemplateFactory</em> is a subclass of <code>EglTemplateFactory</code>. Typically, a custom <em>TemplateFactory</em> is implemented by overriding one of the methods of <code>EglTemplateFactory</code>. For example, the <code>createTemplate</code> method is overriden to specify that a custom type of <em>Template</em> should be created by the <em>TemplateFactory</em>. Likewise, the <code>load</code> and <code>prepare</code> methods can be overriden to change the location from which <em>Template</em>s are constructed.</p>
 <p>A custom <em>Template</em> is a subclass of <code>EglTemplate</code> or, most often, a subclass of <code>EglPersistentTemplate</code>. Again, customisation is typically achieved by overriding methods in the superclass, or by adding new methods. For example, to perform auditing activities whenever a template is used to generate text, the <code>doGenerate</code> method of <code>EglPersistentTemplate</code> is overriden.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglTemplate</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglPersistentTemplate</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.exceptions.EglRuntimeException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.execute.context.IEglContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.spec.EglTemplateSpecification</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglTemplate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglPersistentTemplate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.exceptions.EglRuntimeException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.execute.context.IEglContext</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.spec.EglTemplateSpecification</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountingTemplateFactory</span> 
-<span class="kd">extends</span> <span class="n">EglFileGeneratingTemplateFactory</span> <span class="o">{</span>
+<span class="kd">extends</span> <span class="n">EglFileGeneratingTemplateFactory</span> <span class="p">{</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="n">EglTemplate</span> <span class="nf">createTemplate</span><span class="o">(</span><span class="n">EglTemplateSpecification</span> <span class="n">spec</span><span class="o">)</span> 
-    <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">CountingTemplate</span><span class="o">(</span><span class="n">spec</span><span class="o">,</span>
-                                    <span class="n">context</span><span class="o">,</span>
-                                    <span class="n">getOutputRootOrRoot</span><span class="o">(),</span>
-                                    <span class="n">outputRootPath</span><span class="o">);</span>
-    <span class="o">}</span>   
+    <span class="kd">protected</span> <span class="n">EglTemplate</span> <span class="nf">createTemplate</span><span class="p">(</span><span class="n">EglTemplateSpecification</span> <span class="n">spec</span><span class="p">)</span> 
+    <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CountingTemplate</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span>
+                                    <span class="n">context</span><span class="p">,</span>
+                                    <span class="n">getOutputRootOrRoot</span><span class="p">(),</span>
+                                    <span class="n">outputRootPath</span><span class="p">);</span>
+    <span class="p">}</span>   
 
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountingTemplate</span> 
-  <span class="kd">extends</span> <span class="n">EglPersistentTemplate</span> <span class="o">{</span>
+  <span class="kd">extends</span> <span class="n">EglPersistentTemplate</span> <span class="p">{</span>
 
-        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">numberOfCallsToGenerate</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">numberOfCallsToGenerate</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-        <span class="kd">public</span> <span class="nf">CountingTemplate</span><span class="o">(</span><span class="n">EglTemplateSpecification</span> <span class="n">spec</span><span class="o">,</span>
-                                <span class="n">IEglContext</span> <span class="n">context</span><span class="o">,</span>
-                                <span class="n">URI</span> <span class="n">outputRoot</span><span class="o">,</span>
-                                <span class="n">String</span> <span class="n">outputRootPath</span><span class="o">)</span>
-        <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-            <span class="kd">super</span><span class="o">(</span><span class="n">spec</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">outputRoot</span><span class="o">,</span> <span class="n">outputRootPath</span><span class="o">);</span>
-        <span class="o">}</span>
+        <span class="kd">public</span> <span class="nf">CountingTemplate</span><span class="p">(</span><span class="n">EglTemplateSpecification</span> <span class="n">spec</span><span class="p">,</span>
+                                <span class="n">IEglContext</span> <span class="n">context</span><span class="p">,</span>
+                                <span class="n">URI</span> <span class="n">outputRoot</span><span class="p">,</span>
+                                <span class="n">String</span> <span class="n">outputRootPath</span><span class="p">)</span>
+        <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+            <span class="kd">super</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">outputRoot</span><span class="p">,</span> <span class="n">outputRootPath</span><span class="p">);</span>
+        <span class="p">}</span>
 
 
 
         <span class="nd">@Override</span>
-        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGenerate</span><span class="o">(</span><span class="n">File</span> <span class="n">file</span><span class="o">,</span>
-                                    <span class="n">String</span> <span class="n">targetName</span><span class="o">,</span>
-                                    <span class="kt">boolean</span> <span class="n">overwrite</span><span class="o">,</span>
-                                    <span class="kt">boolean</span> <span class="n">protectRegions</span><span class="o">)</span> 
-        <span class="kd">throws</span> <span class="n">EglRuntimeException</span> <span class="o">{</span>
-            <span class="n">numberOfCallsToGenerate</span><span class="o">++;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGenerate</span><span class="p">(</span><span class="n">File</span> <span class="n">file</span><span class="p">,</span>
+                                    <span class="n">String</span> <span class="n">targetName</span><span class="p">,</span>
+                                    <span class="kt">boolean</span> <span class="n">overwrite</span><span class="p">,</span>
+                                    <span class="kt">boolean</span> <span class="n">protectRegions</span><span class="p">)</span> 
+        <span class="kd">throws</span> <span class="n">EglRuntimeException</span> <span class="p">{</span>
+            <span class="n">numberOfCallsToGenerate</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <h4 id="using-a-custom-templatefactory">Using a custom TemplateFactory<a class="headerlink" href="#using-a-custom-templatefactory" title="Permanent link">&para;</a></h4>
@@ -1676,15 +1688,15 @@ System.out.println(foo);
 <p>The default formatters for an EGL program can also be set when invoking the program. For example, the EGL development tools provide an Eclipse launch configuration that provides a tab named "Generated Text." On this tab, users can configure one or more formatters which will be used as the default formatters for this EGL program. Note that custom formatters only appear on the launch configuration tab if they have been registered with EGL via an Eclipse extension. Similarly, the <a href="../workflow">workflow language</a> provided by Epsilon provides a <code>formatter</code> nested element that can be used to specify one or more default formatters.</p>
 <h3 id="implementing-a-custom-formatter">Implementing a Custom Formatter<a class="headerlink" href="#implementing-a-custom-formatter" title="Permanent link">&para;</a></h3>
 <p>Providing a user-defined formatter involves implementing the <code>Formatter</code> interface (in <code>org.eclipse.epsilon.egl.formatter</code>). For example, the listing below demonstrates a simple formatter that transforms all generated text to uppercase.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.formatter.Formatter</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.formatter.Formatter</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UppercaseFormatter</span> <span class="kd">implements</span> <span class="n">Formatter</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UppercaseFormatter</span> <span class="kd">implements</span> <span class="n">Formatter</span> <span class="p">{</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">format</span><span class="o">(</span><span class="n">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">format</span><span class="p">(</span><span class="n">String</span> <span class="n">text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">text</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>The set of built-in formatters provided by EGL includes some partial implementations of the <code>Formatter</code> interface that can be re-used to simplify the implementation of custom formatters. For instance, the <code>LanguageFormatter</code> class can correct the indentation of a program written in most languages, when given a start and end regular expression.</p>
@@ -1694,21 +1706,21 @@ System.out.println(foo);
 <p><img alt="Sample output from the traceability
 API." src="../images/TraceView.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="n">EglTemplateFactoryModuleAdapter</span> <span class="n">module</span> <span class="o">=</span> 
-      <span class="k">new</span> <span class="n">EglTemplateFactoryModuleAdapter</span><span class="o">(</span><span class="k">new</span> <span class="n">EglTemplateFactory</span><span class="o">());</span>
+      <span class="k">new</span> <span class="n">EglTemplateFactoryModuleAdapter</span><span class="p">(</span><span class="k">new</span> <span class="n">EglTemplateFactory</span><span class="p">());</span>
 
-    <span class="kt">boolean</span> <span class="n">parsed</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;myTemplate.egl&quot;</span><span class="o">));</span>
+    <span class="kt">boolean</span> <span class="n">parsed</span> <span class="o">=</span> <span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;myTemplate.egl&quot;</span><span class="p">));</span>
 
-    <span class="k">if</span> <span class="o">(</span><span class="n">parsed</span> <span class="o">&amp;&amp;</span> <span class="n">module</span><span class="o">.</span><span class="na">getParseProblems</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-        <span class="n">module</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">parsed</span> <span class="o">&amp;&amp;</span> <span class="n">module</span><span class="p">.</span><span class="na">getParseProblems</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 
-        <span class="n">Template</span> <span class="n">base</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getBaseTemplate</span><span class="o">();</span>
+        <span class="n">Template</span> <span class="n">base</span> <span class="o">=</span> <span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getBaseTemplate</span><span class="p">();</span>
 
         <span class="c1">// traverse the template hierachy</span>
         <span class="c1">// display data </span>
 
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="c1">// error handling</span>
-    <span class="o">}</span>
+    <span class="p">}</span>
 </code></pre></div>
                 
               
@@ -1787,15 +1799,15 @@ API." src="../images/TraceView.png" /></p>
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

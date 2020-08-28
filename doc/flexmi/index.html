@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.8">
     
     
       
@@ -19,14 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.01afc2df.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.83bccb1f.min.css">
       
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#000000">
       
     
     
@@ -412,6 +412,18 @@
   <li class="md-nav__item">
     <a href="../eunit/" title="Unit testing (EUnit)" class="md-nav__link">
       Unit testing (EUnit)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pinset/" title="Dataset extraction (Pinset)" class="md-nav__link">
+      Dataset extraction (Pinset)
     </a>
   </li>
 
@@ -1466,13 +1478,13 @@ class Skill {
 <p>Templates can be stored in separate Flexmi files and be imported from different models using Flexmi's <code>&lt;?include ?&gt;</code> processing instruction.</p>
 <h2 id="use-in-epsilon-and-java">Use in Epsilon and Java<a class="headerlink" href="#use-in-epsilon-and-java" title="Permanent link">&para;</a></h2>
 <p>Flexmi offers and registers an implementation of <a href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/resource/Resource.html">EMF's Resource interface</a> (<code>FlexmiResource</code>), and can be used like any other EMF resource implementation. For example, you can add <code>.flexmi</code> models as regular EMF models to the run configuration of your Epsilon program. An example of using Flexmi from Java follows.</p>
-<div class="highlight"><pre><span></span><code><span class="n">ResourceSet</span> <span class="n">resourceSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResourceSetImpl</span><span class="o">();</span>
-<span class="n">resourceSet</span><span class="o">.</span><span class="na">getResourceFactoryRegistry</span><span class="o">().</span>
-  <span class="n">getExtensionToFactoryMap</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;flexmi&quot;</span><span class="o">,</span> 
-    <span class="k">new</span> <span class="n">FlexmiResourceFactory</span><span class="o">());</span>
-<span class="n">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="n">resourceSet</span><span class="o">.</span><span class="na">createResource</span>
-  <span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">createFileURI</span><span class="o">(</span><span class="s">&quot;/../acme.flexmi&quot;</span><span class="o">));</span>
-<span class="n">resource</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">ResourceSet</span> <span class="n">resourceSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResourceSetImpl</span><span class="p">();</span>
+<span class="n">resourceSet</span><span class="p">.</span><span class="na">getResourceFactoryRegistry</span><span class="p">().</span>
+  <span class="n">getExtensionToFactoryMap</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;flexmi&quot;</span><span class="p">,</span> 
+    <span class="k">new</span> <span class="n">FlexmiResourceFactory</span><span class="p">());</span>
+<span class="n">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="n">resourceSet</span><span class="p">.</span><span class="na">createResource</span>
+  <span class="p">(</span><span class="n">URI</span><span class="p">.</span><span class="na">createFileURI</span><span class="p">(</span><span class="s">&quot;/../acme.flexmi&quot;</span><span class="p">));</span>
+<span class="n">resource</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </code></pre></div>
 
 <h2 id="converting-to-xmi">Converting to XMI<a class="headerlink" href="#converting-to-xmi" title="Permanent link">&para;</a></h2>
@@ -1571,15 +1583,15 @@ class Skill {
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
