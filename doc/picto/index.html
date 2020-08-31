@@ -1147,10 +1147,10 @@
                 
                 
                 <h1 id="visualising-models-with-picto">Visualising Models with Picto<a class="headerlink" href="#visualising-models-with-picto" title="Permanent link">&para;</a></h1>
-<p>Picto is an Eclipse view for <strong>visualising models via model-to-text transformation</strong> to SVG/HTML. Compared to existing graphical modelling frameworks such as <a href="https://eclipse.org/sirius">Sirius</a> and <a href="../eugnia-gmf-tutorial">GMF/Eugenia</a>, the main appeal of Picto is that model visualisation takes place in an embedded browser and therefore you can leverage any HTML/SVG/JavaScript-based technology such as <a href="https://d3js.org/">D3.js</a>, <a href="https://github.com/jgraph/mxgraph">mxGraph</a> and <a href="https://www.jointjs.com/">JointJS</a>. Picto also provides built-in support for the powerful <a href="https://www.graphviz.org/">Graphviz</a> and <a href="https://plantuml.com/">PlantUML</a> textual syntaxes (which are transformed to SVG via the respective tools). A distinguishing feature of Picto is does not require running multiple Eclipse instances as the metamodels, models and visualisation transformations can all reside in the same workspace. </p>
+<p>Picto is an Eclipse view for <strong>visualising models via model-to-text transformation</strong> to SVG/HTML. Compared to existing graphical modelling frameworks such as <a href="https://eclipse.org/sirius">Sirius</a> and <a href="../eugnia-gmf-tutorial">GMF/Eugenia</a>, the main appeal of Picto is that model visualisation takes place in an embedded browser and therefore you can leverage any HTML/SVG/JavaScript-based technology such as <a href="https://d3js.org/">D3.js</a>, <a href="https://github.com/jgraph/mxgraph">mxGraph</a> and <a href="https://www.jointjs.com/">JointJS</a>. Picto also provides built-in support for the powerful <a href="https://www.graphviz.org/">Graphviz</a> and <a href="https://plantuml.com/">PlantUML</a> textual syntaxes (which are transformed to SVG via the respective tools). A distinguishing feature of Picto is does not require running multiple Eclipse instances as the metamodels, models and visualisation transformations can all reside in the same workspace.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>As Picto uses <a href="../egl">EGL</a> for model-to-text transformation, it is <a href="#using-picto-in-standalone-mode-with-many-models">not limited to EMF-based models</a> and can be used to visualise the contents of Simulink models, XML documents, spreadsheets, and any other type of artefact supported by an <a href="../../emc">Epsilon EMC driver</a>. </p>
+<p>As Picto uses <a href="../egl">EGL</a> for model-to-text transformation, it is <a href="#using-picto-in-standalone-mode-with-many-models">not limited to EMF-based models</a> and can be used to visualise the contents of Simulink models, XML documents, spreadsheets, and any other type of artefact supported by an <a href="../emc">Epsilon EMC driver</a>.</p>
 </div>
 <p>On the flip side, Picto displays read-only views of models and as such it is not a good fit if diagram-based model editing capabilities are required. In this article we demonstrate Picto through a small social network example. The complete source code of the example is available <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.socialnetwork/">here</a>.</p>
 <p><img alt="" src="picto-eclipse.png" /></p>
@@ -1186,7 +1186,7 @@ class Person {
 <p>In line 2 of the model, notice the <code>render-egx</code> processing instruction, which specifies a model-to-text transformation written in <a href="../egx/">EGX/EGL</a>, that Picto should use to visualise this model.</p>
 <h2 id="model-to-text-transformation">Model-to-Text Transformation<a class="headerlink" href="#model-to-text-transformation" title="Permanent link">&para;</a></h2>
 <p>The <code>socialnetwork.egx</code> EGX model-to-text transformation is as follows:</p>
-<pre class="prettyprint lang-egx"><code>rule Network2Graphviz 
+<pre class="prettyprint lang-egx"><code>rule Network2Graphviz
     transform n : socialnetwork::SocialNetwork {
 
     template : "socialnetwork2graphviz.egl"
@@ -1204,7 +1204,7 @@ class Person {
 
 }
 
-rule Person2Graphviz 
+rule Person2Graphviz
     transform p : socialnetwork::Person {
 
     template : "socialnetwork2graphviz.egl"
@@ -1220,7 +1220,7 @@ rule Person2Graphviz
         "people" = Sequence{p}
     }
 
-}   </code></pre>
+}</code></pre>
 
 <p>The transformation consists of two rules:</p>
 <ul>
@@ -1236,7 +1236,7 @@ rule Person2Graphviz
 </ul>
 <p>The EGL template <code>socialnetwork2graphviz.egl</code> is as follows:</p>
 <pre class="prettyprint lang-egl"><code>digraph G {
-    node[shape=rectangle, fontname=Tahoma, fontsize=10, style="filled", 
+    node[shape=rectangle, fontname=Tahoma, fontsize=10, style="filled",
         gradientangle="270", fillcolor="bisque:floralwhite"]
 
     edge[penwidth=3, style=tapered, arrowhead=none]
@@ -1290,7 +1290,7 @@ operation isLayerActive(id : String) {
     guard : EClass.all.size() &lt; 30
 
     parameters : Map {
-        "classes" = EClass.all, 
+        "classes" = EClass.all,
         "format" = "graphviz-dot",
         "path" = List{"Model", "(All Classes)"},
         "icon" = "diagram-ff0000"
@@ -1298,7 +1298,7 @@ operation isLayerActive(id : String) {
 
     template: "ecore2dot.egl"
 
-}   </code></pre>
+}</code></pre>
 
 <p>In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions showcased <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl">here</a>.</p>
 <p><img alt="" src="picto-eclassifier.png" /></p>
@@ -1310,7 +1310,7 @@ operation isLayerActive(id : String) {
 <li>Default text editor editing files with <code>.html</code>, <code>.svg</code>, <code>.dot</code>, <code>.neato</code> file extensions (mainly for debugging)</li>
 </ul>
 <h2 id="extending-picto">Extending Picto<a class="headerlink" href="#extending-picto" title="Permanent link">&para;</a></h2>
-<p>Picto provides two extension points (<code>org.eclipse.epsilon.picto.pictoSource</code> and <code>org.eclipse.epsilon.picto.viewContentTransformer</code>) that can be used to add support for other Eclipse-based editors. Please see this <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto.plantuml/plugin.xml">plugin.xml</a>, which shows how these extension points were used to integrate PlantUML with Picto.</p>
+<p>Picto provides two extension points (<code>org.eclipse.epsilon.picto.pictoSource</code> and <code>org.eclipse.epsilon.picto.viewContentTransformer</code>) that can be used to add support for other Eclipse-based editors. Please see this <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto.plantuml/plugin.xml">plugin.xml</a>, which shows how these extension points were used to integrate Picto with different technologies, such as <a href="https://plantuml.com/">PlantUML</a> or <a href="https://github.com/mermaid-js/mermaid">Mermaid</a>.</p>
 <h2 id="using-picto-in-standalone-mode-with-many-models">Using Picto in standalone mode / with many models<a class="headerlink" href="#using-picto-in-standalone-mode-with-many-models" title="Permanent link">&para;</a></h2>
 <p>Picto also suports a standalone mode, where the details of the models to be visualised are provided within the <code>.picto</code> file itself. An example of visualising <code>socialnetwork.model</code> in standalone mode (without the model being open in a tree editor) is below and in <code>socialnetwork-standalone.picto</code> in the example folder.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri picto?&gt;</span>
@@ -1329,7 +1329,7 @@ operation isLayerActive(id : String) {
 <li>Graphviz (on which the PlantUML integration also depends) does not ship as part of Picto. You will need to install it manually on your computer.</li>
 </ul>
 <h2 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h2>
-<p>While EMF provides support for <a href="../reflective-emf-tutorial">reflective model instantiation</a> within the same Eclipse workspace, graphical and textual modelling frameworks that sit on top of it such as GMF, Sirius and Xtext involve code generation and/or contributing to Eclipse extension points and hence require spawning a new Eclipse instance. While this inconvenience can pay off for large DSLs, it feels like an overkill when one needs to throw together a small DSL in situ. The original aim of Picto was to complement Flexmi in this respect by contributing model visualisation capabilities where creating a new dedicated graphical editor is considered to be an overkill.</p>
+<p>While EMF provides support for <a href="../articles/reflective-emf-tutorial">reflective model instantiation</a> within the same Eclipse workspace, graphical and textual modelling frameworks that sit on top of it such as GMF, Sirius and Xtext involve code generation and/or contributing to Eclipse extension points and hence require spawning a new Eclipse instance. While this inconvenience can pay off for large DSLs, it feels like an overkill when one needs to throw together a small DSL in situ. The original aim of Picto was to complement Flexmi in this respect by contributing model visualisation capabilities where creating a new dedicated graphical editor is considered to be an overkill.</p>
 <h2 id="gallery">Gallery<a class="headerlink" href="#gallery" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="picto-minisd.png" /></p>
 <p><img alt="" src="picto-risks.png" /></p>

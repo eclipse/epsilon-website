@@ -561,8 +561,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inlcuding-and-importing-other-flexmi-models" class="md-nav__link">
-    Inlcuding and Importing other Flexmi Models
+  <a href="#including-and-importing-other-flexmi-models" class="md-nav__link">
+    Including and Importing other Flexmi Models
   </a>
   
 </li>
@@ -1149,8 +1149,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inlcuding-and-importing-other-flexmi-models" class="md-nav__link">
-    Inlcuding and Importing other Flexmi Models
+  <a href="#including-and-importing-other-flexmi-models" class="md-nav__link">
+    Including and Importing other Flexmi Models
   </a>
   
 </li>
@@ -1310,7 +1310,7 @@ class Skill {
 <li>Create a text file named <code>psl.emf</code> in your workspace and place the Emfatic content above in it.</li>
 <li>Convert it into Ecore and register the produced Ecore metamodel
     (<code>psl.ecore</code>) as shown
-    <a href="../reflective-emf-tutorial">here</a>.</li>
+    <a href="../articles/reflective-emf-tutorial">here</a>.</li>
 <li>Create a new text file named <code>acme.flexmi</code> and place the XML content above in it.</li>
 <li>The result should look like the screenshot below.</li>
 </ul>
@@ -1349,10 +1349,10 @@ class Skill {
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;description&gt;</span>
-    Lorem ipsum dolor sit amet, 
-    consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt 
-    ut labore et dolore magna aliqua. 
+    Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua.
   <span class="nt">&lt;/description&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
@@ -1367,7 +1367,7 @@ class Skill {
 <p>The Flexmi parser uses an implementation of the <a href="https://en.wikipedia.org/wiki/Hungarian_algorithm">Hungarian algorithm</a> to decide the best match of XML attribute names to EAttibute/(non-containment) EReference names.</p>
 <h2 id="executable-attributes">Executable Attributes<a class="headerlink" href="#executable-attributes" title="Permanent link">&para;</a></h2>
 <p>Prepending <code>:</code> to the name of an attribute instructs the Flexmi parser to interpret its value as an executable <a href="../eol">EOL</a> expression instead of a literal value. Also, Flexmi supports attaching a <code>:var</code> or a <code>:global</code> attribute to XML elements, to declare local/global variables that can be used in EOL expressions. The scope of local variables includes siblings of the element, and their descendants, while global variables can be accessed from anywhere in the model.</p>
-<p>For example, in the Flexmi model below, the <code>Design</code> task is assigned to a local variable named <code>design</code>, which is then used to compute the value of the <code>start</code> time of the implementation task. </p>
+<p>For example, in the Flexmi model below, the <code>Design</code> task is assigned to a local variable named <code>design</code>, which is then used to compute the value of the <code>start</code> time of the implementation task.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;person</span> <span class="na">name=</span><span class="s">&quot;Alice&quot;</span><span class="nt">/&gt;</span>
@@ -1403,7 +1403,7 @@ class Skill {
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 
-<h2 id="inlcuding-and-importing-other-flexmi-models">Inlcuding and Importing other Flexmi Models<a class="headerlink" href="#inlcuding-and-importing-other-flexmi-models" title="Permanent link">&para;</a></h2>
+<h2 id="including-and-importing-other-flexmi-models">Including and Importing other Flexmi Models<a class="headerlink" href="#including-and-importing-other-flexmi-models" title="Permanent link">&para;</a></h2>
 <p>Flexmi supports the <code>&lt;?import other.flexmi?&gt;</code> and <code>&lt;?include other.flexmi?&gt;</code> processing instructions. <code>import</code> creates a new resource for <code>other.flexmi</code> while <code>include</code> parses the contents of <code>other.flexmi</code> as if they were embedded in the Flexmi model that contains the <code>include</code> processing instruction.</p>
 <h2 id="instantiating-types-from-multiple-ecore-metamodels">Instantiating Types from Multiple Ecore Metamodels<a class="headerlink" href="#instantiating-types-from-multiple-ecore-metamodels" title="Permanent link">&para;</a></h2>
 <p>Multiple <code>&lt;?nsuri metamodeluri?&gt;</code> processing instructions can be used in the preamble of a Flexmi model, allowing it to instantiate multiple Ecore metamodels. However, in case of name clashes between them, there's no good way for disambiguation.</p>
@@ -1480,7 +1480,7 @@ class Skill {
 <p>Flexmi offers and registers an implementation of <a href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/resource/Resource.html">EMF's Resource interface</a> (<code>FlexmiResource</code>), and can be used like any other EMF resource implementation. For example, you can add <code>.flexmi</code> models as regular EMF models to the run configuration of your Epsilon program. An example of using Flexmi from Java follows.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ResourceSet</span> <span class="n">resourceSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResourceSetImpl</span><span class="p">();</span>
 <span class="n">resourceSet</span><span class="p">.</span><span class="na">getResourceFactoryRegistry</span><span class="p">().</span>
-  <span class="n">getExtensionToFactoryMap</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;flexmi&quot;</span><span class="p">,</span> 
+  <span class="n">getExtensionToFactoryMap</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;flexmi&quot;</span><span class="p">,</span>
     <span class="k">new</span> <span class="n">FlexmiResourceFactory</span><span class="p">());</span>
 <span class="n">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="n">resourceSet</span><span class="p">.</span><span class="na">createResource</span>
   <span class="p">(</span><span class="n">URI</span><span class="p">.</span><span class="na">createFileURI</span><span class="p">(</span><span class="s">&quot;/../acme.flexmi&quot;</span><span class="p">));</span>
