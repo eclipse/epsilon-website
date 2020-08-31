@@ -60,7 +60,7 @@ class Skill {
 -   Create a text file named `psl.emf` in your workspace and place the Emfatic content above in it.
 -   Convert it into Ecore and register the produced Ecore metamodel
     (`psl.ecore`) as shown
-    [here](../reflective-emf-tutorial).
+    [here](../articles/reflective-emf-tutorial).
 -   Create a new text file named `acme.flexmi` and place the XML content above in it.
 -   The result should look like the screenshot below.
 
@@ -112,10 +112,10 @@ XML elements can also be used instead of XML attributes to capture long/multilin
 <?nsuri psl?>
 <project title="ACME">
   <description>
-    Lorem ipsum dolor sit amet, 
-    consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt 
-    ut labore et dolore magna aliqua. 
+    Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua.
   </description>
 </project>
 ```
@@ -136,7 +136,7 @@ The Flexmi parser uses an implementation of the [Hungarian algorithm](https://en
 
 Prepending `:` to the name of an attribute instructs the Flexmi parser to interpret its value as an executable [EOL](../eol) expression instead of a literal value. Also, Flexmi supports attaching a `:var` or a `:global` attribute to XML elements, to declare local/global variables that can be used in EOL expressions. The scope of local variables includes siblings of the element, and their descendants, while global variables can be accessed from anywhere in the model.
 
-For example, in the Flexmi model below, the `Design` task is assigned to a local variable named `design`, which is then used to compute the value of the `start` time of the implementation task. 
+For example, in the Flexmi model below, the `Design` task is assigned to a local variable named `design`, which is then used to compute the value of the `start` time of the implementation task.
 
 ```xml
 <?nsuri psl?>
@@ -176,7 +176,7 @@ You can also use `:var`/`:global` and EOL attributes to refer to model elements 
 </project>
 ```
 
-## Inlcuding and Importing other Flexmi Models
+## Including and Importing other Flexmi Models
 
 Flexmi supports the `<?import other.flexmi?>` and `<?include other.flexmi?>` processing instructions. `import` creates a new resource for `other.flexmi` while `include` parses the contents of `other.flexmi` as if they were embedded in the Flexmi model that contains the `include` processing instruction.
 
@@ -201,7 +201,7 @@ Flexmi supports defining reusable templates through the reserved `<:template>` X
     <simpletask title="Design" dur="3"/>
     <simpletask title="Implementation" dur="6"/>
   </project>
-  
+
   <:template name="simpletask">
     <content>
       <task :start="Task.all.indexOf(self).asVar('index') == 0 ? 1 : Task.all.get(index-1).asVar('previous').start + previous.duration">
@@ -223,7 +223,7 @@ Flexmi templates also support parameters, which can be used to configure the con
     <person name="Alice"/>
     <design dur="3" person="Alice"/>
   </project>
-  
+
   <:template name="design">
     <parameter name="person"/>
     <content>
@@ -248,7 +248,7 @@ To further customise the content that Flexmi templates produce, one can use an [
       <effort person="Alice"/>
     </longtask>
   </project>
-  
+
   <:template name="longtask">
     <parameter name="years"/>
     <content language="EGL">
@@ -273,7 +273,7 @@ Flexmi offers and registers an implementation of [EMF's Resource interface](http
 ```java
 ResourceSet resourceSet = new ResourceSetImpl();
 resourceSet.getResourceFactoryRegistry().
-  getExtensionToFactoryMap().put("flexmi", 
+  getExtensionToFactoryMap().put("flexmi",
     new FlexmiResourceFactory());
 Resource resource = resourceSet.createResource
   (URI.createFileURI("/../acme.flexmi"));

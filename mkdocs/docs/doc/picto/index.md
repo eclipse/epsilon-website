@@ -1,9 +1,9 @@
 # Visualising Models with Picto
 
-Picto is an Eclipse view for **visualising models via model-to-text transformation** to SVG/HTML. Compared to existing graphical modelling frameworks such as [Sirius](https://eclipse.org/sirius) and [GMF/Eugenia](../eugnia-gmf-tutorial), the main appeal of Picto is that model visualisation takes place in an embedded browser and therefore you can leverage any HTML/SVG/JavaScript-based technology such as [D3.js](https://d3js.org/), [mxGraph](https://github.com/jgraph/mxgraph) and [JointJS](https://www.jointjs.com/). Picto also provides built-in support for the powerful [Graphviz](https://www.graphviz.org/) and [PlantUML](https://plantuml.com/) textual syntaxes (which are transformed to SVG via the respective tools). A distinguishing feature of Picto is does not require running multiple Eclipse instances as the metamodels, models and visualisation transformations can all reside in the same workspace. 
+Picto is an Eclipse view for **visualising models via model-to-text transformation** to SVG/HTML. Compared to existing graphical modelling frameworks such as [Sirius](https://eclipse.org/sirius) and [GMF/Eugenia](../eugnia-gmf-tutorial), the main appeal of Picto is that model visualisation takes place in an embedded browser and therefore you can leverage any HTML/SVG/JavaScript-based technology such as [D3.js](https://d3js.org/), [mxGraph](https://github.com/jgraph/mxgraph) and [JointJS](https://www.jointjs.com/). Picto also provides built-in support for the powerful [Graphviz](https://www.graphviz.org/) and [PlantUML](https://plantuml.com/) textual syntaxes (which are transformed to SVG via the respective tools). A distinguishing feature of Picto is does not require running multiple Eclipse instances as the metamodels, models and visualisation transformations can all reside in the same workspace.
 
 !!! tip
-	As Picto uses [EGL](../egl) for model-to-text transformation, it is [not limited to EMF-based models](#using-picto-in-standalone-mode-with-many-models) and can be used to visualise the contents of Simulink models, XML documents, spreadsheets, and any other type of artefact supported by an [Epsilon EMC driver](../../emc). 
+	As Picto uses [EGL](../egl) for model-to-text transformation, it is [not limited to EMF-based models](#using-picto-in-standalone-mode-with-many-models) and can be used to visualise the contents of Simulink models, XML documents, spreadsheets, and any other type of artefact supported by an [Epsilon EMC driver](../emc).
 
 On the flip side, Picto displays read-only views of models and as such it is not a good fit if diagram-based model editing capabilities are required. In this article we demonstrate Picto through a small social network example. The complete source code of the example is available [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.socialnetwork/).
 
@@ -49,7 +49,7 @@ In line 2 of the model, notice the `render-egx` processing instruction, which sp
 The `socialnetwork.egx` EGX model-to-text transformation is as follows:
 
 ```egx
-rule Network2Graphviz 
+rule Network2Graphviz
 	transform n : socialnetwork::SocialNetwork {
 
 	template : "socialnetwork2graphviz.egl"
@@ -64,10 +64,10 @@ rule Network2Graphviz
 		},
 		"people" = n.people
 	}
-	
+
 }
 
-rule Person2Graphviz 
+rule Person2Graphviz
 	transform p : socialnetwork::Person {
 
 	template : "socialnetwork2graphviz.egl"
@@ -82,8 +82,8 @@ rule Person2Graphviz
 		},
 		"people" = Sequence{p}
 	}
-	
-}	
+
+}
 ```
 
 The transformation consists of two rules:
@@ -102,27 +102,27 @@ The EGL template `socialnetwork2graphviz.egl` is as follows:
 
 ```egl
 digraph G {
-	node[shape=rectangle, fontname=Tahoma, fontsize=10, style="filled", 
+	node[shape=rectangle, fontname=Tahoma, fontsize=10, style="filled",
 		gradientangle="270", fillcolor="bisque:floralwhite"]
 
 	edge[penwidth=3, style=tapered, arrowhead=none]
-	
+
 [%for (p in people){%]
-	
+
 	[%=p.name%] [%if (people.size()==1){%][fillcolor="azure2:ghostwhite"][%}%]
-	
+
 	[%if (isLayerActive("likes")){%]
 		[%for (l in p.likes){%]
 			[%=p.name%] -> [%=l.name%] [color="#2A6C41"]
 		[%}%]
 	[%}%]
-	
+
 	[%if (isLayerActive("dislikes")){%]
 		[%for (l in p.dislikes){%]
 			[%=p.name%] -> [%=l.name%] [color="#B43431"]
 		[%}%]
 	[%}%]
-	
+
 [%}%]
 
 }
@@ -166,19 +166,19 @@ To "protect" your visualisation rules from input that is bound to generate meani
 
 ```egx
 rule ClassDiagram {
-	
+
 	guard : EClass.all.size() < 30
-	
+
 	parameters : Map {
-		"classes" = EClass.all, 
+		"classes" = EClass.all,
 		"format" = "graphviz-dot",
 		"path" = List{"Model", "(All Classes)"},
 		"icon" = "diagram-ff0000"
 	}
-	
+
 	template: "ecore2dot.egl"
-	
-}	
+
+}
 ```
 
 In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions showcased [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl).
@@ -194,7 +194,7 @@ In such cases, it is preferable to generate many smaller diagrams; for this exam
 
 ## Extending Picto
 
-Picto provides two extension points (`org.eclipse.epsilon.picto.pictoSource` and `org.eclipse.epsilon.picto.viewContentTransformer`) that can be used to add support for other Eclipse-based editors. Please see this [plugin.xml](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto.plantuml/plugin.xml), which shows how these extension points were used to integrate PlantUML with Picto.
+Picto provides two extension points (`org.eclipse.epsilon.picto.pictoSource` and `org.eclipse.epsilon.picto.viewContentTransformer`) that can be used to add support for other Eclipse-based editors. Please see this [plugin.xml](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto.plantuml/plugin.xml), which shows how these extension points were used to integrate Picto with different technologies, such as [PlantUML](https://plantuml.com/) or [Mermaid](https://github.com/mermaid-js/mermaid).
 
 ## Using Picto in standalone mode / with many models
 
@@ -218,7 +218,7 @@ Picto also suports a standalone mode, where the details of the models to be visu
 
 ## Philosophy
 
-While EMF provides support for [reflective model instantiation](../reflective-emf-tutorial) within the same Eclipse workspace, graphical and textual modelling frameworks that sit on top of it such as GMF, Sirius and Xtext involve code generation and/or contributing to Eclipse extension points and hence require spawning a new Eclipse instance. While this inconvenience can pay off for large DSLs, it feels like an overkill when one needs to throw together a small DSL in situ. The original aim of Picto was to complement Flexmi in this respect by contributing model visualisation capabilities where creating a new dedicated graphical editor is considered to be an overkill.
+While EMF provides support for [reflective model instantiation](../articles/reflective-emf-tutorial) within the same Eclipse workspace, graphical and textual modelling frameworks that sit on top of it such as GMF, Sirius and Xtext involve code generation and/or contributing to Eclipse extension points and hence require spawning a new Eclipse instance. While this inconvenience can pay off for large DSLs, it feels like an overkill when one needs to throw together a small DSL in situ. The original aim of Picto was to complement Flexmi in this respect by contributing model visualisation capabilities where creating a new dedicated graphical editor is considered to be an overkill.
 
 ## Gallery
 
@@ -227,7 +227,3 @@ While EMF provides support for [reflective model instantiation](../reflective-em
 ![](picto-risks.png)
 
 ![](picto-gsn.png)
-
-
-
-
