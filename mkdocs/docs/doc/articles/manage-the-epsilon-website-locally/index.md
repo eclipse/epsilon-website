@@ -1,52 +1,33 @@
 # Manage the Epsilon web site locally
 
-This article provides a step-by-step guide for obtaining a local copy of the Epsilon website.
+This article provides a step-by-step guide for obtaining a local copy of the Epsilon website. The website is managed using the [mkdocs](https://www.mkdocs.org/) library. The content is organised in different Markdown files, from which a static website can be generated.
 
--   Download and install
-    [XAMPP](http://portableapps.com/apps/development/xampp).
--   The folder where web-content is placed is `htdocs`.
--   Create an `epsilon` folder inside `htdocs`.
--   Clone the Git repository at <ssh://user_id@git.eclipse.org:29418/www.eclipse.org/epsilon.git> using EGit, specifying your Eclipse committer username in `user_id`. Eclipse will ask for your committer password. The destination directory should be the `epsilon` directory created in the previous step.
--   Import the working directory of the Git repository as a single general project.
--   Start XAMPP and go to `http://localhost/epsilon`.
--   You are now ready to start playing with the Epsilon site locally.
--   Once you've happy with the changes you've made, go back to the epsilon project in Eclipse, refresh and then commit and push the changes to Git. The site should be updated within a few minutes.
+## Setting up your environment
 
-# Using lighttpd instead of XAMPP
+- Clone the Git repository at `ssh://user_id@git.eclipse.org:29418/www.eclipse.org/epsilon.git` if you are a project comitter, or at `git://git.eclipse.org/gitroot/www.eclipse.org/epsilon.git` if not.
+- Download and install [virtualenv](https://virtualenv.pypa.io/en/stable/installation.html).
+- Navigate to the `mkdocs` folder, and run `./serve.sh` from a terminal. The first time this command is run, a Python virtual environment will be created unther the `mkdocs/env` directory. After the environment is ready (and on subsequent calls to `./serve.sh`), a local web server containing the Epsilon website will be running at [http://localhost:8000](http://localhost:8000).
 
-You can also use [lighttpd](http://www.lighttpd.net/) with PHP instead of XAMPP, following [this tutorial](http://redmine.lighttpd.net/wiki/1/TutorialLighttpdAndPHP) and pointing `server.document-root` to your `htdocs` directory, checked out as above. Alternatively, in most Debian-based GNU/Linux distributions, installing the `lighttpd` and `php5-cgi` packages and adapting this minimal configuration should be enough:
+## Real-time modification of the website
 
-```
-server.document-root = "/path/to/htdocs"
-server.port          = 8080
-index-file.names    += ( "index.html", "index.htm", "index.php" )
+All the Markdown sources of the website are contained in the `mkdocs` folder. After running the `./serve.sh` command, we can alter these sources, and the changes will be reflected automatically in the local website. This is very useful to get quick feedback of our changes, as we do not have to regenerate the website each time we make a modification.
 
-mimetype.assign = ( ".html" => "text/html", ".htm" => "text/html",
-                    ".css" => "text/css",   ".txt" => "text/plain",
-                    ".jpg" => "image/jpeg", ".png" => "image/png" )
+To shutdown the local web server at any time, hit `CTRL + C` on the terminal you used to launch it in the first place.
 
-server.modules += ( "mod_cgi" )
-cgi.assign      = ( ".php" => "/path/to/php-cgi" )
-```
-You can then launch the lighttpd server and leave it running on the foreground with:
+## Building the static site
 
-```    
-lighttpd -D -f lighttpd-epsilon.conf
-```
+Once you've happy with the changes you've made to the Markdown sources, you can re-generate the static website. To do so, run `./build.sh` and wait for it to finish.
 
-If you use lighttpd in Windows, use Windows-style paths (`c:\...`) instead of Cygwin-style (`/cygdrive/c/...`) paths. Otherwise, PHP will not work correctly.
+## Updating the website contents
 
-## Troubleshooting
-
-- The HTML output includes bits of PHP code: make sure that `short_open_tag` is set to `On` in your `php.ini` file. It seems to be set to `Off` by default in the latest distributions of XAMPP and PHP.
-- All you get is `No input file specified`: make sure that `doc_root` is set to the path to the `htdocs` folder in your `php.ini` file.
+As a convention for project commiters, introducing a change in the website is usually separated in two commits: the first one contains any changes to the Markdown sources, while the second one includes the result of building again the static site as described in the previous section.
 
 ## Finding broken links
 
-`wget` and `grep` can be used to find broken links in the Epsilon website. First, we will traverse the website using `wget` with this command:
+`wget` and `grep` can be used to find broken links in the Epsilon website. First, run the website locally by executing the `./serve.sh` command as described above. Then, we will traverse the website using `wget` with this command:
 
 ```
-wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8080/epsilon/
+wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8000
 ```
 
 We have used these options:
@@ -64,5 +45,3 @@ grep -B2 -w 404 wget_errors.txt
 ```
 
 We will get a list of all the URLs which reported 404 (Not Found) HTTP error codes.
-
-To find broken links in the [Epsilon blog](http://epsilonblog.wordpress.com), it is better to use `-l 3` (3 levels of recursion for the spider) rather than `--no-parent`, as we might want to check if external links are broken as well. We use three levels so we can go to the month in the "Archives", then to the full article, and finally to the external link itself.

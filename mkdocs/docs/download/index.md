@@ -26,7 +26,7 @@ Alternatively, you can use the following update sites through the `Help->Install
 | Interim | `http://download.eclipse.org/epsilon/interim/`|
 
 !!! warning "Eclipse failing to find dependencies?"
-    While Epsilon update sites contain references to all 3rd party dependencies and shouldn't require installing any prerequisites separately, Eclipse's installation system (p2) can be [temperamental](https://bugs.eclipse.org/bugs/show_bug.cgi?id=565859#c5) and occasionally fail to find libraries from Eclipse's Orbit project. In this case, installation can fail with the following message: `Cannot complete the install because one or more required items could not be found`. 
+    While Epsilon update sites contain references to all 3rd party dependencies and shouldn't require installing any prerequisites separately, Eclipse's installation system (p2) can be [temperamental](https://bugs.eclipse.org/bugs/show_bug.cgi?id=565859#c5) and occasionally fail to find libraries from Eclipse's Orbit project. In this case, installation can fail with the following message: `Cannot complete the install because one or more required items could not be found`.
 
     When this happens, please [install the missing dependences from Orbit manually](https://www.eclipse.org/forums/index.php?t=msg&th=1104436&goto=1829681&#msg_1829681) and try again. Alternatively, you can try installing Epsilon through the Eclipse installer (see above), which is much more reliable. If in doubt, please post a message to the forum.
 
@@ -48,7 +48,7 @@ If you prefer to install Epsilon through the Eclipse Marketplace, you can drag a
 
 ## Source Code <a href="https://ci.eclipse.org/epsilon/job/interim-kubernetes/job/master/lastBuild/"><img src="https://ci.eclipse.org/epsilon/job/interim-kubernetes/job/master/badge/icon" style="float:right;position:relative;top:7px"></a>
 
-The source code of Epsilon is in the following Git repository. 
+The source code of Epsilon is in the following Git repository.
 
 | Type | Location |
 | - | - |
@@ -56,7 +56,7 @@ The source code of Epsilon is in the following Git repository.
 | Committers | `ssh://user_id@git.eclipse.org:29418/epsilon/org.eclipse.epsilon.git`|
 | Release tag | `https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=2.1`|
 
-Additional projects which are experimental or have dependencies which are incompatible with the Eclipse Public License are available in [Epsilon Labs](https://github.com/epsilonlabs). 
+Additional projects which are experimental or have dependencies which are incompatible with the Eclipse Public License are available in [Epsilon Labs](https://github.com/epsilonlabs).
 
 ## Maven
 
@@ -81,3 +81,7 @@ To use the latest SNAPSHOT (interim) version of Epsilon, please see [the standal
 ## Older versions
 
 Previous stable versions of Epsilon are available [here](all-versions).
+
+## This website
+
+[This article](../../doc/articles/manage-the-epsilon-website-locally) demonstrates how to download and manage the Epsilon website in your machine.
