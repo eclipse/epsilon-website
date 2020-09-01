@@ -959,6 +959,7 @@
 <p>Once you've happy with the changes you've made to the Markdown sources, you can re-generate the static website. To do so, run <code>./build.sh</code> and wait for it to finish.</p>
 <h2 id="updating-the-website-contents">Updating the website contents<a class="headerlink" href="#updating-the-website-contents" title="Permanent link">&para;</a></h2>
 <p>As a convention for project commiters, introducing a change in the website is usually separated in two commits: the first one contains any changes to the Markdown sources, while the second one includes the result of building again the static site as described in the previous section.</p>
+<p>If you are not a commiter, but you find any typos or parts of the website that do not work as they should, thanks for <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon">letting us know</a>!</p>
 <h2 id="finding-broken-links">Finding broken links<a class="headerlink" href="#finding-broken-links" title="Permanent link">&para;</a></h2>
 <p><code>wget</code> and <code>grep</code> can be used to find broken links in the Epsilon website. First, run the website locally by executing the <code>./serve.sh</code> command as described above. Then, we will traverse the website using <code>wget</code> with this command:</p>
 <div class="highlight"><pre><span></span><code>wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8000
