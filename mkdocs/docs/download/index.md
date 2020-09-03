@@ -22,7 +22,7 @@ Alternatively, you can use the following update sites through the `Help->Install
 
 | Site | Location |
 | - | - |
-| Stable | `http://download.eclipse.org/epsilon/updates/`|
+| Stable | `http://download.eclipse.org/epsilon/updates/2.1/`|
 | Interim | `http://download.eclipse.org/epsilon/interim/`|
 
 !!! warning "Eclipse failing to find dependencies?"
