@@ -72,7 +72,7 @@ PR['registerLangHandler'](
          // [PR['PR_TYPE'],        /^[$_]*[A-Z][_$A-Z0-9]*[a-z][\w$]*/],
          [PR['PR_COMMENT'],     /^\/(?:\/.*|\*(?:\/|\**[^*/])*(?:\*+\/?)?)/],
          [PR['PR_PUNCTUATION'], /^(?:\.+|\/)/],
-         [PR['PR_TYPE'], new RegExp("^(?:Any|String|Integer|Real|Boolean|Native|Bag|Set|List|Sequence|Map|OrderedSet|Collection|ConcurrentBag|ConcurrentMap|ConcurrentSet)\\b")],
+         [PR['PR_TYPE'], new RegExp("^(?:Any|String|Integer|Real|Boolean|Native|Bag|Set|List|Sequence|Map|OrderedSet|Collection|Tuple|ConcurrentBag|ConcurrentMap|ConcurrentSet)\\b")],
         [PR['PR_TAG'],      /^(?:(@|\$)\w+)/],
         [PR['PR_PLAIN'],       /^[$a-zA-Z_][\w$]*/],
 
