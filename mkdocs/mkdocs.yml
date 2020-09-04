@@ -30,8 +30,8 @@ nav:
     - Screencasts: 'https://www.youtube.com/epsilondevs'
     - Lectures: 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
     - Javadoc:
-      - Stable: 'https://download.eclipse.org/epsilon/2.0/javadoc/'
-      - Interim: 'https://download.eclipse.org/epsilon/interim/javadoc/'
+      - Stable: 'https://download.eclipse.org/epsilon/2.2/javadoc/'
+      - Interim: 'https://download.eclipse.org/epsilon/interim-javadoc/'
   - Issues:
       - Report a new issue: 'https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon'
       - View open bugs: 'https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial'
