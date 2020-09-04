@@ -393,7 +393,7 @@ If a non-existent property on a Tuple is accessed, an exception is thrown.
 ```eol
 var p = new Tuple(name = "Alice", age = 32);
 
-p.name.substring(0, 1); // "a"
+p.name.substring(0, 3); // "Ali"
 p.age; // 32
 p.occupation.isDefined(); // false
 p.occupation.toUpperCase(); // Property 'occupation' not found
