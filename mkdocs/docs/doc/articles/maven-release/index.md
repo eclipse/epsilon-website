@@ -1,47 +1,67 @@
 # Releasing Epsilon to Maven Central
 
-This article describes the overall process required to release a new stable release of Epsilon to Maven Central. There are quite a few steps involved, some of which are outside our control. The guide will describe the steps that we do control, and point you to the relevant resources for the others.
+This article describes the overall process required to release a new stable release of Epsilon to Maven Central. There are a few steps involved, some of which are outside our control. The guide will describe the steps that we do control, and point you to the relevant resources for the others.
 
 ## Preparation
 
 The first step is to gain deploy rights to our `org.eclipse.epsilon` groupId in the [Sonatype OSS](https://oss.sonatype.org/) Nexus repository. To do this, please register at the [Sonatype JIRA](https://issues.sonatype.org/) and give your JIRA username to the Epsilon release engineer(s), so we may file a ticket to have deploy rights granted to you.
 
-Once the ticket goes through, you should set up your Maven environment according to the [Sonatype OSSRH Guide](https://central.sonatype.org/pages/ossrh-guide.html). Specifically, you should set up your Maven `settings.xml` file appropriately (see [here](https://central.sonatype.org/pages/apache-maven.html) for details), generate a GnuPG keypair and distribute it to the keyservers checked by Sonatype for validation:
+## Testing the Plain Maven build
 
-    gpg --keyserver http://keys.gnupg.net:11371/ --send-keys yourkey
-    gpg --keyserver http://pool.sks-keyservers.net:11371/ --send-keys yourkey
-    gpg --keyserver http://keyserver.ubuntu.com:11371/ --send-keys yourkey
+Our plain Maven artifacts are built through a parallel hierarchy of `pom-plain.xml` files, starting from the root of the Epsilon repository.
+To do a plain Maven compilation + test build from scratch, simply run this:
 
-## Creation of assemblies and JARs
+```
+mvn -f pom-plain.xml clean test
+```
 
-Next, you should tweak the `standalone/org.eclipse.epsilon.standalone/jarmodel.xml` file, to make sure that it has the right contents, version number, and interim flag (`true` for interim or `-SNAPSHOT` builds that only go to Sonatype OSSRH Snapshots, `false` for stable builds that go to Maven Central). 
+Keep in mind that plain Maven builds do not run unit tests, as we already run those in the Tycho build.
+Make sure that all tests pass in the Tycho build first.
 
-Run the `jarmodel2mvn.launch` launch configuration (you will need Epsilon to be installed into your own Eclipse first). This will generate the appropriate Maven assembly descriptors.
+Double check the dependencies in the various `pom-plain.xml` files, especially those related to external libraries.
 
-Trigger a full rebuild of Epsilon from the root folder of the
-repository:
+Check the project metadata in the `pom-plain.xml` file, which lists the current developers, SCM URLs, and other details.
 
-    mvn clean install
+## Preparing a Maven release branch
 
-Go to the standalone project and build the Javadoc JARs:
+Once the new stable version of Epsilon has been tagged, create a Maven release branch with:
 
-    cd standalone/org.eclipse.epsilon.standalone
-    bash build-javadoc-jar.sh
+```sh
+git checkout -b maven-RELEASE RELEASE-TAG
+```
 
-## Upload to staging repository
+Set the version in the `pom-plain.xml` files:
 
-Once this is done, build the javadoc JARs and use our custom Maven plugin to deploy to a Sonatype OSS Nexus staging repository:
+```sh
+mvn -f pom-plain.xml versions:set
+```
 
-    cd standalone/org.eclipse.epsilon.standalone
-    mvn org.eclipse.epsilon:eutils-maven-plugin:deploy \
-      -Ddeploy.url=https://oss.sonatype.org/service/local/staging/deploy/maven2
+Enter the version number of the release, and create a commit for it:
 
-This may ask a few times for the password of your GnuPG key, so make sure to watch the build process.
+```sh
+git add ...
+git commit -m "Set plain Maven versions to RELEASE"
+```
 
-After this completes, you will have a staging repository prepared at the Sonatype Nexus repository. Go to [Sonatype OSS](https://oss.sonatype.org/), log in with your JIRA credentials and check the "Staging Repositories" section. Search for "epsilon" and you should be able to see it.
+Push the commit to Jenkins:
+
+```sh
+git push
+```
+
+If you need to make any other tweaks for the Maven release, you may want to try them here first rather than pollute `master`.
+Once the release is out, you may want to cherry-pick those tweaks back into `master`.
 
 ## Release to Maven Central
 
-Select the repository and check in the "Contents" tab that everything is in order. If you are not happy with it, you can drop the repository and retry the upload. If you are happy with the contents, click on "Close" and wait until all checks in the "Activity" tab have passed. If any checks do not pass (e.g. you are missing source/javadoc attachments or the GnuPG keypairs are not available in the usual keyservers), correct the issue and try closing again.
+The Jenkins build will automatically sign the plain Maven JARs and create a new staging repository in the OSSRH Sonatype Nexus server.
+It will also attempt to "close" it to modification, which will trigger the Maven Central validation rules.
+If one of these rules fail, the repository will be left open: the violations will be recorded in the Jenkins build logs, and you can try to manually close the repository and see those checks applied once more.
 
-Once the repository has closed successfully, you should be able to press "Release". After about an hour or so, the staging repository will disappear, and after a few hours the contents of the repository should be available from [Maven Central](https://search.maven.org/). This may take up to a day, so be patient!
+As a precaution, we require all staging repositories to be manually checked before we release them to Maven Central.
+Once the Jenkins build passes, log into [Sonatype OSS](https://oss.sonatype.org/) with your JIRA credentials and check the "Staging Repositories" section.
+Search for "epsilon" and you should be able to see the newly created staging repository.
+
+Select the repository and check in the "Contents" tab that everything is in order. If you are not happy with it, you can drop the repository, add more commits to the Maven release branch, and retry the upload. If you are happy with the contents, click on "Release" and enter an appropriate message in the "Reason" field (usually, "Stable release RELEASE of Eclipse Epsilon" suffices).
+
+After about an hour or so, the staging repository will disappear, and after a few hours the contents of the repository should be available from [Maven Central](https://search.maven.org/). This may take up to a day, so be patient!
