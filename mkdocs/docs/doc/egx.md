@@ -9,7 +9,29 @@ EGX is a rule-based co-ordination language designed for automating the parametri
 
 As an example, consider a simple Library metamodel (shown below). Suppose each model may have multiple Libraries, and each Library has a name, multiple Books and Authors. Similarly, each Book has one or more Authors, and each Author has multiple Books, similar to the relation between Actors and Movies in the IMDb metamodel used in previous chapters. Now suppose we have a single monolithic model and want to transform this into multiple structured files, such as web pages (HTML) or XML documents. One possible decomposition of this is to generate a page for each Library in the model.
 
-![Library metamodel](images/LibraryMM.png)
+```mermaid-30
+classDiagram
+class Library{
+    name: EString
+    id: ELong
+    books: Book[*]
+}
+
+class Book {
+    title: EString
+    pages: EInt
+    ISBN: EString
+    authors: Author[*]
+}
+
+class Author{
+    name: EString
+    books: Book[*]
+}
+
+Library -- Book: books *
+Book -- Author: books * / authors *
+```
 
 ```egl
 <?xml version="1.0" encoding="UTF-8"?>
