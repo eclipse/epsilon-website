@@ -181,7 +181,17 @@ rule ClassDiagram {
 }
 ```
 
-In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions showcased [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl).
+In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. 
+
+## Interactive Diagrams
+
+Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions below, which are showcased [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl).
+
+| Signature                                         | Description                                                  |
+| ------------------------------------------------- | ------------------------------------------------------------ |
+| showView(String[] path)                           | Shows the view with the specified path - e.g. `top.showView(['Model', 'Classes', 'EClassifier'])` |
+| showElement(String elementId, String resourceUri) | Selects the specified element in its Eclipse-based editor (e.g. the EMF tree-based editor) |
+
 
 ![](picto-eclassifier.png)
 
@@ -194,7 +204,17 @@ In such cases, it is preferable to generate many smaller diagrams; for this exam
 
 ## Extending Picto
 
-Picto provides two extension points (`org.eclipse.epsilon.picto.pictoSource` and `org.eclipse.epsilon.picto.viewContentTransformer`) that can be used to add support for other Eclipse-based editors. Please see this [plugin.xml](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto.plantuml/plugin.xml), which shows how these extension points were used to integrate Picto with different technologies, such as [PlantUML](https://plantuml.com/) or [Mermaid](https://github.com/mermaid-js/mermaid).
+Picto provides the following extension points that can be used to extend its functionality. 
+
+| Extension Point                                  | Description                                                  |
+| ------------------------------------------------ | ------------------------------------------------------------ |
+| org.eclipse.epsilon.picto.pictoSource            | Bind Picto to a type of Eclipse-based editors so that Picto auto-refreshes every time a file in an editor of this type is saved |
+| org.eclipse.epsilon.picto.browserFunction        | Add a custom Javascript function that generated diagrams can call (much like the `showView` and `showElement` functions above) |
+| org.eclipse.epsilon.picto.browserScript          | Add a Javascript that executes when the Picto browser loads  |
+| org.eclipse.epsilon.picto.viewContentTransformer | Transform a custom content type to HTML, or to a content type that another [ViewContentTransformer](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/ViewContentTransformer.java) can transform. See [MarkdownContentTransformer](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/MarkdownContentTransformer.java) as an example. |
+| org.eclipse.epsilon.picto.htmlElementTransformer | Add support for custom HTML elements to Picto. See [PictoViewElementTransformer](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/elements/PictoViewElementTransformer.java) as an example, which adds a new `<picto-view path="..."/>` HTML tag to Picto, that supports embedding Picto views [within other Picto views](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/comps/readme.html). |
+
+Please see this [plugin.xml](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto/plugin.xml), which shows how some of these extension points were used to integrate Picto with different technologies, such as [PlantUML](https://plantuml.com/) or [Mermaid](https://github.com/mermaid-js/mermaid).
 
 ## Using Picto in standalone mode / with many models
 
