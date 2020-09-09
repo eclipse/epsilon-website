@@ -543,6 +543,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interactive-diagrams" class="md-nav__link">
+    Interactive Diagrams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#editors-supported-by-picto" class="md-nav__link">
     Editors supported by Picto
   </a>
@@ -1089,6 +1096,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interactive-diagrams" class="md-nav__link">
+    Interactive Diagrams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#editors-supported-by-picto" class="md-nav__link">
     Editors supported by Picto
   </a>
@@ -1300,7 +1314,27 @@ operation isLayerActive(id : String) {
 
 }</code></pre>
 
-<p>In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions showcased <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl">here</a>.</p>
+<p>In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. </p>
+<h2 id="interactive-diagrams">Interactive Diagrams<a class="headerlink" href="#interactive-diagrams" title="Permanent link">&para;</a></h2>
+<p>Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions below, which are showcased <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Signature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>showView(String[] path)</td>
+<td>Shows the view with the specified path - e.g. <code>top.showView(['Model', 'Classes', 'EClassifier'])</code></td>
+</tr>
+<tr>
+<td>showElement(String elementId, String resourceUri)</td>
+<td>Selects the specified element in its Eclipse-based editor (e.g. the EMF tree-based editor)</td>
+</tr>
+</tbody>
+</table>
 <p><img alt="" src="picto-eclassifier.png" /></p>
 <h2 id="editors-supported-by-picto">Editors supported by Picto<a class="headerlink" href="#editors-supported-by-picto" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1310,7 +1344,38 @@ operation isLayerActive(id : String) {
 <li>Default text editor editing files with <code>.html</code>, <code>.svg</code>, <code>.dot</code>, <code>.neato</code> file extensions (mainly for debugging)</li>
 </ul>
 <h2 id="extending-picto">Extending Picto<a class="headerlink" href="#extending-picto" title="Permanent link">&para;</a></h2>
-<p>Picto provides two extension points (<code>org.eclipse.epsilon.picto.pictoSource</code> and <code>org.eclipse.epsilon.picto.viewContentTransformer</code>) that can be used to add support for other Eclipse-based editors. Please see this <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto.plantuml/plugin.xml">plugin.xml</a>, which shows how these extension points were used to integrate Picto with different technologies, such as <a href="https://plantuml.com/">PlantUML</a> or <a href="https://github.com/mermaid-js/mermaid">Mermaid</a>.</p>
+<p>Picto provides the following extension points that can be used to extend its functionality. </p>
+<table>
+<thead>
+<tr>
+<th>Extension Point</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>org.eclipse.epsilon.picto.pictoSource</td>
+<td>Bind Picto to a type of Eclipse-based editors so that Picto auto-refreshes every time a file in an editor of this type is saved</td>
+</tr>
+<tr>
+<td>org.eclipse.epsilon.picto.browserFunction</td>
+<td>Add a custom Javascript function that generated diagrams can call (much like the <code>showView</code> and <code>showElement</code> functions above)</td>
+</tr>
+<tr>
+<td>org.eclipse.epsilon.picto.browserScript</td>
+<td>Add a Javascript that executes when the Picto browser loads</td>
+</tr>
+<tr>
+<td>org.eclipse.epsilon.picto.viewContentTransformer</td>
+<td>Transform a custom content type to HTML, or to a content type that another <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/ViewContentTransformer.java">ViewContentTransformer</a> can transform. See <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/MarkdownContentTransformer.java">MarkdownContentTransformer</a> as an example.</td>
+</tr>
+<tr>
+<td>org.eclipse.epsilon.picto.htmlElementTransformer</td>
+<td>Add support for custom HTML elements to Picto. See <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/elements/PictoViewElementTransformer.java">PictoViewElementTransformer</a> as an example, which adds a new <code>&lt;picto-view path="..."/&gt;</code> HTML tag to Picto, that supports embedding Picto views <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/comps/readme.html">within other Picto views</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Please see this <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/plugins/org.eclipse.epsilon.picto/plugin.xml">plugin.xml</a>, which shows how some of these extension points were used to integrate Picto with different technologies, such as <a href="https://plantuml.com/">PlantUML</a> or <a href="https://github.com/mermaid-js/mermaid">Mermaid</a>.</p>
 <h2 id="using-picto-in-standalone-mode-with-many-models">Using Picto in standalone mode / with many models<a class="headerlink" href="#using-picto-in-standalone-mode-with-many-models" title="Permanent link">&para;</a></h2>
 <p>Picto also suports a standalone mode, where the details of the models to be visualised are provided within the <code>.picto</code> file itself. An example of visualising <code>socialnetwork.model</code> in standalone mode (without the model being open in a tree editor) is below and in <code>socialnetwork-standalone.picto</code> in the example folder.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri picto?&gt;</span>
