@@ -45,6 +45,9 @@ nav:
         - Open-source projects: 'users/open-source.md'
       - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
       - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'
+      - Social Media:
+        - Twitter: 'https://twitter.com/eclipseepsilon'
+        - YouTube: 'https://youtube.com/epsilondevs'
       - Epsilon Labs: 'labs.md'
       - Frequently asked questions: 'faq.md'
   - Branding: 'branding/index.md'
@@ -55,6 +58,12 @@ theme:
   palette:
     primary: 'black'
     accent: 'orange'
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/eclipseepsilon
+    - icon: fontawesome/brands/youtube
+      link: https://youtube.com/epsilondevs
 repo_name: 'Git repository @ Eclipse'
 repo_url: 'https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/'
 markdown_extensions:
