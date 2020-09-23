@@ -14,6 +14,7 @@
 ![Siemens](logos/siemens.png)
 ![Rolls-Royce](logos/rr.png)
 ![IBM](logos/ibm.png)
+![Blackbelt](logos/blackbelt.png)
 ![Raytheon](logos/raytheon.png)
 ![ATOS](logos/atos.png)
 ![Ergon](logos/ergon.png)
@@ -54,6 +55,9 @@ IBM
 	[3](https://bugs.eclipse.org/bugs/show_bug.cgi?id=265609),
 	[4](https://bugs.eclipse.org/bugs/show_bug.cgi?id=265285),
 	[5](https://bugs.eclipse.org/bugs/show_bug.cgi?id=265145)],
+Blackbelt 
+	[[1](https://github.com/BlackBeltTechnology/emf-genmodel-generator),
+	[2](https://github.com/BlackBeltTechnology/epsilon-runtime)],
 Raytheon 
 	[[1](http://codegeneration.net/cg2014/sessions/index.php?session=13),
 	[2](https://twitter.com/guwac/status/321983342683758592)],
