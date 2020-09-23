@@ -31,6 +31,8 @@
 
 BAE Systems 
 	[[1](http://link.springer.com/chapter/10.1007%2F978-3-642-13595-8_7)],
+Bosch 
+	[[1](https://youtu.be/T7-ExsSzSWw?t=1481)],
 NASA 
 	[[1](https://github.com/nasa/CertWare/blob/f63ff91edaaf2b0718b51a34cda0136f3cdbb085/net.certware.state.gui/model/StateAnalysis.emf),
 	[2](https://bugs.eclipse.org/bugs/show_bug.cgi?id=258871),
