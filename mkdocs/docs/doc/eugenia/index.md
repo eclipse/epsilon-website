@@ -1,4 +1,4 @@
-# Graphical Model Editor development with EuGENia/GMF
+# Graphical Model Editor development with Eugenia/GMF
 Eugenia is a tool that simplifies the development of GMF-based graphical model editors by automatically generating the `.gmfgraph`, `.gmftool` and `.gmfmap` models needed by GMF editor from a single annotated Ecore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic; an Ecore version is available [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.eugenia.examples.filesystem/model/filesystem.ecore)) it can generate a fully functional GMF editor, a screenshot of which is displayed below.
 
 ## The Filesystem metamodel
@@ -45,7 +45,7 @@ class File {
 ![](Filesystemscreenshot2.png)
 
 ## Supported Annotations
-EuGENia supports the following annotations on Ecore elements.
+Eugenia supports the following annotations on Ecore elements.
 
 ### gmf
 Applies to the top `EPackage` only and denotes that GMF-related annotations are expected in its elements. This doesn't affect the forthcoming model transformations, only the Ecore validation process.
@@ -155,13 +155,13 @@ Defines additional labels for the containing `EClass`. These labels will be disp
 * `label.text` (optional) : defines the default text to be used when the attribute is not set.
 * `label.view.pattern` (optional) : like `label.pattern`, but only for viewing the label.
 
-==Installing EuGENia ''(New Instructions!)''==
-EuGENia is a part of the main Epsilon distribution. The update site of Epsilon is `http://download.eclipse.org/epsilon/updates`, and detailed instructions for installing it are available [here](http://www.eclipse.org/gmt/epsilon/download).
+==Installing Eugenia ''(New Instructions!)''==
+Eugenia is a part of the main Epsilon distribution. The update site of Epsilon is `http://download.eclipse.org/epsilon/updates`, and detailed instructions for installing it are available [here](http://www.eclipse.org/gmt/epsilon/download).
 
 Although not necessary, you should also install the Emfatic toolkit mentioned above through the following update site: `http://download.eclipse.org/emfatic/update/`
 
-## Running EuGENia
-To run EuGENia you need to do the following:
+## Running Eugenia
+To run Eugenia you need to do the following:
 
 - Create a new project
 - Create and annotate your Ecore metamodel in the "model" folder of your project
@@ -169,8 +169,8 @@ To run EuGENia you need to do the following:
 - Launch a new Eclipse instance from the "Run - Eclipse Application" menu using "-XX:PermSize=64M -XX:MaxPermSize=128M -Xms512M -Xmx1024M" as VM arguments in the Run Configuration
 - In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the File->New->Other... dialog
 
-## Re-running EuGENia
-If you now change your metamodel you'll have to rerun EuGENia to generate your updated editor:
+## Re-running Eugenia
+If you now change your metamodel you'll have to rerun Eugenia to generate your updated editor:
 
 - Right-click your Ecore metamodel (or Emfatic file) and select Eugenia->Generate GMF editor
 - Run a new instance of Eclipse
@@ -188,13 +188,13 @@ If you now change your metamodel you'll have to rerun EuGENia to generate your u
 * [Nodes with user defined images at runtime](../articles/eugenia-nodes-with-runtime-images)
 
 ## Customizing your editor
-[Click here](../articles/eugenia-polishing) to find out how you can further customize the generated `.gmfgraph`, `.gmfmap` and `.gmftool` models in ways that are not supported by the annotations provided by EuGENia, and still preserve the customizations when EuGENia is re-invoked.
+[Click here](../articles/eugenia-polishing) to find out how you can further customize the generated `.gmfgraph`, `.gmfmap` and `.gmftool` models in ways that are not supported by the annotations provided by Eugenia, and still preserve the customizations when Eugenia is re-invoked.
 
 ## Adding Copyright
-To add copyright information to your generated .gmfgen model, simply create a file named copyright.txt next to it. Next time you invoke `Eugenia->Synchronize GMF gen model`, EuGENia will pick it up and place its contents in the root GenDiagramEditor of your .gmfgen model. If you have added the copyright.txt file, you can also inject its contents to your .genmodel model (EMF generator model) by right-clicking it and invoking `Eugenia->Synchronize EMF gen model`.
+To add copyright information to your generated .gmfgen model, simply create a file named copyright.txt next to it. Next time you invoke `Eugenia->Synchronize GMF gen model`, Eugenia will pick it up and place its contents in the root GenDiagramEditor of your .gmfgen model. If you have added the copyright.txt file, you can also inject its contents to your .genmodel model (EMF generator model) by right-clicking it and invoking `Eugenia->Synchronize EMF gen model`.
 
 ## Next Steps
-Now that you've learned how to generate a GMF-based editor using EuGENia, you may also want to add some constraints to your editor, which you can then evaluate (explicitly or on-save) to [check the correctness/consistency of your models](../articles/evl-gmf-integration):
+Now that you've learned how to generate a GMF-based editor using Eugenia, you may also want to add some constraints to your editor, which you can then evaluate (explicitly or on-save) to [check the correctness/consistency of your models](../articles/evl-gmf-integration):
 
 ![](Filesystemwitherrorshighlighted.png)
 

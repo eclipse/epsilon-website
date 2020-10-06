@@ -66,4 +66,4 @@ Use the ANT tasks provided by Epsilon to create an ANT workflow that invokes the
 
 ## Exercise 9: Constructing graphical editors
 
-Create GMF editors for the metamodels you have written in the exercises above using EuGENia.
+Create GMF editors for the metamodels you have written in the exercises above using Eugenia.

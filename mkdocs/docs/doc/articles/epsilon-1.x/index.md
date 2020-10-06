@@ -10,7 +10,7 @@ Navigate to the directory with the desired version, and download the archive fil
 
 ## From a Modeling Distribution
 
-For a more up-to-date IDE, we recommend that users install the [Eclipse Modeling Tools distribution](https://www.eclipse.org/downloads/packages/release/2020-03/r/eclipse-modeling-tools) and install Epsilon along with its (optional) dependencies (these are mainly for working with EuGENia) by adding the following list of update sites through *Help → Install New Software...*:
+For a more up-to-date IDE, we recommend that users install the [Eclipse Modeling Tools distribution](https://www.eclipse.org/downloads/packages/release/2020-03/r/eclipse-modeling-tools) and install Epsilon along with its (optional) dependencies (these are mainly for working with Eugenia) by adding the following list of update sites through *Help → Install New Software...*:
 
 - **Epsilon** : <https://download.eclipse.org/epsilon/updates/1.5> (substitute *1.5* for the desired version)
 - **Emfatic**: <https://download.eclipse.org/emfatic/update>

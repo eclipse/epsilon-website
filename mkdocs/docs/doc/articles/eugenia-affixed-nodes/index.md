@@ -1,4 +1,4 @@
-# EuGENia: Affixed Nodes in GMF
+# Eugenia: Affixed Nodes in GMF
 From the following annotated Ecore metamodel (in Emfatic)
 
 ```emf
@@ -35,6 +35,6 @@ class Connector extends NamedElement {
 }
 ```
 
-EuGENia can automatically generate this GMF editor:
+Eugenia can automatically generate this GMF editor:
 
 ![](Components.jpg)

@@ -1,4 +1,4 @@
-# EuGENia: Nodes with images defined at run-time
+# Eugenia: Nodes with images defined at run-time
 
 This recipe addresses the case where the end-user needs to set an image for each node at runtime (based on Thomas Beyer's solution presented in the GMF newsgroup). For our example, we'll use the Component class.
 
@@ -8,7 +8,7 @@ First we need to create an `imagePath` attribute that will store the path of the
 
 ## Set the figure of Component to a custom ComponentFigure
 
-The next step is to set the figure of Component in EuGENia to a custom figure. After those two steps, our definition of Component looks like this:
+The next step is to set the figure of Component in Eugenia to a custom figure. After those two steps, our definition of Component looks like this:
 
 ```emf
 @gmf.node(label="name", figure="ccdl.diagram.figures.ComponentFigure", label.placement="external")

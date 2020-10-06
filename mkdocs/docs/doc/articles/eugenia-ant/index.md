@@ -1,10 +1,10 @@
-# EuGENia: Automated Invocation with Ant
-EuGENia can be called from Ant, using the `<epsilon.eugenia>` Ant task. This way, the creation of the GMF editors can be easily automated by using a standard Ant Builder. Additionally, the Ant task has several features which are not currently available through the regular graphical user interface.
+# Eugenia: Automated Invocation with Ant
+Eugenia can be called from Ant, using the `<epsilon.eugenia>` Ant task. This way, the creation of the GMF editors can be easily automated by using a standard Ant Builder. Additionally, the Ant task has several features which are not currently available through the regular graphical user interface.
 
-In this article, we will show how to invoke the EuGENia Ant task and offer some recommendations on how to adopt it.
+In this article, we will show how to invoke the Eugenia Ant task and offer some recommendations on how to adopt it.
 
 ## Basic usage
-The EuGENia Ant task only requires specifying the source Emfatic description or Ecore model through the `src` attribute:
+The Eugenia Ant task only requires specifying the source Emfatic description or Ecore model through the `src` attribute:
 
 ```xml
 <!-- Generate myfile.ecore from myfile.emf and then proceed -->
@@ -19,7 +19,7 @@ The EuGENia Ant task only requires specifying the source Emfatic description or 
 	The Eugenia Ant task requires that the Ant buildfile is run from the same JRE as the workspace. Please check the [Workflow](../../../doc/workflow) documentation for instructions on how to do it.
 
 ## Limiting the steps to be run
-Normally, EuGENia runs all these steps:
+Normally, Eugenia runs all these steps:
 
 - Clean the models from the previous run (the `clean` step)
 - If `src` is an Emfatic source file (with the `.emf` extension), generate the Ecore model from it (`ecore`)
@@ -46,7 +46,7 @@ Additional models to be used in a polishing transformation can be specified thro
 
 * `ref` (mandatory) is the name with which the model was loaded into the model repository of the Ant project, using the Epsilon model loading Ant tasks.
 * `as` (optional) is the name to be used for the model inside the polishing transformation.
-* `step` (mandatory) is the identifier of the EuGENia step to which we will add the model reference.
+* `step` (mandatory) is the identifier of the Eugenia step to which we will add the model reference.
 As an example, consider the following fragment:
 
 ```xml

@@ -1,10 +1,10 @@
-# EuGENia: Nodes with centred content
+# Eugenia: Nodes with centred content
 
 This recipe shows how to create nodes in your GMF editor whose contents are centred both horizontally and vertically. The resulting editor will produce nodes like this:
 
 ![](Centred.png)
 
-We'll start with the following metamodel and EuGENia annotations:
+We'll start with the following metamodel and Eugenia annotations:
 
 ```emf
 @namespace(uri="www.eclipse.org/epsilon/examples/widgets", prefix="w")

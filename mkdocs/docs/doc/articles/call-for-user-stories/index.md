@@ -10,13 +10,13 @@ All responses, **no matter how short or seemingly trivial**, would be very helpf
 
 In case you'd like an example, we recently received the following statement from Jendrik Johannes, a founder of [DevBoost](http://devboost.de/). Our thanks to Jendrik for his statement and for kindly allowing us to use it here.
 
-> "We used EuGENia in a project where we developed a graphical editor
+> "We used Eugenia in a project where we developed a graphical editor
 > for a client as an extension for their existing tool for modeling wind
 > farms. The client already used a model as the basis for the tool and
 > thus it was a matter of minutes to generate a prototype of the editor
-> with EuGENia. This gave us the possibility to discuss the clients
+> with Eugenia. This gave us the possibility to discuss the clients
 > requirements directly on a working prototype which later on also
-> served as the basis for the actual implementation. Using EuGENia, we
+> served as the basis for the actual implementation. Using Eugenia, we
 > implemented the prototype within a week - a task that usually takes a
 > month."
 >

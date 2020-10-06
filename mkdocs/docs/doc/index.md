@@ -76,7 +76,7 @@ and utilities for working with models.
 ### Graphical Modelling
 
 - [Picto](picto): Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. Compared to existing graphical modelling frameworks such as Sirius and GMF, the main appeal of Picto is that model visualisation takes place in an embedded browser and therefore you can leverage any HTML/SVG/JavaScript-based technology such as D3.js, mxGraph and JointJS. Picto also provides built-in support for the powerful Graphviz and PlantUML textual syntaxes (which are transformed to SVG via the respective tools). A distinguishing feature of Picto is does not require running multiple Eclipse instances as the metamodels, models and visualisation transformations can all reside in the same workspace. 
-- [EuGENia](eugenia): EuGENia is a front-end for GMF. Its aim is to speed up the process of developing a GMF editor and lower the entrance barrier for new developers. To this end, EuGENia enables developers to generate a fully-functional GMF editor only by specifying a few high-level annotations in the Ecore metamodel.
+- [Eugenia](eugenia): Eugenia is a front-end for GMF. Its aim is to speed up the process of developing a GMF editor and lower the entrance barrier for new developers. To this end, Eugenia enables developers to generate a fully-functional GMF editor only by specifying a few high-level annotations in the Ecore metamodel.
 
 ### Textual Modelling
 

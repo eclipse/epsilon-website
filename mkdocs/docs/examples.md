@@ -61,11 +61,11 @@ If you are unable to run any of the examples below, please [give us a shout](../
 - [Construct a workflow to orchestrate several Epsilon programs with Ant](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.workflow.flowchart): In this example we demonstrate how to use the built-in Epsilon Ant tasks to define a workflow by combining several Epsilon programs. Here, we validate, transform and generate HTML from a flowchart model.
 - [Provide custom/extended tasks for the workflow](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.workflow.extension.example): In this example we demonstrate how you can define your own ANT tasks that extend the Epsilon workflow tasks.
 - [Use model transactions in a workflow](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.workflow.transactions): In this example we demonstrate using the ant-contrib try/catch tasks and the Epsilon model transactions tasks to conditionally rollback changes in models modified in a workflow.
-## EuGENia
+## Eugenia
 
-- [Implement a GMF editor with image nodes using EuGENia](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eugenia.examples.friends): In this example we use EuGENia to implement a GMF editor with images instead of shapes for nodes.
-- [Implement a GMF editor with end labels in connections using EuGENia](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eugenia.examples.endlabels): In this example we use EuGENia to implement a GMF editor with end labels in connections.
-- [Implement a flowchart GMF editor using EuGENia](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eugenia.examples.flowchart): In this example we use EuGENia to implement a flowchart GMF editor, and EOL to polish its appearance.
+- [Implement a GMF editor with image nodes using Eugenia](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eugenia.examples.friends): In this example we use Eugenia to implement a GMF editor with images instead of shapes for nodes.
+- [Implement a GMF editor with end labels in connections using Eugenia](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eugenia.examples.endlabels): In this example we use Eugenia to implement a GMF editor with end labels in connections.
+- [Implement a flowchart GMF editor using Eugenia](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eugenia.examples.flowchart): In this example we use Eugenia to implement a flowchart GMF editor, and EOL to polish its appearance.
 ## EUnit
 
 - [Test EOL scripts with EUnit](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eunit.examples.eol): In this example we show the basic structure of an EUnit test, some useful assertions for the basic types and how to test for errors and define our own assertions.

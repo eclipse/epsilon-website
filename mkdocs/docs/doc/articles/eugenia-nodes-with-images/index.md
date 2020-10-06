@@ -1,4 +1,4 @@
-# EuGENia: Nodes with images instead of shapes
+# Eugenia: Nodes with images instead of shapes
 
 This recipe shows how to create nodes in your GMF editor that are
 represented with images (png, jpg etc.) instead of the standard GMF
