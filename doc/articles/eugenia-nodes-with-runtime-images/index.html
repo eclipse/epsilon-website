@@ -15,7 +15,7 @@
     
     
       
-        <title>EuGENia: Nodes with images defined at run-time - Epsilon</title>
+        <title>Eugenia: Nodes with images defined at run-time - Epsilon</title>
       
     
     
@@ -103,7 +103,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              EuGENia: Nodes with images defined at run-time
+              Eugenia: Nodes with images defined at run-time
             
           </span>
         </div>
@@ -1035,12 +1035,12 @@
                   
                 
                 
-                <h1 id="eugenia-nodes-with-images-defined-at-run-time">EuGENia: Nodes with images defined at run-time<a class="headerlink" href="#eugenia-nodes-with-images-defined-at-run-time" title="Permanent link">&para;</a></h1>
+                <h1 id="eugenia-nodes-with-images-defined-at-run-time">Eugenia: Nodes with images defined at run-time<a class="headerlink" href="#eugenia-nodes-with-images-defined-at-run-time" title="Permanent link">&para;</a></h1>
 <p>This recipe addresses the case where the end-user needs to set an image for each node at runtime (based on Thomas Beyer's solution presented in the GMF newsgroup). For our example, we'll use the Component class.</p>
 <h2 id="create-an-attribute-to-store-the-image-path">Create an attribute to store the image path<a class="headerlink" href="#create-an-attribute-to-store-the-image-path" title="Permanent link">&para;</a></h2>
 <p>First we need to create an <code>imagePath</code> attribute that will store the path of the image for each component.</p>
 <h2 id="set-the-figure-of-component-to-a-custom-componentfigure">Set the figure of Component to a custom ComponentFigure<a class="headerlink" href="#set-the-figure-of-component-to-a-custom-componentfigure" title="Permanent link">&para;</a></h2>
-<p>The next step is to set the figure of Component in EuGENia to a custom figure. After those two steps, our definition of Component looks like this:</p>
+<p>The next step is to set the figure of Component in Eugenia to a custom figure. After those two steps, our definition of Component looks like this:</p>
 <pre class="prettyprint lang-emf"><code>@gmf.node(label="name", figure="ccdl.diagram.figures.ComponentFigure", label.placement="external")
 class Component {
   attr String name;

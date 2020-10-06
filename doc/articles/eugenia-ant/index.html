@@ -15,7 +15,7 @@
     
     
       
-        <title>EuGENia: Automated Invocation with Ant - Epsilon</title>
+        <title>Eugenia: Automated Invocation with Ant - Epsilon</title>
       
     
     
@@ -103,7 +103,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              EuGENia: Automated Invocation with Ant
+              Eugenia: Automated Invocation with Ant
             
           </span>
         </div>
@@ -1014,11 +1014,11 @@
                   
                 
                 
-                <h1 id="eugenia-automated-invocation-with-ant">EuGENia: Automated Invocation with Ant<a class="headerlink" href="#eugenia-automated-invocation-with-ant" title="Permanent link">&para;</a></h1>
-<p>EuGENia can be called from Ant, using the <code>&lt;epsilon.eugenia&gt;</code> Ant task. This way, the creation of the GMF editors can be easily automated by using a standard Ant Builder. Additionally, the Ant task has several features which are not currently available through the regular graphical user interface.</p>
-<p>In this article, we will show how to invoke the EuGENia Ant task and offer some recommendations on how to adopt it.</p>
+                <h1 id="eugenia-automated-invocation-with-ant">Eugenia: Automated Invocation with Ant<a class="headerlink" href="#eugenia-automated-invocation-with-ant" title="Permanent link">&para;</a></h1>
+<p>Eugenia can be called from Ant, using the <code>&lt;epsilon.eugenia&gt;</code> Ant task. This way, the creation of the GMF editors can be easily automated by using a standard Ant Builder. Additionally, the Ant task has several features which are not currently available through the regular graphical user interface.</p>
+<p>In this article, we will show how to invoke the Eugenia Ant task and offer some recommendations on how to adopt it.</p>
 <h2 id="basic-usage">Basic usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
-<p>The EuGENia Ant task only requires specifying the source Emfatic description or Ecore model through the <code>src</code> attribute:</p>
+<p>The Eugenia Ant task only requires specifying the source Emfatic description or Ecore model through the <code>src</code> attribute:</p>
 <div class="highlight"><pre><span></span><code><span class="c">&lt;!-- Generate myfile.ecore from myfile.emf and then proceed --&gt;</span>
 <span class="nt">&lt;epsilon.eugenia</span> <span class="na">src=</span><span class="s">&quot;myfile.emf&quot;</span><span class="nt">/&gt;</span>
 
@@ -1031,7 +1031,7 @@
 <p>The Eugenia Ant task requires that the Ant buildfile is run from the same JRE as the workspace. Please check the <a href="../../../doc/workflow">Workflow</a> documentation for instructions on how to do it.</p>
 </div>
 <h2 id="limiting-the-steps-to-be-run">Limiting the steps to be run<a class="headerlink" href="#limiting-the-steps-to-be-run" title="Permanent link">&para;</a></h2>
-<p>Normally, EuGENia runs all these steps:</p>
+<p>Normally, Eugenia runs all these steps:</p>
 <ul>
 <li>Clean the models from the previous run (the <code>clean</code> step)</li>
 <li>If <code>src</code> is an Emfatic source file (with the <code>.emf</code> extension), generate the Ecore model from it (<code>ecore</code>)</li>
@@ -1057,7 +1057,7 @@ Optionally, the Ant task can run only some of these steps. The <code>firstStep</
 <ul>
 <li><code>ref</code> (mandatory) is the name with which the model was loaded into the model repository of the Ant project, using the Epsilon model loading Ant tasks.</li>
 <li><code>as</code> (optional) is the name to be used for the model inside the polishing transformation.</li>
-<li><code>step</code> (mandatory) is the identifier of the EuGENia step to which we will add the model reference.
+<li><code>step</code> (mandatory) is the identifier of the Eugenia step to which we will add the model reference.
 As an example, consider the following fragment:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Labels&quot;</span>
