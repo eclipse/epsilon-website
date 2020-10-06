@@ -163,10 +163,10 @@ Although not necessary, you should also install the Emfatic toolkit mentioned ab
 ## Running Eugenia
 To run Eugenia you need to do the following:
 
-- Create a new project
-- Create and annotate your Ecore metamodel in the "model" folder of your project
-- Right-click your Ecore metamodel (or Emfatic file) and select Eugenia->Generate GMF editor
-- Launch a new Eclipse instance from the "Run - Eclipse Application" menu using "-XX:PermSize=64M -XX:MaxPermSize=128M -Xms512M -Xmx1024M" as VM arguments in the Run Configuration
+- Create a new general project
+- Create and annotate your Emfatic (or Ecore) metamodel in the root of your project
+- Right-click your Emfatic (or Ecore) metamodel and select Eugenia->Generate GMF editor
+- Launch a new Eclipse instance from the Run->Eclipse Application right-click menu of the project that contains your metamodel
 - In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the File->New->Other... dialog
 
 ## Re-running Eugenia
@@ -175,7 +175,7 @@ If you now change your metamodel you'll have to rerun Eugenia to generate your u
 - Right-click your Ecore metamodel (or Emfatic file) and select Eugenia->Generate GMF editor
 - Run a new instance of Eclipse
 
-(Please note that any changes you have done manually to .gmfgraph, .gmftool and .gmfmap will be `overwritten`. Have a look [here](../articles/eugenia-polishing) for an alternative way to customize these models)
+(Please note that any changes you have made manually to the editor's `.gmfgraph`, `.gmftool` and `.gmfmap` models will be **overwritten**. Have a look [here](../articles/eugenia-polishing) for an alternative way to customize these models)
 
 ## Troubleshooting
 * Certain versions of Emfatic do not support annotations without details (e.g. `@gmf` or `@gmf.diagram`). You can use dummy details as a workaround (e.g. `@gmf(foo="bar")`)
