@@ -1476,10 +1476,10 @@ Eugenia is a part of the main Epsilon distribution. The update site of Epsilon i
 <h2 id="running-eugenia">Running Eugenia<a class="headerlink" href="#running-eugenia" title="Permanent link">&para;</a></h2>
 <p>To run Eugenia you need to do the following:</p>
 <ul>
-<li>Create a new project</li>
-<li>Create and annotate your Ecore metamodel in the "model" folder of your project</li>
-<li>Right-click your Ecore metamodel (or Emfatic file) and select Eugenia-&gt;Generate GMF editor</li>
-<li>Launch a new Eclipse instance from the "Run - Eclipse Application" menu using "-XX:PermSize=64M -XX:MaxPermSize=128M -Xms512M -Xmx1024M" as VM arguments in the Run Configuration</li>
+<li>Create a new general project</li>
+<li>Create and annotate your Emfatic (or Ecore) metamodel in the root of your project</li>
+<li>Right-click your Emfatic (or Ecore) metamodel and select Eugenia-&gt;Generate GMF editor</li>
+<li>Launch a new Eclipse instance from the Run-&gt;Eclipse Application right-click menu of the project that contains your metamodel</li>
 <li>In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the File-&gt;New-&gt;Other... dialog</li>
 </ul>
 <h2 id="re-running-eugenia">Re-running Eugenia<a class="headerlink" href="#re-running-eugenia" title="Permanent link">&para;</a></h2>
@@ -1488,7 +1488,7 @@ Eugenia is a part of the main Epsilon distribution. The update site of Epsilon i
 <li>Right-click your Ecore metamodel (or Emfatic file) and select Eugenia-&gt;Generate GMF editor</li>
 <li>Run a new instance of Eclipse</li>
 </ul>
-<p>(Please note that any changes you have done manually to .gmfgraph, .gmftool and .gmfmap will be <code>overwritten</code>. Have a look <a href="../articles/eugenia-polishing">here</a> for an alternative way to customize these models)</p>
+<p>(Please note that any changes you have made manually to the editor's <code>.gmfgraph</code>, <code>.gmftool</code> and <code>.gmfmap</code> models will be <strong>overwritten</strong>. Have a look <a href="../articles/eugenia-polishing">here</a> for an alternative way to customize these models)</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Certain versions of Emfatic do not support annotations without details (e.g. <code>@gmf</code> or <code>@gmf.diagram</code>). You can use dummy details as a workaround (e.g. <code>@gmf(foo="bar")</code>)</li>
