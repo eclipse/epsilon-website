@@ -105,7 +105,7 @@ It accepts the following details:
 * `incoming` (optional) : Boolean value which specifies whether the generated editor should allow links to be created from target to source. Defaults to `false`.
 * `label` (optional) : the names of the `EAttribute`s of the `EClass` the value of which will be displayed as the label of the link.
 * `label.parser` (optional) : indicates the unqualified name of the class that will parse the text entered by the user into the label. By default, a [MessageFormat](http://download.oracle.com/javase/6/docs/api/java/text/MessageFormat.html)-based parser is generated, but it can be manually customized after generation.
-* `label.text` (optional) : defines the default text to be used when the `EAttribute`(s) in `label` are not set. By default, it is set to the name of the `EClass`.
+<!--* `label.text` (optional) : defines the default text to be used when the `EAttribute`(s) in `label` are not set. By default, it is set to the name of the `EClass`.-->
 * `source` : the source non-containment `EReference` of the link.
 * `source.constraint` (optional) : OCL assertion that should be checked by the graphical editor when creating a link. For instance, `self <> oppositeEnd` would forbid users for creating a link from a node to itself (a self-loop): `self` is the source of the link, and `oppositeEnd` is the target of the link.
 * `source.decoration` (optional) : the decoration of the source end of the link. Can be set to `none`, `arrow`, `rhomb`, `filledrhomb`, `square`, `filledsquare`, `closedarrow`, `filledclosedarrow`, or the fully qualified name of a Java class that implements the `org.eclipse.draw2d.RotatableDecoration` interface
