@@ -9,7 +9,7 @@ In this section the syntax of EOL is presented in a top-down manner. An EOL prog
 ```eol
 // file imported.eol
 operation hello() {
-  'Hello world!'.println();
+  "Hello world!".println();
 }
 
 // file importer.eol
@@ -485,7 +485,7 @@ the built-in types:
 
 - Sequence and most other collections (except `Map`s) also have literals. Their format is `T {e}`, where `T` is the name of the type and `e` are zero or more elements, separated by commas. For instance, `Sequence{}` is the empty sequence, and `Set {1, 2, 3}` is the set of numbers between 1 and 3.
 
-- Map literals are similar to the sequential collection literals, but their elements are of the form `key = value`. For instance, `Map{'a' = 1, 'b' = 2}` is a map which has two keys, "a" and "b", which map to the integer values 1 and 2, respectively.
+- Map literals are similar to the sequential collection literals, but their elements are of the form `key = value`. For instance, `Map{"a" = 1, "b" = 2}` is a map which has two keys, "a" and "b", which map to the integer values 1 and 2, respectively.
 
     Please note that, when defining an element such as `1 = 2 = 3`, the
     key would be `1` and the value would be the result of evaluating `2
@@ -923,7 +923,7 @@ concrete implementation of the interface
 without prompting the user at all and thus, can be used for unattended
 execution of interactive Epsilon programs. The figures below demonstrate the interfaces through
 which input is required by the user when the exemplar
-`System.user.promptInteger('Please enter a number', 1);` statement is
+`System.user.promptInteger("Please enter a number", 1);` statement is
 executed using an Eclipse-based and a command-line-based `IUserInput`
 implementation respectively.
 
