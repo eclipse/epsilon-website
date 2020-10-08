@@ -1642,7 +1642,7 @@
 <p>In this section the syntax of EOL is presented in a top-down manner. An EOL programs are organized in <code>modules</code>. Each module defines a <code>body</code> and a number of <code>operations</code>. The body is a block of statements that are evaluated when the module is executed<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Each operation defines the kind of objects on which it is applicable (<code>context</code>), a <code>name</code>, a set of <code>parameters</code> and optionally a <code>return type</code>. Modules can also import other modules using <code>import</code> statements and access their operations, as shown in the listing below.</p>
 <pre class="prettyprint lang-eol"><code>// file imported.eol
 operation hello() {
-  'Hello world!'.println();
+  "Hello world!".println();
 }
 
 // file importer.eol
@@ -2522,7 +2522,7 @@ the built-in types:</p>
 <p>Sequence and most other collections (except <code>Map</code>s) also have literals. Their format is <code>T {e}</code>, where <code>T</code> is the name of the type and <code>e</code> are zero or more elements, separated by commas. For instance, <code>Sequence{}</code> is the empty sequence, and <code>Set {1, 2, 3}</code> is the set of numbers between 1 and 3.</p>
 </li>
 <li>
-<p>Map literals are similar to the sequential collection literals, but their elements are of the form <code>key = value</code>. For instance, <code>Map{'a' = 1, 'b' = 2}</code> is a map which has two keys, "a" and "b", which map to the integer values 1 and 2, respectively.</p>
+<p>Map literals are similar to the sequential collection literals, but their elements are of the form <code>key = value</code>. For instance, <code>Map{"a" = 1, "b" = 2}</code> is a map which has two keys, "a" and "b", which map to the integer values 1 and 2, respectively.</p>
 <p>Please note that, when defining an element such as <code>1 = 2 = 3</code>, the
 key would be <code>1</code> and the value would be the result of evaluating <code>2
 = 3</code> (false). If you would like to use the result of the expression
@@ -3020,7 +3020,7 @@ concrete implementation of the interface
 without prompting the user at all and thus, can be used for unattended
 execution of interactive Epsilon programs. The figures below demonstrate the interfaces through
 which input is required by the user when the exemplar
-<code>System.user.promptInteger('Please enter a number', 1);</code> statement is
+<code>System.user.promptInteger("Please enter a number", 1);</code> statement is
 executed using an Eclipse-based and a command-line-based <code>IUserInput</code>
 implementation respectively.</p>
 <p><img alt="Example of an Eclipse-based IUserInput
