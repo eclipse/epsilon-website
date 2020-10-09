@@ -57,7 +57,7 @@ Annotation <|-- SimpleAnnotation
 
 In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type.
 
-For eample, consider the code excerts displayed in the listings below. In the first listing, the operations `add1` and `add2` are defined in the context of the built-in `Integer` type, which is specified before their names. Therefore, they can be invoked in line 1 using the `1.add1().add2()` expression: the context (the integer `1`) will be assigned to the special variable `self`. On the other hand, in the second listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.
+For example, consider the code excerpts displayed in the listings below. In the first listing, the operations `add1` and `add2` are defined in the context of the built-in `Integer` type, which is specified before their names. Therefore, they can be invoked in line 1 using the `1.add1().add2()` expression: the context (the integer `1`) will be assigned to the special variable `self`. On the other hand, in the second listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.
 
 ```eol
 1.add1().add2().println();
@@ -330,7 +330,7 @@ removeAt(index : Integer) : Any   |Removes and returns the item at the specified
 second() : Any                    |Returns the second item of the collection
 third() : Any                     |Returns the third item of the collection
 
-Also, EOL collections support the following first-order operations. Apart from `aggregate` and `closure`, all of these operations have a parallel variant which can take advantage of multiple cores to improve performance. All computations contained in these operations are assumed to be free from side-effects (i.e. do not mutatate global variables).
+Also, EOL collections support the following first-order operations. Apart from `aggregate` and `closure`, all of these operations have a parallel variant which can take advantage of multiple cores to improve performance. All computations contained in these operations are assumed to be free from side-effects (i.e. do not mutate global variables).
 
 Aside from the following built-in first-order operations which are evaluated eagerly, all Collection types in the Java implementation of EOL support Streams. This allows for chains of queries and transformations on collections to be evaluated more efficiently. A stream can be obtained by calling the `stream()` method on the collection. The API is defined by the Java standard library[^4].
 
@@ -512,7 +512,7 @@ operation Any println() : Any {
 
 ### Escaping Reserved Keywords
 
-Due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. Backticks can be used to escape such keywords. For example, if a model element contains a feature called `operation`, then this can be navigated as shown in the listing below.
+Due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. Back-ticks can be used to escape such keywords. For example, if a model element contains a feature called `operation`, then this can be navigated as shown in the listing below.
 
 ```eol
 var op = modelElement.`operation`;
@@ -718,7 +718,7 @@ rule Attribute2Column
 }
 ```
 
-The `Class2Table` rule transforms a `Class` of the OO model into a `Table` in the DB model and sets the name of the table to be the same as the name of the class. Rule `Atribute2Column` transforms an `Attribute` from the OO model into a `Column` in the DB model. Except for setting its name (line 12), it also needs to define that the column belongs to the table which corresponds to the class that defines the source attribute. The commented-out assignment statement of line 13 cannot be used for this purpose since it would illegaly attempt to assign the owningTable feature of the column to a model element of an inappropriate type (`OO!Class`). However, the special assignment operator in ETL has [language-specific semantics](../etl/#overriding-the-semantics-of-the-eol-specialassignmentoperator), and thus in line 14 it assigns to the `owningTable` feature not the class that owns the attribute but its corresponding table (calculated using the `Class2Table` rule) in the DB model.
+The `Class2Table` rule transforms a `Class` of the OO model into a `Table` in the DB model and sets the name of the table to be the same as the name of the class. Rule `Atribute2Column` transforms an `Attribute` from the OO model into a `Column` in the DB model. Except for setting its name (line 12), it also needs to define that the column belongs to the table which corresponds to the class that defines the source attribute. The commented-out assignment statement of line 13 cannot be used for this purpose since it would illegally attempt to assign the owningTable feature of the column to a model element of an inappropriate type (`OO!Class`). However, the special assignment operator in ETL has [language-specific semantics](../etl/#overriding-the-semantics-of-the-eol-specialassignmentoperator), and thus in line 14 it assigns to the `owningTable` feature not the class that owns the attribute but its corresponding table (calculated using the `Class2Table` rule) in the DB model.
 
 ### If Statement
 
