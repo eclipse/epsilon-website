@@ -4,7 +4,7 @@
 	img { padding: 10px; }
 </style>
 
- Below is a list of known industrial users of Epsilon (based on bug reports, forum messages, blog posts, tweets and published articles). If you'd like to report additional users of Epsilon in industry or you've spotted any outdated content, please [let us know](../../forum).
+ Below is a list of known industrial users of Epsilon (based on bug reports, forum messages, blog posts, tweets and published articles). If you'd like to report additional uses of Epsilon in industry or you've spotted any outdated content, please [let us know](../../forum).
 
 <center>
 ![BAE Systems](logos/bae.png)
@@ -14,6 +14,7 @@
 ![Siemens](logos/siemens.png)
 ![Rolls-Royce](logos/rr.png)
 ![IBM](logos/ibm.png)
+![Oracle](logos/oracle.png)
 ![Blackbelt](logos/blackbelt.png)
 ![Raytheon](logos/raytheon.png)
 ![ATOS](logos/atos.png)
@@ -57,6 +58,8 @@ IBM
 	[3](https://bugs.eclipse.org/bugs/show_bug.cgi?id=265609),
 	[4](https://bugs.eclipse.org/bugs/show_bug.cgi?id=265285),
 	[5](https://bugs.eclipse.org/bugs/show_bug.cgi?id=265145)],
+Oracle
+	[[1](https://bugs.eclipse.org/bugs/show_bug.cgi?id=567747)],
 Blackbelt 
 	[[1](https://github.com/BlackBeltTechnology/emf-genmodel-generator),
 	[2](https://github.com/BlackBeltTechnology/epsilon-runtime)],
