@@ -133,6 +133,9 @@ For many EGL programs, interacting directly with the *OutputBuffer* is unnecessa
 
 ## Co-ordination
 
+!!! warning
+    The recommended way to coordinate the execution of EGL templates is using the [EGX rule-based language](egx.md). This section describes an imperative way to invoke EGL templates which pre-dates EGX and should only be used as a fall-back in case the semantics of EGX are not sufficient for the task at hand.
+
 In the large, M2T transformations are used to generate text to various destinations. For example, code generators often produce files on disk, and web applications often generate text as part of the response for a resource on the web server. Text might be generated to a network socket during interprocess communication, or as a query that runs on a database. Furthermore, (parts of) a single M2T transformation might be re-used in different contexts. A M2T transformation that generates files on disk today might be re-purposed to generate the response from a web server tomorrow.
 
 Given these concerns, EGL provides a co-ordination engine that provides mechanisms for modularising M2T transformations, and for controlling the destinations to which text is generated. The EGL co-ordination engine fulfils three requirements:
