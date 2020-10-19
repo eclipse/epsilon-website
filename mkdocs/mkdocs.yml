@@ -13,7 +13,7 @@ nav:
         - Model comparison (ECL): 'doc/ecl.md'
         - Model merging (EML): 'doc/eml.md'
         - Pattern matching (EPL): 'doc/epl.md'
-        - Model Migration (Flock): 'doc/flock.md'
+        - Model migration (Flock): 'doc/flock.md'
         - Model generation (EMG): 'doc/emg.md'
         - Unit testing (EUnit): 'doc/eunit.md'
         - Dataset extraction (Pinset): 'doc/pinset.md'
