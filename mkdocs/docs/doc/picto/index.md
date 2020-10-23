@@ -5,6 +5,11 @@ Picto is an Eclipse view for **visualising models via model-to-text transformati
 !!! tip
 	As Picto uses [EGL](../egl) for model-to-text transformation, it is [not limited to EMF-based models](#using-picto-in-standalone-mode-with-many-models) and can be used to visualise the contents of Simulink models, XML documents, spreadsheets, and any other type of artefact supported by an [Epsilon EMC driver](../emc).
 
+
+
+??? info "Citing Picto in a publication?"
+	If you are referring to Picto in a publication, please cite [this paper](https://dl.acm.org/doi/10.1145/3365438.3410943) instead of the website URL. A pre-print of the paper is available [here](http://eprints.whiterose.ac.uk/164209/).
+
 On the flip side, Picto displays read-only views of models and as such it is not a good fit if diagram-based model editing capabilities are required. In this article we demonstrate Picto through a small social network example. The complete source code of the example is available [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.socialnetwork/).
 
 ![](picto-eclipse.png)

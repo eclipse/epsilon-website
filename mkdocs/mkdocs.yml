@@ -133,6 +133,7 @@ markdown_extensions:
   - meta
   - footnotes
   - pymdownx.tabbed
+  - pymdownx.details
   - codehilite:
       guess_lang: false
       linenums: false
