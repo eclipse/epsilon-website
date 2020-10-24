@@ -56,7 +56,7 @@ Having specified the configuration document above, we can now query spreadsheet 
 // Returns all students called Thomas
 Student.all.select(s|s.supervisor.firstname = "Thomas");
 
-// Returns the module taught by Daniel
+// Returns the modules taught by Daniel
 Module.all->select(m|
 	Staff.all.exists(s|
 		s.firstname="Daniel" and s.teaches->includes(m)))
