@@ -107,9 +107,9 @@ The Eclipse Modelling Framework (EMF) is one of the most robust and widely used 
 
 Epsilon also provides mature support for querying and modifying Matlab Simulink models as shown in [these articles](../articles/#epsilon-and-simulink-models).
 
-### XML/CSV
+### XML/CSV/Excel
 
-For quick and dirty metamodel-less modelling, Epsilon also supports [plain XML documents](../articles/plain-xml) and [CSV files](../articles/csv-emc).
+For quick and dirty metamodel-less modelling, Epsilon also supports [plain XML documents](../articles/plain-xml), [Excel spreadsheets](../articles/excel), and [CSV files](../articles/csv-emc).
 
 ### Eclipse Hawk
 

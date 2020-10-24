@@ -47,8 +47,9 @@ This page contains an index of articles presenting a range of tools and language
 
 ## Epsilon and other types of models
 
-- [Scripting XML documents using Epsilon](plain-xml): In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver.
+- [Scripting XML documents using Epsilon](plain-xml): In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed) in Epsilon programs using the PlainXML driver.
 - [Scripting CSV files using Epsilon](csv-emc): This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
+- [Scripting Excel spreadsheets using Epsilon](excel): In this article we demonstrate how you can create, query and modify Excel spreadsheets in Epsilon programs.
 - [Scripting BibTeX files using Epsilon](bibtex): In this article we demonstrate how you can query a list of references stored in BibTeX files with Epsilon programs using the BibTeX driver.
 
 ## Eugenia
