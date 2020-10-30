@@ -15,7 +15,7 @@
     
     
       
-        <title>Scripting Excel Spreadsheets using Epsilon - Epsilon</title>
+        <title>Drill-Down Sequence Diagrams with Picto - Epsilon</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scripting-excel-spreadsheets-using-epsilon" class="md-skip">
+        <a href="#drill-down-sequence-diagrams-with-picto" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Scripting Excel Spreadsheets using Epsilon
+              Drill-Down Sequence Diagrams with Picto
             
           </span>
         </div>
@@ -968,83 +968,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#worksheets-columns-and-rows" class="md-nav__link">
-    Worksheets, Columns and Rows
+  <a href="#metamodel" class="md-nav__link">
+    Metamodel
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references-and-column-types" class="md-nav__link">
-    References and Column Types
+  <a href="#customer-atm-model" class="md-nav__link">
+    Customer-ATM Model
   </a>
-  
-    <nav class="md-nav" aria-label="References and Column Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#worksheet" class="md-nav__link">
-    Worksheet
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#column" class="md-nav__link">
-    Column
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reference" class="md-nav__link">
-    Reference
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#querying-and-modifying-spreadsheets" class="md-nav__link">
-    Querying and Modifying Spreadsheets
+  <a href="#visualisation-transformation" class="md-nav__link">
+    Visualisation Transformation
   </a>
-  
-    <nav class="md-nav" aria-label="Querying and Modifying Spreadsheets">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-rows" class="md-nav__link">
-    Creating Rows
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deleting-rows" class="md-nav__link">
-    Deleting Rows
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modifying-cell-values" class="md-nav__link">
-    Modifying Cell Values
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#validating-and-transforming-spreadsheets" class="md-nav__link">
-    Validating and Transforming Spreadsheets
+  <a href="#drill-down-sequence-diagrams" class="md-nav__link">
+    Drill-Down Sequence Diagrams
   </a>
   
 </li>
@@ -1065,89 +1011,185 @@
                   
                 
                 
-                <h1 id="scripting-excel-spreadsheets-using-epsilon">Scripting Excel Spreadsheets using Epsilon<a class="headerlink" href="#scripting-excel-spreadsheets-using-epsilon" title="Permanent link">&para;</a></h1>
-<p>Spreadsheets are commonly used in software and systems engineering processes to capture and analyse structured data, and can be sources of valuable information for model-based software engineering activities. </p>
-<p>Epsilon provides built-in support for querying and transforming Excel spreadsheets through an <a href="https://poi.apache.org/">Apache POI</a>-based <a href="../../emc">EMC</a> driver. This article discusses how you can configure an Epsilon program to query and modify an Excel spreadsheet, and the video below demonstrates the driver in action.</p>
-<iframe width="100%" height="494" src="https://www.youtube.com/embed/tTYGwgzxPMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <h1 id="drill-down-sequence-diagrams-with-picto">Drill-Down Sequence Diagrams with Picto<a class="headerlink" href="#drill-down-sequence-diagrams-with-picto" title="Permanent link">&para;</a></h1>
+<p>This article demonstrates using <a href="../../Picto">Picto</a> and its <a href="https://plantuml.com">PlantUML</a> integration to generate <a href="#drill-down-sequence-diagrams">drill-down sequence diagrams</a> from models conforming to a minimal EMF-based sequence diagram language.</p>
+<h2 id="metamodel">Metamodel<a class="headerlink" href="#metamodel" title="Permanent link">&para;</a></h2>
+<p>Below is the metamodel of our mini sequence-diagram (<code>minisd</code>) DSL (in <a href="../emfatic">Emfatic</a>). In our language, a scenario consists of a number of interactions between participants, and alternative execution paths (<code>Alt</code>).</p>
+<pre class="prettyprint lang-emf"><code>@namespace(uri="minisd", prefix="")
+package minisd;
 
-<details class="info"><summary>Citing the Excel EMC driver in a publication?</summary><p>If you are referring to Epsilon's Excel EMC driver in a publication, please cite <a href="https://link.springer.com/chapter/10.1007/978-3-642-41533-3_3">this paper</a> instead of the website URL.</p>
-</details>
-<h2 id="worksheets-columns-and-rows">Worksheets, Columns and Rows<a class="headerlink" href="#worksheets-columns-and-rows" title="Permanent link">&para;</a></h2>
-<p>Essentially, in the Excel driver, by default, worksheets are treated as model element types (e.g. <code>Student</code>, <code>Staff</code>, <code>Module</code> and <code>Mark</code> in the spreadsheet below), columns as their properties (e.g. <code>Mark</code> has <code>student</code>, <code>module</code> and <code>mark</code> properties), and rows are treated as model elements (i.e. there are two students, two members of staff, three modules and two marks in the model).</p>
-<p><img alt="" src="spreadsheet.png" /></p>
-<h2 id="references-and-column-types">References and Column Types<a class="headerlink" href="#references-and-column-types" title="Permanent link">&para;</a></h2>
-<p>The driver supports specifying additional configuration information (e.g. column data types, references between columns) about a spreadsheet in the form of an external XML document, that can be attached to the spreadsheet in Epsilon's run configuration dialog.</p>
-<p>For our example spreadsheet, above, the configuration file below specifies the types of the <code>age</code> and <code>mark</code> columns of the spreadsheet, the multiplicity of the <code>teaches</code> column, as well as references between the <code>Student.supervisor</code> and <code>Staff.id</code>, and the <code>Staff.teaches</code> and <code>Module.id</code> columns.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;spreadsheet&gt;</span>
-  <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span> <span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/worksheet&gt;</span>
-  <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Mark&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">name=</span><span class="s">&quot;mark&quot;</span> <span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/worksheet&gt;</span>
-  <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Staff&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">name=</span><span class="s">&quot;teaches&quot;</span> <span class="na">many=</span><span class="s">&quot;true&quot;</span> <span class="na">delimiter=</span><span class="s">&quot;,&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/worksheet&gt;</span>
-  <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Student-&gt;supervisor&quot;</span>
-             <span class="na">target=</span><span class="s">&quot;Staff-&gt;id&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Staff-&gt;teaches&quot;</span>
-             <span class="na">target=</span><span class="s">&quot;Module-&gt;id&quot;</span> <span class="na">many=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/spreadsheet&gt;</span>
+class Scenario extends Block {}
+
+class Participant {
+    attr String name;
+}
+
+abstract class Step {}
+
+class Block extends Step {
+    attr String title;
+    val Step[*] steps;
+}
+
+class Alt extends Step {
+    attr String title;
+    val Block[*] blocks;
+}
+
+class Interaction extends Step {
+    ref Participant from;
+    ref Participant to;
+    attr String message;
+}</code></pre>
+
+<h2 id="customer-atm-model">Customer-ATM Model<a class="headerlink" href="#customer-atm-model" title="Permanent link">&para;</a></h2>
+<p>Below is a <a href="../../flexmi">Flexmi</a> model that conforms to the minisd DSL and captures the interaction between a customer and an ATM.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri minisd?&gt;</span>
+<span class="cp">&lt;?render-egx minisd2plantuml.egx?&gt;</span>
+<span class="nt">&lt;_&gt;</span>
+    <span class="nt">&lt;participant</span> <span class="na">name=</span><span class="s">&quot;Customer&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;participant</span> <span class="na">name=</span><span class="s">&quot;ATM&quot;</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;scenario</span> <span class="na">title=</span><span class="s">&quot;Customer-ATM&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Insert card&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Request PIN&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Enter PIN&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;alt</span> <span class="na">title=</span><span class="s">&quot;Check PIN&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;PIN valid&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Display options&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;alt</span> <span class="na">title=</span><span class="s">&quot;Options&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;Cash withdrawal&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Select cash withdrawal&quot;</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Ask for amount&quot;</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Enter amount&quot;</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;alt</span> <span class="na">title=</span><span class="s">&quot;Check funds&quot;</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;Sufficient funds&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Produce cash&quot;</span><span class="nt">/&gt;</span>
+                            <span class="nt">&lt;/block&gt;</span>
+                            <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;Insufficient funds&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Produce error message&quot;</span><span class="nt">/&gt;</span>
+                            <span class="nt">&lt;/block&gt;</span>
+                        <span class="nt">&lt;/alt&gt;</span>
+                    <span class="nt">&lt;/block&gt;</span>
+                    <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;Balance display&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Select balance display&quot;</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Display balance&quot;</span><span class="nt">/&gt;</span>
+                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Return card&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/block&gt;</span>
+                <span class="nt">&lt;/alt&gt;</span>
+            <span class="nt">&lt;/block&gt;</span>
+            <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;PIN invalid&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Try again&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/block&gt;</span>
+        <span class="nt">&lt;/alt&gt;</span>
+    <span class="nt">&lt;/scenario&gt;</span>
+<span class="nt">&lt;/_&gt;</span>
 </code></pre></div>
 
-<p>The format of the XML configuration document is as follows:</p>
-<h3 id="worksheet">Worksheet<a class="headerlink" href="#worksheet" title="Permanent link">&para;</a></h3>
-<p>Each worksheet can have an optional name (if a name is not provided, the name of the worksheet on the spreadsheet is used) and acts as a container for <code>column</code> elements.</p>
-<h3 id="column">Column<a class="headerlink" href="#column" title="Permanent link">&para;</a></h3>
-<p>Each <code>column</code> needs to specify its <code>index</code> in the context of the worksheet it belongs to, and optionally, a <code>name</code> (if a name is not provided, the one specified in its first cell is used as discussed above), an <code>alias</code>, a <code>datatype</code>, a <code>cardinality</code>, and in case of columns with unbounded cardinality, the <code>delimiter</code> that should be used to separate the values stored in a single cell (comma is used as the default delimiter).</p>
-<h3 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h3>
-<p>In a configuration document we can also specify ID-based references to capture relationships between columns belonging to potentially different worksheets. Each reference has a <code>source</code> and a <code>target</code> column, an optional <code>name</code> (if a name is not specified, the name of the source column is used to navigate the reference), a cardinality (<code>many</code> attribute), and specifies whether updates to cells of the target column should be propagated automatically (<code>cascadeUpdates</code> attribute) to the respective cells in the source column to preserve referential integrity.</p>
-<h2 id="querying-and-modifying-spreadsheets">Querying and Modifying Spreadsheets<a class="headerlink" href="#querying-and-modifying-spreadsheets" title="Permanent link">&para;</a></h2>
-<p>Having specified the configuration document above, we can now query spreadsheet with EOL as follows.</p>
-<pre class="prettyprint lang-eol"><code>// Returns all students called Thomas
-Student.all.select(s|s.supervisor.firstname = "Thomas");
+<h2 id="visualisation-transformation">Visualisation Transformation<a class="headerlink" href="#visualisation-transformation" title="Permanent link">&para;</a></h2>
+<p>To visualise models that conform to the minisd DSL (such as the Customer-ATM model above) in Picto, we have written a model-to-text transformation in EGL, that transforms such models into a series of PlantUML sequence diagrams.</p>
+<p>In particular, the transformation produces one sequence diagram for the entire model, and one sequence diagram for each execution path in it. The <a href="../../egx">EGX</a> orchestration program and the <a href="../../egl">EGL</a> template are shown below.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">minisd2plantuml.egx</label><div class="tabbed-content">
+<pre class="prettyprint lang-egx"><code>rule Scenario2PlantUml 
+    transform s : Scenario {
 
-// Returns the modules taught by Daniel
-Module.all-&gt;select(m|
-    Staff.all.exists(s|
-        s.firstname="Daniel" and s.teaches-&gt;includes(m)))</code></pre>
+    template : "minisd2plantuml.egl"
 
-<h3 id="creating-rows">Creating Rows<a class="headerlink" href="#creating-rows" title="Permanent link">&para;</a></h3>
-<p>As discussed above, worksheets are treated as types and rows as their instances. As such, to create a new row in the <code>Student</code> worksheet, EOL's <code>new</code> operation can be used.</p>
-<pre class="prettyprint lang-eol"><code>var student : new Student;</code></pre>
-
-<h3 id="deleting-rows">Deleting Rows<a class="headerlink" href="#deleting-rows" title="Permanent link">&para;</a></h3>
-<p>To delete a row from a worksheet, EOL's <code>delete</code> operator can be used. When a row is deleted, all the rows that contain cells referring to it through cascade-update references also need to be recursively deleted.</p>
-<pre class="prettyprint lang-eol"><code>var student = Student.all.selectOne(s|s.id = "js502");
-// deletes row 2 of the Student worksheet
-// also deletes row 3 of the Mark worksheet
-delete student;</code></pre>
-
-<h3 id="modifying-cell-values">Modifying Cell Values<a class="headerlink" href="#modifying-cell-values" title="Permanent link">&para;</a></h3>
-<p>If a cell is single-valued, a type-conforming assignment can be used to edit its value. For example, the following listing demonstrates modifying the age and the supervisor of a particular student.</p>
-<pre class="prettyprint lang-eol"><code>var student : Student = ...;
-var supervisor : Staff = ...;
-student.age = 24;
-student.supervisor = supervisor;</code></pre>
-
-<p>If on the other hand the cell is multi-valued, then its values should be handled as a collection. For example to move a module between two members of staff, the module row would need to be retrieved first, so that it can be removed/added from/to the <code>teaches</code> collections of the appropriate members of staff.</p>
-<pre class="prettyprint lang-eol"><code>// Moves a module between two members of staff
-var from : Staff = ...;
-var to : Staff = ...;
-var module : Module = ...;
-from.teaches.remove(module);
-to.teaches.add(module);</code></pre>
-
-<p>Updating the value of a cell can have side effects to other cells that are linked to it through cascade-update references to preserve referential integrity. For example, updating the value of cell A3 in the <code>Module</code> worksheet, should trigger appropriate updates in cells D2 and F2 of the <code>Staff</code> and <code>Student</code> worksheets respectively.</p>
-<h2 id="validating-and-transforming-spreadsheets">Validating and Transforming Spreadsheets<a class="headerlink" href="#validating-and-transforming-spreadsheets" title="Permanent link">&para;</a></h2>
-<p>Of course, we can also validate spreadsheets using <a href="../../evl">EVL</a>, transform them into other models using <a href="../../etl">ETL</a>, and into text using <a href="../../egl">EGL</a>, generate graphical views using <a href="../../picto">Picto</a> etc.</p>
-<pre class="prettyprint lang-evl"><code>context Staff {
-    constraint NotOverloaded {
-        check: self.teaches.size() &lt;= 4
-        message: "Member of staff" + self.firstname +
-          " " + self.lastname + " is overloaded"
+    parameters : Map {
+        "mainBlock" = null,
+        "format" = "plantuml",
+        "path" = List{s.title},
+        "icon" = "sequence"
     }
+
+}
+
+rule Block2PlantUml 
+    transform b : Block {
+
+    guard : b.eContainer.isTypeOf(Alt)
+
+    template : "minisd2plantuml.egl"
+
+    parameters : Map {
+        "mainBlock" = b,
+        "format" = "plantuml",
+        "path" = b.closure(p|p.eContainer).invert().including(b).title,
+        "icon" = "block"
+    }
+
+}
+
+rule Alt2PlantUml 
+    transform a : Alt {
+
+    parameters : Map {
+        "format" = "text",
+        "path" =  a.closure(p|p.eContainer).invert().including(a).title,
+        "icon" = "alt"
+    }
+
 }</code></pre>
+
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">minisd2plantuml.egl</label><div class="tabbed-content">
+<pre class="prettyprint lang-egl"><code>@startuml
+[%
+var excludedBlocks = Sequence{};
+if (mainBlock.isDefined()) {
+    var ancestors = mainBlock.closure(b|b.eContainer()).select(b|b.isTypeOf(Block)).including(mainBlock);
+    for (a in ancestors) {
+        if (a.eContainer().isDefined() and a.eContainer().isTypeOf(Alt)) {
+            excludedBlocks.addAll(a.eContainer().blocks.excluding(a));
+        }
+    }
+}
+%]
+[%=Scenario.all.first().toPlantUml()%]
+@enduml
+
+[%
+operation Scenario toPlantUml() {
+    return self.steps.collect(s|s.toPlantUml()).concat("\n");
+}
+
+operation Interaction toPlantUml() {
+    return self.from.name + "-&gt;" + self.to.name + ": " + self.message + "\n";
+}
+
+operation Alt toPlantUml() {
+    var plantUml = "";
+    var visibleBlocks = self.blocks.excludingAll(excludedBlocks);
+    for (b in visibleBlocks) {
+        if (loopCount == 1) {
+            plantUml += "alt";
+            if (mainBlock.isDefined() and mainBlock.eContainer == self) {
+                plantUml += " #azure";
+            }
+        }
+        else plantUml += "else ";
+        plantUml += " " + b.title;
+        plantUml += "\n" + b.toPlantUml();
+    }
+    if (visibleBlocks.notEmpty()) plantUml += "\nend\n";
+    return plantUml;
+}
+
+operation Block toPlantUml() {
+    if (excludedBlocks.contains(self)) return "";
+    return self.steps.collect(s|s.toPlantUml()).concat("");
+}
+%]</code></pre>
+
+</div>
+</div>
+<h2 id="drill-down-sequence-diagrams">Drill-Down Sequence Diagrams<a class="headerlink" href="#drill-down-sequence-diagrams" title="Permanent link">&para;</a></h2>
+<p>The result is a set of sequence diagrams that we can navigate to drill down the alternative interaction paths. Notice how selecting an alternative (e.g. <code>Sufficient funds</code>) hides all irrelevant information from the sequence diagram (e.g. <code>Balance display</code>, <code>PIN invalid</code>).</p>
+<p><img alt="" src="picto-minisd.gif" /></p>
+<div class="admonition info">
+<p class="admonition-title">Source code</p>
+<p>The complete source code for this example is in Epsilon's <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.picto.plantuml.minisd">Git repository</a>.</p>
+</div>
                 
               
               
