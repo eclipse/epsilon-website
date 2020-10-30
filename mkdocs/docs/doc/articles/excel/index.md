@@ -1,11 +1,13 @@
 # Scripting Excel Spreadsheets using Epsilon
 
-Epsilon provides built-in support for querying and transforming Excel spreadsheets through an [Apache POI](https://poi.apache.org/)-based [EMC](../../emc) driver. The video below demonstrates the Excel driver in action.
+Spreadsheets are commonly used in software and systems engineering processes to capture and analyse structured data, and can be sources of valuable information for model-based software engineering activities. 
+
+Epsilon provides built-in support for querying and transforming Excel spreadsheets through an [Apache POI](https://poi.apache.org/)-based [EMC](../../emc) driver. This article discusses how you can configure an Epsilon program to query and modify an Excel spreadsheet, and the video below demonstrates the driver in action.
 
 <iframe width="100%" height="494" src="https://www.youtube.com/embed/tTYGwgzxPMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-??? info "Citing the spreadsheet driver in a publication?"
-	If you are referring to Epsilon's spreadsheet driver in a publication, please cite [this paper](https://link.springer.com/chapter/10.1007/978-3-642-41533-3_3) instead of the website URL.
+??? info "Citing the Excel EMC driver in a publication?"
+	If you are referring to Epsilon's Excel EMC driver in a publication, please cite [this paper](https://link.springer.com/chapter/10.1007/978-3-642-41533-3_3) instead of the website URL.
 
 ## Worksheets, Columns and Rows
 

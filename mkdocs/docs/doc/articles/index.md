@@ -72,6 +72,7 @@ This page contains an index of articles presenting a range of tools and language
 ## Picto
 
 - [Visualising Models with Picto](../picto): Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. The article introduces Picto and shows the tool in action.
+- [Drill-Down Sequence Diagrams with Picto](picto-sequence-diagrams): This article demonstrates using Picto and its PlantUML integration to generate drill-down sequence diagrams from models conforming to a minimal EMF-based sequence diagram language.
 
 ## Human-Usable Textual Notation
 
