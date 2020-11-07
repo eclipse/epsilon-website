@@ -9,19 +9,28 @@
     
 	<script>
     var programPanelButtons = [{
+        html: "<span class='mif-help'></span>",
+        cls: "sys-button",
+        onclick: "window.open('https://www.eclipse.org/epsilon/doc/eol');"
+    },{
         html: "<span class='mif-play'></span>",
         cls: "success",
         onclick: "eol()"
     }];
     var modelPanelButtons = [{
-        html: "<span class='mif-tree'></span>",
+        html: "<span class='mif-help'></span>",
         cls: "sys-button",
-        onclick: "alert('You press cog button')"
+        onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
+    }];
+    var metamodelPanelButtons = [{
+        html: "<span class='mif-help'></span>",
+        cls: "sys-button",
+        onclick: "window.open('https://www.eclipse.org/emfatic');"
     }];
     var consolePanelButtons = [{
-        html: "<span class='mif-tree'></span>",
+        html: "<span class='mif-cross'></span>",
         cls: "sys-button",
-        onclick: "alert('You press cog button')"
+        onclick: "consoleEditor.setValue('')"
     }];
     </script>
 </head>
@@ -49,15 +58,15 @@
                     <div id="EOL" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="programPanelButtons">
                         <div class="editor" id="eolEditor"></div>
                     </div>
-                    <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-display'></span>" data-custom-buttons-disabled="consolePanelButtons">
+                    <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-display'></span>" data-custom-buttons="consolePanelButtons">
                         <div class="editor" id="console"></div>
                     </div>
                 </div>
                 <div data-role="splitter" data-split-mode="vertical">
-                    <div data-role="panel" data-title-caption="Model (Flexmi)" data-title-icon="<span class='mif-tree'></span>" data-custom-buttons-disabled="modelPanelButtons">
+                    <div data-role="panel" data-title-caption="Model (Flexmi)" data-title-icon="<span class='mif-tree'></span>" data-custom-buttons="modelPanelButtons">
                         <div class="editor" id="flexmiEditor"></div>
                     </div>
-                    <div data-role="panel" data-title-caption="Metamodel (Emfatic)" data-title-icon="<span class='mif-cloud3'></span>" data-custom-buttons-disabled="modelPanelButtons">
+                    <div data-role="panel" data-title-caption="Metamodel (Emfatic)" data-title-icon="<span class='mif-cloud3'></span>" data-custom-buttons="metamodelPanelButtons">
                         <div class="editor" id="emfaticEditor"></div>
                     </div>
                 </div>
@@ -79,6 +88,8 @@
     var emfaticEditor = ace.edit(document.getElementById('emfaticEditor'));
     var consoleEditor = ace.edit(document.getElementById('console'));
 
+    eolEditor.getSession().setMode("ace/mode/javascript");
+    emfaticEditor.getSession().setMode("ace/mode/javascript");
     flexmiEditor.getSession().setMode("ace/mode/xml");
 
     eolEditor.getSession().on('change', function() {
