@@ -9,19 +9,28 @@
     
 	<script>
     var programPanelButtons = [{
+        html: "<span class='mif-help'></span>",
+        cls: "sys-button",
+        onclick: "window.open('https://www.eclipse.org/epsilon/doc/eol');"
+    },{
         html: "<span class='mif-play'></span>",
         cls: "success",
         onclick: "eol()"
     }];
     var modelPanelButtons = [{
-        html: "<span class='mif-tree'></span>",
+        html: "<span class='mif-help'></span>",
         cls: "sys-button",
-        onclick: "alert('You press cog button')"
+        onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
+    }];
+    var metamodelPanelButtons = [{
+        html: "<span class='mif-help'></span>",
+        cls: "sys-button",
+        onclick: "window.open('https://www.eclipse.org/emfatic');"
     }];
     var consolePanelButtons = [{
-        html: "<span class='mif-tree'></span>",
+        html: "<span class='mif-cross'></span>",
         cls: "sys-button",
-        onclick: "alert('You press cog button')"
+        onclick: "consoleEditor.setValue('')"
     }];
     </script>
 </head>
@@ -35,40 +44,29 @@
             <ul class="navview-menu">
                 <li class="item-header">Epsilon Playground</li>
                 <li>
-                    <a href="#">
+                    <a href="#" id="exampleLink">
                         <span class="icon"><span class="mif-apps"></span></span>
-                        <span class="caption">Create an OO model</span>
-                        <div class="badges">
-                            <span class="badge inline">EOL</span>
-                        </div>
+                        <span class="caption">Link to this example</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="icon"><span class="mif-apps"></span></span>
-                        <span class="caption">Tree to Graph</span>
-                        <div class="badges">
-                            <span class="badge inline">ETL</span>
-                        </div>
-                    </a>
-                </li>
+                
             </ul>
         </div>
         <div class="navview-content">
             <div id="splitter" data-role="splitter" class="h-100" data-min-sizes="100" style="min-height:800px">
                 <div data-role="splitter" data-split-mode="vertical">
-                    <div id="EOL" data-role="panel" data-title-caption="Program" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="programPanelButtons">
+                    <div id="EOL" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="programPanelButtons">
                         <div class="editor" id="eolEditor"></div>
                     </div>
-                    <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-display'></span>" data-custom-buttons-disabled="consolePanelButtons">
+                    <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-display'></span>" data-custom-buttons="consolePanelButtons">
                         <div class="editor" id="console"></div>
                     </div>
                 </div>
                 <div data-role="splitter" data-split-mode="vertical">
-                    <div data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-tree'></span>" data-custom-buttons-disabled="modelPanelButtons">
+                    <div data-role="panel" data-title-caption="Model (Flexmi)" data-title-icon="<span class='mif-tree'></span>" data-custom-buttons="modelPanelButtons">
                         <div class="editor" id="flexmiEditor"></div>
                     </div>
-                    <div data-role="panel" data-title-caption="Metamodel" data-title-icon="<span class='mif-cloud3'></span>" data-custom-buttons-disabled="modelPanelButtons">
+                    <div data-role="panel" data-title-caption="Metamodel (Emfatic)" data-title-icon="<span class='mif-cloud3'></span>" data-custom-buttons="metamodelPanelButtons">
                         <div class="editor" id="emfaticEditor"></div>
                     </div>
                 </div>
@@ -90,8 +88,45 @@
     var emfaticEditor = ace.edit(document.getElementById('emfaticEditor'));
     var consoleEditor = ace.edit(document.getElementById('console'));
 
+    eolEditor.getSession().setMode("ace/mode/javascript");
+    emfaticEditor.getSession().setMode("ace/mode/javascript");
+    flexmiEditor.getSession().setMode("ace/mode/xml");
+
+    eolEditor.getSession().on('change', function() {
+        updateExampleLink();
+    });
+    flexmiEditor.getSession().on('change', function() {
+        updateExampleLink();
+    });
+    emfaticEditor.getSession().on('change', function() {
+        updateExampleLink();
+    });
+
+    var url = window.location + "";
+    var questionMark = url.indexOf("?");
+
+    if (questionMark > -1) {
+        var content = url.substring(questionMark+1, url.length);
+        var json = JSON.parse(atob(content));
+        eolEditor.setValue(json.eol, 1);
+        flexmiEditor.setValue(json.flexmi, 1);
+        emfaticEditor.setValue(json.emfatic, 1);
+    }
+    else {
+        init();
+    }
+    
     fit();
-    init();
+    
+
+    function updateExampleLink() {
+        //window.alert(editorsToJson());
+        document.getElementById('exampleLink').href = "?" + btoa(editorsToJson());
+    }
+
+    function editorsToJson() {
+        return JSON.stringify({"eol": eolEditor.getValue(), "emfatic": emfaticEditor.getValue(), "flexmi": flexmiEditor.getValue()});
+    }
 
     function fit() {
         document.getElementById("splitter").style.minHeight = window.innerHeight + "px";
@@ -100,7 +135,7 @@
 
     function init() {
         eolEditor.setValue("Tree.all.label.println();", 1);
-        emfaticEditor.setValue("package tree;\nclass Tree {\n\tattr String label;\n\tval Tree[*] children;\n}", 1);
+        emfaticEditor.setValue("package tree;\n\nclass Tree {\n\tattr String label;\n\tval Tree[*] children;\n}", 1);
         flexmiEditor.setValue("<?nsuri tree?>\n<tree label=\"t1\"/>", 1);
     }
 
@@ -117,7 +152,7 @@
                 consoleEditor.setValue(json.output, 1);
             }
         };
-        var data = JSON.stringify({"eol": eolEditor.getValue(), "emfatic": emfaticEditor.getValue(), "flexmi": flexmiEditor.getValue()});
+        var data = editorsToJson();
         xhr.send(data);
 
 	}
