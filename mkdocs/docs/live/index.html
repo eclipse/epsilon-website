@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <link rel="stylesheet" href="custom.css">
+    
+	<script>
+    var programPanelButtons = [{
+        html: "<span class='mif-play'></span>",
+        cls: "success",
+        onclick: "eol()"
+    }];
+    var modelPanelButtons = [{
+        html: "<span class='mif-tree'></span>",
+        cls: "sys-button",
+        onclick: "alert('You press cog button')"
+    }];
+    var consolePanelButtons = [{
+        html: "<span class='mif-tree'></span>",
+        cls: "sys-button",
+        onclick: "alert('You press cog button')"
+    }];
+    </script>
+</head>
+
+<body class="h-100" onresize="fit()">
+    <div data-role="navview">
+        <div class="navview-pane">
+            <button class="pull-button">
+                <span class="default-icon-menu"></span>
+            </button>
+            <ul class="navview-menu">
+                <li class="item-header">Epsilon Playground</li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><span class="mif-apps"></span></span>
+                        <span class="caption">Create an OO model</span>
+                        <div class="badges">
+                            <span class="badge inline">EOL</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><span class="mif-apps"></span></span>
+                        <span class="caption">Tree to Graph</span>
+                        <div class="badges">
+                            <span class="badge inline">ETL</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navview-content">
+            <div id="splitter" data-role="splitter" class="h-100" data-min-sizes="100" style="min-height:800px">
+                <div data-role="splitter" data-split-mode="vertical">
+                    <div id="EOL" data-role="panel" data-title-caption="Program" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="programPanelButtons">
+                        <div class="editor" id="eolEditor"></div>
+                    </div>
+                    <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-display'></span>" data-custom-buttons-disabled="consolePanelButtons">
+                        <div class="editor" id="console"></div>
+                    </div>
+                </div>
+                <div data-role="splitter" data-split-mode="vertical">
+                    <div data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-tree'></span>" data-custom-buttons-disabled="modelPanelButtons">
+                        <div class="editor" id="flexmiEditor"></div>
+                    </div>
+                    <div data-role="panel" data-title-caption="Metamodel" data-title-icon="<span class='mif-cloud3'></span>" data-custom-buttons-disabled="modelPanelButtons">
+                        <div class="editor" id="emfaticEditor"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    Array.from(document.querySelectorAll('.editor')).forEach(function(e) {
+        var editor = ace.edit(e);
+        editor.setTheme("ace/theme/eclipse");
+        editor.renderer.setShowGutter(false);
+        editor.setFontSize("1rem");
+    });
+
+    var eolEditor = ace.edit(document.getElementById('eolEditor'));
+    var flexmiEditor = ace.edit(document.getElementById('flexmiEditor'));
+    var emfaticEditor = ace.edit(document.getElementById('emfaticEditor'));
+    var consoleEditor = ace.edit(document.getElementById('console'));
+
+    fit();
+    init();
+
+    function fit() {
+        document.getElementById("splitter").style.minHeight = window.innerHeight + "px";
+        consoleEditor.resize();
+    }
+
+    function init() {
+        eolEditor.setValue("Tree.all.label.println();", 1);
+        emfaticEditor.setValue("package tree;\nclass Tree {\n\tattr String label;\n\tval Tree[*] children;\n}", 1);
+        flexmiEditor.setValue("<?nsuri tree?>\n<tree label=\"t1\"/>", 1);
+    }
+
+	function eol() {
+		
+        var xhr = new XMLHttpRequest();
+        var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-eol";
+        //var url = "http://localhost:8080";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                consoleEditor.setValue(json.output, 1);
+            }
+        };
+        var data = JSON.stringify({"eol": eolEditor.getValue(), "emfatic": emfaticEditor.getValue(), "flexmi": flexmiEditor.getValue()});
+        xhr.send(data);
+
+	}
+
+    </script>
+</body>
+
+</html>
