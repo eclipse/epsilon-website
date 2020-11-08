@@ -91,6 +91,7 @@
     eolEditor.getSession().setMode("ace/mode/javascript");
     emfaticEditor.getSession().setMode("ace/mode/javascript");
     flexmiEditor.getSession().setMode("ace/mode/xml");
+    consoleEditor.setReadOnly(true);
 
     eolEditor.getSession().on('change', function() {
         updateExampleLink();
@@ -115,12 +116,11 @@
     else {
         init();
     }
+    consoleEditor.setValue("",1);
     
-    fit();
-    
+    setInterval(fit, 100);
 
     function updateExampleLink() {
-        //window.alert(editorsToJson());
         document.getElementById('exampleLink').href = "?" + btoa(editorsToJson());
     }
 
@@ -130,6 +130,17 @@
 
     function fit() {
         document.getElementById("splitter").style.minHeight = window.innerHeight + "px";
+
+        var editorParentStyle = "flex-basis: calc(100% - 4px);";
+
+        document.getElementById("eolEditor").parentNode.style = editorParentStyle;
+        document.getElementById("flexmiEditor").parentNode.style = editorParentStyle;
+        document.getElementById("emfaticEditor").parentNode.style = editorParentStyle;
+        document.getElementById("console").parentNode.style = editorParentStyle;
+        
+        eolEditor.resize();
+        flexmiEditor.resize();
+        emfaticEditor.resize();
         consoleEditor.resize();
     }
 
