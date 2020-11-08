@@ -21,11 +21,27 @@
         html: "<span class='mif-help'></span>",
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
+    },{
+        html: "<span class='mif-refresh'></span>",
+        cls: "sys-button",
+        onclick: "refreshModelDiagram()"
+    },{
+        html: "<span class='mif-tree'></span>",
+        cls: "sys-button",
+        onclick: "toggleModelDiagram()"
     }];
     var metamodelPanelButtons = [{
         html: "<span class='mif-help'></span>",
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/emfatic');"
+    },{
+        html: "<span class='mif-refresh'></span>",
+        cls: "sys-button",
+        onclick: "refreshMetamodelDiagram()"
+    },{
+        html: "<span class='mif-tree'></span>",
+        cls: "sys-button",
+        onclick: "toggleMetamodelDiagram()"
     }];
     var consolePanelButtons = [{
         html: "<span class='mif-cross'></span>",
@@ -53,7 +69,7 @@
             </ul>
         </div>
         <div class="navview-content">
-            <div id="splitter" data-role="splitter" class="h-100" data-min-sizes="100" style="min-height:800px">
+            <div id="splitter" data-role="splitter" class="h-100" style="min-height:800px">
                 <div data-role="splitter" data-split-mode="vertical">
                     <div id="EOL" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="programPanelButtons">
                         <div class="editor" id="eolEditor"></div>
@@ -63,21 +79,32 @@
                     </div>
                 </div>
                 <div data-role="splitter" data-split-mode="vertical">
-                    <div data-role="panel" data-title-caption="Model (Flexmi)" data-title-icon="<span class='mif-tree'></span>" data-custom-buttons="modelPanelButtons">
-                        <div class="editor" id="flexmiEditor"></div>
+                    <div data-role="panel" data-title-caption="Model (Flexmi)" data-title-icon="<span class='mif-cloud'></span>" data-custom-buttons="modelPanelButtons">
+                        <div data-role="splitter" class="h-100">
+                            <div class="editor" id="flexmiEditor"></div>
+                            <div id="modelDiagram" style="display:none;"></div>
+                        </div>
                     </div>
                     <div data-role="panel" data-title-caption="Metamodel (Emfatic)" data-title-icon="<span class='mif-cloud3'></span>" data-custom-buttons="metamodelPanelButtons">
-                        <div class="editor" id="emfaticEditor"></div>
+                        <div data-role="splitter" class="h-100">
+                            <div class="editor" id="emfaticEditor"></div>
+                            <div id="metamodelDiagram" style="display:none;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+    <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
     <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="eol.js" type="text/javascript"></script>
     <script src="emfatic.js" type="text/javascript"></script>
+    
     <script>
+
     Array.from(document.querySelectorAll('.editor')).forEach(function(e) {
         var editor = ace.edit(e);
         editor.setTheme("ace/theme/eclipse");
@@ -143,8 +170,8 @@
         var editorParentStyle = "flex-basis: calc(100% - 4px);";
 
         document.getElementById("eolEditor").parentNode.style = editorParentStyle;
-        document.getElementById("flexmiEditor").parentNode.style = editorParentStyle;
-        document.getElementById("emfaticEditor").parentNode.style = editorParentStyle;
+        document.getElementById("flexmiEditor").parentNode.parentNode.style = editorParentStyle + ";padding:0px";
+        document.getElementById("emfaticEditor").parentNode.parentNode.style = editorParentStyle + ";padding:0px";
         document.getElementById("console").parentNode.style = editorParentStyle;
         
         eolEditor.resize();
@@ -171,6 +198,69 @@
 
 	}
 
+    function toggleModelDiagram() {
+        var modelDiagram = document.querySelector("#modelDiagram");
+        if (modelDiagram.style.display == "none") {
+            modelDiagram.style.display = "block";
+        }
+        else {
+            modelDiagram.style.display = "none";
+        }
+    }
+
+    function toggleMetamodelDiagram() {
+        var metamodelDiagram = document.querySelector("#metamodelDiagram");
+        if (metamodelDiagram.style.display == "none") {
+            metamodelDiagram.style.display = "block";
+        }
+        else {
+            metamodelDiagram.style.display = "none";
+        }
+    }
+
+    function refreshModelDiagram() {
+       
+       var xhr = new XMLHttpRequest();
+        var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-graphviz";
+        //var url = "http://localhost:8080";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                var t = d3.transition()
+                    .ease(d3.easeLinear);
+                d3.select("#modelDiagram").graphviz({fit: true, height: "100%", width:"100%"})
+                    .transition(t)
+                    .renderDot(json.modelDiagram);
+
+            }
+        };
+        var data = editorsToJson();
+        xhr.send(data);
+    }
+
+    function refreshMetamodelDiagram() {
+       
+       var xhr = new XMLHttpRequest();
+        var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/emfatic-to-graphviz";
+        //var url = "http://localhost:8080";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                var t = d3.transition()
+                    .ease(d3.easeLinear);
+                d3.select("#metamodelDiagram").graphviz({fit: true, height: "100%", width:"100%", engine: 'fdp'})
+                    .transition(t)
+                    .renderDot(json.metamodelDiagram);
+
+            }
+        };
+        var data = editorsToJson();
+        xhr.send(data);
+    }
     </script>
 </body>
 
