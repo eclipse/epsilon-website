@@ -8,43 +8,48 @@
     <link rel="stylesheet" href="custom.css">
     
 	<script>
+
+    function buttonHtml(icon, hint) {
+        return "<span class='mif-" + icon + "' data-role='hint' data-hint-text='" + hint + "' data-hint-position='bottom'></span>";
+    }
+
     var programPanelButtons = [{
-        html: "<span class='mif-help'></span>",
+        html: buttonHtml("help", "EOL language reference"),
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/epsilon/doc/eol');"
     },{
-        html: "<span class='mif-play'></span>",
+        html: buttonHtml("play", "Run the EOL program"),
         cls: "success",
-        onclick: "eol()"
+        onclick: "runEol()"
     }];
     var modelPanelButtons = [{
-        html: "<span class='mif-help'></span>",
+        html: buttonHtml("help", "Flexmi language reference"),
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
     },{
-        html: "<span class='mif-refresh'></span>",
+        html: buttonHtml("refresh", "Render the model diagram"),
         cls: "sys-button",
         onclick: "refreshModelDiagram()"
     },{
-        html: "<span class='mif-tree'></span>",
+        html: buttonHtml("tree", "Show/hide the model diagram"),
         cls: "sys-button",
-        onclick: "toggleModelDiagram()"
+        onclick: "toggle('modelDiagram', function(){refreshModelDiagram();})"
     }];
     var metamodelPanelButtons = [{
-        html: "<span class='mif-help'></span>",
+        html: buttonHtml("help", "Emfatic language reference"),
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/emfatic');"
     },{
-        html: "<span class='mif-refresh'></span>",
+        html: buttonHtml("refresh", "Render the metamodel diagram"),
         cls: "sys-button",
         onclick: "refreshMetamodelDiagram()"
     },{
-        html: "<span class='mif-tree'></span>",
+        html: buttonHtml("tree", "Show/hide the metamodel diagram"),
         cls: "sys-button",
-        onclick: "toggleMetamodelDiagram()"
+        onclick: "toggle('metamodelDiagram', function(){refreshMetamodelDiagram();})"
     }];
     var consolePanelButtons = [{
-        html: "<span class='mif-cross'></span>",
+        html: buttonHtml("cross", "Clear the console"),
         cls: "sys-button",
         onclick: "consoleEditor.setValue('')"
     }];
@@ -180,7 +185,7 @@
         consoleEditor.resize();
     }
 
-	function eol() {
+	function runEol() {
 		
         var xhr = new XMLHttpRequest();
         var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-eol";
@@ -188,79 +193,63 @@
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var json = JSON.parse(xhr.responseText);
-                consoleEditor.setValue(json.output, 1);
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    consoleEditor.setValue(json.output, 1);
+                }
+                Metro.notify.killAll();
             }
         };
         var data = editorsToJson();
         xhr.send(data);
-
+        Metro.notify.create("Executing program...", null, {keepOpen: true, cls: "yellow"});
 	}
 
-    function toggleModelDiagram() {
-        var modelDiagram = document.querySelector("#modelDiagram");
-        if (modelDiagram.style.display == "none") {
-            modelDiagram.style.display = "block";
-        }
-        else {
-            modelDiagram.style.display = "none";
-        }
-    }
-
-    function toggleMetamodelDiagram() {
-        var metamodelDiagram = document.querySelector("#metamodelDiagram");
-        if (metamodelDiagram.style.display == "none") {
-            metamodelDiagram.style.display = "block";
-        }
-        else {
-            metamodelDiagram.style.display = "none";
-        }
-    }
-
     function refreshModelDiagram() {
-       
-       var xhr = new XMLHttpRequest();
-        var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-graphviz";
-        //var url = "http://localhost:8080";
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var json = JSON.parse(xhr.responseText);
-                var t = d3.transition()
-                    .ease(d3.easeLinear);
-                d3.select("#modelDiagram").graphviz({fit: true, height: "100%", width:"100%"})
-                    .transition(t)
-                    .renderDot(json.modelDiagram);
-
-            }
-        };
-        var data = editorsToJson();
-        xhr.send(data);
+        refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-graphviz",
+            "modelDiagram", "model", "dot");
     }
 
     function refreshMetamodelDiagram() {
-       
-       var xhr = new XMLHttpRequest();
-        var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/emfatic-to-graphviz";
-        //var url = "http://localhost:8080";
+        refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/emfatic-to-graphviz",
+            "metamodelDiagram", "metamodel", "fdp");
+    }
+
+    function toggle(elementId, onEmpty) {
+        var element = document.getElementById(elementId);
+        if (element.style.display == "none") {
+            element.style.display = "block";
+            if (element.innerHTML.length == 0) {
+                onEmpty();
+            }
+        }
+        else element.style.display = "none";
+    }
+
+    function refreshDiagram(url, diagramId, diagramName, engine) {
+        var xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var json = JSON.parse(xhr.responseText);
-                var t = d3.transition()
-                    .ease(d3.easeLinear);
-                d3.select("#metamodelDiagram").graphviz({fit: true, height: "100%", width:"100%", engine: 'fdp'})
-                    .transition(t)
-                    .renderDot(json.metamodelDiagram);
-
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    var t = d3.transition()
+                        .ease(d3.easeLinear);
+                    d3.select("#" + diagramId).graphviz({fit: true, height: "100%", width:"100%", engine: engine})
+                        .transition(t)
+                        .renderDot(json[diagramId]);
+                    Metro.notify.killAll();
+                }
             }
         };
         var data = editorsToJson();
         xhr.send(data);
+
+        Metro.notify.create("Rendering " + diagramName + " diagram...", null, {keepOpen: true, cls: "yellow"});
     }
+
     </script>
 </body>
 
