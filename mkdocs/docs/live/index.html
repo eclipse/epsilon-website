@@ -48,6 +48,33 @@
         cls: "sys-button",
         onclick: "toggle('metamodelDiagram', function(){refreshMetamodelDiagram();})"
     }];
+    var secondModelPanelButtons = [{
+        html: buttonHtml("help", "Flexmi language reference"),
+        cls: "sys-button",
+        onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
+    },{
+        html: buttonHtml("refresh", "Render the model diagram"),
+        cls: "sys-button",
+        onclick: "refreshSecondModelDiagram()"
+    },{
+        html: buttonHtml("tree", "Show/hide the model diagram"),
+        cls: "sys-button",
+        onclick: "toggle('secondModelDiagram', function(){refreshSecondModelDiagram();})"
+    }];
+    var secondMetamodelPanelButtons = [{
+        html: buttonHtml("help", "Emfatic language reference"),
+        cls: "sys-button",
+        onclick: "window.open('https://www.eclipse.org/emfatic');"
+    },{
+        html: buttonHtml("refresh", "Render the metamodel diagram"),
+        cls: "sys-button",
+        onclick: "refreshSecondMetamodelDiagram()"
+    },{
+        html: buttonHtml("tree", "Show/hide the metamodel diagram"),
+        cls: "sys-button",
+        onclick: "toggle('secondMetamodelDiagram', function(){refreshSecondMetamodelDiagram();})"
+    }];
+    var thirdModelPanelButtons = [];
     var consolePanelButtons = [{
         html: buttonHtml("cross", "Clear the console"),
         cls: "sys-button",
@@ -77,7 +104,7 @@
             <div id="splitter" data-role="splitter" class="h-100" style="min-height:800px">
                 <div data-role="splitter" data-split-mode="vertical">
                     <div id="EOL" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="programPanelButtons">
-                        <div class="editor" id="eolEditor"></div>
+                        <div class="editor" id="programEditor"></div>
                     </div>
                     <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-display'></span>" data-custom-buttons="consolePanelButtons">
                         <div class="editor" id="console"></div>
@@ -97,6 +124,25 @@
                         </div>
                     </div>
                 </div>
+                <div data-role="splitter" data-split-mode="vertical" id="secondModelSplitter">
+                    <div id="secondModelPanel" data-role="panel" data-title-caption="Second Model (Flexmi)" data-title-icon="<span class='mif-cloud'></span>" data-custom-buttons="secondModelPanelButtons">
+                        <div data-role="splitter" class="h-100">
+                            <div class="editor" id="secondFlexmiEditor"></div>
+                            <div id="secondModelDiagram" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div id="secondMetamodelPanel" data-role="panel" data-title-caption="Second Metamodel (Emfatic)" data-title-icon="<span class='mif-cloud3'></span>" data-custom-buttons="secondMetamodelPanelButtons">
+                        <div data-role="splitter" class="h-100">
+                            <div class="editor" id="secondEmfaticEditor"></div>
+                            <div id="secondMetamodelDiagram" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="splitter" data-split-mode="vertical" id="thirdModelSplitter">
+                    <div data-role="panel" data-title-caption="Model (Flexmi)" data-title-icon="<span class='mif-cloud'></span>" data-custom-buttons="thirdModelPanelButtons">
+                        <div id="thirdModelDiagram" style="display:none;"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -110,6 +156,8 @@
     
     <script>
 
+    var language = "eol";
+
     Array.from(document.querySelectorAll('.editor')).forEach(function(e) {
         var editor = ace.edit(e);
         editor.setTheme("ace/theme/eclipse");
@@ -117,33 +165,24 @@
         editor.setFontSize("1rem");
     });
 
-    var eolEditor = ace.edit(document.getElementById('eolEditor'));
+    var programEditor = ace.edit(document.getElementById('programEditor'));
     var flexmiEditor = ace.edit(document.getElementById('flexmiEditor'));
     var emfaticEditor = ace.edit(document.getElementById('emfaticEditor'));
+    var secondFlexmiEditor = ace.edit(document.getElementById('secondFlexmiEditor'));
+    var secondEmfaticEditor = ace.edit(document.getElementById('secondEmfaticEditor'));
     var consoleEditor = ace.edit(document.getElementById('console'));
 
-    eolEditor.setShowPrintMargin(false);
-    flexmiEditor.setShowPrintMargin(false);
-    emfaticEditor.setShowPrintMargin(false);
-    consoleEditor.setShowPrintMargin(false);
+    var editors = [programEditor, flexmiEditor, emfaticEditor, secondFlexmiEditor, secondEmfaticEditor, consoleEditor];
 
-    eolEditor.getSession().setMode("ace/mode/eol");
-
-    console.log(eolEditor.getSession().getMode());
+    editors.forEach(e => e.setShowPrintMargin(false));
 
     emfaticEditor.getSession().setMode("ace/mode/emfatic");
     flexmiEditor.getSession().setMode("ace/mode/xml");
+    secondEmfaticEditor.getSession().setMode("ace/mode/emfatic");
+    secondFlexmiEditor.getSession().setMode("ace/mode/xml");
     consoleEditor.setReadOnly(true);
 
-    eolEditor.getSession().on('change', function() {
-        updateExampleLink();
-    });
-    flexmiEditor.getSession().on('change', function() {
-        updateExampleLink();
-    });
-    emfaticEditor.getSession().on('change', function() {
-        updateExampleLink();
-    });
+    editors.forEach(e => e.getSession().on('change', function() { updateExampleLink(); }));
 
     var url = window.location + "";
     var questionMark = url.indexOf("?");
@@ -154,11 +193,18 @@
     }
 
     var json = JSON.parse(atob(content));
-    eolEditor.setValue(json.eol, 1);
+    programEditor.getSession().setMode("ace/mode/eol");
+    programEditor.setValue(json.eol, 1);
     flexmiEditor.setValue(json.flexmi, 1);
     emfaticEditor.setValue(json.emfatic, 1);
+    secondFlexmiEditor.setValue(json.secondFlexmi, 1);
+    secondEmfaticEditor.setValue(json.secondEmfatic, 1);
     consoleEditor.setValue("",1);
     
+    //document.getElementById("secondModelSplitter").style.display = "none";
+    //document.getElementById("secondMetamodelDiagram").style.display = "none";
+    //toggle("secondModelPanel", function(){window.alert();});
+
     setInterval(fit, 100);
 
     function updateExampleLink() {
@@ -166,7 +212,15 @@
     }
 
     function editorsToJson() {
-        return JSON.stringify({"eol": eolEditor.getValue(), "emfatic": emfaticEditor.getValue(), "flexmi": flexmiEditor.getValue()});
+        return JSON.stringify(
+            {
+                "eol": programEditor.getValue(), 
+                "emfatic": emfaticEditor.getValue(), 
+                "flexmi": flexmiEditor.getValue(),
+                "secondEmfatic": secondEmfaticEditor.getValue(),
+                "secondFlexmi": secondFlexmiEditor.getValue()
+            }
+        );
     }
 
     function fit() {
@@ -174,15 +228,16 @@
 
         var editorParentStyle = "flex-basis: calc(100% - 4px);";
 
-        document.getElementById("eolEditor").parentNode.style = editorParentStyle;
+        document.getElementById("programEditor").parentNode.style = editorParentStyle;
+        document.getElementById("console").parentNode.style = editorParentStyle;
+
         document.getElementById("flexmiEditor").parentNode.parentNode.style = editorParentStyle + ";padding:0px";
         document.getElementById("emfaticEditor").parentNode.parentNode.style = editorParentStyle + ";padding:0px";
-        document.getElementById("console").parentNode.style = editorParentStyle;
+        document.getElementById("secondFlexmiEditor").parentNode.parentNode.style = editorParentStyle + ";padding:0px";
+        document.getElementById("secondEmfaticEditor").parentNode.parentNode.style = editorParentStyle + ";padding:0px";
         
-        eolEditor.resize();
-        flexmiEditor.resize();
-        emfaticEditor.resize();
-        consoleEditor.resize();
+        editors.forEach(e => e.resize());
+
     }
 
 	function runEol() {
@@ -214,6 +269,16 @@
     function refreshMetamodelDiagram() {
         refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/emfatic-to-graphviz",
             "metamodelDiagram", "metamodel", "fdp");
+    }
+
+    function refreshSecondModelDiagram() {
+        refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-graphviz",
+            "secondModelDiagram", "model", "dot");
+    }
+
+    function refreshSecondMetamodelDiagram() {
+        refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/emfatic-to-graphviz",
+            "secondMetamodelDiagram", "metamodel", "fdp");
     }
 
     function toggle(elementId, onEmpty) {
