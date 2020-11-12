@@ -1,13 +1,13 @@
-define("ace/mode/etl_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module) {
+define("ace/mode/evl_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var etlHighlightRules = function() {
+var evlHighlightRules = function() {
 
     var keywords = (
-        "rule|transform|from|to|guard|pre|post|not|delete|import|for|while|in|and|or|operation|return|var|throw|if|new|else|transaction|abort|break|continue|assert|assertError|not|function|default|switch|case|as|ext|driver|alias|model|breakAll|async|group|nor|xor|implies"
+        "context|constraint|critique|message|guard|check|fix|do|title|pre|post|not|delete|import|for|while|in|and|or|operation|return|var|throw|if|new|else|transaction|abort|break|continue|assert|assertError|not|function|default|switch|case|as|ext|driver|alias|model|breakAll|async|group|nor|xor|implies"
     );
 
     var builtinConstants = (
@@ -69,20 +69,20 @@ var etlHighlightRules = function() {
     this.normalizeRules();
 };
 
-oop.inherits(etlHighlightRules, TextHighlightRules);
+oop.inherits(evlHighlightRules, TextHighlightRules);
 
-exports.etlHighlightRules = etlHighlightRules;
+exports.evlHighlightRules = evlHighlightRules;
 });
 
-define("ace/mode/etl",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/etl_highlight_rules"], function(require, exports, module) {
+define("ace/mode/evl",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/evl_highlight_rules"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
-var etlHighlightRules = require("./etl_highlight_rules").etlHighlightRules;
+var evlHighlightRules = require("./evl_highlight_rules").evlHighlightRules;
 
 var Mode = function() {
-    this.HighlightRules = etlHighlightRules;
+    this.HighlightRules = evlHighlightRules;
     this.$behaviour = this.$defaultBehaviour;
 };
 oop.inherits(Mode, TextMode);
@@ -91,14 +91,14 @@ oop.inherits(Mode, TextMode);
 
     this.lineCommentStart = "--";
 
-    this.$id = "ace/mode/etl";
-    this.snippetFileId = "ace/snippets/etl";
+    this.$id = "ace/mode/evl";
+    this.snippetFileId = "ace/snippets/evl";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
 
 });                (function() {
-                    window.require(["ace/mode/etl"], function(m) {
+                    window.require(["ace/mode/evl"], function(m) {
                         if (typeof module == "object" && typeof exports == "object" && module) {
                             module.exports = m;
                         }
