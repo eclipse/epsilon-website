@@ -2,6 +2,7 @@ site_name: Epsilon
 nav:
   - Home: index.md
   - Download : 'download/index.md'
+  - Playground : 'live'
   - Documentation:
     - Overview: 'doc/index.md'
     - Model connectivity: 'doc/emc.md'
