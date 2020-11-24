@@ -1,8 +1,11 @@
-# Constructing a helpful minimal example
+# Constructing a Helpful Minimal Example
 
 From time to time, you may run into a problem when using Epsilon or find a bug. In these instances, we're happy to provide technical support and we endeavour to ensure that no question on our [forum](../../../forum) goes unanswered.
 
 We often ask users to supply a **minimal example** that we can use to reproduce the problem on our machine. A high quality example often allows to send a much quicker and more accurate response. This article describes how to put together a useful example.
+
+!!! tip "Constructing Minimal Examples in the Epsilon Playground"
+    In many cases, the easiest way to create and share a minimal example is through the [Epsilon Playground](../../../live). Once you have put together your example, just click on the "Copy link to this example" button and include the copied link to your message on the forum.
 
 Please include the following:
 
