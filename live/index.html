@@ -306,8 +306,8 @@
         var content = btoa(editorsToJson());
         var xhr = new XMLHttpRequest();
         //var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-eol";
-        //var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-epsilon";
-        var url = "http://localhost:8080";
+        var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url";
+        //var url = "http://localhost:8080";
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function () {
