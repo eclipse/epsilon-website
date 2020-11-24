@@ -8,15 +8,9 @@
     <link rel="stylesheet" href="custom.css">
     
 	<script>
-    var programPanelButtons = [{
-        html: buttonHtml("help", /*languageName + */" language reference"),
-        cls: "sys-button",
-        onclick: "window.open('https://www.eclipse.org/epsilon/doc/'+language);"
-    },{
-        html: buttonHtml("play", "Run the program"),
-        cls: "success",
-        onclick: "runProgram()"
-    }];
+    var programPanelButtons;
+    var secondModelPanelButtons;
+
     var modelPanelButtons = [{
         html: buttonHtml("help", "Flexmi language reference"),
         cls: "sys-button",
@@ -43,19 +37,6 @@
         cls: "sys-button",
         onclick: "toggle('metamodelDiagram', function(){refreshMetamodelDiagram();})"
     }];
-    var secondModelPanelButtons = secondModelEditable ? [{
-        html: buttonHtml("help", "Flexmi language reference"),
-        cls: "sys-button",
-        onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
-    },{
-        html: buttonHtml("refresh", "Render the model diagram"),
-        cls: "sys-button",
-        onclick: "refreshSecondModelDiagram()"
-    },{
-        html: buttonHtml("tree", "Show/hide the model diagram"),
-        cls: "sys-button",
-        onclick: "toggle('secondModelDiagram', function(){})"
-    }] : [];
     var secondMetamodelPanelButtons = [{
         html: buttonHtml("help", "Emfatic language reference"),
         cls: "sys-button",
@@ -130,11 +111,11 @@
                 </li>                
                 <li class="item-separator"></li>
                 <li>
-                    <a href="#" onclick="copyShortenedLink()" id="exampleLink">
+                    <a href="#" onclick="copyShortenedLink(event)" id="exampleLink">
                         <span class="icon"><span class="mif-copy"></span></span>
                         <span class="caption">Copy link to this example</span>
                     </a>
-                    <a href="#" onclick="$('#about-info-box').data('infobox').open()">
+                    <a href="#" onclick="about(event)">
                         <span class="icon"><span class="mif-info"></span></span>
                         <span class="caption">About</span>
                     </a>
@@ -144,7 +125,7 @@
         <div class="navview-content">
             <div id="splitter" data-role="splitter" class="h-100" style="min-height:800px">
                 <div data-role="splitter" data-split-mode="vertical">
-                    <div id="programPanel" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="programPanelButtons">
+                    <div id="programPanel" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="">
                         <div class="editor" id="programEditor"></div>
                     </div>
                     <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-display'></span>" data-custom-buttons="consolePanelButtons">
@@ -194,7 +175,7 @@
             <p>The Epsilon Playground is a web application for fiddling with metamodelling, modelling and automated model management using <a href="https://eclipse.org/emfatic">Emfatic</a>, <a href="https://eclipse.org/epsilon/doc/flexmi">Flexmi</a> and the languages of the <a href="https://eclipse.org/epsilon">Epsilon</a> platform. Its back-end is implemented using <a href="https://cloud.google.com/functions">Google Cloud Platform Functions</a> and the front-end builds heavily on the <a href="https://metroui.org.ua">Metro 4</a> framework. Diagrams are rendered using the <a href="https://github.com/magjac/d3-graphviz">d3-grapvhiz</a> Javascript library.</p>
             <h4>Saving and sharing your work</h4>
             <p>
-            To save or share your work, please right-click on "Link to this example" and copy the target of the link. The copied URL will contain a base64-encoded copy of the current contents of all editors; you can save the copied URL locally to resume your work later or share it with others. The back-end does not keep a copy of your code/models so if you navigate away from the page without making a copy of your work, it will be irreversibly lost.
+            To save or share your work, please click the "Copy link to this example" button. This will copy a short link to your clipboard. Please note that the contents of your editors <b>will be stored in the back-end of the Epsilon Playground</b> so that they can be retrieved when you visit that link again later.
             </p>
             <h4>Fair usage policy</h4>
             <p>
@@ -240,26 +221,25 @@
         if (content.length == 8) {
             var xhr = new XMLHttpRequest();
             //var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-eol";
-            //var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-epsilon";
-            var url = "http://localhost:8080";
-            xhr.open("POST", url, true);
+            var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url";
+            //var url = "http://localhost:8080";
+            xhr.open("POST", url, false);
             xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        var json2 = JSON.parse(xhr.responseText);
-                        content = json2.content;
-                        setup();
-                    }
-                }
-            };
             var data = JSON.stringify({"shortened": content});
             xhr.send(data);
+            if (xhr.status === 200) {
+                var json2 = JSON.parse(xhr.responseText);
+                content = json2.content;
+                setup();
+            }
         }
-
+        else {
+            setup();
+        }
     }
-    
-    setup();
+    else {
+        setup();
+    }
 
     function setup() {
         json = JSON.parse(atob(content));
@@ -292,10 +272,14 @@
         secondFlexmiEditor.getSession().setMode("ace/mode/xml");
         consoleEditor.setReadOnly(true);
        
-        //console.log(language);
         arrangePanels();
-        console.log(btoa(JSON.stringify({"language":"evl"})));
 
+        programPanelButtons = getProgramPanelButtons();
+        $('#programPanel')[0].dataset.customButtons = "programPanelButtons";
+
+        secondModelPanelButtons = getSecondModelPanelButtons();
+        $('#secondModelPanel')[0].dataset.customButtons = "secondModelPanelButtons";
+        
         //TODO: Fix "undefined" when fields are empty
         programEditor.getSession().setMode("ace/mode/" + language);
         programEditor.setValue(json.program + "", 1);
@@ -312,7 +296,13 @@
         setInterval(fit, 100);
     }
 
-    function copyShortenedLink() {
+    function about(event) {
+        event.preventDefault();
+        $('#about-info-box').data('infobox').open();
+    }
+
+    function copyShortenedLink(event) {
+        event.preventDefault();
         var content = btoa(editorsToJson());
         var xhr = new XMLHttpRequest();
         //var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-eol";
@@ -324,7 +314,15 @@
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     var json = JSON.parse(xhr.responseText);
-                    copyToClipboard("https://eclipse.org/epsilon/live?" + json.shortened);
+
+                    if (questionMark > 0) {
+                        var baseUrl = (window.location+"").substring(0, questionMark);
+                    }
+                    else {
+                        baseUrl = window.location;
+                    }
+                    
+                    copyToClipboard(baseUrl + "?" + json.shortened);
                 }
                 Metro.notify.killAll();
                 Metro.notify.create("Link copied to clipboard.", null, {cls: "success"});
@@ -332,8 +330,36 @@
         };
         var data = JSON.stringify({"content": content});
         xhr.send(data);
-        Metro.notify.create("Generating short link...", null, {keepOpen: true, cls: "yellow"});
+        longNotification("Generating short link");
         return false;
+    }
+
+    function getProgramPanelButtons() {
+        return [{
+            html: buttonHtml("help", languageName + " language reference"),
+            cls: "sys-button",
+            onclick: "window.open('https://www.eclipse.org/epsilon/doc/'+language);"
+        },{
+            html: buttonHtml("play", "Run the program"),
+            cls: "success",
+            onclick: "runProgram()"
+        }];
+    }
+
+    function getSecondModelPanelButtons() {
+        return secondModelEditable ? [{
+            html: buttonHtml("help", "Flexmi language reference"),
+            cls: "sys-button",
+            onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
+        },{
+            html: buttonHtml("refresh", "Render the model diagram"),
+            cls: "sys-button",
+            onclick: "refreshSecondModelDiagram()"
+        },{
+            html: buttonHtml("tree", "Show/hide the model diagram"),
+            cls: "sys-button",
+            onclick: "toggle('secondModelDiagram', function(){})"
+        }] : [];
     }
 
     function copyToClipboard(str) {
@@ -346,12 +372,13 @@
     }
 
     function arrangePanels() {
+        console.log("Language: " + language);
         if (language == "eol") {
             toggle("secondModelSplitter");
             toggle("thirdModelSplitter");
             setPanelTitle("programPanel", "Program");
         }
-        else if (language == "eol" || language == "egl") {
+        else if (language == "egl") {
             toggle("secondModelSplitter");
             toggle("thirdModelSplitter");
             setPanelTitle("programPanel", "Template");
@@ -466,8 +493,12 @@
         };
         var data = editorsToJson();
         xhr.send(data);
-        Metro.notify.create("Executing program...", null, {keepOpen: true, cls: "yellow"});
+        longNotification("Executing program");
 	}
+
+    function longNotification(title, cls="yellow") {
+        Metro.notify.create(/*"This may take a few seconds to complete.",*/ "<b>" + title + "...</b><br>This may take a few seconds to complete.", null, {keepOpen: true, cls: cls, width: 300});
+    }
 
     function refreshModelDiagram() {
         refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-graphviz",
@@ -523,8 +554,7 @@
         };
         var data = modelToJson(modelEditor, metamodelEditor);
         xhr.send(data);
-
-        Metro.notify.create("Rendering " + diagramName + " diagram...", null, {keepOpen: true, cls: "yellow"});
+        longNotification("Rendering " + diagramName + " diagram");
     }
 
     function renderDiagram(diagramId, graphviz, engine) {
