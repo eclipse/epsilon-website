@@ -8,33 +8,9 @@
     <link rel="stylesheet" href="custom.css">
     
 	<script>
+    var programPanelButtons;
+    var secondModelPanelButtons;
 
-    var language = "eol";
-    
-    var url = window.location + "";
-    var questionMark = url.indexOf("?");
-    var content = "eyJlb2wiOiIvLyBGb3IgZXZlcnkgdGFzayBpbiB0aGUgbW9kZWxcbmZvciAodCBpbiBUYXNrLmFsbCkge1xuICAgIC8vIFByaW50IHRoZSB0aXRsZSBhbmQgdGhlIHRvdGFsIHBlcnNvbi1tb250aHMgb2YgdGhlIHRhc2tcbiAgICAodC50aXRsZSArIFwiOiBcIiArIHQuZ2V0VG90YWxFZmZvcnQoKSkucHJpbnRsbigpO1xufVxuXG4vLyBDb3VudCB0aGUgdGFza3MgdGhhdCBhcmUgdW5kZXJ0YWtlbiBieSBhIHNpbmdsZSBwZXJzb25cblRhc2suYWxsLnNlbGVjdCh0fHQuZWZmb3J0LnNpemUoKSA9IDEpLnNpemUoKS5cbiAgICBwcmludGxuKFwiT25lLXBlcnNvbiB0YXNrczogXCIpO1xuXG4vLyBSZXR1cm5zIHRoZSB0b3RhbCBwZXJzb24tbW9udGhzIGZvciBhIHRhc2tcbm9wZXJhdGlvbiBUYXNrIGdldFRvdGFsRWZmb3J0KCkge1xuICAgIHJldHVybiBzZWxmLmVmZm9ydC5jb2xsZWN0KGV8c2VsZi5kdXJhdGlvbiplLnBlcmNlbnRhZ2UvMTAwLjApLnN1bSgpO1xufSIsImVtZmF0aWMiOiJAbmFtZXNwYWNlKHVyaT1cInBzbFwiLCBwcmVmaXg9XCJcIilcbnBhY2thZ2UgcHNsO1xuXG5jbGFzcyBQcm9qZWN0IHtcbiAgYXR0ciBTdHJpbmcgbmFtZTtcbiAgYXR0ciBTdHJpbmcgZGVzY3JpcHRpb247XG4gIHZhbCBUYXNrWypdIHRhc2tzO1xuICB2YWwgUGVyc29uWypdIHBlb3BsZTtcbn1cblxuY2xhc3MgVGFzayB7XG4gIGF0dHIgU3RyaW5nIHRpdGxlO1xuICBhdHRyIGludCBzdGFydDtcbiAgYXR0ciBpbnQgZHVyYXRpb247XG4gIHZhbCBFZmZvcnRbKl0gZWZmb3J0O1xufVxuXG5jbGFzcyBQZXJzb24ge1xuICBhdHRyIFN0cmluZyBuYW1lO1xufVxuXG5jbGFzcyBFZmZvcnQge1xuICByZWYgUGVyc29uIHBlcnNvbjtcbiAgYXR0ciBpbnQgcGVyY2VudGFnZSA9IDEwMDtcbn0iLCJmbGV4bWkiOiI8P25zdXJpIHBzbD8+XG48cHJvamVjdCB0aXRsZT1cIkFDTUVcIj5cbiAgPHBlcnNvbiBuYW1lPVwiQWxpY2VcIi8+XG4gIDxwZXJzb24gbmFtZT1cIkJvYlwiLz5cbiAgPHRhc2sgdGl0bGU9XCJBbmFseXNpc1wiIHN0YXJ0PVwiMVwiIGR1cj1cIjNcIj5cbiAgICA8ZWZmb3J0IHBlcnNvbj1cIkFsaWNlXCIvPlxuICA8L3Rhc2s+XG4gIDx0YXNrIHRpdGxlPVwiRGVzaWduXCIgc3RhcnQ9XCI0XCIgZHVyPVwiNlwiPlxuICAgIDxlZmZvcnQgcGVyc29uPVwiQm9iXCIvPlxuICA8L3Rhc2s+XG4gIDx0YXNrIHRpdGxlPVwiSW1wbGVtZW50YXRpb25cIiBzdGFydD1cIjdcIiBkdXI9XCIzXCI+XG4gICAgPGVmZm9ydCBwZXJzb249XCJCb2JcIiBwZXJjPVwiNTBcIi8+XG4gICAgPGVmZm9ydCBwZXJzb249XCJBbGljZVwiIHBlcmM9XCI1MFwiLz5cbiAgPC90YXNrPlxuPC9wcm9qZWN0PlxuIn0=";
-
-    if (questionMark > -1) {
-        content = url.substring(questionMark+1, url.length);
-    }
-
-    var json = JSON.parse(atob(content));
-    if (json.eol != null) { json.program = json.eol; language = "eol";}
-    else {language = json.language};
-
-    var languageName = (language == "flock" ? "Flock" : language.toUpperCase());
-    var secondModelEditable = !(language == "etl" || language == "flock");
-
-    var programPanelButtons = [{
-        html: buttonHtml("help", languageName + " language reference"),
-        cls: "sys-button",
-        onclick: "window.open('https://www.eclipse.org/epsilon/doc/'+language);"
-    },{
-        html: buttonHtml("play", "Run the program"),
-        cls: "success",
-        onclick: "runProgram()"
-    }];
     var modelPanelButtons = [{
         html: buttonHtml("help", "Flexmi language reference"),
         cls: "sys-button",
@@ -61,19 +37,6 @@
         cls: "sys-button",
         onclick: "toggle('metamodelDiagram', function(){refreshMetamodelDiagram();})"
     }];
-    var secondModelPanelButtons = secondModelEditable ? [{
-        html: buttonHtml("help", "Flexmi language reference"),
-        cls: "sys-button",
-        onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
-    },{
-        html: buttonHtml("refresh", "Render the model diagram"),
-        cls: "sys-button",
-        onclick: "refreshSecondModelDiagram()"
-    },{
-        html: buttonHtml("tree", "Show/hide the model diagram"),
-        cls: "sys-button",
-        onclick: "toggle('secondModelDiagram', function(){})"
-    }] : [];
     var secondMetamodelPanelButtons = [{
         html: buttonHtml("help", "Emfatic language reference"),
         cls: "sys-button",
@@ -148,11 +111,11 @@
                 </li>                
                 <li class="item-separator"></li>
                 <li>
-                    <a href="#" id="exampleLink">
-                        <span class="icon"><span class="mif-link"></span></span>
-                        <span class="caption">Link to this example</span>
+                    <a href="#" onclick="copyShortenedLink(event)" id="exampleLink">
+                        <span class="icon"><span class="mif-copy"></span></span>
+                        <span class="caption">Copy link to this example</span>
                     </a>
-                    <a href="#" onclick="$('#about-info-box').data('infobox').open()">
+                    <a href="#" onclick="about(event)">
                         <span class="icon"><span class="mif-info"></span></span>
                         <span class="caption">About</span>
                     </a>
@@ -162,7 +125,7 @@
         <div class="navview-content">
             <div id="splitter" data-role="splitter" class="h-100" style="min-height:800px">
                 <div data-role="splitter" data-split-mode="vertical">
-                    <div id="programPanel" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="programPanelButtons">
+                    <div id="programPanel" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="">
                         <div class="editor" id="programEditor"></div>
                     </div>
                     <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-display'></span>" data-custom-buttons="consolePanelButtons">
@@ -212,7 +175,7 @@
             <p>The Epsilon Playground is a web application for fiddling with metamodelling, modelling and automated model management using <a href="https://eclipse.org/emfatic">Emfatic</a>, <a href="https://eclipse.org/epsilon/doc/flexmi">Flexmi</a> and the languages of the <a href="https://eclipse.org/epsilon">Epsilon</a> platform. Its back-end is implemented using <a href="https://cloud.google.com/functions">Google Cloud Platform Functions</a> and the front-end builds heavily on the <a href="https://metroui.org.ua">Metro 4</a> framework. Diagrams are rendered using the <a href="https://github.com/magjac/d3-graphviz">d3-grapvhiz</a> Javascript library.</p>
             <h4>Saving and sharing your work</h4>
             <p>
-            To save or share your work, please right-click on "Link to this example" and copy the target of the link. The copied URL will contain a base64-encoded copy of the current contents of all editors; you can save the copied URL locally to resume your work later or share it with others. The back-end does not keep a copy of your code/models so if you navigate away from the page without making a copy of your work, it will be irreversibly lost.
+            To save or share your work, please click the "Copy link to this example" button. This will copy a short link to your clipboard. Please note that the contents of your editors <b>will be stored in the back-end of the Epsilon Playground</b> so that they can be retrieved when you visit that link again later.
             </p>
             <h4>Fair usage policy</h4>
             <p>
@@ -237,64 +200,185 @@
     <script src="emfatic.js" type="text/javascript"></script>
     
     <script>
+    var language = "eol";
+    var json;
+    var languageName;
+    var secondModelEditable;
+    var url = window.location + "";
+    var questionMark = url.indexOf("?");
+    var editors;
+    var programEditor;
+    var flexmiEditor;
+    var emfaticEditor;
+    var secondFlexmiEditor;
+    var secondEmfaticEditor;
+    var consoleEditor;
 
-    Array.from(document.querySelectorAll('.editor')).forEach(function(e) {
-        var editor = ace.edit(e);
-        editor.setTheme("ace/theme/eclipse");
-        editor.renderer.setShowGutter(false);
-        editor.setFontSize("1rem");
-    });
+    var content = "eyJlb2wiOiIvLyBGb3IgZXZlcnkgdGFzayBpbiB0aGUgbW9kZWxcbmZvciAodCBpbiBUYXNrLmFsbCkge1xuICAgIC8vIFByaW50IHRoZSB0aXRsZSBhbmQgdGhlIHRvdGFsIHBlcnNvbi1tb250aHMgb2YgdGhlIHRhc2tcbiAgICAodC50aXRsZSArIFwiOiBcIiArIHQuZ2V0VG90YWxFZmZvcnQoKSkucHJpbnRsbigpO1xufVxuXG4vLyBDb3VudCB0aGUgdGFza3MgdGhhdCBhcmUgdW5kZXJ0YWtlbiBieSBhIHNpbmdsZSBwZXJzb25cblRhc2suYWxsLnNlbGVjdCh0fHQuZWZmb3J0LnNpemUoKSA9IDEpLnNpemUoKS5cbiAgICBwcmludGxuKFwiT25lLXBlcnNvbiB0YXNrczogXCIpO1xuXG4vLyBSZXR1cm5zIHRoZSB0b3RhbCBwZXJzb24tbW9udGhzIGZvciBhIHRhc2tcbm9wZXJhdGlvbiBUYXNrIGdldFRvdGFsRWZmb3J0KCkge1xuICAgIHJldHVybiBzZWxmLmVmZm9ydC5jb2xsZWN0KGV8c2VsZi5kdXJhdGlvbiplLnBlcmNlbnRhZ2UvMTAwLjApLnN1bSgpO1xufSIsImVtZmF0aWMiOiJAbmFtZXNwYWNlKHVyaT1cInBzbFwiLCBwcmVmaXg9XCJcIilcbnBhY2thZ2UgcHNsO1xuXG5jbGFzcyBQcm9qZWN0IHtcbiAgYXR0ciBTdHJpbmcgbmFtZTtcbiAgYXR0ciBTdHJpbmcgZGVzY3JpcHRpb247XG4gIHZhbCBUYXNrWypdIHRhc2tzO1xuICB2YWwgUGVyc29uWypdIHBlb3BsZTtcbn1cblxuY2xhc3MgVGFzayB7XG4gIGF0dHIgU3RyaW5nIHRpdGxlO1xuICBhdHRyIGludCBzdGFydDtcbiAgYXR0ciBpbnQgZHVyYXRpb247XG4gIHZhbCBFZmZvcnRbKl0gZWZmb3J0O1xufVxuXG5jbGFzcyBQZXJzb24ge1xuICBhdHRyIFN0cmluZyBuYW1lO1xufVxuXG5jbGFzcyBFZmZvcnQge1xuICByZWYgUGVyc29uIHBlcnNvbjtcbiAgYXR0ciBpbnQgcGVyY2VudGFnZSA9IDEwMDtcbn0iLCJmbGV4bWkiOiI8P25zdXJpIHBzbD8+XG48cHJvamVjdCB0aXRsZT1cIkFDTUVcIj5cbiAgPHBlcnNvbiBuYW1lPVwiQWxpY2VcIi8+XG4gIDxwZXJzb24gbmFtZT1cIkJvYlwiLz5cbiAgPHRhc2sgdGl0bGU9XCJBbmFseXNpc1wiIHN0YXJ0PVwiMVwiIGR1cj1cIjNcIj5cbiAgICA8ZWZmb3J0IHBlcnNvbj1cIkFsaWNlXCIvPlxuICA8L3Rhc2s+XG4gIDx0YXNrIHRpdGxlPVwiRGVzaWduXCIgc3RhcnQ9XCI0XCIgZHVyPVwiNlwiPlxuICAgIDxlZmZvcnQgcGVyc29uPVwiQm9iXCIvPlxuICA8L3Rhc2s+XG4gIDx0YXNrIHRpdGxlPVwiSW1wbGVtZW50YXRpb25cIiBzdGFydD1cIjdcIiBkdXI9XCIzXCI+XG4gICAgPGVmZm9ydCBwZXJzb249XCJCb2JcIiBwZXJjPVwiNTBcIi8+XG4gICAgPGVmZm9ydCBwZXJzb249XCJBbGljZVwiIHBlcmM9XCI1MFwiLz5cbiAgPC90YXNrPlxuPC9wcm9qZWN0PlxuIn0=";
 
-    var programEditor = ace.edit(document.getElementById('programEditor'));
-    var flexmiEditor = ace.edit(document.getElementById('flexmiEditor'));
-    var emfaticEditor = ace.edit(document.getElementById('emfaticEditor'));
-    var secondFlexmiEditor = ace.edit(document.getElementById('secondFlexmiEditor'));
-    var secondEmfaticEditor = ace.edit(document.getElementById('secondEmfaticEditor'));
-    var consoleEditor = ace.edit(document.getElementById('console'));
+    if (questionMark > -1) {
+        content = url.substring(questionMark+1, url.length);
+        if (content.length == 8) {
+            var xhr = new XMLHttpRequest();
+            //var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-eol";
+            var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url";
+            //var url = "http://localhost:8080";
+            xhr.open("POST", url, false);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            var data = JSON.stringify({"shortened": content});
+            xhr.send(data);
+            if (xhr.status === 200) {
+                var json2 = JSON.parse(xhr.responseText);
+                content = json2.content;
+                setup();
+            }
+        }
+        else {
+            setup();
+        }
+    }
+    else {
+        setup();
+    }
 
-    var editors = [programEditor, flexmiEditor, emfaticEditor, secondFlexmiEditor, secondEmfaticEditor, consoleEditor];
+    function setup() {
+        json = JSON.parse(atob(content));
+        if (json.eol != null) { json.program = json.eol; language = "eol";}
+        else {language = json.language};
+        languageName = (language == "flock" ? "Flock" : language.toUpperCase());
+        secondModelEditable = !(language == "etl" || language == "flock");
 
-    editors.forEach(e => e.setShowPrintMargin(false));
+        Array.from(document.querySelectorAll('.editor')).forEach(function(e) {
+            var editor = ace.edit(e);
+            editor.setTheme("ace/theme/eclipse");
+            editor.renderer.setShowGutter(false);
+            editor.setFontSize("1rem");
+        });
 
-    emfaticEditor.getSession().setMode("ace/mode/emfatic");
-    flexmiEditor.getSession().setMode("ace/mode/xml");
-    secondEmfaticEditor.getSession().setMode("ace/mode/emfatic");
-    secondFlexmiEditor.getSession().setMode("ace/mode/xml");
-    consoleEditor.setReadOnly(true);
+        programEditor = ace.edit(document.getElementById('programEditor'));
+        flexmiEditor = ace.edit(document.getElementById('flexmiEditor'));
+        emfaticEditor = ace.edit(document.getElementById('emfaticEditor'));
+        secondFlexmiEditor = ace.edit(document.getElementById('secondFlexmiEditor'));
+        secondEmfaticEditor = ace.edit(document.getElementById('secondEmfaticEditor'));
+        consoleEditor = ace.edit(document.getElementById('console'));
 
-    editors.forEach(e => e.getSession().on('change', function() { updateExampleLink(); }));
+        editors = [programEditor, flexmiEditor, emfaticEditor, secondFlexmiEditor, secondEmfaticEditor, consoleEditor];
 
-   
-    //console.log(language);
-    arrangePanels();
-    console.log(btoa(JSON.stringify({"language":"evl"})));
+        editors.forEach(e => e.setShowPrintMargin(false));
 
-    //TODO: Fix "undefined" when fields are empty
-    programEditor.getSession().setMode("ace/mode/" + language);
-    programEditor.setValue(json.program + "", 1);
-    flexmiEditor.setValue(json.flexmi + "", 1);
-    emfaticEditor.setValue(json.emfatic + "", 1);
-    secondFlexmiEditor.setValue(json.secondFlexmi + "", 1);
-    secondEmfaticEditor.setValue(json.secondEmfatic + "", 1);
-    consoleEditor.setValue("",1);
-    
-    //document.getElementById("secondModelSplitter").style.display = "none";
-    //document.getElementById("secondMetamodelDiagram").style.display = "none";
-    //toggle("secondModelPanel", function(){window.alert();});
+        emfaticEditor.getSession().setMode("ace/mode/emfatic");
+        flexmiEditor.getSession().setMode("ace/mode/xml");
+        secondEmfaticEditor.getSession().setMode("ace/mode/emfatic");
+        secondFlexmiEditor.getSession().setMode("ace/mode/xml");
+        consoleEditor.setReadOnly(true);
+       
+        arrangePanels();
 
-    setInterval(fit, 100);
+        programPanelButtons = getProgramPanelButtons();
+        $('#programPanel')[0].dataset.customButtons = "programPanelButtons";
 
-    function updateExampleLink() {
-        document.getElementById('exampleLink').href = "?" + btoa(editorsToJson());
+        secondModelPanelButtons = getSecondModelPanelButtons();
+        $('#secondModelPanel')[0].dataset.customButtons = "secondModelPanelButtons";
+        
+        //TODO: Fix "undefined" when fields are empty
+        programEditor.getSession().setMode("ace/mode/" + language);
+        programEditor.setValue(json.program + "", 1);
+        flexmiEditor.setValue(json.flexmi + "", 1);
+        emfaticEditor.setValue(json.emfatic + "", 1);
+        secondFlexmiEditor.setValue(json.secondFlexmi + "", 1);
+        secondEmfaticEditor.setValue(json.secondEmfatic + "", 1);
+        consoleEditor.setValue("",1);
+        
+        //document.getElementById("secondModelSplitter").style.display = "none";
+        //document.getElementById("secondMetamodelDiagram").style.display = "none";
+        //toggle("secondModelPanel", function(){window.alert();});
+
+        setInterval(fit, 100);
+    }
+
+    function about(event) {
+        event.preventDefault();
+        $('#about-info-box').data('infobox').open();
+    }
+
+    function copyShortenedLink(event) {
+        event.preventDefault();
+        var content = btoa(editorsToJson());
+        var xhr = new XMLHttpRequest();
+        //var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-eol";
+        //var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-epsilon";
+        var url = "http://localhost:8080";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var json = JSON.parse(xhr.responseText);
+
+                    if (questionMark > 0) {
+                        var baseUrl = (window.location+"").substring(0, questionMark);
+                    }
+                    else {
+                        baseUrl = window.location;
+                    }
+                    
+                    copyToClipboard(baseUrl + "?" + json.shortened);
+                }
+                Metro.notify.killAll();
+                Metro.notify.create("Link copied to clipboard.", null, {cls: "success"});
+            }
+        };
+        var data = JSON.stringify({"content": content});
+        xhr.send(data);
+        longNotification("Generating short link");
+        return false;
+    }
+
+    function getProgramPanelButtons() {
+        return [{
+            html: buttonHtml("help", languageName + " language reference"),
+            cls: "sys-button",
+            onclick: "window.open('https://www.eclipse.org/epsilon/doc/'+language);"
+        },{
+            html: buttonHtml("play", "Run the program"),
+            cls: "success",
+            onclick: "runProgram()"
+        }];
+    }
+
+    function getSecondModelPanelButtons() {
+        return secondModelEditable ? [{
+            html: buttonHtml("help", "Flexmi language reference"),
+            cls: "sys-button",
+            onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
+        },{
+            html: buttonHtml("refresh", "Render the model diagram"),
+            cls: "sys-button",
+            onclick: "refreshSecondModelDiagram()"
+        },{
+            html: buttonHtml("tree", "Show/hide the model diagram"),
+            cls: "sys-button",
+            onclick: "toggle('secondModelDiagram', function(){})"
+        }] : [];
+    }
+
+    function copyToClipboard(str) {
+        var el = document.createElement('textarea');
+        el.value = str;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
     }
 
     function arrangePanels() {
+        console.log("Language: " + language);
         if (language == "eol") {
             toggle("secondModelSplitter");
             toggle("thirdModelSplitter");
             setPanelTitle("programPanel", "Program");
         }
-        else if (language == "eol" || language == "egl") {
+        else if (language == "egl") {
             toggle("secondModelSplitter");
             toggle("thirdModelSplitter");
             setPanelTitle("programPanel", "Template");
@@ -409,8 +493,12 @@
         };
         var data = editorsToJson();
         xhr.send(data);
-        Metro.notify.create("Executing program...", null, {keepOpen: true, cls: "yellow"});
+        longNotification("Executing program");
 	}
+
+    function longNotification(title, cls="yellow") {
+        Metro.notify.create(/*"This may take a few seconds to complete.",*/ "<b>" + title + "...</b><br>This may take a few seconds to complete.", null, {keepOpen: true, cls: cls, width: 300});
+    }
 
     function refreshModelDiagram() {
         refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-graphviz",
@@ -466,8 +554,7 @@
         };
         var data = modelToJson(modelEditor, metamodelEditor);
         xhr.send(data);
-
-        Metro.notify.create("Rendering " + diagramName + " diagram...", null, {keepOpen: true, cls: "yellow"});
+        longNotification("Rendering " + diagramName + " diagram");
     }
 
     function renderDiagram(diagramId, graphviz, engine) {
