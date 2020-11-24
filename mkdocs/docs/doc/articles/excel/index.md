@@ -7,7 +7,10 @@ Epsilon provides built-in support for querying and transforming Excel spreadshee
 <iframe width="100%" height="494" src="https://www.youtube.com/embed/tTYGwgzxPMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ??? info "Citing the Excel EMC driver in a publication?"
-	If you are referring to Epsilon's Excel EMC driver in a publication, please cite [this paper](https://link.springer.com/chapter/10.1007/978-3-642-41533-3_3) instead of the website URL.
+    If you are referring to Epsilon's Excel EMC driver in a publication, please cite [this paper](https://link.springer.com/chapter/10.1007/978-3-642-41533-3_3) instead of the website URL.
+
+??? bug "Regression in Epsilon 2.2"
+    Due to a regression, the Excel driver is broken in Epsilon 2.2. The driver works well in previous versions (e.g. 2.1) as well as in the latest interim version.
 
 ## Worksheets, Columns and Rows
 
