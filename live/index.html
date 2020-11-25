@@ -174,7 +174,7 @@
                 <p>The Epsilon Playground is a web application for fiddling with metamodelling, modelling and automated model management using <a href="https://eclipse.org/emfatic">Emfatic</a>, <a href="https://eclipse.org/epsilon/doc/flexmi">Flexmi</a> and the languages of the <a href="https://eclipse.org/epsilon">Epsilon</a> platform. Its back-end is implemented using <a href="https://cloud.google.com/functions">Google Cloud Platform Functions</a> and the front-end builds heavily on the <a href="https://metroui.org.ua">Metro 4</a> framework. Diagrams are rendered using the <a href="https://github.com/magjac/d3-graphviz">d3-grapvhiz</a> Javascript library.</p>
                 <h4>Saving and sharing your work</h4>
                 <p>
-                To save or share your work, please click the "Share" button. This will create short link that you can copy to your clipboard. Please note that the contents of your editors <b>will be stored in the back-end of the Epsilon Playground</b> so that they can be retrieved when you visit that link again later.
+                To save or share your work, please click the "Share" button. This will create a short link that you can copy to your clipboard. Please note that the contents of your editors <b>will be stored in the back-end of the Epsilon Playground</b> so that they can be retrieved when you visit that link again later.
                 </p>
                 <h4>Fair usage policy</h4>
                 <p>
@@ -293,8 +293,8 @@
         //document.getElementById("secondMetamodelDiagram").style.display = "none";
         //toggle("secondModelPanel", function(){window.alert();});
 
-        setInterval(fit, 100);
         document.getElementById("navview").style.display = "block";
+        setInterval(fit, 100);
     }
 
     function about(event) {
