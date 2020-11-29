@@ -7,7 +7,7 @@ While Epsilon's development tools are based on Eclipse, its runtime is not, and 
 
 ## Dependencies
 
-Epsilon libraries are available on [MavenCentral](https://mvnrepository.com/artifact/org.eclipse.epsilon). Below is a fragment of a `pom.xml` file, where we declare dependencies to the execution engine of Epsilon's [core expression language](../../eol) and on Epsilon's driver for EMF-based models. As the EMF driver has a dependency on EMF, we don't need to declare a dependency to the EMF libraries on MavenCentral; Maven will fetch these automatically for us.
+Epsilon libraries are available on [MavenCentral](https://mvnrepository.com/artifact/org.eclipse.epsilon). Below is a fragment of a Maven `pom.xml` file, where we declare dependencies to the execution engine of Epsilon's [core expression language](../../eol) and on Epsilon's driver for EMF-based models. As the EMF driver has a dependency on EMF, we don't need to declare a dependency to the EMF libraries on MavenCentral; Maven will fetch these automatically for us.
 
 ```xml
 <dependencies>
