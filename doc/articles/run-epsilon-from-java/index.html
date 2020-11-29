@@ -1030,7 +1030,7 @@
 <p>Contrary to popular belief, EMF is <strong>not</strong> tightly coupled to the Eclipse IDE at all either, and can also be embedded in any Java application by importing a couple of dependencies from <a href="https://mvnrepository.com/artifact/org.eclipse.emf">MavenCentral</a>.</p>
 </div>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
-<p>Epsilon libraries are available on <a href="https://mvnrepository.com/artifact/org.eclipse.epsilon">MavenCentral</a>. Below is a simplified subset of a <code>pom.xml</code> file, where we declare depenencies to the execution engine of Epsilon's <a href="../../eol">core expression language</a> and on Epsilon's driver for EMF-based models. As the EMF driver has a dependency on EMF, we don't need to declare a dependency to the EMF libraries on MavenCentral; Maven will fetch these automatically for us.</p>
+<p>Epsilon libraries are available on <a href="https://mvnrepository.com/artifact/org.eclipse.epsilon">MavenCentral</a>. Below is a simplified subset of a <code>pom.xml</code> file, where we declare dependencies to the execution engine of Epsilon's <a href="../../eol">core expression language</a> and on Epsilon's driver for EMF-based models. As the EMF driver has a dependency on EMF, we don't need to declare a dependency to the EMF libraries on MavenCentral; Maven will fetch these automatically for us.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
