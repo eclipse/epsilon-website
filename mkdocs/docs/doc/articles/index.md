@@ -8,6 +8,7 @@ This page contains an index of articles presenting a range of tools and language
 - [EOL syntax updates](eol-syntax-updates): This article summarizes changes in the EOL concrete syntax over time.
 - [Extended Properties](extended-properties): This article demonstrates the extended properties mechanism in EOL (and by inheritance, in all languages in Epsilon).
 - [Call Java from Epsilon](call-java-from-epsilon): This article demonstrates how to create Java objects, access their properties and call their methods from Epsilon languages.
+- [Running Epsilon from Java](run-epsilon-from-java): This article demonstrates how to parse and execute Epsilon programs and load models from headless Java applications.
 - [Call Java functional interfaces from Epsilon](lambda-expressions): This article demonstrates how to call native methods which take functions as their parameter, using lambdas and streams directly from Epsilon using EOL syntax.
 - [Profiling Epsilon Programs](profiling): This article demonstrates how to profile Epsilon programs using the platform's built-in profiling tools.
 - [EOL Interpreter View](eol-interpreter-view): This article demonstrates an Eclipse view for running EOL scripts against selected model elements in EMF-based editors.
