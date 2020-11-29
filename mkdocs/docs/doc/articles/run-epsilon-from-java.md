@@ -3,25 +3,23 @@
 While Epsilon's development tools are based on Eclipse, its runtime is not, and can be used from any (headless) Java application. For example, the back-end of the [Epsilon Playground](../../../live) is a headless, server-less Java application that runs on Google's Cloud Platform.
 
 !!! info "Did you know that ..."
-    Contrary to popular belief, EMF is **not** tightly coupled to the Eclipse IDE at all either, and can also be embedded in any Java application by importing a couple of dependencies from [MavenCentral](https://mvnrepository.com/artifact/org.eclipse.emf).
+    Contrary to popular belief, EMF is **not** tightly coupled to the Eclipse IDE either, and can also be embedded in any Java application by importing a couple of dependencies from [MavenCentral](https://mvnrepository.com/artifact/org.eclipse.emf).
 
 ## Dependencies
 
-Epsilon libraries are available on [MavenCentral](https://mvnrepository.com/artifact/org.eclipse.epsilon). Below is a simplified subset of a `pom.xml` file, where we declare dependencies to the execution engine of Epsilon's [core expression language](../../eol) and on Epsilon's driver for EMF-based models. As the EMF driver has a dependency on EMF, we don't need to declare a dependency to the EMF libraries on MavenCentral; Maven will fetch these automatically for us.
+Epsilon libraries are available on [MavenCentral](https://mvnrepository.com/artifact/org.eclipse.epsilon). Below is a fragment of a `pom.xml` file, where we declare dependencies to the execution engine of Epsilon's [core expression language](../../eol) and on Epsilon's driver for EMF-based models. As the EMF driver has a dependency on EMF, we don't need to declare a dependency to the EMF libraries on MavenCentral; Maven will fetch these automatically for us.
 
 ```xml
 <dependencies>
 	<dependency>
 		<groupId>org.eclipse.epsilon</groupId>
 		<artifactId>org.eclipse.epsilon.emc.emf</artifactId>
-		<version>2.3.0-SNAPSHOT</version>
-		<scope>compile</scope>
+		<version>2.2.0</version>
 	</dependency>
 	<dependency>
 		<groupId>org.eclipse.epsilon</groupId>
 		<artifactId>org.eclipse.epsilon.eol.engine</artifactId>
-		<version>2.3.0-SNAPSHOT</version>
-		<scope>compile</scope>
+		<version>2.2.0</version>
 	</dependency>
 	...
 </dependencies>
