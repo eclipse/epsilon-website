@@ -1027,22 +1027,20 @@
 <p>While Epsilon's development tools are based on Eclipse, its runtime is not, and can be used from any (headless) Java application. For example, the back-end of the <a href="../../../live">Epsilon Playground</a> is a headless, server-less Java application that runs on Google's Cloud Platform.</p>
 <div class="admonition info">
 <p class="admonition-title">Did you know that ...</p>
-<p>Contrary to popular belief, EMF is <strong>not</strong> tightly coupled to the Eclipse IDE at all either, and can also be embedded in any Java application by importing a couple of dependencies from <a href="https://mvnrepository.com/artifact/org.eclipse.emf">MavenCentral</a>.</p>
+<p>Contrary to popular belief, EMF is <strong>not</strong> tightly coupled to the Eclipse IDE either, and can also be embedded in any Java application by importing a couple of dependencies from <a href="https://mvnrepository.com/artifact/org.eclipse.emf">MavenCentral</a>.</p>
 </div>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
-<p>Epsilon libraries are available on <a href="https://mvnrepository.com/artifact/org.eclipse.epsilon">MavenCentral</a>. Below is a simplified subset of a <code>pom.xml</code> file, where we declare dependencies to the execution engine of Epsilon's <a href="../../eol">core expression language</a> and on Epsilon's driver for EMF-based models. As the EMF driver has a dependency on EMF, we don't need to declare a dependency to the EMF libraries on MavenCentral; Maven will fetch these automatically for us.</p>
+<p>Epsilon libraries are available on <a href="https://mvnrepository.com/artifact/org.eclipse.epsilon">MavenCentral</a>. Below is a fragment of a <code>pom.xml</code> file, where we declare dependencies to the execution engine of Epsilon's <a href="../../eol">core expression language</a> and on Epsilon's driver for EMF-based models. As the EMF driver has a dependency on EMF, we don't need to declare a dependency to the EMF libraries on MavenCentral; Maven will fetch these automatically for us.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.emc.emf<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>2.3.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;version&gt;</span>2.2.0<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.eol.engine<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>2.3.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;version&gt;</span>2.2.0<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
     ...
 <span class="nt">&lt;/dependencies&gt;</span>
