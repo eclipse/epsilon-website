@@ -25,7 +25,7 @@ Download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer) and
 - **Extensible:** Almost every aspect of Epsilon is extensible. You can add support for your [own type of models](doc/articles/developing-a-new-emc-driver), extend the Eclipse-based development tools, add a new method to the String type, or even implement [your own model management language](doc/articles/developing-a-new-language) on top of EOL.
 - **Java is your friend:** You can call methods of Java classes from all Epsilon programs to reuse code you have already written or to perform tasks that Epsilon languages do not support natively.
 - **Parallel execution:** Since 2.0, Epsilon is multi-threaded, which includes first-order operations and some of the rule-based languages, making it faster than other interpreted tools.
-- **All questions answered:** The [Epsilon forum](forum) contains more than 7000 posts and we're proud that no question has ever gone unanswered.
+- **All questions answered:** The [Epsilon forum](forum) contains more than 9,500 posts and we're proud that no question has ever gone unanswered.
 - **We're working on it:** Epsilon has been an Eclipse project since 2006 and it's not going away any time soon.
 
 ## License
