@@ -641,6 +641,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#yaml-flavour" class="md-nav__link">
+    YAML Flavour
+  </a>
+  
+    <nav class="md-nav" aria-label="YAML Flavour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limitations_1" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     Resources
   </a>
@@ -1283,6 +1303,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#yaml-flavour" class="md-nav__link">
+    YAML Flavour
+  </a>
+  
+    <nav class="md-nav" aria-label="YAML Flavour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limitations_1" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     Resources
   </a>
@@ -1553,6 +1593,51 @@ class Skill {
 <li>Flexmi resources can't be saved programmatically (i.e. trying to call <code>resource.save(...)</code> will do nothing).</li>
 <li>There is no code completion in the Flexmi editor at the moment.</li>
 </ul>
+<h2 id="yaml-flavour">YAML Flavour<a class="headerlink" href="#yaml-flavour" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Experimental Feature</p>
+<p>This is an experimental feature under active development. The YAML-based flavour of Flexmi may not support all valid YAML and may change in breaking ways in future versions of Epsilon.</p>
+</div>
+<p>Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">project</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ACME</span>
+  <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alice</span>
+  <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bob</span>
+  <span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Analysis</span>
+    <span class="p p-Indicator">-</span> <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dur</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+    <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alice</span>
+  <span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Design</span>
+    <span class="p p-Indicator">-</span> <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dur</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+    <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bob</span>
+  <span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Implementation</span>
+    <span class="p p-Indicator">-</span> <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
+    <span class="p p-Indicator">-</span> <span class="nt">dur</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+    <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bob</span>
+      <span class="p p-Indicator">-</span> <span class="nt">perc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+    <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alice</span>
+      <span class="p p-Indicator">-</span> <span class="nt">perc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+</code></pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tabs vs. Spaces</p>
+<p>If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not incidentally used tabs instead of spaces for indentation.</p>
+</div>
+<p>The Flexmi parser auto-detects whether a file is XML-based or YAML-based and parses it accordingly. As such, you should be able to edit YAML-flavoured <code>*.flexmi</code> files in the Flexmi editor. Additional examples of YAML-flavoured Flexmi models are available in this <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.flexmi.test/src/org/eclipse/epsilon/flexmi/test/models">test project</a> (look for <code>*.yaml</code> files).</p>
+<h3 id="limitations_1">Limitations<a class="headerlink" href="#limitations_1" title="Permanent link">&para;</a></h3>
+<p>The Flexmi editor does not yet offer syntax highlighting, error reporting, or synchronisation with the Outline view for the YAML flavour.</p>
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <ul>
 <li>More examples of using Flexmi can be found in projects containing <code>flexmi</code> in their name, under the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples">examples folder</a> of Epsilon's Git repository.</li>
