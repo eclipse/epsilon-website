@@ -336,7 +336,7 @@ Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent fo
 ```
 
 !!! tip "Tabs vs. Spaces"
-    If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not incidentally used tabs instead of spaces for indentation.
+    If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not accidentally used tabs instead of spaces for indentation.
 
 The Flexmi parser auto-detects whether a file is XML-based or YAML-based and parses it accordingly. As such, you should be able to edit YAML-flavoured `*.flexmi` files in the Flexmi editor. Additional examples of YAML-flavoured Flexmi models are available in this [test project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.flexmi.test/src/org/eclipse/epsilon/flexmi/test/models) (look for `*.yaml` files).
 
