@@ -295,6 +295,55 @@ Flexmi was originally developed as a quick and dirty way to type in EMF models w
 - Flexmi resources can't be saved programmatically (i.e. trying to call `resource.save(...)` will do nothing).
 - There is no code completion in the Flexmi editor at the moment.
 
+## YAML Flavour
+
+!!! warning "Experimental Feature"
+    This is an experimental feature under active development. The YAML-based flavour of Flexmi may not support all valid YAML and may change in breaking ways in future versions of Epsilon.
+
+Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.
+
+```yaml
+- ?nsuri: psl
+
+- project:
+  - name: ACME
+  - person:
+    - name: Alice
+  - person:
+    - name: Bob
+  - task:
+    - title: Analysis
+    - start: 1
+    - dur: 3
+    - effort:
+      - person: Alice
+  - task:
+    - title: Design
+    - start: 4
+    - dur: 6
+    - effort:
+      - person: Bob
+  - task:
+    - title: Implementation
+    - start: 7
+    - dur: 3
+    - effort:
+      - person: Bob
+      - perc: 50
+    - effort:
+      - person: Alice
+      - perc: 50
+```
+
+!!! tip "Tabs vs. Spaces"
+    If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not incidentally used tabs instead of spaces for indentation.
+
+The Flexmi parser auto-detects whether a file is XML-based or YAML-based and parses it accordingly. As such, you should be able to edit YAML-flavoured `*.flexmi` files in the Flexmi editor. Additional examples of YAML-flavoured Flexmi models are available in this [test project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.flexmi.test/src/org/eclipse/epsilon/flexmi/test/models) (look for `*.yaml` files).
+
+### Limitations
+
+The Flexmi editor does not yet offer syntax highlighting, error reporting, or synchronisation with the Outline view for the YAML flavour.
+
 ## Resources
 
 - More examples of using Flexmi can be found in projects containing `flexmi` in their name, under the [examples folder](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples) of Epsilon's Git repository.
