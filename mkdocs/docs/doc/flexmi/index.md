@@ -302,37 +302,30 @@ Flexmi was originally developed as a quick and dirty way to type in EMF models w
 
 Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.
 
-```yaml
-- ?nsuri: psl
 
-- project:
-  - name: ACME
-  - person:
-    - name: Alice
-  - person:
-    - name: Bob
-  - task:
-    - title: Analysis
-    - start: 1
-    - dur: 3
-    - effort:
-      - person: Alice
-  - task:
-    - title: Design
-    - start: 4
-    - dur: 6
-    - effort:
-      - person: Bob
-  - task:
-    - title: Implementation
-    - start: 7
-    - dur: 3
-    - effort:
-      - person: Bob
-      - perc: 50
-    - effort:
-      - person: Alice
-      - perc: 50
+
+```yaml
+?nsuri: psl
+project:
+- name: ACME
+- person: {name: Alice}
+- person: {name: Bob}
+- task:
+  - title: Analysis
+  - start: 1
+  - dur: 3
+  - effort: {person: Alice}
+- task:
+  - title: Design
+  - start: 4
+  - dur: 6
+  - effort: {person: Bob}
+- task:
+  - title: Implementation
+  - start: 7
+  - dur: 3
+  - effort: {person: Bob, perc: 50}
+  - effort: {person: Alice, perc: 50}
 ```
 
 !!! tip "Tabs vs. Spaces"
