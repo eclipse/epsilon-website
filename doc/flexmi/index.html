@@ -1599,36 +1599,27 @@ class Skill {
 <p>This is an experimental feature under active development. The YAML-based flavour of Flexmi may not support all valid YAML and may change in breaking ways in future versions of Epsilon.</p>
 </div>
 <p>Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
-
-<span class="p p-Indicator">-</span> <span class="nt">project</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ACME</span>
-  <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alice</span>
-  <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bob</span>
-  <span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Analysis</span>
-    <span class="p p-Indicator">-</span> <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="p p-Indicator">-</span> <span class="nt">dur</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-    <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alice</span>
-  <span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Design</span>
-    <span class="p p-Indicator">-</span> <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-    <span class="p p-Indicator">-</span> <span class="nt">dur</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
-    <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bob</span>
-  <span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Implementation</span>
-    <span class="p p-Indicator">-</span> <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
-    <span class="p p-Indicator">-</span> <span class="nt">dur</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-    <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bob</span>
-      <span class="p p-Indicator">-</span> <span class="nt">perc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
-    <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alice</span>
-      <span class="p p-Indicator">-</span> <span class="nt">perc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
+<span class="nt">project</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ACME</span>
+<span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span> <span class="nv">Alice</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span> <span class="nv">Bob</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Analysis</span>
+  <span class="p p-Indicator">-</span> <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="p p-Indicator">-</span> <span class="nt">dur</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+  <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Alice</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Design</span>
+  <span class="p p-Indicator">-</span> <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+  <span class="p p-Indicator">-</span> <span class="nt">dur</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6</span>
+  <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Bob</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="nt">task</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Implementation</span>
+  <span class="p p-Indicator">-</span> <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7</span>
+  <span class="p p-Indicator">-</span> <span class="nt">dur</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+  <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Bob</span><span class="p p-Indicator">,</span><span class="nt"> perc</span><span class="p">:</span> <span class="nv">50</span><span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Alice</span><span class="p p-Indicator">,</span><span class="nt"> perc</span><span class="p">:</span> <span class="nv">50</span><span class="p p-Indicator">}</span>
 </code></pre></div>
 
 <div class="admonition tip">
