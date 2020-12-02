@@ -335,7 +335,7 @@ The Flexmi parser auto-detects whether a file is XML-based or YAML-based and par
 
 ### Limitations
 
-The Flexmi editor does not yet offer syntax highlighting, error reporting, or synchronisation with the Outline view for the YAML flavour.
+The Flexmi editor does not yet offer error reporting or synchronisation with the Outline view for the YAML flavour.
 
 ## Resources
 
