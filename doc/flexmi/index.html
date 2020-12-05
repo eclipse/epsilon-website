@@ -627,6 +627,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#yaml-flavour" class="md-nav__link">
+    YAML Flavour
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#philosophy" class="md-nav__link">
     Philosophy
   </a>
@@ -637,26 +644,6 @@
   <a href="#limitations" class="md-nav__link">
     Limitations
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yaml-flavour" class="md-nav__link">
-    YAML Flavour
-  </a>
-  
-    <nav class="md-nav" aria-label="YAML Flavour">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#limitations_1" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1289,6 +1276,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#yaml-flavour" class="md-nav__link">
+    YAML Flavour
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#philosophy" class="md-nav__link">
     Philosophy
   </a>
@@ -1299,26 +1293,6 @@
   <a href="#limitations" class="md-nav__link">
     Limitations
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yaml-flavour" class="md-nav__link">
-    YAML Flavour
-  </a>
-  
-    <nav class="md-nav" aria-label="YAML Flavour">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#limitations_1" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1586,13 +1560,6 @@ class Skill {
 <h2 id="converting-to-xmi">Converting to XMI<a class="headerlink" href="#converting-to-xmi" title="Permanent link">&para;</a></h2>
 <p>You can convert a Flexmi model to standard XMI (with no templates, executable attributes etc.) by right-clicking on it in the Project Explorer view and selecting <code>Generate XMI</code>.</p>
 <p>Converting an XMI model to Flexmi on the other hand is not supported as there's no unique mapping in this direction.</p>
-<h2 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h2>
-<p>Flexmi was originally developed as a quick and dirty way to type in EMF models without having to define an Xtext grammar or adhere to the rigid naming rules of XMI or HUTN. The name is a combination of the word "flexible" and the "XMI" acronym.</p>
-<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Flexmi resources can't be saved programmatically (i.e. trying to call <code>resource.save(...)</code> will do nothing).</li>
-<li>There is no code completion in the Flexmi editor at the moment.</li>
-</ul>
 <h2 id="yaml-flavour">YAML Flavour<a class="headerlink" href="#yaml-flavour" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Experimental Feature</p>
@@ -1627,8 +1594,13 @@ class Skill {
 <p>If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not accidentally used tabs instead of spaces for indentation.</p>
 </div>
 <p>The Flexmi parser auto-detects whether a file is XML-based or YAML-based and parses it accordingly. As such, you should be able to edit YAML-flavoured <code>*.flexmi</code> files in the Flexmi editor. Additional examples of YAML-flavoured Flexmi models are available in this <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.flexmi.test/src/org/eclipse/epsilon/flexmi/test/models">test project</a> (look for <code>*.yaml</code> files).</p>
-<h3 id="limitations_1">Limitations<a class="headerlink" href="#limitations_1" title="Permanent link">&para;</a></h3>
-<p>The Flexmi editor does not yet offer error reporting or synchronisation with the Outline view for the YAML flavour.</p>
+<h2 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h2>
+<p>Flexmi was originally developed as a quick and dirty way to type in EMF models without having to define an Xtext grammar or adhere to the rigid naming rules of XMI or HUTN. The name is a combination of the word "flexible" and the "XMI" acronym.</p>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Flexmi resources can't be saved programmatically (i.e. trying to call <code>resource.save(...)</code> will do nothing).</li>
+<li>There is no code completion in the Flexmi editor at the moment.</li>
+</ul>
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <ul>
 <li>More examples of using Flexmi can be found in projects containing <code>flexmi</code> in their name, under the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples">examples folder</a> of Epsilon's Git repository.</li>
