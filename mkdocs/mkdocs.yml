@@ -171,3 +171,6 @@ extra_javascript:
   - 'assets/javascript/google-code-prettify/lang-emfatic.js'
   - 'assets/javascript/google-code-prettify/lang-epsilon.js'
   - 'assets/javascript/google-code-prettify/prettyprint.js'
+google_analytics:
+  - G-WFEL0DDCK2
+  - auto
