@@ -1593,6 +1593,20 @@ class Skill {
   <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Alice</span><span class="p p-Indicator">,</span><span class="nt"> perc</span><span class="p">:</span> <span class="nv">50</span><span class="p p-Indicator">}</span>
 </code></pre></div>
 
+<p>For multi-valued attributes and non-containment references, comma-separated values, or lists of scalars can be used as shown below.</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
+<span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alice</span> 
+  <span class="p p-Indicator">-</span> <span class="nt">skills</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Java, HTML</span> <span class="c1"># Comma-separated</span>
+<span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Bob</span>
+  <span class="p p-Indicator">-</span> <span class="nt">skills</span><span class="p">:</span> <span class="c1"># List of scalars</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Java</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">HTML</span>
+<span class="p p-Indicator">-</span> <span class="nt">skill</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span> <span class="nv">Java</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span> <span class="nt">skill</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span> <span class="nv">HTML</span><span class="p p-Indicator">}</span>
+</code></pre></div>
+
 <div class="admonition tip">
 <p class="admonition-title">Tabs vs. Spaces</p>
 <p>If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not accidentally used tabs instead of spaces for indentation.</p>
