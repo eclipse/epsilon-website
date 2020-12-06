@@ -317,6 +317,22 @@ project:
   - effort: {person: Alice, perc: 50}
 ```
 
+For multi-valued attributes and non-containment references, comma-separated values, or lists of scalars can be used as shown below.
+
+```yaml
+- ?nsuri: psl
+- person:
+  - name: Alice 
+  - skills: Java, HTML # Comma-separated
+- person:
+  - name: Bob
+  - skills: # List of scalars
+      - Java
+      - HTML
+- skill: {name: Java}
+- skill: {name: HTML}
+```
+
 !!! tip "Tabs vs. Spaces"
     If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not accidentally used tabs instead of spaces for indentation.
 
