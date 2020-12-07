@@ -635,6 +635,19 @@
     YAML Flavour
   </a>
   
+    <nav class="md-nav" aria-label="YAML Flavour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-templates-in-yaml" class="md-nav__link">
+    Dynamic Templates in YAML
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1284,6 +1297,19 @@
     YAML Flavour
   </a>
   
+    <nav class="md-nav" aria-label="YAML Flavour">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-templates-in-yaml" class="md-nav__link">
+    Dynamic Templates in YAML
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1568,7 +1594,7 @@ class Skill {
 <p>Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The YAML flavour of Flexmi supports all the features of the XML flavour (including templates with slots and executable attributes), but not <a href="#dynamic-templates-and-slots">dynamic templates</a> at the moment.</p>
+<p>The YAML flavour of Flexmi supports all the features of the XML flavour, including <a href="#reusable-templates">plain</a> and <a href="#dynamic-templates-and-slots">dynamic templates</a>, and <a href="#executable-attributes">executable attributes</a>.</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
 <span class="nt">project</span><span class="p">:</span>
@@ -1612,6 +1638,32 @@ class Skill {
 <p>If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not accidentally used tabs instead of spaces for indentation.</p>
 </div>
 <p>The Flexmi parser auto-detects whether a file is XML-based or YAML-based and parses it accordingly. As such, you should be able to edit YAML-flavoured <code>*.flexmi</code> files in the Flexmi editor. Additional examples of YAML-flavoured Flexmi models are available in this <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.flexmi.test/src/org/eclipse/epsilon/flexmi/test/models">test project</a> (look for <code>*.yaml</code> files).</p>
+<h3 id="dynamic-templates-in-yaml">Dynamic Templates in YAML<a class="headerlink" href="#dynamic-templates-in-yaml" title="Permanent link">&para;</a></h3>
+<p>The YAML flavour requires a <code>script</code> attribute to the <code>content</code> of dynamic templates, that holds the EGL script used to dynamically produce the YAML content. The YAML equivalent of the XML-based dynamic template <a href="#dynamic-templates-and-slots">shown above</a> is as follows.</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">project</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ACME</span>
+  <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alice</span>
+  <span class="p p-Indicator">-</span> <span class="nt">longtask</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Implementation</span>
+    <span class="p p-Indicator">-</span> <span class="nt">years</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+    <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Alice</span>
+
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">:template</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">longtask</span>
+  <span class="p p-Indicator">-</span> <span class="nt">parameter</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">years</span>
+  <span class="p p-Indicator">-</span> <span class="nt">content</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">EGL</span>
+    <span class="p p-Indicator">-</span> <span class="nt">script</span><span class="p">:</span> <span class="p p-Indicator">|-</span> <span class="c1"># Multi-line EGL script</span>
+       <span class="no">- task:</span>
+         <span class="no">- duration: [%=years.asInteger()*12%]</span>
+         <span class="no">- :slot</span>
+</code></pre></div>
+
 <h2 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h2>
 <p>Flexmi was originally developed as a quick and dirty way to type in EMF models without having to define an Xtext grammar or adhere to the rigid naming rules of XMI or HUTN. The name is a combination of the word "flexible" and the "XMI" acronym.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
