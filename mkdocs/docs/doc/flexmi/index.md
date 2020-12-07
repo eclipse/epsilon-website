@@ -340,7 +340,7 @@ The Flexmi parser auto-detects whether a file is XML-based or YAML-based and par
 
 ### Dynamic Templates in YAML
 
-The YAML flavour requires a `script` attribute to the `content` of dynamic templates, that holds the EGL script used to dynamically produce the YAML content. The YAML equivalent of the XML-based dynamic template [shown above](#dynamic-templates-and-slots) is as follows.
+The YAML flavour requires a `script` attribute in the `content` of dynamic templates, that holds the EGL script used to dynamically produce the YAML content. The YAML equivalent of the XML-based dynamic template [shown above](#dynamic-templates-and-slots) is as follows.
 
 ```yaml
 - ?nsuri: psl
