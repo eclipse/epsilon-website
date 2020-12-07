@@ -291,7 +291,7 @@ Converting an XMI model to Flexmi on the other hand is not supported as there's 
 Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.
 
 !!! info
-    The YAML flavour of Flexmi supports all the features of the XML flavour (including templates with slots and executable attributes), but not [dynamic templates](#dynamic-templates-and-slots) at the moment.
+    The YAML flavour of Flexmi supports all the features of the XML flavour, including [plain](#reusable-templates) and [dynamic templates](#dynamic-templates-and-slots), and [executable attributes](#executable-attributes).
 
 ```yaml
 ?nsuri: psl
@@ -337,6 +337,35 @@ For multi-valued attributes and non-containment references, comma-separated valu
     If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not accidentally used tabs instead of spaces for indentation.
 
 The Flexmi parser auto-detects whether a file is XML-based or YAML-based and parses it accordingly. As such, you should be able to edit YAML-flavoured `*.flexmi` files in the Flexmi editor. Additional examples of YAML-flavoured Flexmi models are available in this [test project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.flexmi.test/src/org/eclipse/epsilon/flexmi/test/models) (look for `*.yaml` files).
+
+### Dynamic Templates in YAML
+
+The YAML flavour requires a `script` attribute to the `content` of dynamic templates, that holds the EGL script used to dynamically produce the YAML content. The YAML equivalent of the XML-based dynamic template [shown above](#dynamic-templates-and-slots) is as follows.
+
+```yaml
+- ?nsuri: psl
+
+- project:
+  - title: ACME
+  - person:
+    - name: Alice
+  - longtask:
+    - title: Implementation
+    - years: 2
+    - effort:
+      - person: Alice
+
+- :template:
+  - name: longtask
+  - parameter:
+    - name: years
+  - content:
+    - language: EGL
+    - script: |- # Multi-line EGL script
+       - task:
+         - duration: [%=years.asInteger()*12%]
+         - :slot
+```
 
 ## Philosophy
 
