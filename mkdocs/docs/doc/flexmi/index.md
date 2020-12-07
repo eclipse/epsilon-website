@@ -1,6 +1,6 @@
 # Flexmi
 
-Flexmi (pronounced *flex-em-eye*) is a **reflective textual syntax for EMF models**. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (`acme.flexmi`):
+Flexmi (pronounced *flex-em-eye*) is a **reflective textual syntax for EMF models**. Flexmi supports an XML-based and a [YAML-based](#yaml-flavour) flavour and offers features such as fuzzy matching of tags and attributes against Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (`acme.flexmi`):
 
 ```xml
 <?nsuri psl?>
@@ -288,10 +288,10 @@ Converting an XMI model to Flexmi on the other hand is not supported as there's 
 
 ## YAML Flavour
 
-!!! warning "Experimental Feature"
-    This is an experimental feature under active development. The YAML-based flavour of Flexmi may not support all valid YAML and may change in breaking ways in future versions of Epsilon. Also, the YAML flavour does not support [templates](#reusable-templates) at the moment.
-
 Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.
+
+!!! info
+    The YAML flavour of Flexmi supports all the features of the XML flavour (including templates with slots and executable attributes), but not [dynamic templates](#dynamic-templates-and-slots) at the moment.
 
 ```yaml
 ?nsuri: psl
