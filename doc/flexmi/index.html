@@ -1329,7 +1329,7 @@
                 
                 
                 <h1 id="flexmi">Flexmi<a class="headerlink" href="#flexmi" title="Permanent link">&para;</a></h1>
-<p>Flexmi (pronounced <em>flex-em-eye</em>) is a <strong>reflective textual syntax for EMF models</strong>. Flexmi is XML-based and offers features such as fuzzy matching of XML tags and attributes to Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (<code>acme.flexmi</code>):</p>
+<p>Flexmi (pronounced <em>flex-em-eye</em>) is a <strong>reflective textual syntax for EMF models</strong>. Flexmi supports an XML-based and a <a href="#yaml-flavour">YAML-based</a> flavour and offers features such as fuzzy matching of tags and attributes against Ecore class/feature names, support for embedding EOL expressions in models and for defining and instantiating model element templates. For example, the following XML document (<code>acme.flexmi</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;person</span> <span class="na">name=</span><span class="s">&quot;Alice&quot;</span><span class="nt">/&gt;</span>
@@ -1565,11 +1565,11 @@ class Skill {
 <p>You can convert a Flexmi model to standard XMI (with no templates, executable attributes etc.) by right-clicking on it in the Project Explorer view and selecting <code>Generate XMI</code>.</p>
 <p>Converting an XMI model to Flexmi on the other hand is not supported as there's no unique mapping in this direction.</p>
 <h2 id="yaml-flavour">YAML Flavour<a class="headerlink" href="#yaml-flavour" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Experimental Feature</p>
-<p>This is an experimental feature under active development. The YAML-based flavour of Flexmi may not support all valid YAML and may change in breaking ways in future versions of Epsilon. Also, the YAML flavour does not support <a href="#reusable-templates">templates</a> at the moment.</p>
-</div>
 <p>Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The YAML flavour of Flexmi supports all the features of the XML flavour (including templates with slots and executable attributes), but not <a href="#dynamic-templates-and-slots">dynamic templates</a> at the moment.</p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
 <span class="nt">project</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ACME</span>
