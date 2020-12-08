@@ -22,13 +22,13 @@ operation Integer fib() : Integer {
 Our aim in this example is to enrich the program with profiling statements so that we canget to know how many times the `fib()` operation is executed and how much time each calltakes to execute. To achieve this we modify our program as follows:
 
 ```eol
-var profiler : new Native('org.eclipse.epsilon.eol.tools.ProfilerTool');
-profiler.start('Program');
+var profiler : new Native("org.eclipse.epsilon.eol.tools.ProfilerTool");
+profiler.start("Program");
 15.fib();
 profiler.stop();
 
 operation Integer fib() : Integer {
-  profiler.start('fib',self);
+  profiler.start("fib",self);
   var fib : Integer;
   if (self = 1 or self = 0){ 
     fib = 1;
