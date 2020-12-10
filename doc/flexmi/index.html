@@ -1612,11 +1612,12 @@ class Skill {
 <p>You can convert a Flexmi model to standard XMI (with no templates, executable attributes etc.) by right-clicking on it in the Project Explorer view and selecting <code>Generate XMI</code>.</p>
 <p>Converting an XMI model to Flexmi on the other hand is not supported as there's no unique mapping in this direction.</p>
 <h2 id="yaml-flavour">YAML Flavour<a class="headerlink" href="#yaml-flavour" title="Permanent link">&para;</a></h2>
-<p>Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.</p>
+<p>Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. YAML equivalents for the XML-based model at the top of this page is as follows.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The YAML flavour of Flexmi supports all the features of the XML flavour, including <a href="#reusable-templates">plain</a> and <a href="#dynamic-templates-and-slots">dynamic templates</a>, and <a href="#executable-attributes">executable attributes</a>.</p>
+<p>The YAML flavour of Flexmi supports all the features of the XML flavour, including <a href="#reusable-templates">plain</a> and <a href="#dynamic-templates-and-slots">dynamic templates</a>, and <a href="#executable-attributes">executable attributes</a>. Also, it is worth noting that YAML is a superset of JSON.</p>
 </div>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Indentation-based</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
 <span class="nt">project</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ACME</span>
@@ -1640,6 +1641,37 @@ class Skill {
   <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Alice</span><span class="p p-Indicator">,</span><span class="nt"> perc</span><span class="p">:</span> <span class="nv">50</span><span class="p p-Indicator">}</span>
 </code></pre></div>
 
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Curly brackets-based</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
+<span class="nt">project</span><span class="p">:</span> <span class="p p-Indicator">{</span>
+<span class="nt">  name</span><span class="p">:</span> <span class="nv">ACME</span><span class="p p-Indicator">,</span>
+<span class="nt">  person</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span> <span class="nv">Alice</span><span class="p p-Indicator">},</span>
+<span class="nt">  person</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span> <span class="nv">Bob</span><span class="p p-Indicator">},</span>
+<span class="nt">  task</span><span class="p">:</span> <span class="p p-Indicator">{</span>
+<span class="nt">    title</span><span class="p">:</span> <span class="nv">Analysis</span><span class="p p-Indicator">,</span>
+<span class="nt">    start</span><span class="p">:</span> <span class="nv">1</span><span class="p p-Indicator">,</span>
+<span class="nt">    dur</span><span class="p">:</span> <span class="nv">3</span><span class="p p-Indicator">,</span>
+<span class="nt">    effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Alice</span><span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">},</span>
+<span class="nt">  task</span><span class="p">:</span> <span class="p p-Indicator">{</span>
+<span class="nt">    title</span><span class="p">:</span> <span class="nv">Design</span><span class="p p-Indicator">,</span>
+<span class="nt">    start</span><span class="p">:</span> <span class="nv">4</span><span class="p p-Indicator">,</span>
+<span class="nt">    dur</span><span class="p">:</span> <span class="nv">6</span><span class="p p-Indicator">,</span>
+<span class="nt">    effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Bob</span><span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">},</span>
+<span class="nt">  task</span><span class="p">:</span> <span class="p p-Indicator">{</span>
+<span class="nt">    title</span><span class="p">:</span> <span class="nv">Implementation</span><span class="p p-Indicator">,</span>
+<span class="nt">    start</span><span class="p">:</span> <span class="nv">7</span><span class="p p-Indicator">,</span>
+<span class="nt">    dur</span><span class="p">:</span> <span class="nv">3</span><span class="p p-Indicator">,</span>
+<span class="nt">    effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Bob</span><span class="p p-Indicator">,</span><span class="nt"> perc</span><span class="p">:</span> <span class="nv">50</span><span class="p p-Indicator">},</span>
+<span class="nt">    effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Alice</span><span class="p p-Indicator">,</span><span class="nt"> perc</span><span class="p">:</span> <span class="nv">50</span><span class="p p-Indicator">}</span>
+  <span class="p p-Indicator">}</span>
+<span class="p p-Indicator">}</span>
+</code></pre></div>
+
+</div>
+</div>
 <p>For multi-valued attributes and non-containment references, comma-separated values, or lists of scalars can be used as shown below.</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
 <span class="p p-Indicator">-</span> <span class="nt">person</span><span class="p">:</span>
