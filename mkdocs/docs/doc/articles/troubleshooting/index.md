@@ -12,7 +12,7 @@ If you cannot find the run button in the toolbar of your Eclipse, you need to ac
 
 ## I see no files when I browse for a program/model file
 
-In the dialog that pops up after you have clicked the `Browse` button, please start typing the name of the file you are looking for (or `*` to see all files) in the search box on the top, and files should start appearing under the `Matched items` part of the dialog
+In the dialog that pops up after you have clicked the `Browse` button, please start typing the name of the file you are looking for (or `*` to see all files) in the search box on the top, and files should start appearing under the `Matched items` part of the dialog.
 
 ## Syntax highlighting doesn't work in the Epsilon/Emfatic editors
 
