@@ -42,6 +42,9 @@ This page contains an index of articles presenting a range of tools and language
 - [Parsing XML documents as EMF models with Flexmi](../flexmi): This article demonstrates how you can use Flexmi to parse XML documents in a fuzzy manner as instances of Ecore metamodels.
 - [Modularity Mechanisms in Flexmi](modular-flexmi): This article demonstrates how you can break down Flexmi models over multiple files and use templates to capture complex reusable structures in your models.
 
+## Epsilon and UML models
+- [Managing Profiled UML Models in Epsilon](profiled-uml-models): This article shows how to create and query profiled Eclipse UML models using Epsilon's core language.
+
 ## Epsilon and Simulink models
 
 - [Scripting Simulink models using Epsilon](simulink): In this article we demonstrate how you can query and modify Simulink models in Epsilon.
