@@ -88,6 +88,7 @@ This page contains an index of articles presenting a range of tools and language
 
 ## Technical Support
 
+- [Troubleshooting](troubleshooting): A list of common issues that (particularly new) users of Epsilon tend to run into.
 - [Constructing a helpful minimal example](minimal-examples): From time to time, you may run into a problem when using Epsilon or find a bug. This article describes how to construct a minimal example that we can use to reproduce the problem on our machine.
 
 ## Extending Epsilon

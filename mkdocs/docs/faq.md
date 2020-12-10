@@ -12,7 +12,7 @@ No. Epsilon is a family of languages, **one of which** targets model-to-model tr
 
 ## Who is using Epsilon?
 
-With **more than 6000 posts** in the [Epsilon forum](../forum), it appears that quite a few people are currently using different parts of Epsilon. A list of companies and open-source projects that use Epsilon is available [here](../users).
+With **more than 9,000 posts** in the [Epsilon forum](../forum), it appears that quite a few people are currently using different parts of Epsilon. A list of companies and open-source projects that use Epsilon is available [here](../users).
 
 ## How do I get help?
 
@@ -45,14 +45,6 @@ All Epsilon languages are interpreted. With the exception of EGL templates which
 ## How can I contribute to Epsilon?
 
 There are several ways to contribute to Epsilon. In the first phase you can ask questions in the forum and help with maintaining the vibrant community around Epsilon. You may also want to let other developers know about Epsilon by sharing your experiences online. If you are interested in contributing code to Epsilon, you should start by submitting bug reports, feature requests - and hopefully patches that fix/implement them. This will demonstrate your commitment and long-term interest in the project - which is required by the Eclipse Foundation in order to later on be nominated for a committer account.
-
-## How do I get all children of a model element?
-
-Epsilon does not provide a built-in method for this but you can use EObject's eContents() method if you're working with EMF. To get all descendants of an element, something like the following should do the trick: `o.asSequence().closure(x | x.eContents())`. See <https://www.eclipse.org/forums/index.php/t/855628/> for more details.
-
-## How do I get the container of a model element?
-
-Epsilon does not provide a built-in method for this but you can use EObject's `eConainer()` method if you're working with EMF.
 
 ## Where is the metamodel of ETL/EVL etc.?
 
