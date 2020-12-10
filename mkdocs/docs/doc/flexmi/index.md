@@ -288,34 +288,66 @@ Converting an XMI model to Flexmi on the other hand is not supported as there's 
 
 ## YAML Flavour
 
-Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. The YAML equivalent for the XML-based model at the top of this page is as follows.
+Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. YAML equivalents for the XML-based model at the top of this page is as follows.
 
 !!! info
-    The YAML flavour of Flexmi supports all the features of the XML flavour, including [plain](#reusable-templates) and [dynamic templates](#dynamic-templates-and-slots), and [executable attributes](#executable-attributes).
+    The YAML flavour of Flexmi supports all the features of the XML flavour, including [plain](#reusable-templates) and [dynamic templates](#dynamic-templates-and-slots), and [executable attributes](#executable-attributes). Also, it is worth noting that YAML is a superset of JSON.
 
-```yaml
-?nsuri: psl
-project:
-- name: ACME
-- person: {name: Alice}
-- person: {name: Bob}
-- task:
-  - title: Analysis
-  - start: 1
-  - dur: 3
-  - effort: {person: Alice}
-- task:
-  - title: Design
-  - start: 4
-  - dur: 6
-  - effort: {person: Bob}
-- task:
-  - title: Implementation
-  - start: 7
-  - dur: 3
-  - effort: {person: Bob, perc: 50}
-  - effort: {person: Alice, perc: 50}
-```
+=== "Indentation-based"
+  
+    ```yaml
+    ?nsuri: psl
+    project:
+    - name: ACME
+    - person: {name: Alice}
+    - person: {name: Bob}
+    - task:
+      - title: Analysis
+      - start: 1
+      - dur: 3
+      - effort: {person: Alice}
+    - task:
+      - title: Design
+      - start: 4
+      - dur: 6
+      - effort: {person: Bob}
+    - task:
+      - title: Implementation
+      - start: 7
+      - dur: 3
+      - effort: {person: Bob, perc: 50}
+      - effort: {person: Alice, perc: 50}
+    ```
+
+=== "Curly brackets-based"
+  
+    ```yaml
+    ?nsuri: psl
+    project: {
+      name: ACME,
+      person: {name: Alice},
+      person: {name: Bob},
+      task: {
+        title: Analysis,
+        start: 1,
+        dur: 3,
+        effort: {person: Alice}
+      },
+      task: {
+        title: Design,
+        start: 4,
+        dur: 6,
+        effort: {person: Bob}
+      },
+      task: {
+        title: Implementation,
+        start: 7,
+        dur: 3,
+        effort: {person: Bob, perc: 50},
+        effort: {person: Alice, perc: 50}
+      }
+    }
+    ```
 
 For multi-valued attributes and non-containment references, comma-separated values, or lists of scalars can be used as shown below.
 
