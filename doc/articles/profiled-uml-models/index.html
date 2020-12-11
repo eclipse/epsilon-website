@@ -1014,6 +1014,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plugin-based-profiles" class="md-nav__link">
+    Plugin-Based Profiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     Resources
   </a>
@@ -1096,6 +1103,16 @@ newFunction.base_Activity.name.println();</code></pre>
 func.body.println();
 var activity = func.base_Activity;
 activity.name.println();</code></pre>
+
+<h2 id="plugin-based-profiles">Plugin-Based Profiles<a class="headerlink" href="#plugin-based-profiles" title="Permanent link">&para;</a></h2>
+<p>In our example, the profile we wish to apply to our model is located in a file that resides in the same workspace as our <code>UML</code> model. If we need to use a profile contributed by a plugin instead (e.g. the built-in UML Ecore profile), this can be achieved as follows:</p>
+<pre class="prettyprint lang-eol"><code>var umlTool : new Native("org.eclipse.epsilon.emc.uml.dt.UMLTool");
+var ecoreProfile = umlTool.getProfile
+    ("http://www.eclipse.org/uml2/schemas/Ecore/5");
+// or 
+// var ecoreProfile = umlTool.getProfileFromPathmapUri
+//  ("pathmap://UML_PROFILES/Ecore.profile.uml").println();
+</code></pre>
 
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <p>The complete source code for this example is available in <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.eol.uml.profiled">Epsilon's Git repository</a>.</p>
