@@ -70,6 +70,20 @@ var activity = func.base_Activity;
 activity.name.println();
 ```
 
+## Plugin-Based Profiles
+
+In our example, the profile we wish to apply to our model is located in a file that resides in the same workspace as our `UML` model. If we need to use a profile contributed by a plugin instead (e.g. the built-in UML Ecore profile), this can be achieved as follows:
+
+```eol
+var umlTool : new Native("org.eclipse.epsilon.emc.uml.dt.UMLTool");
+var ecoreProfile = umlTool.getProfile
+	("http://www.eclipse.org/uml2/schemas/Ecore/5");
+// or 
+// var ecoreProfile = umlTool.getProfileFromPathmapUri
+//	("pathmap://UML_PROFILES/Ecore.profile.uml").println();
+
+```
+
 ## Resources
 
 The complete source code for this example is available in [Epsilon's Git repository](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.eol.uml.profiled).
