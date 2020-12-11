@@ -9,7 +9,7 @@ In the run configuration of our EOL program we need to add two models of type UM
 - `UML`: The profiled model we wish to create. This model should not be read on load but should be stored on disposal (i.e. when the EOL program finishes).
 - `ActivityFunctionsProfile`: The model containing the `ActivityFunctions` profile that we wish to apply to the `UML` model. This model should be read on load but not stored on disposal (since we don't really want to make any changes to it).
 
-The EOL program that populates our `UML` model looks as follows:
+The EOL program that creates and populates our `UML` model looks as follows.
 
 ```eol
 // Get hold of the ActivityFunctions profile
@@ -72,7 +72,7 @@ activity.name.println();
 
 ## Plugin-Based Profiles
 
-In our example, the profile we wish to apply to our model is located in a file that resides in the same workspace as our `UML` model. If we need to use a profile contributed by a plugin instead (e.g. the built-in UML Ecore profile), this can be achieved as follows:
+In our example, the profile we wish to apply to our model is located in a file that resides in the same workspace as our `UML` model. If we need to use a profile contributed by a plugin instead (e.g. the built-in UML Ecore profile), this can be achieved as follows.
 
 ```eol
 var umlTool : new Native("org.eclipse.epsilon.emc.uml.dt.UMLTool");
