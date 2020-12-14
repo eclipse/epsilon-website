@@ -84,6 +84,10 @@ var ecoreProfile = umlTool.getProfile
 
 ```
 
+## Profiled UML Models in Rule-Based Epsilon Languages
+
+In rule-based languages such as ETL and EVL, any required profiles must be applied in a `pre` block, before any of the rules (e.g. transformation rules, validation constraints) that refer to types in the profile are executed.
+
 ## Resources
 
 The complete source code for this example is available in [Epsilon's Git repository](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.eol.uml.profiled).
