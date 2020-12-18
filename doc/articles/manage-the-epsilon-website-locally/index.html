@@ -1028,6 +1028,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pushing-your-changes" class="md-nav__link">
+    Pushing your changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#finding-broken-links" class="md-nav__link">
     Finding broken links
   </a>
@@ -1071,6 +1078,8 @@
 <h2 id="updating-the-website-contents">Updating the website contents<a class="headerlink" href="#updating-the-website-contents" title="Permanent link">&para;</a></h2>
 <p>As a convention for project commiters, introducing a change in the website is usually separated in two commits: the first one contains any changes to the Markdown sources, while the second one includes the result of building again the static site as described in the previous section.</p>
 <p>If you are not a commiter, but you find any typos or parts of the website that do not work as they should, thanks for <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon">letting us know</a>!</p>
+<h2 id="pushing-your-changes">Pushing your changes<a class="headerlink" href="#pushing-your-changes" title="Permanent link">&para;</a></h2>
+<p>When pushing your changes, please make sure to add the <code>-s</code> flag to your commit command (e.g. <code>git commit -m "Added new article" -s</code>), to add a sign-off footer, which is required by Gerrit <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=569607#c16">since mid-December 2020</a>. There is also a <code>publish.sh</code> script in the repo, which creates separate commits for the changes to <code>mkdocs</code> and the changes to the generated static files, and then pushes both commits to the remote repo. You can use it as follows: <code>./publish.sh "Added new article"</code>.</p>
 <h2 id="finding-broken-links">Finding broken links<a class="headerlink" href="#finding-broken-links" title="Permanent link">&para;</a></h2>
 <p><code>wget</code> and <code>grep</code> can be used to find broken links in the Epsilon website. First, run the website locally by executing the <code>./serve.sh</code> command as described above. Then, we will traverse the website using <code>wget</code> with this command:</p>
 <div class="highlight"><pre><span></span><code>wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8000
