@@ -123,3 +123,26 @@ context Staff {
 	}
 }
 ```
+
+## Reflective Access
+
+To iterate over all the worksheets, columns and rows of a speadsheet without referring to them by name, we can use the following statements (assuming that our Excel spreadsheet is named `M` in the run configuration). Additional methods of interest for this mode of access can be found in the Javadoc of the underlying [ExcelModel](https://download.eclipse.org/epsilon/interim-javadoc/org/eclipse/epsilon/emc/spreadsheets/excel/ExcelModel.html) and [SpreadsheetModel](https://download.eclipse.org/epsilon/interim-javadoc/org/eclipse/epsilon/emc/spreadsheets/SpreadsheetModel.html) classes.
+
+```eol
+// Iterate over all worksheets
+for (w in M.worksheets) {
+  w.name.println();
+  
+  // Iterate over all columns
+  // of the worksheet
+  for (c in w.header.columns) {
+    c.name.println("\t");
+  }
+  
+  // Iterate over all rows
+  // of the worksheet
+  for (r in w.rows) {
+    r.println("\t");
+  }
+}
+```

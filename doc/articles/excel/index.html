@@ -1081,6 +1081,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#reflective-access" class="md-nav__link">
+    Reflective Access
+  </a>
+  
+</li>
+      
       
       
       
@@ -1186,6 +1193,25 @@ to.teaches.add(module);</code></pre>
         message: "Member of staff" + self.firstname +
           " " + self.lastname + " is overloaded"
     }
+}</code></pre>
+
+<h2 id="reflective-access">Reflective Access<a class="headerlink" href="#reflective-access" title="Permanent link">&para;</a></h2>
+<p>To iterate over all the worksheets, columns and rows of a speadsheet without referring to them by name, we can use the following statements (assuming that our Excel spreadsheet is named <code>M</code> in the run configuration). Additional methods of interest for this mode of access can be found in the Javadoc of the underlying <a href="https://download.eclipse.org/epsilon/interim-javadoc/org/eclipse/epsilon/emc/spreadsheets/excel/ExcelModel.html">ExcelModel</a> and <a href="https://download.eclipse.org/epsilon/interim-javadoc/org/eclipse/epsilon/emc/spreadsheets/SpreadsheetModel.html">SpreadsheetModel</a> classes.</p>
+<pre class="prettyprint lang-eol"><code>// Iterate over all worksheets
+for (w in M.worksheets) {
+  w.name.println();
+
+  // Iterate over all columns
+  // of the worksheet
+  for (c in w.header.columns) {
+    c.name.println("\t");
+  }
+
+  // Iterate over all rows
+  // of the worksheet
+  for (r in w.rows) {
+    r.println("\t");
+  }
 }</code></pre>
                 
               
