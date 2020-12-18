@@ -24,6 +24,10 @@ As a convention for project commiters, introducing a change in the website is us
 
 If you are not a commiter, but you find any typos or parts of the website that do not work as they should, thanks for [letting us know](https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon)!
 
+## Pushing your changes
+
+When pushing your changes, please make sure to add the `-s` flag to your commit command (e.g. `git commit -m "Added new article" -s`), to add a sign-off footer, which is required by Gerrit [since mid-December 2020](https://bugs.eclipse.org/bugs/show_bug.cgi?id=569607#c16). There is also a `publish.sh` script in the repo, which creates separate commits for the changes to `mkdocs` and the changes to the generated static files, and then pushes both commits to the remote repo. You can use it as follows: `./publish.sh "Added new article"`.
+
 ## Finding broken links
 
 `wget` and `grep` can be used to find broken links in the Epsilon website. First, run the website locally by executing the `./serve.sh` command as described above. Then, we will traverse the website using `wget` with this command:
