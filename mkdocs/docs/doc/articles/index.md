@@ -1,7 +1,6 @@
 # Articles
 
-This page contains an index of articles presenting a range of tools and languages in Epsilon. Should you find that an article contains errors or is inconsistent with the current release of Epsilon, please [let us know](https://www.eclipse.org/epsilon/forum).
-
+This page links to more than **60 articles** on various aspects of Epsilon. Should you find that an article is outdated, please [let us know](https://www.eclipse.org/epsilon/forum).
 
 ## Epsilon Object Language
 
@@ -78,6 +77,10 @@ This page contains an index of articles presenting a range of tools and language
 
 - [Visualising Models with Picto](../picto): Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. The article introduces Picto and shows the tool in action.
 - [Drill-Down Sequence Diagrams with Picto](picto-sequence-diagrams): This article demonstrates using Picto and its PlantUML integration to generate drill-down sequence diagrams from models conforming to a minimal EMF-based sequence diagram language.
+
+## Workflow (ANT Tasks)
+
+- [Headless Execution of Epsilon ANT Tasks](headless-ant-tasks): This article shows how to run Epsilon's ANT tasks from command line or in the context of a CI build.
 
 ## Human-Usable Textual Notation
 
