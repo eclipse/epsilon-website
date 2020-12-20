@@ -77,6 +77,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 
 - [Visualising Models with Picto](../picto): Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. The article introduces Picto and shows the tool in action.
 - [Drill-Down Sequence Diagrams with Picto](picto-sequence-diagrams): This article demonstrates using Picto and its PlantUML integration to generate drill-down sequence diagrams from models conforming to a minimal EMF-based sequence diagram language.
+- [Visualising Models with Picto and Sirius](visualising-models-with-picto-and-sirius): This article demonstrates using Picto to produce dynamic web-based views (pie and bar charts) from Sirius-based models.
 
 ## Workflow (ANT Tasks)
 
