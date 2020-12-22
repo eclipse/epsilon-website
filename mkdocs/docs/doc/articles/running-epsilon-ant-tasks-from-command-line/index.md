@@ -1,6 +1,6 @@
-# Headless Execution of Epsilon ANT Tasks
+# Running Epsilon's ANT Tasks from the Command Line
 
-[This example project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy) shows how to run [Epsilon's ANT tasks](../workflow) in a headless way (e.g. from command line or in a CI build). To run this example, you only need to have [Apache ANT](https://ant.apache.org) installed in your system. When you run the `ant` command in the root directory of the project, the following will happen:
+[This example project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy) shows how to download, configure and run [Epsilon's ANT tasks](../workflow) from the command line. To run this example, you only need to have [Apache ANT](https://ant.apache.org) installed in your system. When you run the `ant` command in the root directory of the project, the following will happen:
 
 - The build file (`build.xml`) will download [Apache Ivy](https://ant.apache.org/ivy/) in a temporary directory
 - Ivy will fetch the required Epsilon jars (also in a temporary directory) from Maven Central/Sonatype
