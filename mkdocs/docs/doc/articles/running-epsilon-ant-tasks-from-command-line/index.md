@@ -28,6 +28,26 @@ run-epsilon:
 BUILD SUCCESSFUL
 ```
 
+The complete source code is below and in [Epsilon's Git repo](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy).
+
+=== "build.xml"
+
+    ```xml
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/build.xml", true) }}}
+    ```
+
+=== "ivy.xml"
+
+    ```xml
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/ivy.xml", true) }}}
+    ```
+
+=== "ivysettings.xml"
+
+    ```xml
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/ivysettings.xml", true) }}}
+    ```
+
 ## Epsilon 1.x
 
 If you would like to use an older (1.x) version of Epsilon, you can use [this example instead](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone), which uses a fat jar we used to produce (`epsilon-1.x-kitchensink.jar`) before moving all our jars to Maven Central/Sonatype.

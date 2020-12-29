@@ -143,6 +143,11 @@ markdown_extensions:
       permalink: true
 plugins:
     - search
+    - macros:
+        j2_block_start_string: '{{{%'
+        j2_block_end_string: '%}}}'
+        j2_variable_start_string: '{{{'
+        j2_variable_end_string: '}}}'
     - redirects:
         redirect_maps:
             'forum': 'https://www.eclipse.org/forums/index.php/f/22/'
