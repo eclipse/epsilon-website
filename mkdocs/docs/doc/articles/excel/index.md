@@ -28,17 +28,20 @@ For our example spreadsheet, above, the configuration file below specifies the t
 <spreadsheet>
   <worksheet name="Student">
     <column name="age" datatype="integer"/>
+    <column name="modules" many="true"/>
   </worksheet>
   <worksheet name="Mark">
-  	<column name="mark" datatype="integer"/>
+    <column name="mark" datatype="integer"/>
   </worksheet>
   <worksheet name="Staff">
-  	<column name="teaches" many="true" delimiter=","/>
+    <column name="teaches" many="true" delimiter=","/>
   </worksheet>
   <reference source="Student->supervisor"
              target="Staff->id"/>
+  <reference source="Student->modules"
+             target="Module->id"/>           
   <reference source="Staff->teaches"
-             target="Module->id" many="true"/>
+             target="Module->id"/>
 </spreadsheet>
 ```
 
@@ -58,13 +61,13 @@ In a configuration document we can also specify ID-based references to capture r
 Having specified the configuration document above, we can now query spreadsheet with EOL as follows.
 
 ```eol
-// Returns all students called Thomas
-Student.all.select(s|s.supervisor.firstname = "Thomas");
+// Returns all students supervised by Matthew Thomas
+Student.all.select(s|s.supervisor?.lastname = "Thomas");
 
-// Returns the modules taught by Daniel
-Module.all->select(m|
-	Staff.all.exists(s|
-		s.firstname="Daniel" and s.teaches->includes(m)))
+// Returns the modules taught by Daniel Jackson
+Module.all.select(m|
+    Staff.all.exists(s|
+        s.firstname="Daniel" and s.teaches.includes(m)));
 ```
 
 ### Creating Rows
@@ -97,15 +100,19 @@ student.age = 24;
 student.supervisor = supervisor;
 ```
 
-If on the other hand the cell is multi-valued, then its values should be handled as a collection. For example to move a module between two members of staff, the module row would need to be retrieved first, so that it can be removed/added from/to the `teaches` collections of the appropriate members of staff.
+If on the other hand the cell is multi-valued, then its values should be handled as a collection. Adding/removing values from property collections has no effect on the spreadsheet; you need to re-assign values instead.
 
 ```eol
 // Moves a module between two members of staff
 var from : Staff = ...;
 var to : Staff = ...;
 var module : Module = ...;
-from.teaches.remove(module);
-to.teaches.add(module);
+// Neither of these will work
+// from.teaches.remove(module);
+// to.teaches.add(module);
+// ... but these will
+from.teaches = from.teaches.excluding(module);
+to.teaches = to.teaches.including(module);
 ```
 
 Updating the value of a cell can have side effects to other cells that are linked to it through cascade-update references to preserve referential integrity. For example, updating the value of cell A3 in the `Module` worksheet, should trigger appropriate updates in cells D2 and F2 of the `Staff` and `Student` worksheets respectively.
