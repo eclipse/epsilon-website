@@ -58,7 +58,7 @@ In a configuration document we can also specify ID-based references to capture r
 
 ## Querying and Modifying Spreadsheets
 
-Having specified the configuration document above, we can now query spreadsheet with EOL as follows.
+Having specified the configuration document above, we can now query the spreadsheet with EOL as follows.
 
 ```eol
 // Returns all students supervised by Matthew Thomas

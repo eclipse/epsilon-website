@@ -1119,7 +1119,7 @@
 <details class="bug"><summary>Regression in Epsilon 2.2</summary><p>Due to a regression, the Excel driver is broken in Epsilon 2.2. The driver works well in previous versions (e.g. 2.1) as well as in 2.3. Support for column datatypes has improved substantially in 2.3.</p>
 </details>
 <h2 id="worksheets-columns-and-rows">Worksheets, Columns and Rows<a class="headerlink" href="#worksheets-columns-and-rows" title="Permanent link">&para;</a></h2>
-<p>Essentially, in the Excel driver, by default, worksheets are treated as model element types (e.g. <code>Student</code>, <code>Staff</code>, <code>Module</code> and <code>Mark</code> in the spreadsheet below), columns as their properties (e.g. <code>Mark</code> has <code>student</code>, <code>module</code> and <code>mark</code> properties), and rows are treated as model elements (i.e. there are two students, two members of staff, three modules and two marks in the model).</p>
+<p>Essentially, in the Excel driver, by default, worksheets are treated as model element types (e.g. <code>Student</code>, <code>Staff</code>, <code>Module</code> and <code>Mark</code> in the <a href="spreadsheet.xlsx">spreadsheet</a> below), columns as their properties (e.g. <code>Mark</code> has <code>student</code>, <code>module</code> and <code>mark</code> properties), and rows are treated as model elements (i.e. there are two students, two members of staff, three modules and two marks in the model).</p>
 <p><img alt="" src="spreadsheet.png" /></p>
 <h2 id="references-and-column-types">References and Column Types<a class="headerlink" href="#references-and-column-types" title="Permanent link">&para;</a></h2>
 <p>The driver supports specifying additional configuration information (e.g. column data types, references between columns) about a spreadsheet in the form of an external XML document, that can be attached to the spreadsheet in Epsilon's run configuration dialog.</p>
@@ -1152,7 +1152,7 @@
 <h3 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h3>
 <p>In a configuration document we can also specify ID-based references to capture relationships between columns belonging to potentially different worksheets. Each reference has a <code>source</code> and a <code>target</code> column, an optional <code>name</code> (if a name is not specified, the name of the source column is used to navigate the reference), a cardinality (<code>many</code> attribute), and specifies whether updates to cells of the target column should be propagated automatically (<code>cascadeUpdates</code> attribute) to the respective cells in the source column to preserve referential integrity.</p>
 <h2 id="querying-and-modifying-spreadsheets">Querying and Modifying Spreadsheets<a class="headerlink" href="#querying-and-modifying-spreadsheets" title="Permanent link">&para;</a></h2>
-<p>Having specified the configuration document above, we can now query spreadsheet with EOL as follows.</p>
+<p>Having specified the configuration document above, we can now query the spreadsheet with EOL as follows.</p>
 <pre class="prettyprint lang-eol"><code>// Returns all students supervised by Matthew Thomas
 Student.all.select(s|s.supervisor?.lastname = "Thomas");
 
