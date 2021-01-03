@@ -1127,6 +1127,7 @@
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;spreadsheet&gt;</span>
   <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;column</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span> <span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;column</span> <span class="na">name=</span><span class="s">&quot;modules&quot;</span> <span class="na">many=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/worksheet&gt;</span>
   <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Mark&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;column</span> <span class="na">name=</span><span class="s">&quot;mark&quot;</span> <span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
@@ -1136,8 +1137,10 @@
   <span class="nt">&lt;/worksheet&gt;</span>
   <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Student-&gt;supervisor&quot;</span>
              <span class="na">target=</span><span class="s">&quot;Staff-&gt;id&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Student-&gt;modules&quot;</span>
+             <span class="na">target=</span><span class="s">&quot;Module-&gt;id&quot;</span><span class="nt">/&gt;</span>           
   <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Staff-&gt;teaches&quot;</span>
-             <span class="na">target=</span><span class="s">&quot;Module-&gt;id&quot;</span> <span class="na">many=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+             <span class="na">target=</span><span class="s">&quot;Module-&gt;id&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/spreadsheet&gt;</span>
 </code></pre></div>
 
@@ -1150,13 +1153,13 @@
 <p>In a configuration document we can also specify ID-based references to capture relationships between columns belonging to potentially different worksheets. Each reference has a <code>source</code> and a <code>target</code> column, an optional <code>name</code> (if a name is not specified, the name of the source column is used to navigate the reference), a cardinality (<code>many</code> attribute), and specifies whether updates to cells of the target column should be propagated automatically (<code>cascadeUpdates</code> attribute) to the respective cells in the source column to preserve referential integrity.</p>
 <h2 id="querying-and-modifying-spreadsheets">Querying and Modifying Spreadsheets<a class="headerlink" href="#querying-and-modifying-spreadsheets" title="Permanent link">&para;</a></h2>
 <p>Having specified the configuration document above, we can now query spreadsheet with EOL as follows.</p>
-<pre class="prettyprint lang-eol"><code>// Returns all students called Thomas
-Student.all.select(s|s.supervisor.firstname = "Thomas");
+<pre class="prettyprint lang-eol"><code>// Returns all students supervised by Matthew Thomas
+Student.all.select(s|s.supervisor?.lastname = "Thomas");
 
-// Returns the modules taught by Daniel
-Module.all-&gt;select(m|
+// Returns the modules taught by Daniel Jackson
+Module.all.select(m|
     Staff.all.exists(s|
-        s.firstname="Daniel" and s.teaches-&gt;includes(m)))</code></pre>
+        s.firstname="Daniel" and s.teaches.includes(m)));</code></pre>
 
 <h3 id="creating-rows">Creating Rows<a class="headerlink" href="#creating-rows" title="Permanent link">&para;</a></h3>
 <p>As discussed above, worksheets are treated as types and rows as their instances. As such, to create a new row in the <code>Student</code> worksheet, EOL's <code>new</code> operation can be used.</p>
@@ -1176,13 +1179,17 @@ var supervisor : Staff = ...;
 student.age = 24;
 student.supervisor = supervisor;</code></pre>
 
-<p>If on the other hand the cell is multi-valued, then its values should be handled as a collection. For example to move a module between two members of staff, the module row would need to be retrieved first, so that it can be removed/added from/to the <code>teaches</code> collections of the appropriate members of staff.</p>
+<p>If on the other hand the cell is multi-valued, then its values should be handled as a collection. Adding/removing values from property collections has no effect on the spreadsheet; you need to re-assign values instead.</p>
 <pre class="prettyprint lang-eol"><code>// Moves a module between two members of staff
 var from : Staff = ...;
 var to : Staff = ...;
 var module : Module = ...;
-from.teaches.remove(module);
-to.teaches.add(module);</code></pre>
+// Neither of these will work
+// from.teaches.remove(module);
+// to.teaches.add(module);
+// ... but these will
+from.teaches = from.teaches.excluding(module);
+to.teaches = to.teaches.including(module);</code></pre>
 
 <p>Updating the value of a cell can have side effects to other cells that are linked to it through cascade-update references to preserve referential integrity. For example, updating the value of cell A3 in the <code>Module</code> worksheet, should trigger appropriate updates in cells D2 and F2 of the <code>Staff</code> and <code>Student</code> worksheets respectively.</p>
 <h2 id="validating-and-transforming-spreadsheets">Validating and Transforming Spreadsheets<a class="headerlink" href="#validating-and-transforming-spreadsheets" title="Permanent link">&para;</a></h2>
