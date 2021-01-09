@@ -2,6 +2,9 @@
 
 Epsilon supports Matlab Simulink models. This tutorial shows you how to manipulate Simulink and Stateflow blocks from within Epsilon.
 
+!!! warning
+    The Simulink driver only works with Java 8. This is due to [a limitation of the official MATLAB Java API](https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html).
+
 ## [Pre-requisite] Setting up your Eclipse Installation
 
 ![](updatesite.png)
