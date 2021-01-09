@@ -1043,6 +1043,10 @@
                 
                 <h1 id="scripting-simulink-models-using-epsilon">Scripting Simulink models using Epsilon<a class="headerlink" href="#scripting-simulink-models-using-epsilon" title="Permanent link">&para;</a></h1>
 <p>In this article we demonstrate how you can create, query and modify Simulink models in Epsilon programs. While the example in this article demonstrates using EOL to script Simulink models, it's worth stressing that Simulink models are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - Simulink or EMF-based -, or to text), compare and merge your Simulink models.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Simulink driver only works with Java 8. This is due to <a href="https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html">a limitation of the official MATLAB Java API</a>.</p>
+</div>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>The first time you run Eclipse after installing the Simulink driver you will need to point it to the location of your Matlab installation through the Eclipse <code>Preferences→Epsilon→Simulink</code> dialog. In particular, you need to specify the location of the <code>&lt;matlab-root&gt;/bin/win64</code> (or <code>/bin/maci64</code> if you are on Mac OS) directory and Matlab's <code>engine.jar</code> as shown below. Note that in most cases, if you installed MATLAB in the default location for your operating system, the paths should be automatically detected, and if not you should usually only need to set the MATLAB root directory in your preferences.</p>
 <p><img alt="" src="preferences.png" /></p>
