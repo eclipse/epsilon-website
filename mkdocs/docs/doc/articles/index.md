@@ -102,6 +102,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 
 - [Developing a new Epsilon Language](developing-a-new-language): This article demonstrates how to develop a new language on top of Epsilon.
 - [Developing a new EMC Driver](developing-a-new-emc-driver): This article demonstrates how to develop a new driver for Epsilon's Model Connectivity layer (EMC).
+- [Monitoring and Instrumenting Epsilon Programs](monitoring-and-instrumenting-epsilon-programs): This article demonstrates how Epsilon interpreters provide support for hooking into the execution of model management programs.
 
 ## Installation
 
