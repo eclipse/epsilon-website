@@ -19,13 +19,10 @@ To run Epsilon from source, you need to:
 
 ## Modifying the Epsilon parsers
 
+- Before you can regenerate the Epsilon parsers, you need to clone the [epsilon-antlr-dev](https://github.com/epsilonlabs/epsilon-antlr-dev) Git repo into a sibling folder of the Epsilon repo.
 - To modify e.g. the EVL parser, you need to change `Evl.g` and/or `EvlParserRules.g`. To re-generate the parser you need to run `build-evl-parser.xml` as an Ant build.
 - Since all Epsilon languages extend EOL, if you modify the EOL parser, you'll then need to run `build-all-eol-dependent-parsers.xml`
 
 ## Running the Epsilon tests
 
 - After making any changes to the Epsilon source code, you're advised to run the Epsilon test suites to avoid regressions. Epsilon provides two main test suites: `EpsilonTestSuite` and `EpsilonPluggedInTestSuite` (the latter needs to be run as a `JUnit Plug-In Test`)
-
-## Compilation Errors
-
-Epsilon has several optional dependencies to projects such as EMF, GMF, Sirius and Emfatic. To get rid of any compilation errors upon importing the Epsilon projects to your workspace, please close the respective projects (Right click → Close Project) or install the missing dependencies.
