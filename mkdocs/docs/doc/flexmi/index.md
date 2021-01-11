@@ -288,7 +288,7 @@ Converting an XMI model to Flexmi on the other hand is not supported as there's 
 
 ## YAML Flavour
 
-Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. YAML equivalents for the XML-based model at the top of this page is as follows.
+Since Epsilon 2.3.0, Flexmi also supports a YAML flavour. Equivalent YAML representations for the XML-based model at the top of this page are shown below.
 
 !!! info
     The YAML flavour of Flexmi supports all the features of the XML flavour, including [plain](#reusable-templates) and [dynamic templates](#dynamic-templates-and-slots), and [executable attributes](#executable-attributes). Also, it is worth noting that YAML is a superset of JSON.
