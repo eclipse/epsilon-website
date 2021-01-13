@@ -15,6 +15,7 @@
 ![Rolls-Royce](logos/rr.png)
 ![IBM](logos/ibm.png)
 ![Oracle](logos/oracle.png)
+![Codebots](logos/codebots.png)
 ![Blackbelt](logos/blackbelt.png)
 ![Raytheon](logos/raytheon.png)
 ![ATOS](logos/atos.png)
@@ -63,6 +64,8 @@ Oracle
 Blackbelt 
 	[[1](https://github.com/BlackBeltTechnology/emf-genmodel-generator),
 	[2](https://github.com/BlackBeltTechnology/epsilon-runtime)],
+Codebots
+	[[1](https://twitter.com/kolovos/status/1326117285690560512)],	
 Raytheon 
 	[[1](http://codegeneration.net/cg2014/sessions/index.php?session=13),
 	[2](https://twitter.com/guwac/status/321983342683758592)],
