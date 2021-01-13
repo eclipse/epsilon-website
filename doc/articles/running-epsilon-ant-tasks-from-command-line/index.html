@@ -15,7 +15,7 @@
     
     
       
-        <title>Running Epsilon's ANT Tasks from the Command Line - Epsilon</title>
+        <title>Running Epsilon's Ant Tasks from the Command Line - Epsilon</title>
       
     
     
@@ -118,7 +118,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Running Epsilon's ANT Tasks from the Command Line
+              Running Epsilon's Ant Tasks from the Command Line
             
           </span>
         </div>
@@ -1000,8 +1000,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ant" class="md-nav__link">
+    Ant
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#maven" class="md-nav__link">
     Maven
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradle" class="md-nav__link">
+    Gradle
   </a>
   
 </li>
@@ -1034,12 +1048,14 @@
                   
                 
                 
-                <h1 id="running-epsilons-ant-tasks-from-the-command-line">Running Epsilon's ANT Tasks from the Command Line<a class="headerlink" href="#running-epsilons-ant-tasks-from-the-command-line" title="Permanent link">&para;</a></h1>
-<p><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy">This example project</a> shows how to download, configure and run <a href="../../workflow">Epsilon's ANT tasks</a> from the command line. To run this example, you only need to have <a href="https://ant.apache.org">Apache ANT</a> installed in your system. When you run the <code>ant</code> command in the root directory of the project, the following will happen:</p>
+                <h1 id="running-epsilons-ant-tasks-from-the-command-line">Running Epsilon's Ant Tasks from the Command Line<a class="headerlink" href="#running-epsilons-ant-tasks-from-the-command-line" title="Permanent link">&para;</a></h1>
+<p><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy">This example project</a> shows how to download, configure and run <a href="../../workflow">Epsilon's Ant tasks</a> from the command line using Ant, <a href="#maven">Maven</a> and <a href="#gradle">Gradle</a>. To run this example, you only need to have <a href="https://ant.apache.org">Apache Ant</a> installed in your system. </p>
+<h2 id="ant">Ant<a class="headerlink" href="#ant" title="Permanent link">&para;</a></h2>
+<p>When you run the <code>ant</code> command in the root directory of the project, the following will happen:</p>
 <ul>
 <li>The build file (<code>build.xml</code>) will download <a href="https://ant.apache.org/ivy/">Apache Ivy</a> in a temporary directory</li>
 <li>Ivy will fetch the required Epsilon jars (also in a temporary directory) from Maven Central/Sonatype</li>
-<li>The build file will set up Epsilon's ANT tasks</li>
+<li>The build file will set up Epsilon's Ant tasks</li>
 <li>The following part of the build file will be executed, which will load an EMF-based model and then run an EOL program against it</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Library&quot;</span> <span class="na">modelfile=</span><span class="s">&quot;library.model&quot;</span> 
@@ -1156,8 +1172,8 @@ BUILD SUCCESSFUL
 
 </div>
 </div>
-<h3 id="maven">Maven<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h3>
-<p>Since Maven can run ANT tasks, Epsilon ANT tasks can also be executed from a Maven build as shown below.</p>
+<h2 id="maven">Maven<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h2>
+<p>Since Maven can run Ant tasks, Epsilon Ant tasks can also be executed from a Maven build (<code>mvn clean install</code>) as shown below. </p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">pom.xml</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
@@ -1187,6 +1203,14 @@ BUILD SUCCESSFUL
     <span class="nt">&lt;/plugins&gt;</span>
   <span class="nt">&lt;/build&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+</div>
+</div>
+<h2 id="gradle">Gradle<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h2>
+<p>Since Gradle can also import and run Ant tasks, Epsilon Ant tasks can also be executed from a Gradle build (<code>gradle run-epsilon</code>) as shown below.</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">build.gradle</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>ant.importBuild &#39;build.xml&#39;
 </code></pre></div>
 
 </div>
