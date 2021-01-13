@@ -1,10 +1,14 @@
-# Running Epsilon's ANT Tasks from the Command Line
+# Running Epsilon's Ant Tasks from the Command Line
 
-[This example project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy) shows how to download, configure and run [Epsilon's ANT tasks](../../workflow) from the command line. To run this example, you only need to have [Apache ANT](https://ant.apache.org) installed in your system. When you run the `ant` command in the root directory of the project, the following will happen:
+[This example project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy) shows how to download, configure and run [Epsilon's Ant tasks](../../workflow) from the command line using Ant, [Maven](#maven) and [Gradle](#gradle). To run this example, you only need to have [Apache Ant](https://ant.apache.org) installed in your system. 
+
+## Ant
+
+When you run the `ant` command in the root directory of the project, the following will happen:
 
 - The build file (`build.xml`) will download [Apache Ivy](https://ant.apache.org/ivy/) in a temporary directory
 - Ivy will fetch the required Epsilon jars (also in a temporary directory) from Maven Central/Sonatype
-- The build file will set up Epsilon's ANT tasks
+- The build file will set up Epsilon's Ant tasks
 - The following part of the build file will be executed, which will load an EMF-based model and then run an EOL program against it
 
 ```xml
@@ -48,14 +52,24 @@ The complete source code is below and in [Epsilon's Git repo](https://git.eclips
     {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/ivysettings.xml", true) }}}
     ```
 
-### Maven
+## Maven
 
-Since Maven can run ANT tasks, Epsilon ANT tasks can also be executed from a Maven build as shown below.
+Since Maven can run Ant tasks, Epsilon Ant tasks can also be executed from a Maven build (`mvn clean install`) as shown below. 
 
 === "pom.xml"
 
     ```xml
     {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/pom.xml", true) }}}
+    ```
+
+## Gradle
+
+Since Gradle can also import and run Ant tasks, Epsilon Ant tasks can also be executed from a Gradle build (`gradle run-epsilon`) as shown below.
+
+=== "build.gradle"
+
+    ```
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/build.gradle", true) }}}
     ```
 
 ## Epsilon 1.x
