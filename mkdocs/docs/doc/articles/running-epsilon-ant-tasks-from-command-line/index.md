@@ -64,11 +64,11 @@ Since Maven can run Ant tasks, Epsilon Ant tasks can also be executed from a Mav
 
 ## Gradle
 
-Since Gradle can also import and run Ant tasks, Epsilon Ant tasks can also be executed from a Gradle build (`gradle run-epsilon`) as shown below.
+Since Gradle can also [run Ant tasks](https://docs.gradle.org/current/userguide/ant.html), Epsilon Ant tasks can also be executed from a Gradle build (`gradle run`) as shown below.
 
 === "build.gradle"
 
-    ```
+    ```groovy
     {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/build.gradle", true) }}}
     ```
 
