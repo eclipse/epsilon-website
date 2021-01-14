@@ -1081,20 +1081,15 @@ BUILD SUCCESSFUL
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;run-epsilon&quot;</span> <span class="na">xmlns:ivy=</span><span class="s">&quot;antlib:org.apache.ivy.ant&quot;</span><span class="nt">&gt;</span>
 
     <span class="c">&lt;!-- This part of the build file runs our Epsilon tasks --&gt;</span>
-
     <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;run-epsilon&quot;</span> <span class="na">depends=</span><span class="s">&quot;setup-epsilon&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Library&quot;</span> <span class="na">modelfile=</span><span class="s">&quot;library.model&quot;</span> <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span><span class="nt">/&gt;</span>
 
-        <span class="nt">&lt;epsilon.eol&gt;</span>
-            for (writer in Writer.all) {
-                (writer.name + &quot; wrote &quot; + writer.books.title.concat(&quot;, &quot;)).println();
-            }
+        <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;library.eol&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Library&quot;</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;/epsilon.eol&gt;</span>
     <span class="nt">&lt;/target&gt;</span>
 
     <span class="c">&lt;!-- The rest of the build file downloads Ivy, fetches the Epsilon jars and sets up the Epsilon ANT tasks --&gt;</span>
-
     <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;ivy.version&quot;</span> <span class="na">value=</span><span class="s">&quot;2.5.0&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;ivy.jar.dir&quot;</span> <span class="na">value=</span><span class="s">&quot;${basedir}/ivy&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;ivy.jar.file&quot;</span> <span class="na">value=</span><span class="s">&quot;${ivy.jar.dir}/ivy.jar&quot;</span><span class="nt">/&gt;</span>
@@ -1208,9 +1203,43 @@ BUILD SUCCESSFUL
 </div>
 </div>
 <h2 id="gradle">Gradle<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h2>
-<p>Since Gradle can also import and run Ant tasks, Epsilon Ant tasks can also be executed from a Gradle build (<code>gradle run-epsilon</code>) as shown below.</p>
+<p>Since Gradle can also <a href="https://docs.gradle.org/current/userguide/ant.html">run Ant tasks</a>, Epsilon Ant tasks can also be executed from a Gradle build (<code>gradle run</code>) as shown below.</p>
 <div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">build.gradle</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>ant.importBuild &#39;build.xml&#39;
+<div class="highlight"><pre><span></span><code><span class="n">configurations</span> <span class="o">{</span>
+    <span class="n">epsilon</span>
+<span class="o">}</span>
+
+<span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">maven</span> <span class="o">{</span>
+        <span class="n">url</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots&quot;</span>
+    <span class="o">}</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0-SNAPSHOT&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow.emf:2.3.0-SNAPSHOT&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">setupEpsilonTasks</span> <span class="o">{</span>
+    <span class="c1">// Set up the core Epsilon tasks</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">taskdef</span><span class="o">(</span><span class="nl">resource:</span> <span class="s1">&#39;org/eclipse/epsilon/workflow/tasks/tasks.xml&#39;</span><span class="o">,</span> 
+        <span class="nl">classpath:</span> <span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span> <span class="nl">loaderref:</span> <span class="s1">&#39;epsilon&#39;</span><span class="o">)</span>
+    <span class="c1">// Set up the Epsilon EMF tasks</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">taskdef</span><span class="o">(</span><span class="nl">resource:</span> <span class="s1">&#39;org/eclipse/epsilon/workflow/tasks/emf/tasks.xml&#39;</span><span class="o">,</span> 
+        <span class="nl">classpath:</span> <span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span> <span class="nl">loaderref:</span> <span class="s1">&#39;epsilon&#39;</span><span class="o">)</span>
+    <span class="c1">// Set logging level to info so that EOL&#39;s println() is not suppressed</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">lifecycleLogLevel</span> <span class="o">=</span> <span class="s1">&#39;INFO&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">run</span> <span class="o">{</span>
+    <span class="n">dependsOn</span> <span class="n">tasks</span><span class="o">.</span><span class="na">setupEpsilonTasks</span>
+    <span class="c1">// Load the library.model EMF model</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.emf.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;Library&#39;</span><span class="o">,</span> 
+        <span class="nl">modelfile:</span> <span class="s1">&#39;library.model&#39;</span><span class="o">,</span> <span class="nl">metamodelfile:</span> <span class="s1">&#39;library.ecore&#39;</span><span class="o">)</span>
+    <span class="c1">// Run library.eol against it</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span> <span class="s1">&#39;library.eol&#39;</span><span class="o">){</span> <span class="n">model</span><span class="o">(</span><span class="nl">ref:</span> <span class="s1">&#39;Library&#39;</span><span class="o">)</span> <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 </div>
