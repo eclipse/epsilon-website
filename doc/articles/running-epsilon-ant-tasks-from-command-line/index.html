@@ -1049,7 +1049,7 @@
                 
                 
                 <h1 id="running-epsilons-ant-tasks-from-the-command-line">Running Epsilon's Ant Tasks from the Command Line<a class="headerlink" href="#running-epsilons-ant-tasks-from-the-command-line" title="Permanent link">&para;</a></h1>
-<p><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy">This example project</a> shows how to download, configure and run <a href="../../workflow">Epsilon's Ant tasks</a> from the command line using Ant, <a href="#maven">Maven</a> and <a href="#gradle">Gradle</a>. To run this example, you only need to have <a href="https://ant.apache.org">Apache Ant</a> installed in your system. </p>
+<p><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy">This example project</a> shows how to download, configure and run <a href="../../workflow">Epsilon's Ant tasks</a> from the command line using Ant, Maven and Gradle. To run the examples below, you <strong>only</strong> need to have <a href="https://ant.apache.org">Ant</a>, <a href="https://maven.apache.org/">Maven</a> or <a href="https://gradle.org/">Gradle</a> installed in your system. </p>
 <h2 id="ant">Ant<a class="headerlink" href="#ant" title="Permanent link">&para;</a></h2>
 <p>When you run the <code>ant</code> command in the root directory of the project, the following will happen:</p>
 <ul>
@@ -1175,18 +1175,40 @@ BUILD SUCCESSFUL
   <span class="nt">&lt;artifactId&gt;</span>epsilon-maven<span class="nt">&lt;/artifactId&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;pluginRepositories&gt;</span>
+    <span class="nt">&lt;pluginRepository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>Sonatype<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/pluginRepository&gt;</span>
+  <span class="nt">&lt;/pluginRepositories&gt;</span>
   <span class="nt">&lt;build&gt;</span>
     <span class="nt">&lt;plugins&gt;</span>
       <span class="nt">&lt;plugin&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>maven-antrun-plugin<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>1.7<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;executions&gt;</span>
           <span class="nt">&lt;execution&gt;</span>
-            <span class="nt">&lt;phase&gt;</span>process-resources<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>compile<span class="nt">&lt;/phase&gt;</span>
             <span class="nt">&lt;configuration&gt;</span>
-              <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;runbuild&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;ant</span> <span class="na">antfile=</span><span class="s">&quot;build.xml&quot;</span><span class="nt">/&gt;</span>
+              <span class="nt">&lt;target&gt;</span>
+                <span class="c">&lt;!-- Set up the core Epsilon tasks --&gt;</span>
+                <span class="nt">&lt;taskdef</span> 
+                  <span class="na">resource=</span><span class="s">&quot;org/eclipse/epsilon/workflow/tasks/tasks.xml&quot;</span><span class="nt">/&gt;</span>
+
+                <span class="c">&lt;!-- Set up the Epsilon EMF tasks --&gt;</span>
+                <span class="nt">&lt;taskdef</span> 
+                  <span class="na">resource=</span><span class="s">&quot;org/eclipse/epsilon/workflow/tasks/emf/tasks.xml&quot;</span><span class="nt">/&gt;</span>
+
+                <span class="c">&lt;!-- Load the library.model EMF model --&gt;</span>
+                <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Library&quot;</span> 
+                  <span class="na">modelfile=</span><span class="s">&quot;library.model&quot;</span> 
+                  <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span><span class="nt">/&gt;</span>
+
+                <span class="c">&lt;!-- Run library.eol against it --&gt;</span>
+                <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;library.eol&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Library&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/epsilon.eol&gt;</span>
               <span class="nt">&lt;/target&gt;</span>
             <span class="nt">&lt;/configuration&gt;</span>
             <span class="nt">&lt;goals&gt;</span>
@@ -1194,6 +1216,18 @@ BUILD SUCCESSFUL
             <span class="nt">&lt;/goals&gt;</span>
           <span class="nt">&lt;/execution&gt;</span>
         <span class="nt">&lt;/executions&gt;</span>
+        <span class="nt">&lt;dependencies&gt;</span>
+          <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.workflow<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.3.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+          <span class="nt">&lt;/dependency&gt;</span>
+          <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.workflow.emf<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.3.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+          <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;/dependencies&gt;</span>
       <span class="nt">&lt;/plugin&gt;</span>
     <span class="nt">&lt;/plugins&gt;</span>
   <span class="nt">&lt;/build&gt;</span>
