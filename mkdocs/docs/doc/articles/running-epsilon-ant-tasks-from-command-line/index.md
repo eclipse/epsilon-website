@@ -1,6 +1,6 @@
 # Running Epsilon's Ant Tasks from the Command Line
 
-[This example project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy) shows how to download, configure and run [Epsilon's Ant tasks](../../workflow) from the command line using Ant, [Maven](#maven) and [Gradle](#gradle). To run this example, you only need to have [Apache Ant](https://ant.apache.org) installed in your system. 
+[This example project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy) shows how to download, configure and run [Epsilon's Ant tasks](../../workflow) from the command line using Ant, Maven and Gradle. To run the examples below, you **only** need to have [Ant](https://ant.apache.org), [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) installed in your system. 
 
 ## Ant
 
@@ -52,7 +52,7 @@ The complete source code is below and in [Epsilon's Git repo](https://git.eclips
     {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/ivysettings.xml", true) }}}
     ```
 
-## Maven
+## Maven 
 
 Since Maven can run Ant tasks, Epsilon Ant tasks can also be executed from a Maven build (`mvn clean install`) as shown below. 
 
