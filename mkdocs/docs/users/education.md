@@ -23,6 +23,8 @@ Below is a list of institutions that use one or more components of Epsilon (e.g.
 ![University of Cadiz](logos/cadiz.png)
 ![McMaster University](logos/mcmaster.png)
 ![University of Edinburgh](logos/edin.png)
+![Antwerp University](logos/antwerp.png)
+![King's College London](logos/kings.png)
 </center>
 
 ## Sources
@@ -59,4 +61,8 @@ University of Cadiz
 McMaster University 
 	[[1](http://www.cas.mcmaster.ca/~maibaum/Toms_Mac_Site/CAS756.html)],
 University of Edinburgh 
-	[[1](http://www.inf.ed.ac.uk/teaching/courses/sdm/labs/mdd.html)]
+	[[1](http://www.inf.ed.ac.uk/teaching/courses/sdm/labs/mdd.html)],
+Antwerp University 
+	[[1](http://msdl.cs.mcgill.ca/people/hv/teaching/MSBDesign/projects/Joanna.Kisaakye/presentation)],
+King's College London
+	[[1](https://nms.kcl.ac.uk/kevin.lano/6ccs3sad/lecture%2010.pdf)]
