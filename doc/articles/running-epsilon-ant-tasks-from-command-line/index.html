@@ -1170,9 +1170,68 @@ BUILD SUCCESSFUL
 <h2 id="maven">Maven<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h2>
 <p>Since Maven can run Ant tasks, Epsilon Ant tasks can also be executed from a Maven build (<code>mvn clean install</code>) as shown below. </p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">pom.xml</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;html&gt;&lt;body&gt;&lt;h1&gt;</span>504 Gateway Time-out<span class="nt">&lt;/h1&gt;</span>
-The server didn&#39;t respond in time.
-<span class="nt">&lt;/body&gt;&lt;/html&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>epsilon-maven<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;pluginRepositories&gt;</span>
+    <span class="nt">&lt;pluginRepository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>Sonatype<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/pluginRepository&gt;</span>
+  <span class="nt">&lt;/pluginRepositories&gt;</span>
+  <span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+      <span class="nt">&lt;plugin&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>maven-antrun-plugin<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;executions&gt;</span>
+          <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>compile<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+              <span class="nt">&lt;target&gt;</span>
+                <span class="c">&lt;!-- Set up the core Epsilon tasks --&gt;</span>
+                <span class="nt">&lt;taskdef</span> 
+                  <span class="na">resource=</span><span class="s">&quot;org/eclipse/epsilon/workflow/tasks/tasks.xml&quot;</span><span class="nt">/&gt;</span>
+
+                <span class="c">&lt;!-- Set up the Epsilon EMF tasks --&gt;</span>
+                <span class="nt">&lt;taskdef</span> 
+                  <span class="na">resource=</span><span class="s">&quot;org/eclipse/epsilon/workflow/tasks/emf/tasks.xml&quot;</span><span class="nt">/&gt;</span>
+
+                <span class="c">&lt;!-- Load the library.model EMF model --&gt;</span>
+                <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Library&quot;</span> 
+                  <span class="na">modelfile=</span><span class="s">&quot;library.model&quot;</span> 
+                  <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span><span class="nt">/&gt;</span>
+
+                <span class="c">&lt;!-- Run library.eol against it --&gt;</span>
+                <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;library.eol&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Library&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;/epsilon.eol&gt;</span>
+              <span class="nt">&lt;/target&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+              <span class="nt">&lt;goal&gt;</span>run<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+          <span class="nt">&lt;/execution&gt;</span>
+        <span class="nt">&lt;/executions&gt;</span>
+        <span class="nt">&lt;dependencies&gt;</span>
+          <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.workflow<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.3.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+          <span class="nt">&lt;/dependency&gt;</span>
+          <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.workflow.emf<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.3.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+          <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;/dependencies&gt;</span>
+      <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+  <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 
 </div>
