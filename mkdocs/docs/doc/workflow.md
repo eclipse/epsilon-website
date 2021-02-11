@@ -116,6 +116,7 @@ class VariableNestedElement {
   -ref: String
   -as: String
   -optional: String
+  -ant: boolean
 }
 class EpsilonTask {
   -profile: Boolean
@@ -361,7 +362,19 @@ The *parameter* nested elements enable users to communicate String parameters to
 
 #### 0..n exports nested elements
 
-To facilitate low-level integration between different Epsilon tasks, each task can export a number of variables to the project context, so that subsequent tasks can access them later. Each *export* nested element defines the three attributes. The *ref* attribute specifies the name of the variable to be exported, the *as* string attribute defines the name by which the variable is stored in the project context and the *optional* boolean attribute specifies whether the variable is mandatory. If *optional* is set to *false* and the module does not specify such a variable, an ANT *BuildException* is raised.
+To facilitate low-level integration between different Epsilon tasks, each task can export a number of variables to the project context, so that subsequent tasks can access them later. Each *export* nested element defines the three attributes. The *ref* attribute specifies the name of the variable to be exported, the *as* string attribute defines the name by which the variable is stored in the project context and the *optional* boolean attribute specifies whether the variable is mandatory. If *optional* is set to *false* and the module does not specify such a variable, an ANT *BuildException* is raised. If the *ant* attribute is set to true, the variable is exported as an ANT variable, as shown below.
+
+```xml
+<project default="main">
+  <target name="main">
+    <epsilon.eol>
+      var x = 1;
+      <exports ref="x" ant="true"/>
+    </epsilon.eol>
+    <echo>${x}</echo> <!-- Prints  1 -->
+  </target> 
+</project>
+```
 
 #### 0..n uses nested elements
 
