@@ -1598,6 +1598,7 @@ class VariableNestedElement {
   -ref: String
   -as: String
   -optional: String
+  -ant: boolean
 }
 class EpsilonTask {
   -profile: Boolean
@@ -1808,7 +1809,18 @@ EolTask --|&gt; ExecutableModuleTask</div>
 <h4 id="0n-parameter-nested-elements">0..n parameter nested elements<a class="headerlink" href="#0n-parameter-nested-elements" title="Permanent link">&para;</a></h4>
 <p>The <em>parameter</em> nested elements enable users to communicate String parameters to tasks. Each <em>parameter</em> element defines a <em>name</em> and a <em>value</em> attribute. Before executing the module, each <em>parameter</em> element is transformed into a String variable with the respective name and value which is then made accessible to the module.</p>
 <h4 id="0n-exports-nested-elements">0..n exports nested elements<a class="headerlink" href="#0n-exports-nested-elements" title="Permanent link">&para;</a></h4>
-<p>To facilitate low-level integration between different Epsilon tasks, each task can export a number of variables to the project context, so that subsequent tasks can access them later. Each <em>export</em> nested element defines the three attributes. The <em>ref</em> attribute specifies the name of the variable to be exported, the <em>as</em> string attribute defines the name by which the variable is stored in the project context and the <em>optional</em> boolean attribute specifies whether the variable is mandatory. If <em>optional</em> is set to <em>false</em> and the module does not specify such a variable, an ANT <em>BuildException</em> is raised.</p>
+<p>To facilitate low-level integration between different Epsilon tasks, each task can export a number of variables to the project context, so that subsequent tasks can access them later. Each <em>export</em> nested element defines the three attributes. The <em>ref</em> attribute specifies the name of the variable to be exported, the <em>as</em> string attribute defines the name by which the variable is stored in the project context and the <em>optional</em> boolean attribute specifies whether the variable is mandatory. If <em>optional</em> is set to <em>false</em> and the module does not specify such a variable, an ANT <em>BuildException</em> is raised. If the <em>ant</em> attribute is set to true, the variable is exported as an ANT variable, as shown below.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;epsilon.eol&gt;</span>
+      var x = 1;
+      <span class="nt">&lt;exports</span> <span class="na">ref=</span><span class="s">&quot;x&quot;</span> <span class="na">ant=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/epsilon.eol&gt;</span>
+    <span class="nt">&lt;echo&gt;</span>${x}<span class="nt">&lt;/echo&gt;</span> <span class="c">&lt;!-- Prints  1 --&gt;</span>
+  <span class="nt">&lt;/target&gt;</span> 
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
 <h4 id="0n-uses-nested-elements">0..n uses nested elements<a class="headerlink" href="#0n-uses-nested-elements" title="Permanent link">&para;</a></h4>
 <p>The <em>uses</em> nested elements enable tasks to import variables exported by previous Epsilon tasks. Each use element supports three attributes. The <em>ref</em> attribute specifies the name of the variable to be used. If there is no variable with this name in the project context, the ANT project properties are queried. This enables Epsilon modules to access ANT parameters (e.g. provided using command-line arguments). The <em>as</em> attribute specifies the name by which the variable is accessible in the context of the task. Finally, the <em>optional</em> boolean paramter specifies if the variable must exist in the project context.</p>
 <p>To better illustrate the runtime communication mechanism, a minimal example is provided below. In  the first listing, <em>Exporter.eol</em> defines a String variable named <em>x</em> and assigns a value to it. The workflow below specifies that after executing <em>Exporter.eol</em>, it must export a variable named <em>x</em> with the new name <em>y</em> to the project context. Finally, it defines that before executing <em>User.eol</em>, it must query the project context for a variable named <em>y</em> and in case this is available, add the variable to the module's context and then execute it. Thus, the result of executing the workflow is <em>Some String</em> printed in the output console.</p>
