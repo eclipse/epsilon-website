@@ -76,13 +76,21 @@ Since Gradle can also [run Ant tasks](https://docs.gradle.org/current/userguide/
 
 You can also use [Flexmi](../../flexmi) instead of XMI (`library.flexmi` instead of `library.model`) for the model, and [Emfatic](https://eclipse.org/emfatic) instead of Ecore (`library.emf` instead of `library.ecore`) by adding the following dependency to your ANT/Maven/Gradle build.
 
-```xml
-<dependency>
-    <groupId>org.eclipse.emfatic</groupId>
-    <artifactId>org.eclipse.emfatic.core</artifactId>
-    <version>0.8.0-SNAPSHOT</version>
-</dependency>
-```
+=== "ANT/Maven"
+
+    ```xml
+    <dependency>
+        <groupId>org.eclipse.emfatic</groupId>
+        <artifactId>org.eclipse.emfatic.core</artifactId>
+        <version>0.8.0-SNAPSHOT</version>
+    </dependency>
+    ```
+
+=== "Gradle"
+    
+    ```groovy
+    epsilon 'org.eclipse.emfatic:org.eclipse.emfatic.core:0.8.0-SNAPSHOT'
+    ```
 
 ## Epsilon 1.x
 
