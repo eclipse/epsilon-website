@@ -1021,6 +1021,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#flexmi-and-emfatic" class="md-nav__link">
+    Flexmi and Emfatic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#epsilon-1x" class="md-nav__link">
     Epsilon 1.x
   </a>
@@ -1278,6 +1285,15 @@ BUILD SUCCESSFUL
 
 </div>
 </div>
+<h2 id="flexmi-and-emfatic">Flexmi and Emfatic<a class="headerlink" href="#flexmi-and-emfatic" title="Permanent link">&para;</a></h2>
+<p>You can also use <a href="../../flexmi">Flexmi</a> instead of XMI (<code>library.flexmi</code> instead of <code>library.model</code>) for the model, and <a href="https://eclipse.org/emfatic">Emfatic</a> instead of Ecore (<code>library.emf</code> instead of <code>library.ecore</code>) by adding the following dependency to your ANT/Maven/Gradle build.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.eclipse.emfatic<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>org.eclipse.emfatic.core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.8.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+
 <h2 id="epsilon-1x">Epsilon 1.x<a class="headerlink" href="#epsilon-1x" title="Permanent link">&para;</a></h2>
 <p>If you would like to use an older (1.x) version of Epsilon, you can use <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.1x">this example instead</a>, which uses a fat jar we used to produce (<code>epsilon-1.x-kitchensink.jar</code>) before moving all our jars to Maven Central/Sonatype.</p>
                 
