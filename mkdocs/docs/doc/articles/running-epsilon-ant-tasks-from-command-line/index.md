@@ -1,6 +1,6 @@
 # Running Epsilon's Ant Tasks from the Command Line
 
-[This example project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy) shows how to download, configure and run [Epsilon's Ant tasks](../../workflow) from the command line using Ant, Maven and Gradle. To run the examples below, you **only** need to have [Ant](https://ant.apache.org), [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) installed in your system. 
+[This example project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone) shows how to download, configure and run [Epsilon's Ant tasks](../../workflow) from the command line using Ant, Maven and Gradle. To run the examples below, you **only** need to have [Ant](https://ant.apache.org), [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) installed in your system. 
 
 ## Ant
 
@@ -32,24 +32,24 @@ run-epsilon:
 BUILD SUCCESSFUL
 ```
 
-The complete source code is below and in [Epsilon's Git repo](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.ivy).
+The complete source code is below and in [Epsilon's Git repo](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone).
 
 === "build.xml"
 
     ```xml
-    {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/build.xml", true) }}}
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/build.xml", true) }}}
     ```
 
 === "ivy.xml"
 
     ```xml
-    {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/ivy.xml", true) }}}
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/ivy.xml", true) }}}
     ```
 
 === "ivysettings.xml"
 
     ```xml
-    {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/ivysettings.xml", true) }}}
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/ivysettings.xml", true) }}}
     ```
 
 ## Maven 
@@ -59,7 +59,7 @@ Since Maven can run Ant tasks, Epsilon Ant tasks can also be executed from a Mav
 === "pom.xml"
 
     ```xml
-    {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/pom.xml", true) }}}
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/pom.xml", true) }}}
     ```
 
 ## Gradle
@@ -69,10 +69,10 @@ Since Gradle can also [run Ant tasks](https://docs.gradle.org/current/userguide/
 === "build.gradle"
 
     ```groovy
-    {{{ example("org.eclipse.epsilon.examples.workflow.standalone.ivy/build.gradle", true) }}}
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/build.gradle", true) }}}
     ```
 
 ## Epsilon 1.x
 
-If you would like to use an older (1.x) version of Epsilon, you can use [this example instead](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone), which uses a fat jar we used to produce (`epsilon-1.x-kitchensink.jar`) before moving all our jars to Maven Central/Sonatype.
+If you would like to use an older (1.x) version of Epsilon, you can use [this example instead](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.1x), which uses a fat jar we used to produce (`epsilon-1.x-kitchensink.jar`) before moving all our jars to Maven Central/Sonatype.
 
