@@ -1,4 +1,4 @@
-# Running Epsilon's Ant Tasks from the Command Line
+# Running Epsilon's Ant Tasks from Command Line
 
 [This example project](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone) shows how to download, configure and run [Epsilon's Ant tasks](../../workflow) from the command line using Ant, Maven and Gradle. To run the examples below, you **only** need to have [Ant](https://ant.apache.org), [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) installed in your system. 
 
@@ -76,7 +76,13 @@ Since Gradle can also [run Ant tasks](https://docs.gradle.org/current/userguide/
 
 You can also use [Flexmi](../../flexmi) instead of XMI (`library.flexmi` instead of `library.model`) for the model, and [Emfatic](https://eclipse.org/emfatic) instead of Ecore (`library.emf` instead of `library.ecore`) by adding the following dependency to your ANT/Maven/Gradle build.
 
-=== "ANT/Maven"
+=== "Ivy/ANT"
+
+    ```xml
+    <dependency org="org.eclipse.emfatic" name="org.eclipse.emfatic.core" rev="0.8.0-SNAPSHOT" conf="binaries->default"/>
+    ```
+
+=== "Maven"
 
     ```xml
     <dependency>
