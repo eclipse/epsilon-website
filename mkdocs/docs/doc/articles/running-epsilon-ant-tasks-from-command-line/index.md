@@ -72,6 +72,18 @@ Since Gradle can also [run Ant tasks](https://docs.gradle.org/current/userguide/
     {{{ example("org.eclipse.epsilon.examples.workflow.standalone/build.gradle", true) }}}
     ```
 
+## Flexmi and Emfatic
+
+You can also use [Flexmi](../../flexmi) instead of XMI (`library.flexmi` instead of `library.model`) for the model, and [Emfatic](https://eclipse.org/emfatic) instead of Ecore (`library.emf` instead of `library.ecore`) by adding the following dependency to your ANT/Maven/Gradle build.
+
+```xml
+<dependency>
+    <groupId>org.eclipse.emfatic</groupId>
+    <artifactId>org.eclipse.emfatic.core</artifactId>
+    <version>0.8.0-SNAPSHOT</version>
+</dependency>
+```
+
 ## Epsilon 1.x
 
 If you would like to use an older (1.x) version of Epsilon, you can use [this example instead](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.1x), which uses a fat jar we used to produce (`epsilon-1.x-kitchensink.jar`) before moving all our jars to Maven Central/Sonatype.
