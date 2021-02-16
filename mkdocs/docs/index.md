@@ -6,10 +6,9 @@ Epsilon is a family of Java-based scripting languages for automating common mode
   <div><img src="doc/articles/eol-interpreter-view/eol-interpreter.gif"/></div>
   <div><img data-lazy="doc/flexmi/screenshot.png"/></div>
   <div><img data-lazy="doc/picto/picto-eclipse.png"/></div>
-  <div><img data-lazy="doc/picto/picto-risks.png"/></div>
+  <div><img data-lazy="doc/articles/simulink/epsilon-simulink.png"/></div>
   <div><img data-lazy="doc/picto/picto-eclassifier.png"/></div>
   <div><img data-lazy="doc/picto/picto-minisd.png"/></div>
-  <div><img data-lazy="doc/picto/picto-gsn.png"/></div>
 </div>
 
 !!! info "Online Playground"
