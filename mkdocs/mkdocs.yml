@@ -163,19 +163,24 @@ plugins:
 
 copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
 extra_css:
-  - 'assets/stylesheets/extra.css'
   - 'assets/stylesheets/mermaid.css'
   - 'assets/javascript/google-code-prettify/prettify.css'
   #- 'assets/stylesheets/tabbed.css'
   - https://unpkg.com/mermaid@8.5.1/dist/mermaid.css
+  - 'assets/stylesheets/slick.css'
+  - 'assets/stylesheets/slick-theme.css'
+  - 'assets/stylesheets/extra.css'
+  
 extra_javascript:
   - https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js
   - 'assets/javascript/mermaid.js'
   - 'assets/javascript/jquery.js'
+  - 'assets/javascript/slick.min.js'
   - 'assets/javascript/google-code-prettify/prettify.js'
   - 'assets/javascript/google-code-prettify/lang-emfatic.js'
   - 'assets/javascript/google-code-prettify/lang-epsilon.js'
   - 'assets/javascript/google-code-prettify/prettyprint.js'
+  - 'assets/javascript/extra.js'
 google_analytics:
   - UA-184785655-1
   - auto

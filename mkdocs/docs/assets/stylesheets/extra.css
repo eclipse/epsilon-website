@@ -27,3 +27,9 @@
     display: table-cell;
     padding: 1em;
 }
+
+.slick-dots li button:before
+{
+    font-size: 20px;
+    line-height: 20px;
+}
