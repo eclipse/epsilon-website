@@ -1,0 +1,27 @@
+rule Tree2Graph
+    transform s : Source!Tree
+    to t : Target!Graph {
+    
+    guard: not s.parent.isDefined()
+    
+    t.name = s.label;
+}
+
+rule Tree2NodeAndEdge
+    transform s : Source!Tree
+    to n : Target!Node {
+           
+    guard: s.parent.isDefined()
+    
+    n.name = s.label;
+    
+    var graph = Target!Graph.all.first();
+    graph.nodes.add(n);
+    
+    if (s.parent.parent.isDefined()) {
+        var e : new Target!Edge;
+        e.source ::= s.parent;
+        e.target = n;
+        graph.edges.add(e);
+    }
+}
