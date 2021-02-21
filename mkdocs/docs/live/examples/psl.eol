@@ -10,5 +10,6 @@ Task.all.select(t|t.effort.size() = 1).size().
 
 // Returns the total person-months for a task
 operation Task getTotalEffort() {
-    return self.effort.collect(e|self.duration*e.percentage/100.0).sum();
+    return self.effort.
+    	collect(e|self.duration*e.percentage/100.0).sum();
 }
