@@ -30,7 +30,9 @@ operation Task getLifeline() {
 	var lifeline = "";
 	for (i in 1.to(p.getDuration())){
 		lifeline += "|";
-		if (i>=self.start and i<=self.start+self.duration-1) lifeline += "--";
+		if (i>=self.start and i<=self.start+self.duration-1) {
+			lifeline += "--";
+		}
 		else lifeline+="  ";
 		if (not hasMore) lifeline += "|";
 	}

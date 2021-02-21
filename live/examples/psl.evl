@@ -15,7 +15,9 @@ context Task {
 context Person {
     
     critique IsInvolvedInATask {
-        check: Effort.all.exists(e|e.person = self)
+        check: Effort.all.
+            exists(e|e.person = self)
+        
         message: self.name + 
             " is not involved in the project"
     }
