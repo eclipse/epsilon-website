@@ -1,6 +1,6 @@
 # The Epsilon Generation Language (EGL)
 
-EGL is a language tailored for model-to-text transformation (M2T). EGL can be used to transform models into various types of textual artefact, including code (e.g. Java), reports (e.g. in HTML/LaTeX), images (e.g. using [Graphviz](https://graphviz.org)), formal specifications (e.g. Z notation), or even entire applications comprising code in multiple languages (e.g. HTML, Javascript and CSS).
+EGL is a model-to-text transformation (M2T) language that can be used to transform models into various types of textual artefact, including code (e.g. Java), reports (e.g. in HTML/LaTeX), images (e.g. using [Graphviz](https://graphviz.org)), formal specifications, or even entire applications comprising code in multiple languages (e.g. HTML, Javascript and CSS).
 
 EGL is a *template-based* language (i.e. EGL programs resemble the text that they generate), and provides several features that simplify and support the generation of text from models, including: 
 
@@ -8,9 +8,15 @@ EGL is a *template-based* language (i.e. EGL programs resemble the text that the
 - an extensible template system (for generating text to a variety of sources, such as a file on disk, a database server, or even as a response issued by a web server), 
 - formatting algorithms (for producing generated text that is well-formatted and hence readable), and traceability mechanisms (for linking generated text with source models).
 
+!!! tip "Try EGL online"
+    You can run and fiddle with an EGL template that generates an ASCII-based Gantt chart from a project scheduling model in the [online Epsilon Playground](../../live/?egl).
+
 ## Abstract Syntax
 
 The figure below shows the abstract syntax of EGL's core functionality.
+
+!!! info
+    As with most languages in Epsilon, EGL uses [EOL](../eol) as its expression language. This page only documents the additional syntax and semantics that EGL provides on top of EOL.
 
 ```mermaid
 classDiagram
@@ -408,3 +414,7 @@ EglTemplateFactoryModuleAdapter module =
         // error handling
     }
 ```
+
+## Additional Resources
+
+Additional resources about EGL/EGX are available [here](../articles/#epsilon-generation-language).

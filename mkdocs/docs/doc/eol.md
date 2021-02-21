@@ -1,10 +1,13 @@
 # The Epsilon Object Language (EOL)
 
-The primary aim of EOL is to provide a reusable set of common model management facilities, atop which task-specific languages can be implemented. However, EOL can also be used as a general-purpose standalone model management language for automating tasks that do not fall into the patterns targeted by task-specific languages. This section presents the syntax and semantics of the language using a combination of abstract syntax diagrams, concrete syntax examples and informal discussion.
+EOL is the core expression language of Epsilon, and the foundation for task-specific languages for tasks such as [model-validation](../evl), [model-to-text transformation](../egl), [model-to-model transformation](../etl) and [model migration](../flock). EOL can also be used as a general-purpose standalone model management language for automating tasks that do not fall into the patterns targeted by task-specific languages.
 
-## Module Organization
+!!! tip "Try EOL online"
+    You can run and fiddle with an EOL program that queries a project scheduling model in the [online Epsilon Playground](../../live/?eol).
 
-In this section the syntax of EOL is presented in a top-down manner. An EOL programs are organized in `modules`. Each module defines a `body` and a number of `operations`. The body is a block of statements that are evaluated when the module is executed[^1]. Each operation defines the kind of objects on which it is applicable (`context`), a `name`, a set of `parameters` and optionally a `return type`. Modules can also import other modules using `import` statements and access their operations, as shown in the listing below.
+## Syntax
+
+EOL programs are organized in `modules`. Each module defines a `body` and a number of `operations`. The body is a block of statements that are evaluated when the module is executed[^1]. Each operation defines the kind of objects on which it is applicable (`context`), a `name`, a set of `parameters` and optionally a `return type`. Modules can also import other modules using `import` statements and access their operations, as shown in the listing below.
 
 ```eol
 // file imported.eol
@@ -934,6 +937,11 @@ implementation](images/EclipseUserInput.png)
 implementation](images/ConsoleUserInput.png)
 
 User-input facilities have been found to be particularly useful in all model management tasks. Such facilities are essential for performing operations on live models such as model validation and model refactoring but can also be useful in model comparison where marginal matching decisions can be delegated to the user and model transformation where the user can interactively specify the elements that will be transformed into corresponding elements in the target model.
+
+
+## Additional Resources
+
+Additional resources about EOL are available [here](../articles/#epsilon-object-language).
 
 [^1]: Although the EOL parser permits loose statements (e.g. not contained in operations) between/after operations, these are ignored at runtime.
 

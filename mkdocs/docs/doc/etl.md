@@ -1,6 +1,9 @@
 # The Epsilon Transformation Language (ETL)
 
-The aim of ETL is to contribute model-to-model transformation capabilities to Epsilon. More specifically, ETL can be used to transform an arbitrary number of input models into an arbitrary number of output models of different modelling languages and technologies at a high level of abstraction.
+The aim of ETL is to contribute model-to-model transformation capabilities to Epsilon. More specifically, ETL can be used to transform an arbitrary number of input models into an arbitrary number of output models of different modelling languages and technologies in a rule-based and modular manner.
+
+!!! tip "Try ETL online"
+    You can run and fiddle with an ETL transformation that transforms a tree model to a graph model in the [online Epsilon Playground](../../live/?etl).
 
 ## Abstract Syntax
 
@@ -183,5 +186,9 @@ rule Tree2Node
     }
 }
 ```
+
+## Additional Resources
+
+Additional resources about ETL are available [here](../articles/#epsilon-transformation-language).
 
 [^1]: The concept of lazy rules was first introduced in ATL
