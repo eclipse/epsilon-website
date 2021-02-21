@@ -248,11 +248,26 @@
         languageName = (language == "flock" ? "Flock" : language.toUpperCase());
         secondModelEditable = !(language == "etl" || language == "flock");
 
+        if (language == "etl") {
+            document.getElementById("thirdModelSplitter").remove();
+        }
+        else if (language == "evl") {
+            document.getElementById("secondModelSplitter").remove();    
+        }
+        else if (language == "eol" || language == "egl") {
+            document.getElementById("secondModelSplitter").remove();
+            document.getElementById("thirdModelSplitter").remove();
+        }
+
         Array.from(document.querySelectorAll('.editor')).forEach(function(e) {
             var editor = ace.edit(e);
             editor.setTheme("ace/theme/eclipse");
             editor.renderer.setShowGutter(false);
             editor.setFontSize("1rem");
+            editor.setOptions({
+              fontFamily: "Courier",
+              fontSize: "12pt"
+            });
         });
 
         programEditor = ace.edit(document.getElementById('programEditor'));
@@ -278,8 +293,10 @@
         $('#programPanel')[0].dataset.customButtons = "programPanelButtons";
 
         secondModelPanelButtons = getSecondModelPanelButtons();
-        $('#secondModelPanel')[0].dataset.customButtons = "secondModelPanelButtons";
-        
+        if (language == "etl") {
+            $('#secondModelPanel')[0].dataset.customButtons = "secondModelPanelButtons";
+        }
+
         //TODO: Fix "undefined" when fields are empty
         programEditor.getSession().setMode("ace/mode/" + language);
         programEditor.setValue(json.program + "", 1);
@@ -387,19 +404,19 @@
         if (language == "eol") {
             toggle("secondModelSplitter");
             toggle("thirdModelSplitter");
-            setPanelTitle("programPanel", "Program");
+            setPanelTitle("programPanel", "Program (EOL)");
         }
         else if (language == "egl") {
             toggle("secondModelSplitter");
             toggle("thirdModelSplitter");
-            setPanelTitle("programPanel", "Template");
+            setPanelTitle("programPanel", "Template (EGL)");
         }
         else if (language == "etl" || language == "flock") {
             $("#thirdModelSplitter").hide();
             $("#secondModelDiagram").show();
             $("#secondFlexmiEditor").hide();
 
-            setPanelTitle("programPanel", "Transformation");
+            setPanelTitle("programPanel", "Transformation (ETL)");
             setPanelTitle("modelPanel", "Source Model (Flexmi)");
             setPanelTitle("metamodelPanel", "Source Metamodel (Emfatic)");
             setPanelTitle("secondModelPanel", "Target Model");
@@ -410,7 +427,7 @@
             toggle("secondModelSplitter");
             $("#thirdModelDiagram").show();
             if (language == "evl") {
-                setPanelTitle("programPanel", "Constraints");
+                setPanelTitle("programPanel", "Constraints (EVL)");
                 setPanelTitle("thirdModelPanel", "Errors/Warnings");
                 setPanelIcon("thirdModelPanel", "warning");
             }
@@ -468,8 +485,13 @@
         document.getElementById("console").parentNode.style = editorParentStyle;
         document.getElementById("flexmiEditor").parentNode.parentNode.style = modelEditorParentStyle;
         document.getElementById("emfaticEditor").parentNode.parentNode.style = modelEditorParentStyle;
-        document.getElementById("secondFlexmiEditor").parentNode.parentNode.style = modelEditorParentStyle;
-        document.getElementById("secondEmfaticEditor").parentNode.parentNode.style = modelEditorParentStyle;
+        
+        if (document.getElementById("secondFlexmiEditor") != null) {
+            document.getElementById("secondFlexmiEditor").parentNode.parentNode.style = modelEditorParentStyle;
+        }
+        if (document.getElementById("secondEmfaticEditor") != null) {
+            document.getElementById("secondEmfaticEditor").parentNode.parentNode.style = modelEditorParentStyle;
+        }
         
         editors.forEach(e => e.resize());
     }
@@ -531,7 +553,9 @@
     }
 
     function toggle(elementId, onEmpty) {
-        var element = document.getElementById(elementId);        
+        var element = document.getElementById(elementId);
+        if (element == null) return;
+
         if (getComputedStyle(element).display == "none") {
             element.style.display = "block";
             if (element.innerHTML.length == 0) {
