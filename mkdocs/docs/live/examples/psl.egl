@@ -1,7 +1,7 @@
 [*Generate a Gantt chart for the project*]
 [%var p = Project.all.first();%]
-[*Print the name of the project*]
-Project: [%=p.name%]
+[*Print the title of the project*]
+Project: [%=p.title%]
 ---
 [*Print the timeline of the project*]
 [%=p.getTimeline()%]
