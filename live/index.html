@@ -12,7 +12,7 @@
     var secondModelPanelButtons;
 
     var modelPanelButtons = [{
-        html: buttonHtml("help", "Flexmi language reference"),
+        html: buttonHtml("info", "Flexmi language reference"),
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
     },{
@@ -25,7 +25,7 @@
         onclick: "toggle('modelDiagram', function(){refreshModelDiagram();})"
     }];
     var metamodelPanelButtons = [{
-        html: buttonHtml("help", "Emfatic language reference"),
+        html: buttonHtml("info", "Emfatic language reference"),
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/emfatic');"
     },{
@@ -38,7 +38,7 @@
         onclick: "toggle('metamodelDiagram', function(){refreshMetamodelDiagram();})"
     }];
     var secondMetamodelPanelButtons = [{
-        html: buttonHtml("help", "Emfatic language reference"),
+        html: buttonHtml("info", "Emfatic language reference"),
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/emfatic');"
     },{
@@ -396,7 +396,7 @@
 
     function getProgramPanelButtons() {
         return [{
-            html: buttonHtml("help", languageName + " language reference"),
+            html: buttonHtml("info", languageName + " language reference"),
             cls: "sys-button",
             onclick: "window.open('https://www.eclipse.org/epsilon/doc/'+language);"
         },{
@@ -408,7 +408,7 @@
 
     function getSecondModelPanelButtons() {
         return secondModelEditable ? [{
-            html: buttonHtml("help", "Flexmi language reference"),
+            html: buttonHtml("info", "Flexmi language reference"),
             cls: "sys-button",
             onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
         },{
