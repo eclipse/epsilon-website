@@ -1,0 +1,23 @@
+context Task {
+    
+    constraint ValidStart {
+        check: self.start > 0
+        message: "Start month must be positive"
+    }
+    
+    constraint ValidDuration {
+        check: self.duration > 0
+        message: "Duration must be positive"
+    }
+    
+}
+
+context Person {
+    
+    critique IsInvolvedInATask {
+        check: Effort.all.exists(e|e.person = self)
+        message: self.name + 
+            " is not involved in the project"
+    }
+    
+}
