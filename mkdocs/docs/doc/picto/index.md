@@ -252,3 +252,7 @@ While EMF provides support for [reflective model instantiation](../articles/refl
 ![](picto-risks.png)
 
 ![](picto-gsn.png)
+
+## Additional Resources
+
+Additional resources about Picto are available [here](../articles/#picto).
