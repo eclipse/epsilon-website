@@ -1197,7 +1197,7 @@ entity Comment extends HasAuthor {
 </code></pre></div>
 
 <h3 id="the-visualisation-transformation">The Visualisation Transformation<a class="headerlink" href="#the-visualisation-transformation" title="Permanent link">&para;</a></h3>
-<p>The visualisation transformation has been implemented using Epsilon's <a href="../../egl">EGL model-to-text transformation language</a> and produces Graphviz-based class diagrams from the active entity model. The transformation consists of the <code>dmodel.egx</code> coordination rules, and the <code>classdiagram.egl</code> template shown below. The transformation produces one view for each entity in the model, which consists of the entity itself, any super/sub-types it may have, as well as other entities that it is related to. </p>
+<p>The visualisation transformation has been implemented using Epsilon's <a href="../../egl">EGL model-to-text transformation language</a> and produces Graphviz-based class diagrams from the active entity model. The transformation consists of the <code>dmodel.egx</code> coordination rules, and the <code>entity2graphviz.egl</code> template shown below. The transformation produces one view for each entity in the model, which consists of the entity itself, any super/sub-types it may have, as well as other entities that it is related to. </p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">dmodel.egx</label><div class="tabbed-content">
 <pre class="prettyprint lang-egx"><code>rule Entity2Graphviz
     transform e : Entity {
