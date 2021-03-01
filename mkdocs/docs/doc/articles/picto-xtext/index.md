@@ -66,7 +66,7 @@ Picto is made aware of this class through the `org.eclipse.epsilon.picto.pictoSo
 
 ### The Visualisation Transformation
 
-The visualisation transformation has been implemented using Epsilon's [EGL model-to-text transformation language](../../egl) and produces Graphviz-based class diagrams from the active entity model. The transformation consists of the `dmodel.egx` coordination rules, and the `classdiagram.egl` template shown below. The transformation produces one view for each entity in the model, which consists of the entity itself, any super/sub-types it may have, as well as other entities that it is related to. 
+The visualisation transformation has been implemented using Epsilon's [EGL model-to-text transformation language](../../egl) and produces Graphviz-based class diagrams from the active entity model. The transformation consists of the `dmodel.egx` coordination rules, and the `entity2graphviz.egl` template shown below. The transformation produces one view for each entity in the model, which consists of the entity itself, any super/sub-types it may have, as well as other entities that it is related to. 
 
 === "dmodel.egx"
 
