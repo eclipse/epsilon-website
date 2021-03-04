@@ -469,6 +469,16 @@ The `epsilon.epl` task executes an EPL module, defined using the `src` attribute
 
 The `epsilon.java.executeStaticMethod` task executes a parameter-less static method, defined using the `method` attribute, of a Java class, defined using the `javaClass` attribute. This task can be useful for setting up the infrastructure of Xtext-based languages.
 
+### For Task
+
+The `epsilon.for` task iterates over the files in a [fileset](https://ant.apache.org/manual/Types/fileset.html) and executes its nested tasks. An example that uses `epsilon.for` to run an EOL program on XML files contained in a folder called `loop` is show below. 
+
+```xml
+{{{ example("org.eclipse.epsilon.examples.workflow.for/build.xml", false) }}}
+```
+
+The complete source code for this example is in [Epsilon's Git repo](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.for).
+
 ## Additional Resources
 
 Additional resources about the Epsilon ANT tasks are available [here](../articles/#workflow-ant-tasks).
