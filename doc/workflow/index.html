@@ -813,6 +813,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#for-task" class="md-nav__link">
+    For Task
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1484,6 +1491,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#for-task" class="md-nav__link">
+    For Task
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1920,6 +1934,37 @@ z.println();</code></pre>
 </ul>
 <h3 id="java-class-static-method-execution-task">Java Class Static Method Execution Task<a class="headerlink" href="#java-class-static-method-execution-task" title="Permanent link">&para;</a></h3>
 <p>The <code>epsilon.java.executeStaticMethod</code> task executes a parameter-less static method, defined using the <code>method</code> attribute, of a Java class, defined using the <code>javaClass</code> attribute. This task can be useful for setting up the infrastructure of Xtext-based languages.</p>
+<h3 id="for-task">For Task<a class="headerlink" href="#for-task" title="Permanent link">&para;</a></h3>
+<p>The <code>epsilon.for</code> task iterates over the files in a <a href="https://ant.apache.org/manual/Types/fileset.html">fileset</a> and executes its nested tasks. An example that uses <code>epsilon.for</code> to run an EOL program on XML files contained in a folder called <code>loop</code> is show below. </p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- Load t1.xml once as Ta --&gt;</span>
+        <span class="nt">&lt;epsilon.xml.loadModel</span> <span class="na">name=</span><span class="s">&quot;Ta&quot;</span> <span class="na">file=</span><span class="s">&quot;t1.xml&quot;</span><span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- For every XML file in the loop directory --&gt;</span>
+        <span class="nt">&lt;epsilon.for&gt;</span>
+            <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&quot;loop&quot;</span> <span class="na">includes=</span><span class="s">&quot;*.xml&quot;</span><span class="nt">/&gt;</span>
+
+            <span class="c">&lt;!-- Load the file as Tb --&gt;</span>
+            <span class="nt">&lt;epsilon.xml.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tb&quot;</span> <span class="na">file=</span><span class="s">&quot;loop/${it}&quot;</span><span class="nt">/&gt;</span>
+
+            <span class="c">&lt;!-- Run an EOL program on Ta and Tb --&gt;</span>
+            <span class="nt">&lt;epsilon.eol&gt;</span>
+                Ta!t_tree.all.a_name.println();
+                Tb!t_tree.all.a_name.println();
+                <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Ta&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tb&quot;</span><span class="nt">/&gt;</span>   
+            <span class="nt">&lt;/epsilon.eol&gt;</span>
+
+            <span class="c">&lt;!-- Dispose of Tb --&gt;</span>
+            <span class="nt">&lt;epsilon.disposeModel</span> <span class="na">model=</span><span class="s">&quot;Tb&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/epsilon.for&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+<p>The complete source code for this example is in <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.for">Epsilon's Git repo</a>.</p>
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <p>Additional resources about the Epsilon ANT tasks are available <a href="../articles/#workflow-ant-tasks">here</a>.</p>
                 
