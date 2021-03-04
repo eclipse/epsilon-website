@@ -79,7 +79,7 @@ Like all of Epsilon's rule-based (ERL) languages, an EGX module consists of any 
 
 EGX generation rules also support the following annotations.
 
-- `@append`: Appends the generated contents to the target file.
+- `@append`: Appends the generated content to the target file.
 - `@patch`: Patches the target file with the generated content.
 
 The only other noteworthy aspect of EGX's execution algorithm is that it keeps a cache of templates which have been loaded, to avoid re-parsing and re-initialising them every time. Of course, the variables for the template are reset and rebound every time, as they may be different. The purpose of the cache is only to avoid the potentially expensive process of parsing EGL templates.
