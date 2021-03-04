@@ -75,6 +75,13 @@ Like all of Epsilon's rule-based (ERL) languages, an EGX module consists of any 
 * **target**: The path of the file to which the output of the template should be written.
 * **post**: Arbitrarily code block for post-processing. In addition to having access to all variable declared in previous blocks, a new variable called `generated` is also available, which is usually a reference to the generated file so the user can call any methods available on `java.io.File`. If the EGL execution engine has not been configured to output to files, or the `target` is ommitted, then this variable will be the output of the template as a String instead.
 
+### Generation Rule Annotations
+
+EGX generation rules also support the following annotations.
+
+- `@append`: Appends the generated contents to the target file.
+- `@patch`: Patches the target file with the generated content.
+
 The only other noteworthy aspect of EGX's execution algorithm is that it keeps a cache of templates which have been loaded, to avoid re-parsing and re-initialising them every time. Of course, the variables for the template are reset and rebound every time, as they may be different. The purpose of the cache is only to avoid the potentially expensive process of parsing EGL templates.
 
 ### Parallel Execution
