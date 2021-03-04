@@ -1026,13 +1026,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#generation-rule-annotations" class="md-nav__link">
-    Generation Rule Annotations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#parallel-execution" class="md-nav__link">
     Parallel Execution
   </a>
@@ -1134,16 +1127,12 @@ Book -- Author: books * / authors *</div>
 <li><strong>pre</strong>: Arbitrary block of code, can be used to set up variables or any other pre-processing.</li>
 <li><strong>overwrite</strong>: Whether to overwrite the target file if it already exists. True by default.</li>
 <li><strong>merge</strong>: Whether to merge new contents with existing contents. True by default.</li>
+<li><strong>append</strong>: Whether to append new contents to existing contents. False by default.</li>
+<li><strong>patch</strong>: Whether to patch existing contents with new contents. False by default.</li>
 <li><strong>template</strong>: The path (usually relative) and name of the template to invoke.</li>
 <li><strong>parameters</strong>: Key-value pairs mapping variable names to values, which will be passed to the template. That is, the template will be populated with variable names (the keys) and values based on the provided Map.</li>
 <li><strong>target</strong>: The path of the file to which the output of the template should be written.</li>
 <li><strong>post</strong>: Arbitrarily code block for post-processing. In addition to having access to all variable declared in previous blocks, a new variable called <code>generated</code> is also available, which is usually a reference to the generated file so the user can call any methods available on <code>java.io.File</code>. If the EGL execution engine has not been configured to output to files, or the <code>target</code> is ommitted, then this variable will be the output of the template as a String instead.</li>
-</ul>
-<h3 id="generation-rule-annotations">Generation Rule Annotations<a class="headerlink" href="#generation-rule-annotations" title="Permanent link">&para;</a></h3>
-<p>EGX generation rules also support the following annotations.</p>
-<ul>
-<li><code>@append</code>: Appends the generated content to the target file.</li>
-<li><code>@patch</code>: Patches the target file with the generated content.</li>
 </ul>
 <p>The only other noteworthy aspect of EGX's execution algorithm is that it keeps a cache of templates which have been loaded, to avoid re-parsing and re-initialising them every time. Of course, the variables for the template are reset and rebound every time, as they may be different. The purpose of the cache is only to avoid the potentially expensive process of parsing EGL templates.</p>
 <h3 id="parallel-execution">Parallel Execution<a class="headerlink" href="#parallel-execution" title="Permanent link">&para;</a></h3>
