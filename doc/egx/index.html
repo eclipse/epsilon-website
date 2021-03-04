@@ -1142,7 +1142,7 @@ Book -- Author: books * / authors *</div>
 <h3 id="generation-rule-annotations">Generation Rule Annotations<a class="headerlink" href="#generation-rule-annotations" title="Permanent link">&para;</a></h3>
 <p>EGX generation rules also support the following annotations.</p>
 <ul>
-<li><code>@append</code>: Appends the generated contents to the target file.</li>
+<li><code>@append</code>: Appends the generated content to the target file.</li>
 <li><code>@patch</code>: Patches the target file with the generated content.</li>
 </ul>
 <p>The only other noteworthy aspect of EGX's execution algorithm is that it keeps a cache of templates which have been loaded, to avoid re-parsing and re-initialising them every time. Of course, the variables for the template are reset and rebound every time, as they may be different. The purpose of the cache is only to avoid the potentially expensive process of parsing EGL templates.</p>
