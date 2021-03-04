@@ -70,17 +70,12 @@ Like all of Epsilon's rule-based (ERL) languages, an EGX module consists of any 
 * **pre**: Arbitrary block of code, can be used to set up variables or any other pre-processing.
 * **overwrite**: Whether to overwrite the target file if it already exists. True by default.
 * **merge**: Whether to merge new contents with existing contents. True by default.
+* **append**: Whether to append new contents to existing contents. False by default.
+* **patch**: Whether to patch existing contents with new contents. False by default.
 * **template**: The path (usually relative) and name of the template to invoke.
 * **parameters**: Key-value pairs mapping variable names to values, which will be passed to the template. That is, the template will be populated with variable names (the keys) and values based on the provided Map.
 * **target**: The path of the file to which the output of the template should be written.
 * **post**: Arbitrarily code block for post-processing. In addition to having access to all variable declared in previous blocks, a new variable called `generated` is also available, which is usually a reference to the generated file so the user can call any methods available on `java.io.File`. If the EGL execution engine has not been configured to output to files, or the `target` is ommitted, then this variable will be the output of the template as a String instead.
-
-### Generation Rule Annotations
-
-EGX generation rules also support the following annotations.
-
-- `@append`: Appends the generated content to the target file.
-- `@patch`: Patches the target file with the generated content.
 
 The only other noteworthy aspect of EGX's execution algorithm is that it keeps a cache of templates which have been loaded, to avoid re-parsing and re-initialising them every time. Of course, the variables for the template are reset and rebound every time, as they may be different. The purpose of the cache is only to avoid the potentially expensive process of parsing EGL templates.
 
