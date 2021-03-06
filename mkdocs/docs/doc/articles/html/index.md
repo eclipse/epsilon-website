@@ -1,12 +1,12 @@
-=Scripting HTML documents using Epsilon=
+# Scripting HTML Documents using Epsilon
  
-In this article we demonstrate how you can create, query and modify HTML documents in Epsilon programs using the HTML driver currently available under EpsilonLabs. All the examples in this article demonstrate using EOL to script HTML documents. However, it's worth stressing that HTML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - HTML or EMF-based -, or to text), compare and merge your HTML documents.
+In this article we demonstrate how you can create, query and modify HTML documents in Epsilon programs using the HTML driver. All the examples in this article demonstrate using EOL to script HTML documents. However, it's worth stressing that HTML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models or to text), compare and merge your HTML documents.
 
-==Querying a HTML document==
- 
+## Querying a HTML document
+
 We use the following `sales.html` as a base for demonstrating the EOL syntax for querying HTML documents.
 
-{{{xml
+```html
 <html>
 	<body>
 		<table border="1">
@@ -32,17 +32,17 @@ We use the following `sales.html` as a base for demonstrating the EOL syntax for
 		</table>
 	</body>
 </html>
-}}}
+```
 
-==Querying/modifying HTML documents in EOL==
+## Querying/modifying HTML documents in EOL
  
 The HTML driver uses predefined naming conventions to allow developers to programmatically access and modify HTML documents in a concise way. This section outlines the supported conventions in the form of questions and answers followed by relevant examples.
 
-===How can I access elements by tag name?=== 
+## How can I access elements by tag name? 
  
 The `t_` prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, `t_td.all` can be used to get all elements tagged as `<td>` (table cells) in the document, `t_tr.all` to retrieve all `<tr>` elements (table rows) etc. Also, if `cell` is an element with a `<td>` tag, then `cell.isTypeOf(t_td)` shall return true.
 
-{{{eol
+```eol
 // Get all <td> elements
 var cells = t_td.all;
 
@@ -56,28 +56,28 @@ cell.isTypeOf(t_td).println();
 // Check if cell is a tr
 // Prints 'false'
 cell.isTypeOf(t_tr).println();
-}}}
+```
 
-===How can I get the tag name of an element?===
+### How can I get the tag name of an element?
  
 You can use the `.tagName` property for this purpose. For instance, if `cell` is an element tagged as `<td>`, `cell.tagName` shall return `td`. The `tagName` property is read-only.
 
-{{{eol
+```eol
 // Get a random <td> element
 var cell = t_td.all.random();
 
 // Print its tag
 // Prints 'td'
 cell.tagName.println();
-}}}
+```
 
-===How can I get/set the attributes of an element?===
+### How can I get/set the attributes of an element?
  
 You can use the attribute name as a property of the element object, prefixed by `a_`. For example, if `t` is the first table of `sales.html`, `t.a_border` will return `1`. Attribute properties are read/write.
 
 In this example, `t.a_border` will return `1` as a string. For `1` to be returned as an integer instead, the `i_` prefix should be used instead (i.e. `t.i_border`. The driver also supports the following preffixes: `b_` for boolean, `s_` for string (alias of `a_`) and `r_` for real values. 
 
-{{{eol
+```eol
 // Get the one and only table in the document
 var table = t_table.all.first();
 
@@ -86,24 +86,23 @@ var table = t_table.all.first();
 
 // Prints 2 (the border attribute is retrieved as integer)
 (table.i_border + 1).println();
+```
 
-}}}
-
-===How can I get/set the text of an element?===
+### How can I get/set the text of an element?
  
 You can use the `.text` read-write property for this.
 
-{{{eol
+```eol
 for (cell in t_td.all) {
 	cell.text.println();
 }
-}}}
+```
 
-===How do I get the parent of an element?===
+### How do I get the parent of an element?
  
 You can use the `.parentNode` read-only property to retrieve the element's immediate parent and the `.parents.` read-only property to retrieve all the ancestors of the element.
 
-{{{eol
+```eol
 // Get a random cell
 var cell = t_td.all.random();
 
@@ -114,13 +113,13 @@ cell.parentNode.tagName.println();
 // Print the tags of all its ancestors
 // Prints 'Sequence {tr, tbody, table, body, html}'
 cell.parents.tagName.println();
-}}}
+```
 
-===How do I get the children of an element?===
+### How do I get the children of an element?
  
 You can use the `.children` read-only property for this.
 
-{{{eol
+```eol
 // Get the <tbody> element
 var tbody = t_tbody.all.first();
 
@@ -129,13 +128,13 @@ for (tr in tbody.children) {
 	// Print the tag of each child
 	tr.tagName.println();
 }
-}}}
+```
 
 ===How do I get child elements with a specific tag name?===
  
 Using what you've learned so far, you can do this using a combination of the `.children` property and the select/selectOne() operations. However, the driver also supports `e_` and `c_`-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. `e_` and `c_` properties are read-only.
 
-{{{eol
+```eol
 // Get a random tr
 var row = t_tr.all.random();
 
@@ -148,13 +147,13 @@ cells = row.c_td;
 
 // Get the first td child of the row
 row.e_td.text.println();
-}}}
+```
 
-===How do I create an element?===
+### How do I create an element?
  
 You can use the `new` operator for this. 
 
-{{{eol
+```eol
 // Check how many <tr> are in the document
 // Prints '3'
 t_tr.all.size().println();
@@ -165,13 +164,13 @@ var row = new t_tr;
 // Check again
 // Prints '4'
 t_tr.all.size().println();
-}}}
+```
 
-===How can I add a child to an existing element?===
+### How can I add a child to an existing element?
  
 You can use the `.appendChild(child)` operation for this.
 
-{{{eol
+```eol
 // Create a new row
 var row = new t_tr;
 
@@ -180,13 +179,13 @@ var tbody = t_tbody.all.first();
 
 // Add the book to the library
 tbody.appendChild(row);
-}}}
+```
 
 ===Bringing it all together===
  
 The following snippet computes and prints the total sales revenue.
 
-{{{eol
+```eol
 var table = t_table.all.first();
 
 var sum : Real;
@@ -204,9 +203,9 @@ operation t_td getRealValue() {
 	return self.text.asReal();
 }
 
-}}}
+```
 
-==Adding a HTML document to your launch configuration==
+## Adding a HTML document to your launch configuration
  
 To add a HTML document to your Epsilon launch configuration, you need to select "HTML document" from the list of available model types.
 
@@ -216,11 +215,11 @@ Then you can configure the details of your document (name, file etc.) in the scr
 
 [[image:configure.png]]
 
-==Loading a HTML document in your ANT buildfile==
+## Loading a HTML document in your ANT buildfile
  
 The following ANT build file demonstrates how you can use ANT to load/store and process HTML documents with Epsilon.
 
-{{{xml
+```xml
 <project default="main">
 	<target name="main">
 	
@@ -236,13 +235,13 @@ The following ANT build file demonstrates how you can use ANT to load/store and 
 		
 	</target>
 </project>
-}}}
+```
  
-==Loading a HTML document through Java code==
+## Loading a HTML document through Java code
  
 The following excerpt demonstrates using HTML models using Epsilon's Java API.
 
-{{{java
+```java
 EolModule module = new EolModule();
 module.parse(new File("..."));
 
@@ -254,8 +253,24 @@ model.load();
 module.getContext().getModelRepository().addModel(model);
 module.getContext().setModule(module);
 module.execute();
-}}}
+```
+
+## Loading a remote HTML document in Gradle
+
+The example below shows a standalone Gradle file (`build.gradle`) that runs a set of EOL queries (`queries.eol`) against the HTML behind the Epsilon homepage.
+
+=== "build.gradle"
+
+    ```groovy
+    {{{ example("org.eclipse.epsilon.examples.html.gradle/build.gradle", true) }}}
+    ```
+
+=== "queries.eol"
+
+    ```eol
+    {{{ example("org.eclipse.epsilon.examples.html.gradle/queries.eol", true) }}}
+    ```
+
+## Additional resources
  
-==Additional resources==
- 
-The Epsilon HTML driver leverages the excellent Jsoup HTML parser. In fact, all elements returned via EOL queries are instances of the `org.jsoup.nodes.Element` class and as such, [[http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html|all methods of the class]] can be invoked on them through EOL.
+The Epsilon HTML driver leverages the excellent Jsoup HTML parser. In fact, all elements returned via EOL queries are instances of the `org.jsoup.nodes.Element` class and as such, [all methods of the class](https://jsoup.org/apidocs/org/jsoup/nodes/Element.html) can be invoked on them through EOL.
