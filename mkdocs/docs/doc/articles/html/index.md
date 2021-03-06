@@ -130,7 +130,7 @@ for (tr in tbody.children) {
 }
 ```
 
-===How do I get child elements with a specific tag name?===
+### How do I get child elements with a specific tag name?
  
 Using what you've learned so far, you can do this using a combination of the `.children` property and the select/selectOne() operations. However, the driver also supports `e_` and `c_`-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. `e_` and `c_` properties are read-only.
 
@@ -181,7 +181,7 @@ var tbody = t_tbody.all.first();
 tbody.appendChild(row);
 ```
 
-===Bringing it all together===
+### Bringing it all together
  
 The following snippet computes and prints the total sales revenue.
 
@@ -209,11 +209,11 @@ operation t_td getRealValue() {
  
 To add a HTML document to your Epsilon launch configuration, you need to select "HTML document" from the list of available model types.
 
-[[image:select.png]]
+![](select.png)
 
 Then you can configure the details of your document (name, file etc.) in the screen that pops up. To load a HTML document that is not in the Eclipse workspace, untick the "Workspace file" check box and provide a full uri for your document (e.g. `http://www.google.com` or `file:/c:/myhtml.html`). 
 
-[[image:configure.png]]
+![](configure.png)
 
 ## Loading a HTML document in your ANT buildfile
  
