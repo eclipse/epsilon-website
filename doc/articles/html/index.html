@@ -1061,6 +1061,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#how-do-i-get-child-elements-with-a-specific-tag-name" class="md-nav__link">
+    How do I get child elements with a specific tag name?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#how-do-i-create-an-element" class="md-nav__link">
     How do I create an element?
   </a>
@@ -1070,6 +1077,13 @@
           <li class="md-nav__item">
   <a href="#how-can-i-add-a-child-to-an-existing-element" class="md-nav__link">
     How can I add a child to an existing element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bringing-it-all-together" class="md-nav__link">
+    Bringing it all together
   </a>
   
 </li>
@@ -1235,7 +1249,7 @@ for (tr in tbody.children) {
     tr.tagName.println();
 }</code></pre>
 
-<p>===How do I get child elements with a specific tag name?===</p>
+<h3 id="how-do-i-get-child-elements-with-a-specific-tag-name">How do I get child elements with a specific tag name?<a class="headerlink" href="#how-do-i-get-child-elements-with-a-specific-tag-name" title="Permanent link">&para;</a></h3>
 <p>Using what you've learned so far, you can do this using a combination of the <code>.children</code> property and the select/selectOne() operations. However, the driver also supports <code>e_</code> and <code>c_</code>-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. <code>e_</code> and <code>c_</code> properties are read-only.</p>
 <pre class="prettyprint lang-eol"><code>// Get a random tr
 var row = t_tr.all.random();
@@ -1274,7 +1288,7 @@ var tbody = t_tbody.all.first();
 // Add the book to the library
 tbody.appendChild(row);</code></pre>
 
-<p>===Bringing it all together===</p>
+<h3 id="bringing-it-all-together">Bringing it all together<a class="headerlink" href="#bringing-it-all-together" title="Permanent link">&para;</a></h3>
 <p>The following snippet computes and prints the total sales revenue.</p>
 <pre class="prettyprint lang-eol"><code>var table = t_table.all.first();
 
@@ -1296,9 +1310,9 @@ operation t_td getRealValue() {
 
 <h2 id="adding-a-html-document-to-your-launch-configuration">Adding a HTML document to your launch configuration<a class="headerlink" href="#adding-a-html-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
 <p>To add a HTML document to your Epsilon launch configuration, you need to select "HTML document" from the list of available model types.</p>
-<p>[[image:select.png]]</p>
+<p><img alt="" src="select.png" /></p>
 <p>Then you can configure the details of your document (name, file etc.) in the screen that pops up. To load a HTML document that is not in the Eclipse workspace, untick the "Workspace file" check box and provide a full uri for your document (e.g. <code>http://www.google.com</code> or <code>file:/c:/myhtml.html</code>). </p>
-<p>[[image:configure.png]]</p>
+<p><img alt="" src="configure.png" /></p>
 <h2 id="loading-a-html-document-in-your-ant-buildfile">Loading a HTML document in your ANT buildfile<a class="headerlink" href="#loading-a-html-document-in-your-ant-buildfile" title="Permanent link">&para;</a></h2>
 <p>The following ANT build file demonstrates how you can use ANT to load/store and process HTML documents with Epsilon.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
