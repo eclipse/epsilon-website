@@ -15,7 +15,7 @@
     
     
       
-        <title>Visualising Xtext Models with Picto - Epsilon</title>
+        <title>Scripting HTML Documents using Epsilon - Epsilon</title>
       
     
     
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#visualising-xtext-models-with-picto" class="md-skip">
+        <a href="#scripting-html-documents-using-epsilon" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Visualising Xtext Models with Picto
+              Scripting HTML Documents using Epsilon
             
           </span>
         </div>
@@ -1004,38 +1004,72 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#querying-a-html-document" class="md-nav__link">
+    Querying a HTML document
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-picto-xtext-integration-plugin-project" class="md-nav__link">
-    The Picto-Xtext Integration Plugin Project
+  <a href="#queryingmodifying-html-documents-in-eol" class="md-nav__link">
+    Querying/modifying HTML documents in EOL
   </a>
   
-    <nav class="md-nav" aria-label="The Picto-Xtext Integration Plugin Project">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-i-access-elements-by-tag-name" class="md-nav__link">
+    How can I access elements by tag name?
+  </a>
+  
+    <nav class="md-nav" aria-label="How can I access elements by tag name?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-dmodelpictosource-class" class="md-nav__link">
-    The DmodelPictoSource class
+  <a href="#how-can-i-get-the-tag-name-of-an-element" class="md-nav__link">
+    How can I get the tag name of an element?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-visualisation-transformation" class="md-nav__link">
-    The Visualisation Transformation
+  <a href="#how-can-i-getset-the-attributes-of-an-element" class="md-nav__link">
+    How can I get/set the attributes of an element?
   </a>
   
-    <nav class="md-nav" aria-label="The Visualisation Transformation">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#lazy-execution" class="md-nav__link">
-    Lazy Execution
+  <a href="#how-can-i-getset-the-text-of-an-element" class="md-nav__link">
+    How can I get/set the text of an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-get-the-parent-of-an-element" class="md-nav__link">
+    How do I get the parent of an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-get-the-children-of-an-element" class="md-nav__link">
+    How do I get the children of an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-create-an-element" class="md-nav__link">
+    How do I create an element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-add-a-child-to-an-existing-element" class="md-nav__link">
+    How can I add a child to an existing element?
   </a>
   
 </li>
@@ -1044,9 +1078,39 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-html-document-to-your-launch-configuration" class="md-nav__link">
+    Adding a HTML document to your launch configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-a-html-document-in-your-ant-buildfile" class="md-nav__link">
+    Loading a HTML document in your ANT buildfile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-a-html-document-through-java-code" class="md-nav__link">
+    Loading a HTML document through Java code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-a-remote-html-document-in-gradle" class="md-nav__link">
+    Loading a remote HTML document in Gradle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    Additional resources
+  </a>
   
 </li>
       
@@ -1071,266 +1135,270 @@
                   
                 
                 
-                <h1 id="visualising-xtext-models-with-picto">Visualising Xtext Models with Picto<a class="headerlink" href="#visualising-xtext-models-with-picto" title="Permanent link">&para;</a></h1>
-<p>This article shows how <a href="../../picto">Picto</a> can be used to produce graphical views from Xtext-based models. To demonstrate the Picto/Xtext integration, we use the Entity DSL showcased in the <a href="https://www.eclipse.org/Xtext/documentation/102_domainmodelwalkthrough.html">15' Xtext tutorial</a>.</p>
-<p><img alt="" src="picto-xtext.gif" /></p>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Import the projects below from the <code>examples</code> folder of the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples">Epsilon Git repository</a><ul>
-<li><code>org.eclipse.epsilon.examples.picto.xtext.domainmodel</code></li>
-<li><code>org.eclipse.epsilon.examples.picto.xtext.domainmodel.ide</code></li>
-<li><code>org.eclipse.epsilon.examples.picto.xtext.domainmodel.ui</code></li>
-<li><code>org.eclipse.epsilon.examples.picto.xtext.domainmodel.picto</code></li>
-</ul>
-</li>
-<li>Right-click on <code>Domainmodel.xtext</code> and select <code>Run As -&gt; Generate Xtext Artefacts</code></li>
-<li>Run a nested Eclipse instance.</li>
-<li>In the nested Eclipse instance workspace, create a new file named <code>blog.dmodel</code> with the content below:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>datatype String
-
-entity Blog {
-    title: String
-    many posts: Post
-}
-
-entity HasAuthor {
-    author: String
-}
-
-entity Post extends HasAuthor {
-    title: String
-    content: String
-    many comments: Comment
-}
-
-entity Comment extends HasAuthor {
-    content: String
-    many responses: Comment
-}
+                <h1 id="scripting-html-documents-using-epsilon">Scripting HTML Documents using Epsilon<a class="headerlink" href="#scripting-html-documents-using-epsilon" title="Permanent link">&para;</a></h1>
+<p>In this article we demonstrate how you can create, query and modify HTML documents in Epsilon programs using the HTML driver. All the examples in this article demonstrate using EOL to script HTML documents. However, it's worth stressing that HTML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models or to text), compare and merge your HTML documents.</p>
+<h2 id="querying-a-html-document">Querying a HTML document<a class="headerlink" href="#querying-a-html-document" title="Permanent link">&para;</a></h2>
+<p>We use the following <code>sales.html</code> as a base for demonstrating the EOL syntax for querying HTML documents.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">table</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Product id<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Unit price<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Quantity<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>P1<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>10<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>15<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>P2<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>8<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>12<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 
-<ul>
-<li>Open the Picto view from the <code>Window -&gt; Show View</code> menu.</li>
-<li>Go through the produced graphical views as shown in the image above.</li>
-</ul>
-<h2 id="the-picto-xtext-integration-plugin-project">The Picto-Xtext Integration Plugin Project<a class="headerlink" href="#the-picto-xtext-integration-plugin-project" title="Permanent link">&para;</a></h2>
-<p>We now dive into the <code>org.eclipse.epsilon.examples.picto.xtext.domainmodel.picto</code> project which contains the Picto-Xtext integration code (the rest of the projects are standard Xtext projects).</p>
-<h3 id="the-dmodelpictosource-class">The DmodelPictoSource class<a class="headerlink" href="#the-dmodelpictosource-class" title="Permanent link">&para;</a></h3>
-<p>This class extends Picto's built-in <code>EglPictoSource</code> class and produces graphical views in Picto from <code>*.dmodel</code> files edited in an Xtext-based editor. In particular:</p>
-<ul>
-<li>The <code>supportsEditorType</code> method specifies that this class contributes visualisation capabilities to Xtext-based editors, the title of which ends with <code>.dmodel</code></li>
-<li>The <code>getRenderingMetadata</code> method specifies the <a href="../../egl">EGL</a> transformation that produces the graphical views every time an editor of interest is opened, activated or saved.</li>
-<li>The <code>getFile</code> and <code>getResource</code> methods extract an <code>IFile</code> and an EMF <code>Resource</code> from the editor of interest and should be reusable without changes for other Xtext-based languages too.</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">org.eclipse.epsilon.examples.picto.xtext.domainmodel.picto</span><span class="o">;</span>
+<h2 id="queryingmodifying-html-documents-in-eol">Querying/modifying HTML documents in EOL<a class="headerlink" href="#queryingmodifying-html-documents-in-eol" title="Permanent link">&para;</a></h2>
+<p>The HTML driver uses predefined naming conventions to allow developers to programmatically access and modify HTML documents in a concise way. This section outlines the supported conventions in the form of questions and answers followed by relevant examples.</p>
+<h2 id="how-can-i-access-elements-by-tag-name">How can I access elements by tag name?<a class="headerlink" href="#how-can-i-access-elements-by-tag-name" title="Permanent link">&para;</a></h2>
+<p>The <code>t_</code> prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, <code>t_td.all</code> can be used to get all elements tagged as <code>&lt;td&gt;</code> (table cells) in the document, <code>t_tr.all</code> to retrieve all <code>&lt;tr&gt;</code> elements (table rows) etc. Also, if <code>cell</code> is an element with a <code>&lt;td&gt;</code> tag, then <code>cell.isTypeOf(t_td)</code> shall return true.</p>
+<pre class="prettyprint lang-eol"><code>// Get all &lt;td&gt; elements
+var cells = t_td.all;
 
-<span class="kn">import</span> <span class="nn">org.eclipse.core.resources.IFile</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.emf.ecore.resource.Resource</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.picto.dom.Picto</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.picto.dom.PictoFactory</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.picto.source.EglPictoSource</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.jface.text.source.ISourceViewer</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.ui.IEditorInput</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.ui.IEditorPart</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.ui.IFileEditorInput</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.ui.PlatformUI</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.xtext.nodemodel.ICompositeNode</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.xtext.nodemodel.util.NodeModelUtils</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.xtext.resource.XtextResource</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.xtext.ui.editor.XtextEditor</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.xtext.ui.workspace.WorkspaceLockAccess.Result</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.xtext.util.concurrent.IUnitOfWork</span><span class="o">;</span>
+// Get a random table cell
+var cell = cells.random();
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DmodelPictoSource</span> <span class="kd">extends</span> <span class="n">EglPictoSource</span> <span class="o">{</span>
+// Check if cell is a td
+// Prints 'true'
+cell.isTypeOf(t_td).println();
 
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="n">Picto</span> <span class="nf">getRenderingMetadata</span><span class="o">(</span><span class="n">IEditorPart</span> <span class="n">editorPart</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Picto</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">PictoFactory</span><span class="o">.</span><span class="na">eINSTANCE</span><span class="o">.</span><span class="na">createPicto</span><span class="o">();</span>
-        <span class="n">metadata</span><span class="o">.</span><span class="na">setTransformation</span><span class="o">(</span><span class="s">&quot;platform:/plugin/org.eclipse.epsilon.examples.picto.xtext.domainmodel.picto/dmodel.egx&quot;</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">metadata</span><span class="o">;</span>
+// Check if cell is a tr
+// Prints 'false'
+cell.isTypeOf(t_tr).println();</code></pre>
+
+<h3 id="how-can-i-get-the-tag-name-of-an-element">How can I get the tag name of an element?<a class="headerlink" href="#how-can-i-get-the-tag-name-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.tagName</code> property for this purpose. For instance, if <code>cell</code> is an element tagged as <code>&lt;td&gt;</code>, <code>cell.tagName</code> shall return <code>td</code>. The <code>tagName</code> property is read-only.</p>
+<pre class="prettyprint lang-eol"><code>// Get a random &lt;td&gt; element
+var cell = t_td.all.random();
+
+// Print its tag
+// Prints 'td'
+cell.tagName.println();</code></pre>
+
+<h3 id="how-can-i-getset-the-attributes-of-an-element">How can I get/set the attributes of an element?<a class="headerlink" href="#how-can-i-getset-the-attributes-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the attribute name as a property of the element object, prefixed by <code>a_</code>. For example, if <code>t</code> is the first table of <code>sales.html</code>, <code>t.a_border</code> will return <code>1</code>. Attribute properties are read/write.</p>
+<p>In this example, <code>t.a_border</code> will return <code>1</code> as a string. For <code>1</code> to be returned as an integer instead, the <code>i_</code> prefix should be used instead (i.e. <code>t.i_border</code>. The driver also supports the following preffixes: <code>b_</code> for boolean, <code>s_</code> for string (alias of <code>a_</code>) and <code>r_</code> for real values. </p>
+<pre class="prettyprint lang-eol"><code>// Get the one and only table in the document
+var table = t_table.all.first();
+
+// Prints 11 (the border attribute is retrieved as string)
+(table.a_border + 1).println();
+
+// Prints 2 (the border attribute is retrieved as integer)
+(table.i_border + 1).println();</code></pre>
+
+<h3 id="how-can-i-getset-the-text-of-an-element">How can I get/set the text of an element?<a class="headerlink" href="#how-can-i-getset-the-text-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.text</code> read-write property for this.</p>
+<pre class="prettyprint lang-eol"><code>for (cell in t_td.all) {
+    cell.text.println();
+}</code></pre>
+
+<h3 id="how-do-i-get-the-parent-of-an-element">How do I get the parent of an element?<a class="headerlink" href="#how-do-i-get-the-parent-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.parentNode</code> read-only property to retrieve the element's immediate parent and the <code>.parents.</code> read-only property to retrieve all the ancestors of the element.</p>
+<pre class="prettyprint lang-eol"><code>// Get a random cell
+var cell = t_td.all.random();
+
+// Print the tag of its parent node
+// Prints 'tr'
+cell.parentNode.tagName.println();
+
+// Print the tags of all its ancestors
+// Prints 'Sequence {tr, tbody, table, body, html}'
+cell.parents.tagName.println();</code></pre>
+
+<h3 id="how-do-i-get-the-children-of-an-element">How do I get the children of an element?<a class="headerlink" href="#how-do-i-get-the-children-of-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.children</code> read-only property for this.</p>
+<pre class="prettyprint lang-eol"><code>// Get the &lt;tbody&gt; element
+var tbody = t_tbody.all.first();
+
+// Iterate through its children
+for (tr in tbody.children) {
+    // Print the tag of each child
+    tr.tagName.println();
+}</code></pre>
+
+<p>===How do I get child elements with a specific tag name?===</p>
+<p>Using what you've learned so far, you can do this using a combination of the <code>.children</code> property and the select/selectOne() operations. However, the driver also supports <code>e_</code> and <code>c_</code>-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. <code>e_</code> and <code>c_</code> properties are read-only.</p>
+<pre class="prettyprint lang-eol"><code>// Get a random tr
+var row = t_tr.all.random();
+
+// Get its &lt;td&gt; children using the 
+// .children property
+var cells = row.children.select(a|a.tagName = "td");
+
+// Do the same using the shorthand
+cells = row.c_td;
+
+// Get the first td child of the row
+row.e_td.text.println();</code></pre>
+
+<h3 id="how-do-i-create-an-element">How do I create an element?<a class="headerlink" href="#how-do-i-create-an-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>new</code> operator for this. </p>
+<pre class="prettyprint lang-eol"><code>// Check how many &lt;tr&gt; are in the document
+// Prints '3'
+t_tr.all.size().println();
+
+// Creates a new tr element
+var row = new t_tr;
+
+// Check again
+// Prints '4'
+t_tr.all.size().println();</code></pre>
+
+<h3 id="how-can-i-add-a-child-to-an-existing-element">How can I add a child to an existing element?<a class="headerlink" href="#how-can-i-add-a-child-to-an-existing-element" title="Permanent link">&para;</a></h3>
+<p>You can use the <code>.appendChild(child)</code> operation for this.</p>
+<pre class="prettyprint lang-eol"><code>// Create a new row
+var row = new t_tr;
+
+// Get the tbody element
+var tbody = t_tbody.all.first();
+
+// Add the book to the library
+tbody.appendChild(row);</code></pre>
+
+<p>===Bringing it all together===</p>
+<p>The following snippet computes and prints the total sales revenue.</p>
+<pre class="prettyprint lang-eol"><code>var table = t_table.all.first();
+
+var sum : Real;
+
+// Iterate only through the rows under tbody
+for (tr in table.e_tbody.c_tr) {
+    sum = sum + tr.c_td.at(1).getRealValue() * 
+        tr.c_td.at(2).getRealValue();
+}
+
+// Prints 246.0
+sum.println();
+
+operation t_td getRealValue() {
+    return self.text.asReal();
+}
+</code></pre>
+
+<h2 id="adding-a-html-document-to-your-launch-configuration">Adding a HTML document to your launch configuration<a class="headerlink" href="#adding-a-html-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
+<p>To add a HTML document to your Epsilon launch configuration, you need to select "HTML document" from the list of available model types.</p>
+<p>[[image:select.png]]</p>
+<p>Then you can configure the details of your document (name, file etc.) in the screen that pops up. To load a HTML document that is not in the Eclipse workspace, untick the "Workspace file" check box and provide a full uri for your document (e.g. <code>http://www.google.com</code> or <code>file:/c:/myhtml.html</code>). </p>
+<p>[[image:configure.png]]</p>
+<h2 id="loading-a-html-document-in-your-ant-buildfile">Loading a HTML document in your ANT buildfile<a class="headerlink" href="#loading-a-html-document-in-your-ant-buildfile" title="Permanent link">&para;</a></h2>
+<p>The following ANT build file demonstrates how you can use ANT to load/store and process HTML documents with Epsilon.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;M&quot;</span> <span class="na">type=</span><span class="s">&quot;HTML&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;readOnLoad&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;storeOnDisposal&quot;</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;file&quot;</span> <span class="na">file=</span><span class="s">&quot;sales.html&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/epsilon.loadModel&gt;</span>
+
+        <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;sales.eol&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;M&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/epsilon.eol&gt;</span>
+
+    <span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+
+<h2 id="loading-a-html-document-through-java-code">Loading a HTML document through Java code<a class="headerlink" href="#loading-a-html-document-through-java-code" title="Permanent link">&para;</a></h2>
+<p>The following excerpt demonstrates using HTML models using Epsilon's Java API.</p>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="o">();</span>
+<span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">));</span>
+
+<span class="n">HtmlModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HtmlModel</span><span class="o">();</span>
+<span class="n">model</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;M&quot;</span><span class="o">);</span>
+<span class="n">model</span><span class="o">.</span><span class="na">setFile</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">));</span>
+<span class="n">model</span><span class="o">.</span><span class="na">load</span><span class="o">();</span>
+
+<span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getModelRepository</span><span class="o">().</span><span class="na">addModel</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+<span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">setModule</span><span class="o">(</span><span class="n">module</span><span class="o">);</span>
+<span class="n">module</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div>
+
+<h2 id="loading-a-remote-html-document-in-gradle">Loading a remote HTML document in Gradle<a class="headerlink" href="#loading-a-remote-html-document-in-gradle" title="Permanent link">&para;</a></h2>
+<p>The example below shows a standalone Gradle file (<code>build.gradle</code>) that runs a set of EOL queries (<code>queries.eol</code>) against the HTML behind the Epsilon homepage.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">build.gradle</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">configurations</span> <span class="o">{</span>
+    <span class="n">epsilon</span>
+<span class="o">}</span>
+
+<span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">maven</span> <span class="o">{</span>
+        <span class="n">url</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots&quot;</span>
     <span class="o">}</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
 
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="n">Resource</span> <span class="nf">getResource</span><span class="o">(</span><span class="n">IEditorPart</span> <span class="n">editorPart</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">XtextEditor</span> <span class="n">editor</span> <span class="o">=</span> <span class="o">(</span><span class="n">XtextEditor</span><span class="o">)</span> <span class="n">editorPart</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="n">XtextResourceHolder</span> <span class="n">holder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XtextResourceHolder</span><span class="o">();</span>
-        <span class="n">editor</span><span class="o">.</span><span class="na">getDocument</span><span class="o">().</span><span class="na">readOnly</span><span class="o">(</span><span class="k">new</span> <span class="n">IUnitOfWork</span><span class="o">&lt;</span><span class="n">Result</span><span class="o">,</span> <span class="n">XtextResource</span><span class="o">&gt;()</span> <span class="o">{</span>
-            <span class="kd">public</span> <span class="n">Result</span> <span class="nf">exec</span><span class="o">(</span><span class="n">XtextResource</span> <span class="n">state</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-                <span class="n">holder</span><span class="o">.</span><span class="na">setResource</span><span class="o">(</span><span class="n">state</span><span class="o">);</span>
-                <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-            <span class="o">};</span>
-        <span class="o">});</span>
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0-SNAPSHOT&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.html:2.3.0-SNAPSHOT&#39;</span>
+<span class="o">}</span>
 
-        <span class="k">return</span> <span class="n">holder</span><span class="o">.</span><span class="na">getResource</span><span class="o">();</span>
-    <span class="o">}</span>
+<span class="n">task</span> <span class="n">setupEpsilonTasks</span> <span class="o">{</span>
+    <span class="c1">// Set up the core Epsilon tasks</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">taskdef</span><span class="o">(</span><span class="nl">resource:</span> <span class="s1">&#39;org/eclipse/epsilon/workflow/tasks/tasks.xml&#39;</span><span class="o">,</span> 
+        <span class="nl">classpath:</span> <span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span> <span class="nl">loaderref:</span> <span class="s1">&#39;epsilon&#39;</span><span class="o">)</span>
+    <span class="c1">// Set logging level to info so that EOL&#39;s println() is not suppressed</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">lifecycleLogLevel</span> <span class="o">=</span> <span class="s1">&#39;INFO&#39;</span>
+<span class="o">}</span>
 
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="n">IFile</span> <span class="nf">getFile</span><span class="o">(</span><span class="n">IEditorPart</span> <span class="n">editorPart</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">IEditorInput</span> <span class="n">editorInput</span> <span class="o">=</span> <span class="o">((</span><span class="n">XtextEditor</span><span class="o">)</span> <span class="n">editorPart</span><span class="o">).</span><span class="na">getEditorInput</span><span class="o">();</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">editorInput</span> <span class="k">instanceof</span> <span class="n">IFileEditorInput</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="o">((</span><span class="n">IFileEditorInput</span><span class="o">)</span> <span class="n">editorInput</span><span class="o">).</span><span class="na">getFile</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="o">}</span>
+<span class="n">task</span> <span class="n">run</span> <span class="o">{</span>
+    <span class="n">dependsOn</span> <span class="n">tasks</span><span class="o">.</span><span class="na">setupEpsilonTasks</span>
+    <span class="c1">// Load the eclipse.org/epsilon webpage as a HTML model</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;HTML&#39;</span><span class="o">,</span> <span class="nl">type:</span> <span class="s1">&#39;HTML&#39;</span><span class="o">,</span>  
+        <span class="nl">impl:</span> <span class="s1">&#39;org.eclipse.epsilon.emc.html.HtmlModel&#39;</span><span class="o">,)</span>
+        <span class="o">{</span> <span class="n">parameter</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;uri&#39;</span><span class="o">,</span> <span class="nl">value:</span> <span class="s1">&#39;https://www.eclipse.org/epsilon/&#39;</span><span class="o">)</span> <span class="o">}</span>
 
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">boolean</span> <span class="nf">supportsEditorType</span><span class="o">(</span><span class="n">IEditorPart</span> <span class="n">editorPart</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">editorPart</span> <span class="k">instanceof</span> <span class="n">XtextEditor</span> <span class="o">&amp;&amp;</span> 
-            <span class="n">editorPart</span><span class="o">.</span><span class="na">getTitle</span><span class="o">().</span><span class="na">endsWith</span><span class="o">(</span><span class="s">&quot;.dmodel&quot;</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showElement</span><span class="o">(</span><span class="n">String</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">uri</span><span class="o">,</span> <span class="n">IEditorPart</span> <span class="n">editor</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ICompositeNode</span> <span class="n">node</span> <span class="o">=</span> <span class="n">NodeModelUtils</span><span class="o">.</span><span class="na">getNode</span><span class="o">(</span><span class="n">getResource</span><span class="o">(</span><span class="n">editor</span><span class="o">).</span><span class="na">getEObject</span><span class="o">(</span><span class="n">id</span><span class="o">));</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">node</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">ISourceViewer</span> <span class="n">textViewer</span> <span class="o">=</span> <span class="o">((</span><span class="n">XtextEditor</span><span class="o">)</span> <span class="n">editor</span><span class="o">).</span><span class="na">getInternalSourceViewer</span><span class="o">();</span>
-            <span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getOffset</span><span class="o">();</span>
-            <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="na">getLength</span><span class="o">();</span>
-            <span class="n">textViewer</span><span class="o">.</span><span class="na">setRangeIndication</span><span class="o">(</span><span class="n">offset</span><span class="o">,</span> <span class="n">length</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
-            <span class="n">textViewer</span><span class="o">.</span><span class="na">revealRange</span><span class="o">(</span><span class="n">offset</span><span class="o">,</span> <span class="n">length</span><span class="o">);</span>
-            <span class="n">textViewer</span><span class="o">.</span><span class="na">setSelectedRange</span><span class="o">(</span><span class="n">offset</span><span class="o">,</span> <span class="n">length</span><span class="o">);</span>
-            <span class="n">PlatformUI</span><span class="o">.</span><span class="na">getWorkbench</span><span class="o">().</span><span class="na">getActiveWorkbenchWindow</span><span class="o">().</span><span class="na">getActivePage</span><span class="o">().</span><span class="na">activate</span><span class="o">(</span><span class="n">editor</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
+    <span class="c1">// Run query.eol against it</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span> <span class="s1">&#39;queries.eol&#39;</span><span class="o">){</span> <span class="n">model</span><span class="o">(</span><span class="nl">ref:</span> <span class="s1">&#39;HTML&#39;</span><span class="o">)</span> <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
 
-<p>Picto is made aware of this class through the <code>org.eclipse.epsilon.picto.pictoSource</code> <a href="../../picto/#extending-picto">extension</a> in the project's <code>plugin.xml</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="cp">&lt;?eclipse version=&quot;3.4&quot;?&gt;</span>
-<span class="nt">&lt;plugin&gt;</span>
-   <span class="nt">&lt;extension</span>
-         <span class="na">point=</span><span class="s">&quot;org.eclipse.epsilon.picto.pictoSource&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;pictoSource</span>
-            <span class="na">class=</span><span class="s">&quot;org.eclipse.epsilon.examples.picto.xtext.domainmodel.picto.DmodelPictoSource&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/pictoSource&gt;</span>
-   <span class="nt">&lt;/extension&gt;</span>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">queries.eol</label><div class="tabbed-content">
+<pre class="prettyprint lang-eol"><code>// Print the text of all &lt;strong&gt; elements
+for (s in t_strong.all) {
+    s.text().println();
+}
 
-<span class="nt">&lt;/plugin&gt;</span>
-</code></pre></div>
-
-<h3 id="the-visualisation-transformation">The Visualisation Transformation<a class="headerlink" href="#the-visualisation-transformation" title="Permanent link">&para;</a></h3>
-<p>The visualisation transformation has been implemented using Epsilon's <a href="../../egl">EGL model-to-text transformation language</a> and produces Graphviz-based class diagrams from the active entity model. The transformation consists of the <code>dmodel.egx</code> coordination rules, and the <code>entity2graphviz.egl</code> template shown below. The transformation produces one view for each entity in the model, which consists of the entity itself, any super/sub-types it may have, as well as other entities that it is related to. </p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">dmodel.egx</label><div class="tabbed-content">
-<pre class="prettyprint lang-egx"><code>rule Entity2Graphviz
-    transform e : Entity {
-
-    template : "entity2graphviz.egl"
-
-    parameters : Map{
-        "path" = Sequence{"Model", e.name},
-        "icon" = "diagram-ffffff",
-        "format" = "graphviz-dot"
+// Print all links that point to external websites
+for (link in t_a.all) {
+    if (link.a_href.startsWith("http")) {
+        link.a_href.println();
     }
+}
 
+// Print the text of all &lt;li&gt; elements which are
+// children of the &lt;ul&gt; that's the first sibling
+// of the "Why Epsilon?" &lt;h2&gt;
+var whyEpsilon = t_h2.all.selectOne(h2|h2.text.startsWith("Why Epsilon"));
+var ul = whyEpsilon.nextElementSibling();
+for (li in ul.c_li) {
+    li.text.println();
 }</code></pre>
 
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">entity2graphviz.egl</label><div class="tabbed-content">
-<pre class="prettyprint lang-egl"><code>digraph G {
-    graph[splines=ortho]
-    node[fontname=Arial, fontsize=10, shape=record]
-    edge[fontname=Arial, fontsize=10]
-
-[%var entities = getVisibleEntities();%]
-
-[%for (e in entities){%]
-    [%=e.getNodeName()%][shape=none, margin=0, label=&lt;[%=e.getLabel()%]&gt;]
-[%}%]
-
-[%for (f in e.features.flatten().select(f|f.type.isTypeOf(Entity) and f.type &lt;&gt; e)){%]
-    [%=f.eContainer.getNodeName()%]-&gt;[%=f.type.getNodeName()%][arrowhead=[%=f.getArrow()%],arrowtail=none,tooltip="[%=f.name%]"];
-[%}%]
-
-[%if (e.superType.isDefined()){%]
-    [%=e.superType.getNodeName()%]-&gt;[%=e.getNodeName()%][arrowhead=none,arrowtail=empty,dir=back];
-[%}%]
-
-[%for (s in Entity.all.select(en|en.superType = e)){%]
-    [%=e.getNodeName()%]-&gt;[%=s.getNodeName()%][arrowhead=none,arrowtail=empty,dir=back];
-[%}%]
-
-}
-
-[%
-operation Entity getLabel() {
-
-    var onClick = "top.showView(['Model','" + self.name + "'])";
-
-    if (self == e) {
-        onClick = "top.showElement('" + self.id + "', '" + self.eResource.uri + "')";
-    }
-
-    var label = "&lt;table cellspacing='0' cellborder='0' cellpadding='1' bgcolor='" + self.getColour() + "'&gt;";
-    label += "&lt;tr&gt;&lt;td sides='B' colspan='2' border='1' cellpadding='0'&gt;" + 
-        "&lt;table border='0' cellspacing='0' cellborder='0'&gt;" + 
-        "&lt;tr&gt;&lt;td align='right' valign='middle'&gt;&lt;img src='" + self.getIcon()+ "'&gt;&lt;/img&gt;&lt;/td&gt;" + 
-        "&lt;td align='left' valign='middle' href=\"javascript:" + onClick + "\" tooltip='Go'&gt;" + self.name + " &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;";
-
-    label += "&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;";
-
-    for (f in self.features.sortBy(a|a.name.toLowerCase())) {
-        label += "&lt;tr&gt;";
-        label += "&lt;td&gt;&lt;img src='" + f.getIcon() + "'&gt;&lt;/img&gt;&lt;/td&gt;&lt;td align='left'&gt;" + f.getLabel() + "&lt;/td&gt;";
-        label += "&lt;/tr&gt;";
-    }
-
-
-    if (self.features.isEmpty()){
-        label += "&lt;tr&gt;";
-        label += "&lt;td&gt; &lt;/td&gt;&lt;td&gt; &lt;/td&gt;";
-        label += "&lt;/tr&gt;";
-    }
-
-    label += "&lt;/table&gt;";
-    return label;
-}
-
-operation Entity getIcon() {
-    return getImage("icons/entity.gif");
-}
-
-operation Feature getLabel() {
-    return self.name + " : " + self.type?.name + (self.many ? "["+"*"+"]" : "") ;
-}
-
-operation Feature getIcon() {
-    return getImage("icons/attribute.gif");
-}
-
-operation Entity getNodeName() {
-    return "_Entity" + Entity.all.indexOf(self);
-}
-
-operation Feature getArrow() {
-    if (self.many) {
-        return "crow";
-    }
-    else {
-        return "open";
-    }
-}
-
-operation getVisibleEntities() {    
-    var visibleEntities : Set;
-    visibleEntities.add(e);
-    visibleEntities.addAll(e.features.select(f|f.type.isTypeOf(Entity)).collect(f|f.type));
-    if (e.superType.isDefined()) visibleEntities.add(e.superType);
-    visibleEntities.addAll(Entity.all.select(en|en.superType = e));
-    return visibleEntities;
-}
-
-operation Entity getColour() {
-    return "#fffcdc";
-}
-%]</code></pre>
-
 </div>
-</div>
-<h4 id="lazy-execution">Lazy Execution<a class="headerlink" href="#lazy-execution" title="Permanent link">&para;</a></h4>
-<p>Since Picto executes <a href="../../picto/#scalability">EGL transformations lazily</a> when the entity model is saved, only the view that is currently visible is regenerated immediately, which is useful when working with large models.</p>
+<h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<p>The Epsilon HTML driver leverages the excellent Jsoup HTML parser. In fact, all elements returned via EOL queries are instances of the <code>org.jsoup.nodes.Element</code> class and as such, <a href="https://jsoup.org/apidocs/org/jsoup/nodes/Element.html">all methods of the class</a> can be invoked on them through EOL.</p>
                 
               
               
