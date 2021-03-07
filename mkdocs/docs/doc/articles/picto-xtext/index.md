@@ -53,6 +53,7 @@ This class extends Picto's built-in `EglPictoSource` class and produces graphica
 - The `supportsEditorType` method specifies that this class contributes visualisation capabilities to Xtext-based editors, the title of which ends with `.dmodel`
 - The `getRenderingMetadata` method specifies the [EGL](../../egl) transformation that produces the graphical views every time an editor of interest is opened, activated or saved.
 - The `getFile` and `getResource` methods extract an `IFile` and an EMF `Resource` from the editor of interest and should be reusable without changes for other Xtext-based languages too.
+- The `showElement` method reveals and highlights the element with the specified `id` in the Xtext editor, enabling [navigation back to the source model](#interactive-diagrams) of the view.
 
 ```java
 {{{ example("org.eclipse.epsilon.examples.picto.xtext.domainmodel.picto/src/org/eclipse/epsilon/examples/picto/xtext/domainmodel/picto/DmodelPictoSource.java", false) }}}
@@ -80,6 +81,12 @@ The visualisation transformation has been implemented using Epsilon's [EGL model
     {{{ example("org.eclipse.epsilon.examples.picto.xtext.domainmodel.picto/entity2graphviz.egl", true) }}}
     ```
 
-#### Lazy Execution
+### Interactive Diagrams
+
+As shown below, you can navigate between diagrams and back to the Xtext editor using Picto's built-in `showElement` and `showView` [Javascript functions](../../picto/interactive-diagrams).
+
+![](show-element.gif)
+
+### Lazy Execution
 
 Since Picto executes [EGL transformations lazily](../../picto/#scalability) when the entity model is saved, only the view that is currently visible is regenerated immediately, which is useful when working with large models.
