@@ -1030,18 +1030,19 @@
     The Visualisation Transformation
   </a>
   
-    <nav class="md-nav" aria-label="The Visualisation Transformation">
-      <ul class="md-nav__list">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-diagrams" class="md-nav__link">
+    Interactive Diagrams
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#lazy-execution" class="md-nav__link">
     Lazy Execution
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1122,6 +1123,7 @@ entity Comment extends HasAuthor {
 <li>The <code>supportsEditorType</code> method specifies that this class contributes visualisation capabilities to Xtext-based editors, the title of which ends with <code>.dmodel</code></li>
 <li>The <code>getRenderingMetadata</code> method specifies the <a href="../../egl">EGL</a> transformation that produces the graphical views every time an editor of interest is opened, activated or saved.</li>
 <li>The <code>getFile</code> and <code>getResource</code> methods extract an <code>IFile</code> and an EMF <code>Resource</code> from the editor of interest and should be reusable without changes for other Xtext-based languages too.</li>
+<li>The <code>showElement</code> method reveals and highlights the element with the specified <code>id</code> in the Xtext editor, enabling <a href="#interactive-diagrams">navigation back to the source model</a> of the view.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">org.eclipse.epsilon.examples.picto.xtext.domainmodel.picto</span><span class="o">;</span>
 
@@ -1323,13 +1325,17 @@ operation getVisibleEntities() {
 }
 
 operation Entity getColour() {
-    return "#fffcdc";
+    if (self == e) return "#fff2d2";
+    else return "#fffcdc";
 }
 %]</code></pre>
 
 </div>
 </div>
-<h4 id="lazy-execution">Lazy Execution<a class="headerlink" href="#lazy-execution" title="Permanent link">&para;</a></h4>
+<h3 id="interactive-diagrams">Interactive Diagrams<a class="headerlink" href="#interactive-diagrams" title="Permanent link">&para;</a></h3>
+<p>As shown below, you can navigate between diagrams and back to the Xtext editor using Picto's built-in <code>showElement</code> and <code>showView</code> <a href="../../picto/interactive-diagrams">Javascript functions</a>.</p>
+<p><img alt="" src="show-element.gif" /></p>
+<h3 id="lazy-execution">Lazy Execution<a class="headerlink" href="#lazy-execution" title="Permanent link">&para;</a></h3>
 <p>Since Picto executes <a href="../../picto/#scalability">EGL transformations lazily</a> when the entity model is saved, only the view that is currently visible is regenerated immediately, which is useful when working with large models.</p>
                 
               
