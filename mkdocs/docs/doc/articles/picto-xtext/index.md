@@ -83,7 +83,7 @@ The visualisation transformation has been implemented using Epsilon's [EGL model
 
 ### Interactive Diagrams
 
-As shown below, you can navigate between diagrams and back to the Xtext editor using Picto's built-in `showElement` and `showView` [Javascript functions](../../picto/interactive-diagrams).
+As shown below, you can navigate between diagrams and back to the Xtext editor using Picto's built-in `showElement` and `showView` [JavaScript functions](../../picto#interactive-diagrams).
 
 ![](show-element.gif)
 
