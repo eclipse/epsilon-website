@@ -11,6 +11,7 @@ Below is a list of institutions that use one or more components of Epsilon (e.g.
 ![University of Texas](logos/texas.png)
 ![University of Oslo](logos/uio.png)
 ![Universidad Autonoma de Madrid](logos/uam.png)
+![McGill University](logos/mcgill.png)
 ![University of Kassel](logos/kassel.png)
 ![University of Marburg](logos/marburg.png)
 ![Technische Universiteit Eindhoven](logos/tue.png)
@@ -38,6 +39,8 @@ University of Oslo
 	[[1](http://www.uio.no/studier/emner/matnat/ifi/INF5120/v13/obligs/oblig-2-description-2013-ajb.pdf)],
 Universidad Autonoma de Madrid 
 	[[1](http://astreo.ii.uam.es/~jlara/doctorado.2011/4_Generacion_codigo.pdf)],
+McGill University
+    [[1](http://msdl.cs.mcgill.ca/people/hv/teaching/MSBDesign/presentations/Eugenia_EMFatic/presentation.pdf)],
 University of Kassel 
 	[[1](http://seblog.cs.uni-kassel.de/wp-content/uploads/2009/11/SE2_Uebung4.pdf)],
 University of Marburg 
