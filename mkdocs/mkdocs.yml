@@ -5,19 +5,19 @@ nav:
   - Playground : 'live'
   - Documentation:
     - Overview: 'doc/index.md'
-    - Model connectivity: 'doc/emc.md'
+    - Model Connectivity: 'doc/emc.md'
     - Languages:
-        - Object language (EOL): 'doc/eol.md'
-        - Code generation (EGL): 'doc/egl.md'
-        - Model validation (EVL): 'doc/evl.md'
-        - Model transformation (ETL): 'doc/etl.md'
-        - Model comparison (ECL): 'doc/ecl.md'
-        - Model merging (EML): 'doc/eml.md'
-        - Pattern matching (EPL): 'doc/epl.md'
-        - Model migration (Flock): 'doc/flock.md'
-        - Model generation (EMG): 'doc/emg.md'
-        - Unit testing (EUnit): 'doc/eunit.md'
-        - Dataset extraction (Pinset): 'doc/pinset.md'
+        - Object Language (EOL): 'doc/eol.md'
+        - Code Generation (EGL): 'doc/egl.md'
+        - Model Validation (EVL): 'doc/evl.md'
+        - Model Transformation (ETL): 'doc/etl.md'
+        - Model Comparison (ECL): 'doc/ecl.md'
+        - Model Merging (EML): 'doc/eml.md'
+        - Pattern Matching (EPL): 'doc/epl.md'
+        - Model Migration (Flock): 'doc/flock.md'
+        - Model Generation (EMG): 'doc/emg.md'
+        - Unit Testing (EUnit): 'doc/eunit.md'
+        - Dataset Extraction (Pinset): 'doc/pinset.md'
     - Tools:
         - Picto: 'doc/picto/index.md'
         - Flexmi: 'doc/flexmi/index.md'
@@ -43,14 +43,15 @@ nav:
       - Who is using Epsilon?:
         - Industry: 'users/index.md'
         - Education: 'users/education.md'
-        - Open-source projects: 'users/open-source.md'
+        - Open-source Projects: 'users/open-source.md'
       - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
       - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'
+      - Professional Services: professional-services.md
       - Social Media:
         - Twitter: 'https://twitter.com/eclipseepsilon'
         - YouTube: 'https://youtube.com/epsilondevs'
       - Epsilon Labs: 'labs.md'
-      - Frequently asked questions: 'faq.md'
+      - Frequently Asked Questions: 'faq.md'
   - Branding: 'branding/index.md'
 theme:
   name: material
