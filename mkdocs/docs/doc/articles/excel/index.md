@@ -14,9 +14,51 @@ Epsilon provides built-in support for querying and transforming Excel spreadshee
 
 ## Worksheets, Columns and Rows
 
-Essentially, in the Excel driver, by default, worksheets are treated as model element types (e.g. `Student`, `Staff`, `Module` and `Mark` in the spreadsheet below), columns as their properties (e.g. `Mark` has `student`, `module` and `mark` properties), and rows are treated as model elements (i.e. there are two students, two members of staff, three modules and two marks in the model).
+Essentially, in the Excel driver, by default, worksheets are treated as model element types (e.g. `Student`, `Staff`, `Module` and `Mark` in the spreadsheet below), columns as their properties (e.g. `Mark` has `student`, `module` and `mark` properties), and rows are treated as model elements (i.e. there are two students, two members of staff, three modules and two marks in the spreadsheet below).
 
-![](spreadsheet.png)
+<style>
+  .h {
+    text-align: center;
+    background-color: #EBEBEB;
+  }
+</style>
+
+=== "Student"
+
+    <table>
+      <tr><td class="h">&nbsp;</td><td class="h">A</td><td class="h">B</td><td class="h">C</td><td class="h">D</td><td class="h">E</td><td class="h">F</td></tr>
+      <tr><td class="h">1</td><td>id</td><td>firstname</td><td>lastname</td><td>age</td><td>supervisor</td><td>modules</td></tr>
+      <tr><td class="h">2</td><td>jt501</td><td>Joe</td><td>Thompson</td><td>23</td><td>mt506</td><td>MSD,RQE</td></tr>
+      <tr><td class="h">3</td><td>js502</td><td>Jane</td><td>Smith</td><td>22</td><td>mt506</td><td>MSD,HCI</td></tr>
+    </table>
+
+=== "Staff"
+
+    <table>
+      <tr><td class="h">&nbsp;</td><td class="h">A</td><td class="h">B</td><td class="h">C</td><td class="h">D</td><td class="h">E</td><td class="h">F</td></tr>
+      <tr><td class="h">1</td><td>id</td><td>firstname</td><td>lastname</td><td>teaches</td><td></td><td></td></tr>
+      <tr><td class="h">2</td><td>mt506</td><td>Matthew</td><td>Thomas</td><td>MSD,RQE</td><td></td><td></td></tr>
+      <tr><td class="h">3</td><td>dj503</td><td>Daniel</td><td>Jackson</td><td>HCI</td><td></td><td></td></tr>
+    </table>
+
+=== "Module"
+
+    <table>
+      <tr><td class="h">&nbsp;</td><td class="h">A</td><td class="h">B</td><td class="h">C</td><td class="h">D</td><td class="h">E</td><td class="h">F</td></tr>
+      <tr><td class="h">1</td><td>id</td><td>title</td><td>term</td><td></td><td></td><td></td></tr>
+      <tr><td class="h">2</td><td>MSD</td><td>Modelling and System Design</td><td>Autumn</td><td></td><td></td><td></td></tr>
+      <tr><td class="h">3</td><td>HCI</td><td>Human Computer Interaction</td><td>Spring</td><td></td><td></td><td></td></tr>
+      <tr><td class="h">4</td><td>RQE</td><td>Requirements Engineering</td><td>Spring</td><td></td><td></td><td></td></tr>
+    </table>
+
+=== "Mark"
+
+    <table>
+      <tr><td class="h">&nbsp;</td><td class="h">A</td><td class="h">B</td><td class="h">C</td><td class="h">D</td><td class="h">E</td><td class="h">F</td></tr>
+      <tr><td class="h">1</td><td>student</td><td>module</td><td>mark</td><td></td><td></td><td></td></tr>
+      <tr><td class="h">2</td><td>jt501</td><td>MSD</td><td>62</td><td></td><td></td><td></td></tr>
+      <tr><td class="h">3</td><td>js502</td><td>HCI</td><td>74</td><td></td><td></td><td></td></tr>
+    </table>
 
 ## References and Column Types
 
@@ -42,6 +84,10 @@ For our example spreadsheet, above, the configuration file below specifies the t
              target="Module->id"/>           
   <reference source="Staff->teaches"
              target="Module->id"/>
+  <reference source="Mark->module"
+             target="Module->id"/>
+  <reference source="Mark->student"
+             target="Student->id"/>
 </spreadsheet>
 ```
 
@@ -130,6 +176,47 @@ context Staff {
 	}
 }
 ```
+
+## Creating Spreadsheets
+
+To create a spreadsheet from scratch (e.g. when it is produced by an ETL transformation), we also need to specify an `index` for each column in the XML mapping file. Below is an EOL program that creates the [spreadsheet above](#worksheets-columns-and-rows) from scratch, and the mapping file for it. The complete example is in [Epsilon's Git repo](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.excel).
+
+=== "create-spreadsheet.eol"
+    ```eol
+    // Create the modules
+    var MSD = new Module(id="MSD", 
+      title="Modelling and System Design", term="Autumn");
+
+    var HCI = new Module(id="HCI", 
+      title="Human Computer Interaction", term="Spring");
+    
+    var RQE = new Module(id="RQE", 
+      title="Requirements Engineering", term="Spring");
+       
+    // Create the staff  
+    var matthew = new Staff(id="mt506", firstname="Matthew",
+      lastname="Thomas", teaches=Sequence{MSD, RQE});
+
+    var matthew = new Staff(id="dj503", firstname="Daniel",
+      lastname="Jackson", teaches=Sequence{HCI});
+
+    // Create the students
+    var joe = new Student(id="jt501", firstname="Joe", 
+      lastname="Thompson", age="23", supervisor=matthew, modules=Sequence{MSD, RQE});
+
+    var jane = new Student(id="js502", firstname="Jane", 
+      lastname="Smith", age="22", supervisor=matthew, modules=Sequence{MSD, HCI});
+
+    // Create the marks
+    new Mark(student=joe, module=MSD, mark=62);
+    new Mark(student=jane, module=HCI, mark=74);
+    ```
+
+=== "mapping.xml"
+
+    ```xml
+    {{{ example("org.eclipse.epsilon.examples.excel/mapping.xml", true) }}}
+    ```
 
 ## Reflective Access
 
