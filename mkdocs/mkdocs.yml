@@ -46,7 +46,7 @@ nav:
         - Open-source Projects: 'users/open-source.md'
       - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
       - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'
-      - Professional Services: professional-services.md
+      - Professional Services: professional-services
       - Social Media:
         - Twitter: 'https://twitter.com/eclipseepsilon'
         - YouTube: 'https://youtube.com/epsilondevs'
