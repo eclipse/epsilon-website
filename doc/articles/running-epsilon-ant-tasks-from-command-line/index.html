@@ -1105,11 +1105,24 @@ BUILD SUCCESSFUL
 
     <span class="c">&lt;!-- This part of the build file runs our Epsilon tasks --&gt;</span>
     <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;run-epsilon&quot;</span> <span class="na">depends=</span><span class="s">&quot;setup-epsilon&quot;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- Load the library.model EMF model --&gt;</span>
         <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Library&quot;</span> <span class="na">modelfile=</span><span class="s">&quot;library.model&quot;</span> <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span><span class="nt">/&gt;</span>
 
+        <span class="c">&lt;!-- Run library.eol against it --&gt;</span>
         <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;library.eol&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Library&quot;</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;/epsilon.eol&gt;</span>
+
+        <span class="c">&lt;!-- Run library.eunit --&gt;</span>
+        <span class="nt">&lt;epsilon.eunit</span> <span class="na">src=</span><span class="s">&quot;library.eunit&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;modelTasks&gt;</span>
+            <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;A&quot;</span> <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span> <span class="na">read=</span><span class="s">&quot;false&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span> <span class="na">modelfile=</span><span class="s">&quot;dummyA.model&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;B&quot;</span> <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span> <span class="na">read=</span><span class="s">&quot;false&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span> <span class="na">modelfile=</span><span class="s">&quot;dummyB.model&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/modelTasks&gt;</span>
+          <span class="nt">&lt;comparators&gt;</span>
+            <span class="nt">&lt;comparator</span> <span class="na">classname=</span><span class="s">&quot;org.eclipse.epsilon.eunit.cmp.emf.EMFModelComparator&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;/comparators&gt;</span>
+        <span class="nt">&lt;/epsilon.eunit&gt;</span>
     <span class="nt">&lt;/target&gt;</span>
 
     <span class="c">&lt;!-- The rest of the build file downloads Ivy, fetches the Epsilon jars and sets up the Epsilon ANT tasks --&gt;</span>
@@ -1166,6 +1179,9 @@ BUILD SUCCESSFUL
     <span class="nt">&lt;dependencies&gt;</span>
         <span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">&quot;org.eclipse.epsilon&quot;</span> <span class="na">name=</span><span class="s">&quot;org.eclipse.epsilon.workflow&quot;</span> <span class="na">rev=</span><span class="s">&quot;2.3.0-SNAPSHOT&quot;</span> <span class="na">conf=</span><span class="s">&quot;binaries-&gt;default&quot;</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">&quot;org.eclipse.epsilon&quot;</span> <span class="na">name=</span><span class="s">&quot;org.eclipse.epsilon.workflow.emf&quot;</span> <span class="na">rev=</span><span class="s">&quot;2.3.0-SNAPSHOT&quot;</span> <span class="na">conf=</span><span class="s">&quot;binaries-&gt;default&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">&quot;org.eclipse.epsilon&quot;</span> <span class="na">name=</span><span class="s">&quot;org.eclipse.epsilon.eunit.cmp.emf&quot;</span> <span class="na">rev=</span><span class="s">&quot;2.3.0-SNAPSHOT&quot;</span> <span class="na">conf=</span><span class="s">&quot;binaries-&gt;default&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;exclude</span> <span class="na">artifact=</span><span class="s">&quot;org.eclipse.equinox.registry&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;exclude</span> <span class="na">artifact=</span><span class="s">&quot;org.eclipse.core.runtime&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/dependencies&gt;</span>
 <span class="nt">&lt;/ivy-module&gt;</span>
 </code></pre></div>
@@ -1216,22 +1232,33 @@ BUILD SUCCESSFUL
             <span class="nt">&lt;configuration&gt;</span>
               <span class="nt">&lt;target&gt;</span>
                 <span class="c">&lt;!-- Set up the core Epsilon tasks --&gt;</span>
-                <span class="nt">&lt;taskdef</span> 
+                <span class="nt">&lt;taskdef</span>
                   <span class="na">resource=</span><span class="s">&quot;org/eclipse/epsilon/workflow/tasks/tasks.xml&quot;</span><span class="nt">/&gt;</span>
 
                 <span class="c">&lt;!-- Set up the Epsilon EMF tasks --&gt;</span>
-                <span class="nt">&lt;taskdef</span> 
+                <span class="nt">&lt;taskdef</span>
                   <span class="na">resource=</span><span class="s">&quot;org/eclipse/epsilon/workflow/tasks/emf/tasks.xml&quot;</span><span class="nt">/&gt;</span>
 
                 <span class="c">&lt;!-- Load the library.model EMF model --&gt;</span>
-                <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Library&quot;</span> 
-                  <span class="na">modelfile=</span><span class="s">&quot;library.model&quot;</span> 
+                <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Library&quot;</span>
+                  <span class="na">modelfile=</span><span class="s">&quot;library.model&quot;</span>
                   <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span><span class="nt">/&gt;</span>
 
                 <span class="c">&lt;!-- Run library.eol against it --&gt;</span>
                 <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;library.eol&quot;</span><span class="nt">&gt;</span>
                     <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Library&quot;</span><span class="nt">/&gt;</span>
                 <span class="nt">&lt;/epsilon.eol&gt;</span>
+
+                <span class="c">&lt;!-- Run library.eunit --&gt;</span>
+                <span class="nt">&lt;epsilon.eunit</span> <span class="na">src=</span><span class="s">&quot;library.eunit&quot;</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;modelTasks&gt;</span>
+                    <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;A&quot;</span> <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span> <span class="na">read=</span><span class="s">&quot;false&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span> <span class="na">modelfile=</span><span class="s">&quot;dummyA.model&quot;</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;B&quot;</span> <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span> <span class="na">read=</span><span class="s">&quot;false&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span> <span class="na">modelfile=</span><span class="s">&quot;dummyB.model&quot;</span><span class="nt">/&gt;</span>
+                  <span class="nt">&lt;/modelTasks&gt;</span>
+                  <span class="nt">&lt;comparators&gt;</span>
+                    <span class="nt">&lt;comparator</span> <span class="na">classname=</span><span class="s">&quot;org.eclipse.epsilon.eunit.cmp.emf.EMFModelComparator&quot;</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;/comparators&gt;</span>
+                <span class="nt">&lt;/epsilon.eunit&gt;</span>
               <span class="nt">&lt;/target&gt;</span>
             <span class="nt">&lt;/configuration&gt;</span>
             <span class="nt">&lt;goals&gt;</span>
@@ -1248,6 +1275,11 @@ BUILD SUCCESSFUL
           <span class="nt">&lt;dependency&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.workflow.emf<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.3.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+          <span class="nt">&lt;/dependency&gt;</span>
+          <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.eunit.cmp.emf<span class="nt">&lt;/artifactId&gt;</span>
             <span class="nt">&lt;version&gt;</span>2.3.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
           <span class="nt">&lt;/dependency&gt;</span>
         <span class="nt">&lt;/dependencies&gt;</span>
@@ -1276,6 +1308,7 @@ BUILD SUCCESSFUL
 <span class="n">dependencies</span> <span class="o">{</span>
     <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0-SNAPSHOT&#39;</span>
     <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow.emf:2.3.0-SNAPSHOT&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.eunit.cmp.emf:2.3.0-SNAPSHOT&#39;</span>
 <span class="o">}</span>
 
 <span class="n">task</span> <span class="n">setupEpsilonTasks</span> <span class="o">{</span>
@@ -1294,8 +1327,23 @@ BUILD SUCCESSFUL
     <span class="c1">// Load the library.model EMF model</span>
     <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.emf.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;Library&#39;</span><span class="o">,</span> 
         <span class="nl">modelfile:</span> <span class="s1">&#39;library.model&#39;</span><span class="o">,</span> <span class="nl">metamodelfile:</span> <span class="s1">&#39;library.ecore&#39;</span><span class="o">)</span>
+
     <span class="c1">// Run library.eol against it</span>
     <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span> <span class="s1">&#39;library.eol&#39;</span><span class="o">){</span> <span class="n">model</span><span class="o">(</span><span class="nl">ref:</span> <span class="s1">&#39;Library&#39;</span><span class="o">)</span> <span class="o">}</span>
+
+    <span class="c1">// Run library.eunit</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eunit&#39;</span><span class="o">(</span><span class="nl">src:</span> <span class="s1">&#39;library.eunit&#39;</span><span class="o">){</span>
+        <span class="n">modelTasks</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.emf.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;A&#39;</span><span class="o">,</span> <span class="nl">metamodelfile:</span> <span class="s1">&#39;library.ecore&#39;</span><span class="o">,</span>
+                <span class="nl">read:</span> <span class="s1">&#39;false&#39;</span><span class="o">,</span> <span class="nl">store:</span> <span class="s1">&#39;false&#39;</span><span class="o">,</span> <span class="nl">modelfile:</span> <span class="s1">&#39;dummyA.model&#39;</span><span class="o">)</span>
+            <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.emf.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;B&#39;</span><span class="o">,</span> <span class="nl">metamodelfile:</span> <span class="s1">&#39;library.ecore&#39;</span><span class="o">,</span>
+                <span class="nl">read:</span> <span class="s1">&#39;false&#39;</span><span class="o">,</span> <span class="nl">store:</span> <span class="s1">&#39;false&#39;</span><span class="o">,</span> <span class="nl">modelfile:</span> <span class="s1">&#39;dummyB.model&#39;</span><span class="o">)</span>
+        <span class="o">}</span>
+        <span class="n">comparators</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">comparator</span><span class="o">(</span><span class="nl">classname:</span>
+                <span class="s1">&#39;org.eclipse.epsilon.eunit.cmp.emf.EMFModelComparator&#39;</span><span class="o">)</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
 
