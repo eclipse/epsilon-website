@@ -182,6 +182,7 @@ extra_javascript:
   - 'assets/javascript/google-code-prettify/lang-epsilon.js'
   - 'assets/javascript/google-code-prettify/prettyprint.js'
   - 'assets/javascript/extra.js'
+  - https://w.appzi.io/w.js?token=jlv6W
 google_analytics:
   - UA-184785655-1
   - auto
