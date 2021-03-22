@@ -1,5 +1,8 @@
 # Examples 
 
+!!! tip "Looking for in-depth articles?"
+	This page contains links to a selection of example projects in Epsilon's Git repository. If you are looking for more in-depth articles describing different features of Epsilon, please visit the [articles](../doc/articles) section of the website.
+
 Each example in this page comes in the form of an Eclipse project, which is stored under the [examples](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/) dirctory of Epsilon's Git repository. To run an example, you need to:
 
 1. Clone the repository
