@@ -347,6 +347,7 @@ collect(iterator : Type \| expression) : Collection                  |Returns a 
 count(iterator : Type \| condition) : Integer                        |Returns the number of elements in the collection that satisfy the condition
 exists(iterator : Type \| condition) : Boolean                       |Returns true if there exists at least one item in the collection that satisfies the condition
 forAll(iterator : Type \| condition) : Boolean                       |Returns true if all items in the collection satisfy the condition
+mapBy(iterator : Type \| expression) : Map |Returns a map containing the results of the expression [as keys and the respective items of the collection as values](https://www.eclipse.org/epsilon/live/?14131930).
 nMatch(iterator : Type \| condition, n : Integer) : Boolean          |Returns true if there are exactly `n` items in the collection that satisfy the condition
 none(iterator : Type \| condition) : Boolean                         |Returns true if there are no items in the collection that satisfy the condition
 one(iterator : Type \| condition) : Boolean                          |Returns true if there exists exactly one item in the collection that satisfies the condition
