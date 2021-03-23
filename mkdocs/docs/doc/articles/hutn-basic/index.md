@@ -69,7 +69,7 @@ References to model elements stored in another file are using a URI fragment:
       familyFriends: Family "../families/AnotherNeighbourhood.model#_swAAYJX5Ed2TbbKclPHPaA"
     }
 
-URI fragments can have either a relative (XPath-like) syntax, or use a unique identifier. For example, the first reference above uses a relative syntax to refer to the second (index of 1) Family in the AnotherNeighbourhood.model file. For more information on URI fragments, see the relevant section [here](http://learning.infocollections.com/ebook%202/Computer/Programming/Java/Eclipse.Modeling.Framework/0131425420_ch13lev1sec2.html).
+URI fragments can have either a relative (XPath-like) syntax, or use a unique identifier. For example, the first reference above uses a relative syntax to refer to the second (index of 1) Family in the AnotherNeighbourhood.model file. For more information on URI fragments, see section 13.2.1 of [the EMF book](https://dl.acm.org/doi/10.5555/1197540).
 
 ## Shortcuts
 
