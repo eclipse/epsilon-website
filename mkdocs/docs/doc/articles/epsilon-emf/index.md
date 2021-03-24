@@ -73,6 +73,25 @@ To use an existing EMF Resource in your Epsilon program, you should wrap it as a
 ## How can I use custom load/save options for my EMF model?
 You need to un-tick the "Read on load"/"Store on disposal" options in your model configuration dialog and use the underlying EMF resource's load/save methods directly from your EOL code. For example, to turn off the OPTION_DEFER_IDREF_RESOLUTION option, which is on by default in Epsilon's EMF driver and has been reported to [slow down loading of models that use "id" attributes](https://www.eclipse.org/forums/index.php/m/1754026/#msg_1754026), you can use the following EOL statement.
 
-```
+```java
 M.resource.load(Map{"DEFER_IDREF_RESOLUTION" = false});
+```
+
+## How do I load an Ecore metamodel?
+
+If you're developing a standalone application, before you can load an EMF model, you will need to put its metamodel (`EPackage`) in the global EMF EPackage registry, or in the local package registry of the model resource. The following snippet shows how you can parse an Ecore metamodel from a file (`my.ecore`) and put its root EPackage in the global EMF registry.
+
+```java
+// Parse the metamodel file into an EMF resource
+ResourceSet ecoreResourceSet = new ResourceSetImpl();
+ecoreResourceSet.getResourceFactoryRegistry().
+	getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
+Resource ecoreResource = ecoreResourceSet.createResource(
+	URI.createFileURI(new File("my.ecore").getAbsolutePath()));
+ecoreResource.load(null);
+
+// Ecore files usually contain one EPackage
+EPackage ePackage = (EPackage) ecoreResource.getContents().get(0);
+// Put the EPackage in the global EMF EPackage registry
+EPackage.Registry.INSTANCE.put(ePackage.getNsURI(), ePackage);
 ```
