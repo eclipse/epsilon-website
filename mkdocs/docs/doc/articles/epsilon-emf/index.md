@@ -86,6 +86,8 @@ If you're developing a standalone application, before you can load an EMF model,
 ResourceSet ecoreResourceSet = new ResourceSetImpl();
 ecoreResourceSet.getResourceFactoryRegistry().
 	getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
+ecoreResourceSet.getPackageRegistry().
+	put(EcorePackage.eINSTANCE.getNsURI(), EcorePackage.eINSTANCE);	
 Resource ecoreResource = ecoreResourceSet.createResource(
 	URI.createFileURI(new File("my.ecore").getAbsolutePath()));
 ecoreResource.load(null);
