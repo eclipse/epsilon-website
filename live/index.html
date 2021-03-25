@@ -317,6 +317,13 @@
 
         emfaticEditor.getSession().setMode("ace/mode/emfatic");
         flexmiEditor.getSession().setMode("ace/mode/xml");
+
+        flexmiEditor.getSession().on('change', function() {
+          updateFlexmiEditorSyntaxHighlighting(flexmiEditor);
+        });
+
+        updateFlexmiEditorSyntaxHighlighting(flexmiEditor);
+
         secondEmfaticEditor.getSession().setMode("ace/mode/emfatic");
         secondFlexmiEditor.getSession().setMode("ace/mode/xml");
         consoleEditor.setReadOnly(true);
@@ -346,6 +353,16 @@
 
         document.getElementById("navview").style.display = "block";
         setInterval(fit, 100);
+    }
+
+    function updateFlexmiEditorSyntaxHighlighting(editor) {
+        var val = editor.getSession().getValue();
+        if ((val.trim()+"").startsWith("<")) {
+            editor.getSession().setMode("ace/mode/xml");
+        }
+        else {
+            editor.getSession().setMode("ace/mode/yaml");
+        }
     }
 
     function about(event) {
