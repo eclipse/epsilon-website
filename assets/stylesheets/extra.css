@@ -37,3 +37,7 @@
     line-height: 20px;
     margin-top: 17px;
 }
+
+.md-typeset pre {
+    margin: 0px;
+}
