@@ -218,6 +218,21 @@ To create a spreadsheet from scratch (e.g. when it is produced by an ETL transfo
     {{{ example("org.eclipse.epsilon.examples.excel/mapping.xml", true) }}}
     ```
 
+## Working with Formulas
+
+To set the value of a cell to a formula, start its value with `=` as shown below. The complete example is in [Epsilon's Git repo](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.excel.formulas).
+
+=== "create-spreadsheet-with-formulas.eol"
+    ```eol
+    {{{ example("org.eclipse.epsilon.examples.excel.formulas/create-spreadsheet-with-formulas.eol", true) }}}
+    ```
+
+=== "mapping.xml"
+    ```xml
+    {{{ example("org.eclipse.epsilon.examples.excel.formulas/mapping.xml", true) }}}
+    ```
+
+
 ## Reflective Access
 
 To iterate over all the worksheets, columns and rows of a speadsheet without referring to them by name, we can use the following statements (assuming that our Excel spreadsheet is named `M` in the run configuration). Additional methods of interest for this mode of access can be found in the Javadoc of the underlying [ExcelModel](https://download.eclipse.org/epsilon/interim-javadoc/org/eclipse/epsilon/emc/spreadsheets/excel/ExcelModel.html) and [SpreadsheetModel](https://download.eclipse.org/epsilon/interim-javadoc/org/eclipse/epsilon/emc/spreadsheets/SpreadsheetModel.html) classes.
