@@ -255,3 +255,7 @@ for (w in M.worksheets) {
   }
 }
 ```
+
+## Resources
+
+- [This article](../running-epsilon-ant-tasks-from-command-line#excel) shows how to use Excel spreadsheets in ANT/Gradle/Maven builds.

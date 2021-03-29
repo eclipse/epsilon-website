@@ -118,6 +118,22 @@ A complete Gradle example that uses `library.flexmi` instead of (the XMI-based) 
     {{{ example("org.eclipse.epsilon.examples.workflow.standalone/library.emf", true) }}}
     ```
 
+## Excel
+
+The example below demonstrates using the generic `epsilon.loadModel` task to run the same EOL program against an [Excel spreadsheet](../excel).
+
+=== "build.gradle"
+
+    ```groovy
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/excel/build.gradle", true) }}}
+    ```
+
+=== "mapping.xml"
+
+    ```xml
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/excel/mapping.xml", true) }}}
+    ```
+
 ## Epsilon 1.x
 
 If you would like to use an older (1.x) version of Epsilon, you can use [this example instead](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.1x), which uses a fat jar we used to produce (`epsilon-1.x-kitchensink.jar`) before moving all our jars to Maven Central/Sonatype.

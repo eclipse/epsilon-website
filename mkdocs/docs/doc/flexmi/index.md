@@ -411,6 +411,7 @@ Flexmi was originally developed as a quick and dirty way to type in EMF models w
 ## Resources
 
 - More examples of using Flexmi can be found in projects containing `flexmi` in their name, under the [examples folder](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples) of Epsilon's Git repository.
+- [This article](../articles/running-epsilon-ant-tasks-from-command-line/#flexmi-and-emfatic) shows how to use Flexmi models in ANT/Gradle/Maven builds
 - Flexmi and relevant underpinning research is further described in the following papers:
     - [Towards Flexible Parsing of StructuredTextual Model Representations](http://ceur-ws.org/Vol-1694/FlexMDE2016_paper_3.pdf)
     - [Towards a Modular and Flexible Human-UsableTextual Syntax for EMF Models](http://ceur-ws.org/Vol-2245/flexmde_paper_3.pdf)
