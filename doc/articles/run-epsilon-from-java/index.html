@@ -1049,6 +1049,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#analysing-epsilon-programs" class="md-nav__link">
+    Analysing Epsilon Programs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#more-examples" class="md-nav__link">
     More Examples
   </a>
@@ -1128,6 +1135,16 @@
 <span class="c1">// Saves any changes to the model</span>
 <span class="c1">// and unloads it from memory</span>
 <span class="n">model</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+</code></pre></div>
+
+<h2 id="analysing-epsilon-programs">Analysing Epsilon Programs<a class="headerlink" href="#analysing-epsilon-programs" title="Permanent link">&para;</a></h2>
+<p>Epsilon programs can be analysed using <a href="https://en.wikipedia.org/wiki/Visitor_pattern">visitors</a>. As an example, see the <code>EolUnparser</code> class which recursively visits the contents of an <code>EolModule</code> and pretty-prints it. To implement your own analyser, you will need to implement the <code>IEolVisitor</code> interface for EOL, or the respective <code>IE*lVisitor</code> interfaces for other Epsilon-based languages. Using a combination of <code>E*lUnparser</code> and your custom visitor, you can easily rewrite Epsilon programs too.</p>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="o">();</span>
+<span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&quot;&#39;Hello world&#39;.println();&quot;</span><span class="o">);</span>
+
+<span class="n">EolUnparser</span> <span class="n">unparser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolUnparser</span><span class="o">();</span>
+<span class="c1">// Prints &quot;Hello world&quot;.println();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">unparser</span><span class="o">.</span><span class="na">unparse</span><span class="o">(</span><span class="n">module</span><span class="o">));</span>
 </code></pre></div>
 
 <h2 id="more-examples">More Examples<a class="headerlink" href="#more-examples" title="Permanent link">&para;</a></h2>
