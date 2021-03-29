@@ -61,6 +61,19 @@ module.execute();
 model.dispose();
 ```
 
+## Analysing Epsilon Programs
+
+Epsilon programs can be analysed using [visitors](https://en.wikipedia.org/wiki/Visitor_pattern). As an example, see the `EolUnparser` class which recursively visits the contents of an `EolModule` and pretty-prints it. To implement your own analyser, you will need to implement the `IEolVisitor` interface for EOL, or the respective `IE*lVisitor` interfaces for other Epsilon-based languages. Using a combination of `E*lUnparser` and your custom visitor, you can easily rewrite Epsilon programs too.
+
+```java
+EolModule module = new EolModule();
+module.parse("'Hello world'.println();");
+
+EolUnparser unparser = new EolUnparser();
+// Prints "Hello world".println();
+System.out.println(unparser.unparse(module));
+```
+
 ## More Examples
 
 In Epsilon's Git repository, there are two example projects that show how to run [Epsilon from Java](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.standalone), and the [ANT Epsilon tasks in a headless environment](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone) (i.e. from command line).
