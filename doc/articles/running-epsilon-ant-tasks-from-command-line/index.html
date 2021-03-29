@@ -1383,6 +1383,88 @@ BUILD SUCCESSFUL
 
 </div>
 </div>
+<p>A complete Gradle example that uses <code>library.flexmi</code> instead of (the XMI-based) <code>library.model</code>, and <code>library.emf</code> instead of <code>library.ecore</code> is shown below.</p>
+<div class="tabbed-set" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">build.gradle</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">configurations</span> <span class="o">{</span>
+    <span class="n">epsilon</span>
+<span class="o">}</span>
+
+<span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">maven</span> <span class="o">{</span>
+        <span class="n">url</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots&quot;</span>
+    <span class="o">}</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0-SNAPSHOT&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow.emf:2.3.0-SNAPSHOT&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.emfatic:org.eclipse.emfatic.core:0.8.0-SNAPSHOT&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">setupEpsilonTasks</span> <span class="o">{</span>
+    <span class="c1">// Set up the core Epsilon tasks</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">taskdef</span><span class="o">(</span><span class="nl">resource:</span> <span class="s1">&#39;org/eclipse/epsilon/workflow/tasks/tasks.xml&#39;</span><span class="o">,</span> 
+        <span class="nl">classpath:</span> <span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span> <span class="nl">loaderref:</span> <span class="s1">&#39;epsilon&#39;</span><span class="o">)</span>
+    <span class="c1">// Set up the Epsilon EMF tasks</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">taskdef</span><span class="o">(</span><span class="nl">resource:</span> <span class="s1">&#39;org/eclipse/epsilon/workflow/tasks/emf/tasks.xml&#39;</span><span class="o">,</span> 
+        <span class="nl">classpath:</span> <span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span> <span class="nl">loaderref:</span> <span class="s1">&#39;epsilon&#39;</span><span class="o">)</span>
+    <span class="c1">// Set logging level to info so that EOL&#39;s println() is not suppressed</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">lifecycleLogLevel</span> <span class="o">=</span> <span class="s1">&#39;INFO&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">run</span> <span class="o">{</span>
+    <span class="n">dependsOn</span> <span class="n">tasks</span><span class="o">.</span><span class="na">setupEpsilonTasks</span>
+    <span class="c1">// Load the library.flexmi EMF model</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.emf.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;Library&#39;</span><span class="o">,</span> 
+        <span class="nl">modelfile:</span> <span class="s1">&#39;../library.flexmi&#39;</span><span class="o">,</span> <span class="nl">metamodelfile:</span> <span class="s1">&#39;../library.emf&#39;</span><span class="o">)</span>
+
+    <span class="c1">// Run library.eol against it</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span> <span class="s1">&#39;../library.eol&#39;</span><span class="o">){</span> <span class="n">model</span><span class="o">(</span><span class="nl">ref:</span> <span class="s1">&#39;Library&#39;</span><span class="o">)</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">library.flexmi</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri library?&gt;</span>
+<span class="nt">&lt;library&gt;</span>
+  <span class="nt">&lt;writer</span> <span class="na">name=</span><span class="s">&quot;Agatha Christie&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;Endless Night&quot;</span> <span class="na">pages=</span><span class="s">&quot;224&quot;</span> <span class="na">author=</span><span class="s">&quot;Agatha Christie&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/library&gt;</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">library.emf</label><div class="tabbed-content">
+<pre class="prettyprint lang-emf"><code>@namespace(uri="library", prefix="")
+package library;
+
+class Library {
+    val Writer[*] writers;
+    val Book[*] books;
+}
+
+class Writer {
+    attr String name;
+    ref Book[*]#author books;
+}
+
+class Book {
+    attr String title;
+    attr int pages = 100;
+    attr BookCategory category;
+    ref Writer[1]#books author;
+}
+
+enum BookCategory {
+    Mystery = 0;
+    ScienceFiction = 1;
+    Biography = 2;
+}
+
+</code></pre>
+
+</div>
+</div>
 <h2 id="epsilon-1x">Epsilon 1.x<a class="headerlink" href="#epsilon-1x" title="Permanent link">&para;</a></h2>
 <p>If you would like to use an older (1.x) version of Epsilon, you can use <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.1x">this example instead</a>, which uses a fat jar we used to produce (<code>epsilon-1.x-kitchensink.jar</code>) before moving all our jars to Maven Central/Sonatype.</p>
                 
