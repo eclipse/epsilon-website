@@ -98,6 +98,26 @@ You can also use [Flexmi](../../flexmi) instead of XMI (`library.flexmi` instead
     epsilon 'org.eclipse.emfatic:org.eclipse.emfatic.core:0.8.0-SNAPSHOT'
     ```
 
+A complete Gradle example that uses `library.flexmi` instead of (the XMI-based) `library.model`, and `library.emf` instead of `library.ecore` is shown below.
+
+=== "build.gradle"
+
+    ```groovy
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/flexmi-emfatic/build.gradle", true) }}}
+    ```
+
+=== "library.flexmi"
+
+    ```xml
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/library.flexmi", true) }}}
+    ```
+
+=== "library.emf"
+
+    ```emf
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/library.emf", true) }}}
+    ```
+
 ## Epsilon 1.x
 
 If you would like to use an older (1.x) version of Epsilon, you can use [this example instead](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.1x), which uses a fat jar we used to produce (`epsilon-1.x-kitchensink.jar`) before moving all our jars to Maven Central/Sonatype.
