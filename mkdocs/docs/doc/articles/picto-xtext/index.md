@@ -11,7 +11,7 @@ This article shows how [Picto](../../picto) can be used to produce graphical vie
     - `org.eclipse.epsilon.examples.picto.xtext.domainmodel.ide`
     - `org.eclipse.epsilon.examples.picto.xtext.domainmodel.ui`
     - `org.eclipse.epsilon.examples.picto.xtext.domainmodel.picto`
-- Right-click on `Domainmodel.xtext` and select `Run As -> Generate Xtext Artefacts`
+- Right-click on `Domainmodel.xtext` and select `Run As` --> `Generate Xtext Artefacts`
 - Run a nested Eclipse instance.
 - In the nested Eclipse instance workspace, create a new file named `blog.dmodel` with the content below:
 
@@ -39,7 +39,7 @@ entity Comment extends HasAuthor {
 }
 ```
 
-- Open the Picto view from the `Window -> Show View` menu.
+- Open the Picto view from the Window --> Show View menu.
 - Go through the produced graphical views as shown in the image above.
 
 ## The Picto-Xtext Integration Plugin Project

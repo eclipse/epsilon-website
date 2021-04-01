@@ -8,7 +8,7 @@ If you get this error message while you are trying to run your Epsilon program, 
 
 ## Where is the "Run" button?
 
-If you cannot find the run button in the toolbar of your Eclipse, you need to activate the Epsilon perspective from the `Window->Perspective->Open Perspective->Other` menu or from the respective shortcut at the top-right corner of your Eclipse window.
+If you cannot find the run button in the toolbar of your Eclipse, you need to activate the Epsilon perspective from the `Window` --> `Perspective` --> `Open Perspective` --> `Other` menu or from the respective shortcut at the top-right corner of your Eclipse window.
 
 ## I see no files when I browse for a program/model file
 

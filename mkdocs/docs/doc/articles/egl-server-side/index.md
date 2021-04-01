@@ -8,7 +8,7 @@ In this article, we demonstrate using [EGL](../../egl) as a server-side scriptin
 
 - Download a fresh copy of Tomcat 6.0
 [here](http://tomcat.apache.org/download-60.cgi) and extract it
-- Download [egl-servlet-full.zip](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/serverside/org.eclipse.epsilon.egl.servlet/egl-servlet-full.zip)
+- Download [egl-servlet-full.zip](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.egl.servlet/egl-servlet-full.zip)
 - Extract all .jar files from the zip into the `lib` folder of Tomcat
 - Open `web.xml` in the `conf` directory of Tomcat and add the following
 snippet
@@ -27,7 +27,7 @@ snippet
 </servlet-mapping>
 ```
 
--   Make sure that there is an environment variable called `JRE_HOME` and it's pointing to your JRE installation directory (the root, not the `bin`). In Windows, you can create this variable from System Properties→Advanced→Environment Variables→System Variables→New...
+-   Make sure that there is an environment variable called `JRE_HOME` and it's pointing to your JRE installation directory (the root, not the `bin`). In Windows, you can create this variable from `System Properties` --> `Advanced` --> `Environment Variables` --> `System Variables` --> `New...`
 
 ## Create a Hello World web application
 

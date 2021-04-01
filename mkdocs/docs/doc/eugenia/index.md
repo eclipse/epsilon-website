@@ -166,13 +166,13 @@ To run Eugenia you need to do the following:
 - Create a new general project
 - Create and annotate your Emfatic (or Ecore) metamodel in the root of your project
 - Right-click your Emfatic (or Ecore) metamodel and select Eugenia->Generate GMF editor
-- Launch a new Eclipse instance from the Run->Eclipse Application right-click menu of the project that contains your metamodel
-- In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the File->New->Other... dialog
+- Launch a new Eclipse instance from the `Run` --> `Eclipse Application` right-click menu of the project that contains your metamodel
+- In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the `File` --> `New` --> `Other...` dialog
 
 ## Re-running Eugenia
 If you now change your metamodel you'll have to rerun Eugenia to generate your updated editor:
 
-- Right-click your Ecore metamodel (or Emfatic file) and select Eugenia->Generate GMF editor
+- Right-click your Ecore metamodel (or Emfatic file) and select `Eugenia` --> `Generate GMF editor`
 - Run a new instance of Eclipse
 
 (Please note that any changes you have made manually to the editor's `.gmfgraph`, `.gmftool` and `.gmfmap` models will be **overwritten**. Have a look [here](../articles/eugenia-polishing) for an alternative way to customize these models)
@@ -191,7 +191,7 @@ If you now change your metamodel you'll have to rerun Eugenia to generate your u
 [Click here](../articles/eugenia-polishing) to find out how you can further customize the generated `.gmfgraph`, `.gmfmap` and `.gmftool` models in ways that are not supported by the annotations provided by Eugenia, and still preserve the customizations when Eugenia is re-invoked.
 
 ## Adding Copyright
-To add copyright information to your generated .gmfgen model, simply create a file named copyright.txt next to it. Next time you invoke `Eugenia->Synchronize GMF gen model`, Eugenia will pick it up and place its contents in the root GenDiagramEditor of your .gmfgen model. If you have added the copyright.txt file, you can also inject its contents to your .genmodel model (EMF generator model) by right-clicking it and invoking `Eugenia->Synchronize EMF gen model`.
+To add copyright information to your generated .gmfgen model, simply create a file named copyright.txt next to it. Next time you invoke `Eugenia` --> `Synchronize GMF gen model`, Eugenia will pick it up and place its contents in the root GenDiagramEditor of your .gmfgen model. If you have added the copyright.txt file, you can also inject its contents to your .genmodel model (EMF generator model) by right-clicking it and invoking `Eugenia` --> `Synchronize EMF gen model`.
 
 ## Next Steps
 Now that you've learned how to generate a GMF-based editor using Eugenia, you may also want to add some constraints to your editor, which you can then evaluate (explicitly or on-save) to [check the correctness/consistency of your models](../articles/evl-gmf-integration):

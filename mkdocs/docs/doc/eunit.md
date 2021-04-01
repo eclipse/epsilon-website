@@ -202,8 +202,6 @@ The optional `<modelTasks>` nested element contains a sequence of Ant tasks whic
 
 Ant buildfiles for EUnit may include *helper targets*. These targets can be invoked using from anywhere in the EOL script. Helper targets are quite versatile: called from an EOL model setup section, they allow for reusing model loading fragments between different EUnit test suites. They can also be used to invoke the model management tasks under test. 
 
-<!--Listing [\[lst:eunit-ex1-ant\]](#lst:eunit-ex1-ant){reference-type="ref"reference="lst:eunit-ex1-ant"} shows a helper target for an ETL transformation, and listing [\[lst:eunit-atl\]](#lst:eunit-atl){reference-type="ref"reference="lst:eunit-atl"} shows a helper target for an ATL transformation.-->
-
 ### EOL script
 
 The Epsilon Object Language script is the second half of the EUnit test suite. EOL annotations are used to tag some of the operations as data binding definitions (`@data` or `@Data`), additional model setup sections (`@model`/`@Model`), test setup and teardown sections (`@setup`/`@Before` and `@teardown`/`@After`) and test cases (`@test`/`@Test`). Suite setup and teardown sections can also be defined with `@suitesetup`/`@BeforeClass` and `@suiteteardown`/`@AfterClass` annotations: these operations will be run before and after all tests, respectively.

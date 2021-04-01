@@ -8,13 +8,13 @@ To go through this tutorial you need to first install the Eclipse Modeling Distr
 
 ## Create a new project
  
-Go to `File->New->Other...` and select `General->Project`. Type `library` as the project name:
+Go to `File` --> `New` --> `Other...` and select `General` --> `Project`. Type `library` as the project name:
 
 ![](new-project.jpg)
 
 ## Create library.emf
  
-Go to `File->New->Other...` and select `File`. Type `library.emf` as the file name:
+Go to `File` --> `New` --> `Other...` and select `File`. Type `library.emf` as the file name:
 
 ![](create-emfatic.jpg)
 
@@ -74,7 +74,7 @@ The next step is to let EMF know of the existence of your newly created `library
 
 ## Create a model that conforms to library.ecore
  
-Now we're ready to create models that conform to our new Ecore metamodel! To create a model, go to `File->New->Other...` and select `EMF Model` as shown below:
+Now we're ready to create models that conform to our new Ecore metamodel! To create a model, go to `File` --> `New` --> `Other...` and select `EMF Model` as shown below:
 
 ![](create-emf-model.jpg)
 
@@ -96,7 +96,7 @@ Now `mylibrary.model` should be open in a tree-based editor:
 
 ## Add content to mylibrary.model
  
-To create a new `Book` under the library, you can right-click it and select `New Child->Books Book`
+To create a new `Book` under the library, you can right-click it and select `New Child` --> `Books` --> `Book`
 
 ![](create-book.png)
 

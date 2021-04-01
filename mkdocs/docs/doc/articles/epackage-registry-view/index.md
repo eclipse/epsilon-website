@@ -4,7 +4,7 @@ The EPackage registry (`EPackage.Registry.INSTANCE`) contains references to all 
 
 ![](epackageregistry.png)
 
-To make this view visible go to `Window->Show view->Other...` and select `EPackage Registry` under the `Epsilon` category.
+To make this view visible go to Window --> Show view --> Other... and select EPackage Registry under the Epsilon category.
 
 ![](showview.png)
 

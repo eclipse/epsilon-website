@@ -20,7 +20,7 @@ Epsilon has a dedicated [forum](../forum) where you can ask questions about the 
 
 ## How do I get notified when a new version of Epsilon becomes available?
 
-To get notified when a new version of Epsilon becomes available you can configure Eclipse to check for updates automatically by going to `Window->Preferences->Install/Update/Automatic Updates` and checking the "Automatically find new updates and notify me" option.
+To get notified when a new version of Epsilon becomes available you can configure Eclipse to check for updates automatically by going to `Window` --> `Preferences` --> `Install/Update/Automatic Updates` and checking the `Automatically find new updates and notify me` option.
 
 ## Can I use Epsilon in a non-Eclipse-based standalone Java application?
 

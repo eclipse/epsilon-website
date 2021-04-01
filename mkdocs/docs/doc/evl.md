@@ -46,8 +46,6 @@ Constraint -- Fix: fixes *
 
 ```
 
-<!--![The abstract syntax of EVL](images/EvlAbstractSyntax.png)-->
-
 ### Context
 
 A context specifies the kind of instances on which the contained constraints will be evaluated. Each context can optionally define a guard which limits its applicability to a narrower subset of instances of its specified type. Thus, if the guard fails for a specific instance of the type, none of its contained constraints are evaluated.

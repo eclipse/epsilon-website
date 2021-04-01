@@ -134,6 +134,7 @@ markdown_extensions:
           class: prettyprint lang-pinset
           format: !!python/name:pymdownx.superfences.fence_code_format
   - admonition
+  - pymdownx.smartsymbols
   - meta
   - footnotes
   - pymdownx.tabbed

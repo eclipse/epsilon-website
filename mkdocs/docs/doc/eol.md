@@ -54,8 +54,6 @@ Annotation <|-- ExecutableAnnotation
 Annotation <|-- SimpleAnnotation
 ```
 
-<!--![image](images/EOLModule.png)-->
-
 ## User-Defined Operations 
 
 In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type.
