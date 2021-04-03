@@ -658,7 +658,7 @@
                         var errorDiv = document.createElement("div");
                         errorDiv.classList.add("rendering-error");
                         diagram.appendChild(errorDiv);
-                        errorDiv.innerHTML = json.error;
+                        errorDiv.innerHTML = "The diagram could not be rendered due to the following error. " + json.error;
                     }
                     else {
                         renderDiagram(diagramId, json[jsonField], engine);
