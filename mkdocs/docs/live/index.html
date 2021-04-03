@@ -631,7 +631,13 @@
                     var jsonField = "modelDiagram";
                     if (diagramId.endsWith("etamodelDiagram")) jsonField = "metamodelDiagram";
                     
-                    renderDiagram(diagramId, json[jsonField], engine);
+                    if (json.hasOwnProperty("output")) {
+                        renderDiagram(diagramId, 'digraph G { n1[label="An error occcured \n whilst rendering the diagram. \n Please see the console \n view for details.", style=filled, fillcolor=mistyrose, shape=rectangle, fontname=Arial, fontsize=10]}', engine)
+                        consoleEditor.setValue(json.output, 1);
+                    }
+                    else {
+                        renderDiagram(diagramId, json[jsonField], engine);
+                    }
 
                     Metro.notify.killAll();
                 }
