@@ -1,23 +1,37 @@
+// Transform the top-level tree
+// to a graph
 rule Tree2Graph
     transform s : Source!Tree
     to t : Target!Graph {
     
+    // Only applies to top-level trees
     guard: not s.parent.isDefined()
     
     t.name = s.label;
 }
 
+// Transform all other trees 
+// to a node and an edge that
+// connects it to the node
+// produced by its parent
 rule Tree2NodeAndEdge
     transform s : Source!Tree
     to n : Target!Node {
-           
+    
+    // Only applies to trees that
+    // have a parent tree
     guard: s.parent.isDefined()
     
+    // Copy the label across
     n.name = s.label;
     
+    // Get hold of the one graph
+    // created in the previous rule
     var graph = Target!Graph.all.first();
     graph.nodes.add(n);
     
+    // If the depth of the tree is > 1
+    // also create an edge 
     if (s.parent.parent.isDefined()) {
         var e : new Target!Edge;
         e.source ::= s.parent;
