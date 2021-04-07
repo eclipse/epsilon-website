@@ -12,3 +12,10 @@
 	height:100%;
 	width:100%
 }
+
+.rendering-error {
+	margin: 10px;
+	padding: 10px;
+	background-color: #CD352C;
+	color: white;
+}

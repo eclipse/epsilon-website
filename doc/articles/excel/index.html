@@ -1328,42 +1328,7 @@ new Mark(student=jane, module=HCI, mark=74);</code></pre>
 
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">mapping.xml</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;spreadsheet&gt;</span>
-  <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;0&quot;</span> <span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;1&quot;</span> <span class="na">name=</span><span class="s">&quot;firstname&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;2&quot;</span> <span class="na">name=</span><span class="s">&quot;lastname&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;3&quot;</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span> <span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;4&quot;</span> <span class="na">name=</span><span class="s">&quot;supervisor&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;5&quot;</span> <span class="na">name=</span><span class="s">&quot;modules&quot;</span> <span class="na">many=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/worksheet&gt;</span>
-  <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Mark&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;0&quot;</span> <span class="na">name=</span><span class="s">&quot;student&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;1&quot;</span> <span class="na">name=</span><span class="s">&quot;module&quot;</span><span class="nt">/&gt;</span>    
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;2&quot;</span> <span class="na">name=</span><span class="s">&quot;mark&quot;</span> <span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/worksheet&gt;</span>
-  <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Staff&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;0&quot;</span> <span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;1&quot;</span> <span class="na">name=</span><span class="s">&quot;firstname&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;2&quot;</span> <span class="na">name=</span><span class="s">&quot;lastname&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;3&quot;</span> <span class="na">name=</span><span class="s">&quot;teaches&quot;</span> <span class="na">many=</span><span class="s">&quot;true&quot;</span> <span class="na">delimiter=</span><span class="s">&quot;,&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/worksheet&gt;</span>
-  <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Module&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;0&quot;</span> <span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;1&quot;</span> <span class="na">name=</span><span class="s">&quot;title&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;2&quot;</span> <span class="na">name=</span><span class="s">&quot;term&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/worksheet&gt;</span>
-  <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Student-&gt;supervisor&quot;</span>
-             <span class="na">target=</span><span class="s">&quot;Staff-&gt;id&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Student-&gt;modules&quot;</span>
-             <span class="na">target=</span><span class="s">&quot;Module-&gt;id&quot;</span><span class="nt">/&gt;</span>           
-  <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Staff-&gt;teaches&quot;</span>
-             <span class="na">target=</span><span class="s">&quot;Module-&gt;id&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Mark-&gt;module&quot;</span>
-             <span class="na">target=</span><span class="s">&quot;Module-&gt;id&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Mark-&gt;student&quot;</span>
-             <span class="na">target=</span><span class="s">&quot;Student-&gt;id&quot;</span><span class="nt">/&gt;</span>                      
-<span class="nt">&lt;/spreadsheet&gt;</span>
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
 
 </div>
@@ -1371,22 +1336,11 @@ new Mark(student=jane, module=HCI, mark=74);</code></pre>
 <h2 id="working-with-formulas">Working with Formulas<a class="headerlink" href="#working-with-formulas" title="Permanent link">&para;</a></h2>
 <p>To set the value of a cell to a formula, start its value with <code>=</code> as shown below. The complete example is in <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.excel.formulas">Epsilon's Git repo</a>.</p>
 <div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">create-spreadsheet-with-formulas.eol</label><div class="tabbed-content">
-<pre class="prettyprint lang-eol"><code>var calc : new Calc;
-calc.a = 1;
-calc.b = 2;
-calc.sum = "=A2+B2";
-
-calc.sum.println(); // Prints 3</code></pre>
+<pre class="prettyprint lang-eol"><code></code></pre>
 
 </div>
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">mapping.xml</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;spreadsheet&gt;</span>
-  <span class="nt">&lt;worksheet</span> <span class="na">name=</span><span class="s">&quot;Calc&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;0&quot;</span> <span class="na">name=</span><span class="s">&quot;a&quot;</span> <span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;1&quot;</span> <span class="na">name=</span><span class="s">&quot;b&quot;</span> <span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;column</span> <span class="na">index=</span><span class="s">&quot;2&quot;</span> <span class="na">name=</span><span class="s">&quot;sum&quot;</span> <span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/worksheet&gt;</span>
-<span class="nt">&lt;/spreadsheet&gt;</span>
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
 
 </div>

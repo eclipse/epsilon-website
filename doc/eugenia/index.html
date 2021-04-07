@@ -1534,13 +1534,13 @@ Eugenia is a part of the main Epsilon distribution. The update site of Epsilon i
 <li>Create a new general project</li>
 <li>Create and annotate your Emfatic (or Ecore) metamodel in the root of your project</li>
 <li>Right-click your Emfatic (or Ecore) metamodel and select Eugenia-&gt;Generate GMF editor</li>
-<li>Launch a new Eclipse instance from the Run-&gt;Eclipse Application right-click menu of the project that contains your metamodel</li>
-<li>In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the File-&gt;New-&gt;Other... dialog</li>
+<li>Launch a new Eclipse instance from the <code>Run</code> &rarr; <code>Eclipse Application</code> right-click menu of the project that contains your metamodel</li>
+<li>In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the <code>File</code> &rarr; <code>New</code> &rarr; <code>Other...</code> dialog</li>
 </ul>
 <h2 id="re-running-eugenia">Re-running Eugenia<a class="headerlink" href="#re-running-eugenia" title="Permanent link">&para;</a></h2>
 <p>If you now change your metamodel you'll have to rerun Eugenia to generate your updated editor:</p>
 <ul>
-<li>Right-click your Ecore metamodel (or Emfatic file) and select Eugenia-&gt;Generate GMF editor</li>
+<li>Right-click your Ecore metamodel (or Emfatic file) and select <code>Eugenia</code> &rarr; <code>Generate GMF editor</code></li>
 <li>Run a new instance of Eclipse</li>
 </ul>
 <p>(Please note that any changes you have made manually to the editor's <code>.gmfgraph</code>, <code>.gmftool</code> and <code>.gmfmap</code> models will be <strong>overwritten</strong>. Have a look <a href="../articles/eugenia-polishing">here</a> for an alternative way to customize these models)</p>
@@ -1559,7 +1559,7 @@ Eugenia is a part of the main Epsilon distribution. The update site of Epsilon i
 <h2 id="customizing-your-editor">Customizing your editor<a class="headerlink" href="#customizing-your-editor" title="Permanent link">&para;</a></h2>
 <p><a href="../articles/eugenia-polishing">Click here</a> to find out how you can further customize the generated <code>.gmfgraph</code>, <code>.gmfmap</code> and <code>.gmftool</code> models in ways that are not supported by the annotations provided by Eugenia, and still preserve the customizations when Eugenia is re-invoked.</p>
 <h2 id="adding-copyright">Adding Copyright<a class="headerlink" href="#adding-copyright" title="Permanent link">&para;</a></h2>
-<p>To add copyright information to your generated .gmfgen model, simply create a file named copyright.txt next to it. Next time you invoke <code>Eugenia-&gt;Synchronize GMF gen model</code>, Eugenia will pick it up and place its contents in the root GenDiagramEditor of your .gmfgen model. If you have added the copyright.txt file, you can also inject its contents to your .genmodel model (EMF generator model) by right-clicking it and invoking <code>Eugenia-&gt;Synchronize EMF gen model</code>.</p>
+<p>To add copyright information to your generated .gmfgen model, simply create a file named copyright.txt next to it. Next time you invoke <code>Eugenia</code> &rarr; <code>Synchronize GMF gen model</code>, Eugenia will pick it up and place its contents in the root GenDiagramEditor of your .gmfgen model. If you have added the copyright.txt file, you can also inject its contents to your .genmodel model (EMF generator model) by right-clicking it and invoking <code>Eugenia</code> &rarr; <code>Synchronize EMF gen model</code>.</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>Now that you've learned how to generate a GMF-based editor using Eugenia, you may also want to add some constraints to your editor, which you can then evaluate (explicitly or on-save) to <a href="../articles/evl-gmf-integration">check the correctness/consistency of your models</a>:</p>
 <p><img alt="" src="Filesystemwitherrorshighlighted.png" /></p>

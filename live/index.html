@@ -547,6 +547,18 @@
         editors.forEach(e => e.resize());
     }
 
+    function setConsoleOutput(str) {
+        document.getElementById("console").style.color = "black";
+        consoleEditor.getSession().setUseWrapMode(false);
+        consoleEditor.setValue(str, 1);
+    }
+
+    function setConsoleError(str) {
+        document.getElementById("console").style.color = "#CD352C";
+        consoleEditor.getSession().setUseWrapMode(true);
+        consoleEditor.setValue(str, 1);
+    }
+
 	function runProgram() {
 		
         var xhr = new XMLHttpRequest();
@@ -558,16 +570,22 @@
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     var json = JSON.parse(xhr.responseText);
-                    consoleEditor.setValue(json.output, 1);
-                    
-                    if (language == "etl") {
-                        renderDiagram("secondModelDiagram", json.targetModelDiagram, 'dot');
+
+                    if (json.hasOwnProperty("error")) {
+                        setConsoleError(json.error);
                     }
-                    else if (language == "evl") {
-                        renderDiagram("thirdModelDiagram", json.validatedModelDiagram, 'dot');
-                    }
-                    else if (language == "egl") {
-                        consoleEditor.setValue(json.output + json.generatedText, 1);
+                    else {
+                        setConsoleOutput(json.output);
+                        
+                        if (language == "etl") {
+                            renderDiagram("secondModelDiagram", json.targetModelDiagram, 'dot');
+                        }
+                        else if (language == "evl") {
+                            renderDiagram("thirdModelDiagram", json.validatedModelDiagram, 'dot');
+                        }
+                        else if (language == "egl") {
+                            setConsoleOutput(json.output + json.generatedText);
+                        }
                     }
 
                 }
@@ -631,7 +649,20 @@
                     var jsonField = "modelDiagram";
                     if (diagramId.endsWith("etamodelDiagram")) jsonField = "metamodelDiagram";
                     
-                    renderDiagram(diagramId, json[jsonField], engine);
+                    if (json.hasOwnProperty("error")) {
+                        /*
+                        renderDiagram(diagramId, 'digraph G { n1[label="An error occcured \n whilst rendering the diagram. \n Please see the console \n view for details.", style=filled, fillcolor=mistyrose, shape=rectangle, fontname=Arial, fontsize=10]}', engine)
+                        setConsoleError(json.output, 1);*/
+                        var diagram = document.getElementById(diagramId);
+                        diagram.innerHTML = "";
+                        var errorDiv = document.createElement("div");
+                        errorDiv.classList.add("rendering-error");
+                        diagram.appendChild(errorDiv);
+                        errorDiv.innerHTML = "The diagram could not be rendered due to the following error. " + json.error;
+                    }
+                    else {
+                        renderDiagram(diagramId, json[jsonField], engine);
+                    }
 
                     Metro.notify.killAll();
                 }
@@ -645,6 +676,7 @@
     function renderDiagram(diagramId, graphviz, engine) {
         // Commented out transitions because they don't work well with dashed edges in Graphviz
         //var t = d3.transition().ease(d3.easeLinear);
+        document.getElementById(diagramId).innerHTML = "";
         d3.select("#" + diagramId).graphviz({fit: true, height: "100%", width:"100%", engine: engine})
             //.transition(t)
             .renderDot(graphviz);
