@@ -1374,12 +1374,64 @@ operation t_td getRealValue() {
 <h2 id="loading-a-remote-html-document-in-gradle">Loading a remote HTML document in Gradle<a class="headerlink" href="#loading-a-remote-html-document-in-gradle" title="Permanent link">&para;</a></h2>
 <p>The example below shows a standalone Gradle file (<code>build.gradle</code>) that runs a set of EOL queries (<code>queries.eol</code>) against the HTML behind the Epsilon homepage.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">build.gradle</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="n">configurations</span> <span class="o">{</span>
+    <span class="n">epsilon</span>
+<span class="o">}</span>
+
+<span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">maven</span> <span class="o">{</span>
+        <span class="n">url</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots&quot;</span>
+    <span class="o">}</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0-SNAPSHOT&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.html:2.3.0-SNAPSHOT&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">setupEpsilonTasks</span> <span class="o">{</span>
+    <span class="c1">// Set up the core Epsilon tasks</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">taskdef</span><span class="o">(</span><span class="nl">resource:</span> <span class="s1">&#39;org/eclipse/epsilon/workflow/tasks/tasks.xml&#39;</span><span class="o">,</span> 
+        <span class="nl">classpath:</span> <span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span> <span class="nl">loaderref:</span> <span class="s1">&#39;epsilon&#39;</span><span class="o">)</span>
+    <span class="c1">// Set logging level to info so that EOL&#39;s println() is not suppressed</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">lifecycleLogLevel</span> <span class="o">=</span> <span class="s1">&#39;INFO&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">run</span> <span class="o">{</span>
+    <span class="n">dependsOn</span> <span class="n">tasks</span><span class="o">.</span><span class="na">setupEpsilonTasks</span>
+    <span class="c1">// Load the eclipse.org/epsilon webpage as a HTML model</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;HTML&#39;</span><span class="o">,</span> <span class="nl">type:</span> <span class="s1">&#39;HTML&#39;</span><span class="o">,</span>  
+        <span class="nl">impl:</span> <span class="s1">&#39;org.eclipse.epsilon.emc.html.HtmlModel&#39;</span><span class="o">,)</span>
+        <span class="o">{</span> <span class="n">parameter</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;uri&#39;</span><span class="o">,</span> <span class="nl">value:</span> <span class="s1">&#39;https://www.eclipse.org/epsilon/&#39;</span><span class="o">)</span> <span class="o">}</span>
+
+    <span class="c1">// Run query.eol against it</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span> <span class="s1">&#39;queries.eol&#39;</span><span class="o">){</span> <span class="n">model</span><span class="o">(</span><span class="nl">ref:</span> <span class="s1">&#39;HTML&#39;</span><span class="o">)</span> <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">queries.eol</label><div class="tabbed-content">
-<pre class="prettyprint lang-eol"><code></code></pre>
+<pre class="prettyprint lang-eol"><code>// Print the text of all &lt;strong&gt; elements
+for (s in t_strong.all) {
+    s.text().println();
+}
+
+// Print all links that point to external websites
+for (link in t_a.all) {
+    if (link.a_href.startsWith("http")) {
+        link.a_href.println();
+    }
+}
+
+// Print the text of all &lt;li&gt; elements which are
+// children of the &lt;ul&gt; that's the first sibling
+// of the "Why Epsilon?" &lt;h2&gt;
+var whyEpsilon = t_h2.all.selectOne(h2|h2.text.startsWith("Why Epsilon"));
+var ul = whyEpsilon.nextElementSibling();
+for (li in ul.c_li) {
+    li.text.println();
+}</code></pre>
 
 </div>
 </div>
