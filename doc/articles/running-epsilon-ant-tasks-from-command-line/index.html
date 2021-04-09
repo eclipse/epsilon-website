@@ -1063,6 +1063,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#uml" class="md-nav__link">
+    UML
+  </a>
+  
+    <nav class="md-nav" aria-label="UML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#genmymodel" class="md-nav__link">
+    GenMyModel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#epsilon-1x" class="md-nav__link">
     Epsilon 1.x
   </a>
@@ -1527,6 +1547,374 @@ enum BookCategory {
   <span class="nt">&lt;reference</span> <span class="na">source=</span><span class="s">&quot;Writer-&gt;books&quot;</span>
              <span class="na">target=</span><span class="s">&quot;Book-&gt;id&quot;</span><span class="nt">/&gt;</span>                    
 <span class="nt">&lt;/spreadsheet&gt;</span>
+</code></pre></div>
+
+</div>
+</div>
+<h2 id="uml">UML<a class="headerlink" href="#uml" title="Permanent link">&para;</a></h2>
+<p>Models conforming to the <a href="http://wiki.eclipse.org/MDT/UML2">Eclipse UML2 metamodel</a> can be queried as shown below.</p>
+<div class="tabbed-set" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">build.gradle</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">configurations</span> <span class="o">{</span>
+    <span class="n">epsilon</span>
+<span class="o">}</span>
+
+<span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">maven</span> <span class="o">{</span>
+        <span class="n">url</span> <span class="s2">&quot;https://repo.eclipse.org/content/repositories/acceleo-releases/&quot;</span>
+    <span class="o">}</span>
+    <span class="n">maven</span> <span class="o">{</span>
+        <span class="n">url</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots&quot;</span>
+    <span class="o">}</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">epsilon</span><span class="o">(</span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.uml:2.3.0-SNAPSHOT&#39;</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// UML2 is broken on Maven Central</span>
+        <span class="n">exclude</span> <span class="nl">group:</span> <span class="s1">&#39;org.eclipse.uml2&#39;</span>
+    <span class="o">}</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0-SNAPSHOT&#39;</span>
+
+    <span class="c1">// Fetch the UML2 dependencies from repo.eclipse.org instead</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.uml2:org.eclipse.uml2.uml:5.0.1.v20140910-1354&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.uml2:org.eclipse.uml2.common:2.0.1.v20140910-1354&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.uml2:org.eclipse.uml2.types:2.0.0.v20140910-1354&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">setupEpsilonTasks</span> <span class="o">{</span>
+
+    <span class="c1">// Set up the core Epsilon tasks</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">taskdef</span><span class="o">(</span><span class="nl">resource:</span> <span class="s1">&#39;org/eclipse/epsilon/workflow/tasks/tasks.xml&#39;</span><span class="o">,</span> 
+        <span class="nl">classpath:</span> <span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span> <span class="nl">loaderref:</span> <span class="s1">&#39;epsilon&#39;</span><span class="o">)</span>
+
+    <span class="c1">// Set logging level to info so that EOL&#39;s println() is not suppressed</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">lifecycleLogLevel</span> <span class="o">=</span> <span class="s1">&#39;INFO&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">run</span> <span class="o">{</span>
+    <span class="n">dependsOn</span> <span class="n">tasks</span><span class="o">.</span><span class="na">setupEpsilonTasks</span>
+
+    <span class="c1">// Load a UML model from model.uml</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;UML&#39;</span><span class="o">,</span> <span class="nl">impl:</span> <span class="s1">&#39;org.eclipse.epsilon.emc.uml.UmlModel&#39;</span><span class="o">){</span>
+        <span class="n">parameter</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;modelFile&#39;</span><span class="o">,</span> <span class="nl">file:</span> <span class="s1">&#39;model.uml&#39;</span><span class="o">)</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Run library.eol against it</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span> <span class="s1">&#39;uml.eol&#39;</span><span class="o">){</span> <span class="n">model</span><span class="o">(</span><span class="nl">ref:</span> <span class="s1">&#39;UML&#39;</span><span class="o">)</span> <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">uml.eol</label><div class="tabbed-content">
+<pre class="prettyprint lang-eol"><code>// Print the names of all
+// classes in the model
+for (c in Class.all) {
+    c.name.println();
+}</code></pre>
+
+</div>
+<input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">model.uml</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;xmi:XMI</span> <span class="na">xmi:version=</span><span class="s">&quot;2.1&quot;</span> <span class="na">xmlns:xmi=</span><span class="s">&quot;http://schema.omg.org/spec/XMI/2.1&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xmlns:uml=</span><span class="s">&quot;http://www.eclipse.org/uml2/5.0.0/UML&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;uml:Model</span> <span class="na">xmi:id=</span><span class="s">&quot;_in3dgJiMEeuzROqeHhotPw&quot;</span> <span class="na">name=</span><span class="s">&quot;umlcddemo&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_in3dgJiMEeuzROqeHhotPw0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_in3dgJiMEeuzROqeHhotPw00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_in3dgJiMEeuzROqeHhotPw&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_in3dgJiMEeuzROqeHhotPw01&quot;</span> <span class="na">key=</span><span class="s">&quot;author&quot;</span> <span class="na">value=</span><span class="s">&quot;kolovos&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/eAnnotations&gt;</span>
+    <span class="nt">&lt;/xmi:Extension&gt;</span>
+    <span class="nt">&lt;packageImport</span> <span class="na">xmi:id=</span><span class="s">&quot;_in3dgZiMEeuzROqeHhotPw&quot;</span> <span class="na">importingNamespace=</span><span class="s">&quot;_in3dgJiMEeuzROqeHhotPw&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_in3dgZiMEeuzROqeHhotPw0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_in3dgZiMEeuzROqeHhotPw00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_in3dgZiMEeuzROqeHhotPw&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/eAnnotations&gt;</span>
+      <span class="nt">&lt;/xmi:Extension&gt;</span>
+      <span class="nt">&lt;importedPackage</span> <span class="na">href=</span><span class="s">&quot;http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#/&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/packageImport&gt;</span>
+    <span class="nt">&lt;packagedElement</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:Class&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_rAoBcHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;Project&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_rAoBcHq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_rAoBcHq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_rAoBcHq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/eAnnotations&gt;</span>
+      <span class="nt">&lt;/xmi:Extension&gt;</span>
+    <span class="nt">&lt;/packagedElement&gt;</span>
+    <span class="nt">&lt;packagedElement</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:Class&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_xAOzcHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;Task&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_xAOzcHq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_xAOzcHq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_xAOzcHq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/eAnnotations&gt;</span>
+      <span class="nt">&lt;/xmi:Extension&gt;</span>
+    <span class="nt">&lt;/packagedElement&gt;</span>
+    <span class="nt">&lt;packagedElement</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:Association&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHEfsXq6EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;Project_Task&quot;</span> <span class="na">memberEnd=</span><span class="s">&quot;_yHD4oXq6EDmVkdImmyh-dQ _yHCqgHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">navigableOwnedEnd=</span><span class="s">&quot;_yHCqgHq6EDmVkdImmyh-dQ _yHD4oXq6EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHEfsXq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHEfsXq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_yHEfsXq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/eAnnotations&gt;</span>
+      <span class="nt">&lt;/xmi:Extension&gt;</span>
+      <span class="nt">&lt;ownedEnd</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHCqgHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;project&quot;</span> <span class="na">type=</span><span class="s">&quot;_rAoBcHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">owningAssociation=</span><span class="s">&quot;_yHEfsXq6EDmVkdImmyh-dQ&quot;</span> <span class="na">association=</span><span class="s">&quot;_yHEfsXq6EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHCqgHq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHCqgHq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_yHCqgHq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/eAnnotations&gt;</span>
+        <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;lowerValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHDRkHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHDRkHq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHDRkHq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_yHDRkHq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/lowerValue&gt;</span>
+        <span class="nt">&lt;upperValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHD4oHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHD4oHq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHD4oHq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_yHD4oHq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/upperValue&gt;</span>
+      <span class="nt">&lt;/ownedEnd&gt;</span>
+      <span class="nt">&lt;ownedEnd</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHD4oXq6EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;tasks&quot;</span> <span class="na">type=</span><span class="s">&quot;_xAOzcHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">owningAssociation=</span><span class="s">&quot;_yHEfsXq6EDmVkdImmyh-dQ&quot;</span> <span class="na">association=</span><span class="s">&quot;_yHEfsXq6EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHD4oXq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHD4oXq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_yHD4oXq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/eAnnotations&gt;</span>
+        <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;lowerValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHD4onq6EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHD4onq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_yHD4onq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_yHD4onq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/lowerValue&gt;</span>
+        <span class="nt">&lt;upperValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralUnlimitedNatural&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_zUmCwHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;*&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_zUmCwHq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_zUmCwHq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_zUmCwHq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/upperValue&gt;</span>
+      <span class="nt">&lt;/ownedEnd&gt;</span>
+    <span class="nt">&lt;/packagedElement&gt;</span>
+    <span class="nt">&lt;packagedElement</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:Class&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_86ZfYHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;Person&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_86ZfYHq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_86ZfYHq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_86ZfYHq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/eAnnotations&gt;</span>
+      <span class="nt">&lt;/xmi:Extension&gt;</span>
+    <span class="nt">&lt;/packagedElement&gt;</span>
+    <span class="nt">&lt;packagedElement</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:Association&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5z0nq6EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;Project_Person&quot;</span> <span class="na">memberEnd=</span><span class="s">&quot;_-j5Mwnq6EDmVkdImmyh-dQ _-j4lsnq6EDmVkdImmyh-dQ&quot;</span> <span class="na">navigableOwnedEnd=</span><span class="s">&quot;_-j4lsnq6EDmVkdImmyh-dQ _-j5Mwnq6EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5z0nq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5z0nq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_-j5z0nq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/eAnnotations&gt;</span>
+      <span class="nt">&lt;/xmi:Extension&gt;</span>
+      <span class="nt">&lt;ownedEnd</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j4lsnq6EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;project&quot;</span> <span class="na">type=</span><span class="s">&quot;_rAoBcHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">owningAssociation=</span><span class="s">&quot;_-j5z0nq6EDmVkdImmyh-dQ&quot;</span> <span class="na">association=</span><span class="s">&quot;_-j5z0nq6EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j4lsnq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j4lsnq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_-j4lsnq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/eAnnotations&gt;</span>
+        <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;lowerValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5MwHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5MwHq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5MwHq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_-j5MwHq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/lowerValue&gt;</span>
+        <span class="nt">&lt;upperValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5MwXq6EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5MwXq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5MwXq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_-j5MwXq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/upperValue&gt;</span>
+      <span class="nt">&lt;/ownedEnd&gt;</span>
+      <span class="nt">&lt;ownedEnd</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5Mwnq6EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;persons&quot;</span> <span class="na">type=</span><span class="s">&quot;_86ZfYHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">owningAssociation=</span><span class="s">&quot;_-j5z0nq6EDmVkdImmyh-dQ&quot;</span> <span class="na">association=</span><span class="s">&quot;_-j5z0nq6EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5Mwnq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5Mwnq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_-j5Mwnq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/eAnnotations&gt;</span>
+        <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;lowerValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5z0Hq6EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5z0Hq6EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_-j5z0Hq6EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_-j5z0Hq6EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/lowerValue&gt;</span>
+        <span class="nt">&lt;upperValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralUnlimitedNatural&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_Ctk-8Hq7EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;*&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_Ctk-8Hq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_Ctk-8Hq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_Ctk-8Hq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/upperValue&gt;</span>
+      <span class="nt">&lt;/ownedEnd&gt;</span>
+    <span class="nt">&lt;/packagedElement&gt;</span>
+    <span class="nt">&lt;packagedElement</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:Class&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_FYr6UHq7EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;Effort&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_FYr6UHq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_FYr6UHq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_FYr6UHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/eAnnotations&gt;</span>
+      <span class="nt">&lt;/xmi:Extension&gt;</span>
+    <span class="nt">&lt;/packagedElement&gt;</span>
+    <span class="nt">&lt;packagedElement</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:Association&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgzgXq7EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;Effort_Person&quot;</span> <span class="na">memberEnd=</span><span class="s">&quot;_HOgMcHq7EDmVkdImmyh-dQ _HOeXQnq7EDmVkdImmyh-dQ&quot;</span> <span class="na">navigableOwnedEnd=</span><span class="s">&quot;_HOeXQnq7EDmVkdImmyh-dQ _HOgMcHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgzgXq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgzgXq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_HOgzgXq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/eAnnotations&gt;</span>
+      <span class="nt">&lt;/xmi:Extension&gt;</span>
+      <span class="nt">&lt;ownedEnd</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOeXQnq7EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;effort&quot;</span> <span class="na">type=</span><span class="s">&quot;_FYr6UHq7EDmVkdImmyh-dQ&quot;</span> <span class="na">owningAssociation=</span><span class="s">&quot;_HOgzgXq7EDmVkdImmyh-dQ&quot;</span> <span class="na">association=</span><span class="s">&quot;_HOgzgXq7EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOeXQnq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOeXQnq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_HOeXQnq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/eAnnotations&gt;</span>
+        <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;lowerValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOflYHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOflYHq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOflYHq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_HOflYHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/lowerValue&gt;</span>
+        <span class="nt">&lt;upperValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralUnlimitedNatural&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_N8H7AHq7EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;*&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_N8H7AHq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_N8H7AHq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_N8H7AHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/upperValue&gt;</span>
+      <span class="nt">&lt;/ownedEnd&gt;</span>
+      <span class="nt">&lt;ownedEnd</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgMcHq7EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;person&quot;</span> <span class="na">type=</span><span class="s">&quot;_86ZfYHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">owningAssociation=</span><span class="s">&quot;_HOgzgXq7EDmVkdImmyh-dQ&quot;</span> <span class="na">association=</span><span class="s">&quot;_HOgzgXq7EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgMcHq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgMcHq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_HOgMcHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/eAnnotations&gt;</span>
+        <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;lowerValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgMcXq7EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgMcXq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgMcXq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_HOgMcXq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/lowerValue&gt;</span>
+        <span class="nt">&lt;upperValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgzgHq7EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgzgHq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_HOgzgHq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_HOgzgHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/upperValue&gt;</span>
+      <span class="nt">&lt;/ownedEnd&gt;</span>
+    <span class="nt">&lt;/packagedElement&gt;</span>
+    <span class="nt">&lt;packagedElement</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:Association&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrt3q7EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;Effort_Task&quot;</span> <span class="na">memberEnd=</span><span class="s">&quot;_JLgrtHq7EDmVkdImmyh-dQ _JLgrsXq7EDmVkdImmyh-dQ&quot;</span> <span class="na">navigableOwnedEnd=</span><span class="s">&quot;_JLgrsXq7EDmVkdImmyh-dQ _JLgrtHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrt3q7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrt3q7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_JLgrt3q7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/eAnnotations&gt;</span>
+      <span class="nt">&lt;/xmi:Extension&gt;</span>
+      <span class="nt">&lt;ownedEnd</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrsXq7EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;effort&quot;</span> <span class="na">type=</span><span class="s">&quot;_FYr6UHq7EDmVkdImmyh-dQ&quot;</span> <span class="na">owningAssociation=</span><span class="s">&quot;_JLgrt3q7EDmVkdImmyh-dQ&quot;</span> <span class="na">association=</span><span class="s">&quot;_JLgrt3q7EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrsXq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrsXq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_JLgrsXq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/eAnnotations&gt;</span>
+        <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;lowerValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrsnq7EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrsnq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrsnq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_JLgrsnq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/lowerValue&gt;</span>
+        <span class="nt">&lt;upperValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralUnlimitedNatural&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_TnCPYHq7EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;*&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_TnCPYHq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_TnCPYHq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_TnCPYHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/upperValue&gt;</span>
+      <span class="nt">&lt;/ownedEnd&gt;</span>
+      <span class="nt">&lt;ownedEnd</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrtHq7EDmVkdImmyh-dQ&quot;</span> <span class="na">name=</span><span class="s">&quot;task&quot;</span> <span class="na">type=</span><span class="s">&quot;_xAOzcHq6EDmVkdImmyh-dQ&quot;</span> <span class="na">owningAssociation=</span><span class="s">&quot;_JLgrt3q7EDmVkdImmyh-dQ&quot;</span> <span class="na">association=</span><span class="s">&quot;_JLgrt3q7EDmVkdImmyh-dQ&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrtHq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrtHq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_JLgrtHq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/eAnnotations&gt;</span>
+        <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;lowerValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrtXq7EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrtXq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrtXq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_JLgrtXq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/lowerValue&gt;</span>
+        <span class="nt">&lt;upperValue</span> <span class="na">xsi:type=</span><span class="s">&quot;uml:LiteralInteger&quot;</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrtnq7EDmVkdImmyh-dQ&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;xmi:Extension</span> <span class="na">extender=</span><span class="s">&quot;http://www.eclipse.org/emf/2002/Ecore&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;eAnnotations</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrtnq7EDmVkdImmyh-dQ0&quot;</span> <span class="na">source=</span><span class="s">&quot;genmymodel&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;details</span> <span class="na">xmi:id=</span><span class="s">&quot;_JLgrtnq7EDmVkdImmyh-dQ00&quot;</span> <span class="na">key=</span><span class="s">&quot;uuid&quot;</span> <span class="na">value=</span><span class="s">&quot;_JLgrtnq7EDmVkdImmyh-dQ&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/eAnnotations&gt;</span>
+          <span class="nt">&lt;/xmi:Extension&gt;</span>
+        <span class="nt">&lt;/upperValue&gt;</span>
+      <span class="nt">&lt;/ownedEnd&gt;</span>
+    <span class="nt">&lt;/packagedElement&gt;</span>
+  <span class="nt">&lt;/uml:Model&gt;</span>
+<span class="nt">&lt;/xmi:XMI&gt;</span>
+</code></pre></div>
+
+</div>
+</div>
+<h3 id="genmymodel">GenMyModel<a class="headerlink" href="#genmymodel" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.genmymodel.com/">GenMyModel</a> is a web-based modelling tool that can be used to create UML2-compliant models. You can consume the XMI representation of a public <a href="https://app.genmymodel.com/api/dictionary/projects/_in3dgJiMEeuzROqeHhotPw">GenMyModel UML model</a> directly from Epsilon as shown below.</p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">build.gradle</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">configurations</span> <span class="o">{</span>
+    <span class="n">epsilon</span>
+<span class="o">}</span>
+
+<span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">maven</span> <span class="o">{</span>
+        <span class="n">url</span> <span class="s2">&quot;https://repo.eclipse.org/content/repositories/acceleo-releases/&quot;</span>
+    <span class="o">}</span>
+    <span class="n">maven</span> <span class="o">{</span>
+        <span class="n">url</span> <span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots&quot;</span>
+    <span class="o">}</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">epsilon</span><span class="o">(</span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.uml:2.3.0-SNAPSHOT&#39;</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// UML2 is broken on Maven Central</span>
+        <span class="n">exclude</span> <span class="nl">group:</span> <span class="s1">&#39;org.eclipse.uml2&#39;</span>
+    <span class="o">}</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0-SNAPSHOT&#39;</span>
+
+    <span class="c1">// Fetch the UML2 dependencies from repo.eclipse.org instead</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.uml2:org.eclipse.uml2.uml:5.0.1.v20140910-1354&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.uml2:org.eclipse.uml2.common:2.0.1.v20140910-1354&#39;</span>
+    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.uml2:org.eclipse.uml2.types:2.0.0.v20140910-1354&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">setupEpsilonTasks</span> <span class="o">{</span>
+
+    <span class="c1">// Set up the core Epsilon tasks</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">taskdef</span><span class="o">(</span><span class="nl">resource:</span> <span class="s1">&#39;org/eclipse/epsilon/workflow/tasks/tasks.xml&#39;</span><span class="o">,</span> 
+        <span class="nl">classpath:</span> <span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span> <span class="nl">loaderref:</span> <span class="s1">&#39;epsilon&#39;</span><span class="o">)</span>
+
+    <span class="c1">// Set logging level to info so that EOL&#39;s println() is not suppressed</span>
+    <span class="n">ant</span><span class="o">.</span><span class="na">lifecycleLogLevel</span> <span class="o">=</span> <span class="s1">&#39;INFO&#39;</span>
+<span class="o">}</span>
+
+<span class="n">task</span> <span class="n">run</span> <span class="o">{</span>
+    <span class="n">dependsOn</span> <span class="n">tasks</span><span class="o">.</span><span class="na">setupEpsilonTasks</span>
+
+    <span class="c1">// Load a UML model straight from GenMyModel</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;UML&#39;</span><span class="o">,</span> <span class="nl">impl:</span> <span class="s1">&#39;org.eclipse.epsilon.emc.uml.UmlModel&#39;</span><span class="o">){</span>
+        <span class="n">parameter</span><span class="o">(</span><span class="nl">name:</span> <span class="s1">&#39;modelUri&#39;</span><span class="o">,</span> <span class="nl">value:</span> <span class="s1">&#39;https://app.genmymodel.com/api/projects/_in3dgJiMEeuzROqeHhotPw/custom-xmi&#39;</span><span class="o">)</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Run library.eol against it</span>
+    <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span> <span class="s1">&#39;../uml.eol&#39;</span><span class="o">){</span> <span class="n">model</span><span class="o">(</span><span class="nl">ref:</span> <span class="s1">&#39;UML&#39;</span><span class="o">)</span> <span class="o">}</span>
+
+
+<span class="o">}</span>
 </code></pre></div>
 
 </div>
