@@ -134,6 +134,38 @@ The example below demonstrates using the generic `epsilon.loadModel` task to run
     {{{ example("org.eclipse.epsilon.examples.workflow.standalone/excel/mapping.xml", true) }}}
     ```
 
+## UML
+
+Models conforming to the [Eclipse UML2 metamodel](http://wiki.eclipse.org/MDT/UML2) can be queried as shown below.
+
+=== "build.gradle"
+
+    ```groovy
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/uml2/build.gradle", true) }}}
+    ```
+
+=== "uml.eol"
+
+    ```eol
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/uml2/uml.eol", true) }}}
+    ```
+
+=== "model.uml"
+
+    ```xml
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/uml2/model.uml", true) }}}
+    ```
+
+### GenMyModel
+
+[GenMyModel](https://www.genmymodel.com/) is a web-based modelling tool that can be used to create UML2-compliant models. You can consume the XMI representation of a public [GenMyModel UML model](https://app.genmymodel.com/api/dictionary/projects/_in3dgJiMEeuzROqeHhotPw) directly from Epsilon as shown below.
+
+=== "build.gradle"
+
+    ```groovy
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/uml2/genmymodel/build.gradle", true) }}}
+    ```
+
 ## Epsilon 1.x
 
 If you would like to use an older (1.x) version of Epsilon, you can use [this example instead](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone.1x), which uses a fat jar we used to produce (`epsilon-1.x-kitchensink.jar`) before moving all our jars to Maven Central/Sonatype.
