@@ -24,6 +24,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 - [EGL as a server-side language](egl-server-side): This article demonstrates using EGL (the model-to-text language of Epsilon) in Tomcat to produce HTML pages from EMF models on the fly.
 - [Co-ordinating EGL templates with EGX](egx-parameters): This article demonstrates how to parameterize EGL templates and execute them multiple times to produce multiple files.
 - [Re-using EGL templates](egl-invoke-egl): This article demonstrates how to invoke other EGL templates and direct their output to calling EGL template.
+- [EGL Patch Templates](egl-patch): This article demonstrates how to patch existing files with EGL.
 
 ## Epsilon Transformation Language
 
