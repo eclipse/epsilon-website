@@ -8,10 +8,10 @@ Although patches are usually created using a diff tool, it is also possible to w
 
 In EGL we support a custom diff format. 
 
-- A line starting with "`+`" represents the addition of a line, i.e. this line will be added to the file.
-- A line starting with "`-`" represents the deletion of a line, i.e, this line will be removed from the file.
-- A line containing only "`...`" indicates a block of lines to keep, i.e. all lines until the next diff/match will be kept.
-- A line containing only "`---`" indicates a block of lines to remove, i.e. all lines until the next diff/match will be removed.
+- A line starting with `+` represents the addition of a line, i.e. this line will be added to the file.
+- A line starting with `-` represents the deletion of a line, i.e, this line will be removed from the file.
+- A line containing only `...` indicates a block of lines to keep, i.e. all lines until the next diff/match will be kept.
+- A line containing only `---` indicates a block of lines to remove, i.e. all lines until the next diff/match will be removed.
 - A line with no diff information is used as a match and will be kept.
  
 ## EGL Diff Processor
