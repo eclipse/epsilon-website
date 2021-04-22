@@ -1,0 +1,127 @@
+// Transforms an object-oriented model
+// to a relational database schema
+pre {
+	var db : new Target!Database;
+}
+
+// Transforms a class into a table and 
+// a primary key column
+rule Class2Table
+	transform c : Source!Class 
+	to t : Target!Table, pk : Target!Column {
+	
+	t.name = c.name;	
+	t.database = db;
+	
+	// Fill the details of the primary key 
+	// of the table
+	pk.name = t.primaryKeyName();
+	pk.type = "INT";
+	t.columns.add(pk);
+	t.primaryKeys.add(pk);
+	
+	// If the class extends some other class
+	// create a foreign key pointing towards
+	// the primary key of the parent class
+	if (c.`extends`.isDefined()){
+		
+		var fk : new Target!ForeignKey;
+		var childFkCol : new Target!Column;
+		var parentFkCol : Target!Column;
+		var parentTable : Target!Table;
+		
+		parentTable ::= c.`extends`;
+		parentFkCol = parentTable.primaryKeys.first();
+		
+		childFkCol.name = parentFkCol.name;
+		childFkCol.type = "INT";
+		childFkCol.table = t;
+		
+		fk.database = db;
+		fk.parent = parentFkCol;
+		fk.child = childFkCol;
+		fk.name = c.name + "Extends" + c.`extends`.name;
+	}
+}
+
+// Transforms a single-valued attribute
+// to a column
+rule SingleValuedAttribute2Column
+	transform a : Source!Attribute
+	to c : Target!Column {
+	
+	guard : not a.isMany
+	
+	c.name = a.name;
+	c.table ::= a.owner;
+	c.type = a.type.name.toDbType();
+}
+
+// Transforms a multi-valued attribute
+// to a table where its values are stored
+// and a foreign key 
+rule MultiValuedAttribute2Table
+	transform a : Source!Attribute
+	to t : Target!Table, pkCol : Target!Column, valueCol : Target!Column, 
+	   fkCol : Target!Column, fk : Target!ForeignKey {
+	
+	guard : a.isMany
+	
+	// The table that stores the values 
+	// has an "id" column and a "value" column
+	t.name = a.valuesTableName();
+	t.database = db;
+	
+	pkCol.name = "id";
+	pkCol.table = t;
+	pkCol.type = "INT";
+	valueCol.name = "value";
+	valueCol.table = t;
+	valueCol.type = a.type.name.toDbType();
+	
+	// Another column is added into the table
+	// to link with the "id" column of the 
+	// values table
+	fkCol.name = a.name + "Id";
+	fkCol.table ::= a.owner;
+	fkCol.type = "INT";
+	
+	// The foreign key that connects
+	// the two columns is defined
+	fk.parent = pkCol;
+	fk.child = fkCol;
+	fk.database = db;
+} 
+
+// Transforms a referecne into a foreign key
+rule Reference2ForeignKey
+	transform r : Source!Reference
+	to fk : Target!ForeignKey, fkCol : Target!Column {
+	
+	fkCol.table ::= r.type;
+	fkCol.name = r.name + "Id";
+	fkCol.type = "INT";
+	fk.database = db;
+	fk.parent = r.owner.equivalent().primaryKeys.first();
+	fk.child = fkCol;
+	fk.name = r.name;
+	
+}
+
+operation Target!Table primaryKeyName() : String {
+	return self.name.firstToLowerCase() + "Id";
+}
+
+operation Source!Attribute valuesTableName() : String {
+	return self.owner.name + "_" + self.name.firstToUpperCase() + "Values";
+}
+
+operation Any toDbType() : String {
+	switch (self) {
+		case "String": return "NVARCHAR";
+		case "Boolean": return "BIT";
+		case "Integer": return "INT";
+		case "Real": return "NUMBER";
+		default: return "NVARCHAR";
+	}
+}
