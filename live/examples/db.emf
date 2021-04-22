@@ -25,5 +25,4 @@ class Column extends DatabaseElement {
 class ForeignKey extends DatabaseElement {
    ref Column parent;
    ref Column child;
-   attr boolean isMany;
 }
