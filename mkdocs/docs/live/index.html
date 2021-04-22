@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.4.3/css/metro-all.min.css">
     <link rel="stylesheet" href="custom.css">
     <title>Epsilon Playground</title>
     <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -110,7 +110,17 @@
                             <span class="badge inline">ETL</span>
                         </div>
                     </a>
-                </li>                
+                </li>
+                <li>
+                    <a href="?oo2db">
+                        <span class="icon"><span class="mif-apps"></span></span>
+                        <span class="caption">Transform OO to DB</span>
+                        <div class="badges">
+                            <span class="badge inline">ETL</span>
+                        </div>
+                    </a>
+                </li>
+                
                 <li class="item-separator"></li>
                 <li>
                     <a href="#" onclick="copyShortenedLink(event)" id="exampleLink">
@@ -193,7 +203,7 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
     <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
-    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+    <script src="https://cdn.metroui.org.ua/v4.4.3/js/metro.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="eol.js" type="text/javascript"></script>
     <script src="etl.js" type="text/javascript"></script>
@@ -676,7 +686,7 @@
     function renderDiagram(diagramId, graphviz, engine) {
         // Commented out transitions because they don't work well with dashed edges in Graphviz
         //var t = d3.transition().ease(d3.easeLinear);
-        document.getElementById(diagramId).innerHTML = "";
+        //document.getElementById(diagramId).innerHTML = "";
         d3.select("#" + diagramId).graphviz({fit: true, height: "100%", width:"100%", engine: engine})
             //.transition(t)
             .renderDot(graphviz);

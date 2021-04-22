@@ -1,0 +1,20 @@
+# An object-oriented model with two classes
+# and a reference between them
+?nsuri: OO
+model:
+- name: ACME
+
+- class:
+  - name: Customer
+  - attr: {name: fullname, type: String}
+  - attr: {name: active, type: Boolean}
+  
+- class:
+  - name: Account
+  - attr: {name: number, type: String}
+  - attr: {name: balance, type: Real}
+  - ref: {name: owner, type: Customer}
+
+- type: {name: String}
+- type: {name: Boolean}
+- type: {name: Real}
