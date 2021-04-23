@@ -64,8 +64,8 @@
 	content: url("images/console.gif");
 }
 
-.mif-picto::before {
-	content: url("images/picto.png");
+.mif-diagram::before {
+	content: url("images/diagram.gif");
 }
 
 .mif-refresh::before {
