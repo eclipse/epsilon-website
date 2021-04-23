@@ -22,7 +22,7 @@
         cls: "sys-button",
         onclick: "refreshModelDiagram()"
     },{
-        html: buttonHtml("picto", "Show/hide the model object diagram"),
+        html: buttonHtml("diagram", "Show/hide the model object diagram"),
         cls: "sys-button",
         onclick: "toggle('modelDiagram', function(){refreshModelDiagram();})"
     }];
@@ -35,7 +35,7 @@
         cls: "sys-button",
         onclick: "refreshMetamodelDiagram()"
     },{
-        html: buttonHtml("picto", "Show/hide the metamodel class diagram"),
+        html: buttonHtml("diagram", "Show/hide the metamodel class diagram"),
         cls: "sys-button",
         onclick: "toggle('metamodelDiagram', function(){refreshMetamodelDiagram();})"
     }];
@@ -48,7 +48,7 @@
         cls: "sys-button",
         onclick: "refreshSecondMetamodelDiagram()"
     },{
-        html: buttonHtml("picto", "Show/hide the metamodel class diagram"),
+        html: buttonHtml("diagram", "Show/hide the metamodel class diagram"),
         cls: "sys-button",
         onclick: "toggle('secondMetamodelDiagram', function(){refreshSecondMetamodelDiagram();})"
     }];
@@ -430,7 +430,7 @@
             cls: "sys-button",
             onclick: "refreshSecondModelDiagram()"
         },{
-            html: buttonHtml("picto", "Show/hide the model object diagram"),
+            html: buttonHtml("diagram", "Show/hide the model object diagram"),
             cls: "sys-button",
             onclick: "toggle('secondModelDiagram', function(){})"
         }] : [];
