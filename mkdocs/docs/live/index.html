@@ -14,47 +14,47 @@
     var secondModelPanelButtons;
 
     var modelPanelButtons = [{
-        html: buttonHtml("info", "Flexmi language reference"),
+        html: buttonHtml("help", "Flexmi language reference"),
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
     },{
-        html: buttonHtml("refresh", "Render the model diagram"),
+        html: buttonHtml("refresh", "Render the model object diagram"),
         cls: "sys-button",
         onclick: "refreshModelDiagram()"
     },{
-        html: buttonHtml("tree", "Show/hide the model diagram"),
+        html: buttonHtml("picto", "Show/hide the model object diagram"),
         cls: "sys-button",
         onclick: "toggle('modelDiagram', function(){refreshModelDiagram();})"
     }];
     var metamodelPanelButtons = [{
-        html: buttonHtml("info", "Emfatic language reference"),
+        html: buttonHtml("help", "Emfatic language reference"),
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/emfatic');"
     },{
-        html: buttonHtml("refresh", "Render the metamodel diagram"),
+        html: buttonHtml("refresh", "Render the metamodel class diagram"),
         cls: "sys-button",
         onclick: "refreshMetamodelDiagram()"
     },{
-        html: buttonHtml("tree", "Show/hide the metamodel diagram"),
+        html: buttonHtml("picto", "Show/hide the metamodel class diagram"),
         cls: "sys-button",
         onclick: "toggle('metamodelDiagram', function(){refreshMetamodelDiagram();})"
     }];
     var secondMetamodelPanelButtons = [{
-        html: buttonHtml("info", "Emfatic language reference"),
+        html: buttonHtml("help", "Emfatic language reference"),
         cls: "sys-button",
         onclick: "window.open('https://www.eclipse.org/emfatic');"
     },{
-        html: buttonHtml("refresh", "Render the metamodel diagram"),
+        html: buttonHtml("refresh", "Render the metamodel class diagram"),
         cls: "sys-button",
         onclick: "refreshSecondMetamodelDiagram()"
     },{
-        html: buttonHtml("tree", "Show/hide the metamodel diagram"),
+        html: buttonHtml("picto", "Show/hide the metamodel class diagram"),
         cls: "sys-button",
         onclick: "toggle('secondMetamodelDiagram', function(){refreshSecondMetamodelDiagram();})"
     }];
     var thirdModelPanelButtons = [];
     var consolePanelButtons = [{
-        html: buttonHtml("cross", "Clear the console"),
+        html: buttonHtml("clear", "Clear the console"),
         cls: "sys-button",
         onclick: "consoleEditor.setValue('')"
     }];
@@ -77,58 +77,43 @@
                 <li class="item-separator"></li>
                 <li>
                     <a href="?eol" id="eolExampleLink">
-                        <span class="icon"><span class="mif-apps"></span></span>
+                        <span class="icon"><span class="mif-example-16 mif-eol"></span></span>
                         <span class="caption">Query Project Plan</span>
-                        <div class="badges">
-                            <span class="badge inline">EOL</span>
-                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="?evl">
-                        <span class="icon"><span class="mif-apps"></span></span>
+                        <span class="icon"><span class="mif-example-16 mif-evl"></span></span>
                         <span class="caption">Validate Project Plan</span>
-                        <div class="badges">
-                            <span class="badge inline">EVL</span>
-                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="?egl">
-                        <span class="icon"><span class="mif-apps"></span></span>
+                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
                         <span class="caption">Generate Gantt Chart</span>
-                        <div class="badges">
-                            <span class="badge inline">EGL</span>
-                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="?etl">
-                        <span class="icon"><span class="mif-apps"></span></span>
+                        <span class="icon"><span class="mif-example-16 mif-etl"></span></span>
                         <span class="caption">Transform Tree to Graph</span>
-                        <div class="badges">
-                            <span class="badge inline">ETL</span>
-                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="?oo2db">
-                        <span class="icon"><span class="mif-apps"></span></span>
+                        <span class="icon"><span class="mif-example-16 mif-etl"></span></span>
                         <span class="caption">Transform OO to DB</span>
-                        <div class="badges">
-                            <span class="badge inline">ETL</span>
-                        </div>
                     </a>
                 </li>
                 
                 <li class="item-separator"></li>
                 <li>
                     <a href="#" onclick="copyShortenedLink(event)" id="exampleLink">
-                        <span class="icon"><span class="mif-share"></span></span>
+                        <span class="icon"><span class="mif-example-16 mif-link"></span></span>
                         <span class="caption">Share</span>
                     </a>
                     <a href="#" onclick="about(event)">
-                        <span class="icon"><span class="mif-info"></span></span>
+                        <span class="icon"><span class="mif-example-16 mif-info"></span></span>
                         <span class="caption">About</span>
                     </a>
                 </li>
@@ -140,18 +125,18 @@
                     <div id="programPanel" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="">
                         <div class="editor" id="programEditor"></div>
                     </div>
-                    <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-display'></span>" data-custom-buttons="consolePanelButtons">
+                    <div data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-16 mif-console'></span>" data-custom-buttons="consolePanelButtons">
                         <div class="editor" id="console"></div>
                     </div>
                 </div>
                 <div data-role="splitter" data-split-mode="vertical">
-                    <div id="modelPanel" data-role="panel" data-title-caption="Model (Flexmi)" data-title-icon="<span class='mif-cloud'></span>" data-custom-buttons="modelPanelButtons">
+                    <div id="modelPanel" data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="modelPanelButtons">
                         <div data-role="splitter" class="h-100">
                             <div id="flexmiEditor" class="editor"></div>
                             <div id="modelDiagram" class="diagram"></div>
                         </div>
                     </div>
-                    <div id="metamodelPanel" data-role="panel" data-title-caption="Metamodel (Emfatic)" data-title-icon="<span class='mif-cloud3'></span>" data-custom-buttons="metamodelPanelButtons">
+                    <div id="metamodelPanel" data-role="panel" data-title-caption="Metamodel" data-title-icon="<span class='mif-16 mif-emfatic'></span>" data-custom-buttons="metamodelPanelButtons">
                         <div data-role="splitter" class="h-100">
                             <div id="emfaticEditor" class="editor"></div>
                             <div id="metamodelDiagram" class="diagram"></div>
@@ -159,13 +144,13 @@
                     </div>
                 </div>
                 <div data-role="splitter" data-split-mode="vertical" id="secondModelSplitter">
-                    <div id="secondModelPanel" data-role="panel" data-title-caption="Second Model (Flexmi)" data-title-icon="<span class='mif-cloud'></span>" data-custom-buttons="secondModelPanelButtons">
+                    <div id="secondModelPanel" data-role="panel" data-title-caption="Second Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="secondModelPanelButtons">
                         <div data-role="splitter" class="h-100">
                             <div id="secondFlexmiEditor" class="editor"></div>
                             <div id="secondModelDiagram" class="diagram"></div>
                         </div>
                     </div>
-                    <div id="secondMetamodelPanel" data-role="panel" data-title-caption="Second Metamodel (Emfatic)" data-title-icon="<span class='mif-cloud3'></span>" data-custom-buttons="secondMetamodelPanelButtons">
+                    <div id="secondMetamodelPanel" data-role="panel" data-title-caption="Second Metamodel" data-title-icon="<span class='mif-16 mif-emfatic'></span>" data-custom-buttons="secondMetamodelPanelButtons">
                         <div data-role="splitter" class="h-100">
                             <div id="secondEmfaticEditor" class="editor"></div>
                             <div id="secondMetamodelDiagram" class="diagram"></div>
@@ -173,7 +158,7 @@
                     </div>
                 </div>
                 <div data-role="splitter" data-split-mode="vertical" id="thirdModelSplitter">
-                    <div id="thirdModelPanel" data-role="panel" data-title-caption="Model (Flexmi)" data-title-icon="<span class='mif-cloud'></span>" data-custom-buttons="thirdModelPanelButtons">
+                    <div id="thirdModelPanel" data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="thirdModelPanelButtons">
                         <div class="diagram" id="thirdModelDiagram"></div>
                     </div>
                 </div>
@@ -309,8 +294,8 @@
             editor.renderer.setShowGutter(false);
             editor.setFontSize("1rem");
             editor.setOptions({
-              fontFamily: "Courier",
-              fontSize: "12pt"
+            //  fontFamily: "monospace",
+              fontSize: "11pt"
             });
         });
 
@@ -425,27 +410,27 @@
 
     function getProgramPanelButtons() {
         return [{
-            html: buttonHtml("info", languageName + " language reference"),
+            html: buttonHtml("help", languageName + " language reference"),
             cls: "sys-button",
             onclick: "window.open('https://www.eclipse.org/epsilon/doc/'+language);"
         },{
-            html: buttonHtml("play", "Run the program"),
-            cls: "success",
+            html: buttonHtml("run", "Run the program"),
+            cls: "sys-button",
             onclick: "runProgram()"
         }];
     }
 
     function getSecondModelPanelButtons() {
         return secondModelEditable ? [{
-            html: buttonHtml("info", "Flexmi language reference"),
+            html: buttonHtml("help", "Flexmi language reference"),
             cls: "sys-button",
             onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
         },{
-            html: buttonHtml("refresh", "Render the model diagram"),
+            html: buttonHtml("refresh", "Render the model object diagram"),
             cls: "sys-button",
             onclick: "refreshSecondModelDiagram()"
         },{
-            html: buttonHtml("tree", "Show/hide the model diagram"),
+            html: buttonHtml("picto", "Show/hide the model object diagram"),
             cls: "sys-button",
             onclick: "toggle('secondModelDiagram', function(){})"
         }] : [];
@@ -478,10 +463,10 @@
             $("#secondFlexmiEditor").hide();
 
             setPanelTitle("programPanel", "Transformation (ETL)");
-            setPanelTitle("modelPanel", "Source Model (Flexmi)");
-            setPanelTitle("metamodelPanel", "Source Metamodel (Emfatic)");
+            setPanelTitle("modelPanel", "Source Model");
+            setPanelTitle("metamodelPanel", "Source Metamodel");
             setPanelTitle("secondModelPanel", "Target Model");
-            setPanelTitle("secondMetamodelPanel", "Target Metamodel (Emfatic)");
+            setPanelTitle("secondMetamodelPanel", "Target Metamodel");
 
         }
         else if (language == "evl" || language == "epl") {
@@ -489,8 +474,8 @@
             $("#thirdModelDiagram").show();
             if (language == "evl") {
                 setPanelTitle("programPanel", "Constraints (EVL)");
-                setPanelTitle("thirdModelPanel", "Errors/Warnings");
-                setPanelIcon("thirdModelPanel", "warning");
+                setPanelTitle("thirdModelPanel", "Problems");
+                setPanelIcon("thirdModelPanel", "problems");
             }
             else {
                 setPanelTitle("programPanel", "Patterns");
@@ -500,6 +485,7 @@
         else if (language == "ecl") {
             // Hide nothing; we need everything
         }
+        setPanelIcon("programPanel", language);
     }
 
     function emptyButtons() {
@@ -511,7 +497,7 @@
     }
 
     function setPanelIcon(panelId, icon) {
-        $("#" + panelId)[0].dataset.titleIcon = "<span class='mif-" + icon + "'></span>";
+        $("#" + panelId)[0].dataset.titleIcon = "<span class='mif-16 mif-" + icon + "'></span>";
     }
 
     function editorsToJson() {
@@ -607,8 +593,8 @@
         longNotification("Executing program");
 	}
 
-    function longNotification(title, cls="yellow") {
-        Metro.notify.create(/*"This may take a few seconds to complete.",*/ "<b>" + title + "...</b><br>This may take a few seconds to complete.", null, {keepOpen: true, cls: cls, width: 300});
+    function longNotification(title, cls="light") {
+        Metro.notify.create(/*"This may take a few seconds to complete.",*/ "<b>" + title + "...</b><br>This may take a few seconds to complete if the back end is not warmed up.", null, {keepOpen: true, cls: cls, width: 300});
     }
 
     function refreshModelDiagram() {
