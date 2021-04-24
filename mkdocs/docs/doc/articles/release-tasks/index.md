@@ -13,8 +13,8 @@ On the release, go to "Edit". At a minimum, you should ensure "The Basics" secti
 
 When creating a new release, we need to add the update site for this release to the [composite](https://download.eclipse.org/epsilon/updates/). We also need to create a folder containing the javadocs for the release under a directory with the name of the release at the [root of the download site](https://download.eclipse.org/epsilon/). We also need to remove the old release folder (move it to the archive). The new update site for the release is obtained by copying the interim.
 
-These tasks are automated by a [shell script](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/releng/org.eclipse.epsilon.releng/new_version_tasks.sh). Please check this before the release. The main thing you'll need to check are the "OldVersion" and "NewVersion" variables.
-There are two ways this can be run, but in any case, it needs to be run from the CI server. One way is to uncomment the "NEW VERSION" stage in the Jenkinsfile at the root of the repository, then push to trigger it. The other way is to run the [release-logistics](https://ci.eclipse.org/epsilon/job/release-logistics/) Jenkins job. Of course, you should check what is being run first, since if anything is deleted or overwritten, it can't be undone. Log in to the CI and then you can check what is being run in [Configure](https://ci.eclipse.org/epsilon/job/release-logistics/configure). Scroll down to Build and check the Execute shell task, making sure it's the same as that in the shell script in the repo (or whichever looks correct).
+These tasks are automated by a [shell script](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/releng/org.eclipse.epsilon.releng/new_version_tasks.sh). Please check this before the release. The main thing you'll need to check are the `OldVersion` and `NewVersion` variables.
+There are two ways this can be run, but in any case, it needs to be run from the CI server. One way is to uncomment the `NEW VERSION` stage in the Jenkinsfile at the root of the repository, then push to trigger it. The other way is to run the [release-logistics](https://ci.eclipse.org/epsilon/job/release-logistics/) Jenkins job. Of course, you should check what is being run first, since if anything is deleted or overwritten, it can't be undone. Login to the CI and then you can check what is being run in [Configure](https://ci.eclipse.org/epsilon/job/release-logistics/configure). Scroll down to Build and check the Execute shell task, making sure it's the same as that in the shell script in the repo (or whichever looks correct).
 
 
 ### Build and release to Maven Central
@@ -29,19 +29,19 @@ You can verify the tag was pushed by checking the output of `git ls-remote --tag
 ### Update the website
 
 The Epsilon website's [Download page](https://www.eclipse.org/epsilon/download/) should be the only place in the [website repo](https://git.eclipse.org/c/www.eclipse.org/epsilon.git) that needs updating. Specifically, you will need to change two source files in the [source directory](https://git.eclipse.org/c/www.eclipse.org/epsilon.git/tree/mkdocs/docs/download).
-Add the new release info to all-versions.md. Then update index.md to mentioned the new release. Generally it should be as easy as Find and Replacing the old version with the new one.
+Add the new release info to `all-versions.md`. Then update `index.md` to mentioned the new release. Generally it should be as easy as Find and Replacing the old version with the new one.
 
 Also don't forget to build the static site for changes to take effect.
 
 ### Bump up versions
 
-Run the following commands from the root of the repository, replacing `X.Y.Z` with the full version number of the release (where | is the patch, usually 0). Tycho will automatically take care of updating the Maven and PDE projects (MANIFEST.MF, feature.xml etc.). Note that the standalone POMs (i.e. the pom-plain.xml files) are bumped separately using the third command below.
+Run the following commands from the root of the repository, replacing `X.Y.Z` with the full version number of the release (where | is the patch, usually 0). Tycho will automatically take care of updating the Maven and PDE projects (`MANIFEST.MF`, `feature.xml` etc.). Note that the standalone POMs (i.e. the `pom-plain.xml` files) are bumped separately using the third command below.
 
 `mvn versions:set-property -Dproperty=epsilon.version -DnewVersion=X.Y.Z-SNAPSHOT`
 `mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=X.Y.Z-SNAPSHOT`
 `mvn -f pom-plain.xml versions:set -DnewVersion=X.Y.Z-SNAPSHOT`
 
-You may also need to manually bump up the version of the releng/org.eclipse.epsilon.target project. Specifically, the MANIFEST.MF, but it's also worth checking the pom.xml to make sure they're consistent with each other. Also, in the root pom.xml in the repository, there is a property called "epsilon.version". You should bump that up manually as well. Also check org.eclipse.epsilon.test's MANIFEST.MF. The build will fail if anything is inconsistent.
+You may also need to manually bump up the version of the `releng/org.eclipse.epsilon.target` project. Specifically, the `MANIFEST.MF`, but it's also worth checking the `pom.xml` to make sure they're consistent with each other. Also, in the root `pom.xml` in the repository, there is a property called `epsilon.version`. You should bump that up manually as well. Also check `org.eclipse.epsilon.test/META-INF/MANIFEST.MF`. The build will fail if anything is inconsistent.
 
 ### Announce release on forum
 
