@@ -38,7 +38,7 @@ You can verify the tag was pushed by checking the output of `git ls-remote --tag
 ### Update the website
 
 The Epsilon website's [Download page](https://www.eclipse.org/epsilon/download/) should be the only place in the [website repo](https://git.eclipse.org/c/www.eclipse.org/epsilon.git) that needs updating. Specifically, you will need to change two source files in the [source directory](https://git.eclipse.org/c/www.eclipse.org/epsilon.git/tree/mkdocs/docs/download).
-Add the new release info to `all-versions.md`. Then update `index.md` to mentioned the new release. Generally it should be as easy as Find and Replacing the old version with the new one.
+Add the new release info to `all-versions.md`. Copy `index.md` and rename it to the current / old release. Then update `index.md` to mention the new release. Generally it should be as easy as Find and Replacing the old version with the new one.
 
 Also don't forget to build the static site for changes to take effect.
 
