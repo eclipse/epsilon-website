@@ -44,8 +44,9 @@ Also don't forget to build the static site for changes to take effect.
 
 ### Bump up versions
 
-Run the following commands from the root of the repository, replacing `X.Y.Z` with the full version number of the release (where | is the patch, usually 0). Tycho will automatically take care of updating the Maven and PDE projects (`MANIFEST.MF`, `feature.xml` etc.). Note that the standalone POMs (i.e. the `pom-plain.xml` files) are bumped separately using the third command below.
+Run the following commands from the root of the repository, replacing `X.Y.Z` with the full version number of the release (where Z is the patch, usually 0). Tycho will automatically take care of updating the Maven and PDE projects (`MANIFEST.MF`, `feature.xml` etc.). Note that the standalone POMs (i.e. the `pom-plain.xml` files) are bumped separately using the third command below. Also note the order: run the Tycho one first, then bump `epsilon.version`, then run the Tycho versions bump again and it should succeed.
 
+`mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=X.Y.Z-SNAPSHOT`
 `mvn versions:set-property -Dproperty=epsilon.version -DnewVersion=X.Y.Z-SNAPSHOT`
 `mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=X.Y.Z-SNAPSHOT`
 `mvn -f pom-plain.xml versions:set -DnewVersion=X.Y.Z-SNAPSHOT`
