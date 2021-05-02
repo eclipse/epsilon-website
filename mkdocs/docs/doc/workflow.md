@@ -220,7 +220,7 @@ The rest of the information needed to load a model is implementation-specific an
 
 The `StoreModelTask (epsilon.storeModel)` is used to store a model residing in the project repository. The `StoreModelTask` defines three attributes:
 
--   `name` (required): name of the model to be stored.
+-   `model` (required): name of the model to be stored.
 
 -   `targetUri` (optional): URI where the model will be stored (e.g. "file:/path/to/destination").
 
@@ -425,7 +425,7 @@ The `epsilon.etl` task executes an ETL module, defined using the `src` attribute
 
 ### Model Comparison Task
 
-The `epsilon.ecl` task executes an ECL module, defined using the `src` attribute to establish matches between elements of the models that are specified using the `model` nested elements. In addition to the attributes defined by the ExecutableModuleTask, this task also provides the `exportMatchTrace` attribute that enables users to export the match-trace calculated during the comparison to the project context so that subsequent tasks can reuse it. For example, as discussed in the sequel, an EML model merging task can use it as a means of identifying correspondences on which to perform merging. In another example, the match-trace can be stored by a subsequent EOL task in the form of an stand-alone weaving model.
+The `epsilon.ecl` task executes an ECL module, defined using the `src` attribute to establish matches between elements of the models that are specified using the `model` nested elements. In addition to the attributes defined by `ExecutableModuleTask`, this task also provides the `exportMatchTrace` attribute that enables users to export the [match-trace](https://download.eclipse.org/epsilon/interim-javadoc/org/eclipse/epsilon/ecl/trace/MatchTrace.html) calculated during the comparison as a named variable to the project context so that subsequent tasks can reuse it. For example, as discussed in the sequel, an EML model merging task can use it as a means of identifying correspondences on which to perform merging. In another example, the match-trace can be stored by a subsequent EOL task in the form of an stand-alone weaving model.
 
 ### Model Merging Task
 
