@@ -258,3 +258,8 @@ Flock is typically used as a manual specification approach in which model migrat
 A more thorough discussion of the design decisions and execution
 semantics of Flock can be found in a [SoSyM journal article](https://dl.acm.org/doi/10.1007/s10270-012-0296-2). Flock has been compared with other model migration tools
 and languages in a [MoDELS paper](https://link.springer.com/chapter/10.1007/978-3-642-16145-2_5).
+
+
+## Additional Resources
+
+- [Executing a Flock migration transformation from Java](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone/flock/FlockStandaloneExample.java): Shows how to run Flock to migrate an EMF-based model from a headless Java application.
