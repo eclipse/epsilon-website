@@ -417,7 +417,7 @@ The `epsilon.evl` task executes an EVL module, defined using the `src` attribute
 
 -   `exportConstraintTrace` : This attribute enables developers to export the internal constraint trace constructed during model validation to the project context so that it can be later accessed by other tasks - which could for example attempt to automatically repair the identified inconsistencies.
 
--   `exportAsModel` : Setting the value of this attribute to `true` (default is `false`) causes EVL to export the results of the validation as a new model in the project repository, named "EVL". This model contains all the s found by EVL. These instances contain several useful attributes: `constraint` points to the with the definition of the constraint and `instance` points to the model element which did not satisfy the constraint. From the , `isCritique` can be used to check if it is a critique or not, and `name` contains the name of the constraint.
+-   `exportAsModel` : Setting the value of this attribute causes the task to export the results of the validation as a new in-memory [Java model](https://download.eclipse.org/epsilon/interim-javadoc/org/eclipse/epsilon/eol/models/java/JavaModel.html) with the specified name in the project repository. The exported model is essentially a wrapper for all the [unsatisfied constraints](https://download.eclipse.org/epsilon/interim-javadoc/org/eclipse/epsilon/evl/execute/UnsatisfiedConstraint.html) identified by EVL.
 
 ### Model-to-Model Transformation Task
 
