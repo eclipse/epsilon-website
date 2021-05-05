@@ -35,7 +35,7 @@ registerEpsilonLanguageHandler("evl", erlKeywords + "|context|constraint|critiqu
 registerEpsilonLanguageHandler("eml", etlKeywords + "|with|merge");
 registerEpsilonLanguageHandler("ecl", erlKeywords + "|rule|compare|match|with");
 registerEpsilonLanguageHandler("mig", erlKeywords + "|migrate|to|ignoring|retype|delete|when");
-registerEpsilonLanguageHandler("epl", erlKeywords + "|onmatch|nomatch|pattern|do|from");
+registerEpsilonLanguageHandler("epl", erlKeywords + "|match|onmatch|nomatch|pattern|do|from");
 
 pinsetKeywords = "|dataset|over|from|column|properties|reference|grid|keys|header|body";
 registerEpsilonLanguageHandler("pinset", erlKeywords + pinsetKeywords);

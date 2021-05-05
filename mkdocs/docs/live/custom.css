@@ -44,6 +44,10 @@
     content: url("images/etl.gif");
 }
 
+.mif-epl::before {
+    content: url("images/epl.gif");
+}
+
 .mif-evl::before {
     content: url("images/evl.gif");
 }

@@ -105,7 +105,12 @@
                         <span class="caption">Transform OO to DB</span>
                     </a>
                 </li>
-                
+                <li>
+                    <a href="?epl">
+                        <span class="icon"><span class="mif-example-16 mif-epl"></span></span>
+                        <span class="caption">Pattern Match Project Plan</span>
+                    </a>
+                </li>                
                 <li class="item-separator"></li>
                 <li>
                     <a href="#" onclick="copyShortenedLink(event)" id="exampleLink">
@@ -193,6 +198,7 @@
     <script src="eol.js" type="text/javascript"></script>
     <script src="etl.js" type="text/javascript"></script>
     <script src="evl.js" type="text/javascript"></script>
+    <script src="epl.js" type="text/javascript"></script>
     <script src="egl.js" type="text/javascript"></script>
     <script src="emfatic.js" type="text/javascript"></script>
     
@@ -280,7 +286,7 @@
         if (language == "etl") {
             document.getElementById("thirdModelSplitter").remove();
         }
-        else if (language == "evl") {
+        else if (language == "evl" || language == "epl") {
             document.getElementById("secondModelSplitter").remove();    
         }
         else if (language == "eol" || language == "egl") {
@@ -478,7 +484,7 @@
                 setPanelIcon("thirdModelPanel", "problems");
             }
             else {
-                setPanelTitle("programPanel", "Patterns");
+                setPanelTitle("programPanel", "Patterns (EPL)");
                 setPanelTitle("thirdModelPanel", "Pattern Matches");
             }
         }
@@ -578,6 +584,9 @@
                         }
                         else if (language == "evl") {
                             renderDiagram("thirdModelDiagram", json.validatedModelDiagram, 'dot');
+                        }
+                        else if (language == "epl") {
+                            renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram, 'dot');
                         }
                         else if (language == "egl") {
                             setConsoleOutput(json.output + json.generatedText);
