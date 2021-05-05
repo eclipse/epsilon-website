@@ -1,0 +1,17 @@
+// Find pairs of people that work
+// on at least one common task
+pattern Collaborators
+    p1, p2 : Person {
+    
+    match: Task.all.exists(t|t.effort.person.
+        includesAll(Sequence{p1, p2}))
+}
+
+// Pair tasks with their leaders
+pattern TaskLeader 
+    t : Task,
+    p : Person from: t.effort.person {
+    
+    match: t.effort.sortBy(e|-e.percentage).
+        first()?.person = p 
+}
