@@ -473,7 +473,7 @@
             setPanelTitle("metamodelPanel", "Source Metamodel");
             setPanelTitle("secondModelPanel", "Target Model");
             setPanelTitle("secondMetamodelPanel", "Target Metamodel");
-
+            setPanelIcon("secondModelPanel", "diagram");
         }
         else if (language == "evl" || language == "epl") {
             toggle("secondModelSplitter");
@@ -486,6 +486,7 @@
             else {
                 setPanelTitle("programPanel", "Patterns (EPL)");
                 setPanelTitle("thirdModelPanel", "Pattern Matches");
+                setPanelIcon("thirdModelPanel", "diagram");
             }
         }
         else if (language == "ecl") {
