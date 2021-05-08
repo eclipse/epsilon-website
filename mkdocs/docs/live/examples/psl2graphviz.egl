@@ -1,0 +1,28 @@
+[*Generates a Graphviz graph for the project plan*]
+digraph G {
+	
+	node[fontname="Arial",style="filled",fillcolor="azure"]
+	
+    [*Create a node for each person*]
+    [%for (p in Person.all){%]
+    [%=p.getNodeId()%][label="[%=p.name%]"]
+    [%}%]
+    
+    [*Create a node for each task*]
+	[%for (t in Task.all){%]
+    
+    [%=t.getNodeId()%][label="[%=t.title%]", fillcolor="wheat"]
+    
+    [*Link the person nodes with the task nodes*]
+    [%for (e in t.effort){%]
+    [%=e.person.getNodeId()%]->[%=t.getNodeId()%]
+    [%}%]
+    
+	[%}%]
+}
+
+[%
+operation Any getNodeId() {
+    return "n" + M.allInstances.indexOf(self);
+}
+%]

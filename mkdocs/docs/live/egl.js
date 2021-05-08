@@ -4,7 +4,7 @@ define("ace/mode/egl_highlight_rules",["require","exports","module","ace/lib/oop
 var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var eglHighlightRules = function() {
+var EglHighlightRules = function() {
 
     var keywords = (
         "not|delete|import|for|while|in|and|or|operation|return|var|throw|if|new|else|transaction|abort|break|continue|assert|assertError|not|function|default|switch|case|as|ext|driver|alias|model|breakAll|async|group|nor|xor|implies"
@@ -29,80 +29,99 @@ var eglHighlightRules = function() {
         "storage.type": dataTypes
     }, "identifier", true);
 
-    this.$rules = {
-        "start" : [ {
+   this.$rules = {
+        "start" : [
+            {
+                token:  "text",
+                regex:  "\\[%",
+                next:   "dynamic"
+            },
+            {
+                token:  "comment",
+                regex:  "\\[\\*",
+                next:   "comment"
+            },
+            
+        ],
+        "comment" : [
+            {
+                token:  "comment",
+                regex:  ".*?\\*\\]",
+                next:   "start"
+            }
+        ],
+        "dynamic" : [
+        {
             token : "comment",
             regex : "//.*$"
-        },  {
+        },  
+        {
             token : "comment",
             start : "/\\*",
             end : "\\*/"
-        }, {
-            token : "comment",
-            start : "\\[\\*",
-            end : "\\*\\]"
-        }, {
+        }, 
+        {
             token : "string",           // " string
             regex : '".*?"'
-        }, {
+        }, 
+        {
             token : "string",           // ' string
             regex : "'.*?'"
-        }, {
+        }, 
+        {
             token : "string",           // ` string (apache drill)
             regex : "`.*?`"
-        }, {
+        }, 
+        {
             token : "constant.numeric", // float
             regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
-        }, {
+        }, 
+        {
             token : keywordMapper,
             regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-        }, {
+        }, 
+        {
+            token : "keyword.operator",
+            regex : "\\+|\\-|\\/|\\/\\/|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|="
+        }, 
+        {
             token : "paren.lparen",
             regex : "[\\(]"
-        }, {
+        }, 
+        {
             token : "paren.rparen",
             regex : "[\\)]"
-        }, {
+        }, 
+        {
             token : "text",
             regex : "\\s+"
-        } ]
+        },
+        {
+            token:  "text",
+            regex:  "%\\]",
+            next:   "start"
+        }]
     };
-    this.normalizeRules();
 };
 
-oop.inherits(eglHighlightRules, TextHighlightRules);
+oop.inherits(EglHighlightRules, TextHighlightRules);
 
-exports.eglHighlightRules = eglHighlightRules;
+exports.EglHighlightRules = EglHighlightRules;
+
 });
 
-define("ace/mode/egl",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/egl_highlight_rules"], function(require, exports, module) {
+define("ace/mode/egl",["require","exports","module","ace/lib/oop","ace/mode/text","ace/tokenizer","ace/mode/egl_highlight_rules"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
 var TextMode = require("./text").Mode;
-var eglHighlightRules = require("./egl_highlight_rules").eglHighlightRules;
+var EglHighlightRules = require("./egl_highlight_rules").EglHighlightRules;
 
 var Mode = function() {
-    this.HighlightRules = eglHighlightRules;
+    this.HighlightRules = EglHighlightRules;
     this.$behaviour = this.$defaultBehaviour;
 };
 oop.inherits(Mode, TextMode);
 
-(function() {
-
-    this.lineCommentStart = "--";
-
-    this.$id = "ace/mode/egl";
-    this.snippetFileId = "ace/snippets/egl";
-}).call(Mode.prototype);
-
 exports.Mode = Mode;
-
-});                (function() {
-                    window.require(["ace/mode/egl"], function(m) {
-                        if (typeof module == "object" && typeof exports == "object" && module) {
-                            module.exports = m;
-                        }
-                    });
-                })();
-            
+});

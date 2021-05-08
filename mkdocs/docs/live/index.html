@@ -94,6 +94,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="?psl2graphviz">
+                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
+                        <span class="caption">Generate Graph</span>
+                    </a>
+                </li>                
+                <li>
                     <a href="?etl">
                         <span class="icon"><span class="mif-example-16 mif-etl"></span></span>
                         <span class="caption">Transform Tree to Graph</span>
@@ -204,6 +210,7 @@
     
     <script>
     var language = "eol";
+    var outputType = "text";
     var json;
     var languageName;
     var secondModelEditable;
@@ -275,11 +282,13 @@
         }
     }
 
-
     function setup() {
         json = JSON.parse(atob(content));
         if (json.eol != null) { json.program = json.eol; language = "eol";}
         else {language = json.language};
+
+        if (json.outputType != null) {outputType = json.outputType;}
+        
         languageName = (language == "flock" ? "Flock" : language.toUpperCase());
         secondModelEditable = !(language == "etl" || language == "flock");
 
@@ -291,7 +300,9 @@
         }
         else if (language == "eol" || language == "egl") {
             document.getElementById("secondModelSplitter").remove();
-            document.getElementById("thirdModelSplitter").remove();
+            if (outputType != "dot") {
+                document.getElementById("thirdModelSplitter").remove();
+            }
         }
 
         Array.from(document.querySelectorAll('.editor')).forEach(function(e) {
@@ -354,6 +365,13 @@
 
         document.getElementById("navview").style.display = "block";
         setInterval(fit, 100);
+
+        $(window).keydown(function(event) {
+          if ((event.metaKey && event.keyCode == 83) || (event.ctrlKey && event.keyCode == 83)) { 
+            runProgram();
+            event.preventDefault(); 
+          }
+        });
     }
 
     function updateFlexmiEditorSyntaxHighlighting(editor) {
@@ -420,7 +438,7 @@
             cls: "sys-button",
             onclick: "window.open('https://www.eclipse.org/epsilon/doc/'+language);"
         },{
-            html: buttonHtml("run", "Run the program"),
+            html: buttonHtml("run", "Run the program (Ctrl/Cmd+S)"),
             cls: "sys-button",
             onclick: "runProgram()"
         }];
@@ -459,8 +477,16 @@
             setPanelTitle("programPanel", "Program (EOL)");
         }
         else if (language == "egl") {
-            toggle("secondModelSplitter");
-            toggle("thirdModelSplitter");
+            if (outputType == "dot") {
+                toggle("secondModelSplitter");
+                $("#thirdModelDiagram").show();       
+                setPanelTitle("thirdModelPanel", "Graphviz");
+                setPanelIcon("thirdModelPanel", "diagram");
+            }
+            else {
+                toggle("secondModelSplitter");
+                toggle("thirdModelSplitter");
+            }
             setPanelTitle("programPanel", "Template (EGL)");
         }
         else if (language == "etl" || language == "flock") {
@@ -511,6 +537,7 @@
         return JSON.stringify(
             {
                 "language": language,
+                "outputType": outputType,
                 "program": programEditor.getValue(), 
                 "emfatic": emfaticEditor.getValue(), 
                 "flexmi": flexmiEditor.getValue(),
@@ -590,7 +617,13 @@
                             renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram, 'dot');
                         }
                         else if (language == "egl") {
-                            setConsoleOutput(json.output + json.generatedText);
+                            if (outputType == "dot") {
+                                renderDiagram("thirdModelDiagram", json.generatedText, 'dot');
+                                setConsoleOutput(json.output);
+                            }
+                            else {
+                                setConsoleOutput(json.output + json.generatedText);
+                            }
                         }
                     }
 
