@@ -1,0 +1,36 @@
+digraph G {
+	rankdir=LR
+	node[shape="plain",fontname="Courier", fontsize="10"]
+	edge[fontname="Arial", fontsize="10"]
+	[%for (f in File.all){%]
+	[%=f.getNodeId()%][label=<
+		<table cellspacing='-1' cellborder='0' cellpadding='3'>
+			<tr>
+				<td bgcolor="[%=f.getColour()%]" border="1" sides="B"><font face='Arial'>[%=f.name%]</font></td>
+			</tr>
+			<tr>
+				<td align="left" cellpadding="5">
+					[%=f.text.escapeXml().replaceAll("\t", "  ").replaceAll("\n", "<br align='left'/>")%]
+					<br align='left'/>
+				</td>
+			</tr>
+		</table>
+		>]
+	[%}%]
+	
+	[%for (a in Arrow.all) { %]
+	[%=a.from.getNodeId()%]->[%=a.to.getNodeId()%][label="[%=a.label%]"]
+	[%}%]
+}
+
+[%
+operation File getNodeId() {
+	return "f" + File.all.indexOf(self);
+}
+
+operation File getColour() {
+	if (self.colour.isUndefined()) return "azure";
+	else return self.colour;
+}
+
+%]

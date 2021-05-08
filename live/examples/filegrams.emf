@@ -1,0 +1,13 @@
+package filegrams;
+
+class File {
+	attr String text;
+	attr String name;
+	attr String colour;
+}
+
+class Arrow {
+	ref File from;
+	ref File to;
+	attr String label;
+}
