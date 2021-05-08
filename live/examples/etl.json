@@ -1,7 +1,7 @@
 {
 	"language": "etl",
-	"program": "tree2graph.etl",
-	"flexmi": "tree.flexmi",
-	"emfatic": "tree.emf",
-	"secondEmfatic": "graph.emf"
+	"program": "psl2pdl.etl",
+	"flexmi": "psl2pdl.flexmi",
+	"emfatic": "psl.emf",
+	"secondEmfatic": "pdl.emf"
 }
