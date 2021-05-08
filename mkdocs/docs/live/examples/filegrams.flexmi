@@ -1,0 +1,46 @@
+<?nsuri filegrams?>
+<_>
+
+<file name="Database.java" color="wheat">
+class Database {
+	public void connect() {}
+	public void runQuery() {}
+	public void disconnect() {}
+}
+</file>
+
+<file name="App1.java">
+public void m1() {
+	Database d = ...;
+
+   d.connect();
+   d.runQuery();
+   ...
+   d.runQuery();
+   d.disconnect();
+}
+</file>
+
+<file name="App2.java">
+public void m2() {
+   Database d = ...;
+
+   d.connect();
+   d.runQuery();
+   d.disconnect();
+}
+</file>
+
+<file name="App3.java" color="beige">
+public void m2() {
+   Database d = ...;
+
+   d.???
+}
+</file>
+
+
+<arrow from="App1.java" to="Database.java" label="uses"/>
+<arrow from="App2.java" to="Database.java" label="uses"/>
+
+</_>
