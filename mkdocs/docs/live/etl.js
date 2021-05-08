@@ -53,15 +53,6 @@ var etlHighlightRules = function() {
             token : keywordMapper,
             regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
         }, {
-            token : "keyword.operator",
-            regex : "\\+|\\-|\\/|\\/\\/|%|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|="
-        }, {
-            token : "paren.lparen",
-            regex : "[\\(]"
-        }, {
-            token : "paren.rparen",
-            regex : "[\\)]"
-        }, {
             token : "text",
             regex : "\\s+"
         } ]
@@ -88,20 +79,10 @@ var Mode = function() {
 oop.inherits(Mode, TextMode);
 
 (function() {
-
-    this.lineCommentStart = "--";
-
     this.$id = "ace/mode/etl";
     this.snippetFileId = "ace/snippets/etl";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
 
-});                (function() {
-                    window.require(["ace/mode/etl"], function(m) {
-                        if (typeof module == "object" && typeof exports == "object" && module) {
-                            module.exports = m;
-                        }
-                    });
-                })();
-            
+});
