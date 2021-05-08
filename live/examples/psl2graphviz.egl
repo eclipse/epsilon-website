@@ -1,24 +1,25 @@
 [*Generates a Graphviz graph for the project plan*]
 digraph G {
-	
-	node[fontname="Arial",style="filled",fillcolor="azure"]
-	
+    
+    node[fontname="Arial",style="filled",fillcolor="azure"]
+    edge[fontname="Arial"]
+    
     [*Create a node for each person*]
     [%for (p in Person.all){%]
     [%=p.getNodeId()%][label="[%=p.name%]"]
     [%}%]
 
     [*Create a node for each task*]
-	[%for (t in Task.all){%]
+    [%for (t in Task.all){%]
     
     [%=t.getNodeId()%][label="[%=t.title%]", fillcolor="wheat"]
     
     [*Link the person nodes with the task nodes*]
     [%for (e in t.effort){%]
-    [%=e.person.getNodeId()%]->[%=t.getNodeId()%]
+    [%=e.person.getNodeId()%]->[%=t.getNodeId()%][label="[%=e.percentage%]%"]
     [%}%]
 
-	[%}%]
+    [%}%]
 }
 
 [*Uncomment to see the generated Graphviz code*]
