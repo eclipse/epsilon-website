@@ -41,13 +41,20 @@ var EglHighlightRules = function() {
                 regex:  "\\[\\*",
                 next:   "comment"
             },
-            
+            {
+                token:  "string",
+                regex:  "."
+            }
         ],
         "comment" : [
             {
                 token:  "comment",
-                regex:  ".*?\\*\\]",
+                regex:  "\\*\\]",
                 next:   "start"
+            },
+            {
+                token:  "comment",
+                regex:  "."
             }
         ],
         "dynamic" : [
