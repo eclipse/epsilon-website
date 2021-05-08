@@ -7,7 +7,7 @@ digraph G {
     [%for (p in Person.all){%]
     [%=p.getNodeId()%][label="[%=p.name%]"]
     [%}%]
-    
+
     [*Create a node for each task*]
 	[%for (t in Task.all){%]
     
@@ -17,9 +17,12 @@ digraph G {
     [%for (e in t.effort){%]
     [%=e.person.getNodeId()%]->[%=t.getNodeId()%]
     [%}%]
-    
+
 	[%}%]
 }
+
+[*Uncomment to see the generated Graphviz code*]
+[*%out.toString().println();%*]
 
 [%
 operation Any getNodeId() {
