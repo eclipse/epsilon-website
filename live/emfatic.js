@@ -19,7 +19,7 @@ var emfaticHighlightRules = function() {
     );
 
     var dataTypes = (
-        "String|Integer|Real|Boolean"
+        "String|Integer|Real|Boolean|Byte|Character|Double|Float|Long|Short|Date|EObject|EClass|char|int"
     );
 
     var keywordMapper = this.createKeywordMapper({
@@ -33,7 +33,7 @@ var emfaticHighlightRules = function() {
         "start" : [ {
             token : "comment",
             regex : "//.*$"
-        },  {
+        }, {
             token : "comment",
             start : "/\\*",
             end : "\\*/"
@@ -44,23 +44,14 @@ var emfaticHighlightRules = function() {
             token : "string",           // ' string
             regex : "'.*?'"
         }, {
-            token : "string",           // ` string (apache drill)
-            regex : "`.*?`"
-        }, {
             token : "constant.numeric", // float
             regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
         }, {
+            token : "text",
+            regex : "~[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
+        }, {
             token : keywordMapper,
             regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-        }, {
-            token : "keyword.operator",
-            regex : "\\+|\\-|\\/|\\/\\/|%|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|="
-        }, {
-            token : "paren.lparen",
-            regex : "[\\(]"
-        }, {
-            token : "paren.rparen",
-            regex : "[\\)]"
         }, {
             token : "text",
             regex : "\\s+"
@@ -88,20 +79,9 @@ var Mode = function() {
 oop.inherits(Mode, TextMode);
 
 (function() {
-
-    this.lineCommentStart = "--";
-
     this.$id = "ace/mode/emfatic";
     this.snippetFileId = "ace/snippets/emfatic";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
-
-});                (function() {
-                    window.require(["ace/mode/emfatic"], function(m) {
-                        if (typeof module == "object" && typeof exports == "object" && module) {
-                            module.exports = m;
-                        }
-                    });
-                })();
-            
+});
