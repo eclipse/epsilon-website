@@ -1,3 +1,7 @@
+.modelPanel {
+	height: 100%;
+}
+
 .editor { 
     position: absolute;
     top: 0;
