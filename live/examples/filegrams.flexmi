@@ -3,15 +3,15 @@
 
 <file name="Database.java" color="wheat">
 class Database {
-	public void connect() {}
-	public void runQuery() {}
-	public void disconnect() {}
+   public void connect() {}
+   public void runQuery() {}
+   public void disconnect() {}
 }
 </file>
 
 <file name="App1.java">
 public void m1() {
-	Database d = ...;
+   Database d = ...;
 
    d.connect();
    d.runQuery();
