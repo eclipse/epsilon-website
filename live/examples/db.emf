@@ -1,28 +1,28 @@
 package DB;
 
 abstract class NamedElement {
-    attr String name;
+	attr String name;
 }
 
 class Database {
-   val DatabaseElement[*]#database contents;
+	val DatabaseElement[*]#database contents;
 }
 
 abstract class DatabaseElement extends NamedElement {
-   ref Database#contents database;
+	ref Database#contents database;
 }
 
 class Table extends DatabaseElement {
-   val Column[*]#table columns;
-   ref Column[*] primaryKeys;
+	val Column[*]#table columns;
+	ref Column[*] primaryKeys;
 }
 
 class Column extends DatabaseElement {
-   ref Table#columns table;
-   attr String type;
+	ref Table#columns table;
+	attr String type;
 }
 
 class ForeignKey extends DatabaseElement {
-   ref Column parent;
-   ref Column child;
+	ref Column parent;
+	ref Column child;
 }

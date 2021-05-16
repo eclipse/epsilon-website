@@ -110,6 +110,12 @@
                         <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
                         <span class="caption">Generate Effort Table</span>
                     </a>
+                </li> 
+                <li>
+                    <a href="?psl2pie">
+                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
+                        <span class="caption">Generate Task Pie Chart</span>
+                    </a>
                 </li>                
                 <li>
                     <a href="?epl">
@@ -330,7 +336,9 @@
             editor.setFontSize("1rem");
             editor.setOptions({
             //  fontFamily: "monospace",
-              fontSize: "11pt"
+              fontSize: "11pt",
+              tabSize: 2, 
+              useSoftTabs: true
             });
         });
 

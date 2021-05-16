@@ -2,24 +2,24 @@
 package psl;
 
 class Project {
-  attr String title;
-  attr String description;
-  val Task[*] tasks;
-  val Person[*] people;
+	attr String title;
+	attr String description;
+	val Task[*] tasks;
+	val Person[*] people;
 }
 
 class Task {
-  attr String title;
-  attr int start;
-  attr int duration;
-  val Effort[*] effort;
+	attr String title;
+	attr int start;
+	attr int duration;
+	val Effort[*] effort;
 }
 
 class Person {
-  attr String name;
+	attr String name;
 }
 
 class Effort {
-  ref Person person;
-  attr int percentage = 100;
+	ref Person person;
+	attr int percentage = 100;
 }

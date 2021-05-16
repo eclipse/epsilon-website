@@ -1,45 +1,44 @@
 package OO;
 
 class Model {
-  val Classifier[*] contents;
+	val Classifier[*] contents;
 }
 
 abstract class NamedElement {
-  attr String name;
+	attr String name;
 }
 
 abstract class ~Classifier extends NamedElement {
 }
 
 class ~Class extends ~Classifier {
-  ref ~Class#extendedBy ~extends;
-  ref ~Class[*]#~extends extendedBy;
-  val Feature[*]#owner features;
-  attr boolean isAbstract;
+	ref ~Class#extendedBy ~extends;
+	ref ~Class[*]#~extends extendedBy;
+	val Feature[*]#owner features;
+	attr boolean isAbstract;
 }
 
 class Datatype extends ~Classifier {
 }
 
 abstract class Feature extends NamedElement {
-  ref ~Class#features owner;
-  attr VisibilityEnum visibility;
+	ref ~Class#features owner;
+	attr VisibilityEnum visibility;
 }
 
 abstract class StructuralFeature extends Feature {
 }
 
 class Reference extends StructuralFeature {
-  ref ~Class type;
+	ref ~Class type;
 }
 
 class Attribute extends StructuralFeature {
-  attr boolean isMany;
-  ref Datatype type;
+	attr boolean isMany;
+	ref Datatype type;
 }
 
 enum VisibilityEnum {
-  public = 1;
-  private = 2;
+	public = 1;
+	private = 2;
 }
-
