@@ -1,20 +1,31 @@
 <html>
-<body>
-	<div class="mermaid">
-		pie
-		title [%=Project.all.first.title%]
-		[*Generate a slice for every task*]
-		[%for (t in Task.all){%]
-		"[%=t.title%]" : [%=t.duration%]
-		[%}%]
-	</div>
-	<script src="https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js"/>
-	<script>
-		var config = {
-			startOnLoad:true,
-			securityLevel:'loose',
-		};
-		mermaid.initialize(config);
-	</script>
-</body>
+	<head>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+
+			function drawChart() {
+				[*Generate a pie chart for the project*]
+				var data = google.visualization.arrayToDataTable([
+					['Task', 'Months'],
+					[*Generate one slice for every task*]
+					[%for (t in Task.all){%]
+					['[%=t.title%]', [%=t.duration%]],
+					[%}%]
+				]);
+
+				var options = {
+					title: '[%=Project.all.first().title%]'
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+				chart.draw(data, options);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="piechart" style="width: 100%"></div>
+	</body>
 </html>
