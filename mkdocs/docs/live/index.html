@@ -102,9 +102,15 @@
                 <li>
                     <a href="?psl2graphviz">
                         <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
-                        <span class="caption">Generate Graph</span>
+                        <span class="caption">Generate Effort Graph</span>
                     </a>
                 </li>
+                <li>
+                    <a href="?psl2html">
+                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
+                        <span class="caption">Generate Effort Table</span>
+                    </a>
+                </li>                
                 <li>
                     <a href="?epl">
                         <span class="icon"><span class="mif-example-16 mif-epl"></span></span>
@@ -241,7 +247,7 @@
     
     if (questionMark > -1) {
         content = url.substring(questionMark+1, url.length);
-        if (content.length == 8) {
+        if (content.length == 8 && !content.startsWith("psl")) {
             var xhr = new XMLHttpRequest();
             var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url";
             //var url = "http://localhost:8080";
@@ -312,7 +318,7 @@
         }
         else if (language == "eol" || language == "egl") {
             document.getElementById("secondModelSplitter").remove();
-            if (outputType != "dot") {
+            if (outputType == "text" ) {
                 document.getElementById("thirdModelSplitter").remove();
             }
         }
@@ -495,6 +501,12 @@
                 setPanelTitle("thirdModelPanel", "Graphviz");
                 setPanelIcon("thirdModelPanel", "diagram");
             }
+            else if (outputType == "html") {
+                toggle("secondModelSplitter");
+                $("#thirdModelDiagram").show();
+                setPanelTitle("thirdModelPanel", "HTML");
+                setPanelIcon("thirdModelPanel", "html");
+            }
             else {
                 toggle("secondModelSplitter");
                 toggle("thirdModelSplitter");
@@ -632,6 +644,18 @@
                             if (outputType == "dot") {
                                 renderDiagram("thirdModelDiagram", json.generatedText, 'dot');
                                 setConsoleOutput(json.output);
+                            }
+                            else if (outputType == "html") {
+                                setConsoleOutput(json.output);
+                                var iframe = document.getElementById("htmlIframe");
+                                if (iframe == null) {
+                                    iframe = document.createElement("iframe");
+                                    iframe.id = "htmlIframe"
+                                    iframe.style.height = "100%";
+                                    iframe.style.width = "100%";
+                                    document.getElementById("thirdModelDiagram").appendChild(iframe);
+                                }
+                                iframe.srcdoc = json.generatedText;
                             }
                             else {
                                 setConsoleOutput(json.output + json.generatedText);

@@ -60,6 +60,10 @@
     content: url("images/flexmi.png");
 }
 
+.mif-html::before {
+    content: url("images/html.gif");
+}
+
 .mif-emfatic::before {
     content: url("images/emfatic.png");
 }
