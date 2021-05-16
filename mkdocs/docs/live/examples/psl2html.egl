@@ -22,3 +22,6 @@
 </tr>
 [%}%]
 </table>
+
+[*Uncomment to see the generated HTML code*]
+[*%out.toString().println();%*]
