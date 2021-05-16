@@ -5,15 +5,15 @@ model:
 - name: ACME
 
 - class:
-  - name: Customer
-  - attr: {name: fullname, type: String}
-  - attr: {name: active, type: Boolean}
-  
+    - name: Customer
+    - attr: {name: fullname, type: String}
+    - attr: {name: active, type: Boolean}
+
 - class:
-  - name: Account
-  - attr: {name: number, type: String}
-  - attr: {name: balance, type: Real}
-  - ref: {name: owner, type: Customer}
+    - name: Account
+    - attr: {name: number, type: String}
+    - attr: {name: balance, type: Real}
+    - ref: {name: owner, type: Customer}
 
 - type: {name: String}
 - type: {name: Boolean}
