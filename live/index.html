@@ -337,7 +337,6 @@
             editor.setOptions({
             //  fontFamily: "monospace",
               fontSize: "11pt",
-              tabSize: 2, 
               useSoftTabs: true
             });
         });
@@ -378,11 +377,12 @@
 
         //TODO: Fix "undefined" when fields are empty
         programEditor.getSession().setMode("ace/mode/" + language);
-        programEditor.setValue(json.program + "", 1);
-        flexmiEditor.setValue(json.flexmi + "", 1);
-        emfaticEditor.setValue(json.emfatic + "", 1);
-        secondFlexmiEditor.setValue(json.secondFlexmi + "", 1);
-        secondEmfaticEditor.setValue(json.secondEmfatic + "", 1);
+
+        setEditorValue(programEditor, json.program);
+        setEditorValue(flexmiEditor, json.flexmi);
+        setEditorValue(emfaticEditor, json.emfatic);
+        setEditorValue(secondFlexmiEditor, json.secondFlexmi);
+        setEditorValue(secondEmfaticEditor, json.secondEmfatic);
         consoleEditor.setValue("",1);
         
         //document.getElementById("secondModelSplitter").style.display = "none";
@@ -398,6 +398,10 @@
             event.preventDefault(); 
           }
         });
+    }
+
+    function setEditorValue(editor, value) {
+        editor.setValue((value+""), 1);
     }
 
     function updateFlexmiEditorSyntaxHighlighting(editor) {
