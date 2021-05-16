@@ -1,16 +1,16 @@
 package graph;
 
 class Graph {
-    attr String name;
-    val Node[*] nodes;
-    val Edge[*] edges;
+	attr String name;
+	val Node[*] nodes;
+	val Edge[*] edges;
 }
 
 class Node {
-    attr String name;
+	attr String name;
 }
 
 class Edge {
-    ref Node source;
-    ref Node target;
+	ref Node source;
+	ref Node target;
 }

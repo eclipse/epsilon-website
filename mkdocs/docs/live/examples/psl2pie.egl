@@ -1,0 +1,20 @@
+<html>
+<body>
+	<div class="mermaid">
+		pie
+		title [%=Project.all.first.title%]
+		[*Generate a slice for every task*]
+		[%for (t in Task.all){%]
+		"[%=t.title%]" : [%=t.duration%]
+		[%}%]
+	</div>
+	<script src="https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js"/>
+	<script>
+		var config = {
+			startOnLoad:true,
+			securityLevel:'loose',
+		};
+		mermaid.initialize(config);
+	</script>
+</body>
+</html>

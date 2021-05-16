@@ -1,0 +1,7 @@
+{
+	"language": "egl",
+	"program": "psl2pie.egl",
+	"flexmi": "psl.flexmi",
+	"emfatic": "psl.emf",
+	"outputType": "html"
+}

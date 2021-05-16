@@ -1,7 +1,7 @@
 <?nsuri tree?>
 <tree label="t1">
-    <tree label="t2">
-        <tree label="t3"/>
-        <tree label="t4"/>
-    </tree>
+	<tree label="t2">
+		<tree label="t3"/>
+		<tree label="t4"/>
+	</tree>
 </tree>
