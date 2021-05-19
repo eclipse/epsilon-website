@@ -4,33 +4,33 @@ file:
     color: wheat
     text: |-
         class Database {
-           public void connect() {}
-           public void runQuery() {}
-           public void disconnect() {}
+            public void connect() {}
+            public void runQuery() {}
+            public void disconnect() {}
         }
         
 file:
     name: App1.java
     text: |-
         public void m1() {
-           Database d = ...;
-        
-           d.connect();
-           d.runQuery();
-           ...
-           d.runQuery();
-           d.disconnect();
+            Database d = ...;
+            
+            d.connect();
+            d.runQuery();
+            ...
+            d.runQuery();
+            d.disconnect();
         }
 
 file:
     name: App2.java
     text: |-
         public void m2() {
-           Database d = ...;
-        
-           d.connect();
-           d.runQuery();
-           d.disconnect();
+            Database d = ...;
+            
+            d.connect();
+            d.runQuery();
+            d.disconnect();
         }
 
 file:
@@ -38,9 +38,9 @@ file:
     color: beige
     text: |-
         public void m2() {
-           Database d = ...;
-        
-           d.???
+            Database d = ...;
+            
+            d.???
         }
 
 arrow:
