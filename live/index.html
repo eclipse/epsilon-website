@@ -729,23 +729,15 @@
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     var json = JSON.parse(xhr.responseText);
-                    var t = d3.transition()
-                        .ease(d3.easeLinear);
-
+                    
                     // FIXME: Make both functions return the Graphviz diagram in a "diagram" field
                     var jsonField = "modelDiagram";
                     if (diagramId.endsWith("etamodelDiagram")) jsonField = "metamodelDiagram";
                     
                     if (json.hasOwnProperty("error")) {
-                        /*
-                        renderDiagram(diagramId, 'digraph G { n1[label="An error occcured \n whilst rendering the diagram. \n Please see the console \n view for details.", style=filled, fillcolor=mistyrose, shape=rectangle, fontname=Arial, fontsize=10]}', engine)
-                        setConsoleError(json.output, 1);*/
-                        var diagram = document.getElementById(diagramId);
-                        diagram.innerHTML = "";
-                        var errorDiv = document.createElement("div");
-                        errorDiv.classList.add("rendering-error");
-                        diagram.appendChild(errorDiv);
-                        errorDiv.innerHTML = "The diagram could not be rendered due to the following error. " + json.error;
+                        var dot = "digraph G { \n node [ shape=box, style=filled, fillcolor=mistyrose, fontname=Arial ] \n t1[label=<<table border='0' cellborder='0'><tr><td>" + wrap(escapeHtml("The diagram could not be rendered due to the following error. " + json.error)) + "<br align='left'/></td></tr></table>>] \n}";
+                        renderDiagram(diagramId, dot, engine);
+ 
                     }
                     else {
                         renderDiagram(diagramId, json[jsonField], engine);
@@ -760,12 +752,23 @@
         longNotification("Rendering " + diagramName + " diagram");
     }
 
+    function escapeHtml(unsafe) {
+        return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&apos;");
+    }
+
+    function wrap(str) {
+        return str.replace(/(?![^\n]{1,40}$)([^\n]{1,40})\s/g, '$1<br align="left"/>');
+    }
+
     function renderDiagram(diagramId, graphviz, engine) {
         // Commented out transitions because they don't work well with dashed edges in Graphviz
         //var t = d3.transition().ease(d3.easeLinear);
-        //document.getElementById(diagramId).innerHTML = "";
         d3.select("#" + diagramId).graphviz({fit: true, height: "100%", width:"100%", engine: engine})
-            //.transition(t)
             .renderDot(graphviz);
     }
 
