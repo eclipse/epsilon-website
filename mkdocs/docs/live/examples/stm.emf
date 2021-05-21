@@ -1,0 +1,18 @@
+@namespace(uri="stm", prefix="")
+package stm;
+
+class StateMachine {
+	val State[*] states;
+	val Transition[*] transitions;
+}
+
+class State {
+    attr String name;
+    ref Transition[*]#from outgoing;
+    ref Transition[*]#to incoming;
+}
+
+class Transition {
+    ref State#outgoing from;
+    ref State#incoming to;
+}

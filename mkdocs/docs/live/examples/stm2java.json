@@ -1,0 +1,8 @@
+{
+	"language": "egl",
+	"program": "stm2java.egl",
+	"flexmi": "stm.flexmi",
+	"emfatic": "stm.emf",
+	"outputType": "code",
+	"outputLanguage": "Java"
+}

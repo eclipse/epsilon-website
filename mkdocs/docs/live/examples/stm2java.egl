@@ -1,0 +1,47 @@
+[*Generates a Java class from a state machine*]
+public class App {
+	
+	public static void main(String[] args) {
+		App app = new App();
+
+		// The statement below will succeed
+		app.process("AABC"); 
+		
+		// The statement below will fail because
+		// there is no transition from A to C
+		// in the state machine
+		app.process("ACB"); 
+	}
+	
+	[*Generate an entry process() method*]
+	public void process(String str) {
+		if (str.isEmpty()) return;
+		
+		[%for(s in State.all){%]
+		if (str.charAt(0) == '[%=s.name%]') {
+			state[%=s.name%](str.substring(1));
+			return;
+		}
+		[%}%]
+		
+		throw new IllegalStateException();
+	}
+
+	[*Generate a method for every state*]
+	[%for (s in State.all){%]
+	public void state[%=s.name%](String str) {
+		if (str.isEmpty()) return;
+		
+		[%for(t in s.outgoing){%]
+		if (str.charAt(0) == '[%=t.to.name%]') {
+			state[%=t.to.name%](str.substring(1));
+			return;
+		}
+		[%}%]
+		
+		throw new IllegalStateException();
+	}
+	
+	[%}%]
+
+}

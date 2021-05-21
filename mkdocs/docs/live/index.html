@@ -12,6 +12,7 @@
 	<script>
     var programPanelButtons;
     var secondModelPanelButtons;
+    var thirdModelPanelButtons;
 
     var modelPanelButtons = [{
         html: buttonHtml("help", "Flexmi language reference"),
@@ -52,7 +53,6 @@
         cls: "sys-button",
         onclick: "toggle('secondMetamodelDiagram', function(){refreshSecondMetamodelDiagram();})"
     }];
-    var thirdModelPanelButtons = [];
     var consolePanelButtons = [{
         html: buttonHtml("clear", "Clear the console"),
         cls: "sys-button",
@@ -136,6 +136,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="?stm2java">
+                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
+                        <span class="caption">State Machine to Java</span>
+                    </a>
+                </li> 
+                <li>
                     <a href="?filegrams">
                         <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
                         <span class="caption">Filegrams</span>
@@ -195,6 +201,7 @@
                 <div data-role="splitter" data-split-mode="vertical" id="thirdModelSplitter">
                     <div id="thirdModelPanel" data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="thirdModelPanelButtons" class="modelPanel">
                         <div class="diagram" id="thirdModelDiagram"></div>
+                        <div id="outputEditor" class="editor" style="display:none"></div>
                     </div>
                 </div>
             </div>
@@ -235,6 +242,7 @@
     <script>
     var language = "eol";
     var outputType = "text";
+    var outputLanguage = "text";
     var json;
     var languageName;
     var secondModelEditable;
@@ -253,7 +261,7 @@
     
     if (questionMark > -1) {
         content = url.substring(questionMark+1, url.length);
-        if (content.length == 8 && !content.startsWith("psl")) {
+        if (content.length == 8 && !content.startsWith("psl") && !content.startsWith("stm")) {
             var xhr = new XMLHttpRequest();
             var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url";
             //var url = "http://localhost:8080";
@@ -312,6 +320,7 @@
         else {language = json.language};
 
         if (json.outputType != null) {outputType = json.outputType;}
+        if (json.outputLanguage != null) {outputLanguage = json.outputLanguage;}
         
         languageName = (language == "flock" ? "Flock" : language.toUpperCase());
         secondModelEditable = !(language == "etl" || language == "flock");
@@ -346,9 +355,10 @@
         emfaticEditor = ace.edit(document.getElementById('emfaticEditor'));
         secondFlexmiEditor = ace.edit(document.getElementById('secondFlexmiEditor'));
         secondEmfaticEditor = ace.edit(document.getElementById('secondEmfaticEditor'));
+        outputEditor = ace.edit(document.getElementById('outputEditor'));
         consoleEditor = ace.edit(document.getElementById('console'));
 
-        editors = [programEditor, flexmiEditor, emfaticEditor, secondFlexmiEditor, secondEmfaticEditor, consoleEditor];
+        editors = [programEditor, flexmiEditor, emfaticEditor, secondFlexmiEditor, secondEmfaticEditor, consoleEditor, outputEditor];
 
         editors.forEach(e => e.setShowPrintMargin(false));
 
@@ -374,6 +384,11 @@
         if (language == "etl") {
             $('#secondModelPanel')[0].dataset.customButtons = "secondModelPanelButtons";
         }
+
+        thirdModelPanelButtons = getThirdModelPanelButtons();
+        //if (language == "egl") {
+        //    $('#thirdModelPanel')[0].dataset.customButtons = "thirdModelPanelButtons";
+        //}
 
         //TODO: Fix "undefined" when fields are empty
         programEditor.getSession().setMode("ace/mode/" + language);
@@ -417,6 +432,39 @@
     function about(event) {
         event.preventDefault();
         $('#about-info-box').data('infobox').open();
+    }
+
+    function setOutputLanguage() {
+
+        Metro.dialog.create({
+            title: "Set Generated Text Language",
+            content: "<p>You can set the language of the generated text to <a href='https://github.com/ajaxorg/ace/tree/master/lib/ace/mode'>any language</a> supported by the <a href='https://ace.c9.io/'>ACE editor</a>. </p><br><input type='text' id='language' data-role='input' value='" + outputLanguage + "'>",
+            actions: [
+                {
+                    caption: "OK",
+                    cls: "js-dialog-close success",
+                    onclick: function(){
+                        outputLanguage = document.getElementById("language").value;
+                        setOutputEditorLanguage();
+                    }
+                },
+                {
+                    caption: "Cancel",
+                    cls: "js-dialog-close"
+                }
+            ]
+        });
+
+        /*
+        var selectedLanguage = prompt("Syntax higlhigthing language (any language supported by the ACE editor)", outputLanguage);
+        if (selectedLanguage != null) {
+            outputLanguage = selectedLanguage;
+            setOutputEditorLanguage();
+        }*/
+    }
+
+    function setOutputEditorLanguage() {
+        outputEditor.getSession().setMode("ace/mode/" + outputLanguage.toLowerCase());
     }
 
     function copyShortenedLink(event) {
@@ -474,6 +522,14 @@
         }];
     }
 
+    function getThirdModelPanelButtons() {
+        return (outputType == "code") ? [{
+            html: buttonHtml("highlight", "Set generated text language"),
+            cls: "sys-button",
+            onclick: "setOutputLanguage()"
+        }] : [];
+    }
+
     function getSecondModelPanelButtons() {
         return secondModelEditable ? [{
             html: buttonHtml("help", "Flexmi language reference"),
@@ -518,6 +574,14 @@
                 $("#thirdModelDiagram").show();
                 setPanelTitle("thirdModelPanel", "HTML");
                 setPanelIcon("thirdModelPanel", "html");
+            }
+            else if (outputType == "code") {
+                toggle("secondModelSplitter");
+                $("#thirdModelDiagram").hide();
+                $("#outputEditor").show();
+                setOutputEditorLanguage();
+                setPanelTitle("thirdModelPanel", "Generated Text");
+                setPanelIcon("thirdModelPanel", "editor");                
             }
             else {
                 toggle("secondModelSplitter");
@@ -574,6 +638,7 @@
             {
                 "language": language,
                 "outputType": outputType,
+                "outputLanguage": outputLanguage,
                 "program": programEditor.getValue(), 
                 "emfatic": emfaticEditor.getValue(), 
                 "flexmi": flexmiEditor.getValue(),
@@ -655,6 +720,11 @@
                         else if (language == "egl") {
                             if (outputType == "dot") {
                                 renderDiagram("thirdModelDiagram", json.generatedText, 'dot');
+                                setConsoleOutput(json.output);
+                            }
+                            else if (outputType == "code") {
+                                outputEditor.getSession().setUseWrapMode(false);
+                                outputEditor.setValue(json.generatedText, 1);
                                 setConsoleOutput(json.output);
                             }
                             else if (outputType == "html") {
