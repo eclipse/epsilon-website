@@ -104,6 +104,14 @@
 	content: url("images/problems.png");
 }
 
+.mif-editor::before {
+	content: url("images/editor.gif");
+}
+
+.mif-highlight::before {
+	content: url("images/highlight.png");
+}
+
 .panel .panel-title .custom-buttons {
 	margin-right: 10px;
 }

@@ -2,5 +2,6 @@
 	"language": "egl",
 	"program": "psl.egl",
 	"flexmi": "psl.flexmi",
-	"emfatic": "psl.emf"
+	"emfatic": "psl.emf",
+	"outputType": "code"
 }
