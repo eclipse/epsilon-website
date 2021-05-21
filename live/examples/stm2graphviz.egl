@@ -1,0 +1,11 @@
+[*Generates a Graphviz graph for the state machine*]
+digraph G {
+	
+	node[fontname="Arial",style="filled",fillcolor="azure"]
+	edge[fontname="Arial"]
+
+	[%for (t in Transition.all){%]
+	[%=t.from.name%] -> [%=t.to.name%]
+	[%}%]
+	
+}

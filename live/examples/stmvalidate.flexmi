@@ -1,0 +1,16 @@
+<?nsuri stm?>
+<!--
+A state machine with four states A, B, C and DE
+and transitions among them
+-->
+<machine name="ABC">
+    <state name="A"/>
+    <state name="B"/>
+    <state name="C"/>
+    <state name="DE"/>
+    <transition from="A" to="B"/>
+    <transition from="B" to="C"/>
+    <transition from="A" to="A"/>
+    <transition from="C" to="A"/>
+    <transition from="C" to="A"/>
+</machine>

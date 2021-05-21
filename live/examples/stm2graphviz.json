@@ -1,0 +1,7 @@
+{
+	"language": "egl",
+	"program": "stm2graphviz.egl",
+	"flexmi": "stm.flexmi",
+	"emfatic": "stm.emf",
+	"outputType": "dot"
+}
