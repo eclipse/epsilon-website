@@ -1,0 +1,28 @@
+context State {
+	
+	// Check that state names consist
+	// of a single character
+	constraint OneCharacter {
+		check: self.name.length() = 1
+		message: "State names must be one character long"
+	}
+
+	// Check that state names are unique
+	constraint Unique {
+		check: State.all.select(s|s.name = self.name).size() = 1
+		message: "Duplicate state name " + self.name
+	}
+}
+
+context Transition {
+	
+	// Check that there are no two transitions
+	// for the same pair of states
+	constraint Unique {
+		check: Transition.all.
+			select(t|t.from = self.from and t.to = self.to).size() = 1
+
+		message: "Duplicate transition from " + self.from.name +
+			" to " + self.to.name
+	}
+}
