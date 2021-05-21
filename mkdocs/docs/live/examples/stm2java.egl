@@ -3,7 +3,7 @@ public class App {
 	
 	public static void main(String[] args) {
 		App app = new App();
-
+		
 		// The statement below will succeed
 		app.process("AABC"); 
 		
