@@ -1028,8 +1028,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#epsilon-evl-hook" class="md-nav__link">
-    Epsilon EVL Hook
+  <a href="#the-evlvalidator-class" class="md-nav__link">
+    The EvlValidator Class
   </a>
   
 </li>
@@ -1043,15 +1043,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#programatically" class="md-nav__link">
-    Programatically
+  <a href="#programmatically" class="md-nav__link">
+    Programmatically
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#via-extension-point" class="md-nav__link">
-    Via Extension Point
+  <a href="#via-the-extension-point" class="md-nav__link">
+    Via the Extension Point
   </a>
   
 </li>
@@ -1117,14 +1117,14 @@
                 
                 
                 <h1 id="evl-emf-validation-integration">EVL-EMF Validation Integration<a class="headerlink" href="#evl-emf-validation-integration" title="Permanent link">&para;</a></h1>
-<p>The Eclipse Modeling Framework (EMF) provides an extensible model validation via the <a href="https://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/EValidator.html">EValidator</a> API. The API allows contributing additional validators for Ecore metamodels via the <code>EValidator.Registry</code>. In this way, you can provide additional validation constraints that will be invoked through the EMF validation mechanism (e.g. <code>Model</code> &rarr; <code>Right-click</code> &rarr; <code>Validate</code>).</p>
-<h2 id="epsilon-evl-hook">Epsilon EVL Hook<a class="headerlink" href="#epsilon-evl-hook" title="Permanent link">&para;</a></h2>
-<p>Epsilon provides a wrapper around the <code>EValidator</code> API that allows using EVL constraints for EMF validation via the <a href="https://archive.eclipse.org/epsilon/2.2/javadoc/org/eclipse/epsilon/evl/emf/validation/EvlValidator.html">EvlValidator</a> class.</p>
+<p>The Eclipse Modeling Framework (EMF) provides an extensible model validation service via the <a href="https://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/EValidator.html">EValidator</a> API. The API allows contributing additional validators for Ecore metamodels via the <code>EValidator.Registry</code> class. In this way, you can provide additional validation constraints for metamodels that will be invoked when models conforming to these metamodels are validated by EMF (e.g. through the <code>Model</code> &rarr; <code>Right-click</code> &rarr; <code>Validate</code> menu in EMF's built-in reflective).</p>
+<h2 id="the-evlvalidator-class">The EvlValidator Class<a class="headerlink" href="#the-evlvalidator-class" title="Permanent link">&para;</a></h2>
+<p>Epsilon provides an implementation of EMF's <code>EValidator</code> interface (<a href="https://archive.eclipse.org/epsilon/2.2/javadoc/org/eclipse/epsilon/evl/emf/validation/EvlValidator.html"><code>EvlValidator</code></a>) that can execute EVL constraints against EMF models.</p>
 <h2 id="registering-evl-constraints">Registering EVL Constraints<a class="headerlink" href="#registering-evl-constraints" title="Permanent link">&para;</a></h2>
-<p>There are two ways to register your EVL constraints for an Ecore metamodel (<code>EPackage</code>): programatically or via an extension point.</p>
-<h3 id="programatically">Programatically<a class="headerlink" href="#programatically" title="Permanent link">&para;</a></h3>
-<p>For this you need to create a new instance of an <code>EvlValidator</code> and then add it to the <code>EValidatorRegistry</code>. Note that if there are existing validators registered for the metamodel, you should not remove them, instead you should combine them in a <code>CompositeEValidator</code>.</p>
-<p>The following snippet outlines the general idea, you need to make your own provisions if you need to validate multiple <code>EPackages</code> with the same validator (e.g. use the <code>EvlValidator#addAdditionalPackage</code> method).</p>
+<p>There are two ways to register your EVL constraints for an Ecore metamodel (<code>EPackage</code>): programmatically or via an extension point.</p>
+<h3 id="programmatically">Programmatically<a class="headerlink" href="#programmatically" title="Permanent link">&para;</a></h3>
+<p>For this you need to create a new instance of an <code>EvlValidator</code> and then add it to the <code>EValidatorRegistry</code>. Note that if there are existing validators registered for the metamodel, you should not remove/overwrite them; instead you should combine them in a <code>CompositeEValidator</code>.</p>
+<p>The following snippet outlines the general idea (you need to make your own provisions if you need to validate multiple <code>EPackages</code> with the same validator (e.g. use the <code>EvlValidator#addAdditionalPackage</code> method)).</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Assuming you have generated the metamodel code</span>
 <span class="n">EPackage</span> <span class="n">ePackage</span> <span class="o">=</span> <span class="n">YourPackage</span><span class="o">.</span><span class="na">eINSTANCE</span><span class="o">;</span>
 
@@ -1147,8 +1147,8 @@
 <span class="o">}</span>
 </code></pre></div>
 
-<h3 id="via-extension-point">Via Extension Point<a class="headerlink" href="#via-extension-point" title="Permanent link">&para;</a></h3>
-<p>Epsilon provides the <code>org.eclipse.epsilon.evl.emf.validation</code> extension point for registering EVL constraints against <code>EPackages</code> in Eclipse. The extension point will handle the <code>EvlValidator</code> instantiation and registration for you:</p>
+<h3 id="via-the-extension-point">Via the Extension Point<a class="headerlink" href="#via-the-extension-point" title="Permanent link">&para;</a></h3>
+<p>Epsilon provides the <code>org.eclipse.epsilon.evl.emf.validation</code> extension point for registering EVL constraints against <code>EPackages</code> in Eclipse. The extension point will handle the <code>EvlValidator</code> instantiation and registration for you.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
    ...
    <span class="nt">&lt;extension</span>
@@ -1166,7 +1166,7 @@
 <span class="nt">&lt;/plugin&gt;</span>
 </code></pre></div>
 
-<p>We recommend setting the <code>compose</code> attribute to <code>true</code>, else you will remove existing validators. You can also add additional metamodels to be accessed by this validator using the <code>additionalNamespaceURI</code> entries. Note that you can also provide your own validator implementation. If omitted, the default <code>EvlValidator</code> will be used (should be enough for most cases).</p>
+<p>We recommend setting the <code>compose</code> attribute to <code>true</code>, else you will overwrite existing validators. You can also specify additional metamodels to be accessed by this validator using the <code>additionalNamespaceURI</code> entries. Note that you can also provide your own validator implementation. If omitted, the default <code>EvlValidator</code> will be used (should be sufficient for most cases).</p>
 <h2 id="runtime-adjustments">Runtime Adjustments<a class="headerlink" href="#runtime-adjustments" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1174,9 +1174,9 @@
 </div>
 <p>There are three important runtime aspects to be taken into consideration when using the EVL-EMF integration.</p>
 <h3 id="error-dialogs">Error Dialogs<a class="headerlink" href="#error-dialogs" title="Permanent link">&para;</a></h3>
-<p>Within Eclipse, Epsilon reports errors via Eclipse's JFace <code>MessageDialog</code> API. This is appropriate when checking constraints via <code>Model</code> &rarr; <code>Right-click</code> &rarr; <code>Validate</code> but can be cumbersome when the validation is integrated into other parts of your UI. To disable error reporting via message dialogs you can use use the <a href="https://archive.eclipse.org/epsilon/2.2/javadoc/org/eclipse/epsilon/evl/emf/validation/EvlValidator.html#setShowErrorDialog(boolean)">EvlValidator#setShowErrorDialog</a> function. You can either call this on you instance or override the <code>isShowErrorDialog()</code> if you extend the <code>EvlValidator</code> class.</p>
+<p>Within Eclipse, Epsilon reports errors via Eclipse's JFace <code>MessageDialog</code> API. This is appropriate when checking constraints via the <code>Model</code> &rarr; <code>Right-click</code> &rarr; <code>Validate</code> menu in EMF's built-in tree-based editor, but can be cumbersome when the validation is integrated into other parts of your UI. To disable error reporting via message dialogs you can use use the <a href="https://archive.eclipse.org/epsilon/2.2/javadoc/org/eclipse/epsilon/evl/emf/validation/EvlValidator.html#setShowErrorDialog(boolean)">EvlValidator#setShowErrorDialog</a> function. You can either call this on you instance or override the <code>isShowErrorDialog()</code> if you extend the <code>EvlValidator</code> class.</p>
 <h3 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h3>
-<p>Epsilon logs errors using the console. As with the dialogs, this can be enabled/disabled. For this, you can use use the <a href="https://archive.eclipse.org/epsilon/2.2/javadoc/org/eclipse/epsilon/evl/emf/validation/EvlValidator.html#setLogErrors(boolean)">EvlValidator#setLogErrors</a> method. Similarly, the <code>isLogErrors()</code> can be overriden.</p>
+<p>Epsilon logs errors in the console. As with the dialogs, this can be enabled/disabled. For this, you can use use the <a href="https://archive.eclipse.org/epsilon/2.2/javadoc/org/eclipse/epsilon/evl/emf/validation/EvlValidator.html#setLogErrors(boolean)">EvlValidator#setLogErrors</a> method. Similarly, the <code>isLogErrors()</code> can be overridden.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The dialogs are part of the logging, so disabling logging will disable the dialogs too.</p>
@@ -1208,7 +1208,7 @@
     <span class="o">...</span>
 </code></pre></div>
 
-<p>The extended diagnostician can also be used to configure any <code>EvlValidators</code> provided via extension points, e.g. to disable logging or dialogs. In this case we assume that all <code>EvlValidators</code> are within <code>CompositeEValidators</code> (adjust if not using them). This implementation uses a <em>brute force</em>' approach; ideally you could search for a specific <code>EPackage</code> instead.</p>
+<p>The extended diagnostician can also be used to configure any <code>EvlValidators</code> provided via extension points, e.g. to disable logging or dialogs. In this case we assume that all <code>EvlValidators</code> are within <code>CompositeEValidators</code> (adjust if not using them). This implementation uses a <em>brute force</em> approach; ideally you should search for a specific <code>EPackage</code> instead.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyDiagnostician</span> <span class="kd">extends</span> <span class="n">Diagnostician</span> <span class="o">{</span>
 
     <span class="kd">public</span> <span class="nf">MyDiagnostician</span><span class="o">()</span> <span class="o">{</span>
