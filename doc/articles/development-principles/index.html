@@ -1102,8 +1102,40 @@
 <ol>
 <li><strong>Collectively own the code</strong>: all of the code is owned by the entire team, and anybody can make changes anywhere. Often, we work together on changes to the core of the platform, or to languages that a particular committer has developed initially (e.g., we might work closely with Antonio on a change to EUnit, because Antonio has done most of the recent work on EUnit).</li>
 <li><strong>Collaborate on design</strong>: although we rarely practice "live" pair programming, we do share patches and discuss important design decisions internally.</li>
-<li><strong>Adhere to code conventions</strong>: we do not place opening brackets on their own line.</li>
+<li><strong>Adhere to code conventions</strong><ul>
+<li>We do not place opening brackets on their own line.</li>
+<li>We always use braces for the bodies of <code>if</code>/<code>while</code>/<code>for</code> statements, unless it's a single statement that can be placed on the same line.</li>
+<li>Avoid printing the stack traces of caught exceptions. When users run Epsilon from Eclipse they won't see these stack traces while and when they use Epsilon as a library, the stack traces will pollute the application's output. If you can handle the exception meaningfully in the <code>catch</code> block, then do it and don't print its stack trace, otherwise throw the exception for the caller to handle.</li>
+</ul>
+</li>
 </ol>
+<div class="highlight"><pre><span></span><code><span class="c1">// Not OK</span>
+<span class="k">if</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// OK</span>
+<span class="k">if</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// Not OK</span>
+<span class="k">if</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="c1">// OK</span>
+<span class="k">if</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="c1">// Not OK</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="n">somethingDangerous</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div>
+
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Favour automated testing</strong>: to provide some assurance that we are shipping working code, we include automated tests along with feature code.</li>
