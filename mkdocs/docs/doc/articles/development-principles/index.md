@@ -13,7 +13,38 @@ In-keeping with agile development principles, we don't use a strict/heavy-weight
 
 1. **Collectively own the code**: all of the code is owned by the entire team, and anybody can make changes anywhere. Often, we work together on changes to the core of the platform, or to languages that a particular committer has developed initially (e.g., we might work closely with Antonio on a change to EUnit, because Antonio has done most of the recent work on EUnit).
 2. **Collaborate on design**: although we rarely practice "live" pair programming, we do share patches and discuss important design decisions internally.
-3. **Adhere to code conventions**: we do not place opening brackets on their own line.
+3. **Adhere to code conventions**
+	- We do not place opening brackets on their own line.
+	- We always use braces for the bodies of `if`/`while`/`for` statements, unless it's a single statement that can be placed on the same line.
+	- Avoid printing the stack traces of caught exceptions. When users run Epsilon from Eclipse they won't see these stack traces while and when they use Epsilon as a library, the stack traces will pollute the application's output. If you can handle the exception meaningfully in the `catch` block, then do it and don't print its stack trace, otherwise throw the exception for the caller to handle.
+
+```java
+// Not OK
+if (true)
+{
+	return false;
+}
+
+// OK
+if (true) {
+	return false;
+}
+
+// Not OK
+if (true)
+	return false;
+
+// OK
+if (true) return false;
+
+// Not OK
+try {
+	somethingDangerous();
+}
+catch (Exception ex) {
+	ex.printStackTrace();
+}
+```
 
 ## Testing
 
