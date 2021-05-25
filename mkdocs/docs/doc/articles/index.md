@@ -15,6 +15,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 ## Epsilon Validation Language
 
 - [EVL-GMF Integration](evl-gmf-integration): This article demonstrates evaluating EVL constraints from within a GMF-based editor.
+- [EVL-EMF Validation Integration](evl-emf-integration): This article demonstrates contributing EVL constraints to EMF's validation framework.
 - [Parallel Execution](parallel-execution): This article explains how to use the parallel module implementations for EOL and rule-based languages like EVL.
 
 ## Epsilon Generation Language
