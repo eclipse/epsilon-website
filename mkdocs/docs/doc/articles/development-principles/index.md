@@ -16,6 +16,7 @@ In-keeping with agile development principles, we don't use a strict/heavy-weight
 3. **Adhere to code conventions**
 	- We do not place opening brackets on their own line.
 	- We always use braces for the bodies of `if`/`while`/`for` statements, unless it's a single statement that can be placed on the same line.
+	- Also, `else if` and `else` statements are not placed in the same line as the closing brace of the previous block, but on the next one.
 	- Avoid printing the stack traces of caught exceptions. When users run Epsilon from Eclipse they won't see these stack traces while and when they use Epsilon as a library, the stack traces will pollute the application's output. If you can handle the exception meaningfully in the `catch` block, then do it and don't print its stack trace, otherwise throw the exception for the caller to handle.
 
 ```java
@@ -36,6 +37,26 @@ if (true)
 
 // OK
 if (true) return false;
+
+// Not OK
+if (something) {
+	do something;
+} else if (other thing) {
+	do other thing;
+} else {
+	do alternative thing;
+}
+
+// OK
+if (something) {
+	do something;
+}
+else if (other thing) {
+	do other thing;
+}
+else {
+	do alternative thing;
+}
 
 // Not OK
 try {
