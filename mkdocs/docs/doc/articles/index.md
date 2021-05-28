@@ -54,6 +54,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 ## Epsilon and other types of models
 
 - [Scripting XML documents using Epsilon](plain-xml): In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed) in Epsilon programs using the PlainXML driver.
+- [Scripting XML documents that conform to an XSD schema using Epsilon](xsd-xml): In this article we demonstrate how you can create, query and modify XML documents backed by an XSD schema in Epsilon.
 - [Scripting CSV files using Epsilon](csv-emc): This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
 - [Scripting Excel spreadsheets using Epsilon](excel): In this article we demonstrate how you can create, query and modify Excel spreadsheets in Epsilon programs.
 - [Scripting HTML documents using Epsilon](html): In this article we demonstrate how you can create, query and modify HTML documents in Epsilon programs using the HTML driver.
