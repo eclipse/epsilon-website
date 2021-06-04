@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -10,8 +8,9 @@
       
       
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -19,22 +18,24 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
-        <meta name="theme-color" content="">
+          
+          
+          <meta name="theme-color" content="#000000">
+        
       
     
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -86,8 +87,12 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="orange">
   
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -105,45 +110,49 @@
     </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Epsilon" class="md-header-nav__button md-logo" aria-label="Epsilon">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Epsilon" class="md-header__button md-logo" aria-label="Epsilon" data-md-component="logo">
       
   <img src="../../assets/images/epsilon-white-background.png" alt="logo">
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Epsilon
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Code Generation (EGL)
             
           </span>
         </div>
-      
+      </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
@@ -160,12 +169,12 @@
 </div>
     
     
-      <div class="md-header-nav__source">
+      <div class="md-header__source">
         
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     Git repository @ Eclipse
@@ -178,8 +187,6 @@
     
     <div class="md-container" data-md-component="container">
       
-        
-      
       
         
       
@@ -187,12 +194,16 @@
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon">
+    <a href="../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon" data-md-component="logo">
       
   <img src="../../assets/images/epsilon-white-background.png" alt="logo">
 
@@ -202,10 +213,10 @@
   
     <div class="md-nav__source">
       
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     Git repository @ Eclipse
@@ -219,48 +230,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../download/" title="Download" class="md-nav__link">
-      Download
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
-      Getting Started
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../live" title="Playground" class="md-nav__link">
-      Playground
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
 
     
       
@@ -268,117 +246,155 @@
       
 
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/" class="md-nav__link">
+        Download
+      </a>
+    </li>
+  
 
+    
+      
+      
+      
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../live" class="md-nav__link">
+        Playground
+      </a>
+    </li>
+  
+
     
-    <label class="md-nav__link" for="nav-5">
-      Documentation
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
         Documentation
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../emc/" title="Model Connectivity" class="md-nav__link">
-      Model Connectivity
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
   
 
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../emc/" class="md-nav__link">
+        Model Connectivity
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+          
+            
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3" checked>
+  
+  
     
-    <label class="md-nav__link" for="nav-5-3">
-      Languages
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Languages" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      <label class="md-nav__link" for="__nav_5_3">
         Languages
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Languages" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Languages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../eol/" title="Object Language (EOL)" class="md-nav__link">
-      Object Language (EOL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eol/" class="md-nav__link">
+        Object Language (EOL)
+      </a>
+    </li>
   
 
-
-  <li class="md-nav__item md-nav__item--active">
+          
+            
+  
+  
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
       
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Code Generation (EGL)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Code Generation (EGL)
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Code Generation (EGL)" class="md-nav__link md-nav__link--active">
-      Code Generation (EGL)
-    </a>
-    
+      </a>
       
+        
 <nav class="md-nav md-nav--secondary">
   
   
@@ -553,654 +569,660 @@
   
   
 </nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evl/" class="md-nav__link">
+        Model Validation (EVL)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etl/" class="md-nav__link">
+        Model Transformation (ETL)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecl/" class="md-nav__link">
+        Model Comparison (ECL)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eml/" class="md-nav__link">
+        Model Merging (EML)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../epl/" class="md-nav__link">
+        Pattern Matching (EPL)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flock/" class="md-nav__link">
+        Model Migration (Flock)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../emg/" class="md-nav__link">
+        Model Generation (EMG)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eunit/" class="md-nav__link">
+        Unit Testing (EUnit)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pinset/" class="md-nav__link">
+        Dataset Extraction (Pinset)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ewl/" class="md-nav__link">
+        Wizard Language (EWL)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../evl/" title="Model Validation (EVL)" class="md-nav__link">
-      Model Validation (EVL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../etl/" title="Model Transformation (ETL)" class="md-nav__link">
-      Model Transformation (ETL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ecl/" title="Model Comparison (ECL)" class="md-nav__link">
-      Model Comparison (ECL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../eml/" title="Model Merging (EML)" class="md-nav__link">
-      Model Merging (EML)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../epl/" title="Pattern Matching (EPL)" class="md-nav__link">
-      Pattern Matching (EPL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../flock/" title="Model Migration (Flock)" class="md-nav__link">
-      Model Migration (Flock)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../emg/" title="Model Generation (EMG)" class="md-nav__link">
-      Model Generation (EMG)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../eunit/" title="Unit Testing (EUnit)" class="md-nav__link">
-      Unit Testing (EUnit)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../pinset/" title="Dataset Extraction (Pinset)" class="md-nav__link">
-      Dataset Extraction (Pinset)
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
-    
-    <label class="md-nav__link" for="nav-5-4">
-      Tools
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Tools" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
         Tools
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../picto/" class="md-nav__link">
+        Picto
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flexmi/" class="md-nav__link">
+        Flexmi
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eugenia/" class="md-nav__link">
+        Eugenia
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../picto/" title="Picto" class="md-nav__link">
-      Picto
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exeed/" class="md-nav__link">
+        Exeed
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelink/" class="md-nav__link">
+        Modelink
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hutn/" class="md-nav__link">
+        HUTN
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../flexmi/" title="Flexmi" class="md-nav__link">
-      Flexmi
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/" class="md-nav__link">
+        Workflow (Ant tasks)
+      </a>
+    </li>
+  
+
           
+        </ul>
+      </nav>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/" class="md-nav__link">
+        Articles
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../eugenia/" title="Eugenia" class="md-nav__link">
-      Eugenia
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/epsilondevs" class="md-nav__link">
+        Screencasts
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" class="md-nav__link">
+        Lectures
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../exeed/" title="Exeed" class="md-nav__link">
-      Exeed
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../modelink/" title="Modelink" class="md-nav__link">
-      Modelink
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../hutn/" title="HUTN" class="md-nav__link">
-      HUTN
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
-      Workflow (Ant tasks)
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../articles/" title="Articles" class="md-nav__link">
-      Articles
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../examples/" title="Examples" class="md-nav__link">
-      Examples
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
-      Screencasts
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
-      Lectures
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+            
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-9" type="checkbox" id="nav-5-9">
-    
-    <label class="md-nav__link" for="nav-5-9">
-      Javadoc
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-9">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      <label class="md-nav__link" for="__nav_5_9">
         Javadoc
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Javadoc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://download.eclipse.org/epsilon/stable-javadoc/" class="md-nav__link">
+        Stable
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://download.eclipse.org/epsilon/interim-javadoc/" class="md-nav__link">
+        Interim
+      </a>
+    </li>
+  
+
           
+        </ul>
+      </nav>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="https://download.eclipse.org/epsilon/stable-javadoc/" title="Stable" class="md-nav__link">
-      Stable
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://download.eclipse.org/epsilon/interim-javadoc/" title="Interim" class="md-nav__link">
-      Interim
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      Issues
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Issues" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
         Issues
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Issues" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Issues
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon" class="md-nav__link">
+        Report a new issue
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial" class="md-nav__link">
+        View open bugs
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement" class="md-nav__link">
+        View enhancement requests
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon" title="Report a new issue" class="md-nav__link">
-      Report a new issue
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced" class="md-nav__link">
+        View issues resolved since the last stable release
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time" class="md-nav__link">
+        View all issues
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial" title="View open bugs" class="md-nav__link">
-      View open bugs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement" title="View enhancement requests" class="md-nav__link">
-      View enhancement requests
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced" title="View issues resolved since the last stable release" class="md-nav__link">
-      View issues resolved since the last stable release
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time" title="View all issues" class="md-nav__link">
-      View all issues
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      Community
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Community" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
         Community
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+            
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
-    
-    <label class="md-nav__link" for="nav-7-1">
-      Who is using Epsilon?
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-1">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
+      
+      <label class="md-nav__link" for="__nav_7_1">
         Who is using Epsilon?
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Who is using Epsilon?
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users/" class="md-nav__link">
+        Industry
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users/education/" class="md-nav__link">
+        Education
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users/open-source/" class="md-nav__link">
+        Open-source Projects
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../users/" title="Industry" class="md-nav__link">
-      Industry
-    </a>
-  </li>
-
-        
           
+        </ul>
+      </nav>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" class="md-nav__link">
+        Who is developing Epsilon?
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.eclipse.org/forums/index.php/f/22/" class="md-nav__link">
+        Forum
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../users/education/" title="Education" class="md-nav__link">
-      Education
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../professional-services" class="md-nav__link">
+        Professional Services
+      </a>
+    </li>
+  
+
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../users/open-source/" title="Open-source Projects" class="md-nav__link">
-      Open-source Projects
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
-      Who is developing Epsilon?
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
-      Forum
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../professional-services" title="Professional Services" class="md-nav__link">
-      Professional Services
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+            
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
-    
-    <label class="md-nav__link" for="nav-7-5">
-      Social Media
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Social Media" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" >
+      
+      <label class="md-nav__link" for="__nav_7_5">
         Social Media
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Social Media" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          Social Media
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/eclipseepsilon" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://youtube.com/epsilondevs" class="md-nav__link">
+        YouTube
+      </a>
+    </li>
+  
+
           
+        </ul>
+      </nav>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="https://twitter.com/eclipseepsilon" title="Twitter" class="md-nav__link">
-      Twitter
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/" class="md-nav__link">
+        Epsilon Labs
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        Frequently Asked Questions
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="https://youtube.com/epsilondevs" title="YouTube" class="md-nav__link">
-      YouTube
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../labs/" title="Epsilon Labs" class="md-nav__link">
-      Epsilon Labs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../faq/" title="Frequently Asked Questions" class="md-nav__link">
-      Frequently Asked Questions
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../branding/" title="Branding" class="md-nav__link">
-      Branding
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../branding/" class="md-nav__link">
+        Branding
+      </a>
+    </li>
+  
 
     
   </ul>
@@ -1210,7 +1232,8 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1393,12 +1416,9 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-                
-                  
                 
                 
                 <h1 id="the-epsilon-generation-language-egl">The Epsilon Generation Language (EGL)<a class="headerlink" href="#the-epsilon-generation-language-egl" title="Permanent link">&para;</a></h1>
@@ -1436,7 +1456,6 @@ class EglShortcutSection {
 EglSection &lt;|-- EglDynamicSection
 EglSection &lt;|-- EglStaticSection
 EglSection &lt;|-- EglShortcutSection</div>
-
 <p>Conceptually, an EGL program comprises one or more <em>sections</em>. The contents of static sections are emitted verbatim and appear directly in the generated text. The contents of dynamic sections are executed and are used to control the text that is generated.</p>
 <p>In its dynamic sections, EGL re-uses EOL's syntax for structuring program control flow, performing model inspection and navigation, and defining custom operations. In addition, EGL provides an EOL object, <code>out</code>, which is used in dynamic sections to perform operations on the generated text, such as appending and removing strings; and specifying the type of text to be generated.</p>
 <p>EGL also provides syntax for defining <em>dynamic output</em> sections, which provide a convenient shorthand for outputting text from within dynamic sections. Similar syntax is often provided by template-based code generators.</p>
@@ -1445,7 +1464,6 @@ EglSection &lt;|-- EglShortcutSection</div>
 <pre class="prettyprint lang-egl"><code>[% for (i in Sequence{1..5}) { %]
 i is [%=i%]
 [% } %]</code></pre>
-
 <p>Executing the EGL template above would produce the generated text below. The <em>[%=expr%]</em> construct (line 2) is shorthand for <em>[% out.print(expr); %]</em>, which appends <em>expr</em> to the output generated by the transformation.</p>
 <div class="highlight"><pre><span></span><code>i is 1
 i is 2
@@ -1453,12 +1471,10 @@ i is 3
 i is 4
 i is 5
 </code></pre></div>
-
 <p>Any EOL statement can be contained in the dynamic sections of an EGL template. For example, the EGL template shown below generates text from a model that conforms to a metamodel that describes an object-oriented system.</p>
 <pre class="prettyprint lang-egl"><code>[% for (c in Class.all) { %]
 [%=c.name%]
 [% } %]</code></pre>
-
 <h3 id="comments-and-markers">Comments and Markers<a class="headerlink" href="#comments-and-markers" title="Permanent link">&para;</a></h3>
 <p>Inside an EGL dynamic section, EOL's comment syntax can be used. Additionally, EGL adds syntax for comment blocks <code>[* this is a comment *]</code> and marker blocks <code>[*- this is a marker *]</code>. Marker blocks are highlighted by the EGL editor and EGL outline view in Eclipse.</p>
 <h3 id="user-defined-operations">User-Defined Operations<a class="headerlink" href="#user-defined-operations" title="Permanent link">&para;</a></h3>
@@ -1468,7 +1484,6 @@ operations.</p>
 [% operation Class declaration() { %]
 [%=self.visibility%] class [%=self.name%] {}
 [% } %]</code></pre>
-
 <p>In EGL, user-defined operations are defined in dynamic sections, but may mix static and dynamic sections in their bodies. Consider, for example, the EGL code in the listing above, which emits a declaration for a Java class (e.g. <code>public class Foo {}</code>). Lines 2-4 declare the operation. Note that the start and the end of the operation's declaration (on lines 2 and 4, respectively) are contained in dynamic sections. The body of the operation (line 3), however, mixes static and dynamic output sections. Finally, note that the operation is invoked from a dynamic section (line 1). It is worth noting that any loose (i.e. not contained in other operations) dynamic or static sections below the first operation of a template will be ignored at runtime.</p>
 <p>When a user-defined operation is invoked, any static or dynamic sections contained in the body of the operation are immediately appended to the generated text. Sometimes, however, it is desirable to manipulate the text produced by an operation before it is appended to the generated text. To this end, EGL defines the <code>@template</code> annotation which can applied to operations to indicate that any text generated by the operation must be returned from the operation and not appended to the generated text. For example, the EGL program in the listing above could be rewritten using a <code>@template</code> annotation, as demonstrated below.</p>
 <pre class="prettyprint lang-egl"><code>[%=c.declaration()%]
@@ -1476,7 +1491,6 @@ operations.</p>
    operation Class declaration() { %]
 [%=self.visibility%] class [%=self.name%] {}
 [% } %]</code></pre>
-
 <p>There is a subtle difference between the way in which standard (i.e. unannotated) operations and <code>@template</code> operations are invoked. Compare the first line of the two listings above. The former uses a dynamic section, because invoking the operation causes the evaluation of its body to be appended to the text generated by this program. By contrast, the latter uses a dynamic output section to append the result returned by the <code>@template</code> operation to the text generated by this program.</p>
 <p>In general, <code>@template</code> operations afford more flexibility than standard operations. For example, line 1 of the listing above could perform some manipulation of the text returned by the <code>declaration()</code> operation before the text is outputted. Therefore, <code>@template</code> operations provide a mechanism for re-using common pieces of a code generator, without sacrificing the flexibility to slightly alter text before it is emitted. Standard (unannotated) operations also permit re-use, but in a less flexible manner.</p>
 <p>Finally, it is worth noting that user-defined operations in EGL do not have to generate text. For example, the following listing illustrates two operations defined in an EGL program that do not generate any text. The former is a query that returns a Boolean value, while the latter alters the model, and does not return a value.</p>
@@ -1489,7 +1503,6 @@ operations.</p>
         delete Class.all.random();
     }
 %]</code></pre>
-
 <h2 id="the-outputbuffer">The OutputBuffer<a class="headerlink" href="#the-outputbuffer" title="Permanent link">&para;</a></h2>
 <p>As an EGL program is executed, text is appended to a data structure termed the <em>OutputBuffer</em>. In every EGL program, the <em>OutputBuffer</em> is accessible via the <code>out</code> built-in variable. The <em>OutputBuffer</em> provides operations for appending to and removing from the buffer, and for merging generated text with existing text.</p>
 <p>For many EGL programs, interacting directly with the <em>OutputBuffer</em> is unnecessary. The contents of static and dynamic output sections are sent directly to the <em>OutputBuffer</em>, and no operation of the <em>OutputBuffer</em> need be invoked directly. However, in cases when generated text must be sent to the <em>OutputBuffer</em> from dynamic sections, or when generated text must be merged with existing text, the operations of <em>OutputBuffer</em> are provided in the table below. The [merge engine section]](#merge-engine) discusses merging generated and existing text, and presents several examples of invoking the operations of <em>OutputBuffer</em>.</p>
@@ -1569,7 +1582,6 @@ operations.</p>
   var t : Template = TemplateFactory.load("ClassNames.egl");
   t.generate("Output.txt");
 %]</code></pre>
-
 <p>In addition to <code>generate</code>, the Template type defines further operations for controlling the context and invocation of EGL templates. The following table lists all of the operations defined on <em>Template</em>, and a further example of their use is given in the sequel.</p>
 <table>
 <thead>
@@ -1663,7 +1675,6 @@ operations.</p>
         implementation.generate(c.name + ".java");
     }
 %]</code></pre>
-
 <h3 id="customising-the-co-ordination-engine">Customising the Co-ordination Engine<a class="headerlink" href="#customising-the-co-ordination-engine" title="Permanent link">&para;</a></h3>
 <p>EGL provides mechanisms for customising the co-ordination engine. Specifically, users can define and use their own <em>TemplateFactory</em>. In many cases, users need not customise the co-ordination engine, and can write transformations using the built-in <em>Template</em> type and <em>TemplateFactory</em> object. If, however, you need more control over the co-ordination process, the discussion in this section might be helpful. Specifically, a custom <em>TemplateFactory</em> is typically used to achieve one or more of the following goals:</p>
 <ol>
@@ -1681,52 +1692,51 @@ operations.</p>
 <h4 id="implementing-a-custom-templatefactory">Implementing a custom TemplateFactory<a class="headerlink" href="#implementing-a-custom-templatefactory" title="Permanent link">&para;</a></h4>
 <p>A custom <em>TemplateFactory</em> is a subclass of <code>EglTemplateFactory</code>. Typically, a custom <em>TemplateFactory</em> is implemented by overriding one of the methods of <code>EglTemplateFactory</code>. For example, the <code>createTemplate</code> method is overriden to specify that a custom type of <em>Template</em> should be created by the <em>TemplateFactory</em>. Likewise, the <code>load</code> and <code>prepare</code> methods can be overriden to change the location from which <em>Template</em>s are constructed.</p>
 <p>A custom <em>Template</em> is a subclass of <code>EglTemplate</code> or, most often, a subclass of <code>EglPersistentTemplate</code>. Again, customisation is typically achieved by overriding methods in the superclass, or by adding new methods. For example, to perform auditing activities whenever a template is used to generate text, the <code>doGenerate</code> method of <code>EglPersistentTemplate</code> is overriden.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglTemplate</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglPersistentTemplate</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.exceptions.EglRuntimeException</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.execute.context.IEglContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.spec.EglTemplateSpecification</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglTemplate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglPersistentTemplate</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.exceptions.EglRuntimeException</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.execute.context.IEglContext</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.spec.EglTemplateSpecification</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountingTemplateFactory</span> 
-<span class="kd">extends</span> <span class="n">EglFileGeneratingTemplateFactory</span> <span class="o">{</span>
+<span class="kd">extends</span> <span class="n">EglFileGeneratingTemplateFactory</span> <span class="p">{</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="n">EglTemplate</span> <span class="nf">createTemplate</span><span class="o">(</span><span class="n">EglTemplateSpecification</span> <span class="n">spec</span><span class="o">)</span> 
-    <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">CountingTemplate</span><span class="o">(</span><span class="n">spec</span><span class="o">,</span>
-                                    <span class="n">context</span><span class="o">,</span>
-                                    <span class="n">getOutputRootOrRoot</span><span class="o">(),</span>
-                                    <span class="n">outputRootPath</span><span class="o">);</span>
-    <span class="o">}</span>   
+    <span class="kd">protected</span> <span class="n">EglTemplate</span> <span class="nf">createTemplate</span><span class="p">(</span><span class="n">EglTemplateSpecification</span> <span class="n">spec</span><span class="p">)</span> 
+    <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CountingTemplate</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span>
+                                    <span class="n">context</span><span class="p">,</span>
+                                    <span class="n">getOutputRootOrRoot</span><span class="p">(),</span>
+                                    <span class="n">outputRootPath</span><span class="p">);</span>
+    <span class="p">}</span>   
 
   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CountingTemplate</span> 
-  <span class="kd">extends</span> <span class="n">EglPersistentTemplate</span> <span class="o">{</span>
+  <span class="kd">extends</span> <span class="n">EglPersistentTemplate</span> <span class="p">{</span>
 
-        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">numberOfCallsToGenerate</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">numberOfCallsToGenerate</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-        <span class="kd">public</span> <span class="nf">CountingTemplate</span><span class="o">(</span><span class="n">EglTemplateSpecification</span> <span class="n">spec</span><span class="o">,</span>
-                                <span class="n">IEglContext</span> <span class="n">context</span><span class="o">,</span>
-                                <span class="n">URI</span> <span class="n">outputRoot</span><span class="o">,</span>
-                                <span class="n">String</span> <span class="n">outputRootPath</span><span class="o">)</span>
-        <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-            <span class="kd">super</span><span class="o">(</span><span class="n">spec</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">outputRoot</span><span class="o">,</span> <span class="n">outputRootPath</span><span class="o">);</span>
-        <span class="o">}</span>
+        <span class="kd">public</span> <span class="nf">CountingTemplate</span><span class="p">(</span><span class="n">EglTemplateSpecification</span> <span class="n">spec</span><span class="p">,</span>
+                                <span class="n">IEglContext</span> <span class="n">context</span><span class="p">,</span>
+                                <span class="n">URI</span> <span class="n">outputRoot</span><span class="p">,</span>
+                                <span class="n">String</span> <span class="n">outputRootPath</span><span class="p">)</span>
+        <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
+            <span class="kd">super</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">outputRoot</span><span class="p">,</span> <span class="n">outputRootPath</span><span class="p">);</span>
+        <span class="p">}</span>
 
 
 
         <span class="nd">@Override</span>
-        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGenerate</span><span class="o">(</span><span class="n">File</span> <span class="n">file</span><span class="o">,</span>
-                                    <span class="n">String</span> <span class="n">targetName</span><span class="o">,</span>
-                                    <span class="kt">boolean</span> <span class="n">overwrite</span><span class="o">,</span>
-                                    <span class="kt">boolean</span> <span class="n">protectRegions</span><span class="o">)</span> 
-        <span class="kd">throws</span> <span class="n">EglRuntimeException</span> <span class="o">{</span>
-            <span class="n">numberOfCallsToGenerate</span><span class="o">++;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGenerate</span><span class="p">(</span><span class="n">File</span> <span class="n">file</span><span class="p">,</span>
+                                    <span class="n">String</span> <span class="n">targetName</span><span class="p">,</span>
+                                    <span class="kt">boolean</span> <span class="n">overwrite</span><span class="p">,</span>
+                                    <span class="kt">boolean</span> <span class="n">protectRegions</span><span class="p">)</span> 
+        <span class="kd">throws</span> <span class="n">EglRuntimeException</span> <span class="p">{</span>
+            <span class="n">numberOfCallsToGenerate</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h4 id="using-a-custom-templatefactory">Using a custom TemplateFactory<a class="headerlink" href="#using-a-custom-templatefactory" title="Permanent link">&para;</a></h4>
 <p>When invoking an EGL program, the user may select a custom <em>TemplateFactory</em>. For example, the EGL development tools provide an Eclipse launch configuration that provides a tab named "Generated Text."On this tab, users can select a <em>TemplateFactory</em> (under the group called "Type of Template Factory"). Note that a <em>TemplateFactory</em> only appears on the launch configuration tab if it has been registered with EGL via an Eclipse extension. Similarly, the <a href="../workflow">workflow language</a> provided by Epsilon allows the specification of custom types of <em>TemplateFactory</em> via the <code>templateFactoryType</code> parameter.</p>
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
@@ -1737,23 +1747,19 @@ operations.</p>
 <pre class="prettyprint lang-egl"><code>[%=out.preserve("/*", "*/", "anId", true,
                 "System.out.println(foo);")
 %]</code></pre>
-
 <p>A protected region declaration may have many lines, and use many EGL variables in the contents definition. To enhance readability, EGL provides two additional methods on the <code>out</code> keyword: <em>startPreserve(String, String, String, Boolean)</em> and <code>stopPreserve</code>. The listing below uses these to generate a protected region.</p>
 <pre class="prettyprint lang-egl"><code>[%=out.startPreserve("/*", "*/", "anId", true)%]
 System.out.println(foo);
 [%=out.stopPreserve()%]</code></pre>
-
 <p>Because an EGL template may contain many protected regions, EGL also provides a separate method to set the target language generated by the current template, <em>setContentType(String)</em>. By default, EGL recognises Java, HTML, Perl and EGL as valid content types. An alternative configuration file can be used to specify further content types. Following a call to <code>setContentType</code>, the first two arguments to the <code>preserve</code> and <code>startPreserve</code> methods can be omitted, as shown in the listing below.</p>
 <pre class="prettyprint lang-egl"><code>[% out.setContentType("Java"); %]
 [%=out.preserve("anId", true, "System.out.println(foo);")%]</code></pre>
-
 <p>Because some languages define more than one style of comment delimiter, EGL allows mixed use of the styles for <code>preserve</code> and <code>startPreserve</code> methods.</p>
 <p>Once a content type has been specified, a protected region may also be declared entirely from a static section, using the syntax in the listing below.</p>
 <pre class="prettyprint lang-egl"><code>[% out.setContentType("Java"); %]
 // protected region anId [on|off] begin
 System.out.println(foo);
 // protected region anId end</code></pre>
-
 <p>When a template that defines one or more protected regions is processed by the EGL execution engine, the target output destinations are examined and existing contents of any protected regions are preserved. If either the output generated by from the template or the existing contents of the target output destination contains protected regions, a merging process is invoked. The table below shows the default behaviour of EGL's merge engine.</p>
 <table>
 <thead>
@@ -1818,22 +1824,20 @@ System.out.println(foo);
     t.setFormatter(f);
     t.generate("formatted.xml");
 %]</code></pre>
-
 <p>To facilitate the re-use of a formatter with many templates, the <em>TemplateFactory</em> object provides the <code>setDefaultFormatter</code> and <code>setDefaultFormatters</code> operations. Templates that are loaded or prepared after a call to <code>setDefaultFormatter</code> or <code>setDefaultFormatters</code> will, by default, use the formatter(s) specified for the <em>TemplateFactory</em>. Note that setting the formatter on a template overwrite any formatter that may have been set on that template by the <em>TemplateFactory</em>.</p>
 <p>The default formatters for an EGL program can also be set when invoking the program. For example, the EGL development tools provide an Eclipse launch configuration that provides a tab named "Generated Text." On this tab, users can configure one or more formatters which will be used as the default formatters for this EGL program. Note that custom formatters only appear on the launch configuration tab if they have been registered with EGL via an Eclipse extension. Similarly, the <a href="../workflow">workflow language</a> provided by Epsilon provides a <code>formatter</code> nested element that can be used to specify one or more default formatters.</p>
 <h3 id="implementing-a-custom-formatter">Implementing a Custom Formatter<a class="headerlink" href="#implementing-a-custom-formatter" title="Permanent link">&para;</a></h3>
 <p>Providing a user-defined formatter involves implementing the <code>Formatter</code> interface (in <code>org.eclipse.epsilon.egl.formatter</code>). For example, the listing below demonstrates a simple formatter that transforms all generated text to uppercase.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.formatter.Formatter</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.formatter.Formatter</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UppercaseFormatter</span> <span class="kd">implements</span> <span class="n">Formatter</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UppercaseFormatter</span> <span class="kd">implements</span> <span class="n">Formatter</span> <span class="p">{</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">format</span><span class="o">(</span><span class="n">String</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">format</span><span class="p">(</span><span class="n">String</span> <span class="n">text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">text</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <p>The set of built-in formatters provided by EGL includes some partial implementations of the <code>Formatter</code> interface that can be re-used to simplify the implementation of custom formatters. For instance, the <code>LanguageFormatter</code> class can correct the indentation of a program written in most languages, when given a start and end regular expression.</p>
 <p>Finally, an Eclipse extension point is provided for custom formatters. Providing an extension that conforms to the custom formatter extension point allows EGL to display the custom formatter in the launch configuration tabs of the EGL development tools.</p>
 <h2 id="traceability">Traceability<a class="headerlink" href="#traceability" title="Permanent link">&para;</a></h2>
@@ -1841,23 +1845,22 @@ System.out.println(foo);
 <p><img alt="Sample output from the traceability
 API." src="../images/TraceView.png" /></p>
 <div class="highlight"><pre><span></span><code><span class="n">EglTemplateFactoryModuleAdapter</span> <span class="n">module</span> <span class="o">=</span> 
-      <span class="k">new</span> <span class="n">EglTemplateFactoryModuleAdapter</span><span class="o">(</span><span class="k">new</span> <span class="n">EglTemplateFactory</span><span class="o">());</span>
+      <span class="k">new</span> <span class="n">EglTemplateFactoryModuleAdapter</span><span class="p">(</span><span class="k">new</span> <span class="n">EglTemplateFactory</span><span class="p">());</span>
 
-    <span class="kt">boolean</span> <span class="n">parsed</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;myTemplate.egl&quot;</span><span class="o">));</span>
+    <span class="kt">boolean</span> <span class="n">parsed</span> <span class="o">=</span> <span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;myTemplate.egl&quot;</span><span class="p">));</span>
 
-    <span class="k">if</span> <span class="o">(</span><span class="n">parsed</span> <span class="o">&amp;&amp;</span> <span class="n">module</span><span class="o">.</span><span class="na">getParseProblems</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-        <span class="n">module</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">parsed</span> <span class="o">&amp;&amp;</span> <span class="n">module</span><span class="p">.</span><span class="na">getParseProblems</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 
-        <span class="n">Template</span> <span class="n">base</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getBaseTemplate</span><span class="o">();</span>
+        <span class="n">Template</span> <span class="n">base</span> <span class="o">=</span> <span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getBaseTemplate</span><span class="p">();</span>
 
         <span class="c1">// traverse the template hierachy</span>
         <span class="c1">// display data </span>
 
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="c1">// error handling</span>
-    <span class="o">}</span>
+    <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <p>Additional resources about EGL/EGX are available <a href="../articles/#epsilon-generation-language">here</a>.</p>
                 
@@ -1870,6 +1873,7 @@ API." src="../images/TraceView.png" /></p>
             </article>
           </div>
         </div>
+        
       </main>
       
         
@@ -1958,19 +1962,13 @@ API." src="../images/TraceView.png" /></p>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
-      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       

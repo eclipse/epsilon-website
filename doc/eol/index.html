@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -10,8 +8,9 @@
       
       
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -19,22 +18,24 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
-        <meta name="theme-color" content="">
+          
+          
+          <meta name="theme-color" content="#000000">
+        
       
     
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -86,8 +87,12 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="orange">
   
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -105,45 +110,49 @@
     </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="../.." title="Epsilon" class="md-header-nav__button md-logo" aria-label="Epsilon">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Epsilon" class="md-header__button md-logo" aria-label="Epsilon" data-md-component="logo">
       
   <img src="../../assets/images/epsilon-white-background.png" alt="logo">
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Epsilon
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Object Language (EOL)
             
           </span>
         </div>
-      
+      </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
@@ -160,12 +169,12 @@
 </div>
     
     
-      <div class="md-header-nav__source">
+      <div class="md-header__source">
         
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     Git repository @ Eclipse
@@ -178,8 +187,6 @@
     
     <div class="md-container" data-md-component="container">
       
-        
-      
       
         
       
@@ -187,12 +194,16 @@
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon">
+    <a href="../.." title="Epsilon" class="md-nav__button md-logo" aria-label="Epsilon" data-md-component="logo">
       
   <img src="../../assets/images/epsilon-white-background.png" alt="logo">
 
@@ -202,10 +213,10 @@
   
     <div class="md-nav__source">
       
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
+<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     Git repository @ Eclipse
@@ -219,48 +230,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../download/" title="Download" class="md-nav__link">
-      Download
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
-      Getting Started
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../live" title="Playground" class="md-nav__link">
-      Playground
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
 
     
       
@@ -268,105 +246,143 @@
       
 
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/" class="md-nav__link">
+        Download
+      </a>
+    </li>
+  
 
+    
+      
+      
+      
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../live" class="md-nav__link">
+        Playground
+      </a>
+    </li>
+  
+
     
-    <label class="md-nav__link" for="nav-5">
-      Documentation
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Documentation" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
         Documentation
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../emc/" title="Model Connectivity" class="md-nav__link">
-      Model Connectivity
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
   
 
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../emc/" class="md-nav__link">
+        Model Connectivity
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+          
+            
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3" checked>
+  
+  
     
-    <label class="md-nav__link" for="nav-5-3">
-      Languages
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Languages" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
+      
+      <label class="md-nav__link" for="__nav_5_3">
         Languages
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Languages" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Languages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
+            
   
-
-
-  <li class="md-nav__item md-nav__item--active">
+  
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
       
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Object Language (EOL)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Object Language (EOL)
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Object Language (EOL)" class="md-nav__link md-nav__link--active">
-      Object Language (EOL)
-    </a>
-    
+      </a>
       
+        
 <nav class="md-nav md-nav--secondary">
   
   
@@ -693,666 +709,672 @@
   
   
 </nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../egl/" class="md-nav__link">
+        Code Generation (EGL)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evl/" class="md-nav__link">
+        Model Validation (EVL)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../etl/" class="md-nav__link">
+        Model Transformation (ETL)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecl/" class="md-nav__link">
+        Model Comparison (ECL)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eml/" class="md-nav__link">
+        Model Merging (EML)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../epl/" class="md-nav__link">
+        Pattern Matching (EPL)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flock/" class="md-nav__link">
+        Model Migration (Flock)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../emg/" class="md-nav__link">
+        Model Generation (EMG)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eunit/" class="md-nav__link">
+        Unit Testing (EUnit)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pinset/" class="md-nav__link">
+        Dataset Extraction (Pinset)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ewl/" class="md-nav__link">
+        Wizard Language (EWL)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../egl/" title="Code Generation (EGL)" class="md-nav__link">
-      Code Generation (EGL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../evl/" title="Model Validation (EVL)" class="md-nav__link">
-      Model Validation (EVL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../etl/" title="Model Transformation (ETL)" class="md-nav__link">
-      Model Transformation (ETL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ecl/" title="Model Comparison (ECL)" class="md-nav__link">
-      Model Comparison (ECL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../eml/" title="Model Merging (EML)" class="md-nav__link">
-      Model Merging (EML)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../epl/" title="Pattern Matching (EPL)" class="md-nav__link">
-      Pattern Matching (EPL)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../flock/" title="Model Migration (Flock)" class="md-nav__link">
-      Model Migration (Flock)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../emg/" title="Model Generation (EMG)" class="md-nav__link">
-      Model Generation (EMG)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../eunit/" title="Unit Testing (EUnit)" class="md-nav__link">
-      Unit Testing (EUnit)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../pinset/" title="Dataset Extraction (Pinset)" class="md-nav__link">
-      Dataset Extraction (Pinset)
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
-    
-    <label class="md-nav__link" for="nav-5-4">
-      Tools
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Tools" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
         Tools
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../picto/" class="md-nav__link">
+        Picto
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flexmi/" class="md-nav__link">
+        Flexmi
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eugenia/" class="md-nav__link">
+        Eugenia
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../picto/" title="Picto" class="md-nav__link">
-      Picto
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exeed/" class="md-nav__link">
+        Exeed
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelink/" class="md-nav__link">
+        Modelink
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hutn/" class="md-nav__link">
+        HUTN
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../flexmi/" title="Flexmi" class="md-nav__link">
-      Flexmi
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/" class="md-nav__link">
+        Workflow (Ant tasks)
+      </a>
+    </li>
+  
+
           
+        </ul>
+      </nav>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/" class="md-nav__link">
+        Articles
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../eugenia/" title="Eugenia" class="md-nav__link">
-      Eugenia
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/epsilondevs" class="md-nav__link">
+        Screencasts
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" class="md-nav__link">
+        Lectures
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../exeed/" title="Exeed" class="md-nav__link">
-      Exeed
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../modelink/" title="Modelink" class="md-nav__link">
-      Modelink
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../hutn/" title="HUTN" class="md-nav__link">
-      HUTN
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../workflow/" title="Workflow (Ant tasks)" class="md-nav__link">
-      Workflow (Ant tasks)
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../articles/" title="Articles" class="md-nav__link">
-      Articles
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../examples/" title="Examples" class="md-nav__link">
-      Examples
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://www.youtube.com/epsilondevs" title="Screencasts" class="md-nav__link">
-      Screencasts
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI" title="Lectures" class="md-nav__link">
-      Lectures
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+            
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-9" type="checkbox" id="nav-5-9">
-    
-    <label class="md-nav__link" for="nav-5-9">
-      Javadoc
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-9">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      <label class="md-nav__link" for="__nav_5_9">
         Javadoc
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Javadoc" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Javadoc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://download.eclipse.org/epsilon/stable-javadoc/" class="md-nav__link">
+        Stable
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://download.eclipse.org/epsilon/interim-javadoc/" class="md-nav__link">
+        Interim
+      </a>
+    </li>
+  
+
           
+        </ul>
+      </nav>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="https://download.eclipse.org/epsilon/stable-javadoc/" title="Stable" class="md-nav__link">
-      Stable
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://download.eclipse.org/epsilon/interim-javadoc/" title="Interim" class="md-nav__link">
-      Interim
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      Issues
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Issues" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
         Issues
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Issues" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Issues
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon" class="md-nav__link">
+        Report a new issue
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial" class="md-nav__link">
+        View open bugs
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement" class="md-nav__link">
+        View enhancement requests
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon" title="Report a new issue" class="md-nav__link">
-      Report a new issue
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced" class="md-nav__link">
+        View issues resolved since the last stable release
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time" class="md-nav__link">
+        View all issues
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial" title="View open bugs" class="md-nav__link">
-      View open bugs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement" title="View enhancement requests" class="md-nav__link">
-      View enhancement requests
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced" title="View issues resolved since the last stable release" class="md-nav__link">
-      View issues resolved since the last stable release
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time" title="View all issues" class="md-nav__link">
-      View all issues
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      Community
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Community" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
         Community
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+            
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
-    
-    <label class="md-nav__link" for="nav-7-1">
-      Who is using Epsilon?
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-1">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" type="checkbox" id="__nav_7_1" >
+      
+      <label class="md-nav__link" for="__nav_7_1">
         Who is using Epsilon?
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Who is using Epsilon?" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Who is using Epsilon?
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users/" class="md-nav__link">
+        Industry
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users/education/" class="md-nav__link">
+        Education
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../users/open-source/" class="md-nav__link">
+        Open-source Projects
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../users/" title="Industry" class="md-nav__link">
-      Industry
-    </a>
-  </li>
-
-        
           
+        </ul>
+      </nav>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" class="md-nav__link">
+        Who is developing Epsilon?
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.eclipse.org/forums/index.php/f/22/" class="md-nav__link">
+        Forum
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../users/education/" title="Education" class="md-nav__link">
-      Education
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../professional-services" class="md-nav__link">
+        Professional Services
+      </a>
+    </li>
+  
+
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../users/open-source/" title="Open-source Projects" class="md-nav__link">
-      Open-source Projects
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://projects.eclipse.org/projects/modeling.epsilon/who" title="Who is developing Epsilon?" class="md-nav__link">
-      Who is developing Epsilon?
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://www.eclipse.org/forums/index.php/f/22/" title="Forum" class="md-nav__link">
-      Forum
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../professional-services" title="Professional Services" class="md-nav__link">
-      Professional Services
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+            
+  
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
-    
-    <label class="md-nav__link" for="nav-7-5">
-      Social Media
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Social Media" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" >
+      
+      <label class="md-nav__link" for="__nav_7_5">
         Social Media
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Social Media" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          Social Media
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://twitter.com/eclipseepsilon" class="md-nav__link">
+        Twitter
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://youtube.com/epsilondevs" class="md-nav__link">
+        YouTube
+      </a>
+    </li>
+  
+
           
+        </ul>
+      </nav>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="https://twitter.com/eclipseepsilon" title="Twitter" class="md-nav__link">
-      Twitter
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/" class="md-nav__link">
+        Epsilon Labs
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        Frequently Asked Questions
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="https://youtube.com/epsilondevs" title="YouTube" class="md-nav__link">
-      YouTube
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../labs/" title="Epsilon Labs" class="md-nav__link">
-      Epsilon Labs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../faq/" title="Frequently Asked Questions" class="md-nav__link">
-      Frequently Asked Questions
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../../branding/" title="Branding" class="md-nav__link">
-      Branding
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../branding/" class="md-nav__link">
+        Branding
+      </a>
+    </li>
+  
 
     
   </ul>
@@ -1362,7 +1384,8 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1697,12 +1720,9 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-                
-                  
                 
                 
                 <h1 id="the-epsilon-object-language-eol">The Epsilon Object Language (EOL)<a class="headerlink" href="#the-epsilon-object-language-eol" title="Permanent link">&para;</a></h1>
@@ -1725,7 +1745,6 @@ import "imported.eol";
 hello(); // main body
 
 // ... more operations could be placed here ...</code></pre>
-
 <div class="mermaid mermaid-100">classDiagram
 class EolModule {
   +main:StatementBlock
@@ -1753,7 +1772,6 @@ EolModule -- StatementBlock: main
 StatementBlock -- Statement: statements *
 Annotation &lt;|-- ExecutableAnnotation
 Annotation &lt;|-- SimpleAnnotation</div>
-
 <h2 id="user-defined-operations">User-Defined Operations<a class="headerlink" href="#user-defined-operations" title="Permanent link">&para;</a></h2>
 <p>In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type.</p>
 <p>For example, consider the code excerpts displayed in the listings below. In the first listing, the operations <code>add1</code> and <code>add2</code> are defined in the context of the built-in <code>Integer</code> type, which is specified before their names. Therefore, they can be invoked in line 1 using the <code>1.add1().add2()</code> expression: the context (the integer <code>1</code>) will be assigned to the special variable <code>self</code>. On the other hand, in the second listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.</p>
@@ -1766,7 +1784,6 @@ operation Integer add1() : Integer {
 operation Integer add2() : Integer {
   return self + 2;
 }</code></pre>
-
 <pre class="prettyprint lang-eol"><code>add2(add1(1)).println();
 
 operation add1(base : Integer) : Integer {
@@ -1776,7 +1793,6 @@ operation add1(base : Integer) : Integer {
 operation add2(base : Integer) : Integer {
   return base + 2;
 }</code></pre>
-
 <p>EOL supports polymorphic operations using a runtime dispatch mechanism. Multiple operations with the same name and parameters can be defined, each defining a distinct context type. For example, in the listing below, the statement in line 1 invokes the test operation defined in line 4, while the statement in line 2 invokes the test operation defined in line 8.</p>
 <pre class="prettyprint lang-eol"><code>"1".test();
 1.test();
@@ -1788,7 +1804,6 @@ operation String test() {
 operation Integer test() {
   (self + "is an integer").println();
 }</code></pre>
-
 <h3 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h3>
 <p>EOL supports two types of annotations: simple and executable. A simple annotation specifies a name and a set of String values while an executable annotation specifies a name and an expression. The concrete syntaxes of simple and executable annotations are displayed in the listing below.</p>
 <pre class="prettyprint lang-eol"><code>// Simple annotation
@@ -1796,12 +1811,10 @@ operation Integer test() {
 
 // Executable annotation
 $name expression</code></pre>
-
 <p>Several examples for simple annotations are shown the listing below. Examples for executable annotations will be given in the following sections.</p>
 <pre class="prettyprint lang-eol"><code>@colors red
 @colors red, blue
 @colors red, blue, green</code></pre>
-
 <p>In stand-alone EOL, annotations are supported only in the context of operations, however as discussed in the sequel, task-specific languages also make use of annotations in their constructs, each with task-specific semantics. EOL operations support three particular annotations: the <code>pre</code> and <code>post</code> executable annotations for specifying pre and post-conditions, and the <code>cached</code> simple annotation, which are discussed below.</p>
 <h3 id="prepost-conditions-in-user-defined-operations">Pre/post conditions in user-defined operations<a class="headerlink" href="#prepost-conditions-in-user-defined-operations" title="Permanent link">&para;</a></h3>
 <p>A number of <code>pre</code> and <code>post</code> executable annotations can be attached to EOL operations to specify the pre- and post-conditions of the operation. When an operation is invoked, before its body is evaluated, the expressions of the <code>pre</code> annotations are evaluated. If all of them return <code>true</code>, the body of the operation is executed, otherwise, an error is raised. Similarly, once the body of the operation has been executed, the expressions of the <code>post</code> annotations of the operation are executed to ensure that the operation has had the desired effects. <code>Pre</code> and <code>post</code> annotations can access all the variables in the parent scope, as well as the parameters of the operation and the object on which the operation is invoked (through the <code>self</code> variable). Moreover, in <code>post</code> annotations, the returned value of the operation is accessible through the built-in <code>_result</code> variable. An example of using pre and post conditions in EOL appears below.</p>
@@ -1813,7 +1826,6 @@ $post _result &gt; self
 operation Integer add(i : Integer) : Integer {
   return self + i;
 }</code></pre>
-
 <p>In line 4 the <code>add</code> operation defines a pre-condition stating that the parameter <code>i</code> must be a positive number. In line 5, the operation defines that result of the operation (<code>_result</code>) must be greater than the number on which it was invoked (<code>self</code>). Thus, when executed in the context of the statement in line 1 the operation succeeds, while when executed in the context of the statement in line 2, the pre-condition is not satisfied and an error is raised.</p>
 <h3 id="operation-result-caching">Operation Result Caching<a class="headerlink" href="#operation-result-caching" title="Permanent link">&para;</a></h3>
 <p>EOL supports caching the results of parameter-less operations using the <code>@cached</code> simple annotation. In the following example, the Fibonacci number of a given Integer is calculated using the <code>fibonacci</code> recursive operation displayed in the listing below. Since the <code>fibonacci</code> operation is declared as <code>cached</code>, it is only executed once for each distinct Integer and subsequent calls on the same target return the cached result. Therefore, when invoked in line 1, the body of the operation is called 16 times. By contrast, if no <code>@cached</code> annotation was specified, the body of the operation would be called recursively 1973 times. This feature is particularly useful for performing queries on large models and caching their results without needing to introduce explicit variables that store the cached results.</p>
@@ -1829,7 +1841,6 @@ operation Integer fibonacci() : Integer {
     return (self-1).fibonacci() + (self-2).fibonacci();
   }
 }</code></pre>
-
 <h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&para;</a></h2>
 <p>As is the case for most programming languages, EOL defines a built-in system of types, illustrated in the figure below. The <code>Any</code> type, inspired by the <code>OclAny</code> type of OCL, is the basis of all types in EOL including Collection types.</p>
 <div class="mermaid mermaid-100">classDiagram
@@ -1854,7 +1865,6 @@ PrimitiveType &lt;|-- String
 PrimitiveType &lt;|-- Boolean
 PrimitiveType &lt;|-- Real
 </div>
-
 <!--![Overview of the type system of
 EOL](images/EOLTypes.png)-->
 
@@ -2492,7 +2502,6 @@ var bob = new Tuple(name = "Bob", age = 28);
 
 // Map Literal
 var charlie = Tuple{"name" = "Charlie", "age" = 36};</code></pre>
-
 <p>If a non-existent property on a Tuple is accessed, an exception is thrown.</p>
 <pre class="prettyprint lang-eol"><code>var p = new Tuple(name = "Alice", age = 32);
 
@@ -2500,21 +2509,17 @@ p.name.substring(0, 3); // "Ali"
 p.age; // 32
 p.occupation.isDefined(); // false
 p.occupation.toUpperCase(); // Property 'occupation' not found</code></pre>
-
 <h3 id="native-types">Native Types<a class="headerlink" href="#native-types" title="Permanent link">&para;</a></h3>
 <p>As discussed earlier, while the purpose of EOL is to provide significant expressive power to enable users to manage models at a high level of abstraction, it is not intended to be a general-purpose programming language. Therefore, there may be cases where users need to implement some functionality that is either not efficiently supported by the EOL runtime (e.g. complex mathematical computations) or that EOL does not support at all (e.g. developing user interfaces, accessing databases). To overcome this problem, EOL enables users to create objects of the underlying programming environment by using <code>native</code> types. A native type specifies an <code>implementation</code> property that indicates the unique identifier for an underlying platform type. For instance, in a Java implementation of EOL the user can instantiate and use a Java class via its class identifier. Thus, the EOL excerpt in the listing below creates a Java window (Swing JFrame) and uses its methods to change its title and dimensions and make it visible.</p>
 <pre class="prettyprint lang-eol"><code>var frame = new Native("javax.swing.JFrame");
 frame.title = "Opened with EOL";
 frame.setBounds(100,100,300,200);
 frame.visible = true;</code></pre>
-
 <p>To pass arguments to the constructor of a native type, a parameter list must be added, such as that in the listing below. </p>
 <pre class="prettyprint lang-eol"><code>var file = new Native("java.io.File")("myfile.txt");
 file.absolutePath.println();</code></pre>
-
 <p>Static types can also be referenced in EOL and stored in a variable for convenience, as shown below.</p>
 <pre class="prettyprint lang-eol"><code>var Collectors = Native("java.util.stream.Collectors");</code></pre>
-
 <h3 id="model-element-types">Model Element Types<a class="headerlink" href="#model-element-types" title="Permanent link">&para;</a></h3>
 <p>A model element type represents a meta-level classifier for model elements. Epsilon intentionally refrains from defining more details about the meaning of a model element type, to be able to support diverse modelling technologies where a type has different semantics. For instance an Ecore EClass, an XSD complex type and a Java class can all be regarded as model element types according to the implementation of the underlying modelling framework.</p>
 <div class="admonition info">
@@ -2561,13 +2566,11 @@ file.absolutePath.println();</code></pre>
 UML14.</p>
 <div class="highlight"><pre><span></span><code>UML14!Core::Foundation::Class.allInstances();
 </code></pre></div>
-
 <h3 id="creating-and-deleting-model-elements">Creating and Deleting Model Elements<a class="headerlink" href="#creating-and-deleting-model-elements" title="Permanent link">&para;</a></h3>
 <p>EOL provides the <code>new</code> and <code>delete</code> operators for creating and deleting model elements as shown below. The <code>new</code> operator is an alias for the <code>createInstance()</code> method above, and can also be used to create instances of primitive and <a href="#native-types">native types</a> (i.e Java classes).</p>
 <pre class="prettyprint lang-eol"><code>var t : new Tree; // Creates a new instance of type Tree
 var p : new Source!Person; // Creates a new Person in model Source
 delete t; // Deletes the element created in line 1</code></pre>
-
 <h2 id="expressions">Expressions<a class="headerlink" href="#expressions" title="Permanent link">&para;</a></h2>
 <h3 id="literal-values">Literal Values<a class="headerlink" href="#literal-values" title="Permanent link">&para;</a></h3>
 <p>EOL provides special syntax constructs to create instances of each of
@@ -2613,7 +2616,6 @@ in <code>(1 = 2) = 3</code>.</p>
 operation Any println() : Any {
   ("Printing : " + self)-&gt;println();
 }</code></pre>
-
 <div class="admonition info">
 <p class="admonition-title">Navigating to the parent/children of model elements</p>
 <p>EOL does not provide a technology-independent way of navigating to the parent/children of a model element. If you need to do this, you should use any methods provided by the underlying modelling platform. For example, as all elements of EMF models are instances of the <a href="https://download.eclipse.org/modeling/emf/emf/javadoc/2.5.0/org/eclipse/emf/ecore/EObject.html">EObject</a> Java class, the <code>me.eContainer()</code> and <code>me.eContents()</code> method calls in EMF return the parent and children of element <code>me</code> respectively.</p>
@@ -2621,7 +2623,6 @@ operation Any println() : Any {
 <h3 id="escaping-reserved-keywords">Escaping Reserved Keywords<a class="headerlink" href="#escaping-reserved-keywords" title="Permanent link">&para;</a></h3>
 <p>Due to the variable nature of (meta-)models and the various domain-specific languages of Epsilon (including EOL itself), feature navigation calls may clash with reserved keywords, leading to a parsing error. Back-ticks can be used to escape such keywords. For example, if a model element contains a feature called <code>operation</code>, then this can be navigated as shown in the listing below.</p>
 <pre class="prettyprint lang-eol"><code>var op = modelElement.`operation`;</code></pre>
-
 <h3 id="arithmetical-and-comparison-operators">Arithmetical and Comparison Operators<a class="headerlink" href="#arithmetical-and-comparison-operators" title="Permanent link">&para;</a></h3>
 <p>EOL provides common operators for performing arithmetical computations and comparisons illustrated in the following two tables respectively.</p>
 <table>
@@ -2792,12 +2793,10 @@ operation Any println() : Any {
 <p>As of version 2.0, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. Note that is also possible to use the <code>else</code> keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.</p>
 <pre class="prettyprint lang-eol"><code>var result = 2+2==4 ? "Yes" else "No";
 return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;</code></pre>
-
 <h3 id="safe-navigation-and-elvis-operator">Safe Navigation and Elvis Operator<a class="headerlink" href="#safe-navigation-and-elvis-operator" title="Permanent link">&para;</a></h3>
 <p>As of version 2.1, EOL supports <a href="https://en.wikipedia.org/wiki/Safe_navigation_operator">safe null navigation</a> <code>?.</code>, which makes it more concise to chain feature call expressions without resorting to defensive <code>null</code> / <code>isDefined()</code> checks. In the following example, the variable <code>result</code> will be <code>null</code>, and the program won't crash since the safe navigation operator is used.</p>
 <pre class="prettyprint lang-eol"><code>var a = null;
 var result = a?.someProperty?.anotherProperty;</code></pre>
-
 <p>The null variant of the <a href="https://en.wikipedia.org/wiki/Elvis_operator#Object_reference_variant">"Elvis operator"</a> can also be used to simplify null check ternary expressions, as shown in the example below.</p>
 <p><pre class="prettyprint lang-eol"><code>var a = null;
 var b = "result";
@@ -2811,7 +2810,6 @@ In other words, <code>a ?= b</code> is equivalent to <code>if (a == null) a = b;
 var b = "result";
 a ?= b;
 assert(a == b);</code></pre>
-
 <h3 id="enumerations">Enumerations<a class="headerlink" href="#enumerations" title="Permanent link">&para;</a></h3>
 <p>EOL provides the # operator for accessing enumeration literals. For example, the VisibilityEnum#vk_public expression returns the value of the literal <code>vk_public</code> of the <code>VisibilityEnum</code> enumeration. For EMF metamodels, <code>VisibilityEnum#vk_public.instance</code> can also be used.</p>
 <h2 id="statements">Statements<a class="headerlink" href="#statements" title="Permanent link">&para;</a></h2>
@@ -2863,7 +2861,6 @@ if (c.isDefined()) {
   i = "somevalue";
 }
 i = 3;</code></pre>
-
 <h3 id="assignment-statement">Assignment Statement<a class="headerlink" href="#assignment-statement" title="Permanent link">&para;</a></h3>
 <p>The assignment statement is used to update the values of variables and properties of native objects and model elements.</p>
 <h5 id="variable-assignment">Variable Assignment<a class="headerlink" href="#variable-assignment" title="Permanent link">&para;</a></h5>
@@ -2872,25 +2869,21 @@ i = 3;</code></pre>
 var b = a;
 a.name = "Customer";
 b.name.println();</code></pre>
-
 <p>On the other hand, in the listing below, in line 1 the a String variable is declared. In line 2 an untyped variable b is declared. In line 3, the value of a is changed to Customer (which is an instance of the primitive <code>String</code> type). This has no effect on b and thus line 4 prints an empty string to the standard output stream.</p>
 <pre class="prettyprint lang-eol"><code>var a : String;
 var b = a;
 a = "Customer";
 b.println();</code></pre>
-
 <h5 id="native-object-property-assignment">Native Object Property Assignment<a class="headerlink" href="#native-object-property-assignment" title="Permanent link">&para;</a></h5>
 <p>When the left hand side of the assignment is a property of a native object, deciding on the legality and providing the semantics of the assignment is delegated to the execution engine. For example, in a Java-based execution engine, given that x is a native object, the statement <code>x.y = a</code> may be interpreted as <code>x.setY(a)</code> or if x is an instance of a map <code>x.put("y",a)</code>. By contrast, in a C# implementation, it can be interpreted as <code>x.y = a</code> since the language natively supports properties in classes.</p>
 <h5 id="model-element-property-assignment">Model Element Property Assignment<a class="headerlink" href="#model-element-property-assignment" title="Permanent link">&para;</a></h5>
 <p>When the left hand side of the assignment is a property of a model element, the model that owns the particular model element (accessible using the <code>ModelRepository.getOwningModel()</code> operation) is responsible for implementing the semantics of the assignment using its <a href="../emc">associated</a> <code>propertyGetter</code>. For example, if x is a model element, the statement <code>x.y = a</code> may be interpreted using the Java code of the first listing below if x belongs to an EMF-based model or using the Java code of the second listing if it belongs to an MDR-based model.</p>
-<div class="highlight"><pre><span></span><code><span class="n">EStructuralFeature</span> <span class="n">feature</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="na">eClass</span><span class="o">().</span><span class="na">getEStructuralFeature</span><span class="o">(</span><span class="s">&quot;y&quot;</span><span class="o">);</span>
-<span class="n">x</span><span class="o">.</span><span class="na">eSet</span><span class="o">(</span><span class="n">feature</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">EStructuralFeature</span> <span class="n">feature</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="na">eClass</span><span class="p">().</span><span class="na">getEStructuralFeature</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">);</span>
+<span class="n">x</span><span class="p">.</span><span class="na">eSet</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
 </code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="n">StructuralFeature</span> <span class="n">feature</span> <span class="o">=</span> <span class="n">findStructuralFeature</span><span class="o">(</span><span class="n">x</span><span class="o">.</span><span class="na">refClass</span><span class="o">(),</span> <span class="s">&quot;y&quot;</span><span class="o">);</span>
-<span class="n">x</span><span class="o">.</span><span class="na">refSetValue</span><span class="o">(</span><span class="n">feature</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">StructuralFeature</span> <span class="n">feature</span> <span class="o">=</span> <span class="n">findStructuralFeature</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="na">refClass</span><span class="p">(),</span> <span class="s">&quot;y&quot;</span><span class="p">);</span>
+<span class="n">x</span><span class="p">.</span><span class="na">refSetValue</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
 </code></pre></div>
-
 <h3 id="special-assignment-statement">Special Assignment Statement<a class="headerlink" href="#special-assignment-statement" title="Permanent link">&para;</a></h3>
 <p>In task-specific languages, an assignment operator with task-specific semantics is often required. Therefore, EOL provides an additional assignment operator. In standalone EOL, the operator has the same semantics with the primary assignment operator discussed above, however task-specific languages can redefine its semantics to implement custom assignment behaviour. For example, consider the simple model-to-model transformation of the listing below where a simple object oriented model is transformed to a simple database model using an ETL transformation.</p>
 <pre class="prettyprint lang-etl"><code>rule Class2Table
@@ -2908,7 +2901,6 @@ rule Attribute2Column
     //c.owningTable = a.owningClass;
     c.owningTable ::= a.owningClass;
 }</code></pre>
-
 <p>The <code>Class2Table</code> rule transforms a <code>Class</code> of the OO model into a <code>Table</code> in the DB model and sets the name of the table to be the same as the name of the class. Rule <code>Atribute2Column</code> transforms an <code>Attribute</code> from the OO model into a <code>Column</code> in the DB model. Except for setting its name (line 12), it also needs to define that the column belongs to the table which corresponds to the class that defines the source attribute. The commented-out assignment statement of line 13 cannot be used for this purpose since it would illegally attempt to assign the owningTable feature of the column to a model element of an inappropriate type (<code>OO!Class</code>). However, the special assignment operator in ETL has <a href="../etl/#overriding-the-semantics-of-the-eol-specialassignmentoperator">language-specific semantics</a>, and thus in line 14 it assigns to the <code>owningTable</code> feature not the class that owns the attribute but its corresponding table (calculated using the <code>Class2Table</code> rule) in the DB model.</p>
 <h3 id="if-statement">If Statement<a class="headerlink" href="#if-statement" title="Permanent link">&para;</a></h3>
 <p>As in most programming languages, an if statement consists of a condition, a block of statements that is executed if the condition is satisfied and (optionally) a block of statements that is executed otherwise. As an example, in the listing below, if variable a holds a value that is greater than 0 the statement of line 3 is executed, otherwise the statement of line 5 is executed.</p>
@@ -2916,7 +2908,6 @@ rule Attribute2Column
   "A is greater than 0".println();
 }
 else { "A is less equal than 0".println(); }</code></pre>
-
 <h3 id="switch-statement">Switch Statement<a class="headerlink" href="#switch-statement" title="Permanent link">&para;</a></h3>
 <p>A switch statement consists of an expression and a set of cases, and can be used to implement multi-branching. Unlike Java/C, switch in EOL doesn't by default fall through to the next case after a successful one. Therefore, it is not necessary to add a <code>break</code> statement after each case. To enable falling through to all subsequent cases you can use the <code>continue</code> statement. Also, unlike Java/C, the switch expression can return anything (not only integers). As an example, when executed, the code in the listing below prints <code>2</code> while the code in the following listing prints <code>2,3,default</code>.</p>
 <pre class="prettyprint lang-eol"><code>var i = "2";
@@ -2927,7 +2918,6 @@ switch (i) {
   case "3" : "3".println();
   default : "default".println(); 
 }</code></pre>
-
 <pre class="prettyprint lang-eol"><code>var i = "2";
 
 switch (i) {
@@ -2936,7 +2926,6 @@ switch (i) {
   case "3" : "3".println();
   default : "default".println(); 
 }</code></pre>
-
 <h3 id="while-statement">While Statement<a class="headerlink" href="#while-statement" title="Permanent link">&para;</a></h3>
 <p>A while statement consists of a condition and a block of statements which are executed as long as the condition is satisfied. For example, in the listing below, the body of the while statement is executed 5 times printing the numbers 0 to 4 to the output console. Inside the body of a <code>while</code> statement, the built-in read-only <code>loopCount</code> integer variable holds the number of times the innermost loop has been executed so far (including the current iteration). Right after entering the loop for the first time and before running the first statement in its body, <code>loopCount</code> is set to 1, and it is incremented after each following iteration.</p>
 <pre class="prettyprint lang-eol"><code>var i : Integer = 0;
@@ -2947,7 +2936,6 @@ while (i &lt; 5) {
   // increment the counter
   i = i+1;
 }</code></pre>
-
 <h3 id="for-statement">For Statement<a class="headerlink" href="#for-statement" title="Permanent link">&para;</a></h3>
 <p>In EOL, for statements are used to iterate the contents of collections. A for statement defines a typed iterator and an iterated collection as well as a block of statements that is executed for every item in the collection that has a kind-of relationship with the type defined by the iterator. As with the majority of programming languages, modifying a collection while iterating it raises a runtime error. To avoid this situation, users can use the clone() built-in operation of the <a href="#collections-and-maps">Collection</a> type.</p>
 <pre class="prettyprint lang-eol"><code>var col : Sequence = Sequence{"a", 1, 2, 2.5, "b"};
@@ -2955,7 +2943,6 @@ for (r : Real in col) {
   r.print();
   if (hasMore){",".print();}
 }</code></pre>
-
 <p>Inside the body of a <code>for</code> statement, two built-in read-only variables are visible: the <code>loopCount</code> integer variable and the <code>hasMore</code> boolean variable. <code>hasMore</code> is used to determine if there are more items if the collection for which the loop will be executed. For example, in the listing below the <code>col</code> heterogeneous <code>Sequence</code> is defined that contains two strings (<code>a</code> and <code>b</code>), two integers (<code>1</code>,<code>2</code>) and one real (<code>2.5</code>). The for loop of line 2 only iterates through the items of the collection that are of kind Real and therefore prints <code>1,2,2.5</code> to the standard output stream.</p>
 <h3 id="break-breakall-and-continue-statements">Break, BreakAll and Continue Statements<a class="headerlink" href="#break-breakall-and-continue-statements" title="Permanent link">&para;</a></h3>
 <p>To exit from for and while loops on demand, EOL provides the break and breakAll statements. The break statement exits the innermost loop while the breakAll statement exits all outer loops as well. On the other hand, to skip a particular loop and proceed with the next one, EOL provides the continue statement. For example, the program in the listing below, prints <code>2,1 3,1</code> to the standard output stream.</p>
@@ -2967,12 +2954,10 @@ for (r : Real in col) {
     (i + "," + j).println();
   }
 }</code></pre>
-
 <h3 id="throw-statement">Throw Statement<a class="headerlink" href="#throw-statement" title="Permanent link">&para;</a></h3>
 <p>EOL provides the throw statement for throwing a value as an Java exception. This is especially useful when invoking EOL scripts from Java code: by catching and processing the exception, the Java code may be able to automatically handle the problem without requiring user input. Any value can be thrown, as shown in the listing below where we throw a number and a string.</p>
 <pre class="prettyprint lang-eol"><code>throw 42;
 throw "Error!";</code></pre>
-
 <h3 id="transaction-statement">Transaction Statement<a class="headerlink" href="#transaction-statement" title="Permanent link">&para;</a></h3>
 <p>The underlying <a href="../emc">EMC layer</a> provides support for transactions in models. To utilize this feature EOL provides the transaction statement. A transaction statement (optionally) defines the models that participate in the transaction. If no models are defined, it is assumed that all the models that are accessible from the enclosing program participate. When the statement is executed, a transaction is started on each participating model. If no errors are raised during the execution of the contained statements, any changes made to model elements are committed. On the other hand, if an error is raised the transaction is rolled back and any changes made to the models in the context of the transaction are undone. The user can also use the abort statement to explicitly exit a transaction and roll-back any changes done in its context. In the listing below, an example of using this feature in a simulation problem is illustrated.</p>
 <pre class="prettyprint lang-eol"><code>var system : System.allInstances.first();
@@ -2998,7 +2983,6 @@ for (i in Sequence {1..100}) {
   }
 
 }</code></pre>
-
 <p>In this problem, a system consists of a number of processors. A processor manages some tasks and can fail at any time. The EOL program in the listing above performs 100 simulation steps, in every one of which 10 random processors from the model (lines 7-11) are marked as failed by setting their <code>failed</code> property to true (line 14). Then, the tasks that the failed processors manage are moved to other processors (line 15). Finally the availability of the system in this state is evaluated.</p>
 <p>After a simulation step, the state of the model has been drastically changed since processors have failed and tasks have been relocated. To be able to restore the model to its original state after every simulation step, each step is executed in the context of a transaction which is explicitly aborted (line 20) after evaluating the availability of the system. Therefore after each simulation step the model is restored to its original state for the next step to be executed.</p>
 <h3 id="extended-properties">Extended Properties<a class="headerlink" href="#extended-properties" title="Permanent link">&para;</a></h3>
@@ -3010,7 +2994,6 @@ class Tree {
   +children: Tree[*]
 }
 Tree -- Tree  </div>
-
 <p>As the Tree metamodel doesn't support a <code>depth</code> property in the Tree metaclass, each Tree has to be associated with its calculated depth using the <code>depths</code> map defined in line 1. Another approach would be to extend the Tree metamodel to support the desired <code>depth</code> property; however, applying this technique every time an additional property is needed for some model management operation would quickly pollute the metamodel with properties of secondary importance.</p>
 <pre class="prettyprint lang-eol"><code>var depths = new Map;
 
@@ -3028,7 +3011,6 @@ operation Tree setDepth(depth : Integer) {
     c.setDepth(depth + 1);
   }
 }</code></pre>
-
 <p>To simplify the code required in such cases, EOL provides the concept of <em>extended properties</em>. In terms of concrete syntax, an extended property is a normal property, the name of which starts with the tilde character (<code>~</code>). With regards to its execution semantics, the first time the value of an extended property of an object is assigned, the property is created and associated with the object. Then, the property can be accessed as a normal property. If an extended property is accessed before it is assigned, it returns <code>null</code>. The listing below demonstrates using a <code>~depth</code> extended property to eliminate the need for using the <code>depths</code> map in the listing that follows it.</p>
 <pre class="prettyprint lang-eol"><code>for (n in Tree.allInstances.select(t|not t.parent.isDefined())) {
   n.setDepth(0);
@@ -3044,7 +3026,6 @@ operation Tree setDepth(depth : Integer) {
     c.setDepth(depth + 1);
   }
 }</code></pre>
-
 <h3 id="context-independent-user-input">Context-Independent User Input<a class="headerlink" href="#context-independent-user-input" title="Permanent link">&para;</a></h3>
 <p>A common assumption in model management languages is that model management tasks are only executed in a batch-manner without human intervention. However, as demonstrated in the sequel, it is often useful for the user to provide feedback that can precisely drive the execution of a model management operation.</p>
 <p>Model management operations can be executed in a number of runtime environments in each of which a different user-input method is more appropriate. For instance when executed in the context of an IDE (such as Eclipse) visual dialogs are preferable, while when executed in the context of a server or from within an ANT workflow, a command-line user input interface is deemed more suitable. To abstract away from the different runtime environments and enable the user to specify user interaction statements uniformly and regardless of the runtime context, EOL provides the <code>IUserInput</code> interface that can be realized in different ways according to the execution environment and attached to the runtime context via the <code>IEolContext.setUserInput(IUserInput userInput)</code> method. The <code>IUserInput</code> specifies the methods presented in the table below.</p>
@@ -3135,6 +3116,7 @@ implementation" src="../images/ConsoleUserInput.png" /></p>
             </article>
           </div>
         </div>
+        
       </main>
       
         
@@ -3223,19 +3205,13 @@ implementation" src="../images/ConsoleUserInput.png" /></p>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
-      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
       
