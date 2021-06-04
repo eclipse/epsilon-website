@@ -4,7 +4,7 @@ Epsilon is a family of languages and tools implemented in Java, for automating c
 
 ## Languages
 
-At the core of Epsilon is the [Epsilon Object Language (EOL)](eol), a scripting language that combines the imperative style of languages like Java/JavaScript with the powerful functional model querying capabilities of [OCL](). On top of EOL, Epsilon provides a number of interoperable task-specific languages for tasks such as code generation, model-to-model transformation and model validation. 
+At the core of Epsilon is the [Epsilon Object Language (EOL)](eol), a scripting language that combines the imperative style of languages like Java/JavaScript with the powerful functional model querying capabilities of [OCL](). On top of EOL, Epsilon provides a number of interoperable task-specific languages for tasks such as code generation, model-to-model transformation and model validation.
 
 Epsilon languages are underpinnd by a [model connectivity layer](emc) that shields them from the specifics of individual modeling technologies and allows them to query and modify models that conform to different technologies in a uniform way (e.g. transform an EMF model into Simulink, cross-validate an XML document and a UML model).
 
@@ -26,7 +26,8 @@ graph TD
 	EGL --> |preprocessed into|EOL
 	EVL --> |extends|EOL
 	Flock --> |extends|EOL
-	
+	Pinset --> |extends|EOL
+
 	EMC["Epsilon Model Connectivity (EMC)"]
 	EMF["Eclipse Modeling<br/> Framework (EMF)"]
 	Simulink["MATLAB<br/>Simulink"]
@@ -48,7 +49,7 @@ graph TD
 	classDef emc fill:#AFAFAF;
 	class EMC emc;
 	classDef language fill:#ffffff;
-	class ETL,Flock,EGL,EVL,ECL,EPL,EML language;
+	class ETL,Flock,EGL,EVL,ECL,EPL,EML,Pinset language;
 	classDef driver fill:#E8E8E8;
 	class EMF,XML,CSV,Simulink,Excel,PTC,Dots driver;
 ```
@@ -67,6 +68,7 @@ Epsilon provides the following task-specific languages, which use EOL as their c
 -   [Epsilon Model Generation Language (EMG)](emg): A language for semi-automated model generation.
 -   [Epsilon Flock](flock): A rule-based transformation language for updating models in response to metamodel changes.
 -   [EUnit](eunit): EUnit is a unit testing framework specialized on testing model management tasks, such as model-to-model transformations, model-to-text transformations or model validation. It is based on Epsilon, but it can be used for model technologies external to Epsilon. Tests are written by combining an EOL script and an [ANT](workflow) buildfile.
+- [Pinset](pinset): A rule-based domain-specific transformation language that allows extracting tabular datasets (i.e. CSVs) from input models.
 
 ## Tools
 
@@ -75,7 +77,7 @@ and utilities for working with models.
 
 ### Graphical Modelling
 
-- [Picto](picto): Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. Compared to existing graphical modelling frameworks such as Sirius and GMF, the main appeal of Picto is that model visualisation takes place in an embedded browser and therefore you can leverage any HTML/SVG/JavaScript-based technology such as D3.js, mxGraph and JointJS. Picto also provides built-in support for the powerful Graphviz and PlantUML textual syntaxes (which are transformed to SVG via the respective tools). A distinguishing feature of Picto is does not require running multiple Eclipse instances as the metamodels, models and visualisation transformations can all reside in the same workspace. 
+- [Picto](picto): Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. Compared to existing graphical modelling frameworks such as Sirius and GMF, the main appeal of Picto is that model visualisation takes place in an embedded browser and therefore you can leverage any HTML/SVG/JavaScript-based technology such as D3.js, mxGraph and JointJS. Picto also provides built-in support for the powerful Graphviz and PlantUML textual syntaxes (which are transformed to SVG via the respective tools). A distinguishing feature of Picto is does not require running multiple Eclipse instances as the metamodels, models and visualisation transformations can all reside in the same workspace.
 - [Eugenia](eugenia): Eugenia is a front-end for GMF. Its aim is to speed up the process of developing a GMF editor and lower the entrance barrier for new developers. To this end, Eugenia enables developers to generate a fully-functional GMF editor only by specifying a few high-level annotations in the Ecore metamodel.
 
 ### Textual Modelling
@@ -91,5 +93,3 @@ and utilities for working with models.
 ### Workflow
 
 - [Workflow](workflow): Epsilon provides a set of ANT tasks to enable developers assemble complex workflows that involve both MDE and non-MDE tasks.
-
-
