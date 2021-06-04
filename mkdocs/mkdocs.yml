@@ -19,6 +19,7 @@ nav:
         - Model Generation (EMG): 'doc/emg.md'
         - Unit Testing (EUnit): 'doc/eunit.md'
         - Dataset Extraction (Pinset): 'doc/pinset.md'
+        - Wizard Language (EWL): 'doc/ewl.md'
     - Tools:
         - Picto: 'doc/picto/index.md'
         - Flexmi: 'doc/flexmi/index.md'
@@ -173,7 +174,7 @@ extra_css:
   - 'assets/stylesheets/slick.css'
   - 'assets/stylesheets/slick-theme.css'
   - 'assets/stylesheets/extra.css'
-  
+
 extra_javascript:
   - https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js
   - 'assets/javascript/mermaid.js'
