@@ -61,6 +61,18 @@ module.execute();
 model.dispose();
 ```
 
+## Adding Variables
+
+You can add variables to your Epsilon program and provide their values from Java as shown below.
+
+```java
+EolModule module = new EolModule();
+module.parse("s.println();");
+module.getContext().getFrameStack().put(Variable.
+	createReadOnlyVariable("s", "Hello World"));
+module.execute();
+``` 
+
 ## Analysing Epsilon Programs
 
 As of version 2.3, Epsilon programs can be analysed using [visitors](https://en.wikipedia.org/wiki/Visitor_pattern). As an example, see the `EolUnparser` class which recursively visits the contents of an `EolModule` and pretty-prints it. To implement your own analyser, you will need to implement the `IEolVisitor` interface for EOL, or the respective `IE*lVisitor` interfaces for other Epsilon-based languages. Using a combination of `E*lUnparser` and your custom visitor, you can easily rewrite Epsilon programs too.
