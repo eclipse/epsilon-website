@@ -186,7 +186,7 @@ rule ClassDiagram {
 }
 ```
 
-In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types. 
+In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types.
 
 ## Interactive Diagrams
 
@@ -200,6 +200,12 @@ Diagrams can also be linked to each other and link back to the models from which
 
 ![](picto-eclassifier.png)
 
+## Multiple Picto Views
+
+It is possible to open several Picto views in the same Eclipse workbench, which can be pinned to the same or different model editors. In the image below, the class diagram on the bottom left is pinned to the Social Network metamodel shown in the top left. The three Picto windows on the bottom right contain different views of the social network model shown in the tree editor of the top right.
+
+![](picto-multiview.png)
+
 ## Editors supported by Picto
 
 * Any editor that implements EMF's `IEditingDomainProvider` interface (e.g. the reflective Ecore editor, Exeed) as long as next to the edited file there is a file with the same name and a `.picto` suffix providing the format of the visualisation and the EGL template to be used (see the XMI-based `socialnetwork.model` and `socialnetwork.model.picto` files in the example directory)
@@ -209,7 +215,7 @@ Diagrams can also be linked to each other and link back to the models from which
 
 ## Extending Picto
 
-Picto provides the following extension points that can be used to extend its functionality. 
+Picto provides the following extension points that can be used to extend its functionality.
 
 | Extension Point                                  | Description                                                  |
 | ------------------------------------------------ | ------------------------------------------------------------ |
@@ -252,6 +258,8 @@ While EMF provides support for [reflective model instantiation](../articles/refl
 ![](picto-risks.png)
 
 ![](picto-gsn.png)
+
+![Table generated with the Pinset language](../pinset/pinset-picto.png)
 
 ## Additional Resources
 
