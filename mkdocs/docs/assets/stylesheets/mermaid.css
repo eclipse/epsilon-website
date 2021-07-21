@@ -46,6 +46,16 @@ g.classLabel text {
 	stroke: var(--mermaid-stroke-color) !important;
 }
 
+#dependencyStart {
+    fill: var(--mermaid-stroke-color) !important;
+    stroke: var(--mermaid-stroke-color) !important;
+}
+
+#dependencyEnd {
+    fill: var(--mermaid-stroke-color) !important;
+    stroke: var(--mermaid-stroke-color) !important;
+}
+
 #compositionStart {
     fill: var(--mermaid-stroke-color) !important;
     stroke: var(--mermaid-stroke-color) !important;
