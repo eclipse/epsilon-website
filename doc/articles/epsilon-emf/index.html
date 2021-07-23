@@ -1068,6 +1068,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-can-i-access-the-emf-resource-that-underpins-an-emfmodel" class="md-nav__link">
+    How can I access the EMF resource that underpins an EMFModel?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-can-i-use-custom-loadsave-options-for-my-emf-model" class="md-nav__link">
     How can I use custom load/save options for my EMF model?
   </a>
@@ -1164,6 +1171,8 @@ Car.all.println();</code></pre>
 <p>Epsilon does not provide a built-in method for this but you can use EObject's <code>eContainer()</code> method if you're working with EMF.</p>
 <h2 id="how-can-i-use-an-existing-emf-resource-in-epsilon">How can I use an existing EMF Resource in Epsilon?<a class="headerlink" href="#how-can-i-use-an-existing-emf-resource-in-epsilon" title="Permanent link">&para;</a></h2>
 <p>To use an existing EMF Resource in your Epsilon program, you should wrap it as an <a href="http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/InMemoryEmfModel.html">InMemoryEmfModel</a> first.</p>
+<h2 id="how-can-i-access-the-emf-resource-that-underpins-an-emfmodel">How can I access the EMF resource that underpins an EMFModel?<a class="headerlink" href="#how-can-i-access-the-emf-resource-that-underpins-an-emfmodel" title="Permanent link">&para;</a></h2>
+<p>You can use the <code>getResource()</code> method of <code>AbstractEmfModel</code> for this.</p>
 <h2 id="how-can-i-use-custom-loadsave-options-for-my-emf-model">How can I use custom load/save options for my EMF model?<a class="headerlink" href="#how-can-i-use-custom-loadsave-options-for-my-emf-model" title="Permanent link">&para;</a></h2>
 <p>You need to un-tick the "Read on load"/"Store on disposal" options in your model configuration dialog and use the underlying EMF resource's load/save methods directly from your EOL code. For example, to turn off the OPTION_DEFER_IDREF_RESOLUTION option, which is on by default in Epsilon's EMF driver and has been reported to <a href="https://www.eclipse.org/forums/index.php/m/1754026/#msg_1754026">slow down loading of models that use "id" attributes</a>, you can use the following EOL statement.</p>
 <div class="highlight"><pre><span></span><code><span class="n">M</span><span class="o">.</span><span class="na">resource</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">Map</span><span class="o">{</span><span class="s">&quot;DEFER_IDREF_RESOLUTION&quot;</span> <span class="o">=</span> <span class="kc">false</span><span class="o">});</span>
