@@ -70,6 +70,10 @@ Epsilon does not provide a built-in method for this but you can use EObject's `e
 ## How can I use an existing EMF Resource in Epsilon?
 To use an existing EMF Resource in your Epsilon program, you should wrap it as an [InMemoryEmfModel](http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/InMemoryEmfModel.html) first.
 
+## How can I access the EMF resource that underpins an EMFModel?
+
+You can use the `getResource()` method of `AbstractEmfModel` for this.
+
 ## How can I use custom load/save options for my EMF model?
 You need to un-tick the "Read on load"/"Store on disposal" options in your model configuration dialog and use the underlying EMF resource's load/save methods directly from your EOL code. For example, to turn off the OPTION_DEFER_IDREF_RESOLUTION option, which is on by default in Epsilon's EMF driver and has been reported to [slow down loading of models that use "id" attributes](https://www.eclipse.org/forums/index.php/m/1754026/#msg_1754026), you can use the following EOL statement.
 
