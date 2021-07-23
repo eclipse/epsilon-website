@@ -70,7 +70,7 @@ Epsilon does not provide a built-in method for this but you can use EObject's `e
 ## How can I use an existing EMF Resource in Epsilon?
 To use an existing EMF Resource in your Epsilon program, you should wrap it as an [InMemoryEmfModel](http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/InMemoryEmfModel.html) first.
 
-## How can I access the EMF Resource that underpins an EMFModel?
+## How can I access the EMF Resource that underpins an EMF model?
 
 You can use the `getResource()` method of `AbstractEmfModel` for this.
 
