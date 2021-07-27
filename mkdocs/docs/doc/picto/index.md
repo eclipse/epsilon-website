@@ -259,7 +259,7 @@ While EMF provides support for [reflective model instantiation](../articles/refl
 
 ![](picto-gsn.png)
 
-![Table generated with the Pinset language](../pinset/pinset-picto.png)
+![Table generated with the Pinset language](../articles/picto-tables/pinset-picto.png)
 
 ## Additional Resources
 

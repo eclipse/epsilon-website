@@ -82,7 +82,8 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 - [Visualising Models with Picto](../picto): Picto is an Eclipse view for visualising models via model-to-text transformation to SVG/HTML. The article introduces Picto and shows the tool in action.
 - [Drill-Down Sequence Diagrams with Picto](picto-sequence-diagrams): This article demonstrates using Picto and its PlantUML integration to generate drill-down sequence diagrams from models conforming to a minimal EMF-based sequence diagram language.
 - [Visualising Models with Picto and Sirius](visualising-models-with-picto-and-sirius): This article demonstrates using Picto to produce dynamic web-based views (pie and bar charts) from Sirius-based models.
-- [Visualising Xtext models with Picto](picto-xtext): This article shows how Picto can be used to produce graphical views from Xtext-based models. 
+- [Visualising Xtext models with Picto](picto-xtext): This article shows how Picto can be used to produce graphical views from Xtext-based models.
+- [Table visualisations with Picto and Pinset](picto-tables): This article shows how to create table views in Picto that render static CSV files or those generated with a Pinset transformation.
 
 ## Workflow (ANT Tasks)
 
@@ -128,4 +129,3 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 - [Publishing to the EpsilonLabs Updatesite](labsupdatesite): This article outlines the process for publishing a plugin (EMC driver/language/tool) from the EpsilonLabs Github organisation to the EpsilonLabs updatesite.
 - [Releasing a new version of Epsilon](release-tasks): This article lists all the tasks required for releasing a version of Epsilon.
 - [Releasing a new version to Maven Central](maven-release): This article outlines how to release a new version of the Epsilon standalone artifacts to Maven Central.
-
