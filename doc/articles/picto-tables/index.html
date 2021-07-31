@@ -1088,12 +1088,12 @@
                 <h1 id="generating-table-views-in-picto">Generating table views in Picto<a class="headerlink" href="#generating-table-views-in-picto" title="Permanent link">&para;</a></h1>
 <p>This article shows how <a href="../../picto">Picto</a> is able to render CSV files as enhanced HTML tables provided by the <a href="https://metroui.org.ua/tables.html">Metro UI</a> library, which include table styling, pagination, column sorting, and search capabilities. It also shows how the <a href="../../pinset">Pinset</a> language can be used to create these table views without having to generate CSVs through a general-purpose model-to-text transformation.</p>
 <h2 id="rendering-csv-files-in-the-workspace">Rendering CSV files in the workspace<a class="headerlink" href="#rendering-csv-files-in-the-workspace" title="Permanent link">&para;</a></h2>
-<p>Picto can be used to render CSV files present in an Eclipse project. The following figure shows the table generated for one of the output CSV files of the <a href="../pinset">Pinset</a> grading example:</p>
+<p>Picto can be used to render CSV files present in an Eclipse project. The following figure shows the table generated for one of the output CSV files of the <a href="../../pinset">Pinset</a> grading example:</p>
 <p><img alt="" src="csv-picto.png" /></p>
 <p>To automatically render CSV files in Picto, the <code>Render verbatim sources</code> option needs to be enabled. This option can be turned on temporarily in the top-right hamburger menu option of the Picto window, or it can be permanently set in the Eclipse preferences (Epsilon &gt; Picto).</p>
 <h2 id="generating-table-views-with-a-pinset-transformation">Generating table views with a Pinset transformation<a class="headerlink" href="#generating-table-views-with-a-pinset-transformation" title="Permanent link">&para;</a></h2>
-<p><a href="../pinset">Pinset</a> is a domain-specific transformation language that allows extracting tabular datasets from models. Initially devised for data analysis purposes, this language can be used along Picto to generate table-based model visualisations.</p>
-<p>In the Social Network example that can be found in the <a href="../picto">Picto</a> documentation, one of the views is generated with the following Pinset dataset rule:</p>
+<p><a href="../../pinset">Pinset</a> is a domain-specific transformation language that allows extracting tabular datasets from models. Initially devised for data analysis purposes, this language can be used along Picto to generate table-based model visualisations.</p>
+<p>In the Social Network example that can be found in the <a href="../../picto">Picto</a> documentation, one of the views is generated with the following Pinset dataset rule:</p>
 <pre class="prettyprint lang-pinset"><code>dataset personStats over person : Person {
     properties[name]
 
@@ -1107,7 +1107,7 @@
 
     column like_meter : liked_by - disliked_by
 }</code></pre>
-<p>Briefly, a Pinset dataset rule contains EOL-based definitions of the different columns of the output dataset. These columns operate over elements of the input model (such as the <code>Person</code> elements in the rule above) to create the dataset rows. In the example, likes and dislikes counts are obtained for each <code>Person</code> element in the dataset. Check the <a href="../pinset">Pinset documentation</a> for more information about other features of the language such as advanced column generators.</p>
+<p>Briefly, a Pinset dataset rule contains EOL-based definitions of the different columns of the output dataset. These columns operate over elements of the input model (such as the <code>Person</code> elements in the rule above) to create the dataset rows. In the example, likes and dislikes counts are obtained for each <code>Person</code> element in the dataset. Check the <a href="../../pinset">Pinset documentation</a> for more information about other features of the language such as advanced column generators.</p>
 <p>To use the above Pinset rule to create a Picto view in the social network model visualisation, the following EGX rule is present in the <code>picto/socialnetwork.egx</code> file:</p>
 <pre class="prettyprint lang-egx"><code>rule Persons2Table {
 
