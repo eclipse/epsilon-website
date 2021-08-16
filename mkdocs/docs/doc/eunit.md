@@ -22,13 +22,13 @@ The previous issues are easier to understand with a concrete example. This secti
 
 For the sake of brevity, only an outline of the JUnit test suite is included. All JUnit test suites are defined as Java classes. This test suite has three methods:
 
-1.  The test setup method (marked with the `@Before` JUnit annotation) loads the required models by creating and configuring instances of . After that, it prepares the transformation by creating and configuring an instance of , adding the input and output models to its model repository.
+1.  The test setup method (marked with the `@Before` JUnit annotation) loads the required models by creating and configuring instances of `EmfModel`. After that, it prepares the transformation by creating and configuring an instance of `EtlModule`, adding the input and output models to its model repository.
 
 2.  The test case itself (marked with `@Test`) runs the ETL transformation and uses the generic comparison algorithm implemented by EMF Compare to perform the model comparison.
 
 3.  The test teardown method (marked with `@After`) disposes of the models.
 
-Several issues can be identified in each part of the test suite. First, test setup is tightly bound to the technologies used: it depends on the API of the and classes, which are both part of Epsilon. Later refactorings in these classes may break existing tests.
+Several issues can be identified in each part of the test suite. First, test setup is tightly bound to the technologies used: it depends on the API of the `EmfModel` and `EtlModule` classes, which are both part of Epsilon. Later refactorings in these classes may break existing tests.
 
 The test case can only be used for a single combination of input and output models. Testing several combinations requires either repeating the same code and therefore making the suite less maintainable, or using parametric testing, which may be wasteful if not all tests need the same combinations of models.
 
@@ -179,7 +179,8 @@ An example invocation of the EUnit Ant task using the most common features is sh
     [failOnErrors="..."]
     [package=".."]
     [toDir="..."]
-    [report="yes|no"]>
+    [report="yes|no"]
+    [saveModelDeltas="yes|no"]>
   (<model     ref="OldName" [as="NewName"]/>)*
   (<uses      ref="x" [as="y"] />)*
   (<exports   ref="z" [as="w"] />)*
@@ -192,10 +193,13 @@ The EUnit Ant task is based on the Epsilon abstract executable module task, inhe
 
 Model references (using the `<model>` nested element) are also inherited from the Epsilon abstract executable module task. These allow model management tasks to refer by name to models previously loaded in the Ant buildfile. However, EUnit implicitly reloads the models after each test case. This ensures that test cases are isolated from each other.
 
+The optional `<modelTasks>` nested element contains a sequence of Ant tasks which will be run after reloading the model references and before running the model setup sections in the EOL file. This allows users to run workflows more advanced than simply reloading model references.
+
 The EUnit Ant task adds several new features to customize the test result reports and perform more advanced model setup. By default, EUnit generates reports in the XML format of the Ant `<junit>` task. This format is also used by many other tools, such as the TestNG unit testing framework, the Jenkins continuous integration server or the JUnit Eclipse plug-ins. To suppress these reports, report must be set to no.
 
 By default, the XML report is generated in the same directory as the Ant buildfile, but it can be changed with the `toDir` attribute. Test names in JUnit are formed by its Java package, class and method: EUnit uses the filename of the EOL script as the class and the name of the EOL operation as the method. By default, the package is set to the string "default": users are encouraged to customize it with the `package` attribute.
-The optional `<modelTasks>` nested element contains a sequence of Ant tasks which will be run after reloading the model references and before running the model setup sections in the EOL file. This allows users to run workflows more advanced than simply reloading model references.
+
+Since v2.4.0, `saveModelDeltas` can be set to `"yes"` to have EUnit save any detected differences to "delta" files in the native representation of the chosen comparator, which will refer to "frozen" copies of the models in a `eunit-tmp` subfolder of the build.
 
 
 #### Helper Targets
@@ -204,7 +208,7 @@ Ant buildfiles for EUnit may include *helper targets*. These targets can be invo
 
 ### EOL script
 
-The Epsilon Object Language script is the second half of the EUnit test suite. EOL annotations are used to tag some of the operations as data binding definitions (`@data` or `@Data`), additional model setup sections (`@model`/`@Model`), test setup and teardown sections (`@setup`/`@Before` and `@teardown`/`@After`) and test cases (`@test`/`@Test`). Suite setup and teardown sections can also be defined with `@suitesetup`/`@BeforeClass` and `@suiteteardown`/`@AfterClass` annotations: these operations will be run before and after all tests, respectively.
+The Epsilon Object Language script is the second half of the EUnit test suite. EOL annotations are used to tag some of the operations as data binding definitions (`@data` or `@Data`), additional model setup sections (`@model`/`@Model`), test setup and teardown sections (`@setup`/`@Before` and `@teardown`/`@After`), and test cases (`@test`/`@Test`). Suite setup and teardown sections can also be defined with `@suitesetup`/`@BeforeClass` and `@suiteteardown`/`@AfterClass` annotations: these operations will be run before and after all tests, respectively.
 
 #### Data bindings
 
