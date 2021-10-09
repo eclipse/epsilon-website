@@ -99,7 +99,7 @@ The transformation consists of two rules:
 Each rule specifies the EGL template that it will invoke (`socialnetwork2graphviz.egl` in both cases here) as well as a set of parameters that Picto needs. The parameters are as follows:
 
 * `path`: A collection of strings that specify the path of the produced view in the Picto tree
-* `icon`: The icon of the view on the Picto tree. Allowed values at the moment are file names (without the extension) of all icon files under [this folder](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/plugins/org.eclipse.epsilon.picto/icons), as well as `diagram-rrggbb` values where `rrggbb` is a hex colour
+* `icon`: The icon of the view on the Picto tree. Allowed values at the moment are file names (without the extension) of all icon files under [this folder](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/plugins/org.eclipse.epsilon.picto/icons), as well as `diagram-rrggbb` values where `rrggbb` is a hex colour. Additionally, you can extend the available set of icons by populating an `icons` folder next to the model-to-text transformation file that defines your Picto visualisation (e.g. next to `socialnetwork.egx`)
 * `format`: The format of the view that the EGL transformation will produce. Built-in formats currently supported are `graphviz-dot`, `graphviz-circo`, `graphviz-neato`, `graphviz-fdp`, `plantuml`, `text`, `html` and `svg`
 * `layers`: A sequence of maps, each of which represents a layer of the view. Each layer needs to define an `id`, a `title` and (optionally), whether it is `active` by default
 
