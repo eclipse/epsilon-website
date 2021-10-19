@@ -47,6 +47,19 @@ Most of your Epsilon programs will need to run against models of some sort. To r
 EmfModel model = new EmfModel();
 model.setMetamodelFile("metamodel.ecore");
 model.setModelFile("model.xmi");
+// Set the name by which the model will be
+// referred to in the program. Useful if
+// the program manages more than one models
+model.setName("M");
+// Read the contents of the model from disk
+// when the model is loaded. Set to false
+// to ignore existing model contents (e.g.
+// if the model is the target of a 
+// model-to-text transformation)
+model.setReadOnLoad(true);
+// Save any changes made to the model
+// when it is disposed
+model.setStoredOnDisposal(true);
 model.load();
 
 // Parses and executes the EOL program
@@ -58,6 +71,9 @@ module.execute();
 
 // Saves any changes to the model
 // and unloads it from memory
+// Use model.getContext().
+//   getModelRepository().dispose() 
+// instead if multiple models are involved
 model.dispose();
 ```
 

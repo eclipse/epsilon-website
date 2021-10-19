@@ -165,9 +165,9 @@ To run Eugenia you need to do the following:
 
 - Create a new general project
 - Create and annotate your Emfatic (or Ecore) metamodel in the root of your project
-- Right-click your Emfatic (or Ecore) metamodel and select Eugenia->Generate GMF editor
+- Right-click your Emfatic (or Ecore) metamodel and select `Eugenia` --> `Generate GMF editor`
 - Launch a new Eclipse instance from the `Run` --> `Eclipse Application` right-click menu of the project that contains your metamodel
-- In the new Eclipse instance create a new General Project and in it create a new Filesystem diagram through the `File` --> `New` --> `Other...` dialog
+- In the new Eclipse instance create a new `General` --> `Project` and in it create a new `Filesystem diagram` through the `File` --> `New` --> `Other...` dialog
 
 ## Re-running Eugenia
 If you now change your metamodel you'll have to rerun Eugenia to generate your updated editor:
