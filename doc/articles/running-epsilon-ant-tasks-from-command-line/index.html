@@ -1423,7 +1423,7 @@ BUILD SUCCESSFUL
 </div>
 </div>
 <p>A complete Gradle example that uses <code>library.flexmi</code> instead of (the XMI-based) <code>library.model</code>, and <code>library.emf</code> instead of <code>library.ecore</code> is shown below.</p>
-<div class="tabbed-set" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">build.gradle</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">build.gradle</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="n">configurations</span> <span class="o">{</span>
     <span class="n">epsilon</span>
 <span class="o">}</span>
@@ -1438,7 +1438,9 @@ BUILD SUCCESSFUL
 <span class="n">dependencies</span> <span class="o">{</span>
     <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0&#39;</span>
     <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow.emf:2.3.0&#39;</span>
-    <span class="n">epsilon</span> <span class="s1">&#39;org.eclipse.emfatic:org.eclipse.emfatic.core:1.1.0-SNAPSHOT&#39;</span>
+    <span class="n">epsilon</span> <span class="o">(</span><span class="s1">&#39;org.eclipse.emfatic:org.eclipse.emfatic.core:1.1.0-SNAPSHOT&#39;</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">exclude</span> <span class="nl">group:</span> <span class="s1">&#39;org.eclipse.platform&#39;</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="n">task</span> <span class="n">setupEpsilonTasks</span> <span class="o">{</span>
@@ -1464,7 +1466,13 @@ BUILD SUCCESSFUL
 </code></pre></div>
 
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">library.flexmi</label><div class="tabbed-content">
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">library.eol</label><div class="tabbed-content">
+<pre class="prettyprint lang-eol"><code>for (writer in Writer.all) {
+    (writer.name + " wrote " + writer.books.title.concat(", ")).println();
+}</code></pre>
+
+</div>
+<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">library.flexmi</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri library?&gt;</span>
 <span class="nt">&lt;library&gt;</span>
   <span class="nt">&lt;writer</span> <span class="na">name=</span><span class="s">&quot;Agatha Christie&quot;</span><span class="nt">/&gt;</span>
@@ -1473,7 +1481,7 @@ BUILD SUCCESSFUL
 </code></pre></div>
 
 </div>
-<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">library.emf</label><div class="tabbed-content">
+<input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><label for="__tabbed_5_4">library.emf</label><div class="tabbed-content">
 <pre class="prettyprint lang-emf"><code>@namespace(uri="library", prefix="")
 package library;
 
