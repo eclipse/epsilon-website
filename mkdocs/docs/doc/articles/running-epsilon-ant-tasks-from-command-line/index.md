@@ -106,6 +106,12 @@ A complete Gradle example that uses `library.flexmi` instead of (the XMI-based) 
     {{{ example("org.eclipse.epsilon.examples.workflow.standalone/flexmi-emfatic/build.gradle", true) }}}
     ```
 
+=== "library.eol"
+
+    ```eol
+    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/library.eol", true) }}}
+    ```
+
 === "library.flexmi"
 
     ```xml
