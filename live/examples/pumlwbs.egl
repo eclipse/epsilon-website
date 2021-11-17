@@ -1,0 +1,7 @@
+[*Generates a PlantUML Work Breakdown Diagram*]
+@startwbs
+* [%=Project.all.first().title%]
+[%for (t in Project.all.first.tasks){%]
+** [%=t.title%]
+[%}%]
+@endwbs
