@@ -4,7 +4,7 @@ In this article we explain the steps required to publish your Epsilon related pr
 
 ## General Recommendations
 
-As part of the process you will configure your project to be under continuous integration (CI) which is automatically triggered when you push changes to master branch of your project's git repository. For this reason it is recommended that you create a *develop* branch in which you make frequent commits/pushes and only merge changes to the master branch when you want to release a new version (you might be interested in [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow%20))
+As part of the process you will configure your project to be under continuous integration (CI) which is automatically triggered when you push changes to master branch of your project's git repository. For this reason it is recommended that you create a *develop* branch in which you make frequent commits/pushes and only merge changes to the master branch when you want to release a new version (you might be interested in [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow))
 
 ## Creating Feature Plugins
 
@@ -42,11 +42,11 @@ Add each of your project plugins to the relevant feature. Remember that your **d
 
 ### Create a *site.xml*
 
-An update site contains information about the features and plugins that can be installed from it. In order to the *EpsilonLabs Updatesite* to know what features/plugins you provide you must add this information to a **site.xml** file. You can find a template [here](http://eclipse.org/epsilon/doc/articles/labsupdatesite/site.xml%20) or in the EpsilonLabs update site [repository](https://github.com/epsilonlabs/epsilonlabs-updatesite%20) (template folder). In a nutshell, site.xml lists the features of your project and provides a **category** (a logical grouping of features) for your project.
+An update site contains information about the features and plugins that can be installed from it. In order to the *EpsilonLabs Updatesite* to know what features/plugins you provide you must add this information to a **site.xml** file. You can find a template [here](http://eclipse.org/epsilon/doc/articles/labsupdatesite/site.xml) or in the EpsilonLabs update site [repository](https://github.com/epsilonlabs/epsilonlabs-updatesite) (template folder). In a nutshell, site.xml lists the features of your project and provides a **category** (a logical grouping of features) for your project.
 
 ## Set up CI
 
-Go to [CircleCi](https://circleci.com%20) and log in using your Github credentials (for simple configuration of the project).
+Go to [CircleCi](https://circleci.com) and log in using your Github credentials (for simple configuration of the project).
 
 ### Add your project to CircleCI
 
@@ -77,11 +77,11 @@ Go to your project
 -   Create a *.circleci* folder in the root of your project
 -   Create a new *config.yml* file
 
-Use the template provided ([here](http://eclipse.org/epsilon/doc/articles/labsupdatesite/config.yml) or in the EpsilonLabs updatesite [repository](https://github.com/epsilonlabs/epsilonlabs-updatesite%20)) and make sure you add an *store_artifacts* entry for each plugin and feature JAR. **Note**: The *path* information points to the *target* folder which will be populated by maven (see next).
+Use the template provided ([here](http://eclipse.org/epsilon/doc/articles/labsupdatesite/config.yml) or in the EpsilonLabs updatesite [repository](https://github.com/epsilonlabs/epsilonlabs-updatesite)) and make sure you add an *store_artifacts* entry for each plugin and feature JAR. **Note**: The *path* information points to the *target* folder which will be populated by maven (see next).
 
 ## Use Maven + Tycho to build your project
 
-We will use a *pom-less* configuration to build your project with maven and Tycho. Create a POM for your project. If you divide your projects into plugins, features, tests folders (btw, you should) you need to create a parent pom, and then a pom for each folder. A *pom-less* build avoids having a pom for each project, but still needs the structure ones. Use the provided template(s), change the artifact id and add your plugins and features to the modules section. The templates are [here](http://eclipse.org/epsilon/doc/articles/labsupdatesite/maven/%20) or in the EpsilonLabs updatesite [repository](https://github.com/epsilonlabs/epsilonlabs-updatesite%20)) To enable the pomless build, copy the [extensions.xml](http://eclipse.org/epsilon/doc/articles/labsupdatesite/extensions.xml) (or in the repository) file to a .mvn folder in your project.
+We will use a *pom-less* configuration to build your project with maven and Tycho. Create a POM for your project. If you divide your projects into plugins, features, tests folders (btw, you should) you need to create a parent pom, and then a pom for each folder. A *pom-less* build avoids having a pom for each project, but still needs the structure ones. Use the provided template(s), change the artifact id and add your plugins and features to the modules section. The templates are [here](http://eclipse.org/epsilon/doc/articles/labsupdatesite/maven/) or in the EpsilonLabs updatesite [repository](https://github.com/epsilonlabs/epsilonlabs-updatesite)) To enable the pomless build, copy the [extensions.xml](http://eclipse.org/epsilon/doc/articles/labsupdatesite/extensions.xml) (or in the repository) file to a .mvn folder in your project.
 
 ### Local maven build
 
@@ -120,4 +120,4 @@ Add a new local repository to the updasite's root pom (the **project** name shou
 
 ## Additional resources
 
-- [Eclipse p2 publisher](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Fp2_publisher.html%20)
+- [Eclipse p2 publisher](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Fp2_publisher.html)
