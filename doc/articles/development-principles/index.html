@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1123,52 +1123,51 @@
 </li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="c1">// Not OK</span>
-<span class="k">if</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-<span class="o">{</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-<span class="o">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
 
 <span class="c1">// OK</span>
-<span class="k">if</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-<span class="o">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
 
 <span class="c1">// Not OK</span>
-<span class="k">if</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 
 <span class="c1">// OK</span>
-<span class="k">if</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 
 <span class="c1">// Not OK</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">something</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">do</span> <span class="n">something</span><span class="o">;</span>
-<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">other</span> <span class="n">thing</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">do</span> <span class="n">other</span> <span class="n">thing</span><span class="o">;</span>
-<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-    <span class="k">do</span> <span class="n">alternative</span> <span class="n">thing</span><span class="o">;</span>
-<span class="o">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">something</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">do</span> <span class="n">something</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="n">thing</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">do</span> <span class="n">other</span> <span class="n">thing</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">do</span> <span class="n">alternative</span> <span class="n">thing</span><span class="p">;</span>
+<span class="p">}</span>
 
 <span class="c1">// OK</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">something</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">do</span> <span class="n">something</span><span class="o">;</span>
-<span class="o">}</span>
-<span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">other</span> <span class="n">thing</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">do</span> <span class="n">other</span> <span class="n">thing</span><span class="o">;</span>
-<span class="o">}</span>
-<span class="k">else</span> <span class="o">{</span>
-    <span class="k">do</span> <span class="n">alternative</span> <span class="n">thing</span><span class="o">;</span>
-<span class="o">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">something</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">do</span> <span class="n">something</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="n">thing</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">do</span> <span class="n">other</span> <span class="n">thing</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="k">do</span> <span class="n">alternative</span> <span class="n">thing</span><span class="p">;</span>
+<span class="p">}</span>
 
 <span class="c1">// Not OK</span>
-<span class="k">try</span> <span class="o">{</span>
-    <span class="n">somethingDangerous</span><span class="o">();</span>
-<span class="o">}</span>
-<span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-<span class="o">}</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="n">somethingDangerous</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">ex</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Favour automated testing</strong>: to provide some assurance that we are shipping working code, we include automated tests along with feature code.</li>

@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1118,7 +1118,6 @@ class Interaction extends Step {
     ref Participant to;
     attr String message;
 }</code></pre>
-
 <h2 id="customer-atm-model">Customer-ATM Model<a class="headerlink" href="#customer-atm-model" title="Permanent link">&para;</a></h2>
 <p>Below is a <a href="../../flexmi">Flexmi</a> model that conforms to the minisd DSL and captures the interaction between a customer and an ATM.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri minisd?&gt;</span>
@@ -1162,7 +1161,6 @@ class Interaction extends Step {
     <span class="nt">&lt;/scenario&gt;</span>
 <span class="nt">&lt;/_&gt;</span>
 </code></pre></div>
-
 <h2 id="visualisation-transformation">Visualisation Transformation<a class="headerlink" href="#visualisation-transformation" title="Permanent link">&para;</a></h2>
 <p>To visualise models that conform to the minisd DSL (such as the Customer-ATM model above) in Picto, we have written a model-to-text transformation in EGL, that transforms such models into a series of PlantUML sequence diagrams.</p>
 <p>In particular, the transformation produces one sequence diagram for the entire model, and one sequence diagram for each execution path in it. The <a href="../../egx">EGX</a> orchestration program and the <a href="../../egl">EGL</a> template are shown below.</p>
@@ -1207,7 +1205,6 @@ rule Alt2PlantUml
     }
 
 }</code></pre>
-
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">minisd2plantuml.egl</label><div class="tabbed-content">
 <pre class="prettyprint lang-egl"><code>@startuml
@@ -1257,7 +1254,6 @@ operation Block toPlantUml() {
     return self.steps.collect(s|s.toPlantUml()).concat("");
 }
 %]</code></pre>
-
 </div>
 </div>
 <h2 id="drill-down-sequence-diagrams">Drill-Down Sequence Diagrams<a class="headerlink" href="#drill-down-sequence-diagrams" title="Permanent link">&para;</a></h2>

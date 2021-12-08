@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1175,9 +1175,13 @@
 <p>Epsilon provides built-in support for querying and transforming Excel spreadsheets through an <a href="https://poi.apache.org/">Apache POI</a>-based <a href="../../emc">EMC</a> driver. This article discusses how you can configure an Epsilon program to query and modify an Excel spreadsheet, and the video below demonstrates the driver in action.</p>
 <iframe width="100%" height="494" src="https://www.youtube.com/embed/tTYGwgzxPMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<details class="info"><summary>Citing the Excel EMC driver in a publication?</summary><p>If you are referring to Epsilon's Excel EMC driver in a publication, please cite <a href="https://link.springer.com/chapter/10.1007/978-3-642-41533-3_3">this paper</a> instead of the website URL.</p>
+<details class="info">
+<summary>Citing the Excel EMC driver in a publication?</summary>
+<p>If you are referring to Epsilon's Excel EMC driver in a publication, please cite <a href="https://link.springer.com/chapter/10.1007/978-3-642-41533-3_3">this paper</a> instead of the website URL.</p>
 </details>
-<details class="bug"><summary>Regression in Epsilon 2.2</summary><p>Due to a regression, the Excel driver is broken in Epsilon 2.2. The driver works well in previous versions (e.g. 2.1) as well as in 2.3. Support for column datatypes and for writing to Excel spreadsheets has improved substantially in 2.3.</p>
+<details class="bug">
+<summary>Regression in Epsilon 2.2</summary>
+<p>Due to a regression, the Excel driver is broken in Epsilon 2.2. The driver works well in previous versions (e.g. 2.1) as well as in 2.3. Support for column datatypes and for writing to Excel spreadsheets has improved substantially in 2.3.</p>
 </details>
 <h2 id="worksheets-columns-and-rows">Worksheets, Columns and Rows<a class="headerlink" href="#worksheets-columns-and-rows" title="Permanent link">&para;</a></h2>
 <p>Essentially, in the Excel driver, by default, worksheets are treated as model element types (e.g. <code>Student</code>, <code>Staff</code>, <code>Module</code> and <code>Mark</code> in the spreadsheet below), columns as their properties (e.g. <code>Mark</code> has <code>student</code>, <code>module</code> and <code>mark</code> properties), and rows are treated as model elements (i.e. there are two students, two members of staff, three modules and two marks in the spreadsheet below).</p>
@@ -1248,7 +1252,6 @@
              <span class="na">target=</span><span class="s">&quot;Student-&gt;id&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/spreadsheet&gt;</span>
 </code></pre></div>
-
 <p>The format of the XML configuration document is as follows:</p>
 <h3 id="worksheet">Worksheet<a class="headerlink" href="#worksheet" title="Permanent link">&para;</a></h3>
 <p>Each worksheet can have an optional name (if a name is not provided, the name of the worksheet on the spreadsheet is used) and acts as a container for <code>column</code> elements.</p>
@@ -1265,25 +1268,21 @@ Student.all.select(s|s.supervisor?.lastname = "Thomas");
 Module.all.select(m|
     Staff.all.exists(s|
         s.firstname="Daniel" and s.teaches.includes(m)));</code></pre>
-
 <h3 id="creating-rows">Creating Rows<a class="headerlink" href="#creating-rows" title="Permanent link">&para;</a></h3>
 <p>As discussed above, worksheets are treated as types and rows as their instances. As such, to create a new row in the <code>Student</code> worksheet, EOL's <code>new</code> operation can be used.</p>
 <pre class="prettyprint lang-eol"><code>var student : new Student;</code></pre>
-
 <h3 id="deleting-rows">Deleting Rows<a class="headerlink" href="#deleting-rows" title="Permanent link">&para;</a></h3>
 <p>To delete a row from a worksheet, EOL's <code>delete</code> operator can be used. When a row is deleted, all the rows that contain cells referring to it through cascade-update references also need to be recursively deleted.</p>
 <pre class="prettyprint lang-eol"><code>var student = Student.all.selectOne(s|s.id = "js502");
 // deletes row 2 of the Student worksheet
 // also deletes row 3 of the Mark worksheet
 delete student;</code></pre>
-
 <h3 id="modifying-cell-values">Modifying Cell Values<a class="headerlink" href="#modifying-cell-values" title="Permanent link">&para;</a></h3>
 <p>If a cell is single-valued, a type-conforming assignment can be used to edit its value. For example, the following listing demonstrates modifying the age and the supervisor of a particular student.</p>
 <pre class="prettyprint lang-eol"><code>var student : Student = ...;
 var supervisor : Staff = ...;
 student.age = 24;
 student.supervisor = supervisor;</code></pre>
-
 <p>If on the other hand the cell is multi-valued, then its values should be handled as a collection. Adding/removing values from property collections has no effect on the spreadsheet; you need to re-assign values instead.</p>
 <pre class="prettyprint lang-eol"><code>// Moves a module between two members of staff
 var from : Staff = ...;
@@ -1295,7 +1294,6 @@ var module : Module = ...;
 // ... but these will
 from.teaches = from.teaches.excluding(module);
 to.teaches = to.teaches.including(module);</code></pre>
-
 <p>Updating the value of a cell can have side effects to other cells that are linked to it through cascade-update references to preserve referential integrity. For example, updating the value of cell A3 in the <code>Module</code> worksheet, should trigger appropriate updates in cells D2 and F2 of the <code>Staff</code> and <code>Student</code> worksheets respectively.</p>
 <h2 id="validating-and-transforming-spreadsheets">Validating and Transforming Spreadsheets<a class="headerlink" href="#validating-and-transforming-spreadsheets" title="Permanent link">&para;</a></h2>
 <p>Of course, we can also validate spreadsheets using <a href="../../evl">EVL</a>, transform them into other models using <a href="../../etl">ETL</a>, and into text using <a href="../../egl">EGL</a>, generate graphical views using <a href="../../picto">Picto</a> etc.</p>
@@ -1306,7 +1304,6 @@ to.teaches = to.teaches.including(module);</code></pre>
           " " + self.lastname + " is overloaded"
     }
 }</code></pre>
-
 <h2 id="creating-spreadsheets">Creating Spreadsheets<a class="headerlink" href="#creating-spreadsheets" title="Permanent link">&para;</a></h2>
 <p>To create a spreadsheet from scratch (e.g. when it is produced by an ETL transformation), we also need to specify an <code>index</code> for each column in the XML mapping file. Below is an EOL program that creates the <a href="#worksheets-columns-and-rows">spreadsheet above</a> from scratch, and the mapping file for it. The complete example is in <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.excel">Epsilon's Git repo</a>.</p>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">create-spreadsheet.eol</label><div class="tabbed-content">
@@ -1337,7 +1334,6 @@ var jane = new Student(id="js502", firstname="Jane",
 // Create the marks
 new Mark(student=joe, module=MSD, mark=62);
 new Mark(student=jane, module=HCI, mark=74);</code></pre>
-
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">mapping.xml</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;spreadsheet&gt;</span>
@@ -1377,7 +1373,6 @@ new Mark(student=jane, module=HCI, mark=74);</code></pre>
              <span class="na">target=</span><span class="s">&quot;Student-&gt;id&quot;</span><span class="nt">/&gt;</span>                      
 <span class="nt">&lt;/spreadsheet&gt;</span>
 </code></pre></div>
-
 </div>
 </div>
 <h2 id="working-with-formulas">Working with Formulas<a class="headerlink" href="#working-with-formulas" title="Permanent link">&para;</a></h2>
@@ -1389,7 +1384,6 @@ calc.b = 2;
 calc.sum = "=A2+B2";
 
 calc.sum.println(); // Prints 3</code></pre>
-
 </div>
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">mapping.xml</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;spreadsheet&gt;</span>
@@ -1400,7 +1394,6 @@ calc.sum.println(); // Prints 3</code></pre>
   <span class="nt">&lt;/worksheet&gt;</span>
 <span class="nt">&lt;/spreadsheet&gt;</span>
 </code></pre></div>
-
 </div>
 </div>
 <h2 id="reflective-access">Reflective Access<a class="headerlink" href="#reflective-access" title="Permanent link">&para;</a></h2>
@@ -1421,7 +1414,6 @@ for (w in M.worksheets) {
     r.println("\t");
   }
 }</code></pre>
-
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../running-epsilon-ant-tasks-from-command-line#excel">This article</a> shows how to use Excel spreadsheets in ANT/Gradle/Maven builds.</li>

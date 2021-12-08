@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1204,7 +1204,6 @@
     <span class="nt">&lt;/book&gt;</span>
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
-
 <h2 id="queryingmodifying-xml-documents-in-eol">Querying/modifying XML documents in EOL<a class="headerlink" href="#queryingmodifying-xml-documents-in-eol" title="Permanent link">&para;</a></h2>
 <p>The PlainXML driver uses predefined naming conventions to allow developers to programmatically access and modify XML documents in a concise way. This section outlines the supported conventions in the form of questions and answers followed by relevant examples.</p>
 <h3 id="how-can-i-access-elements-by-tag-name">How can I access elements by tag name?<a class="headerlink" href="#how-can-i-access-elements-by-tag-name" title="Permanent link">&para;</a></h3>
@@ -1222,7 +1221,6 @@ b.isTypeOf(t_book).println();
 // Check if b is a library
 // Prints 'false'
 b.isTypeOf(t_library).println();</code></pre>
-
 <h3 id="how-can-i-get-the-tag-name-of-an-element">How can I get the tag name of an element?<a class="headerlink" href="#how-can-i-get-the-tag-name-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.tagName</code> property for this purpose. For instance, if <code>b</code> is an element tagged as <code>&lt;book&gt;</code>, <code>b.tagName</code> shall return <code>book</code>. The <code>tagName</code> property is read-only.</p>
 <pre class="prettyprint lang-eol"><code>// Get a random &lt;book&gt; element
@@ -1231,7 +1229,6 @@ var b = t_book.all.random();
 // Print its tag
 // Prints 'book'
 b.tagName.println();</code></pre>
-
 <h3 id="how-can-i-getset-the-attributes-of-an-element">How can I get/set the attributes of an element?<a class="headerlink" href="#how-can-i-getset-the-attributes-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the attribute name as a property of the element object, prefixed by <code>a_</code>. For example, if <code>b</code> is the first book of <code>library.xml</code>, <code>b.a_title</code> will return <code>EMF Eclipse Modeling Framework</code>. Attribute properties are read/write.</p>
 <p>In this example, <code>b.a_pages</code> will return <code>744</code> as a string. For <code>744</code> to be returned as an integer instead, the <code>i_</code> prefix should be used instead (i.e. <code>b.i_pages</code>. The driver also supports the following preffixes: <code>b_</code> for boolean, <code>s_</code> for string (alias of <code>a_</code>) and <code>r_</code> for real values. </p>
@@ -1250,13 +1247,11 @@ total.print();
 // ... the same using collect() and sum() 
 // instead of a for loop
 t_book.all.collect(b|b.i_pages).sum();</code></pre>
-
 <h3 id="how-can-i-getset-the-text-of-an-element">How can I get/set the text of an element?<a class="headerlink" href="#how-can-i-getset-the-text-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.text</code> read-write property for this.</p>
 <pre class="prettyprint lang-eol"><code>for (author in t_author.all) {
     author.text.println();
 }</code></pre>
-
 <h3 id="how-do-i-get-the-parent-of-an-element">How do I get the parent of an element?<a class="headerlink" href="#how-do-i-get-the-parent-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.parentNode</code> read-only property for this.</p>
 <pre class="prettyprint lang-eol"><code>// Get a random book
@@ -1265,7 +1260,6 @@ var b = t_book.all.random();
 // Print the tag of its parent node
 // Prints 'library'
 b.parentNode.tagName.println();</code></pre>
-
 <h3 id="how-do-i-get-the-children-of-an-element">How do I get the children of an element?<a class="headerlink" href="#how-do-i-get-the-children-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.children</code> read-only property for this.</p>
 <pre class="prettyprint lang-eol"><code>// Get the &lt;library&gt; element
@@ -1276,7 +1270,6 @@ for (b in lib.children) {
     // Print the title of each child
     b.a_title.println();
 }</code></pre>
-
 <h3 id="how-do-i-get-child-elements-with-a-specific-tag-name">How do I get child elements with a specific tag name?<a class="headerlink" href="#how-do-i-get-child-elements-with-a-specific-tag-name" title="Permanent link">&para;</a></h3>
 <p>Using what you've learned so far, you can do this using a combination of the <code>.children</code> property and the select/selectOne() operations. However, the driver also supports <code>e_</code> and <code>c_</code>-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. <code>e_</code> and <code>c_</code> properties are read-only.</p>
 <pre class="prettyprint lang-eol"><code>// Get a random book
@@ -1299,7 +1292,6 @@ b.children.selectOne(p|p.tagName = "published").text.println();
 // we only want one element, 
 // not a collection of them)
 b.e_published.text.println();</code></pre>
-
 <h3 id="how-do-i-create-an-element">How do I create an element?<a class="headerlink" href="#how-do-i-create-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>new</code> operator for this. </p>
 <pre class="prettyprint lang-eol"><code>// Check how many &lt;books&gt; are in the library
@@ -1312,7 +1304,6 @@ var b = new t_book;
 // Check again
 // Prints '4'
 t_book.all.size().println();</code></pre>
-
 <h3 id="how-can-i-add-a-child-to-an-existing-element">How can I add a child to an existing element?<a class="headerlink" href="#how-can-i-add-a-child-to-an-existing-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.appendChild(child)</code> operation for this.</p>
 <pre class="prettyprint lang-eol"><code>// Create a new book
@@ -1323,11 +1314,9 @@ var lib = t_library.all.first();
 
 // Add the book to the library
 lib.appendChild(b);</code></pre>
-
 <h3 id="how-can-i-set-the-root-element-of-an-xml-document">How can I set the root element of an XML document?<a class="headerlink" href="#how-can-i-set-the-root-element-of-an-xml-document" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.root</code> property for this.</p>
 <pre class="prettyprint lang-eol"><code>XMLDoc.root = new t_library;</code></pre>
-
 <h2 id="adding-an-xml-document-to-your-launch-configuration">Adding an XML document to your launch configuration<a class="headerlink" href="#adding-an-xml-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
 <p>To add an XML document to your Epsilon launch configuration, you need to select "Plain XML document" from the list of available model types.</p>
 <p><img alt="" src="select.png" /></p>
@@ -1349,22 +1338,20 @@ lib.appendChild(b);</code></pre>
     <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <h2 id="loading-an-xml-document-through-java-code">Loading an XML document through Java code<a class="headerlink" href="#loading-an-xml-document-through-java-code" title="Permanent link">&para;</a></h2>
 <p>The following excerpt demonstrates using XML models using Epsilon's Java API.</p>
-<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="o">();</span>
-<span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">));</span>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
 
-<span class="n">PlainXmlModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PlainXmlModel</span><span class="o">();</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;M&quot;</span><span class="o">);</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setFile</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">));</span>
-<span class="n">model</span><span class="o">.</span><span class="na">load</span><span class="o">();</span>
+<span class="n">PlainXmlModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PlainXmlModel</span><span class="p">();</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setFile</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
+<span class="n">model</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
 
-<span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getModelRepository</span><span class="o">().</span><span class="na">addModel</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
-<span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">setModule</span><span class="o">(</span><span class="n">module</span><span class="o">);</span>
-<span class="n">module</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setModule</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 </code></pre></div>
-
 <h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html">http://java.sun.com/javase/6/docs/api/org/w3c/dom/Element.html</a>: Complete list of the operations that are applicable to XML elements</li>

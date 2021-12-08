@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1092,7 +1092,6 @@
 <span class="c">&lt;!-- Start directly from the Ecore model --&gt;</span>
 <span class="nt">&lt;epsilon.eugenia</span> <span class="na">src=</span><span class="s">&quot;myfile.ecore&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
-
 <div class="admonition warning important">
 <p class="admonition-title">Warning</p>
 <p>The Eugenia Ant task requires that the Ant buildfile is run from the same JRE as the workspace. Please check the <a href="../../../doc/workflow">Workflow</a> documentation for instructions on how to do it.</p>
@@ -1118,7 +1117,6 @@ Optionally, the Ant task can run only some of these steps. The <code>firstStep</
 <span class="c">&lt;!-- Only runs the gmf and gmfgen steps --&gt;</span>
 <span class="nt">&lt;epsilon.eugenia</span> <span class="na">src=</span><span class="s">&quot;myfile.ecore&quot;</span> <span class="na">firstStep=</span><span class="s">&quot;gmf&quot;</span> <span class="na">lastStep=</span><span class="s">&quot;gmfgen&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
-
 <h2 id="using-extra-models-for-polishing">Using extra models for polishing<a class="headerlink" href="#using-extra-models-for-polishing" title="Permanent link">&para;</a></h2>
 <p>Additional models to be used in a polishing transformation can be specified through the <code>&lt;model&gt;</code> nested element. <code>&lt;model&gt;</code> has three attributes:</p>
 <ul>
@@ -1135,7 +1133,6 @@ As an example, consider the following fragment:</li>
   <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Labels&quot;</span> <span class="na">step=</span><span class="s">&quot;gmf&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/epsilon.eugenia&gt;</span>
 </code></pre></div>
-
 <p>This example will make the Labels model available to the <code>Ecore2GMF.eol</code> polishing transformation, which is part of the <code>gmf</code> step.</p>
                 
               

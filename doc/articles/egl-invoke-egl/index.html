@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1063,7 +1063,6 @@
   [%}%]
   &lt;/authors&gt;
 &lt;/book&gt;</code></pre>
-
 <p>Suppose that now you also want to generate a single XML for each Library; where a Library is a collection of Books. Instead of duplicating the code in Book2XML.egl, you can re-use it by calling it from Library2XML.egl, like so:</p>
 <pre class="prettyprint lang-egl"><code>&lt;library id=[%=lib.id%] name="[%=lib.name%]"&gt;
 [% for (book in lib.books) {
@@ -1077,7 +1076,6 @@
 
   [%=bookTemplate.process()%]
 [%}%]</code></pre>
-
 <p>As with EGX, you can pass parameters to the invoked template using the "populate" operation, where the first parameter is the variable name (that the invoked template will see) and the second parameter is the value.</p>
                 
               

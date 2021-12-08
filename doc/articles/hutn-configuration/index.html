@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1117,7 +1117,6 @@ families {
 }
 </code></pre></div>
 
-
 <p>There is some duplication in the HUTN document above. Firstly, the identifiers used to reference Family objects are very similar to the families' names. Secondly, the migrant property is set to true in two of the three Families.</p>
 <p>A HUTN configuration model can be used to customise the document and reduce the duplication. A HUTN configuration model comprises rules, which customise the HUTN document. The remainder of this article describes how to create and use a configuration model to specify default values for properties and inferred values for identifiers.</p>
 <h2 id="creating-a-hutn-configuration-model">Creating a HUTN configuration model<a class="headerlink" href="#creating-a-hutn-configuration-model" title="Permanent link">&para;</a></h2>
@@ -1139,7 +1138,6 @@ families {
 }
 </code></pre></div>
 
-
 <p>Note the extra line that references the configuration model. The value of the configFile attribute is a path relative to the HUTN document.</p>
 <p>The body of the HUTN document shown at the start of the article can now be rewritten as follows:</p>
 <div class="codehilite"><pre><span></span><code>families {
@@ -1153,7 +1151,6 @@ families {
   Family &quot;The Bloggs&quot; {}
 }
 </code></pre></div>
-
 
 <p>The identifiers specified for the last two families also specify the value of their name attribute, and so there's no need to explicitly set the name attribute in the body of the Family element. Conversely, the first Family specifies a name (The Smiths), and no identifier. A reference to the first family can use The Smiths as an identifier.</p>
 <p>Notice also that the migrant attribute values have been removed from the The Does and The Bloggs, as the default value is now true. However, The Smiths must now explicitly state that its migrant value should be false.</p>

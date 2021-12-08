@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1433,7 +1433,6 @@
   <span class="nt">&lt;/task&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <p>is a valid instance of the Ecore metamodel (in Emfatic) below (<code>psl</code> stands for Project Scheduling Language):</p>
 <pre class="prettyprint lang-emf"><code>@namespace(uri="psl", prefix="")
 package psl;
@@ -1465,7 +1464,6 @@ class Effort {
 class Skill {
   attr String name;
 }</code></pre>
-
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Create a text file named <code>psl.emf</code> in your workspace and place the Emfatic content above in it.</li>
@@ -1485,7 +1483,6 @@ class Skill {
   <span class="nt">&lt;skill</span> <span class="na">name=</span><span class="s">&quot;HTML&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/_&gt;</span>
 </code></pre></div>
-
 <p>Containment references are captured using XML element containment. If an XML element has attributes, the Flexmi parser will compare its tag against EClass/EReference names expected in the context and choose the best match. For example, when it encounters the <code>&lt;person&gt;</code> element below, knowing that it is already in the context of <code>Project</code> it will match the name <code>person</code> against the names of the containment references of <code>Project</code> (<code>tasks</code>, <code>people</code>) and (all the sub-types of) their types (<code>Person</code>, <code>Task</code>) and will decide that the best match for it is <code>Person</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span><span class="nt">&gt;</span>
@@ -1493,7 +1490,6 @@ class Skill {
   ...
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <p>As such, it will create an instance of <code>Person</code> and will then try to find a suitable containment reference for it (<code>people</code>). If there were multiple containment references of type <code>Person</code> in class <code>Project</code>, we could help the Flexmi parser by either using the name of the target reference instead or <code>person</code>, or by using an empty container element as follows.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span><span class="nt">&gt;</span>
@@ -1502,7 +1498,6 @@ class Skill {
   <span class="nt">&lt;/people&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <h3 id="non-containment-reference-resolution">Non-Containment Reference Resolution<a class="headerlink" href="#non-containment-reference-resolution" title="Permanent link">&para;</a></h3>
 <p>To resolve non-containment references, Flexmi needs target elements to have some kind of ID. If a class has an EAttribute marked as <code>id</code>, Flexmi will use that to identify its instances, otherwise, it will use the value of the <code>name</code> attribute, if present. Fully-qualified ID paths, separated by <code>.</code> are also supported.</p>
 <h3 id="long-attribute-values">Long Attribute Values<a class="headerlink" href="#long-attribute-values" title="Permanent link">&para;</a></h3>
@@ -1517,13 +1512,11 @@ class Skill {
   <span class="nt">&lt;/description&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <p>To keep very long values out of Flexmi models altogether, appending an <code>_</code> to the name of an attribute will instruct the Flexmi parser to look for a file with that name and parse its content as the value of the attribute as shown below.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span> <span class="na">description_=</span><span class="s">&quot;readme.txt&quot;</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <h3 id="attribute-assignment">Attribute Assignment<a class="headerlink" href="#attribute-assignment" title="Permanent link">&para;</a></h3>
 <p>The Flexmi parser uses an implementation of the <a href="https://en.wikipedia.org/wiki/Hungarian_algorithm">Hungarian algorithm</a> to decide the best match of XML attribute names to EAttibute/(non-containment) EReference names.</p>
 <h2 id="executable-attributes">Executable Attributes<a class="headerlink" href="#executable-attributes" title="Permanent link">&para;</a></h2>
@@ -1545,7 +1538,6 @@ class Skill {
   <span class="nt">&lt;/task&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <p>You can also use <code>:var</code>/<code>:global</code> and EOL attributes to refer to model elements without using names/ids as identifiers. For example, in the version, below, <code>Alice</code> is attached to the local variable name <code>alice</code>, which is then used in the <code>:person</code> reference of the second effort of the <code>Implementation</code> task.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">title=</span><span class="s">&quot;ACME&quot;</span><span class="nt">&gt;</span>
@@ -1563,7 +1555,6 @@ class Skill {
   <span class="nt">&lt;/task&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <h2 id="including-and-importing-other-flexmi-models">Including and Importing other Flexmi Models<a class="headerlink" href="#including-and-importing-other-flexmi-models" title="Permanent link">&para;</a></h2>
 <p>Flexmi supports the <code>&lt;?import other.flexmi?&gt;</code> and <code>&lt;?include other.flexmi?&gt;</code> processing instructions. <code>import</code> creates a new resource for <code>other.flexmi</code> while <code>include</code> parses the contents of <code>other.flexmi</code> as if they were embedded in the Flexmi model that contains the <code>include</code> processing instruction.</p>
 <h2 id="instantiating-types-from-multiple-ecore-metamodels">Instantiating Types from Multiple Ecore Metamodels<a class="headerlink" href="#instantiating-types-from-multiple-ecore-metamodels" title="Permanent link">&para;</a></h2>
@@ -1590,7 +1581,6 @@ class Skill {
   <span class="nt">&lt;/:template&gt;</span>
 <span class="nt">&lt;/_&gt;</span>
 </code></pre></div>
-
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <p>Flexmi templates also support parameters, which can be used to configure the content they produce when they are invoked. An example is shown below:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
@@ -1610,7 +1600,6 @@ class Skill {
   <span class="nt">&lt;/:template&gt;</span>
 <span class="nt">&lt;/_&gt;</span>
 </code></pre></div>
-
 <h3 id="dynamic-templates-and-slots">Dynamic Templates and Slots<a class="headerlink" href="#dynamic-templates-and-slots" title="Permanent link">&para;</a></h3>
 <p>To further customise the content that Flexmi templates produce, one can use an <a href="../egl">EGL</a> template that produces XML as the value of the <code>&lt;content&gt;</code> element of the template, by setting it's language to EGL as shown below. Also Flexmi supports a <code>&lt;:slot&gt;</code> element in the content of templates, which specifies where any nested elements of the caller should be placed in the produced XML as shown below.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri psl?&gt;</span>
@@ -1634,20 +1623,18 @@ class Skill {
   <span class="nt">&lt;/:template&gt;</span>
 <span class="nt">&lt;/_&gt;</span>
 </code></pre></div>
-
 <h3 id="reusing-templates-in-different-flexmi-models">Reusing Templates in Different Flexmi Models<a class="headerlink" href="#reusing-templates-in-different-flexmi-models" title="Permanent link">&para;</a></h3>
 <p>Templates can be stored in separate Flexmi files and be imported from different models using Flexmi's <code>&lt;?include ?&gt;</code> processing instruction.</p>
 <h2 id="use-in-epsilon-and-java">Use in Epsilon and Java<a class="headerlink" href="#use-in-epsilon-and-java" title="Permanent link">&para;</a></h2>
 <p>Flexmi offers and registers an implementation of <a href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.4.3/org/eclipse/emf/ecore/resource/Resource.html">EMF's Resource interface</a> (<code>FlexmiResource</code>), and can be used like any other EMF resource implementation. For example, you can add <code>.flexmi</code> models as regular EMF models to the run configuration of your Epsilon program. An example of using Flexmi from Java follows.</p>
-<div class="highlight"><pre><span></span><code><span class="n">ResourceSet</span> <span class="n">resourceSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResourceSetImpl</span><span class="o">();</span>
-<span class="n">resourceSet</span><span class="o">.</span><span class="na">getResourceFactoryRegistry</span><span class="o">().</span>
-  <span class="n">getExtensionToFactoryMap</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;flexmi&quot;</span><span class="o">,</span>
-    <span class="k">new</span> <span class="n">FlexmiResourceFactory</span><span class="o">());</span>
-<span class="n">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="n">resourceSet</span><span class="o">.</span><span class="na">createResource</span>
-  <span class="o">(</span><span class="n">URI</span><span class="o">.</span><span class="na">createFileURI</span><span class="o">(</span><span class="s">&quot;/../acme.flexmi&quot;</span><span class="o">));</span>
-<span class="n">resource</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">ResourceSet</span> <span class="n">resourceSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResourceSetImpl</span><span class="p">();</span>
+<span class="n">resourceSet</span><span class="p">.</span><span class="na">getResourceFactoryRegistry</span><span class="p">().</span>
+  <span class="n">getExtensionToFactoryMap</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;flexmi&quot;</span><span class="p">,</span>
+    <span class="k">new</span> <span class="n">FlexmiResourceFactory</span><span class="p">());</span>
+<span class="n">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="n">resourceSet</span><span class="p">.</span><span class="na">createResource</span>
+  <span class="p">(</span><span class="n">URI</span><span class="p">.</span><span class="na">createFileURI</span><span class="p">(</span><span class="s">&quot;/../acme.flexmi&quot;</span><span class="p">));</span>
+<span class="n">resource</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
 </code></pre></div>
-
 <h2 id="converting-to-xmi">Converting to XMI<a class="headerlink" href="#converting-to-xmi" title="Permanent link">&para;</a></h2>
 <p>You can convert a Flexmi model to standard XMI (with no templates, executable attributes etc.) by right-clicking on it in the Project Explorer view and selecting <code>Generate XMI</code>.</p>
 <p>Converting an XMI model to Flexmi on the other hand is not supported as there's no unique mapping in this direction.</p>
@@ -1680,7 +1667,6 @@ class Skill {
   <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Bob</span><span class="p p-Indicator">,</span><span class="nt"> perc</span><span class="p">:</span> <span class="nv">50</span><span class="p p-Indicator">}</span>
   <span class="p p-Indicator">-</span> <span class="nt">effort</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span> <span class="nv">Alice</span><span class="p p-Indicator">,</span><span class="nt"> perc</span><span class="p">:</span> <span class="nv">50</span><span class="p p-Indicator">}</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Curly brackets-based</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">psl</span>
@@ -1709,7 +1695,6 @@ class Skill {
   <span class="p p-Indicator">}</span>
 <span class="p p-Indicator">}</span>
 </code></pre></div>
-
 </div>
 </div>
 <p>For multi-valued attributes and non-containment references, comma-separated values, or lists of scalars can be used as shown below.</p>
@@ -1725,7 +1710,6 @@ class Skill {
 <span class="p p-Indicator">-</span> <span class="nt">skill</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span> <span class="nv">Java</span><span class="p p-Indicator">}</span>
 <span class="p p-Indicator">-</span> <span class="nt">skill</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span> <span class="nv">HTML</span><span class="p p-Indicator">}</span>
 </code></pre></div>
-
 <div class="admonition tip">
 <p class="admonition-title">Tabs vs. Spaces</p>
 <p>If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not accidentally used tabs instead of spaces for indentation.</p>
@@ -1756,7 +1740,6 @@ class Skill {
          <span class="no">- duration: [%=years.asInteger()*12%]</span>
          <span class="no">- :slot</span>
 </code></pre></div>
-
 <h2 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h2>
 <p>Flexmi was originally developed as a quick and dirty way to type in EMF models without having to define an Xtext grammar or adhere to the rigid naming rules of XMI or HUTN. The name is a combination of the word "flexible" and the "XMI" acronym.</p>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>

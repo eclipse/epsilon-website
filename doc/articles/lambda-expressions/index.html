@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1078,7 +1078,6 @@
   optional.orElse(64/4);  // No lambda - literal value always calculated even if not present.
   optional.orElseGet(null | someIntensiveCalculation());  // Evaluation only occurs if no value is present.
   optional.orElseThrow(| new Native("org.eclipse.epsilon.eol.exceptions.EolRuntimeException"));</code></pre>
-
 <p>Here is an example of how one could use Java Streams and the equivalent approach using EOL (i.e. without native delegation):</p>
 <pre class="prettyprint lang-eol"><code>  var Collectors = Native("java.util.stream.Collectors");
 
@@ -1095,7 +1094,6 @@
     .collect(Collectors.toSet());
 
   assertEquals(positiveOddsSquaredEol, positiveOddsSquaredJava);</code></pre>
-
 <p>One benefits of using Streams is lazy evaluation, which allows you to chain a series of operations without executing the entire pipeline on all elements. This can be more efficient since streams are not materialised in intermediate operations, unlike EOL first-order operations which always return a collection and are thus evaluated eagerly. As with built-in EOL operations, Streams also support parallel execution, although this must be explicitly specified with the <code>.parallel()</code> property on the stream.</p>
 <p>Currently EOL does not support operations which require a simple variable and non-functional interface as a parameter, such as the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html#iterate-T-java.util.function.UnaryOperator-">iterate</a> operation. To work around this, you can assign lambda expressions to variables, deriving them by calling a built-in operation to obtain the desired type.</p>
 <pre class="prettyprint lang-eol"><code>  // UnaryOperator
@@ -1121,7 +1119,6 @@
   // Runnable
   var sayHi = runnable( | "Hello, World!".println());
   sayHi.run();</code></pre>
-
 <h3 id="streams-vs-eol-cheat-sheet">Streams vs EOL cheat sheet<a class="headerlink" href="#streams-vs-eol-cheat-sheet" title="Permanent link">&para;</a></h3>
 <p>Aside from the fact that streams are lazy and Epsilon operations are eager, there is some inevitable overlap in their functionality. This section provides an equivalence mapping from Epsilon to Java Streams to help you migrate from one to the other.</p>
 <ul>

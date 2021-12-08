@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1162,13 +1162,11 @@
 <div class="highlight"><pre><span></span><code>Family &quot;The Smiths&quot; {}
 Family &quot;The Smiths&quot;;
 </code></pre></div>
-
 <p>This form appears in Figure 6.5 of the HUTN specification, but oddly is not supported in the grammar provided by the HUTN specification.</p>
 <h2 id="parametric-attributes">Parametric Attributes<a class="headerlink" href="#parametric-attributes" title="Permanent link">&para;</a></h2>
 <p>The HUTN specification allows classes to be instantiated with arguments, for example:</p>
 <div class="highlight"><pre><span></span><code>Coordinate (3.5, 7.3) {}
 </code></pre></div>
-
 <p>The above code assumes that configuration rules have been specified for the parameters of Coordinate.</p>
 <p>Epsilon HUTN does not currently support this form. Instead, the following code can be used:</p>
 <div class="highlight"><pre><span></span><code>Coordinate { 
@@ -1176,19 +1174,16 @@ Family &quot;The Smiths&quot;;
   y: 7.3 
 }
 </code></pre></div>
-
 <h2 id="enumeration-adjectives">Enumeration Adjectives<a class="headerlink" href="#enumeration-adjectives" title="Permanent link">&para;</a></h2>
 <p>The HUTN specification allows objects to be prefixed with enumeration values as adjectives, for example:</p>
 <div class="highlight"><pre><span></span><code>poodle Dog {}
 </code></pre></div>
-
 <p>The above code assumes that configuration rules have been specified to configure Dog to accept a feature, "breed," as an enumeration adjective.</p>
 <p>Epsilon HUTN does not currently support this form. Instead, the following code can be used:</p>
 <div class="highlight"><pre><span></span><code>Dog { 
   breed: poodle 
 }
 </code></pre></div>
-
 <h2 id="potential-error-in-the-omg-hutn-specification">Potential error in the OMG HUTN Specification<a class="headerlink" href="#potential-error-in-the-omg-hutn-specification" title="Permanent link">&para;</a></h2>
 <p>Section 6.4 of the OMG HUTN specification appears to contain an error. Grammar rule [20] implies that AttributeName is optional in specifying a KeywordAttribute. However, the semantics of an empty KeywordAttribute or a single tilde as a KeywordAttribute are not defined.</p>
 <p>Epsilon HUTN ensures that an AttributeName is specified for every
@@ -1214,7 +1209,6 @@ ShapePackage &quot;lines&quot; {
   }
 }
 </code></pre></div>
-
 <p>The Diagram object references two Polygons: "my_triangle" and "my line". The first is referenced with respect to the root of the document ("//"), while the second is referenced with respect to the current package ("/").</p>
 <p>Epsilon HUTN does not support relative referencing, and all references are resolved with respect to the diagram root. The "//" prefix is omitted:</p>
 <div class="highlight"><pre><span></span><code>Diagram &quot;my_diagram&quot; {

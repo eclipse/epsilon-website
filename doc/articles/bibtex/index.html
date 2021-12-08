@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1133,12 +1133,10 @@ syntax for querying BibTeX files.</p>
   <span class="na">pages</span>     <span class="p">=</span> <span class="s">{10-19}</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="how-can-i-access-all-publications">How can I access all publications?<a class="headerlink" href="#how-can-i-access-all-publications" title="Permanent link">&para;</a></h2>
 <p>Presuming that we have specified the name <code>MyPubs</code> when loading the BibTeX file as a model, the <code>allContents</code> method can be used to access all of the entries in the BibTeX file:</p>
 <pre class="prettyprint lang-eol"><code>// Get all publications
 var publications = MyPubs.allContents();</code></pre>
-
 <h2 id="how-can-i-access-a-publication">How can I access a publication?<a class="headerlink" href="#how-can-i-access-a-publication" title="Permanent link">&para;</a></h2>
 <p>Publications (entries) in a BibTeX file can be accessed by type:</p>
 <pre class="prettyprint lang-eol"><code>// Get all @book elements
@@ -1146,7 +1144,6 @@ var books = Book.all;
 
 // Get a random book
 var b = Book.all.random();</code></pre>
-
 <p>Note that the BibTeX driver recognises only those types defined in your BibTeX file. For example, attempting to call <code>Phdthesis.all</code> will result in an error for the BibTeX file shown above, as that BibTeX file contains no <code>@phdthesis</code> entries.</p>
 <h2 id="how-can-i-access-and-change-the-properties-of-a-particular-publication">How can I access and change the properties of a particular publication?<a class="headerlink" href="#how-can-i-access-and-change-the-properties-of-a-particular-publication" title="Permanent link">&para;</a></h2>
 <p>Properties are accessed via the dot notation:</p>
@@ -1158,7 +1155,6 @@ var t = b.title;
 
 // Get the Amazon rating of the random book
 var a = b.amazonRating;</code></pre>
-
 <p>Note that the empty string is returned when accessing a property that does not exist (such as the amazonRating property in the example above).</p>
 <p>Properties can be changed using an assignment statement:</p>
 <pre class="prettyprint lang-eol"><code>// Get a random book
@@ -1166,7 +1162,6 @@ var b = Book.all.random();
 
 // Get the title of the random book
 b.title = "On the Criteria To Be Used in Decomposing Systems into Modules"</code></pre>
-
 <p>Note that the current version of the BibTeX driver does not support saving changes to disk. Any changes made to properties are volatile (and persist only during the duration of the Epsilon program's execution).</p>
 <h2 id="adding-a-bibtex-file-to-your-launch-configuration">Adding a BibTeX file to your launch configuration<a class="headerlink" href="#adding-a-bibtex-file-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
 <p>To add a BibTeX file to your Epsilon launch configuration, you need to select "Show all model types" and then choose "BibTeX model" from the list of available model types.</p>

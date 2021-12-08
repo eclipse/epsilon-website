@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1071,7 +1071,6 @@ rule Libraries transform lib : Library {
     template: "/path/to/Lib2XML.egl"
     target: outDirLib+lib.name+extension
 }</code></pre>
-
 <p>In this example, the Lib2XML EGL template will be invoked for every Library instance in the model, and the output will be written to the file specified in the "target". The Lib2XML template will receive all of the parameters put in the "params" variable in the parameters block of the rule. The variable is a mapping from variable name (that the EGL template will use to refer to it) and variable value. For reference, the Lib2XML template is shown below.</p>
 <div class="admonition info">
 <p class="admonition-title">Note</p>

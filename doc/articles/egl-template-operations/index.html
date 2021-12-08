@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1087,7 +1087,6 @@
    }
 [% } %]
 }</code></pre>
-
 <p>While the above code will work, it has a couple of drawbacks. Firstly, the code to generate getters and setters cannot be re-used in other templates. Secondly, the template is arguably hard to read - the purpose of the loop's body is not immediately clear.</p>
 <p>Using EGL template operations, the above code becomes:</p>
 <pre class="prettyprint lang-egl"><code>class [%=class.name%] {
@@ -1117,7 +1116,6 @@
      }
    [% }
 %]</code></pre>
-
 <p>Notice that, in the body of the loop, we call the template operations, <code>getter</code> and <code>setter</code>, to generate the getter and setter methods for each feature. This makes the loop arguably easier to read, and the <code>getter</code> and <code>setter</code> operations can be re-used in other templates.</p>
 <p>Template operations are annotated with <code>@template</code> and can mix dynamic and static sections, just like the main part of an EGL template. Operations are defined on metamodel types (Feature in the code above), and may be called on any model element that instantiates that type. In the body of an operation, the keyword <code>self</code> is used to refer to the model element on which the operation has been called.</p>
 <h2 id="common-issues">Common issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h2>

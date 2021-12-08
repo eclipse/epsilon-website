@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1390,7 +1390,6 @@ EvlModule -- ConstraintContext: contexts *
 ConstraintContext -- Constraint: constraints *
 Constraint -- Fix: fixes *
 </div>
-
 <h3 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h3>
 <p>A context specifies the kind of instances on which the contained constraints will be evaluated. Each context can optionally define a guard which limits its applicability to a narrower subset of instances of its specified type. Thus, if the guard fails for a specific instance of the type, none of its contained constraints are evaluated.</p>
 <h3 id="constraint">Constraint<a class="headerlink" href="#constraint" title="Permanent link">&para;</a></h3>
@@ -1427,13 +1426,11 @@ fix {
     } 
 }
 </code></pre></div>
-
 <p><em>Pre</em> and <em>post</em> blocks have a simple syntax that, as presented in the listing below, consists of the identifier (<em>pre</em> or <em>post</em>), an optional name and the set of statements to be executed enclosed in curly braces.</p>
 <div class="highlight"><pre><span></span><code>(pre|post) &lt;name&gt; {
     statement+
 }
 </code></pre></div>
-
 <h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
 <p>Having discussed the abstract and concrete syntaxes of EVL, this section provides an informal discussion of the execution semantics of the language. The execution of an EVL module is separated into four phases:</p>
 <h3 id="phase-1">Phase 1<a class="headerlink" href="#phase-1" title="Permanent link">&para;</a></h3>
@@ -1462,7 +1459,6 @@ class Person {
 }
 
 Movie -- Person: movies * / persons *</div>
-
 <pre class="prettyprint lang-evl"><code>pre {
   var numMovies = Movie.all.size();
   var numActors = Person.all.size();
@@ -1498,7 +1494,6 @@ post {
   ("# Movies="+numMovies).println();
   ("# Actors="+numActors).println();
 }</code></pre>
-
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <p>Additional resources about EVL are available <a href="../articles/#epsilon-validation-language">here</a>.</p>
                 

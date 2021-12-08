@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1116,7 +1116,6 @@ operation Integer fib() : Integer {
   }
   return fib;
 }</code></pre>
-
 <p>Our aim in this example is to enrich the program with profiling statements so that we canget to know how many times the <code>fib()</code> operation is executed and how much time each calltakes to execute. To achieve this we modify our program as follows:</p>
 <pre class="prettyprint lang-eol"><code>var profiler : new Native("org.eclipse.epsilon.eol.tools.ProfilerTool");
 profiler.start("Program");
@@ -1134,7 +1133,6 @@ operation Integer fib() : Integer {
   profiler.stop();
   return fib;
 }</code></pre>
-
 <p>We add an instantiation statement that creates a new instance of the <code>ProfilerTool</code> in Line 1. Then we define two profiling targets. The first one is called "Program" and measures the performance of line 3 and the second one is called "fib" and measures the performance of the body of the <code>fib()</code> operation. Note that the first call to the <code>start()</code> method has only one argument (the mandatory <code>targetName : String</code> argument) while the second one has an additional argument. This extra (optional) argument (<code>data : Any</code>) enables users to capture context-specific information where multiple calls to the specific <code>start()</code> method are anticipated. In our example, we store the value of the integer on which the operation is executed (<code>self</code>). Here we should note that since profiling has been implemented in the context of EOL, the same technique can be used to profile code in all task-specific languages of Epsilon (ETL, ECL, EML etc).</p>
 <h2 id="inspecting-profiling-information">Inspecting Profiling Information<a class="headerlink" href="#inspecting-profiling-information" title="Permanent link">&para;</a></h2>
 <p>Once we've executed the program, we can inspect the profiling information gathered, by activating the "Profiling" Eclipse view. Upon activation the view will look like this:</p>
@@ -1157,7 +1155,6 @@ operation Integer fib() : Integer {
   <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <p>Executing the ANT build-file and refreshing the following Profiling view makes it look like this:</p>
 <p><img alt="" src="profiling-view-3.png" /></p>
 <p>We can see that a new target named after the filename of the executed EOL program has been created along with the targets created using the in-line calls to the <code>start()</code> method of the <code>ProfilerTool</code>.</p>

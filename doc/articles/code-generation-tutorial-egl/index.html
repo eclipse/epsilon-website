@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1099,7 +1099,6 @@
   <span class="nt">&lt;/book&gt;</span>
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
-
 <p>More specifically, we will generate one HTML file for each <code>&lt;book&gt;</code> element that has a <code>public</code> attribute set to <code>true</code>. Below is an EGL template (<code>book2page.egl</code>) that can generate an HTML file from a single <code>&lt;book&gt;</code> element. For more details on using EGL's expression language to navigate and query XML documents, please refer to <a href="plain-xml">this article</a>.</p>
 <pre class="prettyprint lang-egl"><code>&lt;h1&gt;Book [%=index%]: [%=book.a_title%]&lt;/h1&gt;
 
@@ -1109,7 +1108,6 @@
   &lt;li&gt;[%=author.text%]
 [%}%]
 &lt;/ul&gt;</code></pre>
-
 <p>The template above can generate one HTML file from one <code>&lt;book&gt;</code> element. To run this template against '''all''' <code>&lt;book&gt;</code> elements anywhere in the XML document, and generate appropriately-named HTML files, we need to use an EGX co-ordination program such as the one illustrated below (<code>main.egx</code>). The <code>Book2Page</code> rule of the EGX program will <code>transform</code> every <code>&lt;book&gt;</code> element (<code>t_book</code>) that satisfies the declared <code>guard</code> (has a <code>public</code> attribute set to <code>true</code>), into a <code>target</code> file, using the specified <code>template</code> (<code>book2page.egl</code>). In addition, the EGX program specifies a <code>Library2Page</code> rule, that generates an HTML (index) file for each <code>&lt;library&gt;</code> element in the document.</p>
 <pre class="prettyprint lang-egx"><code>rule Book2Page 
   transform book : t_book {
@@ -1142,7 +1140,6 @@ rule Library2Page
 
   target : "gen/index.html"
 }</code></pre>
-
 <p>For completeness, the source code of the <code>library2page.egl</code> template appears below.</p>
 <pre class="prettyprint lang-egl"><code>&lt;h1&gt;Books&lt;/h1&gt;
 
@@ -1151,7 +1148,6 @@ rule Library2Page
   &lt;li&gt;&lt;a href="[%=book.e_id.text%].html"&gt;[%=book.a_title%]&lt;/a&gt;
 [%}%]
 &lt;/ul&gt;</code></pre>
-
 <h2 id="running-the-code-generator-from-eclipse">Running the Code Generator from Eclipse<a class="headerlink" href="#running-the-code-generator-from-eclipse" title="Permanent link">&para;</a></h2>
 <p>Screenshots of the Eclipse run configuration appear below. The complete source for this example is available <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.egl.library">here</a>.</p>
 <p><img alt="" src="run-configuration.png" /></p>
@@ -1159,38 +1155,38 @@ rule Library2Page
 <p><img alt="" src="run-configuration-model.png" /></p>
 <h2 id="running-the-code-generator-from-java">Running the Code Generator from Java<a class="headerlink" href="#running-the-code-generator-from-java" title="Permanent link">&para;</a></h2>
 <p>The following snippet demonstrates using Epsilon's Java API to parse the XML document and execute the EGX program. The complete source for this example is available <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.egl.library">here</a> (please read <code>lib/readme.txt</code> for instructions on how to obtain the missing Epsilon JAR). </p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.io.File</span><span class="p">;</span>
 
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EgxModule</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.emc.plainxml.PlainXmlModel</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EglFileGeneratingTemplateFactory</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.egl.EgxModule</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.epsilon.emc.plainxml.PlainXmlModel</span><span class="p">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> <span class="p">{</span>
 
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
 
     <span class="c1">// Parse main.egx</span>
-    <span class="n">EgxModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EgxModule</span><span class="o">(</span><span class="k">new</span> <span class="n">EglFileGeneratingTemplateFactory</span><span class="o">());</span>
-    <span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;main.egx&quot;</span><span class="o">).</span><span class="na">getAbsoluteFile</span><span class="o">());</span>
+    <span class="n">EgxModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EgxModule</span><span class="p">(</span><span class="k">new</span> <span class="n">EglFileGeneratingTemplateFactory</span><span class="p">());</span>
+    <span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;main.egx&quot;</span><span class="p">).</span><span class="na">getAbsoluteFile</span><span class="p">());</span>
 
-    <span class="k">if</span> <span class="o">(!</span><span class="n">module</span><span class="o">.</span><span class="na">getParseProblems</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Syntax errors found. Exiting.&quot;</span><span class="o">);</span>
-      <span class="k">return</span><span class="o">;</span>
-    <span class="o">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">module</span><span class="p">.</span><span class="na">getParseProblems</span><span class="p">().</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Syntax errors found. Exiting.&quot;</span><span class="p">);</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
 
     <span class="c1">// Load the XML document</span>
-    <span class="n">PlainXmlModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PlainXmlModel</span><span class="o">();</span>
-    <span class="n">model</span><span class="o">.</span><span class="na">setFile</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;library.xml&quot;</span><span class="o">));</span>
-    <span class="n">model</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;L&quot;</span><span class="o">);</span>
-    <span class="n">model</span><span class="o">.</span><span class="na">load</span><span class="o">();</span>
+    <span class="n">PlainXmlModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PlainXmlModel</span><span class="p">();</span>
+    <span class="n">model</span><span class="p">.</span><span class="na">setFile</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;library.xml&quot;</span><span class="p">));</span>
+    <span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;L&quot;</span><span class="p">);</span>
+    <span class="n">model</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
 
     <span class="c1">// Make the document visible to the EGX program</span>
-    <span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getModelRepository</span><span class="o">().</span><span class="na">addModel</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+    <span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
     <span class="c1">// ... and execute</span>
-    <span class="n">module</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
-  <span class="o">}</span>
+    <span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+  <span class="p">}</span>
 
-<span class="o">}</span>  
+<span class="p">}</span>  
 </code></pre></div>
                 
               

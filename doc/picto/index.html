@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1315,7 +1315,9 @@
 <p class="admonition-title">Tip</p>
 <p>As Picto uses <a href="../egl">EGL</a> for model-to-text transformation, it is <a href="#using-picto-in-standalone-mode-with-many-models">not limited to EMF-based models</a> and can be used to visualise the contents of Simulink models, XML documents, spreadsheets, and any other type of artefact supported by an <a href="../emc">Epsilon EMC driver</a>.</p>
 </div>
-<details class="info"><summary>Citing Picto in a publication?</summary><p>If you are referring to Picto in a publication, please cite <a href="https://dl.acm.org/doi/10.1145/3365438.3410943">this paper</a> instead of the website URL. A pre-print of the paper is available <a href="http://eprints.whiterose.ac.uk/164209/">here</a>.</p>
+<details class="info">
+<summary>Citing Picto in a publication?</summary>
+<p>If you are referring to Picto in a publication, please cite <a href="https://dl.acm.org/doi/10.1145/3365438.3410943">this paper</a> instead of the website URL. A pre-print of the paper is available <a href="http://eprints.whiterose.ac.uk/164209/">here</a>.</p>
 </details>
 <p>On the flip side, Picto displays read-only views of models and as such it is not a good fit if diagram-based model editing capabilities are required. In this article we demonstrate Picto through a small social network example. The complete source code of the example is available <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.socialnetwork/">here</a>.</p>
 <p><img alt="" src="picto-eclipse.png" /></p>
@@ -1333,7 +1335,6 @@ class Person {
     ref Person[*] likes;
     ref Person[*] dislikes;
 }</code></pre>
-
 <h2 id="model">Model<a class="headerlink" href="#model" title="Permanent link">&para;</a></h2>
 <p>Below is a model that conforms to the social network metamodel. The model is defined for convenience in <a href="../flexmi">Flexmi</a>, however Picto also works with XMI-based models (see below).</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri socialnetwork?&gt;</span>
@@ -1347,7 +1348,6 @@ class Person {
     <span class="nt">&lt;person</span> <span class="na">name=</span><span class="s">&quot;Fred&quot;</span> <span class="na">dislikes=</span><span class="s">&quot;Bob&quot;</span> <span class="na">likes=</span><span class="s">&quot;Enid, Alice&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/socialnetwork&gt;</span>
 </code></pre></div>
-
 <p>In line 2 of the model, notice the <code>render-egx</code> processing instruction, which specifies a model-to-text transformation written in <a href="../egx/">EGX/EGL</a>, that Picto should use to visualise this model.</p>
 <h2 id="model-to-text-transformation">Model-to-Text Transformation<a class="headerlink" href="#model-to-text-transformation" title="Permanent link">&para;</a></h2>
 <p>The <code>socialnetwork.egx</code> EGX model-to-text transformation is as follows:</p>
@@ -1386,7 +1386,6 @@ rule Person2Graphviz
     }
 
 }</code></pre>
-
 <p>The transformation consists of two rules:</p>
 <ul>
 <li><code>Network2Graphviz</code> which will be executed once and will produce a Graphviz graph for the entire network</li>
@@ -1437,7 +1436,6 @@ operation isLayerActive(id : String) {
     }
 }
 %]</code></pre>
-
 <h2 id="result">Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h2>
 <p>Every time <code>socialnetwork.flexmi</code> is saved, Picto will run the EGX/EGL transformation and display the results in a view that consists of a tree viewer and a browser. For this model, Picto produces 7 diagrams; one for the network as a whole through the application of the <code>Network2Graphviz</code> rule and one for each person in the network through the application of the <code>Person2Graphviz</code> rule. Screenshots of the populated Picto view appear below.</p>
 <p><img alt="" src="picto.png" /></p>
@@ -1464,7 +1462,6 @@ operation isLayerActive(id : String) {
     template: "ecore2dot.egl"
 
 }</code></pre>
-
 <p>In such cases, it is preferable to generate many smaller diagrams; for this example, a class diagram for each class of the metamodel, surrounded by its super/sub/referenced types.</p>
 <h2 id="interactive-diagrams">Interactive Diagrams<a class="headerlink" href="#interactive-diagrams" title="Permanent link">&para;</a></h2>
 <p>Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions below, which are showcased <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl">here</a>.</p>
@@ -1541,7 +1538,6 @@ operation isLayerActive(id : String) {
     <span class="nt">&lt;/model&gt;</span>
 <span class="nt">&lt;/picto&gt;</span>
 </code></pre></div>
-
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <ul>
 <li>If you can't find the Picto view, you will need to upgrade to a version of Epsilon &gt;= 2.0</li>

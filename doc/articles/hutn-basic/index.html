@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1141,7 +1141,6 @@ families {
 }
 </code></pre></div>
 
-
 <h2 id="hutn-syntax">HUTN Syntax<a class="headerlink" href="#hutn-syntax" title="Permanent link">&para;</a></h2>
 <p>We now briefly describe the HUTN syntax. We can specify an instance of Family using the following HUTN:</p>
 <div class="codehilite"><pre><span></span><code>Family {
@@ -1149,7 +1148,6 @@ families {
   lotteryNumbers: 10, 24, 26, 32, 45, 49
 }
 </code></pre></div>
-
 
 <p>Note that multi-valued features can be specified using a comma separated list.</p>
 <h3 id="containment-references">Containment references<a class="headerlink" href="#containment-references" title="Permanent link">&para;</a></h3>
@@ -1165,7 +1163,6 @@ families {
 }
 </code></pre></div>
 
-
 <h3 id="non-containment-references">Non-containment references<a class="headerlink" href="#non-containment-references" title="Permanent link">&para;</a></h3>
 <p>Non-containment references are specified using a HUTN identifier, which is the string appearing in double-quotes as part of an object\'s declaraton. Below, the second Family has the identifier "bloggs." In the following HUTN, The first family references the second family, using the familyFriends reference:</p>
 <div class="codehilite"><pre><span></span><code>Family {
@@ -1175,7 +1172,6 @@ families {
 Family &quot;bloggs&quot; {}
 </code></pre></div>
 
-
 <h3 id="cross-model-references">Cross-model references<a class="headerlink" href="#cross-model-references" title="Permanent link">&para;</a></h3>
 <p>References to model elements stored in another file are using a URI fragment:</p>
 <div class="codehilite"><pre><span></span><code>Family {
@@ -1183,7 +1179,6 @@ Family &quot;bloggs&quot; {}
   familyFriends: Family &quot;../families/AnotherNeighbourhood.model#_swAAYJX5Ed2TbbKclPHPaA&quot;
 }
 </code></pre></div>
-
 
 <p>URI fragments can have either a relative (XPath-like) syntax, or use a unique identifier. For example, the first reference above uses a relative syntax to refer to the second (index of 1) Family in the AnotherNeighbourhood.model file. For more information on URI fragments, see section 13.2.1 of <a href="https://dl.acm.org/doi/10.5555/1197540">the EMF book</a>.</p>
 <h2 id="shortcuts">Shortcuts<a class="headerlink" href="#shortcuts" title="Permanent link">&para;</a></h2>
@@ -1194,7 +1189,6 @@ Family &quot;bloggs&quot; {}
 Family;
 </code></pre></div>
 
-
 <p>Although boolean-valued attributes can be specified using true or false values, they can also be specified as a prefix on the model element definition:</p>
 <div class="codehilite"><pre><span></span><code>Family {
   nuclear: false
@@ -1203,7 +1197,6 @@ Family;
 // is equivalent to:
 ~nuclear migrant Family;
 </code></pre></div>
-
 
 <p>Non-containment references can be specified using association blocks or even with an infix notation:</p>
 <div class="codehilite"><pre><span></span><code>Family {
@@ -1222,7 +1215,6 @@ Family &quot;smiths&quot;;
 Family &quot;bloggs&quot;;
 Family &quot;smiths&quot; familyFriends Family &quot;bloggs&quot;;
 </code></pre></div>
-
 
 <h2 id="generating-a-model-from-hutn">Generating a model from HUTN<a class="headerlink" href="#generating-a-model-from-hutn" title="Permanent link">&para;</a></h2>
 <p>When we have finished specifying our HUTN, we can generate a corresponding model. Right-click the HUTN document and select <strong>HUTN→Generate Model</strong>, as shown below</p>

@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1215,7 +1215,6 @@
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <h2 id="queryingmodifying-html-documents-in-eol">Querying/modifying HTML documents in EOL<a class="headerlink" href="#queryingmodifying-html-documents-in-eol" title="Permanent link">&para;</a></h2>
 <p>The HTML driver uses predefined naming conventions to allow developers to programmatically access and modify HTML documents in a concise way. This section outlines the supported conventions in the form of questions and answers followed by relevant examples.</p>
 <h2 id="how-can-i-access-elements-by-tag-name">How can I access elements by tag name?<a class="headerlink" href="#how-can-i-access-elements-by-tag-name" title="Permanent link">&para;</a></h2>
@@ -1233,7 +1232,6 @@ cell.isTypeOf(t_td).println();
 // Check if cell is a tr
 // Prints 'false'
 cell.isTypeOf(t_tr).println();</code></pre>
-
 <h3 id="how-can-i-get-the-tag-name-of-an-element">How can I get the tag name of an element?<a class="headerlink" href="#how-can-i-get-the-tag-name-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.tagName</code> property for this purpose. For instance, if <code>cell</code> is an element tagged as <code>&lt;td&gt;</code>, <code>cell.tagName</code> shall return <code>td</code>. The <code>tagName</code> property is read-only.</p>
 <pre class="prettyprint lang-eol"><code>// Get a random &lt;td&gt; element
@@ -1242,7 +1240,6 @@ var cell = t_td.all.random();
 // Print its tag
 // Prints 'td'
 cell.tagName.println();</code></pre>
-
 <h3 id="how-can-i-getset-the-attributes-of-an-element">How can I get/set the attributes of an element?<a class="headerlink" href="#how-can-i-getset-the-attributes-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the attribute name as a property of the element object, prefixed by <code>a_</code>. For example, if <code>t</code> is the first table of <code>sales.html</code>, <code>t.a_border</code> will return <code>1</code>. Attribute properties are read/write.</p>
 <p>In this example, <code>t.a_border</code> will return <code>1</code> as a string. For <code>1</code> to be returned as an integer instead, the <code>i_</code> prefix should be used instead (i.e. <code>t.i_border</code>. The driver also supports the following preffixes: <code>b_</code> for boolean, <code>s_</code> for string (alias of <code>a_</code>) and <code>r_</code> for real values. </p>
@@ -1254,13 +1251,11 @@ var table = t_table.all.first();
 
 // Prints 2 (the border attribute is retrieved as integer)
 (table.i_border + 1).println();</code></pre>
-
 <h3 id="how-can-i-getset-the-text-of-an-element">How can I get/set the text of an element?<a class="headerlink" href="#how-can-i-getset-the-text-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.text</code> read-write property for this.</p>
 <pre class="prettyprint lang-eol"><code>for (cell in t_td.all) {
     cell.text.println();
 }</code></pre>
-
 <h3 id="how-do-i-get-the-parent-of-an-element">How do I get the parent of an element?<a class="headerlink" href="#how-do-i-get-the-parent-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.parentNode</code> read-only property to retrieve the element's immediate parent and the <code>.parents.</code> read-only property to retrieve all the ancestors of the element.</p>
 <pre class="prettyprint lang-eol"><code>// Get a random cell
@@ -1273,7 +1268,6 @@ cell.parentNode.tagName.println();
 // Print the tags of all its ancestors
 // Prints 'Sequence {tr, tbody, table, body, html}'
 cell.parents.tagName.println();</code></pre>
-
 <h3 id="how-do-i-get-the-children-of-an-element">How do I get the children of an element?<a class="headerlink" href="#how-do-i-get-the-children-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.children</code> read-only property for this.</p>
 <pre class="prettyprint lang-eol"><code>// Get the &lt;tbody&gt; element
@@ -1284,7 +1278,6 @@ for (tr in tbody.children) {
     // Print the tag of each child
     tr.tagName.println();
 }</code></pre>
-
 <h3 id="how-do-i-get-child-elements-with-a-specific-tag-name">How do I get child elements with a specific tag name?<a class="headerlink" href="#how-do-i-get-child-elements-with-a-specific-tag-name" title="Permanent link">&para;</a></h3>
 <p>Using what you've learned so far, you can do this using a combination of the <code>.children</code> property and the select/selectOne() operations. However, the driver also supports <code>e_</code> and <code>c_</code>-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. <code>e_</code> and <code>c_</code> properties are read-only.</p>
 <pre class="prettyprint lang-eol"><code>// Get a random tr
@@ -1299,7 +1292,6 @@ cells = row.c_td;
 
 // Get the first td child of the row
 row.e_td.text.println();</code></pre>
-
 <h3 id="how-do-i-create-an-element">How do I create an element?<a class="headerlink" href="#how-do-i-create-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>new</code> operator for this. </p>
 <pre class="prettyprint lang-eol"><code>// Check how many &lt;tr&gt; are in the document
@@ -1312,7 +1304,6 @@ var row = new t_tr;
 // Check again
 // Prints '4'
 t_tr.all.size().println();</code></pre>
-
 <h3 id="how-can-i-add-a-child-to-an-existing-element">How can I add a child to an existing element?<a class="headerlink" href="#how-can-i-add-a-child-to-an-existing-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.appendChild(child)</code> operation for this.</p>
 <pre class="prettyprint lang-eol"><code>// Create a new row
@@ -1323,7 +1314,6 @@ var tbody = t_tbody.all.first();
 
 // Add the book to the library
 tbody.appendChild(row);</code></pre>
-
 <h3 id="bringing-it-all-together">Bringing it all together<a class="headerlink" href="#bringing-it-all-together" title="Permanent link">&para;</a></h3>
 <p>The following snippet computes and prints the total sales revenue.</p>
 <pre class="prettyprint lang-eol"><code>var table = t_table.all.first();
@@ -1343,7 +1333,6 @@ operation t_td getRealValue() {
     return self.text.asReal();
 }
 </code></pre>
-
 <h2 id="adding-a-html-document-to-your-launch-configuration">Adding a HTML document to your launch configuration<a class="headerlink" href="#adding-a-html-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
 <p>To add a HTML document to your Epsilon launch configuration, you need to select "HTML document" from the list of available model types.</p>
 <p><img alt="" src="select.png" /></p>
@@ -1367,22 +1356,20 @@ operation t_td getRealValue() {
     <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <h2 id="loading-a-html-document-through-java-code">Loading a HTML document through Java code<a class="headerlink" href="#loading-a-html-document-through-java-code" title="Permanent link">&para;</a></h2>
 <p>The following excerpt demonstrates using HTML models using Epsilon's Java API.</p>
-<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="o">();</span>
-<span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">));</span>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
 
-<span class="n">HtmlModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HtmlModel</span><span class="o">();</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;M&quot;</span><span class="o">);</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setFile</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">));</span>
-<span class="n">model</span><span class="o">.</span><span class="na">load</span><span class="o">();</span>
+<span class="n">HtmlModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HtmlModel</span><span class="p">();</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setFile</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
+<span class="n">model</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
 
-<span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getModelRepository</span><span class="o">().</span><span class="na">addModel</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
-<span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">setModule</span><span class="o">(</span><span class="n">module</span><span class="o">);</span>
-<span class="n">module</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setModule</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 </code></pre></div>
-
 <h2 id="loading-a-remote-html-document-in-gradle">Loading a remote HTML document in Gradle<a class="headerlink" href="#loading-a-remote-html-document-in-gradle" title="Permanent link">&para;</a></h2>
 <p>The example below shows a standalone Gradle file (<code>build.gradle</code>) that runs a set of EOL queries (<code>queries.eol</code>) against the HTML behind the Epsilon homepage.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">build.gradle</label><div class="tabbed-content">
@@ -1421,7 +1408,6 @@ operation t_td getRealValue() {
     <span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span> <span class="s1">&#39;queries.eol&#39;</span><span class="o">){</span> <span class="n">model</span><span class="o">(</span><span class="nl">ref:</span> <span class="s1">&#39;HTML&#39;</span><span class="o">)</span> <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">queries.eol</label><div class="tabbed-content">
 <pre class="prettyprint lang-eol"><code>// Print the text of all &lt;strong&gt; elements
@@ -1444,7 +1430,6 @@ var ul = whyEpsilon.nextElementSibling();
 for (li in ul.c_li) {
     li.text.println();
 }</code></pre>
-
 </div>
 </div>
 <h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>

@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1053,14 +1053,14 @@
                 
                 <h1 id="working-with-custom-emf-resources">Working with custom EMF resources<a class="headerlink" href="#working-with-custom-emf-resources" title="Permanent link">&para;</a></h1>
 <p>Epsilon's default EMF driver (<a href="http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/EmfModel.html">EmfModel</a>), provides little support for customising the underlying EMF resource loading/persistence process (e.g. using custom resource factories, passing parameters to the resources's load/save methods etc.). If you're invoking an Epsilon program from Java and you need more flexibility in this respect, you can use <a href="http://download.eclipse.org/epsilon/javadoc/org/eclipse/epsilon/emc/emf/InMemoryEmfModel.html">InMemoryEmfModel</a> instead, which is essentially a wrapper for a pre-loaded EMF resource. A skeleton example follows.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="o">...;</span>
-<span class="n">InMemoryEmfModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InMemoryEmfModel</span><span class="o">(</span><span class="n">resource</span><span class="o">);</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;M&quot;</span><span class="o">);</span>
-<span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="o">();</span>
-<span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(...);</span>
-<span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getModelRepository</span><span class="o">().</span><span class="na">addModel</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
-<span class="n">module</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
-<span class="n">resource</span><span class="o">.</span><span class="na">save</span><span class="o">(...);</span>
+<div class="highlight"><pre><span></span><code><span class="n">Resource</span> <span class="n">resource</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">InMemoryEmfModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InMemoryEmfModel</span><span class="p">(</span><span class="n">resource</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">);</span>
+<span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(...);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+<span class="n">resource</span><span class="p">.</span><span class="na">save</span><span class="p">(...);</span>
 </code></pre></div>
                 
               

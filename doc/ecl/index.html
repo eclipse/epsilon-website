@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1286,7 +1286,6 @@ EclModule -- MatchRule: rules *
 MatchRule -- Parameter: left
 MatchRule -- Parameter: right
 MatchRule -- MatchRule: extends *</div>
-
 <p>A match rule has three parts. The <em>guard</em> part is an EOL expression or statement block that further limits the applicability of the rule to an even narrower range of elements than that specified by the <em>left</em> and <em>right</em> parameters. The <em>compare</em> part is an EOL expression or statement block that is responsible for comparing a pair of elements and deciding if they match or not. Finally, the <em>do</em> part is an EOL expression or block that is executed if the <em>compare</em> part returns true to perform any additional actions required.</p>
 <p><em>Pre</em> and <em>post</em> blocks are named blocks of EOL statements which as discussed in the sequel are executed before and after the match-rules have been executed respectively.</p>
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>
@@ -1304,13 +1303,11 @@ rule &lt;name&gt;
     (do {statementBlock})?
 }
 </code></pre></div>
-
 <p><em>Pre</em> and <em>post</em> blocks have a simple syntax that, as shown below, consists of the identifier (<em>pre</em> or <em>post</em>), an optional name and the set of statements to be executed enclosed in curly braces.</p>
 <div class="highlight"><pre><span></span><code>(pre|post) &lt;name&gt; {
     statement+
 }
 </code></pre></div>
-
 <h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
 <h3 id="rule-and-block-overriding">Rule and Block Overriding<a class="headerlink" href="#rule-and-block-overriding" title="Permanent link">&para;</a></h3>
 <p>An ECL module can import a number of other ECL modules. In such a case, the importing ECL module inherits all the rules and pre/post blocks specified in the modules it imports (recursively). If the module specifies a rule or a pre/post block with the same name, the local rule/block overrides the imported one respectively.</p>
@@ -1331,7 +1328,6 @@ MatchTrace -- Match: matches *
 EclContext --|&gt; EolContext
 EclContext -- MatchTrace
 Map -- Match: info</div>
-
 <h3 id="rule-execution-scheduling">Rule Execution Scheduling<a class="headerlink" href="#rule-execution-scheduling" title="Permanent link">&para;</a></h3>
 <p>Non-abstract, non-lazy match-rules are evaluated automatically by the execution engine in a top-down fashion - with respect to their order of appearance - in two passes. In the first pass, each rule is evaluated for all the pairs of instances in the two models that have a type-of relationship with the types specified by the <em>leftParameter</em> and <em>rightParameter</em> of the rule. In the second pass, each rule that is marked as <em>greedy</em> is executed for all pairs that have not been compared in the first pass, and which have a kind-of relationship with the types specified by the rule. In both passes, to evaluate the compare part of the rule, the guard must be satisfied.</p>
 <p>Before the compare part of a rule is executed, the compare parts of all of the rules it extends (super-rules) must be executed (recursively). Before executing the compare part of a super-rule, the engine verifies that the super-rule is actually applicable to the elements under comparison by checking for type conformance and evaluating the guard part of the super-rule.</p>
@@ -1349,7 +1345,6 @@ class Tree {
     +children: Tree[*]
 }
 Tree -- Tree</div>
-
 <pre class="prettyprint lang-ecl"><code>rule Tree2Tree 
     match l : T1!Tree
     with r : T2!Tree {
@@ -1358,7 +1353,6 @@ Tree -- Tree</div>
         l.parent.matches(r.parent) and
         l.children.matches(r.children)
 }</code></pre>
-
 <p>The rule specifies that for two Tree nodes (<em>l</em> and <em>r</em>) to match, they should have the same label, belong to matching parents and have matching children. In the absence of a dedicated mechanism for cycle detection and resolution, the rule would end up in an infinite loop. To address this problem, ECL provides a temporary match-trace which is used to detect and resolve cyclic invocations of the <em>match()</em> built-in operation.</p>
 <p>As discussed above, a match is added to the primary match-trace as soon as the compare part of the rule has been executed to completion. By contrast, a temporary match (with its <em>matching</em> property set to <em>true</em>) is added to the temporary trace before the compare part is executed. In this way, any subsequent attempts to match the two elements from invoked rules will not re-invoke the rule. Finally, when a top-level rule returns, the temporary match trace is reset.</p>
 <h2 id="fuzzy-and-dictionary-based-string-matching">Fuzzy and Dictionary-based String Matching<a class="headerlink" href="#fuzzy-and-dictionary-based-string-matching" title="Permanent link">&para;</a></h2>
@@ -1382,7 +1376,6 @@ rule FuzzyTree2Tree
 operation String fuzzyMatch(other : String) : Boolean {
     return simmetrics.similarity(self,other,"Levenshtein") &gt; 0.5;
 }</code></pre>
-
 <h2 id="the-match-trace">The Match Trace<a class="headerlink" href="#the-match-trace" title="Permanent link">&para;</a></h2>
 <p>Users can query and modify the match trace calculated during the comparison process in the post sections of the module or export it into another application or Epsilon program. For example, in a post section, the trace can be printed to the default output stream or serialized into a model of an arbitrary metamodel. In another use case, the trace may be exported to be used in the context of a validation module that will use the identified matches to evaluate inter-model constraints, or in a merging module that will use the matches to identify the elements on which the two models will be merged.</p>
                 

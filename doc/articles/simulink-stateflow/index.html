@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1169,7 +1169,6 @@ syntax to create this blocks is as follows:</p>
 <pre class="prettyprint lang-eol"><code>var step = new `simulink/Sources/Step`;
 var sum = new `simulink/Math Operations/Sum`;
 var chart = new `sflib/Chart`;</code></pre>
-
 <p>In contrast to Simulink Blocks, Stateflow Blocks don't require the full
 library path but have to be instantiated with the Stateflow prefix (e.g.
 Stateflow.${Block_Type}). This blocks also need to have a parent to be
@@ -1184,7 +1183,6 @@ state.parent = parent;</p>
 block using either syntax for both kinds of blocks:</p>
 <pre class="prettyprint lang-eol"><code>state.getChildren();
 chart.children;</code></pre>
-
 <p>Note that Stateflow Blocks will return Stateflow Blocks as children and
 Simulink Blocks will return their Simulink children Blocks.</p>
 <h2 id="querying-for-existing-blocks">Querying for existing blocks<a class="headerlink" href="#querying-for-existing-blocks" title="Permanent link">&para;</a></h2>
@@ -1195,12 +1193,10 @@ type.</p>
 path.</p>
 <pre class="prettyprint lang-eol"><code>// var sum = new `simulink/Math Operations/Sum`; // Full path 
 var sumBlockList = Sum.all; // Type only</code></pre>
-
 <p>For Stateflow Blocks you must specify the fully qualified type i.e. the
 same used for creation:</p>
 <pre class="prettyprint lang-eol"><code>// var state= new `Stateflow.State`; // Fully qualified type
 var stateBlockList = `Stateflow.State`.all; </code></pre>
-
 <p>Be aware that some Simulink Blocks have different "BlockTypes" than the
 path used for their construction.</p>
 <pre class="prettyprint lang-eol"><code>var pidController = new `simulink/Continuous/PID Controller`; 
@@ -1208,12 +1204,10 @@ var subsystemBlockList = SubSystem.all; // Includes PID Controller
 // PIDController.all or `PID Controller`.all would return an error
 var transferFcn = new `simulink/Continuous/Transfer Fcn`;
 var transferFcnBlockList = TransferFcn.all; // Removed the space</code></pre>
-
 <p>You may find the real Simulink Block type of the element by retrieving
 the "BlockType" property of the Simulink Block.</p>
 <pre class="prettyprint lang-eol"><code>var pidController = new `simulink/Continuous/PID Controller`;
 pidController.BlockType.println; // prints "SubSystem"</code></pre>
-
 <p>Note that Simulink and Stateflow Block types are case sensitive for
 instantiation and collection.</p>
 <h2 id="reading-and-updating-the-block-properties">Reading and Updating the block properties<a class="headerlink" href="#reading-and-updating-the-block-properties" title="Permanent link">&para;</a></h2>
@@ -1221,18 +1215,15 @@ instantiation and collection.</p>
 follows:</p>
 <pre class="prettyprint lang-eol"><code>state.Name = "State A"; // Set
 state.name.println; // Get</code></pre>
-
 <p>You may also set and get positioning attributes.</p>
 <pre class="prettyprint lang-eol"><code>state.Position = "[50 50 310 200]"; // Set (receives a string type)
 var seq = state.position; // Get position (returns a sequence type)
 assert(seq.at(0) = 50); // element 0 of state block position</code></pre>
-
 <p>Note that properties are case insensitive.</p>
 <h2 id="deleting-blocks">Deleting blocks<a class="headerlink" href="#deleting-blocks" title="Permanent link">&para;</a></h2>
 <p>You can also delete blocks using the following syntax:</p>
 <pre class="prettyprint lang-eol"><code>delete state; // `Stateflow.State`
 delete chart; // `sflib/Chart`</code></pre>
-
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <p>In this tutorial we've seen how to create, read, update, and delete
 Simulink and Stateflow block types in epsilon and also how to set up

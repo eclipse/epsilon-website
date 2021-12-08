@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1124,7 +1124,6 @@
 <p><code>wget</code> and <code>grep</code> can be used to find broken links in the Epsilon website. First, run the website locally by executing the <code>./serve.sh</code> command as described above. Then, we will traverse the website using <code>wget</code> with this command:</p>
 <div class="highlight"><pre><span></span><code>wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8000
 </code></pre></div>
-
 <p>We have used these options:</p>
 <ul>
 <li><code>-e robots=off</code> makes <code>wget</code> ignore <code>robots.txt</code>. This is OK in this case, as we're running the spider on our own local server.</li>
@@ -1136,7 +1135,6 @@
 <p>Once it's done, we can simply search for the word "404" in the log, with:</p>
 <div class="highlight"><pre><span></span><code>grep -B2 -w 404 wget_errors.txt
 </code></pre></div>
-
 <p>We will get a list of all the URLs which reported 404 (Not Found) HTTP error codes.</p>
                 
               

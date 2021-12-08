@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1275,7 +1275,6 @@ EtlModule -- TransformRule: rules *
 TransformRule -- Parameter: source
 TransformRule -- Parameter: targets *
 TransformRule -- TransformRule: extends *</div>
-
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>
 <p>The concrete syntax of a transformation rule is displayed in the listing below. The optional <code>abstract</code>, <code>lazy</code> and <code>primary</code> attributes of the rule are specified using respective annotations. The name of the rule follows the <code>rule</code> keyword and the <code>source</code> and <code>target</code> parameters are defined after the <code>transform</code> and <code>to</code> keywords. Also, the rule can define an optional comma-separated list of rules it extends after the <code>extends</code> keyword. Inside the curly braces ({}), the rule can optionally specify its <code>guard</code> either as an EOL expression following a colon (:) (for simple guards) or as a block of statements in curly braces (for more complex guards). Finally, the <code>body</code> of the rule is specified as a sequence of EOL statements.</p>
 <div class="highlight"><pre><span></span><code>(@abstract)?
@@ -1292,13 +1291,11 @@ rule &lt;name&gt;
     statement+
 }
 </code></pre></div>
-
 <p><code>Pre</code> and <code>post</code> blocks have a simple syntax that, as presented the listing below, consists of the identifier (<code>pre</code> or <code>post</code>), an optional name and the set of statements to be executed enclosed in curly braces.</p>
 <div class="highlight"><pre><span></span><code>(pre|post) &lt;name&gt; {
     statement+
 }
 </code></pre></div>
-
 <h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
 <h3 id="rule-and-block-overriding">Rule and Block Overriding<a class="headerlink" href="#rule-and-block-overriding" title="Permanent link">&para;</a></h3>
 <p>Similarly to EOL, an ETL module can import a number of other ETL modules. In this case, the importing ETL module inherits all the rules and pre/post blocks specified in the modules it imports (recursively). If the module specifies a rule or a pre/post block with the same name, the local rule/block overrides the imported one respectively.</p>
@@ -1326,7 +1323,6 @@ EtlContext -- TransformationTrace
 EtlContext -- ITransformationStrategy: strategy
 TransformationTrace -- Transformation: transformations *
 Transformation -- TransformRule: rule</div>
-
 <p>ETL also provides the convenient <code>equivalent()</code> operation which, when applied to a single element, returns only the first element of the respective result that would have been returned by the <code>equivalents()</code> operation discussed above. Also, when applied to a collection the <code>equivalent()</code> operation returns a flattened collection (as opposed to the result of <code>equivalents()</code> which is a <code>Bag</code> of <code>Bag</code>s in this case). As with the <code>equivalents()</code> operation, the <code>equivalent()</code> operation can also be invoked with or without parameters.</p>
 <p>The semantics of the <code>equivalent()</code> operation is further illustrated through a simple example. In this example, we need to transform a model that conforms to the Tree metamodel displayed below into a model that conforms to the Graph metamodel, also displayed below.</p>
 <div class="mermaid mermaid-70">classDiagram
@@ -1347,7 +1343,6 @@ class Tree {
 Tree -- Tree
 Node -- Edge
 Edge -- Node</div>
-
 <p>More specifically, we need to transform each <code>Tree</code> element to a <code>Node</code>, and an <code>Edge</code> that connects it with the <code>Node</code> that is equivalent to the tree's <code>parent</code>. This is achieved using the rule below.</p>
 <pre class="prettyprint lang-etl"><code>rule Tree2Node
     transform t : Tree!Tree
@@ -1361,13 +1356,11 @@ Edge -- Node</div>
         edge.target = t.parent.equivalent();
     }
 }</code></pre>
-
 <p>In lines 1--3, the <code>Tree2Node</code> rule specifies that it can transform elements of the <code>Tree</code> type in the <code>Tree</code> model into elements of the <code>Node</code> type in the <code>Graph</code> model. In line 5 it specifies that the label of the created Node should be the same as the label of the source Tree. If the parent of the source <code>Tree</code> is defined (line 7), the rule creates a new <code>Edge</code> (line 8) and sets its <code>source</code> property to the created <code>Node</code> (line 9) and its <code>target</code> property to the <code>equivalent</code> <code>Node</code> of the source <code>Tree</code>'s <code>parent</code> (line 10).</p>
 <h3 id="overriding-the-semantics-of-the-eol-special-assignment-operator">Overriding the semantics of the EOL Special Assignment Operator<a class="headerlink" href="#overriding-the-semantics-of-the-eol-special-assignment-operator" title="Permanent link">&para;</a></h3>
 <p>As discussed above, resolving the equivalent(s) or source model elements in the target model is a recurring task in model transformation. Furthermore, in most cases resolving the equivalent of a model element is immediately followed by assigning/adding the obtained target model elements to the value(s) of a property of another target model element. For example, in line 10 of the listing above, the <code>equivalent</code> obtained is immediately assigned to the <code>target</code> property of the generated <code>Edge</code>. To make transformation specifications more readable, ETL overrides the semantics of the <code>SpecialAssignmentStatement</code> (<code>::=</code> in terms of concrete syntax), to set its left-hand side, not to the element its right-hand side evaluates to, but to its <code>equivalent</code> as calculated using the <code>equivalent()</code> operation discussed above. Using this feature, line 10 of the <code>Tree2Node</code> rule can be rewritten as shown below.</p>
 <div class="highlight"><pre><span></span><code>edge.target ::= t.parent;
 </code></pre></div>
-
 <h3 id="interactive-transformations">Interactive Transformations<a class="headerlink" href="#interactive-transformations" title="Permanent link">&para;</a></h3>
 <p>Using the user interaction facilities of EOL, an ETL transformation can become interactive by prompting the user for input during its execution. For example in the listing below, we modify the <code>Tree2Node</code> rule by adding a <code>guard</code> part that uses the user-input facilities of EOL (more specifically the <code>UserInput.confirm(String,Boolean)</code> operation) to enable the user select manually at runtime which of the Tree elements need to be transformed to respective Node elements in the target model and which not.</p>
 <pre class="prettyprint lang-etl"><code>rule Tree2Node
@@ -1385,7 +1378,6 @@ Edge -- Node</div>
         edge.target = target;
     }
 }</code></pre>
-
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <p>Additional resources about ETL are available <a href="../articles/#epsilon-transformation-language">here</a>.</p>
 <div class="footnote">

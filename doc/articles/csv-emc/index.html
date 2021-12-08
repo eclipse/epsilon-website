@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1190,7 +1190,6 @@ access has to be done using that type.</p>
 833-32-9040,Mattie,Hamon,mhamoni@auda.org.au,Male,Structural Engineer,,Drama
 101-82-2564,Hew,Goble,hgoblej@ocn.ne.jp,Male,VP Accounting,,Comedy
 </code></pre></div>
-
 <p>Since there are no headers, we need to access the information via the general <em>field</em> attribute and index (0 based):</p>
 <pre class="prettyprint lang-eol"><code>// Get all Rows elements
 var people = Row.all;
@@ -1205,7 +1204,6 @@ p.field.at(4).println();
 // Get the emails (field 3) of people that like Horror movies (field 7) so we can let them know a new movie is out.
 // Prints 'Sequence {rdwyr0@parallels.com, mmacer2@sogou.com, rsobieski5@usatoday.com, rvarrand@jugem.jp}'
 people.select(p | p.field.at(7) == 'Horror').collect(p | p.field.at(3)).println();</code></pre>
-
 <h3 id="header-full-csv-model">Header-full CSV Model<a class="headerlink" href="#header-full-csv-model" title="Permanent link">&para;</a></h3>
 <p>Consider that we add headers to the previous CSV model (<code>Headers.csv</code>)</p>
 <div class="highlight"><pre><span></span><code>id,first_name,last_name,email,gender,job,credit_card,movies
@@ -1213,7 +1211,6 @@ people.select(p | p.field.at(7) == 'Horror').collect(p | p.field.at(3)).println(
 272-41-1349,Norry,Halpin,nhalpin1@slashdot.org,Female,Legal Assistant,,Drama
 ...
 </code></pre></div>
-
 <p>We can query the same information as before, but this time we can use the field names defined by the header:</p>
 <pre class="prettyprint lang-eol"><code>// Get all Rows elements
 var people = Row.all;
@@ -1240,7 +1237,6 @@ for (m in mt) {
     (m.first_name + " and " + f.first_name + " is a match made in heaven!").println();
   }
 }</code></pre>
-
 <h3 id="header-full-with-varargs-csv-model">Header-full with Varargs CSV Model<a class="headerlink" href="#header-full-with-varargs-csv-model" title="Permanent link">&para;</a></h3>
 <p>Last, we have a CSV model with some vararg information, is the same as before, but in this case persons are allowed to have multiple movies. We have also added a <code>quote</code> field that shows the <em>quote character</em> in action.</p>
 <div class="highlight"><pre><span></span><code>id,first_name,last_name,email,gender,job,credit_card,quote,movies
@@ -1265,7 +1261,6 @@ for (m in mt) {
 833-32-9040,Mattie,Hamon,mhamoni@auda.org.au,Male,Structural Engineer,,Duis at velit eu est congue elementum. In hac habitasse platea dictumst.,Drama
 101-82-2564,Hew,Goble,hgoblej@ocn.ne.jp,Male,VP Accounting,,Etiam pretium iaculis justo.,Comedy
 </code></pre></div>
-
 <pre class="prettyprint lang-eol"><code>// Get all Rows elements
 var people = Row.all;
 
@@ -1288,7 +1283,6 @@ for (p in people) {
 //Lissa screams 'Pellentesque at nulla.' when watching a Thriller. She is afraid of being a Analyst Programmer.
 //Nickolas sighs, but blames 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.' for the tear in his eye. Being a Web Designer IV will never be the same.
 //Mattie sighs, but blames 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst.' for the tear in his eye. Being a Structural Engineer will never be the same.</code></pre>
-
 <h2 id="queryingmodifying-csv-documents-in-eol">Querying/modifying CSV documents in EOL<a class="headerlink" href="#queryingmodifying-csv-documents-in-eol" title="Permanent link">&para;</a></h2>
 <p>The CSV driver support direct query and modification of attribute
 values:</p>
@@ -1302,7 +1296,6 @@ p.name.println();
 // Change the name
 p.name = "Maria Antonieta"
 p.name.println();</code></pre>
-
 <h3 id="how-do-i-create-an-element">How do I create an element?<a class="headerlink" href="#how-do-i-create-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>new</code> operator for this, and remember that all CSV elements are rows! New Rows will be added at the end of the file when persisting the changes.</p>
 <pre class="prettyprint lang-eol"><code>// Check how many entries are in the model
@@ -1315,7 +1308,6 @@ var b = new Row;
 // Check again
 // Prints '21'
 Row.all.size().println();</code></pre>
-
 <h2 id="loading-an-csv-document-in-your-ant-buildfile">Loading an CSV document in your ANT buildfile<a class="headerlink" href="#loading-an-csv-document-in-your-ant-buildfile" title="Permanent link">&para;</a></h2>
 <p>The following ANT build file demonstrates how you can use ANT to load/store and process CSV documents with Epsilon.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
@@ -1332,23 +1324,22 @@ Row.all.size().println();</code></pre>
   <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <h2 id="loading-an-csv-document-through-java-code">Loading an CSV document through Java code<a class="headerlink" href="#loading-an-csv-document-through-java-code" title="Permanent link">&para;</a></h2>
 <p>The following excerpt demonstrates using CSV models using Epsilon\'s Java API.</p>
-<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="o">();</span>
-<span class="n">module</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">));</span>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span> <span class="n">module</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
 
-<span class="n">CsvModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CsvModel</span><span class="o">();</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;M&quot;</span><span class="o">);</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setFile</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">));</span>
-<span class="kt">char</span> <span class="n">fieldSeparator</span> <span class="o">=</span> <span class="sc">&#39;,&#39;</span><span class="o">;</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setFieldSeparator</span><span class="o">(</span><span class="n">fieldSeparator</span><span class="o">);</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setKnownHeaders</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
-<span class="n">model</span><span class="o">.</span><span class="na">setVarargsHeaders</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="n">CsvModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CsvModel</span><span class="p">();</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setFile</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
+<span class="kt">char</span> <span class="n">fieldSeparator</span> <span class="o">=</span> <span class="sc">&#39;,&#39;</span><span class="p">;</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setFieldSeparator</span><span class="p">(</span><span class="n">fieldSeparator</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setKnownHeaders</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setVarargsHeaders</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
 
-<span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getModelRepository</span><span class="o">().</span><span class="na">addModel</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
-<span class="n">module</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">setModule</span><span class="o">(</span><span class="n">module</span><span class="o">);</span>
-<span class="n">module</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setModule</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 </code></pre></div>
                 
               

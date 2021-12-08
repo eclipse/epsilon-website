@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1096,7 +1096,6 @@
 
     column like_meter : liked_by - disliked_by
 }</code></pre>
-
 <p>Briefly, a Pinset dataset rule contains EOL-based definitions of the different columns of the output dataset. These columns operate over elements of the input model (such as the <code>Person</code> elements in the rule above) to create the dataset rows. In the example, likes and dislikes counts are obtained for each <code>Person</code> element in the dataset. Check the <a href="../../pinset">Pinset documentation</a> for more information about other features of the language such as advanced column generators.</p>
 <p>To use the above Pinset rule to create a Picto view in the social network model visualisation, the following EGX rule is present in the <code>picto/socialnetwork.egx</code> file:</p>
 <pre class="prettyprint lang-egx"><code>rule Persons2Table {
@@ -1111,7 +1110,6 @@
         // ,"pinsetrule" = "otherStats"
     }
 }</code></pre>
-
 <p>The EGX rule above is very similar to the ones normally used for EGL templates. As differences, the rule points to a <code>.pinset</code> template file where the Pinset dataset rules are contained, and the defined icon and format are <code>table</code> and <code>csv</code> respectivelly. Lastly, as a Pinset file can contain several dataset rules, it is possible to select which rule to use in the visualisation with the <code>pinsetrule</code> parameter (commented out in the rule above).</p>
 <p>The above EGX and Pinset rules generate the following table view:</p>
 <p><img alt="" src="pinset-picto.png" /></p>

@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1139,7 +1139,6 @@
     <span class="nt">&lt;/book&gt;</span>
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
-
 <p>The XSD schema <code>library.xsd</code> that backs the <code>library.xml</code> file is the following.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;xs:schema</span> <span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span> <span class="na">elementFormDefault=</span><span class="s">&quot;qualified&quot;</span> <span class="na">attributeFormDefault=</span><span class="s">&quot;unqualified&quot;</span><span class="nt">&gt;</span>
@@ -1162,7 +1161,6 @@
     <span class="nt">&lt;/xs:element&gt;</span>
 <span class="nt">&lt;/xs:schema&gt;</span>
 </code></pre></div>
-
 <h2 id="querying-xml-documents-in-eol">Querying XML documents in EOL<a class="headerlink" href="#querying-xml-documents-in-eol" title="Permanent link">&para;</a></h2>
 <p>The XML driver uses a predefined naming convention to allow developers to programmatically access complex types in XML documents. </p>
 <h3 id="how-can-i-query-by-element-type">How can I query by element type?<a class="headerlink" href="#how-can-i-query-by-element-type" title="Permanent link">&para;</a></h3>
@@ -1184,7 +1182,6 @@ for (aBook in allBooks) {
         ("The " + aBook.title + " is a large book!").println();
     }
 }</code></pre>
-
 <h3 id="how-can-i-getset-the-attributes-of-an-element">How can I get/set the attributes of an element?<a class="headerlink" href="#how-can-i-getset-the-attributes-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the attribute name as a property of the element object. For example, if <code>b</code> is the first book of <code>library.xml</code>, <code>b.title</code> will return <code>EMF Eclipse Modeling Framework</code>. Attribute properties are read/write.</p>
 <p>In this example, <code>b.pages</code> will return <code>744</code> as an integer. Thus, the following program will return the total number of pages of all the books in the library. </p>
@@ -1201,7 +1198,6 @@ for (aBook in allBooks) {
 // ... the same using collect() and sum() 
 // instead of a for loop
 BookType.all().collect(b|b.pages).sum().println();</code></pre>
-
 <h3 id="how-can-i-set-the-text-of-an-element">How can I set the text of an element?<a class="headerlink" href="#how-can-i-set-the-text-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the property name and the assignment symbol <code>=</code> for this.</p>
 <pre class="prettyprint lang-eol"><code>// Get the first book contained in the library
@@ -1214,7 +1210,6 @@ emfBook.title = "EMF Book";
 // option in the run configuration to save changes to the XML file.)
 var changedEmfBook =  BookType.all().first();
 changedEmfBook.title.println();</code></pre>
-
 <h3 id="how-do-i-create-an-element-and-add-it-to-an-existing-element">How do I create an element and add it to an existing element?<a class="headerlink" href="#how-do-i-create-an-element-and-add-it-to-an-existing-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>new</code> operator for this. </p>
 <pre class="prettyprint lang-eol"><code>// Get all the books contained in this library
@@ -1233,7 +1228,6 @@ library.book.add(newBook);
 
 // Get all books and print the new size
 BookType.all().size().println();</code></pre>
-
 <h2 id="adding-an-xml-document-to-your-launch-configuration">Adding an XML document to your launch configuration<a class="headerlink" href="#adding-an-xml-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
 <p>To add an XML document to your Epsilon launch configuration, you need to select "XML document backed by XSD (EMF)" from the list of available model types.</p>
 <p><img alt="" src="select.png" /></p>

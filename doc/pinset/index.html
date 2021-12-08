@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1295,7 +1295,6 @@ Course *--&gt; EvaluationItem: items *
 Student *--&gt; ContactDetails: contact
 Student *--&gt; Grade: grades *
 Grade --&gt; EvaluationItem: item</div>
-
 <p>As for the data shown as a result of the Pinset scripts, we use the following <a href="../flexmi">Flexmi</a> model, which conforms to the metamodel above:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri grades?&gt;</span>
 <span class="nt">&lt;course</span> <span class="na">name=</span><span class="s">&quot;Model-Driven Engineering&quot;</span><span class="nt">&gt;</span>
@@ -1331,7 +1330,6 @@ Grade --&gt; EvaluationItem: item</div>
     <span class="nt">&lt;/student&gt;</span>
 <span class="nt">&lt;/course&gt;</span>
 </code></pre></div>
-
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>This first Pinset example defines a dataset from students data, containing some basic information such as name and student ID, contact details, the number of completed evaluation items, and the final grade for the course:</p>
 <pre class="prettyprint lang-pinset"><code>dataset studentsSummary over s : Student {
@@ -1364,7 +1362,6 @@ operation Student getFinalGrade() {
             .collect(g | g.points * g.item.percentage)
             .sum() / 100;
 }</code></pre>
-
 <p>From that Pinset script, the following dataset is generated:</p>
 <table>
 <thead>
@@ -1429,7 +1426,6 @@ In addition, external operations can be invoked in the column expressions, such 
     properties [ID as StudentId, name]
     reference contact[email, phone]
 }</code></pre>
-
 <p>The previous dataset rule results in:</p>
 <table>
 <thead>
@@ -1485,7 +1481,6 @@ dataset finalExamAssistants over s : Student
 
     properties[ID, name]
 }</code></pre>
-
 <p>These dataset rules show the two ways that can be used to perform filtering in Pinset:</p>
 <ul>
 <li>
@@ -1568,7 +1563,6 @@ dataset finalExamAssistants over s : Student
 
     column final_grade : s.getFinalGrade()
 }</code></pre>
-
 <p>In that grid generator, the course evaluation items are used as <code>keys</code>, which means that each one of these items would be evaluated over the <code>header</code> and <code>body</code> expressions to generate a new column. The <code>header</code> of the columns uses the item name, and the <code>body</code> is calculated by looking for a grade of the student for the evaluation item. The body uses the <code>?.</code> <a href="../eol#safe-navigation-and-elvis-operator">safe null navigation operator</a> in case the student does not have a grade for certain item.</p>
 <h2 id="typeless-dataset-rules">Typeless dataset rules<a class="headerlink" href="#typeless-dataset-rules" title="Permanent link">&para;</a></h2>
 <p>The <code>from</code> expression presented above to filter rows during the generation can be also used to define datasets where the row elements are not instances coming from an input model. This can be useful to perform data aggregations, or to generate synthetic tables starting from a custom collection of values.</p>
@@ -1583,7 +1577,6 @@ dataset finalExamAssistants over s : Student
         body: n * key
     }
 }</code></pre>
-
 <table>
 <thead>
 <tr>
@@ -1649,7 +1642,6 @@ dataset finalExamAssistants over s : Student
         column grade_lowerthan_final : g.points &lt; final_grade
     }
 }</code></pre>
-
 <p>The rule above generates a dataset with one row per grade in the course. The rule includes a <code>from</code> expression, which obtains the student that obtained the grade through the containment reference. Then, it is used to obtain the student id and final grade, and an extra column that determines whether a grade contributed negatively to the final grade of the student, by checking if it has less points than the final grade.</p>
 <p>The names of the nested column generators are prefixed with the name given to the object calculated by the <code>from</code> expression:</p>
 <table>
@@ -1773,7 +1765,6 @@ These operations are invoked by annotating the column generators.</p>
     @normalize 100
     column final_grade_normalized : final_grade
 }</code></pre>
-
 <table>
 <thead>
 <tr>

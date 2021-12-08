@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1105,7 +1105,6 @@ class Attribute {
    attr String name;
    attr String type;
 }</code></pre>
-
 <p>and we follow the <a href="../eugenia-gmf-tutorial/">standard Eugenia procedure</a> to generate a GMF editor from it. The editor looks like this:</p>
 <p><img alt="" src="Classdiagramdefault.png" /></p>
 <p>which is <strong>almost</strong> what we want. What we <strong>really</strong> want is something like this:</p>
@@ -1137,7 +1136,6 @@ var preferredSize = new GmfGraph!Dimension;
 preferredSize.dx = 100;
 preferredSize.dy = 16;
 attributeFigure.preferredSize = preferredSize;</code></pre>
-
 <p>Similarly, if we needed to customize the logic behind the <code>Synchronize GMF Gen model</code> action, we'd need to define a <code>FixGMFGen.eol</code> transformation next to <code>classdiagram.ecore</code>.</p>
 <h2 id="what-models-can-i-access-from-the-ecore2gmfeol-and-fixgmfgeneol-transformations">What models can I access from the ECore2GMF.eol and FixGMFGen.eol transformations?<a class="headerlink" href="#what-models-can-i-access-from-the-ecore2gmfeol-and-fixgmfgeneol-transformations" title="Permanent link">&para;</a></h2>
 <p>In the <code>Ecore2GenModel.eol</code> transformation and the later <code>FixGenModel.eol</code> transformation you can access the ECore metamodel (named <code>Ecore</code>) and the EMF GenModel model (named <code>GenModel</code>). You can run <code>Ecore2GenModel.eol</code> or <code>FixGenModel.eol</code> manually by right-clicking on the <code>.ecore</code> file and selecting "Generate EMF GenModel" or "Synchronize EMF GenModel", respectively.</p>

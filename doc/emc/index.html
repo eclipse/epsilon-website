@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1357,7 +1357,6 @@ ModelGroup -- IModel: models *
 IModel &lt;|-- ModelGroup
 IModel -- IPropertySetter: propertySetter
 IModel -- IPropertyGetter: propertyGetter</div>
-
 <p>To abstract away from diverse model representations and APIs provided by different modelling technologies, EMC defines the <em>IModel</em> interface. <em>IModel</em> provides a number of methods that enable querying and modifying the model elements it contains at a higher level of abstraction. To enable languages and tools that build atop EMC to manage multiple models simultaneously, the <em>ModelRepository</em> class acts as a container that offers façade services. The following sections discuss these two core concepts in detail.</p>
 <h2 id="the-imodel-interface">The IModel interface<a class="headerlink" href="#the-imodel-interface" title="Permanent link">&para;</a></h2>
 <p>Each model specifies a name which must be unique in the context of the model repository in which it is contained. Also, it defines a number of aliases; that is non-unique alternate names; via which it can be accessed. The interface also defines the following services.</p>

@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1097,7 +1097,6 @@
 To do a plain Maven compilation + test build from scratch, simply run this:</p>
 <div class="highlight"><pre><span></span><code>mvn -f pom-plain.xml clean test
 </code></pre></div>
-
 <p>Keep in mind that plain Maven builds do not run unit tests, as we already run those in the Tycho build.
 Make sure that all tests pass in the Tycho build first.</p>
 <p>Double check the dependencies in the various <code>pom-plain.xml</code> files, especially those related to external libraries.</p>
@@ -1106,20 +1105,16 @@ Make sure that all tests pass in the Tycho build first.</p>
 <p>Once the new stable version of Epsilon has been tagged, create a Maven release branch with:</p>
 <div class="highlight"><pre><span></span><code>git checkout -b maven-RELEASE RELEASE-TAG
 </code></pre></div>
-
 <p>Set the version in the <code>pom-plain.xml</code> files:</p>
 <div class="highlight"><pre><span></span><code>mvn -f pom-plain.xml versions:set
 </code></pre></div>
-
 <p>Enter the version number of the release, and create a commit for it:</p>
 <div class="highlight"><pre><span></span><code>git add ...
 git commit -m <span class="s2">&quot;Set plain Maven versions to RELEASE&quot;</span>
 </code></pre></div>
-
 <p>Push the commit to Jenkins:</p>
 <div class="highlight"><pre><span></span><code>git push
 </code></pre></div>
-
 <p>If you need to make any other tweaks for the Maven release, you may want to try them here first rather than pollute <code>master</code>.
 Once the release is out, you may want to cherry-pick those tweaks back into <code>master</code>.</p>
 <h2 id="release-to-maven-central">Release to Maven Central<a class="headerlink" href="#release-to-maven-central" title="Permanent link">&para;</a></h2>

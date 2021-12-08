@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1497,7 +1497,6 @@
     testa1 --&gt; modely1
     testa2 --&gt; modelx2
     testa2 --&gt; modely2</div>
-
 <p>EUnit will perform a preorder traversal of this tree, running the following tests:</p>
 <ol>
 <li>
@@ -1597,7 +1596,6 @@ Theories</p>
   (<span class="nt">&lt;modelTasks&gt;</span><span class="c">&lt;!-- Zero or more Ant tasks --&gt;</span><span class="nt">&lt;/modelTasks&gt;</span>)?
 <span class="nt">&lt;/epsilon.eunit&gt;</span>
 </code></pre></div>
-
 <p>The EUnit Ant task is based on the Epsilon abstract executable module task, inheriting some useful features. The attribute <code>src</code> points to the path of the EOL file, and the optional attribute <code>failOnErrors</code> can be set to false to prevent EUnit from aborting the Ant launch if a test case fails. EUnit also inherits support for importing and exporting global variables through the <code>&lt;uses&gt;</code> and <code>&lt;exports&gt;</code> elements: the original name is set in <code>ref</code>, and the optional <code>as</code> attribute allows for using a different name. For receiving parameters as name-value piars, the <code>&lt;parameter&gt;</code> element can be used.</p>
 <p>Model references (using the <code>&lt;model&gt;</code> nested element) are also inherited from the Epsilon abstract executable module task. These allow model management tasks to refer by name to models previously loaded in the Ant buildfile. However, EUnit implicitly reloads the models after each test case. This ensures that test cases are isolated from each other.</p>
 <p>The optional <code>&lt;modelTasks&gt;</code> nested element contains a sequence of Ant tasks which will be run after reloading the model references and before running the model setup sections in the EOL file. This allows users to run workflows more advanced than simply reloading model references.</p>
@@ -1621,7 +1619,6 @@ operation generateModel() { /* generate model using x and y */ }
 
 @test
 operation mytest() { /* test with the generated model */ }</code></pre>
-
 <p>Alternatively, if both x and y were to use the same sets of values, we could add two @data annotations to the same operation. For instance, the listing below shows how we could test with 4 cases: x=1 and y=1, x=1 and y=2, x=2 and y=1 and x=2 and y=2.</p>
 <pre class="prettyprint lang-eol"><code>@data x
 @data y
@@ -1632,7 +1629,6 @@ operation generateModel() { /* generate model using x and y */ }
 
 @test
 operation mytest() { /* test with the generated model */ }</code></pre>
-
 <h4 id="model-bindings">Model bindings<a class="headerlink" href="#model-bindings" title="Permanent link">&para;</a></h4>
 <p>Model bindings repeat a test case with different subsets of models. They can be defined by annotating a test case with <code>$with map</code> or <code>$onlyWith map</code> one or more times, where map is an EOL expression that produces a <code>MAP</code>. For each key-value pair <code>key = value</code>, EUnit will rename the model named <code>value</code> to <code>key</code>. The difference between <code>$with</code> and <code>$onlyWith</code> is how they handle the models not mentioned in the <code>MAP</code>: <code>$with</code> will preserve them as is, and <code>$onlyWith</code> will make them unavailable during the test. <code>$onlyWith</code> is useful for tightly restricting the set of available models in a test and for avoiding ambiguous type references when handling multiple models using the same metamodel.</p>
 <p>The listing below shows two tests which will be each run twice. The first test uses <code>$with</code>, which preserves models not mentioned in the MAP: the first time, model "A" will be the default model and model "B" will be the "Other" model, and the second time, model "B" will be the default model and model "A" will be the "Other" model. The second test uses two <code>$onlyWith</code> annotations: on the first run, "A" will be available as "Model" and "B" will not unavailable, and on the second run, only "B" will be available as "Model" and "A" will be unavailable.</p>
@@ -1651,7 +1647,6 @@ operation mytest2() {
   // first time: A as 'Model', B is unavailable
   // second time: B as 'Model', A is unavailable
 }</code></pre>
-
 <h4 id="additional-variables-and-built-in-operations">Additional variables and built-in operations<a class="headerlink" href="#additional-variables-and-built-in-operations" title="Permanent link">&para;</a></h4>
 <p>EUnit provides several variables and operations which are useful for testing. These are listed in the table below.</p>
 <table>
@@ -1824,14 +1819,12 @@ the table below.</p>
   <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <p>The EOL script is shown in the listing below: it invokes the helper task (line 3) and checks that the obtained model is equal to the expected model (line 4). Internally, EMC will perform the comparison using EMF Compare.</p>
 <pre class="prettyprint lang-eol"><code>@test
 operation transformationWorksAsExpected() {
   runTarget("tree2graph");
   assertEqualModels("GraphExpected", "Graph");
 }</code></pre>
-
 <h3 id="models-and-tasks-in-the-eol-script">Models and Tasks in the EOL Script<a class="headerlink" href="#models-and-tasks-in-the-eol-script" title="Permanent link">&para;</a></h3>
 <p>In the previous section, the EOL file is kept very concise because the model setup and model management tasks under test were specified in the Ant buildfile. In this section, we will inline the models and the tasks into the EOL script instead.</p>
 <p>The Ant buildfile is shown in the listing below. It is now very simple: all it needs to do is run the EOL script. However, since we will parse HUTN in the EOL script, we must make sure the s of the metamodels are registered.</p>
@@ -1843,7 +1836,6 @@ operation transformationWorksAsExpected() {
   <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <p>The EOL script used is shown below. Instead of loading models through the Ant tasks, the <code>loadHutn</code> operation has been used to load the models. The test itself is almost the same, but instead of running a helper target, it invokes an operation which creates and runs the ETL Ant task through the <code>antProject</code> variable provided by EUnit, taking advantage of the support in EOL for invoking Java code through reflection.</p>
 <pre class="prettyprint lang-eol"><code>@model
 operation loadModels() {
@@ -1886,7 +1878,6 @@ operation runETL() {
   etlTask.createModel().setRef("Graph");
   etlTask.execute();
 }</code></pre>
-
 <h2 id="extending-eunit">Extending EUnit<a class="headerlink" href="#extending-eunit" title="Permanent link">&para;</a></h2>
 <p>EUnit is based on the Epsilon platform, but it is designed to accommodate other technologies. In this section we will explain several strategies to add support for these technologies to EUnit.</p>
 <p>EUnit uses the Epsilon Model Connectivity abstraction layer to handle different modelling technologies. Adding support for a different modelling technology only requires implementing another driver for EMC. Depending on the modelling technology, the driver can provide optional services such as model comparison, caching or reflection.</p>
@@ -1937,7 +1928,6 @@ operation runETL() {
   <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-
 <p>Another advantage in making model management tasks EMC-aware is that they can easily “export” their results as models, making them easier to test. For instance, the EVL Ant task allows for exporting its results as a model by setting the attribute <code>exportAsModel</code> to <code>true</code>. This way, EOL can query the results as any regular model. This is simpler than transforming the validated model to a problem metamodel. The example in the listing below checks that a single warning was produced due to the expected rule (<code>LabelsStartWithT</code>) and the expected model element.</p>
 <pre class="prettyprint lang-eol"><code>@test
 operation valid() {
@@ -1951,7 +1941,6 @@ operation valid() {
   assertEquals(false, error.constraint.isCritique);
   assertEquals('LabelsStartWithT', error.constraint.name);
 }</code></pre>
-
 <div class="footnote">
 <hr />
 <ol>

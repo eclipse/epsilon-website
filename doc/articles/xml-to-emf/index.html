@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1061,7 +1061,6 @@
     <span class="nt">&lt;/tree&gt;</span>
 <span class="nt">&lt;/tree&gt;</span>
 </code></pre></div>
-
 <p>The Ecore metamodel (expressed in <a href="http://eclipse.org/emfatic">Emfatic</a>) to which our target EMF model will conform to is shown below:</p>
 <pre class="prettyprint lang-emf"><code>package tree;
 
@@ -1070,7 +1069,6 @@ class Tree {
     ref Tree#children parent;
     val Tree[*]#parent children;
 }</code></pre>
-
 <p>Finally, our ETL transformation (<code>xml2emf.etl</code>) is in the listing below:</p>
 <pre class="prettyprint lang-etl"><code>rule XmlTree2EmfTree
     transform s : Xml!t_tree
@@ -1080,7 +1078,6 @@ class Tree {
     t.children ::= s.c_tree;
 
 }</code></pre>
-
 <p>The transformation consists of one rule which transforms every tree element in the XML document (<code>Xml!t_tree</code>) into an instance of the Tree class of our Ecore metamodel above. The rule sets the <code>label</code> of the latter to the <code>name</code> of the former, and the <code>children</code> of the latter, to the equivalent model elements produced by the <code>tree</code> child elements of the former.</p>
 <p>To run the transformation:</p>
 <ul>

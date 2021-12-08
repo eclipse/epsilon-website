@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1247,7 +1247,6 @@ Component *-- Component
 Component *-- Port: ports *
 Connector -- Port: from
 Port -- Connector: to</div>
-
 <div class="mermaid mermaid-80">classDiagram
 class Component {
     +subcomponents: Component[*]
@@ -1277,7 +1276,6 @@ InputPort --|&gt; Port: in
 OutputPort --|&gt; Port: out
 Connector -- InputPort
 Connector -- OutputPort</div>
-
 <p>Some models that conform to the original metamodel do not conform to the evolved metamodel. Specifically, models might not conform to the evolved metamodel because:</p>
 <ol>
 <li>
@@ -1332,7 +1330,6 @@ Pre --|&gt; NamedStatementBlockRule
 Post --|&gt; NamedStatementBlockRule
 ErlModule -- Pre: pre *
 ErlModule -- Post: post *</div>
-
 <h2 id="abstract-syntax">Abstract Syntax<a class="headerlink" href="#abstract-syntax" title="Permanent link">&para;</a></h2>
 <p>As illustrated in the figure above, Flock migration strategies are organised into individual modules (<code>FlockModule</code>). Flock modules inherit from EOL language constructs for specifying user-defined operations and for importing other (EOL and Flock) modules. Like the other rule-based of Epsilon, Flock modules may comprise any number of pre (post) blocks, which are executed before (after) all other constructs. Flock modules comprise any number of type mappings (<code>TypeMapping</code>) and rules (<code>Rule</code>). Type mappings operate on metamodel types (<code>Retyping</code> and <code>Deletion</code>) or on metamodel packages (<code>PackageRetyping</code> and <code>PackageDeletion</code>). Type mappings are applied to a type in the original metamodel (<code>originalType</code>) or to a package in the original metamodel (<code>originalPackage</code>) . Additionally, <code>Retyping</code>s apply to an evolved metamodel type (<code>evolvedType</code>) or package (<code>evolvedPackage</code>). Each rule has an original metamodel type (<code>originalType</code>), a <code>body</code> comprising a block of EOL statements, and zero or more <code>ignoredFeatures</code>. Type mappings and rules can optionally specify a <code>guard</code>, which is either an EOL statement or a block of EOL statements. Type mappings that operate on metamodel types and rules can be marked as <code>strict</code>.</p>
 <h2 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h2>
@@ -1360,13 +1357,11 @@ migrate &lt;originalType&gt;
     &lt;eolStatement&gt;+
 }
 </code></pre></div>
-
 <p><em>Pre</em> and <em>post</em> blocks have a simple syntax that, as presented below, consists of the identifier (<em>pre</em> or <em>post</em>), an optional name and the set of statements to be executed enclosed in curly braces.</p>
 <div class="highlight"><pre><span></span><code>(pre|post) &lt;name&gt; {
     statement+
 }
 </code></pre></div>
-
 <h2 id="execution-semantics">Execution Semantics<a class="headerlink" href="#execution-semantics" title="Permanent link">&para;</a></h2>
 <p>The execution semantics of a Flock module are now described. Note that the Epsilon Model Connectivity (EMC) layer, which Flock uses to access and manipulate models supports a range of modelling technologies, and identifies types by name. Consequently, the term <em>type</em> is used to mean "the name of an element of a metamodel" in the following discussion. For example, <code>Component</code>, <code>Connector</code> and <code>InputPort</code> are three of the types defined in the evolved metamodel.</p>
 <p>Execution of a Flock module occurs in six phases:</p>
@@ -1457,7 +1452,6 @@ operation Original!Port isInput() : Boolean {
 operation Original!Port isOutput() : Boolean {
     return Original!Connector.all.exists(c|c.`to` == self);
 }</code></pre>
-
 <p>Note that metamodel elements that have not been affected by the metamodel evolution, such as <code>Component</code>s, are migrated automatically. Explicit copying code would be needed to achieve this with a general purpose model-to-model transformation language.</p>
 <h2 id="limitations-and-scope">Limitations and Scope<a class="headerlink" href="#limitations-and-scope" title="Permanent link">&para;</a></h2>
 <p>Although Flock has been shown to much more concise than general purpose model-to-model transformation languages for specifying model migration, Flock does not provide some of the features commonly available in general-purpose model-to-model transformation language. This section discusses the limitations of Flock and its intended scope with respect to other tools for model migration.</p>
