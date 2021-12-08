@@ -52,7 +52,7 @@ The source code of Epsilon is in the following Git repository.
 
 | Type | Location |
 | - | - |
-| Users | `git://git.eclipse.org/gitroot/epsilon/org.eclipse.epsilon.git`|
+| Users | `https://git.eclipse.org/r/epsilon/org.eclipse.epsilon.git`|
 | Committers | `ssh://user_id@git.eclipse.org:29418/epsilon/org.eclipse.epsilon.git`|
 | Release tag | `https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=2.3`|
 
