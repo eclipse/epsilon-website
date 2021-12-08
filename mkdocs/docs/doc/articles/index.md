@@ -59,7 +59,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 - [Scripting Excel spreadsheets using Epsilon](excel): In this article we demonstrate how you can create, query and modify Excel spreadsheets in Epsilon programs.
 - [Scripting HTML documents using Epsilon](html): In this article we demonstrate how you can create, query and modify HTML documents in Epsilon programs using the HTML driver.
 - [Scripting BibTeX files using Epsilon](bibtex): In this article we demonstrate how you can query a list of references stored in BibTeX files with Epsilon programs using the BibTeX driver.
-
+- [Treating Java code as a model in Epsilon](jdt): In this article we demonstrate how Epsilon languages can query Java code as if it were a model, using a driver that builds on the Eclipse Java Development Tools.
 ## Eugenia
 
 ### Fundamentals
