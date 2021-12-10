@@ -157,6 +157,10 @@ rule Tree2Node
 
 In lines 1--3, the `Tree2Node` rule specifies that it can transform elements of the `Tree` type in the `Tree` model into elements of the `Node` type in the `Graph` model. In line 5 it specifies that the label of the created Node should be the same as the label of the source Tree. If the parent of the source `Tree` is defined (line 7), the rule creates a new `Edge` (line 8) and sets its `source` property to the created `Node` (line 9) and its `target` property to the `equivalent` `Node` of the source `Tree`'s `parent` (line 10).
 
+#### Persisting the transformation trace
+
+ETL does not provide built-in support for persisting the transformation trace, however, you can access it through `System.context.transformationTrace` and persist (parts of) it in a format of your choice (e.g. in a `post` block of your transformation).
+
 ### Overriding the semantics of the EOL Special Assignment Operator
 
 As discussed above, resolving the equivalent(s) or source model elements in the target model is a recurring task in model transformation. Furthermore, in most cases resolving the equivalent of a model element is immediately followed by assigning/adding the obtained target model elements to the value(s) of a property of another target model element. For example, in line 10 of the listing above, the `equivalent` obtained is immediately assigned to the `target` property of the generated `Edge`. To make transformation specifications more readable, ETL overrides the semantics of the `SpecialAssignmentStatement` (`::=` in terms of concrete syntax), to set its left-hand side, not to the element its right-hand side evaluates to, but to its `equivalent` as calculated using the `equivalent()` operation discussed above. Using this feature, line 10 of the `Tree2Node` rule can be rewritten as shown below.
