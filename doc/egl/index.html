@@ -1868,7 +1868,7 @@ System.out.println(foo);
 <span class="w">    </span><span class="nt">C</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">A</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p>Note that in order to indent lines 2-5 of the output with one tab, we had to "pull" line 3 of the template at the same indentation level as its container <code>for</code> loop, which is not ideal. To format both the template and its output properly in this case, we can use <code>-%]</code> instead of <code>%]</code> to close the <code>for</code> loop statement in line 3. This will instruct a built-in EGL formatter to remove one indentation character (see the <code>setIndenters</code> method above) from each of the lines of the content produced within the <code>for</code> loop. The template below uses this feature to produce the same output as the template above.</p>
+<p>Note that in order to indent lines 2-4 of the output with one tab, we had to "pull" line 3 of the template at the same indentation level as its container <code>for</code> loop, which is not ideal. To format both the template and its output properly in this case, we can use <code>-%]</code> instead of <code>%]</code> to close the <code>for</code> loop statement in line 2. This will instruct a built-in EGL formatter to remove one indentation character (see the <code>setIndenters</code> method above) from each of the lines of the content produced within the <code>for</code> loop. The template below uses this feature to produce the same output as the template above.</p>
 <pre class="prettyprint lang-egl"><code>digraph G {
     [%for (t in Transition.all){-%]
         [%=t.from.name%] -&gt; [%=t.to.name%]
