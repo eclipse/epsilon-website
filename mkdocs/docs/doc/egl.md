@@ -415,7 +415,7 @@ digraph G {
 }
 ```
 
-Note that in order to indent lines 2-5 of the output with one tab, we had to "pull" line 3 of the template at the same indentation level as its container `for` loop, which is not ideal. To format both the template and its output properly in this case, we can use `-%]` instead of `%]` to close the `for` loop statement in line 3. This will instruct a built-in EGL formatter to remove one indentation character (see the `setIndenters` method above) from each of the lines of the content produced within the `for` loop. The template below uses this feature to produce the same output as the template above.
+Note that in order to indent lines 2-4 of the output with one tab, we had to "pull" line 3 of the template at the same indentation level as its container `for` loop, which is not ideal. To format both the template and its output properly in this case, we can use `-%]` instead of `%]` to close the `for` loop statement in line 2. This will instruct a built-in EGL formatter to remove one indentation character (see the `setIndenters` method above) from each of the lines of the content produced within the `for` loop. The template below uses this feature to produce the same output as the template above.
 
 ```egl
 digraph G {
