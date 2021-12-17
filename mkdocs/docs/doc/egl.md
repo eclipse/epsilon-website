@@ -136,6 +136,7 @@ For many EGL programs, interacting directly with the *OutputBuffer* is unnecessa
 |startPreserve(id : String, enabled : Boolean) | Begins a protected region by appending the start marker for a protected region to the buffer with the given identifier and enabled state. Uses the current content type to determine how to format the start and end markers|
 |startPreserve(startComment : String, endComment : String, id : String, enabled : Boolean) | Begins a protected region by appending the start marker to the buffer with the given identifier and enabled state. Uses the first two parameters as start and end markers.|
 |stopPreserve() | Ends the current protected region by appending the end marker to the buffer. This operation should be invoked only if there a protected region is currently open (i.e. has been started by invoking `startPreserve` but not yet stopped by invoking `stopPreserve`).|
+|setIndenters(indenters : Collection&lt;String&gt;) | Sets the [indentation characters](#outdentation) for the buffer (default is `\t` and four spaces). |
 
 ## Co-ordination
 
@@ -388,6 +389,46 @@ public class UppercaseFormatter implements Formatter {
 The set of built-in formatters provided by EGL includes some partial implementations of the `Formatter` interface that can be re-used to simplify the implementation of custom formatters. For instance, the `LanguageFormatter` class can correct the indentation of a program written in most languages, when given a start and end regular expression.
 
 Finally, an Eclipse extension point is provided for custom formatters. Providing an extension that conforms to the custom formatter extension point allows EGL to display the custom formatter in the launch configuration tabs of the EGL development tools.
+
+## Outdentation
+
+!!! tip "New in 2.4"
+    Support for outdentation was added in version 2.4 of Epsilon.
+
+A common issue encountered when writing EGL templates is that the ideal indentation for the template code itself and the output it produces may be different. For example, consider the template below, which produces a Graphviz graph from a state machine model.
+
+```egl
+digraph G {
+	[%for (t in Transition.all){%]
+	[%=t.from.name%] -> [%=t.to.name%]
+	[%}%]
+}
+```
+
+The output of the template for a minimal state machine model is shown below.
+
+```dot
+digraph G {
+	A -> B
+	B -> C
+	C -> A
+}
+```
+
+Note that in order to indent lines 2-5 of the output with one tab, we had to "pull" line 3 of the template at the same indentation level as its container `for` loop, which is not ideal. To format both the template and its output properly in this case, we can use `-%]` instead of `%]` to close the `for` loop statement in line 3. This will instruct a built-in EGL formatter to remove one indentation character (see the `setIndenters` method above) from each of the lines of the content produced within the `for` loop. The template below uses this feature to produce the same output as the template above.
+
+```egl
+digraph G {
+	[%for (t in Transition.all){-%]
+		[%=t.from.name%] -> [%=t.to.name%]
+	[%}%]
+}
+```
+
+!!! tip "Run this example"
+    You can run and tweak this example is the [Epsilon Playground](../../live/?78a011a5).
+
+Outdentation also works with `if`, `switch`, `while` statements etc. More examples are available in the [unit tests folder of this feature](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.egl.engine.test.acceptance/src/org/eclipse/epsilon/egl/test/acceptance/outdentation).
 
 ## Traceability
 
