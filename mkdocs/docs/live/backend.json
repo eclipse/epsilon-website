@@ -1,0 +1,8 @@
+{
+  "service": [
+    {"name": "RunEpsilonFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-epsilon"},
+    {"name": "FlexmiToGraphvizFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-graphviz"},
+    {"name": "EmfaticToGraphvizFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/emfatic-to-graphviz"},
+    {"name": "ShortURLFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url"}
+  ]
+}

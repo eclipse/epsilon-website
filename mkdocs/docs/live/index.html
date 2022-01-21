@@ -273,16 +273,17 @@
     var secondFlexmiEditor;
     var secondEmfaticEditor;
     var consoleEditor;
+    var backendConfig = {};
 
     var contentHref = document.getElementById("eolExampleLink").href;
     var content = "";
-    
+
     if (questionMark > -1) {
         content = url.substring(questionMark+1, url.length);
         if (content.length == 8 && !content.startsWith("psl") && !content.startsWith("stm")) {
             var xhr = new XMLHttpRequest();
-            var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url";
-            //var url = "http://localhost:8080";
+            var url = backendConfig["ShortURLFunction"];
+            
             xhr.open("POST", url, false);
             xhr.setRequestHeader("Content-Type", "application/json");
             var data = JSON.stringify({"shortened": content});
@@ -303,6 +304,22 @@
         var json2 = fetchExample("eol");
         content = btoa(JSON.stringify(json2));        
         setup();
+    }
+
+    fetchBackendConfiguration();
+    
+    function fetchBackendConfiguration() {
+        var xhr = new XMLHttpRequest();
+        var url = "backend.json";
+        xhr.open("GET", url, false);
+        xhr.send(data);
+        if (xhr.status === 200) {    
+            var json = JSON.parse(xhr.responseText);
+            for (var i = 0, service; i < json.service.length; i++) {
+               service = json.service[i];
+               backendConfig[ service.name ] = service.url;
+            }
+        }
     }
 
     function fetchExample(name) {
@@ -489,8 +506,8 @@
         event.preventDefault();
         var content = btoa(editorsToJson());
         var xhr = new XMLHttpRequest();
-        var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url";
-        //var url = "http://localhost:8080";
+        var url = backendConfig["ShortURLFunction"];
+        
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function () {
@@ -717,8 +734,8 @@
 	function runProgram() {
 		
         var xhr = new XMLHttpRequest();
-        var url = "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-epsilon";
-        //var url = "http://localhost:8080";
+        var url = backendConfig["RunEpsilonFunction"];
+        
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function () {
@@ -799,22 +816,22 @@
     }
 
     function refreshModelDiagram() {
-        refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-graphviz",
+        refreshDiagram(backendConfig["FlexmiToGraphvizFunction"],
             "modelDiagram", "model", "dot", flexmiEditor, emfaticEditor);
     }
 
     function refreshMetamodelDiagram() {
-        refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/emfatic-to-graphviz",
+        refreshDiagram(backendConfig["EmfaticToGraphvizFunction"],
             "metamodelDiagram", "metamodel", "fdp", flexmiEditor, emfaticEditor);
     }
 
     function refreshSecondModelDiagram() {
-        refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-graphviz",
+        refreshDiagram(backendConfig["FlexmiToGraphvizFunction"],
             "secondModelDiagram", "model", "dot", secondFlexmiEditor, secondEmfaticEditor);
     }
 
     function refreshSecondMetamodelDiagram() {
-        refreshDiagram("https://europe-west2-epsilon-live-gcp.cloudfunctions.net/emfatic-to-graphviz",
+        refreshDiagram(backendConfig["EmfaticToGraphvizFunction"],
             "secondMetamodelDiagram", "metamodel", "fdp", secondFlexmiEditor, secondEmfaticEditor);
     }
 
