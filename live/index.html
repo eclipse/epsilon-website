@@ -316,8 +316,14 @@
         if (xhr.status === 200) {    
             var json = JSON.parse(xhr.responseText);
             for (var i = 0, service; i < json.service.length; i++) {
-               service = json.service[i];
-               backendConfig[ service.name ] = service.url;
+                service = json.service[i];
+                if (service.url != null) {
+                    backendConfig[service.name] = service.url;
+                }
+                else {
+                    backendConfig[service.name] = window.location.protocol + "//" + window.location.hostname + ":" + service.port;
+                    window.alert(backendConfig[service.name]);
+                }
             }
         }
     }
