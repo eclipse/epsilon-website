@@ -274,6 +274,7 @@
     var secondEmfaticEditor;
     var consoleEditor;
     var backendConfig = {};
+    fetchBackendConfiguration();
 
     var contentHref = document.getElementById("eolExampleLink").href;
     var content = "";
@@ -305,8 +306,6 @@
         content = btoa(JSON.stringify(json2));        
         setup();
     }
-
-    fetchBackendConfiguration();
     
     function fetchBackendConfiguration() {
         var xhr = new XMLHttpRequest();
