@@ -1,7 +1,0 @@
-{
-	"language": "egl",
-	"program": "psl.egl",
-	"flexmi": "psl.flexmi",
-	"emfatic": "psl.emf",
-	"outputType": "code"
-}

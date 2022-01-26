@@ -1,7 +1,0 @@
-{
-	"language": "etl",
-	"program": "tree2graph.etl",
-	"flexmi": "tree.flexmi",
-	"emfatic": "tree.emf",
-	"secondEmfatic": "graph.emf"
-}

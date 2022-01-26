@@ -1,7 +1,0 @@
-{
-	"language": "etl",
-	"program": "psl2pdl.etl",
-	"flexmi": "psl2pdl.flexmi",
-	"emfatic": "psl.emf",
-	"secondEmfatic": "pdl.emf"
-}
