@@ -1,7 +1,0 @@
-{
-	"language": "egl",
-	"program": "filegrams.egl",
-	"flexmi": "filegrams.flexmi",
-	"emfatic": "filegrams.emf",
-	"outputType": "dot"
-}

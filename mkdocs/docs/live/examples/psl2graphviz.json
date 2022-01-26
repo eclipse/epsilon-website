@@ -1,7 +1,0 @@
-{
-	"language": "egl",
-	"program": "psl2graphviz.egl",
-	"flexmi": "psl.flexmi",
-	"emfatic": "psl.emf",
-	"outputType": "dot"
-}

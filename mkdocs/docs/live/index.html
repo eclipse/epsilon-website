@@ -75,97 +75,7 @@
             <ul class="navview-menu">
                 <li class="item-header">Epsilon Playground</li>
                 <li class="item-separator"></li>
-                <li>
-                    <a href="?eol" id="eolExampleLink">
-                        <span class="icon"><span class="mif-example-16 mif-eol"></span></span>
-                        <span class="caption">Query Project Plan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?evl">
-                        <span class="icon"><span class="mif-example-16 mif-evl"></span></span>
-                        <span class="caption">Validate Project Plan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?etl">
-                        <span class="icon"><span class="mif-example-16 mif-etl"></span></span>
-                        <span class="caption">Transform to Deliverables</span>
-                    </a>
-                </li>                
-                <li>
-                    <a href="?egl">
-                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
-                        <span class="caption">Generate Gantt Chart</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?psl2graphviz">
-                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
-                        <span class="caption">Generate Effort Graph</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?psl2html">
-                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
-                        <span class="caption">Generate Effort Table</span>
-                    </a>
-                </li> 
-                <li>
-                    <a href="?psl2pie">
-                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
-                        <span class="caption">Generate Task Pie Chart</span>
-                    </a>
-                </li> 
-                <li>
-                    <a href="?pumlwbs">
-                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
-                        <span class="caption">Generate Work Breakdown</span>
-                    </a>
-                </li>                               
-                <li>
-                    <a href="?epl">
-                        <span class="icon"><span class="mif-example-16 mif-epl"></span></span>
-                        <span class="caption">Pattern Match Project Plan</span>
-                    </a>
-                </li>            
-                <li>
-                    <a href="?tree2graph">
-                        <span class="icon"><span class="mif-example-16 mif-etl"></span></span>
-                        <span class="caption">Transform Tree to Graph</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?oo2db">
-                        <span class="icon"><span class="mif-example-16 mif-etl"></span></span>
-                        <span class="caption">Transform OO to DB</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?stm2java">
-                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
-                        <span class="caption">State Machine to Java</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?stm2graphviz">
-                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
-                        <span class="caption">State Machine Graph</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?stmvalidate">
-                        <span class="icon"><span class="mif-example-16 mif-evl"></span></span>
-                        <span class="caption">Validate State Machine</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="?filegrams">
-                        <span class="icon"><span class="mif-example-16 mif-egl"></span></span>
-                        <span class="caption">Filegrams</span>
-                    </a>
-                </li>      
-                <li class="item-separator"></li>
+                <li class="item-separator" id="examples-end"></li>
                 <li>
                     <a href="#" onclick="copyShortenedLink(event)" id="exampleLink">
                         <span class="icon"><span class="mif-example-16 mif-link"></span></span>
@@ -276,12 +186,14 @@
     var backendConfig = {};
     fetchBackendConfiguration();
 
-    var contentHref = document.getElementById("eolExampleLink").href;
+    var examples = {};
+    fetchExamples();
+
     var content = "";
 
     if (questionMark > -1) {
         content = url.substring(questionMark+1, url.length);
-        if (content.length == 8 && !content.startsWith("psl") && !content.startsWith("stm")) {
+        if (examples[content] == null) {
             var xhr = new XMLHttpRequest();
             var url = backendConfig["ShortURLFunction"];
             
@@ -290,23 +202,67 @@
             var data = JSON.stringify({"shortened": content});
             xhr.send(data);
             if (xhr.status === 200) {
-                var json2 = JSON.parse(xhr.responseText);
-                content = json2.content;
+                content = atob(JSON.parse(xhr.responseText).content);
+                json = JSON.parse(content);
                 setup();
             }
         }
         else {
-            var json2 = fetchExample(content);
-            content = btoa(JSON.stringify(json2));
+            json = fetchExample(content);
             setup();
         }
     }
     else {
-        var json2 = fetchExample("eol");
-        content = btoa(JSON.stringify(json2));        
+        json = fetchExample(examples[0].id);        
         setup();
     }
-    
+
+    /**
+     * Fetches all the examples from examples/examples.json
+     * and pupulates the examples array
+     */
+    function fetchExamples() {
+        var xhr = new XMLHttpRequest();
+        var url = "examples/examples.json";
+        xhr.open("GET", url, false);
+        xhr.send(data);
+        if (xhr.status === 200) {    
+            var json = JSON.parse(xhr.responseText);
+            var examplesEnd = document.getElementById("examples-end");
+        
+            for (const example of json.examples) {
+                examples[example.id] = example;
+
+                // Add a link for the example to the left hand side menu
+                var li = document.createElement("li");
+                examplesEnd.parentNode.insertBefore(li, examplesEnd);
+                
+                var a = document.createElement("a");
+                a.href = "?" + example.id;
+                li.appendChild(a);
+
+                var icon = document.createElement("span");
+                icon.classList.add("icon");
+                a.appendChild(icon);
+
+                var mif = document.createElement("span");
+                mif.classList.add("mif-example-16");
+                mif.classList.add("mif-" + example.language);
+                icon.appendChild(mif);
+
+                var caption = document.createElement("caption");
+                caption.innerHTML = example.title;
+                caption.classList.add("caption");
+                a.appendChild(caption);
+            }
+        }
+
+    }
+
+    /**
+     * Fetches the backend configuration from backend.json
+     * and populates the backendConfig array
+     */
     function fetchBackendConfiguration() {
         var xhr = new XMLHttpRequest();
         var url = "backend.json";
@@ -314,35 +270,29 @@
         xhr.send(data);
         if (xhr.status === 200) {    
             var json = JSON.parse(xhr.responseText);
-            for (var i = 0, service; i < json.service.length; i++) {
-                service = json.service[i];
-                if (service.url != null) {
-                    backendConfig[service.name] = service.url;
-                }
-                else {
-                    backendConfig[service.name] = window.location.protocol + "//" + window.location.hostname + ":" + service.port;
-                }
+            for (const service of json.services){
+                backendConfig[service.name] = service.url;
             }
         }
     }
 
-    function fetchExample(name) {
-        var xhr = new XMLHttpRequest();
-        var url = "examples/" + name + ".json";
-        xhr.open("GET", url, false);
-        xhr.send(data);
-        if (xhr.status === 200) {    
-            var json2 = JSON.parse(xhr.responseText);
-            if (json2.program != null) json2.program = fetchFile(json2.program);
-            if (json2.flexmi != null) json2.flexmi = fetchFile(json2.flexmi);
-            if (json2.emfatic != null) json2.emfatic = fetchFile(json2.emfatic);
-            if (json2.secondFlexmi != null) json2.secondFlexmi = fetchFile(json2.secondFlexmi);
-            if (json2.secondEmfatic != null) json2.secondEmfatic = fetchFile(json2.secondEmfatic);
-
-            return json2;
-        }
+    /**
+     * Fetches the contents of the example with the provided ID
+     */ 
+    function fetchExample(id) {
+        var example = examples[id];
+        if (example.program != null) example.program = fetchFile(example.program);
+        if (example.flexmi != null) example.flexmi = fetchFile(example.flexmi);
+        if (example.emfatic != null) example.emfatic = fetchFile(example.emfatic);
+        if (example.secondFlexmi != null) example.secondFlexmi = fetchFile(example.secondFlexmi);
+        if (example.secondEmfatic != null) example.secondEmfatic = fetchFile(example.secondEmfatic);
+        return example;
     }
 
+    /**
+     * Fetches the content of a file under the examples folder
+     * This could be an Epsilon program, a Flexmi model or an Emfatic metamodel
+     */
     function fetchFile(name) {
         var xhr = new XMLHttpRequest();
         var url = "examples/" + name;
@@ -354,7 +304,6 @@
     }
 
     function setup() {
-        json = JSON.parse(atob(content));
         if (json.eol != null) { json.program = json.eol; language = "eol";}
         else {language = json.language};
 
@@ -383,9 +332,8 @@
             editor.renderer.setShowGutter(false);
             editor.setFontSize("1rem");
             editor.setOptions({
-            //  fontFamily: "monospace",
-              fontSize: "11pt",
-              useSoftTabs: true
+                fontSize: "11pt",
+                useSoftTabs: true
             });
         });
 
@@ -458,6 +406,12 @@
         editor.setValue((value+""), 1);
     }
 
+    /**
+     * Updates the syntax highlighting mode of a Flexmi
+     * editor based on its content. If the content starts with
+     * < then the XML flavour is assumed, otherwise, the YAML
+     * flavour is assumed
+     */
     function updateFlexmiEditorSyntaxHighlighting(editor) {
         var val = editor.getSession().getValue();
         if ((val.trim()+"").startsWith("<")) {
@@ -493,13 +447,6 @@
                 }
             ]
         });
-
-        /*
-        var selectedLanguage = prompt("Syntax higlhigthing language (any language supported by the ACE editor)", outputLanguage);
-        if (selectedLanguage != null) {
-            outputLanguage = selectedLanguage;
-            setOutputEditorLanguage();
-        }*/
     }
 
     function setOutputEditorLanguage() {
