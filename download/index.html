@@ -1206,6 +1206,10 @@
                 
                 
                 <h1 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h1>
+<div class="admonition error">
+<p class="admonition-title">Regression in recent versions of Eclipse</p>
+<p>The Epsilon language editors in the current stable version (2.3) <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=578627">throw a null pointer exception upon initialisation</a> when installed on versions of Eclipse after 2012-12. This has been <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/commit/?id=7ed5f94154c1d29258aee8e16bac1d601ae65d85">fixed in the latest interim version</a> of Epsilon and the fix will appear in the next stable version (2.4) shortly.</p>
+</div>
 <p>The simplest way to get a copy of Eclipse with Epsilon 2.3 and all its dependencies installed, is to download the <a href="https://wiki.eclipse.org/Eclipse_Installer">Eclipse Installer</a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.</p>
 <p><img alt="Epsilon in Eclipse Installer" src="../assets/images/eclipse-installer.png" /></p>
 <table>
