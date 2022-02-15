@@ -4,7 +4,7 @@ In the old days before we embraced advancements in Eclipse provisioning technolo
 
 ## Pre-packaged distributions
 
-If you wish to use an older version of Epsilon, the easiest and most compatible way is to download one of the ready-made distributions bundled from the [archives](https://archive.eclipse.org/epsilon/), since they contain the selected version of Epsilon all its mandatory and optional dependencies. You will only need a Java Runtime Environment.You will only need a [Java Runtime Environment](https://adoptopenjdk.net).
+If you wish to use an older version of Epsilon, the easiest and most compatible way is to download one of the ready-made distributions bundled from the [archives](https://archive.eclipse.org/epsilon/), since they contain the selected version of Epsilon all its mandatory and optional dependencies. You will only need a [Java Runtime Environment](https://adoptopenjdk.net).
 
 Navigate to the directory with the desired version, and download the archive file appropriate for your platform and unzip it. If you are using Windows, please extract the download close to the root of a drive (e.g. C:) as the maximum path length on Windows may not exceed 255 characters by default.
 
