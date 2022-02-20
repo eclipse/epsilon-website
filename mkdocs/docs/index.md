@@ -40,3 +40,9 @@ Download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer) and
 ## License
 
 Epsilon is licensed under the [Eclipse Public License 2.0](https://www.eclipse.org/legal/epl-2.0/).
+
+## Trademarks
+
+Eclipse Epsilon and the Eclipse Epsilon project logo are trademarks of the Eclipse Foundation. Eclipse and the Eclipse logo are registered trademarks of the Eclipse Foundation.
+
+Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.
