@@ -7,7 +7,7 @@ var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var emfaticHighlightRules = function() {
 
     var keywords = (
-        "abstract|attr|class|enum|extends|import|package|ref|val"
+        "abstract|attr|class|enum|extends|import|package|ref|val|op|readonly|volatile|transient|unsettable|derived|unique|ordered|resolve|id"
     );
 
     var builtinConstants = (
@@ -19,7 +19,7 @@ var emfaticHighlightRules = function() {
     );
 
     var dataTypes = (
-        "String|Integer|Real|Boolean|Byte|Character|Double|Float|Long|Short|Date|EObject|EClass|char|int"
+        "boolean|Boolean|byte|Byte|char|Character|double|Double|float|Float|int|Integer|long|Long|short|Short|Date|String|Object|Class|EObject|EClass"
     );
 
     var keywordMapper = this.createKeywordMapper({
