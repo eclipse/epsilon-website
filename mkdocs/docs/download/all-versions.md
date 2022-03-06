@@ -2,6 +2,7 @@
 
 | Version             | Eclipse Release | Release Date | Release Type       |
 | ------------------- | --------------- | ------------ | ------------------ |
+[2.4](../../download) | 4.22 (2021-12)  | 6 March 2022  | Scheduled release
 [2.3](../../download) | 4.19 (2021-03)  | 24 April 2021  | Scheduled release
 [2.2](../2.2) | 4.16 (2020-06)  | 4 September 2020  | Scheduled release
 [2.1](../2.1) | 4.16 (2020-06)  | 3 July 2020  | Scheduled release
