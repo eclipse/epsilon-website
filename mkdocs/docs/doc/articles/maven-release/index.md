@@ -22,13 +22,7 @@ Double check the dependencies in the various `pom-plain.xml` files, especially t
 
 Check the project metadata in the `pom-plain.xml` file, which lists the current developers, SCM URLs, and other details.
 
-## Preparing a Maven release branch
-
-Once the new stable version of Epsilon has been tagged, create a Maven release branch with:
-
-```sh
-git checkout -b maven-RELEASE RELEASE-TAG
-```
+## Preparing a Maven release
 
 Set the version in the `pom-plain.xml` files:
 
@@ -40,7 +34,7 @@ Enter the version number of the release, and create a commit for it:
 
 ```sh
 git add ...
-git commit -m "Set plain Maven versions to RELEASE"
+git commit -m "Set pom-plain versions to X.Y.Z"
 ```
 
 Push the commit to Jenkins:
@@ -49,8 +43,9 @@ Push the commit to Jenkins:
 git push
 ```
 
-If you need to make any other tweaks for the Maven release, you may want to try them here first rather than pollute `master`.
-Once the release is out, you may want to cherry-pick those tweaks back into `master`.
+[Here is an example commit](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/commit/?id=8f680d0bb7270e332d57fe24334012d3cfdae73b).
+Typically this would be the last thing you do before tagging the release.
+After you've pushed this and tagged the repository with the Epsilon version, remember to bump the version to the next SNAPSHOT.
 
 ## Release to Maven Central
 
