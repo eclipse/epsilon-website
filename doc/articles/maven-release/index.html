@@ -1054,8 +1054,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#preparing-a-maven-release-branch" class="md-nav__link">
-    Preparing a Maven release branch
+  <a href="#preparing-a-maven-release" class="md-nav__link">
+    Preparing a Maven release
   </a>
   
 </li>
@@ -1101,22 +1101,20 @@ To do a plain Maven compilation + test build from scratch, simply run this:</p>
 Make sure that all tests pass in the Tycho build first.</p>
 <p>Double check the dependencies in the various <code>pom-plain.xml</code> files, especially those related to external libraries.</p>
 <p>Check the project metadata in the <code>pom-plain.xml</code> file, which lists the current developers, SCM URLs, and other details.</p>
-<h2 id="preparing-a-maven-release-branch">Preparing a Maven release branch<a class="headerlink" href="#preparing-a-maven-release-branch" title="Permanent link">&para;</a></h2>
-<p>Once the new stable version of Epsilon has been tagged, create a Maven release branch with:</p>
-<div class="highlight"><pre><span></span><code>git checkout -b maven-RELEASE RELEASE-TAG
-</code></pre></div>
+<h2 id="preparing-a-maven-release">Preparing a Maven release<a class="headerlink" href="#preparing-a-maven-release" title="Permanent link">&para;</a></h2>
 <p>Set the version in the <code>pom-plain.xml</code> files:</p>
 <div class="highlight"><pre><span></span><code>mvn -f pom-plain.xml versions:set
 </code></pre></div>
 <p>Enter the version number of the release, and create a commit for it:</p>
 <div class="highlight"><pre><span></span><code>git add ...
-git commit -m <span class="s2">&quot;Set plain Maven versions to RELEASE&quot;</span>
+git commit -m <span class="s2">&quot;Set pom-plain versions to X.Y.Z&quot;</span>
 </code></pre></div>
 <p>Push the commit to Jenkins:</p>
 <div class="highlight"><pre><span></span><code>git push
 </code></pre></div>
-<p>If you need to make any other tweaks for the Maven release, you may want to try them here first rather than pollute <code>master</code>.
-Once the release is out, you may want to cherry-pick those tweaks back into <code>master</code>.</p>
+<p><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/commit/?id=8f680d0bb7270e332d57fe24334012d3cfdae73b">Here is an example commit</a>.
+Typically this would be the last thing you do before tagging the release.
+After you've pushed this and tagged the repository with the Epsilon version, remember to bump the version to the next SNAPSHOT.</p>
 <h2 id="release-to-maven-central">Release to Maven Central<a class="headerlink" href="#release-to-maven-central" title="Permanent link">&para;</a></h2>
 <p>The Jenkins build will automatically sign the plain Maven JARs and create a new staging repository in the OSSRH Sonatype Nexus server.
 It will also attempt to "close" it to modification, which will trigger the Maven Central validation rules.
