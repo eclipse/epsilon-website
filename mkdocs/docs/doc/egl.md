@@ -393,7 +393,7 @@ Finally, an Eclipse extension point is provided for custom formatters. Providing
 ## Outdentation
 
 !!! tip "New in 2.4"
-    Support for outdentation was added in version 2.4 of Epsilon.
+    Support for outdentation was added in version 2.4 of Epsilon. If outdentation does not behave as expected in your EGX-coordinated templates with 2.4, please install the latest interim version of Epsilon.
 
 A common issue encountered when writing EGL templates is that the ideal indentation for the template code itself and the output it produces may be different. For example, consider the template below, which produces a Graphviz graph from a state machine model.
 
