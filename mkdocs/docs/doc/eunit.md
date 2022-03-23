@@ -313,7 +313,7 @@ The table below lists the available option keys which can be used with the model
 | Comparator and Key | Usage |
 | - | - |
 EMF, "whitespace" | When set to "ignore", differences in EString attribute values due to whitespace will be ignored. Disabled by default. 
-EMF, "ignoreAttributeValueChanges" | Can contain a of strings of the form "package.class.attribute". Differences in the values for these attributes will be ignored. However, if the attribute is set on one side and not on the other, the difference will be reported as normal. Empty by default.
+EMF, "ignoreAttributeValueChanges" | Can contain a collection of strings of the form "package.class.attribute". Differences in the values for these attributes will be ignored. However, if the attribute is set on one side and not on the other, the difference will be reported as normal. Empty by default.
 EMF, "unorderedMoves" | When set to "ignore", differences in the order of the elements within an unordered EReference. Enabled by default.
 
 More importantly, EUnit implements specific assertions for comparing models, files and trees of files. Model comparison is not implemented by the assertions themselves: it is an optional service implemented by some EMC drivers. Currently, EMF models will automatically use EMF Compare as their comparison engine. The rest of the EMC drivers do not support comparison yet. The main advantage of having an abstraction layer implement model comparison as a service is that the test case definition is decoupled from the concrete model comparison engine used.
