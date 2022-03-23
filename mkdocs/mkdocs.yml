@@ -47,6 +47,7 @@ nav:
         - Education: 'users/education.md'
         - Open-source Projects: 'users/open-source.md'
       - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
+      - How can I support Epsilon?: 'https://ko-fi.com/eclipseepsilon'
       - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'
       - Professional Services: professional-services
       - Social Media:
@@ -68,7 +69,7 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/eclipseepsilon
     - icon: fontawesome/brands/youtube
-      link: https://youtube.com/epsilondevs
+      link: https://youtube.com/epsilondevs     
 repo_name: 'Git repository @ Eclipse'
 repo_url: 'https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/'
 markdown_extensions:
