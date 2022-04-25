@@ -1582,8 +1582,8 @@
                 <h1 id="orchestration-workflow">Orchestration Workflow<a class="headerlink" href="#orchestration-workflow" title="Permanent link">&para;</a></h1>
 <p>In practice, model management activities are seldom carried out in isolation; instead, they are often combined together to form complex workflows. Therefore, in addition to task-specific languages for individual activities (model-to-text transformatino, model validation etc), Epsilon provides a set of Apache ANT tasks for assembling multi-step automated build processes.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Epsilon's ANT tasks can run both within Eclipse and <a href="../articles/running-epsilon-ant-tasks-from-command-line">headless</a>, and from <a href="../articles/running-epsilon-ant-tasks-from-command-line/#maven">Maven</a> and <a href="../articles/running-epsilon-ant-tasks-from-command-line/#gradle">Gradle</a> builds too. </p>
+<p class="admonition-title">Running Epsilon's ANT tasks</p>
+<p>Epsilon's ANT tasks can run both <a href="https://www.vogella.com/tutorials/ApacheAnt/article.html">within Eclipse</a> and <a href="../articles/running-epsilon-ant-tasks-from-command-line">headless</a>, and from <a href="../articles/running-epsilon-ant-tasks-from-command-line/#maven">Maven</a> and <a href="../articles/running-epsilon-ant-tasks-from-command-line/#gradle">Gradle</a> builds too. When running an ANT workflow that involves Epsilon tasks in Eclipse, please make sure you select the <code>Run in the same JRE as the workspace</code> option under the <code>JRE</code> tab of your launch configuration.</p>
 </div>
 <h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
 <p>As a motivating example, a workflow that consists of both model management tasks (1-4, 6) and mainstream software development tasks (5, 7) is displayed below.</p>
