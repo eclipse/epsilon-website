@@ -2,8 +2,8 @@
 
 In practice, model management activities are seldom carried out in isolation; instead, they are often combined together to form complex workflows. Therefore, in addition to task-specific languages for individual activities (model-to-text transformatino, model validation etc), Epsilon provides a set of Apache ANT tasks for assembling multi-step automated build processes.
 
-!!! tip
-    Epsilon's ANT tasks can run both within Eclipse and [headless](../articles/running-epsilon-ant-tasks-from-command-line), and from [Maven](../articles/running-epsilon-ant-tasks-from-command-line/#maven) and [Gradle](../articles/running-epsilon-ant-tasks-from-command-line/#gradle) builds too. 
+!!! tip "Running Epsilon's ANT tasks"
+    Epsilon's ANT tasks can run both [within Eclipse](https://www.vogella.com/tutorials/ApacheAnt/article.html) and [headless](../articles/running-epsilon-ant-tasks-from-command-line), and from [Maven](../articles/running-epsilon-ant-tasks-from-command-line/#maven) and [Gradle](../articles/running-epsilon-ant-tasks-from-command-line/#gradle) builds too. When running an ANT workflow that involves Epsilon tasks in Eclipse, please make sure you select the `Run in the same JRE as the workspace` option under the `JRE` tab of your launch configuration.
 
 ## Motivation
 
