@@ -24,6 +24,9 @@ The simplest way to get a copy of Eclipse with Epsilon 2.4 and all its dependenc
 
 Alternatively, you can use the following update sites through the `Help` --> `Install new software` menu in Eclipse to install (parts of) Epsilon.
 
+!!! warning
+	Please note that updates in recent (2022) versions of Eclipse have broken [Eugenia](../doc/eugenia). If you need to install Eugenia, please use an older version of Eclipse.
+
 | Site | Location |
 | - | - |
 | Stable | `http://download.eclipse.org/epsilon/updates/2.4/`|
