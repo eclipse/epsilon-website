@@ -26,7 +26,7 @@
 
 .mif-16::before {
 	position: relative;
-	top: 1px;
+	top: 4px;
 	margin: 0px;
 }
 
@@ -138,6 +138,9 @@
 .panel .panel-title .button {
 	background-color: #fff;
 	border-bottom:1px solid #dfdfdf;
+	border-left: 0px;
+	border-right: 0px;
+	padding-left: 15px;
 }
 
 body {
