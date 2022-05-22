@@ -1,0 +1,31 @@
+h2{
+  font: 14px Arial, sans-serif;
+  color:#fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.lm_header .lm_tab {
+  padding-top: 4px;
+  padding-right: 12px;
+  height: 22px !important;
+}
+
+.lm_title {
+    font-size: 16px;
+}
+
+.lm_tab_icon {
+  padding-right: 7px;
+  position: relative;
+  top: -2px;
+  //width: 16px;
+  //height: 16px;
+  display: inline-block;  
+}
+
+.lm_controls .lm_maximise {
+  background-image: url('images/maximise.png');
+  top: 6px;
+  left: -2px;
+}
