@@ -15,7 +15,7 @@
     
     
       
-        <title>Publishing your project to the Epsilon Labs Update Site - Epsilon</title>
+        <title>Scripting YAML documents using Epsilon - Epsilon</title>
       
     
     
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#publishing-your-project-to-the-epsilon-labs-update-site" class="md-skip">
+        <a href="#scripting-yaml-documents-using-epsilon" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Publishing your project to the Epsilon Labs Update Site
+              Scripting YAML documents using Epsilon
             
           </span>
         </div>
@@ -1052,37 +1052,107 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#general-recommendations" class="md-nav__link">
-    General Recommendations
+  <a href="#querying-a-yaml-document" class="md-nav__link">
+    Querying a YAML document
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-feature-plugins" class="md-nav__link">
-    Creating Feature Plugins
+  <a href="#queryingmodifying-yaml-documents-in-eol" class="md-nav__link">
+    Querying/modifying YAML documents in EOL
   </a>
   
-    <nav class="md-nav" aria-label="Creating Feature Plugins">
+    <nav class="md-nav" aria-label="Querying/modifying YAML documents in EOL">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#feature-information" class="md-nav__link">
-    Feature Information
+  <a href="#how-can-i-access-all-node-elements" class="md-nav__link">
+    How can I access all node elements?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#group-your-projects-plugins" class="md-nav__link">
-    Group your project's plugins
+  <a href="#how-can-i-access-nodes-by-name" class="md-nav__link">
+    How can I access nodes by name?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#create-a-sitexml" class="md-nav__link">
-    Create a site.xml
+  <a href="#how-can-i-retrieve-nodes-as-a-sequence-of-elements-or-as-a-single-element" class="md-nav__link">
+    How can I retrieve nodes as a sequence of elements or as a single element?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-access-the-name-of-a-node" class="md-nav__link">
+    How can I access the name of a node?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-access-the-type-of-a-node" class="md-nav__link">
+    How can I access the type of a node?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-access-the-value-of-a-node" class="md-nav__link">
+    How can I access the value of a node?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-create-a-node" class="md-nav__link">
+    How can I create a node?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-set-the-value-of-a-node" class="md-nav__link">
+    How do I set the value of a node?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-add-entries-to-a-list-node" class="md-nav__link">
+    How do I add entries to a list node?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-add-nodes-to-a-mapping-node" class="md-nav__link">
+    How do I add nodes to a mapping node?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-set-the-root-node-of-a-yaml-document" class="md-nav__link">
+    How do I set the root node of a YAML document?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-create-a-yaml-document-from-scratch" class="md-nav__link">
+    How can I create a YAML document from scratch?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-can-i-delete-nodes" class="md-nav__link">
+    How can I delete nodes?
   </a>
   
 </li>
@@ -1093,76 +1163,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#set-up-ci" class="md-nav__link">
-    Set up CI
-  </a>
-  
-    <nav class="md-nav" aria-label="Set up CI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#add-your-project-to-circleci" class="md-nav__link">
-    Add your project to CircleCI
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set-up-epsilonlabs-build-trigger" class="md-nav__link">
-    Set up EpsilonLabs build Trigger
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-circleci-for-your-project" class="md-nav__link">
-    Configure CircleCI for your project
+  <a href="#adding-a-yaml-document-to-your-launch-configuration" class="md-nav__link">
+    Adding a YAML document to your launch configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-maven-tycho-to-build-your-project" class="md-nav__link">
-    Use Maven + Tycho to build your project
-  </a>
-  
-    <nav class="md-nav" aria-label="Use Maven + Tycho to build your project">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#local-maven-build" class="md-nav__link">
-    Local maven build
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-your-ci-build" class="md-nav__link">
-    Test your CI build
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-your-project-to-the-epsilonlabs-update-site" class="md-nav__link">
-    Add your project to the EpsilonLabs update site
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-resources" class="md-nav__link">
-    Additional resources
+  <a href="#loading-a-yaml-document-through-java-code" class="md-nav__link">
+    Loading a YAML document through Java code
   </a>
   
 </li>
@@ -1188,100 +1197,251 @@
                   
                 
                 
-                <h1 id="publishing-your-project-to-the-epsilon-labs-update-site">Publishing your project to the Epsilon Labs Update Site<a class="headerlink" href="#publishing-your-project-to-the-epsilon-labs-update-site" title="Permanent link">&para;</a></h1>
-<p>In this article we explain the steps required to publish your Epsilon related project in the Epsilon Labs update site.</p>
-<h2 id="general-recommendations">General Recommendations<a class="headerlink" href="#general-recommendations" title="Permanent link">&para;</a></h2>
-<p>As part of the process you will configure your project to be under continuous integration (CI) which is automatically triggered when you push changes to master branch of your project's git repository. For this reason it is recommended that you create a <em>develop</em> branch in which you make frequent commits/pushes and only merge changes to the master branch when you want to release a new version (you might be interested in <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">GitFlow</a>)</p>
-<h2 id="creating-feature-plugins">Creating Feature Plugins<a class="headerlink" href="#creating-feature-plugins" title="Permanent link">&para;</a></h2>
-<p>In the Eclipse world, a <em>feature</em> is a group of one or more plugins that offer a specific functionality within Eclipse. For example, the <strong>Epsilon Core</strong> feature groups all the plugins that provide support for the core Epsilon languages (EOL, ETL, EGL, etc.) and drivers (CSV, XML, Bibtext, etc.). In order to publish your project you need to create feature plugins. As a minimum you would need to provide two features: one for the base functionality and other for the developer tools. The developer tools are the plugins that provide UI contributions (menus, launchers, etc.). For example, the JDBC project provides these two features (developer tools plugins and features should use the <strong>dt</strong> suffix):</p>
-<ul>
-<li>org.eclipse.epsilon.emc.jdbc.mysql.feature</li>
-<li>org.eclipse.epsilon.emc.jdbc.mysql.feature.dt</li>
-</ul>
-<h3 id="feature-information">Feature Information<a class="headerlink" href="#feature-information" title="Permanent link">&para;</a></h3>
-<p><strong>NOTE</strong>: Correctly fill the feature information. This information is displayed within the <strong>Install New Software</strong> tool and therefore the first point of contact between your project and the user.</p>
-<p><strong>Feature Description</strong></p>
-<ul>
-<li>Optional URL: Leave blank</li>
-<li>Text: Meaningful information about the plugins</li>
-</ul>
-<p><strong>Copyright Notice</strong></p>
-<ul>
-<li>Optional URL: Leave blank</li>
-<li>
-<p>Text:</p>
-<p>Copyright &copy; 2008 The University of York.
-All rights reserved. 
-Contributors: <Your Name>
-<Other copyrights, e.g. third-party libraries></p>
-</li>
-</ul>
-<p><strong>License Agreement</strong> Use the appropriate license agreement. This depends on the libraries you are using.</p>
-<p><strong>Sites to visit</strong> Any important sites of interest (e.g. Epsilon's website)</p>
-<h3 id="group-your-projects-plugins">Group your project's plugins<a class="headerlink" href="#group-your-projects-plugins" title="Permanent link">&para;</a></h3>
-<p>Add each of your project plugins to the relevant feature. Remember that your <strong>dt</strong> plugins should go in your <strong>dt</strong> (development tools) feature.</p>
-<h3 id="create-a-sitexml">Create a <em>site.xml</em><a class="headerlink" href="#create-a-sitexml" title="Permanent link">&para;</a></h3>
-<p>An update site contains information about the features and plugins that can be installed from it. In order to the <em>EpsilonLabs Updatesite</em> to know what features/plugins you provide you must add this information to a <strong>site.xml</strong> file. You can find a template <a href="http://eclipse.org/epsilon/doc/articles/labsupdatesite/site.xml">here</a> or in the EpsilonLabs update site <a href="https://github.com/epsilonlabs/epsilonlabs-updatesite">repository</a> (template folder). In a nutshell, site.xml lists the features of your project and provides a <strong>category</strong> (a logical grouping of features) for your project.</p>
-<h2 id="set-up-ci">Set up CI<a class="headerlink" href="#set-up-ci" title="Permanent link">&para;</a></h2>
-<p>Go to <a href="https://circleci.com">CircleCi</a> and log in using your Github credentials (for simple configuration of the project).</p>
-<h3 id="add-your-project-to-circleci">Add your project to CircleCI<a class="headerlink" href="#add-your-project-to-circleci" title="Permanent link">&para;</a></h3>
-<ul>
-<li>In the <strong>top left corner</strong> select the epsilonlabs organization.</li>
-<li>Click on Add Project</li>
-<li>Click on <strong>Setup Project</strong></li>
-<li>In <strong>Language</strong> select <em>Maven(Java)</em></li>
-<li>Skip the circli configuration (we will show you this next)</li>
-<li>Click on <em>Start Building</em></li>
-</ul>
-<h3 id="set-up-epsilonlabs-build-trigger">Set up EpsilonLabs build Trigger<a class="headerlink" href="#set-up-epsilonlabs-build-trigger" title="Permanent link">&para;</a></h3>
-<p>Open the epsilonlabs CircleCI project</p>
-<ul>
-<li>Go to settings</li>
-<li>Go to API Permisssions</li>
-<li>Copy the token value of the TRIGGER_TOKEN</li>
-</ul>
-<p>Go to your project</p>
-<ul>
-<li>Go to settings</li>
-<li>Go to Environment Variables</li>
-<li>Add variable: <strong>Name</strong>: TRIGGER_BUILD, <strong>Value</strong>: Paste the TRIGGER_TOKEN value</li>
-</ul>
-<h2 id="configure-circleci-for-your-project">Configure CircleCI for your project<a class="headerlink" href="#configure-circleci-for-your-project" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Create a <em>.circleci</em> folder in the root of your project</li>
-<li>Create a new <em>config.yml</em> file</li>
-</ul>
-<p>Use the template provided (<a href="http://eclipse.org/epsilon/doc/articles/labsupdatesite/config.yml">here</a> or in the EpsilonLabs updatesite <a href="https://github.com/epsilonlabs/epsilonlabs-updatesite">repository</a>) and make sure you add an <em>store_artifacts</em> entry for each plugin and feature JAR. <strong>Note</strong>: The <em>path</em> information points to the <em>target</em> folder which will be populated by maven (see next).</p>
-<h2 id="use-maven-tycho-to-build-your-project">Use Maven + Tycho to build your project<a class="headerlink" href="#use-maven-tycho-to-build-your-project" title="Permanent link">&para;</a></h2>
-<p>We will use a <em>pom-less</em> configuration to build your project with maven and Tycho. Create a POM for your project. If you divide your projects into plugins, features, tests folders (btw, you should) you need to create a parent pom, and then a pom for each folder. A <em>pom-less</em> build avoids having a pom for each project, but still needs the structure ones. Use the provided template(s), change the artifact id and add your plugins and features to the modules section. The templates are <a href="http://eclipse.org/epsilon/doc/articles/labsupdatesite/maven/">here</a> or in the EpsilonLabs updatesite <a href="https://github.com/epsilonlabs/epsilonlabs-updatesite">repository</a>) To enable the pomless build, copy the <a href="http://eclipse.org/epsilon/doc/articles/labsupdatesite/extensions.xml">extensions.xml</a> (or in the repository) file to a .mvn folder in your project.</p>
-<h3 id="local-maven-build">Local maven build<a class="headerlink" href="#local-maven-build" title="Permanent link">&para;</a></h3>
-<p>Install Maven and build your project to test that your poms are correct. You should also make sure that any tests you have coded are executed as part of the Maven build.</p>
-<div class="codehilite"><pre><span></span><code>  mvn clean install
-</code></pre></div>
+                <h1 id="scripting-yaml-documents-using-epsilon">Scripting YAML documents using Epsilon<a class="headerlink" href="#scripting-yaml-documents-using-epsilon" title="Permanent link">&para;</a></h1>
+<p>In this article we demonstrate how you can create, query and modify YAML documents in Epsilon programs using the YAML driver. All the examples in this article demonstrate using EOL to script YAML documents. However, it's worth stressing that YAML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models – XML, CSV or EMF-based, or to text), compare and merge your YAML documents.</p>
+<iframe width="90%" height="494" src="https://www.youtube.com/embed/TF0fgghP938" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>Check that the required JARs have been created in the <em>target</em> folder.</p>
-<h2 id="test-your-ci-build">Test your CI build<a class="headerlink" href="#test-your-ci-build" title="Permanent link">&para;</a></h2>
-<p>Merge your repository changes (new files) to your master branch and push to GitHub. This should trigger a new build. Go to CircleCI and verify that your build completed without errors. CircleCI will simply execute a maven build so if your local build succeeded the CircleCi should too.</p>
-<p>Additionally check that all the JARs have been stored as artifacts. In your project's build information page click on the <em>Artifacts</em> tab:</p>
-<p><img alt="" src="artifacts.png" /></p>
-<h2 id="add-your-project-to-the-epsilonlabs-update-site">Add your project to the EpsilonLabs update site<a class="headerlink" href="#add-your-project-to-the-epsilonlabs-update-site" title="Permanent link">&para;</a></h2>
-<p>Fork the EpsilonLabs update site repository and add your project in two places:</p>
-<p>Add a new entry(line) to the projects.txt file. The line should have your project name (the name of the project in GitHub) and the target platform information. In most cases this can be <em>Any</em>. If you only support a specific platform you should provide the correct values.</p>
-<p>Add a new local repository to the updasite's root pom (the <strong>project</strong> name should match the entry in the projects file):</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;repository&gt;</span>
-    <span class="nt">&lt;id&gt;</span>epsilonlabs-{project}<span class="nt">&lt;/id&gt;</span>
-    <span class="nt">&lt;url&gt;</span>file:///${main.basedir}/repository/{project}}<span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;layout&gt;</span>p2<span class="nt">&lt;/layout&gt;</span>
-<span class="nt">&lt;/repository&gt;</span>
+<h2 id="querying-a-yaml-document">Querying a YAML document<a class="headerlink" href="#querying-a-yaml-document" title="Permanent link">&para;</a></h2>
+<p>We use the following <code>employees.yaml</code> as a base for demonstrating the EOL syntax for querying YAML documents.</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">employeeId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">14623</span><span class="w"></span>
+<span class="w">  </span><span class="nt">address</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">country</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">England</span><span class="w"></span>
+<span class="w">    </span><span class="nt">resident</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">postcode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">M1 1AG</span><span class="w"></span>
+<span class="w">  </span><span class="nt">fullname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Michael Davidson</span><span class="w"></span>
+<span class="w">  </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Consultant</span><span class="w"></span>
+<span class="w">  </span><span class="nt">industry</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">IoT</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">smart factories</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">signal analytics</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">projects</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="nv">SmartAutomation</span><span class="p p-Indicator">,</span><span class="nt"> budget</span><span class="p">:</span><span class="w"> </span><span class="nv">25000</span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="nv">FactoryAnalytics</span><span class="p p-Indicator">,</span><span class="nt"> budget</span><span class="p">:</span><span class="w"> </span><span class="nv">20000</span><span class="p p-Indicator">}</span><span class="w"></span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">employeeId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16431</span><span class="w"></span>
+<span class="w">  </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">country</span><span class="p">:</span><span class="w"> </span><span class="nv">Germany</span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">fullname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Arnold Wagner</span><span class="w"></span>
+<span class="w">  </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HR</span><span class="w"></span>
+<span class="w">  </span><span class="nt">skills</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">communication</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coaching</span><span class="w"></span>
 </code></pre></div>
+<h2 id="queryingmodifying-yaml-documents-in-eol">Querying/modifying YAML documents in EOL<a class="headerlink" href="#queryingmodifying-yaml-documents-in-eol" title="Permanent link">&para;</a></h2>
+<p>The YAML driver uses predefined naming conventions to allow developers to programmatically access and modify YAML documents in a concise way. A type of YAML node must be specified when accessing YAML nodes via the YAML driver. There are 3 types of nodes in YAML:</p>
 <ul>
-<li>Make a <em>pull request</em> to the main EpsilonLabs update site project.</li>
-<li>After your request has been merged you should see your project in the update site.</li>
+<li><code>Scalar Node</code>. Scalar nodes are used to represent a single scalar value (e.g., string, boolean, integer). In the YAML driver, a scalar node consists of a key-value pair, in which the key represents the name of the scalar node, and the value represents the scalar value.</li>
+<li><code>Mapping Node</code>. Mapping nodes are used to represent unordered collections of key-value pairs. In the YAML driver, a mapping node consists of a key-value pair, in which the key represents the name of the mapping node, and the value holds an unordered collection of key-value pairs, which in turn represent other nodes.</li>
+<li><code>List (Sequence) Node</code>. List nodes are used to represent an ordered list of nodes or scalar values. In the YAML driver, a list node consists of a key-value pair, in which the key represents the name of the list node, and the value represents a list of nodes or scalar values.</li>
 </ul>
-<h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<p>This section outlines the supported conventions in the form of questions and answers followed by relevant examples.</p>
+<h3 id="how-can-i-access-all-node-elements">How can I access all node elements?<a class="headerlink" href="#how-can-i-access-all-node-elements" title="Permanent link">&para;</a></h3>
+<p>Retrieving all nodes, regardless of their type, is performed by using the keyword <code>Node</code>, followed by the property <code>all</code>. One can access all nodes of a specific type, by using the keyword <code>ScalarNode</code> for scalar nodes, <code>MappingNode</code> for mapping nodes, and <code>ListNode</code> for list nodes.</p>
+<pre class="prettyprint lang-eol"><code>// Get and print all nodes
+Node.all.println();
+
+// Get and print all scalar nodes
+ScalarNode.all.println();
+
+// Get and print all mapping nodes
+MappingNode.all.println();
+
+// Get and print all list nodes
+ListNode.all.println();</code></pre>
+<h3 id="how-can-i-access-nodes-by-name">How can I access nodes by name?<a class="headerlink" href="#how-can-i-access-nodes-by-name" title="Permanent link">&para;</a></h3>
+<p>The <code>s_</code> prefix followed by the name of the node is used to access all scalar nodes with the specified name. Similarly, the <code>m_</code> prefix is used for accessing mapping nodes, and the <code>l_</code> prefix for list nodes. For instance, <code>s_role.all</code> can be used to get all scalar nodes named <code>role</code>, <code>m_address.all</code> can be used to get all mapping nodes named <code>address</code>, and <code>l_industry.all</code> can be used to get all list nodes named <code>industry</code>.</p>
+<pre class="prettyprint lang-eol"><code>// Get all scalar nodes with the name "role" and print the first one
+s_role.all.first().println();
+
+// Get all mapping nodes with the name "address" and print the first one
+m_address.all.first().println();
+
+// Get all list nodes with the name "industry" and print the first one
+l_industry.all.first().println();</code></pre>
+<h3 id="how-can-i-retrieve-nodes-as-a-sequence-of-elements-or-as-a-single-element">How can I retrieve nodes as a sequence of elements or as a single element?<a class="headerlink" href="#how-can-i-retrieve-nodes-as-a-sequence-of-elements-or-as-a-single-element" title="Permanent link">&para;</a></h3>
+<p>One can specify how nodes can be retrieved, either as a sequence or as a single element. After the prefix of the node type (i.e., <code>s</code> for scalar node, <code>m</code> for mapping node, <code>l</code> for list node), one can use an additional prefix <code>c_</code> to specify that nodes should be retrieved as a sequence, or can use <code>e_</code> to specify that a single node should be retrieved. For instance, <code>se_country</code> specifies that a single scalar node named <code>country</code> should be retrieved, whereas <code>sc_country</code> specifies that the node named <code>country</code> should be retrieved in a sequence. Using the additional prefix <code>e_</code> can eliminate the need for using further accessor functions (e.g., <code>first</code>, <code>last</code>, <code>at</code>).</p>
+<pre class="prettyprint lang-eol"><code>// Get the first "address" mapping node
+var address = m_address.all.first();
+
+// Get and print the "country" scalar node in a sequence (c_)
+address.sc_country.println();
+
+// Get and print the "country" scalar node as a single element (e_)
+address.se_country.println();</code></pre>
+<h3 id="how-can-i-access-the-name-of-a-node">How can I access the name of a node?<a class="headerlink" href="#how-can-i-access-the-name-of-a-node" title="Permanent link">&para;</a></h3>
+<p>One may be interested in verifying the name of a node for debugging programs, and for this purpose, the <code>name</code> property can be used.</p>
+<pre class="prettyprint lang-eol"><code>// Get the first "industry" list node
+var industry = l_industry.all.first();
+
+// Get and print the name of the node
+industry.name.println();</code></pre>
+<h3 id="how-can-i-access-the-type-of-a-node">How can I access the type of a node?<a class="headerlink" href="#how-can-i-access-the-type-of-a-node" title="Permanent link">&para;</a></h3>
+<p>One may be interested in verifying the type of a node for debugging programs, and for this purpose, the <code>type</code> property can be used.</p>
+<pre class="prettyprint lang-eol"><code>// Get the first "role" scalar node
+var role = s_role.all.first();
+
+// Get and print the type of the node
+role.type.println(); // ScalarNode</code></pre>
+<h3 id="how-can-i-access-the-value-of-a-node">How can I access the value of a node?<a class="headerlink" href="#how-can-i-access-the-value-of-a-node" title="Permanent link">&para;</a></h3>
+<p>The <code>value</code> property can be used for accessing the value of a node. The value of a node can be converted into different types using the following prefixes:</p>
 <ul>
-<li><a href="https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Fp2_publisher.html">Eclipse p2 publisher</a></li>
+<li><code>s_</code> for strings</li>
+<li><code>i_</code> for integers</li>
+<li><code>d_</code> for doubles</li>
+<li><code>f_</code> for floats</li>
+<li><code>b_</code> for booleans</li>
 </ul>
+<pre class="prettyprint lang-eol"><code>var employeeVal = s_employeeId.all.first().value; // 14623
+var s_employeeVal = s_employeeId.all.first().s_value + 1; // 146231
+var i_employeeVal = s_employeeId.all.first().i_value + 1; // 14624
+var d_employeeVal = s_employeeId.all.first().d_value + 1; // 14624.0
+var f_employeeVal = s_employeeId.all.first().f_value + 1; // 14624.0
+var b_residentVal = s_resident.all.first().b_value; // true</code></pre>
+<h3 id="how-can-i-create-a-node">How can I create a node?<a class="headerlink" href="#how-can-i-create-a-node" title="Permanent link">&para;</a></h3>
+<p>To create a new node, you can use the <code>new</code> operator followed by the type of node (i.e., <code>ScalarNode</code>, <code>MappingNode</code>, <code>ListNode</code>). Alternatively, the convention for accessing nodes can be used for creating nodes. For instance, one can use the <code>new</code> operator followed by <code>s_role</code> to create a scalar node named <code>role</code>.</p>
+<pre class="prettyprint lang-eol"><code>// scalar node named "city" with the value "Berlin"
+var cityNode1 = new ScalarNode("city", "Berlin"); // city=Berlin
+var cityNode2 = new s_city("Berlin"); // city=Berlin
+
+// empty mapping node named "address"; its value must be set later
+var addressNode1 = new MappingNode("address"); // address={}
+var addressNode2 = new m_address; // address={}
+
+// empty list node named "books" that contains 5 entries; its values must be set later
+var booksNode1 = new ListNode("books", 5); // books=[{}, {}, {}, {}, {}]
+var booksNode2 = new l_books(5); // books=[{}, {}, {}, {}, {}]</code></pre>
+<h3 id="how-do-i-set-the-value-of-a-node">How do I set the value of a node?<a class="headerlink" href="#how-do-i-set-the-value-of-a-node" title="Permanent link">&para;</a></h3>
+<p>For setting or changing the value of a node, the <code>value</code> property can be used, followed by the assignment operator (“=”) and a value or a node. If a node is specified after the assignment operator, then the name of that node will be ignored, and the value of that node will become the new value after the assignment operation. The function <code>set(position, value)</code> can be used for modifying the items of a list node.</p>
+<pre class="prettyprint lang-eol"><code>// changes the value of the first "fullname" scalar node to "Jack"
+s_fullname.all.at(0).value = "Jack";
+
+// changes the value of the first "role" scalar node to "Developer"
+s_role.all.first().value = new ScalarNode("newNode", "Developer");
+
+// changes the value of the "country" scalar node to "Turkey"
+m_address.all.first().se_country.value = "Turkey";
+
+// changes the last "address" mapping node into a scalar node with the value "Street Broadway"
+m_address.all.last().value = new s_newNode("Street Broadway");
+
+// changes the last "role" scalar node into an empty mapping node
+s_role.all.last().value = new MappingNode();
+
+// changes the last "employeeId" scalar node into a list node that contains 3 empty entries
+s_employeeId.all.last().value = new ListNode("newNode", 3); 
+
+// changes in the "skills" list node the value of the item at position 1 to "databases"
+l_skills.all.first().value.set(1, "databases");</code></pre>
+<h3 id="how-do-i-add-entries-to-a-list-node">How do I add entries to a list node?<a class="headerlink" href="#how-do-i-add-entries-to-a-list-node" title="Permanent link">&para;</a></h3>
+<p>The function <code>add(value)</code> can be used for adding an item to a list node that contains scalar values. The functions <code>addRow()</code> and <code>addRows(size)</code> can be used for adding empty entries to a list node that contains nodes.</p>
+<pre class="prettyprint lang-eol"><code>// add an item to the "skills" list node
+l_skills.all.first().value.add("analytics");
+
+// add 1 empty entry to the "projects" list node
+l_projects.all.first().value.addRow();
+
+// add 3 empty entries to the "projects" list node
+l_projects.all.first().value.addRows(3);</code></pre>
+<h3 id="how-do-i-add-nodes-to-a-mapping-node">How do I add nodes to a mapping node?<a class="headerlink" href="#how-do-i-add-nodes-to-a-mapping-node" title="Permanent link">&para;</a></h3>
+<p>The <code>appendNode(node)</code> function can be used for adding new nodes into a mapping node.</p>
+<pre class="prettyprint lang-eol"><code>var address = m_address.all.last();
+
+// add a new scalar node with the name "city" and value "Berlin"
+address.value.appendNode(new ScalarNode("city", "Berlin"));</code></pre>
+<h3 id="how-do-i-set-the-root-node-of-a-yaml-document">How do I set the root node of a YAML document?<a class="headerlink" href="#how-do-i-set-the-root-node-of-a-yaml-document" title="Permanent link">&para;</a></h3>
+<p>The <code>root</code> property can be used for setting the root node of a YAML document. The root node of a YAML document can either be a mapping node or a list node. The <code>setRootAsMap()</code> function can be used for setting the root node into a mapping node. The <code>setRootAsList()</code> function can be used for setting the root node into a list node.</p>
+<pre class="prettyprint lang-eol"><code>// Set the root node into a mapping node
+YAMLDoc.setRootAsMap();
+
+// Set the root node into a list node
+YAMLDoc.setRootAsList();
+
+// Set the root node into a mapping node
+YAMLDoc.root.value = new MappingNode();
+
+// Set the root node into a list node with 3 empty entries
+YAMLDoc.root.value = new ListNode("", 3);</code></pre>
+<h3 id="how-can-i-create-a-yaml-document-from-scratch">How can I create a YAML document from scratch?<a class="headerlink" href="#how-can-i-create-a-yaml-document-from-scratch" title="Permanent link">&para;</a></h3>
+<p>The following code can be used for creating the <code>employees.yaml</code> file programmatically.</p>
+<pre class="prettyprint lang-eol"><code>YAMLDoc.setRootAsList();
+var root = YAMLDoc.getRoot();
+root.value.addRows(2);
+var rootFirstRow = root.value.at(0);
+var rootSecondRow = root.value.at(1);
+
+var addressNode1 = new MappingNode("address");
+var countryNode1 = new ScalarNode("country", "England");
+var residentNode = new ScalarNode("resident", true);
+var postcodeNode = new ScalarNode("postcode", "M1 1AG");
+addressNode1.value.appendNode(countryNode1);
+addressNode1.value.appendNode(residentNode);
+addressNode1.value.appendNode(postcodeNode);
+
+var employeeIdNode1 = new ScalarNode("employeeId", "14623");
+var fullnameNode1 = new ScalarNode("fullname", "Michael Davidson");
+var roleNode1 = new ScalarNode("role", "Consultant");
+
+var industryNode = new ListNode("industry", 3);
+industryNode.value =  Sequence{"IoT", "smart factories", "signal analytics"};
+
+var projectsNode = new ListNode("projects", 2);
+var nameNode1 = new ScalarNode("name", "SmartAutomation");
+var nameNode2 = new ScalarNode("name", "FactoryAnalytics");
+var budgetNode1 = new ScalarNode("budget", 25000);
+var budgetNode2 = new ScalarNode("budget", 20000);
+projectsNode.value.at(0).appendNode(nameNode1);
+projectsNode.value.at(0).appendNode(budgetNode1);
+projectsNode.value.at(1).appendNode(nameNode2);
+projectsNode.value.at(1).appendNode(budgetNode2);
+
+var addressNode2 = new MappingNode("address");
+var countryNode2 = new ScalarNode("country", "Germany");
+addressNode2.value.appendNode(countryNode2);
+
+var employeeIdNode2 = new ScalarNode("employeeId", "16431");
+var fullnameNode2 = new ScalarNode("fullname", "Arnold Wagner");
+var roleNode2 = new ScalarNode("role", "HR");
+
+var skillsNode = new ListNode("skills", 2);
+skillsNode.value =  Sequence{"communication", "coaching"};
+
+rootFirstRow.appendNode(employeeIdNode1);
+rootFirstRow.appendNode(addressNode1);
+rootFirstRow.appendNode(fullnameNode1);
+rootFirstRow.appendNode(roleNode1);
+rootFirstRow.appendNode(industryNode);
+rootFirstRow.appendNode(projectsNode);
+
+rootSecondRow.appendNode(employeeIdNode2);
+rootSecondRow.appendNode(addressNode2);
+rootSecondRow.appendNode(fullnameNode2);
+rootSecondRow.appendNode(roleNode2);
+rootSecondRow.appendNode(skillsNode);</code></pre>
+<h3 id="how-can-i-delete-nodes">How can I delete nodes?<a class="headerlink" href="#how-can-i-delete-nodes" title="Permanent link">&para;</a></h3>
+<p>To delete nodes, you can use the <code>delete</code> operator followed by the node(s) to be deleted.</p>
+<pre class="prettyprint lang-eol"><code>// delete all scalar nodes named "role"
+delete s_role.all;
+
+// delete the first mapping node named "address"
+delete m_address.all.first();
+
+// delete all list nodes named "skills"
+delete l_skills.all;</code></pre>
+<h2 id="adding-a-yaml-document-to-your-launch-configuration">Adding a YAML document to your launch configuration<a class="headerlink" href="#adding-a-yaml-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
+<p>To add a YAML document to your Epsilon launch configuration, you need to select "YAML Document" from the list of available model types.</p>
+<p><img alt="" src="select.png" /></p>
+<p>Then you can configure the details of your document (name, file etc.) in the screen that pops up. To load a YAML document that is not in the Eclipse workspace, untick the "Workspace file" check box and provide a full URI for your document (e.g. <code>http://api.twitter.com/followers/epsilonews.yaml</code> or <code>file:/c:/employees.yaml</code>).</p>
+<p><img alt="" src="configure.png" /></p>
+<h2 id="loading-a-yaml-document-through-java-code">Loading a YAML document through Java code<a class="headerlink" href="#loading-a-yaml-document-through-java-code" title="Permanent link">&para;</a></h2>
+<p>The following excerpt demonstrates using YAML models using Epsilon's Java API.</p>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span><span class="w"></span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span><span class="w"></span>
+
+<span class="n">YamlModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">YamlModel</span><span class="p">();</span><span class="w"></span>
+<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;YAMLDoc&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">model</span><span class="p">.</span><span class="na">setFile</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="n">model</span><span class="p">.</span><span class="na">load</span><span class="p">();</span><span class="w"></span>
+
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span><span class="w"></span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setModule</span><span class="p">(</span><span class="n">module</span><span class="p">);</span><span class="w"></span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
                 
               
               

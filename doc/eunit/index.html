@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-5.4.0">
     
     
       
@@ -1605,7 +1605,7 @@ Theories</p>
   (<span class="nt">&lt;uses</span>      <span class="na">ref=</span><span class="s">&quot;x&quot;</span> <span class="err">[</span><span class="na">as=</span><span class="s">&quot;y&quot;</span><span class="err">]</span> <span class="nt">/&gt;</span>)*
   (<span class="nt">&lt;exports</span>   <span class="na">ref=</span><span class="s">&quot;z&quot;</span> <span class="err">[</span><span class="na">as=</span><span class="s">&quot;w&quot;</span><span class="err">]</span> <span class="nt">/&gt;</span>)*
   (<span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;myparam&quot;</span> <span class="na">value=</span><span class="s">&quot;myvalue&quot;</span> <span class="nt">/&gt;</span>)*
-  (<span class="nt">&lt;modelTasks&gt;</span><span class="c">&lt;!-- Zero or more Ant tasks --&gt;</span><span class="nt">&lt;/modelTasks&gt;</span>)?
+  (<span class="nt">&lt;modelTasks&gt;</span><span class="cm">&lt;!-- Zero or more Ant tasks --&gt;</span><span class="nt">&lt;/modelTasks&gt;</span>)?
 <span class="nt">&lt;/epsilon.eunit&gt;</span>
 </code></pre></div>
 <p>The EUnit Ant task is based on the Epsilon abstract executable module task, inheriting some useful features. The attribute <code>src</code> points to the path of the EOL file, and the optional attribute <code>failOnErrors</code> can be set to false to prevent EUnit from aborting the Ant launch if a test case fails. EUnit also inherits support for importing and exporting global variables through the <code>&lt;uses&gt;</code> and <code>&lt;exports&gt;</code> elements: the original name is set in <code>ref</code>, and the optional <code>as</code> attribute allows for using a different name. For receiving parameters as name-value piars, the <code>&lt;parameter&gt;</code> element can be used.</p>
@@ -1903,17 +1903,17 @@ operation runETL() {
 </ol>
 <p>The listing below shows the Ant buildfile which would be required for running these steps, showing that while EUnit can use the existing ATL tasks as-is, the required helper task is quite longer than the one shown above. Ideally, Ant tasks should be adapted or wrapped to use models directly from the EMC model repository.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project&gt;</span>
-  <span class="c">&lt;!-- ... omitted ... --&gt;</span>
+  <span class="cm">&lt;!-- ... omitted ... --&gt;</span>
   <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;atl&quot;</span><span class="nt">&gt;</span>
-    <span class="c">&lt;!-- Create temporary files for input and output models --&gt;</span>
+    <span class="cm">&lt;!-- Create temporary files for input and output models --&gt;</span>
     <span class="nt">&lt;tempfile</span> <span class="na">property=</span><span class="s">&quot;atl.temp.srcfile&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;tempfile</span> <span class="na">property=</span><span class="s">&quot;atl.temp.dstfile&quot;</span> <span class="nt">/&gt;</span>
 
-    <span class="c">&lt;!-- Save input model to a file --&gt;</span>
+    <span class="cm">&lt;!-- Save input model to a file --&gt;</span>
     <span class="nt">&lt;epsilon.storeModel</span> <span class="na">model=</span><span class="s">&quot;Tree&quot;</span>
       <span class="na">target=</span><span class="s">&quot;${atl.temp.srcfile}&quot;</span> <span class="nt">/&gt;</span>
 
-    <span class="c">&lt;!-- Load the metamodels and the source model --&gt;</span>
+    <span class="cm">&lt;!-- Load the metamodels and the source model --&gt;</span>
     <span class="nt">&lt;atl.loadModel</span> <span class="na">name=</span><span class="s">&quot;TreeMM&quot;</span> <span class="na">metamodel=</span><span class="s">&quot;MOF&quot;</span>
       <span class="na">path=</span><span class="s">&quot;metamodels/tree.ecore&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;atl.loadModel</span> <span class="na">name=</span><span class="s">&quot;GraphMM&quot;</span> <span class="na">metamodel=</span><span class="s">&quot;MOF&quot;</span>
@@ -1921,20 +1921,20 @@ operation runETL() {
     <span class="nt">&lt;atl.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree&quot;</span> <span class="na">metamodel=</span><span class="s">&quot;TreeMM&quot;</span>
       <span class="na">path=</span><span class="s">&quot;${atl.temp.srcfile}&quot;</span> <span class="nt">/&gt;</span>
 
-    <span class="c">&lt;!-- Run ATL and save the model --&gt;</span>
+    <span class="cm">&lt;!-- Run ATL and save the model --&gt;</span>
     <span class="nt">&lt;atl.launch</span> <span class="na">path=</span><span class="s">&quot;transformation/tree2graph.atl&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;inmodel</span> <span class="na">name=</span><span class="s">&quot;IN&quot;</span>   <span class="na">model=</span><span class="s">&quot;Tree&quot;</span> <span class="nt">/&gt;</span>
       <span class="nt">&lt;outmodel</span> <span class="na">name=</span><span class="s">&quot;OUT&quot;</span> <span class="na">model=</span><span class="s">&quot;Graph&quot;</span> <span class="na">metamodel=</span><span class="s">&quot;GraphMM&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/atl.launch&gt;</span>
     <span class="nt">&lt;atl.saveModel</span> <span class="na">model=</span><span class="s">&quot;Graph&quot;</span> <span class="na">path=</span><span class="s">&quot;${atl.temp.dstfile}&quot;</span> <span class="nt">/&gt;</span>
 
-    <span class="c">&lt;!-- Load it back into the EUnit suite --&gt;</span>
+    <span class="cm">&lt;!-- Load it back into the EUnit suite --&gt;</span>
     <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Graph&quot;</span>
       <span class="na">modelfile=</span><span class="s">&quot;${atl.temp.dstfile}&quot;</span>
       <span class="na">metamodeluri=</span><span class="s">&quot;Graph&quot;</span>
       <span class="na">read=</span><span class="s">&quot;true&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
 
-    <span class="c">&lt;!-- Delete temporary files --&gt;</span>
+    <span class="cm">&lt;!-- Delete temporary files --&gt;</span>
     <span class="nt">&lt;delete</span> <span class="na">file=</span><span class="s">&quot;${atl.temp.srcfile}&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;delete</span> <span class="na">file=</span><span class="s">&quot;${atl.temp.dstfile}&quot;</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;/target&gt;</span>
@@ -2067,7 +2067,7 @@ operation valid() {
     </div>
     
       <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching"}</script>
       
       <script>
         app = initialize({
