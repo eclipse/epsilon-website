@@ -35,6 +35,9 @@ var emfaticHighlightRules = function() {
             regex : "//.*$"
         }, {
             token : "comment",
+            regex : "@.*$"
+        }, {
+            token : "comment",
             start : "/\\*",
             end : "\\*/"
         }, {

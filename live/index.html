@@ -138,7 +138,7 @@
         <span class="button square closer"></span>
         <div class="info-box-content">
                 <h3>About the Epsilon Playground</h3>
-                <p>The Epsilon Playground is a web application for fiddling with metamodelling, modelling and automated model management using <a href="https://eclipse.org/emfatic">Emfatic</a>, <a href="https://eclipse.org/epsilon/doc/flexmi">Flexmi</a> and the languages of the <a href="https://eclipse.org/epsilon">Epsilon</a> platform. Its back-end is implemented using <a href="https://cloud.google.com/functions">Google Cloud Platform Functions</a> and the front-end builds heavily on the <a href="https://metroui.org.ua">Metro 4</a> framework. Diagrams are rendered using the <a href="https://github.com/magjac/d3-graphviz">d3-grapvhiz</a> Javascript library, and <a href="https://kroki.io">Kroki</a>.</p>
+                <p>The Epsilon Playground is a web application for fiddling with metamodelling, modelling and automated model management using <a href="https://eclipse.org/emfatic">Emfatic</a>, <a href="https://eclipse.org/epsilon/doc/flexmi">Flexmi</a> and the languages of the <a href="https://eclipse.org/epsilon">Epsilon</a> platform. Its back-end is implemented using <a href="https://cloud.google.com/functions">Google Cloud Platform Functions</a> and the front-end builds heavily on the <a href="https://metroui.org.ua">Metro 4</a> framework. Diagrams are rendered using <a href="https://plantuml.com">PlantUML</a> and <a href="https://kroki.io">Kroki</a>.</p>
                 <h4>Saving and sharing your work</h4>
                 <p>
                 To save or share your work, please click the "Share" button. This will create a short link that you can copy to your clipboard. Please note that the contents of your editors <b>will be stored in the back-end of the Epsilon Playground</b> so that they can be retrieved when you visit that link again later.
@@ -157,7 +157,6 @@
     
     <script src="js/d3.v5.min.js" from="https://d3js.org/d3.v5.min.js"></script>
     <script src="js/wasm/index.min.js" from="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
-    <script src="js/d3-graphviz.js" from="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
     <script src="js/metro.min.js" from="https://cdn.metroui.org.ua/v4.4.3/js/metro.min.js"></script>
     <script src="js/ace/ace.js" from="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/eol.js" type="text/javascript"></script>
@@ -166,6 +165,7 @@
     <script src="js/epl.js" type="text/javascript"></script>
     <script src="js/egl.js" type="text/javascript"></script>
     <script src="js/emfatic.js" type="text/javascript"></script>
+    <script src="js/svg-pan-zoom.min.js"></script>
 
     <script>
     var language = "eol";
@@ -650,6 +650,7 @@
     }
 
     function fit() {
+        
         document.getElementById("splitter").style.minHeight = window.innerHeight + "px";
 
         var editorParentStyle = "flex-basis: calc(100% - 4px);";
@@ -710,16 +711,12 @@
                             renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram, 'dot');
                         }
                         else if (language == "egl") {
-                            if (outputType == "dot") {
-                                renderDiagram("thirdModelDiagram", json.generatedText, 'dot');
-                                setConsoleOutput(json.output);
-                            }
-                            else if (outputType == "code") {
+                            if (outputType == "code") {
                                 outputEditor.getSession().setUseWrapMode(false);
                                 outputEditor.setValue(json.generatedText, 1);
                                 setConsoleOutput(json.output);
                             }
-                            else if (outputType == "html" || outputType == "puml") {
+                            else if (outputType == "html" || outputType == "puml" || outputType == "dot") {
                                 setConsoleOutput(json.output);
                                 var iframe = document.getElementById("htmlIframe");
                                 if (iframe == null) {
@@ -732,9 +729,14 @@
                                 if (outputType == "html") {
                                     iframe.srcdoc = json.generatedText;
                                 }
-                                else if (outputType == "puml") {
+                                else if (outputType == "puml" || outputType == "dot") {
+
+                                    var krokiEndpoint = "";
+                                    if (outputType == "puml") krokiEndpoint = "plantuml";
+                                    else krokiEndpoint = "graphviz/svg"
+
                                     var krokiXhr = new XMLHttpRequest();
-                                    krokiXhr.open("POST", "https://kroki.io/plantuml", true);
+                                    krokiXhr.open("POST", "https://kroki.io/" + krokiEndpoint, true);
                                     krokiXhr.setRequestHeader("Accept", "image/svg+xml");
                                     krokiXhr.setRequestHeader("Content-Type", "text/plain");
                                     krokiXhr.onreadystatechange = function () {
@@ -767,23 +769,23 @@
     }
 
     function refreshModelDiagram() {
-        refreshDiagram(backendConfig["FlexmiToGraphvizFunction"],
+        refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"],
             "modelDiagram", "model", "dot", flexmiEditor, emfaticEditor);
     }
 
     function refreshMetamodelDiagram() {
-        refreshDiagram(backendConfig["EmfaticToGraphvizFunction"],
-            "metamodelDiagram", "metamodel", "fdp", flexmiEditor, emfaticEditor);
+        refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"],
+            "metamodelDiagram", "metamodel", "puml", flexmiEditor, emfaticEditor);
     }
 
     function refreshSecondModelDiagram() {
-        refreshDiagram(backendConfig["FlexmiToGraphvizFunction"],
+        refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"],
             "secondModelDiagram", "model", "dot", secondFlexmiEditor, secondEmfaticEditor);
     }
 
     function refreshSecondMetamodelDiagram() {
-        refreshDiagram(backendConfig["EmfaticToGraphvizFunction"],
-            "secondMetamodelDiagram", "metamodel", "fdp", secondFlexmiEditor, secondEmfaticEditor);
+        refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"],
+            "secondMetamodelDiagram", "metamodel", "puml", secondFlexmiEditor, secondEmfaticEditor);
     }
 
     function toggle(elementId, onEmpty) {
@@ -809,14 +811,12 @@
                     var json = JSON.parse(xhr.responseText);
                     var t = d3.transition().ease(d3.easeLinear);
                     
-                    // FIXME: Make both functions return the Graphviz diagram in a "diagram" field
+                    // FIXME: Make both functions return the PlantUML diagram in a "diagram" field
                     var jsonField = "modelDiagram";
                     if (diagramId.endsWith("etamodelDiagram")) jsonField = "metamodelDiagram";
                     
                     if (json.hasOwnProperty("error")) {
-                        var dot = "digraph G { \n node [ shape=box, style=filled, fillcolor=mistyrose, fontname=Arial ] \n t1[label=<<table border='0' cellborder='0'><tr><td>" + wrap(escapeHtml("The diagram could not be rendered due to the following error. " + json.error)) + "<br align='left'/></td></tr></table>>] \n}";
-                        renderDiagram(diagramId, dot, engine);
- 
+                        setConsoleError(json.error);
                     }
                     else {
                         renderDiagram(diagramId, json[jsonField], engine);
@@ -844,11 +844,17 @@
         return str.replace(/(?![^\n]{1,40}$)([^\n]{1,40})\s/g, '$1<br align="left"/>');
     }
 
-    function renderDiagram(diagramId, graphviz, engine) {
-        // Commented out transitions because they don't work well with dashed edges in Graphviz
-        //var t = d3.transition().ease(d3.easeLinear);
-        d3.select("#" + diagramId).graphviz({fit: true, height: "100%", width:"100%", engine: engine})
-            .renderDot(graphviz);
+    function renderDiagram(diagramId, svg, engine) {
+        document.getElementById(diagramId).innerHTML = svg;
+        var svg = document.getElementById(diagramId).firstElementChild;
+        svg.style.height = "100%";
+        svg.style.width = "100%";
+
+        svgPanZoom(svg, {
+          zoomEnabled: true,
+          fit: true,
+          center: true
+        });
     }
 
     </script>
