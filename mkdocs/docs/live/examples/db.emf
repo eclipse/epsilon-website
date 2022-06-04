@@ -1,14 +1,11 @@
 package DB;
 
-abstract class NamedElement {
-	attr String name;
-}
-
 class Database {
 	val DatabaseElement[*]#database contents;
 }
 
-abstract class DatabaseElement extends NamedElement {
+abstract class DatabaseElement {
+	attr String name;
 	ref Database#contents database;
 }
 
@@ -23,6 +20,8 @@ class Column extends DatabaseElement {
 }
 
 class ForeignKey extends DatabaseElement {
+    @diagram(direction="left")
 	ref Column parent;
+	@diagram(direction="left")
 	ref Column child;
 }

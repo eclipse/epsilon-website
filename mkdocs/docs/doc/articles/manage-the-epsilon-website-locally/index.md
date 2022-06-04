@@ -4,7 +4,7 @@ This article provides a step-by-step guide for obtaining a local copy of the Eps
 
 ## Setting up your environment
 
-- Clone the Git repository at `ssh://user_id@git.eclipse.org:29418/www.eclipse.org/epsilon.git` if you are a project comitter, or at `git://git.eclipse.org/gitroot/www.eclipse.org/epsilon.git` if not.
+- Clone the Git repository at `ssh://user_id@git.eclipse.org:29418/www.eclipse.org/epsilon.git` if you are a project comitter, or at `https://git.eclipse.org/r/www.eclipse.org/epsilon.git` if not.
 - Download and install [virtualenv](https://virtualenv.pypa.io/en/stable/installation.html).
 - Navigate to the `mkdocs` folder, and run `./serve.sh` from a terminal. The first time this command is run, a Python virtual environment will be created unther the `mkdocs/env` directory. After the environment is ready (and on subsequent calls to `./serve.sh`), a local web server containing the Epsilon website will be running at [http://localhost:8000](http://localhost:8000).
 

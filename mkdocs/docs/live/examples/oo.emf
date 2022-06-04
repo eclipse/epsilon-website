@@ -1,6 +1,7 @@
 package OO;
 
 class Model {
+    @diagram(direction="down")
 	val Classifier[*] contents;
 }
 
@@ -8,16 +9,18 @@ abstract class NamedElement {
 	attr String name;
 }
 
+@diagram(inheritance.direction="down")
 abstract class ~Classifier extends NamedElement {
 }
 
 class ~Class extends ~Classifier {
-	ref ~Class#extendedBy ~extends;
+    ref ~Class#extendedBy ~extends;
 	ref ~Class[*]#~extends extendedBy;
 	val Feature[*]#owner features;
 	attr boolean isAbstract;
 }
 
+@diagram(inheritance.direction="right")
 class Datatype extends ~Classifier {
 }
 
@@ -30,6 +33,7 @@ abstract class StructuralFeature extends Feature {
 }
 
 class Reference extends StructuralFeature {
+	@diagram(direction="up")
 	ref ~Class type;
 }
 
