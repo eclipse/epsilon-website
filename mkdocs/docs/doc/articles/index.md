@@ -99,6 +99,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 ## Teaching Material
 
 - [MDE Exercises](exercises): This article provides a number of exercises which enable you to test your knowledge on MDE, EMF and Epsilon.
+- [Epsilon Playground](playground): The Epsilon Playground is a web application for fiddling with metamodelling, modelling and automated model management using Emfatic, Flexmi and Epsilon's languages.
 
 ## Technical Support
 
