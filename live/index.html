@@ -81,7 +81,7 @@
                         <span class="icon"><span class="mif-example-16 mif-link"></span></span>
                         <span class="caption">Share</span>
                     </a>
-                    <a href="#" onclick="about(event)">
+                    <a href="https://eclipse.org/epsilon/doc/articles/playground">
                         <span class="icon"><span class="mif-example-16 mif-info"></span></span>
                         <span class="caption">About</span>
                     </a>
@@ -132,25 +132,6 @@
                         <div id="outputEditor" class="editor" style="display:none"></div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div id="about-info-box" class="info-box" data-role="infobox" data-width="80%" style="overflow-y: auto;">
-        <span class="button square closer"></span>
-        <div class="info-box-content">
-                <h3>About the Epsilon Playground</h3>
-                <p>The Epsilon Playground is a web application for fiddling with metamodelling, modelling and automated model management using <a href="https://eclipse.org/emfatic">Emfatic</a>, <a href="https://eclipse.org/epsilon/doc/flexmi">Flexmi</a> and the languages of the <a href="https://eclipse.org/epsilon">Epsilon</a> platform. Its back-end is implemented using <a href="https://cloud.google.com/functions">Google Cloud Platform Functions</a> and the front-end builds heavily on the <a href="https://metroui.org.ua">Metro 4</a> framework. Diagrams are rendered using <a href="https://plantuml.com">PlantUML</a> and <a href="https://kroki.io">Kroki</a>.</p>
-                <h4>Saving and sharing your work</h4>
-                <p>
-                To save or share your work, please click the "Share" button. This will create a short link that you can copy to your clipboard. Please note that the contents of your editors <b>will be stored in the back-end of the Epsilon Playground</b> so that they can be retrieved when you visit that link again later.
-                </p>
-                <h4>Fair usage policy</h4>
-                <p>
-                The cost of running Epsilon Playground is proportional to the number of requests made to its Google Cloud Platform back-end (i.e. execution of programs and rendering of diagrams). With fair usage we can comfortably afford this cost and keep the Playground operational, but in case of excessive use we may have to take it down with no notice. To keep costs down, server-side operations that take more than 60 seconds to complete are automatically terminated. For extensive use, large models, or complex programs, please use the <a href="http://eclipse.org/epsilon/download">development tools / Java libraries</a> provided on the Epsilon website instead.
-                </p>
-                <h4>Reporting bugs and requesting help</h4>
-                <p>
-                Please submit bug reports in the <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon">Eclipse Bugzilla</a> and ask for help in <a href="https://eclise.org/forum">Epsilon's forum</a>. You can submit feature requests too but please keep in mind that the Playground is not a replacement for Epsilon's <a href="https://eclipse.org/epsilon/download">Eclipse-based development tools</a>. The Playground has been cursorily tested on recent versions of Firefox and Chrome. It's unlikely that we'll be able to invest too much effort in making it compatible with older/other browsers but any patches you may be able to contribute are always welcome.
-                </p>
             </div>
         </div>
     </div>
@@ -420,11 +401,6 @@
         else {
             editor.getSession().setMode("ace/mode/yaml");
         }
-    }
-
-    function about(event) {
-        event.preventDefault();
-        $('#about-info-box').data('infobox').open();
     }
 
     function setOutputLanguage() {
