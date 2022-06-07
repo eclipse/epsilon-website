@@ -1052,6 +1052,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#emfatic-metamodels-in-the-playground" class="md-nav__link">
+    Emfatic Metamodels in the Playground
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#saving-and-sharing-your-work" class="md-nav__link">
     Saving and sharing your work
   </a>
@@ -1095,6 +1102,64 @@
                 
                 <h1 id="epsilon-playground">Epsilon Playground<a class="headerlink" href="#epsilon-playground" title="Permanent link">&para;</a></h1>
 <p>The <a href="../../../live">Epsilon Playground</a> is a web application for fiddling with metamodelling, modelling and automated model management using <a href="https://eclipse.org/emfatic">Emfatic</a>, <a href="../../flexmi">Flexmi</a> and Epsilon's languages. Its back-end is implemented using <a href="https://cloud.google.com/functions">Google Cloud Platform Functions</a> and the front-end builds heavily on the <a href="https://metroui.org.ua">Metro 4</a> framework. Diagrams are rendered using <a href="https://plantuml.com">PlantUML</a> and <a href="https://kroki.io">Kroki</a>.</p>
+<h2 id="emfatic-metamodels-in-the-playground">Emfatic Metamodels in the Playground<a class="headerlink" href="#emfatic-metamodels-in-the-playground" title="Permanent link">&para;</a></h2>
+<p>For metamodelling, the Playground uses Ecore's <a href="https://eclipse.org/emfatic">Emfatic</a> textual syntax, augmented with a couple of <a href="https://www.eclipse.org/emfatic/#annotations">annotations</a> to control the graphical layout of the metamodels.</p>
+<ul>
+<li><code>@diagram(direction="up/down/left/right")</code>: Can be attached to references (<code>val</code>/<code>ref</code>) to specify the direction of the respective edge in the diagram (<code>right</code> by default)</li>
+<li><code>@diagram(inheritance.direction="up/down/left/right")</code>: Can be attached to classes to specify the direction of its inheritance edges in the diagram (<code>up</code> by default).</li>
+</ul>
+<p>For example, the plain Emfatic metamodel below is rendered as follows:</p>
+<pre class="prettyprint lang-emf"><code>package ptl;
+
+class Project {
+    attr String name;
+    val Task[*] tasks;
+    val Person[*] people;
+}
+
+abstract class Task {
+    attr String name;
+}
+
+class ManualTask extends Task {
+    ref Person person;
+}
+
+class AutomatedTask extends Task {
+
+}
+
+class Person {
+    attr String name;
+}</code></pre>
+<p><img alt="" src="plain.png" /></p>
+<p>while its annotated version produces the diagram below.</p>
+<pre class="prettyprint lang-emf"><code>package ptl;
+
+class Project {
+    attr String name;
+    val Task[*] tasks;
+    val Person[*] people;
+}
+
+abstract class Task {
+    attr String name;
+}
+
+class ManualTask extends Task {
+    @diagram(direction="up")
+    ref Person person;
+}
+
+@diagram(inheritance.direction="down")
+class AutomatedTask extends Task {
+
+}
+
+class Person {
+    attr String name;
+}</code></pre>
+<p><img alt="" src="annotated.png" /></p>
 <h2 id="saving-and-sharing-your-work">Saving and sharing your work<a class="headerlink" href="#saving-and-sharing-your-work" title="Permanent link">&para;</a></h2>
 <p>To save or share your work, please click the "Share" button. This will create a short link that you can copy to your clipboard. Please note that the contents of your editors <strong>will be stored in the back-end of the Epsilon Playground</strong> so that they can be retrieved when you visit that link again later.</p>
 <h2 id="fair-usage-policy">Fair usage policy<a class="headerlink" href="#fair-usage-policy" title="Permanent link">&para;</a></h2>
