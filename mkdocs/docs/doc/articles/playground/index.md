@@ -2,6 +2,77 @@
 
 The [Epsilon Playground](../../../live) is a web application for fiddling with metamodelling, modelling and automated model management using [Emfatic](https://eclipse.org/emfatic), [Flexmi](../../flexmi) and Epsilon's languages. Its back-end is implemented using [Google Cloud Platform Functions](https://cloud.google.com/functions) and the front-end builds heavily on the [Metro 4](https://metroui.org.ua) framework. Diagrams are rendered using [PlantUML](https://plantuml.com) and [Kroki](https://kroki.io).
 
+## Emfatic Metamodels in the Playground
+
+For metamodelling, the Playground uses Ecore's [Emfatic](https://eclipse.org/emfatic) textual syntax, augmented with a couple of [annotations](https://www.eclipse.org/emfatic/#annotations) to control the graphical layout of the metamodels.
+
+- `@diagram(direction="up/down/left/right")`: Can be attached to references (`val`/`ref`) to specify the direction of the respective edge in the diagram (`right` by default)
+- `@diagram(inheritance.direction="up/down/left/right")`: Can be attached to classes to specify the direction of its inheritance edges in the diagram (`up` by default).
+
+For example, the plain Emfatic metamodel below is rendered as follows:
+
+```emf
+package ptl;
+
+class Project {
+    attr String name;
+    val Task[*] tasks;
+    val Person[*] people;
+}
+
+abstract class Task {
+    attr String name;
+}
+
+class ManualTask extends Task {
+    ref Person person;
+}
+
+class AutomatedTask extends Task {
+
+}
+
+class Person {
+    attr String name;
+}
+```
+
+![](plain.png)
+
+while its annotated version produces the diagram below.
+
+```emf
+package ptl;
+
+class Project {
+    attr String name;
+    val Task[*] tasks;
+    val Person[*] people;
+}
+
+abstract class Task {
+    attr String name;
+}
+
+class ManualTask extends Task {
+    @diagram(direction="up")
+    ref Person person;
+}
+
+@diagram(inheritance.direction="down")
+class AutomatedTask extends Task {
+
+}
+
+class Person {
+    attr String name;
+}
+```
+
+
+
+![](annotated.png)
+
 ## Saving and sharing your work
 
 To save or share your work, please click the "Share" button. This will create a short link that you can copy to your clipboard. Please note that the contents of your editors **will be stored in the back-end of the Epsilon Playground** so that they can be retrieved when you visit that link again later.
