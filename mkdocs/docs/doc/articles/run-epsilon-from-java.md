@@ -91,7 +91,25 @@ module.execute();
 
 ## Analysing Epsilon Programs
 
-As of version 2.3, Epsilon programs can be analysed using [visitors](https://en.wikipedia.org/wiki/Visitor_pattern). As an example, see the `EolUnparser` class which recursively visits the contents of an `EolModule` and pretty-prints it. To implement your own analyser, you will need to implement the `IEolVisitor` interface for EOL, or the respective `IE*lVisitor` interfaces for other Epsilon-based languages. Using a combination of `E*lUnparser` and your custom visitor, you can easily rewrite Epsilon programs too.
+Epsilon programs do not have an Ecore-based metamodel, but you can query and analyse them through Epsilon's Java API as shown below.
+
+```java
+// Parse an ETL transformation
+EtlModule m = new EtlModule();
+m.parse("rule A2B transform a : In!A to b : Out!B { b.name = a.name; }");
+
+// Get the first rule of the transformation
+TransformationRule a2b = m.getTransformationRules().get(0);
+// Print its name
+System.out.println(a2b.getName());
+
+// Get the body of the A2B rule
+StatementBlock body = (StatementBlock) a2b.getBody().getBody();
+// Print the number of statements it contains
+System.out.println(body.getStatements().size());
+```
+
+As of version 2.3, Epsilon programs can also be analysed using [visitors](https://en.wikipedia.org/wiki/Visitor_pattern). As an example, see the `EolUnparser` class which recursively visits the contents of an `EolModule` and pretty-prints it. To implement your own analyser, you will need to implement the `IEolVisitor` interface for EOL, or the respective `IE*lVisitor` interfaces for other Epsilon-based languages. Using a combination of `E*lUnparser` and your custom visitor, you can easily rewrite Epsilon programs too.
 
 ```java
 EolModule module = new EolModule();
