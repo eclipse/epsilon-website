@@ -62,12 +62,12 @@
 		"outputType": "html"
 	},
 	{
-		"id": "puml2wbs",
+		"id": "wbs2puml",
 		"title": "Generate Work Breakdown",
 		"language": "egl",
-		"program": "pumlwbs.egl",
-		"flexmi": "psl.flexmi",
-		"emfatic": "psl.emf",
+		"program": "wbs2puml.egl",
+		"flexmi": "wbs.flexmi",
+		"emfatic": "wbs.emf",
 		"outputType": "puml"
 	},
 	{

@@ -1,8 +1,0 @@
-[*Generates a PlantUML Work Breakdown Diagram*]
-[%var p = Project.all.first();%]
-@startwbs
-* [%=p.title%]
-[%for (t in p.tasks){%]
-** [%=t.title%]
-[%}%]
-@endwbs

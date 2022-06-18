@@ -1105,7 +1105,7 @@
 <h2 id="emfatic-metamodels-in-the-playground">Emfatic Metamodels in the Playground<a class="headerlink" href="#emfatic-metamodels-in-the-playground" title="Permanent link">&para;</a></h2>
 <p>For metamodelling, the Playground uses Ecore's <a href="https://eclipse.org/emfatic">Emfatic</a> textual syntax, augmented with a couple of <a href="https://www.eclipse.org/emfatic/#annotations">annotations</a> to control the graphical layout of the metamodels.</p>
 <ul>
-<li><code>@diagram(direction="up/down/left/right")</code>: Can be attached to references (<code>val</code>/<code>ref</code>) to specify the direction of the respective edge in the diagram (<code>right</code> by default)</li>
+<li><code>@diagram(direction="up/down/left/right")</code>: Can be attached to references (<code>val</code>/<code>ref</code>) to specify the direction of the respective edge in the diagram (<code>right</code> by default for non-containment references, and <code>down</code> for containment references)</li>
 <li><code>@diagram(inheritance.direction="up/down/left/right")</code>: Can be attached to classes to specify the direction of its inheritance edges in the diagram (<code>up</code> by default).</li>
 </ul>
 <p>For example, the plain Emfatic metamodel below is rendered as follows:</p>
