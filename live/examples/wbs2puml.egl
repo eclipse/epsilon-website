@@ -10,7 +10,7 @@
 
 [%for (task in wp.tasks){%]
 [*Task boxes also include a badge (filled circle) for each of their partners*]
-*** [%=task.title%]\n[%=task.partners.collect(partner|"<color:" + partner.getColor()+ "><U+2B24></color>").concat("   ")%]
+*** [%=task.title%]\n[%=task.partners.collect(partner|"<color:" + partner.color + "><U+2B24></color>").concat("   ")%]
 [%}%]
 [%}%]
 
@@ -19,14 +19,7 @@ legend left
 <b>Partners</b>
 ----
 [%for (partner in project.partners){%]
-<color:[%=partner.getColor()%]><U+2B24></color>    [%=partner.name%]
+<color:[%=partner.color%]><U+2B24></color>    [%=partner.name%]
 [%}%]
 endlegend
 @endwbs
-[%
-@cached
-operation Partner getColor() {
-	var colors = Sequence{"orangered", "royalblue", "teal"};
-	return colors.get(self.eContainer().eContents().indexOf(self).mod(colors.size()));
-}
-%]
