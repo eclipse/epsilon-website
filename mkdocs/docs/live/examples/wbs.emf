@@ -19,4 +19,6 @@ class Task {
 class Partner {
 	id attr String ~id;
 	attr String name;
+	// Colors from https://plantuml.com/color
+	attr String color = "royalblue";
 }
