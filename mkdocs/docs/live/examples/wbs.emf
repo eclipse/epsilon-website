@@ -1,0 +1,22 @@
+package wbs;
+
+class Project {
+	attr String title;
+	val WP[*] wps;
+	val Partner[*] partners;
+}
+
+class WP {
+	attr String title;
+	val Task[*] tasks;
+}
+
+class Task {
+    attr String title;
+    ref Partner[*] partners;
+}
+
+class Partner {
+	id attr String ~id;
+	attr String name;
+}

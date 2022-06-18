@@ -6,7 +6,7 @@ The [Epsilon Playground](../../../live) is a web application for fiddling with m
 
 For metamodelling, the Playground uses Ecore's [Emfatic](https://eclipse.org/emfatic) textual syntax, augmented with a couple of [annotations](https://www.eclipse.org/emfatic/#annotations) to control the graphical layout of the metamodels.
 
-- `@diagram(direction="up/down/left/right")`: Can be attached to references (`val`/`ref`) to specify the direction of the respective edge in the diagram (`right` by default)
+- `@diagram(direction="up/down/left/right")`: Can be attached to references (`val`/`ref`) to specify the direction of the respective edge in the diagram (`right` by default for non-containment references, and `down` for containment references)
 - `@diagram(inheritance.direction="up/down/left/right")`: Can be attached to classes to specify the direction of its inheritance edges in the diagram (`up` by default).
 
 For example, the plain Emfatic metamodel below is rendered as follows:
