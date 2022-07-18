@@ -438,10 +438,10 @@ In terms of concrete syntax, inspired by [ATL](https://eclipse.org/atl), the `!`
 
 Signature |Description
 ----------|----------- 
-all() : Collection                  |Alias for allOfKind() (for syntax-compactness purposes)
-allInstances() : Collection         |Alias for allOfKind() (for compatibility with OCL)
-allOfKind() : Collection            |Returns all the elements in the model that are instances either of the type itself or of one of its subtypes
-allOfType() : Collection            |Returns all the elements in the model that are instances of the type
+all() : Collection                  |Alias for getAllOfKind() (for syntax-compactness purposes)
+allInstances() : Collection         |Alias for getAllOfKind() (for compatibility with OCL)
+getAllOfKind() : Collection            |Returns all the elements in the model that are instances either of the type itself or of one of its subtypes
+getAllOfType() : Collection            |Returns all the elements in the model that are instances of the type
 createInstance() : Any       |Creates an instance of the type in the model. The same can be achieved using the `new` operator (see below)
 isInstantiable() : Boolean   |Returns true if the type is instantiable (i.e. non-abstract)
 
