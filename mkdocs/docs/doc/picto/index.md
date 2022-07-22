@@ -100,7 +100,7 @@ Each rule specifies the EGL template that it will invoke (`socialnetwork2graphvi
 
 * `path`: A collection of strings that specify the path of the produced view in the Picto tree
 * `icon`: The icon of the view on the Picto tree. Allowed values at the moment are file names (without the extension) of all icon files under [this folder](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/plugins/org.eclipse.epsilon.picto/icons), as well as `diagram-rrggbb` values where `rrggbb` is a hex colour. Additionally, you can extend the available set of icons by populating an `icons` folder next to the model-to-text transformation file that defines your Picto visualisation (e.g. next to `socialnetwork.egx`)
-* `format`: The format of the view that the EGL transformation will produce. Built-in formats currently supported are `graphviz-dot`, `graphviz-circo`, `graphviz-neato`, `graphviz-fdp`, `plantuml`, `text`, `html` and `svg`
+* `format`: The format of the view that the EGL transformation will produce. Built-in formats supported in Epsilon 2.4.0 are `graphviz-dot`, `graphviz-circo`, `graphviz-neato`, `graphviz-fdp`, `plantuml`, `text`, `html` and `svg`. Epsilon 2.5.0 will add integration with [Kroki](https://kroki.io) servers (both public and self-hosted): the Kroki `/FORMAT/svg` endpoint is available as `kroki-FORMAT` (e.g. `kroki-plantuml`, `kroki-structurizr`, or `kroki-mermaid`).
 * `layers`: A sequence of maps, each of which represents a layer of the view. Each layer needs to define an `id`, a `title` and (optionally), whether it is `active` by default
 
 The EGL template `socialnetwork2graphviz.egl` is as follows:
