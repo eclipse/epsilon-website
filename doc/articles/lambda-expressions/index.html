@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-5.4.0">
     
     
       
@@ -1134,35 +1134,35 @@
 <h3 id="streams-vs-eol-cheat-sheet">Streams vs EOL cheat sheet<a class="headerlink" href="#streams-vs-eol-cheat-sheet" title="Permanent link">&para;</a></h3>
 <p>Aside from the fact that streams are lazy and Epsilon operations are eager, there is some inevitable overlap in their functionality. This section provides an equivalence mapping from Epsilon to Java Streams to help you migrate from one to the other.</p>
 <ul>
-<li><code>select</code> => <code>filter</code></li>
-<li><code>collect</code> => <code>map</code></li>
-<li><code>forAll</code> => <code>allMatch</code></li>
-<li><code>exists</code> => <code>anyMatch</code></li>
-<li><code>none</code> => <code>noneMatch</code></li>
-<li><code>nMatch</code> => No efficient short-circuiting equivalent, but result
+<li><code>select</code> =&gt; <code>filter</code></li>
+<li><code>collect</code> =&gt; <code>map</code></li>
+<li><code>forAll</code> =&gt; <code>allMatch</code></li>
+<li><code>exists</code> =&gt; <code>anyMatch</code></li>
+<li><code>none</code> =&gt; <code>noneMatch</code></li>
+<li><code>nMatch</code> =&gt; No efficient short-circuiting equivalent, but result
     can be achieved using <code>filter</code> followed by <code>.count() == n</code></li>
-<li><code>count</code> => <code>count</code></li>
-<li><code>one</code> => Same as <code>nMatch</code> with n = 1</li>
-<li><code>selectOne</code> => <code>filter</code> followed by <code>.findAny()</code> / <code>.findFirst()</code>
+<li><code>count</code> =&gt; <code>count</code></li>
+<li><code>one</code> =&gt; Same as <code>nMatch</code> with n = 1</li>
+<li><code>selectOne</code> =&gt; <code>filter</code> followed by <code>.findAny()</code> / <code>.findFirst()</code>
     then <code>.orElse(null)</code> if the desired absence of a result is null</li>
-<li><code>reject</code> => same as <code>select</code> with negated predicate</li>
-<li><code>sortBy</code> => <code>sorted</code></li>
-<li><code>mapBy</code> => <code>.collect(Collectors.groupingBy)</code></li>
-<li><code>aggregate</code> => <code>.collect(Collectors.toMap)</code></li>
+<li><code>reject</code> =&gt; same as <code>select</code> with negated predicate</li>
+<li><code>sortBy</code> =&gt; <code>sorted</code></li>
+<li><code>mapBy</code> =&gt; <code>.collect(Collectors.groupingBy)</code></li>
+<li><code>aggregate</code> =&gt; <code>.collect(Collectors.toMap)</code></li>
 </ul>
 <p>In addition, non-first-order operations on Epsilon collection types can be simulated as follows for streams:</p>
 <ul>
-<li><code>flatten</code> => <code>.flatMap(c | c.stream())</code> -- please note that
+<li><code>flatten</code> =&gt; <code>.flatMap(c | c.stream())</code> -- please note that
     <code>flatten</code> is recursive whilst <code>flatMap</code> is not</li>
-<li><code>sum</code> => <code>.filter(e | e.isInteger()).mapToInt(i | i).sum()</code> --
+<li><code>sum</code> =&gt; <code>.filter(e | e.isInteger()).mapToInt(i | i).sum()</code> --
     replace Int/Integer with appropriate type (Long, Double etc.)</li>
-<li><code>min / max</code> => Same as sum but replace the last call with min or
+<li><code>min / max</code> =&gt; Same as sum but replace the last call with min or
     max as required</li>
-<li><code>product</code> => Same as <code>sum</code> but replace the last call with
+<li><code>product</code> =&gt; Same as <code>sum</code> but replace the last call with
     <code>.reduce(i1, i2 | i1 * i2).getAsLong()</code> -- replace Long with
     appropriate type</li>
-<li><code>asBag</code> => <code>.collect(Collectors.toCollection(| new Bag))</code></li>
-<li><code>asSequence</code> / <code>asSet</code> / <code>asOrderedSet</code> => Same as <code>asBag</code> but
+<li><code>asBag</code> =&gt; <code>.collect(Collectors.toCollection(| new Bag))</code></li>
+<li><code>asSequence</code> / <code>asSet</code> / <code>asOrderedSet</code> =&gt; Same as <code>asBag</code> but
     replace Bag with desired type</li>
 </ul>
 <p>Please note that streams are one-shot and the pipeline cannot be re-used once a terminal operation is invoked (see the API for details).</p>
@@ -1231,7 +1231,7 @@
     </div>
     
       <script src="../../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching"}</script>
       
       <script>
         app = initialize({

@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-5.4.0">
     
     
       
@@ -1185,24 +1185,24 @@ Car.all.println();</code></pre>
 <p>You can use the <code>getResource()</code> method of <code>AbstractEmfModel</code> for this.</p>
 <h2 id="how-can-i-use-custom-loadsave-options-for-my-emf-model">How can I use custom load/save options for my EMF model?<a class="headerlink" href="#how-can-i-use-custom-loadsave-options-for-my-emf-model" title="Permanent link">&para;</a></h2>
 <p>You need to un-tick the "Read on load"/"Store on disposal" options in your model configuration dialog and use the underlying EMF resource's load/save methods directly from your EOL code. For example, to turn off the OPTION_DEFER_IDREF_RESOLUTION option, which is on by default in Epsilon's EMF driver and has been reported to <a href="https://www.eclipse.org/forums/index.php/m/1754026/#msg_1754026">slow down loading of models that use "id" attributes</a>, you can use the following EOL statement.</p>
-<div class="highlight"><pre><span></span><code><span class="n">M</span><span class="p">.</span><span class="na">resource</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">Map</span><span class="p">{</span><span class="s">&quot;DEFER_IDREF_RESOLUTION&quot;</span> <span class="o">=</span> <span class="kc">false</span><span class="p">});</span>
+<div class="highlight"><pre><span></span><code><span class="n">M</span><span class="p">.</span><span class="na">resource</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="n">Map</span><span class="p">{</span><span class="s">&quot;DEFER_IDREF_RESOLUTION&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <h2 id="how-do-i-load-an-ecore-metamodel">How do I load an Ecore metamodel?<a class="headerlink" href="#how-do-i-load-an-ecore-metamodel" title="Permanent link">&para;</a></h2>
 <p>If you're developing a standalone application, before you can load an EMF model, you will need to put its metamodel (<code>EPackage</code>) in the global EMF EPackage registry, or in the local package registry of the model resource. The following snippet shows how you can parse an Ecore metamodel from a file (<code>my.ecore</code>) and put its root EPackage in the global EMF registry.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Parse the metamodel file into an EMF resource</span>
-<span class="n">ResourceSet</span> <span class="n">ecoreResourceSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResourceSetImpl</span><span class="p">();</span>
-<span class="n">ecoreResourceSet</span><span class="p">.</span><span class="na">getResourceFactoryRegistry</span><span class="p">().</span>
-    <span class="n">getExtensionToFactoryMap</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;ecore&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">XMIResourceFactoryImpl</span><span class="p">());</span>
-<span class="n">ecoreResourceSet</span><span class="p">.</span><span class="na">getPackageRegistry</span><span class="p">().</span>
-    <span class="n">put</span><span class="p">(</span><span class="n">EcorePackage</span><span class="p">.</span><span class="na">eINSTANCE</span><span class="p">.</span><span class="na">getNsURI</span><span class="p">(),</span> <span class="n">EcorePackage</span><span class="p">.</span><span class="na">eINSTANCE</span><span class="p">);</span> 
-<span class="n">Resource</span> <span class="n">ecoreResource</span> <span class="o">=</span> <span class="n">ecoreResourceSet</span><span class="p">.</span><span class="na">createResource</span><span class="p">(</span>
-    <span class="n">URI</span><span class="p">.</span><span class="na">createFileURI</span><span class="p">(</span><span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="s">&quot;my.ecore&quot;</span><span class="p">).</span><span class="na">getAbsolutePath</span><span class="p">()));</span>
-<span class="n">ecoreResource</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parse the metamodel file into an EMF resource</span><span class="w"></span>
+<span class="n">ResourceSet</span><span class="w"> </span><span class="n">ecoreResourceSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ResourceSetImpl</span><span class="p">();</span><span class="w"></span>
+<span class="n">ecoreResourceSet</span><span class="p">.</span><span class="na">getResourceFactoryRegistry</span><span class="p">().</span><span class="w"></span>
+<span class="w">    </span><span class="n">getExtensionToFactoryMap</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;ecore&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">XMIResourceFactoryImpl</span><span class="p">());</span><span class="w"></span>
+<span class="n">ecoreResourceSet</span><span class="p">.</span><span class="na">getPackageRegistry</span><span class="p">().</span><span class="w"></span>
+<span class="w">    </span><span class="n">put</span><span class="p">(</span><span class="n">EcorePackage</span><span class="p">.</span><span class="na">eINSTANCE</span><span class="p">.</span><span class="na">getNsURI</span><span class="p">(),</span><span class="w"> </span><span class="n">EcorePackage</span><span class="p">.</span><span class="na">eINSTANCE</span><span class="p">);</span><span class="w"> </span>
+<span class="n">Resource</span><span class="w"> </span><span class="n">ecoreResource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ecoreResourceSet</span><span class="p">.</span><span class="na">createResource</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">URI</span><span class="p">.</span><span class="na">createFileURI</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;my.ecore&quot;</span><span class="p">).</span><span class="na">getAbsolutePath</span><span class="p">()));</span><span class="w"></span>
+<span class="n">ecoreResource</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// Ecore files usually contain one EPackage</span>
-<span class="n">EPackage</span> <span class="n">ePackage</span> <span class="o">=</span> <span class="p">(</span><span class="n">EPackage</span><span class="p">)</span> <span class="n">ecoreResource</span><span class="p">.</span><span class="na">getContents</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="c1">// Put the EPackage in the global EMF EPackage registry</span>
-<span class="n">EPackage</span><span class="p">.</span><span class="na">Registry</span><span class="p">.</span><span class="na">INSTANCE</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">ePackage</span><span class="p">.</span><span class="na">getNsURI</span><span class="p">(),</span> <span class="n">ePackage</span><span class="p">);</span>
+<span class="c1">// Ecore files usually contain one EPackage</span><span class="w"></span>
+<span class="n">EPackage</span><span class="w"> </span><span class="n">ePackage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">EPackage</span><span class="p">)</span><span class="w"> </span><span class="n">ecoreResource</span><span class="p">.</span><span class="na">getContents</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// Put the EPackage in the global EMF EPackage registry</span><span class="w"></span>
+<span class="n">EPackage</span><span class="p">.</span><span class="na">Registry</span><span class="p">.</span><span class="na">INSTANCE</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">ePackage</span><span class="p">.</span><span class="na">getNsURI</span><span class="p">(),</span><span class="w"> </span><span class="n">ePackage</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
                 
               
@@ -1269,7 +1269,7 @@ Car.all.println();</code></pre>
     </div>
     
       <script src="../../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching"}</script>
       
       <script>
         app = initialize({
