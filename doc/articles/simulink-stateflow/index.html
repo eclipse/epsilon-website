@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1138,7 +1138,7 @@
 <p>Epsilon supports Matlab Simulink models. This tutorial shows you how to manipulate Simulink and Stateflow blocks from within Epsilon.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The Simulink driver only works with Java 8. This is due to <a href="https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html">a limitation of the official MATLAB Java API</a>.</p>
+<p>The Simulink driver only works with Java 8 for versions of MATLAB before 2021a. This is due to a limitation of the <a href="https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html">official MATLAB Java API</a>. Support for Java 11 with MATLAB &gt;= 2021a was added in Epsilon 2.5.</p>
 </div>
 <h2 id="pre-requisite-setting-up-your-eclipse-installation">[Pre-requisite] Setting up your Eclipse Installation<a class="headerlink" href="#pre-requisite-setting-up-your-eclipse-installation" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="updatesite.png" /></p>
@@ -1183,13 +1183,18 @@ var sum = new `simulink/Math Operations/Sum`;
 var chart = new `sflib/Chart`;</code></pre>
 <p>In contrast to Simulink Blocks, Stateflow Blocks don't require the full
 library path but have to be instantiated with the Stateflow prefix (e.g.
-Stateflow.${Block_Type}). This blocks also need to have a parent to be
-instantiated and there are three options to do this with the epsilon
+<code>Stateflow.${Block_Type}</code>). These blocks also need to have a parent and there are three options to do this with the Epsilon
 driver.</p>
-<p>Pass the parent by construction new <code>Stateflow.State</code>(parent) Pass the
-child to the parent var state= new <code>Stateflow.State</code>; parent.add(state);
-Add the parent as an object attribute var state= new <code>Stateflow.State</code>;
-state.parent = parent;</p>
+<pre class="prettyprint lang-eol"><code>// Pass the parent as an argument of the constructor 
+new `Stateflow.State`(parent);
+
+// Add the child to the parent 
+var state= new `Stateflow.State`; 
+parent.add(state);
+
+// Set the parent as an object attribute 
+var state= new `Stateflow.State`;
+state.parent = parent;</code></pre>
 <h3 id="child-blocks">Child Blocks<a class="headerlink" href="#child-blocks" title="Permanent link">&para;</a></h3>
 <p>You can also retrieve the child blocks of a given Simulink or Stateflow
 block using either syntax for both kinds of blocks:</p>
@@ -1310,7 +1315,7 @@ folder in the official epsilon repository.</p>
     </div>
     
       <script src="../../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching"}</script>
+      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({

@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-5.4.0">
     
     
       
@@ -1241,7 +1241,7 @@ context Sync {
 <p>While errors/warnings are persisted across sessions, quick-fixes are not. Therefore, if you run validation and re-start Eclipse, in the new Eclipse instance the problems will still appear in the editor/problems view but quick-fixes will not be available until you run validation again. We are currently working on a fix for this.</p>
 <h2 id="recipes">Recipes<a class="headerlink" href="#recipes" title="Permanent link">&para;</a></h2>
 <p>If you need validation to be performed whenever your diagram is saved add the following line in the <code>doSaveDocument(IProgressMonitor monitor, Object element, IDocument document, boolean overwrite)</code> method of your <code>XXXDocumentProvider</code> class (located in the <code>.diagram.part</code> package) in your diagram plugin.</p>
-<div class="highlight"><pre><span></span><code><span class="n">ValidateAction</span><span class="p">.</span><span class="na">runValidation</span><span class="p">((</span><span class="n">View</span><span class="p">)</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">ValidateAction</span><span class="p">.</span><span class="na">runValidation</span><span class="p">((</span><span class="n">View</span><span class="p">)</span> <span class="n">document</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span>
 </code></pre></div>
                 
               
@@ -1308,7 +1308,7 @@ context Sync {
     </div>
     
       <script src="../../../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching"}</script>
+      <script src="../../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
