@@ -3,7 +3,7 @@
 In this article we demonstrate how you can create, query and modify Simulink models in Epsilon programs. While the example in this article demonstrates using EOL to script Simulink models, it's worth stressing that Simulink models are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - Simulink or EMF-based -, or to text), compare and merge your Simulink models.
 
 !!! warning
-    The Simulink driver only works with Java 8. This is due to [a limitation of the official MATLAB Java API](https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html).
+    The Simulink driver only works with Java 8 for versions of MATLAB before 2021a. This is due to a limitation of the [official MATLAB Java API](https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html).
 
 ## Installation
 

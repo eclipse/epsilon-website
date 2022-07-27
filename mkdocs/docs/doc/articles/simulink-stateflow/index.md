@@ -3,8 +3,8 @@
 Epsilon supports Matlab Simulink models. This tutorial shows you how to manipulate Simulink and Stateflow blocks from within Epsilon.
 
 !!! warning
-    The Simulink driver only works with Java 8. This is due to [a limitation of the official MATLAB Java API](https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html).
-
+    The Simulink driver only works with Java 8 for versions of MATLAB before 2021a. This is due to a limitation of the [official MATLAB Java API](https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html). Support for Java 11 with MATLAB >= 2021a was added in Epsilon 2.5.
+    
 ## [Pre-requisite] Setting up your Eclipse Installation
 
 ![](updatesite.png)
@@ -70,14 +70,21 @@ var chart = new `sflib/Chart`;
 
 In contrast to Simulink Blocks, Stateflow Blocks don't require the full
 library path but have to be instantiated with the Stateflow prefix (e.g.
-Stateflow.${Block_Type}). This blocks also need to have a parent to be
-instantiated and there are three options to do this with the epsilon
+`Stateflow.${Block_Type}`). These blocks also need to have a parent and there are three options to do this with the Epsilon
 driver.
 
-Pass the parent by construction new `Stateflow.State`(parent) Pass the
-child to the parent var state= new `Stateflow.State`; parent.add(state);
-Add the parent as an object attribute var state= new `Stateflow.State`;
+```eol
+// Pass the parent as an argument of the constructor 
+new `Stateflow.State`(parent);
+
+// Add the child to the parent 
+var state= new `Stateflow.State`; 
+parent.add(state);
+
+// Set the parent as an object attribute 
+var state= new `Stateflow.State`;
 state.parent = parent;
+```
 
 ### Child Blocks
 
