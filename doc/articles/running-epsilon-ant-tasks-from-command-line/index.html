@@ -1173,17 +1173,6 @@ BUILD SUCCESSFUL
         <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;library.eol&quot;</span><span class="nt">&gt;</span>
             <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Library&quot;</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;/epsilon.eol&gt;</span>
-
-        <span class="cm">&lt;!-- Run library.eunit --&gt;</span>
-        <span class="nt">&lt;epsilon.eunit</span> <span class="na">src=</span><span class="s">&quot;library.eunit&quot;</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;modelTasks&gt;</span>
-            <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;A&quot;</span> <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span> <span class="na">read=</span><span class="s">&quot;false&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span> <span class="na">modelfile=</span><span class="s">&quot;dummyA.model&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;B&quot;</span> <span class="na">metamodelfile=</span><span class="s">&quot;library.ecore&quot;</span> <span class="na">read=</span><span class="s">&quot;false&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span> <span class="na">modelfile=</span><span class="s">&quot;dummyB.model&quot;</span><span class="nt">/&gt;</span>
-          <span class="nt">&lt;/modelTasks&gt;</span>
-          <span class="nt">&lt;comparators&gt;</span>
-            <span class="nt">&lt;comparator</span> <span class="na">classname=</span><span class="s">&quot;org.eclipse.epsilon.eunit.cmp.emf.EMFModelComparator&quot;</span> <span class="nt">/&gt;</span>
-          <span class="nt">&lt;/comparators&gt;</span>
-        <span class="nt">&lt;/epsilon.eunit&gt;</span>
     <span class="nt">&lt;/target&gt;</span>
 
     <span class="cm">&lt;!-- The rest of the build file downloads Ivy, fetches the Epsilon jars and sets up the Epsilon ANT tasks --&gt;</span>
@@ -1237,9 +1226,8 @@ BUILD SUCCESSFUL
         <span class="nt">&lt;conf</span> <span class="na">name=</span><span class="s">&quot;binaries&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/configurations&gt;</span>
     <span class="nt">&lt;dependencies&gt;</span>
-        <span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">&quot;org.eclipse.epsilon&quot;</span> <span class="na">name=</span><span class="s">&quot;org.eclipse.epsilon.workflow&quot;</span> <span class="na">rev=</span><span class="s">&quot;2.3.0-SNAPSHOT&quot;</span> <span class="na">conf=</span><span class="s">&quot;binaries-&gt;default&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">&quot;org.eclipse.epsilon&quot;</span> <span class="na">name=</span><span class="s">&quot;org.eclipse.epsilon.workflow.emf&quot;</span> <span class="na">rev=</span><span class="s">&quot;2.3.0-SNAPSHOT&quot;</span> <span class="na">conf=</span><span class="s">&quot;binaries-&gt;default&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">&quot;org.eclipse.epsilon&quot;</span> <span class="na">name=</span><span class="s">&quot;org.eclipse.epsilon.eunit.cmp.emf&quot;</span> <span class="na">rev=</span><span class="s">&quot;2.3.0-SNAPSHOT&quot;</span> <span class="na">conf=</span><span class="s">&quot;binaries-&gt;default&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">&quot;org.eclipse.epsilon&quot;</span> <span class="na">name=</span><span class="s">&quot;org.eclipse.epsilon.workflow&quot;</span> <span class="na">rev=</span><span class="s">&quot;2.4.0&quot;</span> <span class="na">conf=</span><span class="s">&quot;binaries-&gt;default&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">&quot;org.eclipse.epsilon&quot;</span> <span class="na">name=</span><span class="s">&quot;org.eclipse.epsilon.workflow.emf&quot;</span> <span class="na">rev=</span><span class="s">&quot;2.4.0&quot;</span> <span class="na">conf=</span><span class="s">&quot;binaries-&gt;default&quot;</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;exclude</span> <span class="na">artifact=</span><span class="s">&quot;org.eclipse.equinox.registry&quot;</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;exclude</span> <span class="na">artifact=</span><span class="s">&quot;org.eclipse.core.runtime&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/dependencies&gt;</span>
@@ -1328,17 +1316,17 @@ BUILD SUCCESSFUL
           <span class="nt">&lt;dependency&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.workflow<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>2.3.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
           <span class="nt">&lt;/dependency&gt;</span>
           <span class="nt">&lt;dependency&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.workflow.emf<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>2.3.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
           <span class="nt">&lt;/dependency&gt;</span>
           <span class="nt">&lt;dependency&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.eunit.cmp.emf<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>2.3.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
           <span class="nt">&lt;/dependency&gt;</span>
         <span class="nt">&lt;/dependencies&gt;</span>
       <span class="nt">&lt;/plugin&gt;</span>
@@ -1363,9 +1351,9 @@ BUILD SUCCESSFUL
 <span class="o">}</span><span class="w"></span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow.emf:2.3.0&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.eunit.cmp.emf:2.3.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.4.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow.emf:2.4.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.eunit.cmp.emf:2.4.0&#39;</span><span class="w"></span>
 <span class="o">}</span><span class="w"></span>
 
 <span class="n">task</span><span class="w"> </span><span class="n">setupEpsilonTasks</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
@@ -1438,8 +1426,8 @@ BUILD SUCCESSFUL
 <span class="o">}</span><span class="w"></span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow.emf:2.3.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.4.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow.emf:2.4.0&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="o">(</span><span class="s1">&#39;org.eclipse.emfatic:org.eclipse.emfatic.core:1.1.0-SNAPSHOT&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">exclude</span><span class="w"> </span><span class="nl">group:</span><span class="w"> </span><span class="s1">&#39;org.eclipse.platform&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="o">}</span><span class="w"></span>
@@ -1525,8 +1513,8 @@ enum BookCategory {
 <span class="o">}</span><span class="w"></span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.spreadsheets.excel:2.3.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.4.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.spreadsheets.excel:2.4.0&#39;</span><span class="w"></span>
 <span class="o">}</span><span class="w"></span>
 
 <span class="n">task</span><span class="w"> </span><span class="n">setupEpsilonTasks</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
@@ -1585,11 +1573,11 @@ enum BookCategory {
 <span class="o">}</span><span class="w"></span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="o">(</span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.uml:2.3.0&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="o">(</span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.uml:2.4.0&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// UML2 is broken on Maven Central</span><span class="w"></span>
 <span class="w">        </span><span class="n">exclude</span><span class="w"> </span><span class="nl">group:</span><span class="w"> </span><span class="s1">&#39;org.eclipse.uml2&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.4.0&#39;</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// Fetch the UML2 dependencies from repo.eclipse.org instead</span><span class="w"></span>
 <span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.uml2:org.eclipse.uml2.uml:5.0.1.v20140910-1354&#39;</span><span class="w"></span>
@@ -1893,11 +1881,11 @@ for (c in Class.all) {
 <span class="o">}</span><span class="w"></span>
 
 <span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="o">(</span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.uml:2.3.0&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="o">(</span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.uml:2.4.0&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// UML2 is broken on Maven Central</span><span class="w"></span>
 <span class="w">        </span><span class="n">exclude</span><span class="w"> </span><span class="nl">group:</span><span class="w"> </span><span class="s1">&#39;org.eclipse.uml2&#39;</span><span class="w"></span>
 <span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.4.0&#39;</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// Fetch the UML2 dependencies from repo.eclipse.org instead</span><span class="w"></span>
 <span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.uml2:org.eclipse.uml2.uml:5.0.1.v20140910-1354&#39;</span><span class="w"></span>
