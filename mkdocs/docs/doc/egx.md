@@ -84,7 +84,7 @@ The only other noteworthy aspect of EGX's execution algorithm is that it keeps a
 Owing to its rule-based declarative nature, EGX can execute rules independently, and even if you only have a single rule, it can be invoked on a per-element basis by separate threads. You can declare a rule to be executed in parallel using the `@parallel` annotation, or by using the automatic parallelisation execution engine.
 
 
-## Example Program
+## Example Programs
 
 Returning to our example, we can orchestrate the generation of Libraries as shown below, which demonstrates most of the features of EGX. Here we see how it is possible to screen eligible Library instances for generation, populate the template with the necessary parameters, invoke a different version of the template and direct the output to the desired file, all based on arbitrary user-defined criteria expressed declaratively using EOL. We can also compute aggregate metadata thanks to the pre and post blocks available both globally and on a per-rule basis. In this example, we simply compute the size of each file and print them once all transformations have taken place. Furthermore, we demonstrate that not all rules need to transform a specific model element: EGX can be used for convenience to invoke EGL templates with parameters, as shown by the `AuthorsAndBooks` rule. Here we only want to generate a single file from the Authors and Books in the model, where the logic for doing this is in a single EGL template. Although it wouldn't make much sense to use EGX purely for invoking single templates without parameters, the reader can perhaps appreciate that in large and complex models, there may be many different templates - e.g. one for each type - so all of the co-ordination in invoking them can be centralised to a single declarative file. EGX can thus be used as a workflow language in directing model-to-text transformations and is suitable for various use cases of almost any complexity.
 
@@ -142,6 +142,25 @@ rule AuthorsAndBooks {
 post {
   libFileSizes.println();
     ("Total: "+libFileSizes.values().sum()).println();
+}
+```
+
+The previous example demonstrated the use of model-to-text transformations over Library model elements. However, there may be scenarios in which one would like to use model-to-text transformations over the items of a list. This is particularly useful when the list has been populated by other model-to-text transformations. The following example will generate a text file for each item in the `files` list, and the content of each file is specified by the `data` map.
+
+```egx
+pre {
+  var files = Sequence{"file1", "file2", "file3"};
+  var data = Map {
+  	"file1" = "Content of the first file",
+  	"file2" = "Content of the second file",
+  	"file3" = "Content of the third file"
+  };
+}
+
+rule ItemToFile transform file: String in: files {
+	parameters : Map {"content" = data.get(file)}
+	target : file + ".txt"
+	template: "file.egl"
 }
 ```
 
