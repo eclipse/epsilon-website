@@ -108,13 +108,13 @@ The EGL template `socialnetwork2graphviz.egl` is as follows:
 ```egl
 digraph G {
 	node[shape=rectangle, fontname=Tahoma, fontsize=10, style="filled",
-		gradientangle="270", fillcolor="bisque:floralwhite"]
+		gradientangle="270", fillcolor="bisque"]
 
 	edge[penwidth=3, style=tapered, arrowhead=none]
 
 [%for (p in people){%]
 
-	[%=p.name%] [%if (people.size()==1){%][fillcolor="azure2:ghostwhite"][%}%]
+	[%=p.name%] [%if (people.size()==1){%][fillcolor="azure2"][%}%]
 
 	[%if (isLayerActive("likes")){%]
 		[%for (l in p.likes){%]
