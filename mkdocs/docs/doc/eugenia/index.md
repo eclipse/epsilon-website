@@ -155,10 +155,12 @@ Defines additional labels for the containing `EClass`. These labels will be disp
 * `label.text` (optional) : defines the default text to be used when the attribute is not set.
 * `label.view.pattern` (optional) : like `label.pattern`, but only for viewing the label.
 
-==Installing Eugenia ''(New Instructions!)''==
-Eugenia is a part of the main Epsilon distribution. The update site of Epsilon is `http://download.eclipse.org/epsilon/updates`, and detailed instructions for installing it are available [here](http://www.eclipse.org/gmt/epsilon/download).
+## Installing Eugenia
 
-Although not necessary, you should also install the Emfatic toolkit mentioned above through the following update site: `http://download.eclipse.org/emfatic/update/`
+Eugenia is a part of the main Epsilon distribution, available from its [update site](http://download.eclipse.org/epsilon/updates).
+Detailed [installation instructions](http://www.eclipse.org/gmt/epsilon/download) are available.
+
+Although not necessary, the Emfatic toolkit mentioned above is heavily recommended: install it from its [update site](http://download.eclipse.org/emfatic/update/).
 
 ## Running Eugenia
 To run Eugenia you need to do the following:
