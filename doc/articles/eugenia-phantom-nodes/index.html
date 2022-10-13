@@ -1063,7 +1063,7 @@
                 
                 
                 <h1 id="eugenia-phantom-nodes-in-gmf-editors">Eugenia: Phantom nodes in GMF editors<a class="headerlink" href="#eugenia-phantom-nodes-in-gmf-editors" title="Permanent link">&para;</a></h1>
-<p>Containment references in Ecore metamodels are usually depicted in GMF as spatial containment (e.g. in the sense that a class is contained inside the figure of a package). However, it is sometimes needed to represent containment references using links instead. To achieve this, GMF provides the notion of <em>phantom nodes.</em> Eugenia provides first-class support for phantom nodes in GMF using the <em>phantom</em> annotation detail. The following listing provides such an example:</p>
+<p>Containment references in Ecore metamodels are usually depicted in GMF as spatial containment (e.g. in the sense that a class is contained inside the figure of a package). However, it is sometimes needed to represent containment references using links instead. To achieve this, GMF provides the notion of <em>phantom nodes.</em> Eugenia provides first-class support for phantom nodes in GMF using the <code>phantom</code> annotation detail. The following listing provides such an example:</p>
 <pre class="prettyprint lang-emf"><code>@namespace(uri="phantom", prefix="phantom")
 package phantom;
 
@@ -1086,7 +1086,7 @@ class Group extends NamedElement {
 class Member extends NamedElement {
 
 }</code></pre>
-<p>In this example, a Model contains many groups and a Group contains many members. To represent the Group.members containment reference as a normal link, we the phantom detail of the gmf.node annotation of Member to true and add a gmf.link anotation to Group.members. The result looks like this:</p>
+<p>In this example, a Model contains many groups and a Group contains many members. To represent the Group.members containment reference as a normal link, we set the <code>phantom</code> detail of the <code>gmf.node</code> annotation of Member to <code>true</code> and add a <code>gmf.link</code> anotation to Group.members. The result looks like this:</p>
 <p><img alt="" src="Phantomgmf.png" /></p>
 <p><img alt="" src="Phantomemf2.png" /></p>
                 
