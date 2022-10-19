@@ -112,6 +112,10 @@
 	content: url("images/highlight.png");
 }
 
+.mif-download::before {
+	content: url("images/download.png");
+}
+
 .panel .panel-title .custom-buttons {
 	margin-right: 10px;
 }
