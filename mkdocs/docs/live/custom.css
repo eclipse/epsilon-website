@@ -113,7 +113,7 @@
 }
 
 .mif-download::before {
-	content: url("images/export.png");
+	content: url("images/download.png");
 }
 
 .panel .panel-title .custom-buttons {

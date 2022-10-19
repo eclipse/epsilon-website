@@ -81,7 +81,7 @@
                         <span class="icon"><span class="mif-example-16 mif-link"></span></span>
                         <span class="caption">Share</span>
                     </a>
-                    <a href="#" onclick="showDownloadOptions()" id="exampleLink">
+                    <a href="#" onclick="showDownloadOptions(event)" id="exampleLink">
                         <span class="icon"><span class="mif-example-16 mif-download"></span></span>
                         <span class="caption">Download</span>
                     </a>
@@ -151,6 +151,8 @@
     <script src="js/egl.js" type="text/javascript"></script>
     <script src="js/emfatic.js" type="text/javascript"></script>
     <script src="js/svg-pan-zoom.min.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/handlebars.min.js" from="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 
     <script>
     var language = "eol";
@@ -281,6 +283,19 @@
     function fetchFile(name) {
         var xhr = new XMLHttpRequest();
         var url = "examples/" + name;
+        xhr.open("GET", url, false);
+        xhr.send(data);
+        if (xhr.status === 200) {    
+            return xhr.responseText;
+        }
+    }
+
+    /**
+     * Fetches the content of a file under the templates folder
+     */
+     function fetchTemplate(name) {
+        var xhr = new XMLHttpRequest();
+        var url = "templates/" + name;
         xhr.open("GET", url, false);
         xhr.send(data);
         if (xhr.status === 200) {    
@@ -433,15 +448,61 @@
         outputEditor.getSession().setMode("ace/mode/" + outputLanguage.toLowerCase());
     }
 
-    function showDownloadOptions() {
+    function showDownloadOptions(event) {
+        event.preventDefault();
         Metro.dialog.create({
             title: "Download Example",
-            content: "<p>You can download this example and run it locally through Gradle, Maven and Java. Please choose your preferred format below. </p><br/><select data-role='select'><option value='gradle'>Gradle</option></select>",
+            content: "<p>You can download this example and run it locally through Gradle or Maven. Please choose your preferred format below. </p><br/><select id='format' data-role='select'><option value='gradle'>Gradle</option><option value='maven'>Maven</option></select>",
             actions: [
                {
                     caption: "Download",
                     cls: "js-dialog-close success",
                     onclick: function(){
+                        var zip = new JSZip();
+                        zip.file("program." + language, programEditor.getValue());
+
+                        if (language != "etl") {
+                            zip.file("model.flexmi", flexmiEditor.getValue());
+                            zip.file("metamodel.emf", emfaticEditor.getValue());
+                        }
+                        else {
+                            zip.file("source.flexmi", flexmiEditor.getValue());
+                            zip.file("source.emf", emfaticEditor.getValue());
+                            zip.file("target.emf", secondEmfaticEditor.getValue());
+                        }
+
+                        var format = document.getElementById("format").value;
+                        
+                        var templateData = {
+                            language: language, 
+                            etl: language == "etl",
+                            egl: language == "egl"
+                        };
+
+                        if (format == "gradle") {
+                            var template = Handlebars.compile(fetchTemplate("build.gradle"));
+                            zip.file("build.gradle", template(templateData));
+                            zip.file("readme.md", fetchTemplate("readme-gradle.md"));
+                        }
+                        else if (format == "maven") {
+                            var template = Handlebars.compile(fetchTemplate("pom.xml"));
+                            zip.file("pom.xml", template(templateData));
+                            zip.file("readme.md", fetchTemplate("readme-maven.md"));
+                        }
+
+                        // var img = zip.folder("images");
+                        zip.generateAsync({type:"blob"})
+                        .then(function(content) {
+                            var blob = new Blob([content], { type: "application/zip" });
+                            var url = window.URL || window.webkitURL;
+                            link = url.createObjectURL(blob);
+                            var a = document.createElement("a");
+                            a.setAttribute("download", "playground-example.zip");
+                            a.setAttribute("href", link);
+                            a.click();
+                        });
+
+                        /*
                         var xhr = new XMLHttpRequest();
                         var url = backendConfig["DownloadFunction"];
                         
@@ -450,10 +511,6 @@
                         xhr.onreadystatechange = function () {
                             if (xhr.readyState === 4) {
                                 if (xhr.status === 200) {
-
-                                    console.log(xhr.response);
-                                    //console.log(xhr.responseType);
-                                    //var json = JSON.parse(xhr.responseText);
                                     var blob = new Blob([xhr.response], { type: "application/zip" });
                                     var url = window.URL || window.webkitURL;
                                     link = url.createObjectURL(blob);
@@ -466,9 +523,12 @@
                             Metro.notify.killAll();
                         };
                         xhr.responseType = "arraybuffer";
-                        var data = editorsToJson();
+                        var editorsJsonObject = editorsToJsonObject();
+                        editorsJsonObject.format = document.getElementById("format").value;
+                        var data = JSON.stringify(editorsJsonObject);
+                        console.log(data);
                         xhr.send(data);
-                        longNotification("Preparing zip file");
+                        longNotification("Preparing zip file");*/
                     }
                 },
                {
@@ -651,9 +711,8 @@
         $("#" + panelId)[0].dataset.titleIcon = "<span class='mif-16 mif-" + icon + "'></span>";
     }
 
-    function editorsToJson() {
-        return JSON.stringify(
-            {
+    function editorsToJsonObject() {
+        return {
                 "language": language,
                 "outputType": outputType,
                 "outputLanguage": outputLanguage,
@@ -662,8 +721,11 @@
                 "flexmi": flexmiEditor.getValue(),
                 "secondEmfatic": secondEmfaticEditor.getValue(),
                 "secondFlexmi": secondFlexmiEditor.getValue()
-            }
-        );
+            };
+    }
+
+    function editorsToJson() {
+        return JSON.stringify(editorsToJsonObject());
     }
 
     function modelToJson(modelEditor, metamodelEditor) {
