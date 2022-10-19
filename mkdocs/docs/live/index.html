@@ -81,6 +81,10 @@
                         <span class="icon"><span class="mif-example-16 mif-link"></span></span>
                         <span class="caption">Share</span>
                     </a>
+                    <a href="#" onclick="showDownloadOptions()" id="exampleLink">
+                        <span class="icon"><span class="mif-example-16 mif-download"></span></span>
+                        <span class="caption">Download</span>
+                    </a>
                     <a href="https://eclipse.org/epsilon/doc/articles/playground" target=”_blank”>
                         <span class="icon"><span class="mif-example-16 mif-info"></span></span>
                         <span class="caption">About</span>
@@ -427,6 +431,52 @@
 
     function setOutputEditorLanguage() {
         outputEditor.getSession().setMode("ace/mode/" + outputLanguage.toLowerCase());
+    }
+
+    function showDownloadOptions() {
+        Metro.dialog.create({
+            title: "Download Example",
+            content: "<p>You can download this example and run it locally through Gradle, Maven and Java. Please choose your preferred format below. </p><br/><select data-role='select'><option value='gradle'>Gradle</option></select>",
+            actions: [
+               {
+                    caption: "Download",
+                    cls: "js-dialog-close success",
+                    onclick: function(){
+                        var xhr = new XMLHttpRequest();
+                        var url = backendConfig["DownloadFunction"];
+                        
+                        xhr.open("POST", url, true);
+                        xhr.setRequestHeader("Content-Type", "application/json");
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState === 4) {
+                                if (xhr.status === 200) {
+
+                                    console.log(xhr.response);
+                                    //console.log(xhr.responseType);
+                                    //var json = JSON.parse(xhr.responseText);
+                                    var blob = new Blob([xhr.response], { type: "application/zip" });
+                                    var url = window.URL || window.webkitURL;
+                                    link = url.createObjectURL(blob);
+                                    var a = document.createElement("a");
+                                    a.setAttribute("download", "demo.zip");
+                                    a.setAttribute("href", link);
+                                    a.click();
+                                }
+                            }
+                            Metro.notify.killAll();
+                        };
+                        xhr.responseType = "arraybuffer";
+                        var data = editorsToJson();
+                        xhr.send(data);
+                        longNotification("Preparing zip file");
+                    }
+                },
+               {
+                    caption: "Cancel",
+                    cls: "js-dialog-close"
+                }
+            ]
+        });
     }
 
     function copyShortenedLink(event) {
