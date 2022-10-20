@@ -482,12 +482,12 @@
                         if (format == "gradle") {
                             var template = Handlebars.compile(fetchTemplate("build.gradle"));
                             zip.file("build.gradle", template(templateData));
-                            zip.file("readme.md", fetchTemplate("readme-gradle.md"));
+                            zip.file("readme.md", fetchTemplate("readme-gradle.txt"));
                         }
                         else if (format == "maven") {
                             var template = Handlebars.compile(fetchTemplate("pom.xml"));
                             zip.file("pom.xml", template(templateData));
-                            zip.file("readme.md", fetchTemplate("readme-maven.md"));
+                            zip.file("readme.md", fetchTemplate("readme-maven.txt"));
                         }
 
                         // var img = zip.folder("images");
