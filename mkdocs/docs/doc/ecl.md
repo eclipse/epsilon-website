@@ -176,4 +176,8 @@ operation String fuzzyMatch(other : String) : Boolean {
 
 ## The Match Trace
 
-Users can query and modify the match trace calculated during the comparison process in the post sections of the module or export it into another application or Epsilon program. For example, in a post section, the trace can be printed to the default output stream or serialized into a model of an arbitrary metamodel. In another use case, the trace may be exported to be used in the context of a validation module that will use the identified matches to evaluate inter-model constraints, or in a merging module that will use the matches to identify the elements on which the two models will be merged.
+Users can query and modify the [match trace](https://download.eclipse.org/epsilon/stable-javadoc/org/eclipse/epsilon/ecl/trace/MatchTrace.html) calculated during the comparison process in the post sections of the module or export it into another application or Epsilon program. For example, in a post section, the trace can be printed to the default output stream or serialized into a model of an arbitrary metamodel. In another use case, the trace may be exported to be used in the context of a validation module that will use the identified matches to evaluate inter-model constraints, or in a merging module that will use the matches to identify the elements on which the two models will be merged.
+
+!!! tip "Querying Match Traces"
+    Please note that match traces computed by ECL contain both successful and unsuccessful matches, and can therefore become slow to query as compared models grow in size. If you are only interested in successful matches when querying your match trace, you can use its `matchTrace.getReduced()` to produce a reduced trace that only contains successful matches.  
+
