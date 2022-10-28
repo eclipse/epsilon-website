@@ -116,6 +116,10 @@
 	content: url("images/download.png");
 }
 
+.mif-settings::before {
+	content: url("images/settings.png");
+}
+
 .panel .panel-title .custom-buttons {
 	margin-right: 10px;
 }
