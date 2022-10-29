@@ -13,6 +13,9 @@
 
 .diagram {
 	display:none;
+}
+
+.standaloneDiagram {
 	height:100%;
 	width:100%;
 }
@@ -153,4 +156,8 @@
 
 body {
 	font-size: 16px
+}
+
+.hidden {
+	display:none;
 }

@@ -216,9 +216,6 @@ function setup() {
     }
 
     thirdModelPanelButtons = getThirdModelPanelButtons();
-    //if (language == "egl") {
-    //    $('#thirdModelPanel')[0].dataset.customButtons = "thirdModelPanelButtons";
-    //}
 
     //TODO: Fix "undefined" when fields are empty
     programEditor.getSession().setMode("ace/mode/" + language);
@@ -229,13 +226,10 @@ function setup() {
     setEditorValue(secondFlexmiEditor, json.secondFlexmi);
     setEditorValue(secondEmfaticEditor, json.secondEmfatic);
     consoleEditor.setValue("",1);
-    
-    //document.getElementById("secondModelSplitter").style.display = "none";
-    //document.getElementById("secondMetamodelDiagram").style.display = "none";
-    //toggle("secondModelPanel", function(){window.alert();});
 
     document.getElementById("navview").style.display = "block";
-    setInterval(fit, 100);
+    fit();
+    //setInterval(fit, 100);
 
     $(window).keydown(function(event) {
       if ((event.metaKey && event.keyCode == 83) || (event.ctrlKey && event.keyCode == 83)) { 
@@ -385,6 +379,8 @@ function showSettings(event) {
                     for (const panel of panels) {
                         applyPanelVisibility(panel);
                     }
+                    updateGutterVisibility();
+                    fit();
                 }
             },
            {
@@ -411,8 +407,44 @@ function applyPanelVisibility(panel) {
     else {
         parent.parentNode.style.display = "flex";
     }
+}
 
-    //TODO: We can also hide unnecessary gutters
+function updateGutterVisibility() {
+    for (const gutter of Array.prototype.slice.call(document.getElementsByClassName("gutter"))) {
+
+        var visibleSiblings = Array.prototype.slice.call(gutter.parentNode.children).filter(
+            child => child != gutter && getComputedStyle(child).display != "none");
+        
+        if (visibleSiblings.length > 1) {
+            var nextVisibleSibling = getNextVisibleSibling(gutter);
+            var previousVisibleSibling = getPreviousVisibleSibling(gutter);
+            if (nextVisibleSibling != null && nextVisibleSibling.className != "gutter" && previousVisibleSibling != null) {
+                gutter.style.display = "flex";
+            }
+            else {
+                gutter.style.display = "none";
+            }
+        }
+        else {
+            gutter.style.display = "none";
+        }
+    }
+}
+
+function getNextVisibleSibling(element) {
+    var sibling = element.nextElementSibling;
+    while (sibling != null) {
+        if (getComputedStyle(sibling).display != "none") return sibling;
+        sibling = sibling.nextElementSibling;
+    }
+}
+
+function getPreviousVisibleSibling(element) {
+    var sibling = element.previousElementSibling;
+    while (sibling != null) {
+        if (getComputedStyle(sibling).display != "none") return sibling;
+        sibling = sibling.previousElementSibling;
+    }
 }
 
 function getSiblings(element) {
@@ -525,7 +557,6 @@ function copyToClipboard(str) {
 }
 
 function arrangePanels() {
-    console.log("Language: " + language);
     if (language == "eol") {
         toggle("secondModelSplitter");
         toggle("thirdModelSplitter");
@@ -639,25 +670,59 @@ function modelToJson(modelEditor, metamodelEditor) {
 }
 
 function fit() {
-    
+
     document.getElementById("splitter").style.minHeight = window.innerHeight + "px";
+    document.getElementById("splitter").style.maxHeight = window.innerHeight + "px";
 
-    var editorParentStyle = "flex-basis: calc(100% - 4px);";
-    var modelEditorParentStyle = editorParentStyle + ";padding:0px";
+    for (const editorId of ["programEditor", "console"]) {
+        var editorElement = document.getElementById(editorId);
+        if (editorElement != null) {
+            editorElement.parentNode.style = "flex-basis: calc(100% - 4px);";
+        }
+    }
 
-    document.getElementById("programEditor").parentNode.style = editorParentStyle;
-    document.getElementById("console").parentNode.style = editorParentStyle;
-    document.getElementById("flexmiEditor").parentNode.parentNode.style = modelEditorParentStyle;
-    document.getElementById("emfaticEditor").parentNode.parentNode.style = modelEditorParentStyle;
-    
-    if (document.getElementById("secondFlexmiEditor") != null) {
-        document.getElementById("secondFlexmiEditor").parentNode.parentNode.style = modelEditorParentStyle;
+    for (const editorId of ["flexmiEditor", "emfaticEditor", "secondFlexmiEditor", "secondEmfaticEditor"]) {
+        var editorElement = document.getElementById(editorId);
+        if (editorElement != null) {
+            editorElement.parentNode.parentNode.style = "flex-basis: calc(100% - 4px); padding: 0px";
+            var parentElement = editorElement.parentElement.parentElement.parentElement;
+            editorElement.style.width = parentElement.offsetWidth + "px";
+            editorElement.style.height = parentElement.offsetHeight - 42 + "px";
+        }
     }
-    if (document.getElementById("secondEmfaticEditor") != null) {
-        document.getElementById("secondEmfaticEditor").parentNode.parentNode.style = modelEditorParentStyle;
-    }
-    
+
     editors.forEach(e => e.resize());
+
+    for (const diagramId of ["thirdModelDiagram"]) {
+        var diagramElement = document.getElementById(diagramId);
+        if (diagramElement != null) {
+            var svg = diagramElement.firstElementChild;
+            if (svg != null) {
+                console.log(svg);
+                if (svg.tagName == "svg") {
+                    diagramElement = diagramElement.parentElement.parentElement;
+                    svg.style.width = diagramElement.offsetWidth + "px";
+                    svg.style.height = diagramElement.offsetHeight - 42 + "px";
+                }
+            }
+        }
+    }
+
+    for (const diagramId of ["modelDiagram", "metamodelDiagram", "secondModelDiagram", "secondMetamodelDiagram"]) {
+        var diagramElement = document.getElementById(diagramId);
+        if (diagramElement != null) {
+            var svg = diagramElement.firstElementChild;
+            if (svg != null) {
+                console.log(svg);
+                if (svg.tagName == "svg") {
+                    diagramElement = diagramElement.parentElement.parentElement.parentElement;
+                    svg.style.width = diagramElement.offsetWidth + "px";
+                    svg.style.height = diagramElement.offsetHeight - 42 + "px";
+                }
+            }
+        }
+    }
+
 }
 
 function setConsoleOutput(str) {
@@ -782,12 +847,15 @@ function toggle(elementId, onEmpty) {
     if (element == null) return;
 
     if (getComputedStyle(element).display == "none") {
-        element.style.display = "block";
+        element.style.display = "flex";
         if (element.innerHTML.length == 0) {
             onEmpty();
         }
     }
-    else element.style.display = "none";
+    else {
+        element.style.display = "none";
+    }
+    updateGutterVisibility();
 }
 
 function refreshDiagram(url, diagramId, diagramName, engine, modelEditor, metamodelEditor) {
@@ -821,10 +889,12 @@ function refreshDiagram(url, diagramId, diagramName, engine, modelEditor, metamo
 }
 
 function renderDiagram(diagramId, svg, engine) {
-    document.getElementById(diagramId).innerHTML = svg;
+    var diagramElement = document.getElementById(diagramId);
+    diagramElement.innerHTML = svg;
     var svg = document.getElementById(diagramId).firstElementChild;
-    svg.style.height = "100%";
-    svg.style.width = "100%";
+
+    svg.style.width = diagramElement.offsetWidth + "px";
+    svg.style.height = diagramElement.offsetHeight + "px";
 
     svgPanZoom(svg, {
       zoomEnabled: true,
