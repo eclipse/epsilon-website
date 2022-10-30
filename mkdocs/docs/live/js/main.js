@@ -228,7 +228,7 @@ function setup() {
     consoleEditor.setValue("",1);
 
     document.getElementById("navview").style.display = "block";
-    fit();
+    //fit();
     //setInterval(fit, 100);
 
     $(window).keydown(function(event) {
@@ -697,13 +697,10 @@ function fit() {
         var diagramElement = document.getElementById(diagramId);
         if (diagramElement != null) {
             var svg = diagramElement.firstElementChild;
-            if (svg != null) {
-                console.log(svg);
-                if (svg.tagName == "svg") {
-                    diagramElement = diagramElement.parentElement.parentElement;
-                    svg.style.width = diagramElement.offsetWidth + "px";
-                    svg.style.height = diagramElement.offsetHeight - 42 + "px";
-                }
+            if (svg != null && svg.tagName == "svg") {
+                diagramElement = diagramElement.parentElement.parentElement;
+                svg.style.width = diagramElement.offsetWidth + "px";
+                svg.style.height = diagramElement.offsetHeight - 42 + "px";
             }
         }
     }
@@ -756,13 +753,13 @@ function runProgram() {
                     setConsoleOutput(json.output);
                     
                     if (language == "etl") {
-                        renderDiagram("secondModelDiagram", json.targetModelDiagram, 'dot');
+                        renderDiagram("secondModelDiagram", json.targetModelDiagram);
                     }
                     else if (language == "evl") {
-                        renderDiagram("thirdModelDiagram", json.validatedModelDiagram, 'dot');
+                        renderDiagram("thirdModelDiagram", json.validatedModelDiagram);
                     }
                     else if (language == "epl") {
-                        renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram, 'dot');
+                        renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram);
                     }
                     else if (language == "egl") {
                         if (outputType == "code") {
@@ -770,7 +767,7 @@ function runProgram() {
                             outputEditor.setValue(json.generatedText, 1);
                             setConsoleOutput(json.output);
                         }
-                        else if (outputType == "html" || outputType == "puml" || outputType == "dot") {
+                        else if (outputType == "html") {
                             setConsoleOutput(json.output);
                             var iframe = document.getElementById("htmlIframe");
                             if (iframe == null) {
@@ -780,28 +777,28 @@ function runProgram() {
                                 iframe.style.width = "100%";
                                 document.getElementById("thirdModelDiagram").appendChild(iframe);
                             }
-                            if (outputType == "html") {
-                                iframe.srcdoc = json.generatedText;
-                            }
-                            else if (outputType == "puml" || outputType == "dot") {
+                            
+                            iframe.srcdoc = json.generatedText;
+                        }
+                        else if (outputType == "puml" || outputType == "dot") {
 
-                                var krokiEndpoint = "";
-                                if (outputType == "puml") krokiEndpoint = "plantuml";
-                                else krokiEndpoint = "graphviz/svg"
+                            setConsoleOutput(json.output);
+                            var krokiEndpoint = "";
+                            if (outputType == "puml") krokiEndpoint = "plantuml";
+                            else krokiEndpoint = "graphviz/svg"
 
-                                var krokiXhr = new XMLHttpRequest();
-                                krokiXhr.open("POST", "https://kroki.io/" + krokiEndpoint, true);
-                                krokiXhr.setRequestHeader("Accept", "image/svg+xml");
-                                krokiXhr.setRequestHeader("Content-Type", "text/plain");
-                                krokiXhr.onreadystatechange = function () {
-                                    if (krokiXhr.readyState === 4) {
-                                        if (krokiXhr.status === 200) {
-                                           iframe.srcdoc = krokiXhr.responseText;
-                                        }
+                            var krokiXhr = new XMLHttpRequest();
+                            krokiXhr.open("POST", "https://kroki.io/" + krokiEndpoint, true);
+                            krokiXhr.setRequestHeader("Accept", "image/svg+xml");
+                            krokiXhr.setRequestHeader("Content-Type", "text/plain");
+                            krokiXhr.onreadystatechange = function () {
+                                if (krokiXhr.readyState === 4) {
+                                    if (krokiXhr.status === 200) {
+                                        renderDiagram("thirdModelDiagram", krokiXhr.responseText);
                                     }
-                                };
-                                krokiXhr.send(json.generatedText);
-                            }
+                                }
+                            };
+                            krokiXhr.send(json.generatedText);
                         }
                         else {
                             setConsoleOutput(json.output + json.generatedText);
@@ -823,23 +820,19 @@ function longNotification(title, cls="light") {
 }
 
 function refreshModelDiagram() {
-    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"],
-        "modelDiagram", "model", "dot", flexmiEditor, emfaticEditor);
+    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"], "modelDiagram", "model", flexmiEditor, emfaticEditor);
 }
 
 function refreshMetamodelDiagram() {
-    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"],
-        "metamodelDiagram", "metamodel", "puml", flexmiEditor, emfaticEditor);
+    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"], "metamodelDiagram", "metamodel", flexmiEditor, emfaticEditor);
 }
 
 function refreshSecondModelDiagram() {
-    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"],
-        "secondModelDiagram", "model", "dot", secondFlexmiEditor, secondEmfaticEditor);
+    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"], "secondModelDiagram", "model", secondFlexmiEditor, secondEmfaticEditor);
 }
 
 function refreshSecondMetamodelDiagram() {
-    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"],
-        "secondMetamodelDiagram", "metamodel", "puml", secondFlexmiEditor, secondEmfaticEditor);
+    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"], "secondMetamodelDiagram", "metamodel", secondFlexmiEditor, secondEmfaticEditor);
 }
 
 function toggle(elementId, onEmpty) {
@@ -858,7 +851,7 @@ function toggle(elementId, onEmpty) {
     updateGutterVisibility();
 }
 
-function refreshDiagram(url, diagramId, diagramName, engine, modelEditor, metamodelEditor) {
+function refreshDiagram(url, diagramId, diagramName, modelEditor, metamodelEditor) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -876,7 +869,7 @@ function refreshDiagram(url, diagramId, diagramName, engine, modelEditor, metamo
                     setConsoleError(json.error);
                 }
                 else {
-                    renderDiagram(diagramId, json[jsonField], engine);
+                    renderDiagram(diagramId, json[jsonField]);
                 }
 
                 Metro.notify.killAll();
@@ -888,10 +881,14 @@ function refreshDiagram(url, diagramId, diagramName, engine, modelEditor, metamo
     longNotification("Rendering " + diagramName + " diagram");
 }
 
-function renderDiagram(diagramId, svg, engine) {
+function renderDiagram(diagramId, svg) {
     var diagramElement = document.getElementById(diagramId);
     diagramElement.innerHTML = svg;
     var svg = document.getElementById(diagramId).firstElementChild;
+
+    if (diagramId == "thirdModelDiagram") {
+        diagramElement.parentElement.style.padding = "0px";
+    }
 
     svg.style.width = diagramElement.offsetWidth + "px";
     svg.style.height = diagramElement.offsetHeight + "px";
