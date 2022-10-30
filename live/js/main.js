@@ -136,7 +136,7 @@ function fetchFile(name) {
 /**
  * Fetches the content of a file under the templates folder
  */
- function fetchTemplate(name) {
+function fetchTemplate(name) {
     var xhr = new XMLHttpRequest();
     var url = "templates/" + name;
     xhr.open("GET", url, false);
@@ -216,9 +216,6 @@ function setup() {
     }
 
     thirdModelPanelButtons = getThirdModelPanelButtons();
-    //if (language == "egl") {
-    //    $('#thirdModelPanel')[0].dataset.customButtons = "thirdModelPanelButtons";
-    //}
 
     //TODO: Fix "undefined" when fields are empty
     programEditor.getSession().setMode("ace/mode/" + language);
@@ -229,13 +226,19 @@ function setup() {
     setEditorValue(secondFlexmiEditor, json.secondFlexmi);
     setEditorValue(secondEmfaticEditor, json.secondEmfatic);
     consoleEditor.setValue("",1);
-    
-    //document.getElementById("secondModelSplitter").style.display = "none";
-    //document.getElementById("secondMetamodelDiagram").style.display = "none";
-    //toggle("secondModelPanel", function(){window.alert();});
 
     document.getElementById("navview").style.display = "block";
-    setInterval(fit, 100);
+    
+    document.addEventListener('click', function(evt) {
+        //console.log(evt);
+        //console.log(evt.target);
+        //console.log(evt.target == document.getElementById("toggleNavViewPane"));
+
+        if (evt.target == document.getElementById("toggleNavViewPane")) {
+            console.log("Gotcha!");
+            setTimeout(function(){ fit(); }, 1000);
+        }
+    });
 
     $(window).keydown(function(event) {
       if ((event.metaKey && event.keyCode == 83) || (event.ctrlKey && event.keyCode == 83)) { 
@@ -385,6 +388,8 @@ function showSettings(event) {
                     for (const panel of panels) {
                         applyPanelVisibility(panel);
                     }
+                    updateGutterVisibility();
+                    fit();
                 }
             },
            {
@@ -411,8 +416,44 @@ function applyPanelVisibility(panel) {
     else {
         parent.parentNode.style.display = "flex";
     }
+}
 
-    //TODO: We can also hide unnecessary gutters
+function updateGutterVisibility() {
+    for (const gutter of Array.prototype.slice.call(document.getElementsByClassName("gutter"))) {
+
+        var visibleSiblings = Array.prototype.slice.call(gutter.parentNode.children).filter(
+            child => child != gutter && getComputedStyle(child).display != "none");
+        
+        if (visibleSiblings.length > 1) {
+            var nextVisibleSibling = getNextVisibleSibling(gutter);
+            var previousVisibleSibling = getPreviousVisibleSibling(gutter);
+            if (nextVisibleSibling != null && nextVisibleSibling.className != "gutter" && previousVisibleSibling != null) {
+                gutter.style.display = "flex";
+            }
+            else {
+                gutter.style.display = "none";
+            }
+        }
+        else {
+            gutter.style.display = "none";
+        }
+    }
+}
+
+function getNextVisibleSibling(element) {
+    var sibling = element.nextElementSibling;
+    while (sibling != null) {
+        if (getComputedStyle(sibling).display != "none") return sibling;
+        sibling = sibling.nextElementSibling;
+    }
+}
+
+function getPreviousVisibleSibling(element) {
+    var sibling = element.previousElementSibling;
+    while (sibling != null) {
+        if (getComputedStyle(sibling).display != "none") return sibling;
+        sibling = sibling.previousElementSibling;
+    }
 }
 
 function getSiblings(element) {
@@ -525,7 +566,6 @@ function copyToClipboard(str) {
 }
 
 function arrangePanels() {
-    console.log("Language: " + language);
     if (language == "eol") {
         toggle("secondModelSplitter");
         toggle("thirdModelSplitter");
@@ -639,25 +679,56 @@ function modelToJson(modelEditor, metamodelEditor) {
 }
 
 function fit() {
-    
+
     document.getElementById("splitter").style.minHeight = window.innerHeight + "px";
+    document.getElementById("splitter").style.maxHeight = window.innerHeight + "px";
 
-    var editorParentStyle = "flex-basis: calc(100% - 4px);";
-    var modelEditorParentStyle = editorParentStyle + ";padding:0px";
+    for (const editorId of ["programEditor", "console"]) {
+        var editorElement = document.getElementById(editorId);
+        if (editorElement != null) {
+            editorElement.parentNode.style = "flex-basis: calc(100% - 4px);";
+        }
+    }
 
-    document.getElementById("programEditor").parentNode.style = editorParentStyle;
-    document.getElementById("console").parentNode.style = editorParentStyle;
-    document.getElementById("flexmiEditor").parentNode.parentNode.style = modelEditorParentStyle;
-    document.getElementById("emfaticEditor").parentNode.parentNode.style = modelEditorParentStyle;
-    
-    if (document.getElementById("secondFlexmiEditor") != null) {
-        document.getElementById("secondFlexmiEditor").parentNode.parentNode.style = modelEditorParentStyle;
+    for (const editorId of ["flexmiEditor", "emfaticEditor", "secondFlexmiEditor", "secondEmfaticEditor"]) {
+        var editorElement = document.getElementById(editorId);
+        if (editorElement != null) {
+            editorElement.parentNode.parentNode.style = "flex-basis: calc(100% - 4px); padding: 0px";
+            var parentElement = editorElement.parentElement.parentElement.parentElement;
+            editorElement.style.width = parentElement.offsetWidth + "px";
+            editorElement.style.height = parentElement.offsetHeight - 42 + "px";
+        }
     }
-    if (document.getElementById("secondEmfaticEditor") != null) {
-        document.getElementById("secondEmfaticEditor").parentNode.parentNode.style = modelEditorParentStyle;
-    }
-    
+
     editors.forEach(e => e.resize());
+
+    for (const diagramId of ["thirdModelDiagram"]) {
+        var diagramElement = document.getElementById(diagramId);
+        if (diagramElement != null) {
+            var svg = diagramElement.firstElementChild;
+            if (svg != null && svg.tagName == "svg") {
+                diagramElement = diagramElement.parentElement.parentElement;
+                svg.style.width = diagramElement.offsetWidth + "px";
+                svg.style.height = diagramElement.offsetHeight - 42 + "px";
+            }
+        }
+    }
+
+    for (const diagramId of ["modelDiagram", "metamodelDiagram", "secondModelDiagram", "secondMetamodelDiagram"]) {
+        var diagramElement = document.getElementById(diagramId);
+        if (diagramElement != null) {
+            var svg = diagramElement.firstElementChild;
+            if (svg != null) {
+                console.log(svg);
+                if (svg.tagName == "svg") {
+                    diagramElement = diagramElement.parentElement.parentElement.parentElement;
+                    svg.style.width = diagramElement.offsetWidth + "px";
+                    svg.style.height = diagramElement.offsetHeight - 42 + "px";
+                }
+            }
+        }
+    }
+
 }
 
 function setConsoleOutput(str) {
@@ -691,13 +762,13 @@ function runProgram() {
                     setConsoleOutput(json.output);
                     
                     if (language == "etl") {
-                        renderDiagram("secondModelDiagram", json.targetModelDiagram, 'dot');
+                        renderDiagram("secondModelDiagram", json.targetModelDiagram);
                     }
                     else if (language == "evl") {
-                        renderDiagram("thirdModelDiagram", json.validatedModelDiagram, 'dot');
+                        renderDiagram("thirdModelDiagram", json.validatedModelDiagram);
                     }
                     else if (language == "epl") {
-                        renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram, 'dot');
+                        renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram);
                     }
                     else if (language == "egl") {
                         if (outputType == "code") {
@@ -705,7 +776,7 @@ function runProgram() {
                             outputEditor.setValue(json.generatedText, 1);
                             setConsoleOutput(json.output);
                         }
-                        else if (outputType == "html" || outputType == "puml" || outputType == "dot") {
+                        else if (outputType == "html") {
                             setConsoleOutput(json.output);
                             var iframe = document.getElementById("htmlIframe");
                             if (iframe == null) {
@@ -715,28 +786,28 @@ function runProgram() {
                                 iframe.style.width = "100%";
                                 document.getElementById("thirdModelDiagram").appendChild(iframe);
                             }
-                            if (outputType == "html") {
-                                iframe.srcdoc = json.generatedText;
-                            }
-                            else if (outputType == "puml" || outputType == "dot") {
+                            
+                            iframe.srcdoc = json.generatedText;
+                        }
+                        else if (outputType == "puml" || outputType == "dot") {
 
-                                var krokiEndpoint = "";
-                                if (outputType == "puml") krokiEndpoint = "plantuml";
-                                else krokiEndpoint = "graphviz/svg"
+                            setConsoleOutput(json.output);
+                            var krokiEndpoint = "";
+                            if (outputType == "puml") krokiEndpoint = "plantuml";
+                            else krokiEndpoint = "graphviz/svg"
 
-                                var krokiXhr = new XMLHttpRequest();
-                                krokiXhr.open("POST", "https://kroki.io/" + krokiEndpoint, true);
-                                krokiXhr.setRequestHeader("Accept", "image/svg+xml");
-                                krokiXhr.setRequestHeader("Content-Type", "text/plain");
-                                krokiXhr.onreadystatechange = function () {
-                                    if (krokiXhr.readyState === 4) {
-                                        if (krokiXhr.status === 200) {
-                                           iframe.srcdoc = krokiXhr.responseText;
-                                        }
+                            var krokiXhr = new XMLHttpRequest();
+                            krokiXhr.open("POST", "https://kroki.io/" + krokiEndpoint, true);
+                            krokiXhr.setRequestHeader("Accept", "image/svg+xml");
+                            krokiXhr.setRequestHeader("Content-Type", "text/plain");
+                            krokiXhr.onreadystatechange = function () {
+                                if (krokiXhr.readyState === 4) {
+                                    if (krokiXhr.status === 200) {
+                                        renderDiagram("thirdModelDiagram", krokiXhr.responseText);
                                     }
-                                };
-                                krokiXhr.send(json.generatedText);
-                            }
+                                }
+                            };
+                            krokiXhr.send(json.generatedText);
                         }
                         else {
                             setConsoleOutput(json.output + json.generatedText);
@@ -758,23 +829,19 @@ function longNotification(title, cls="light") {
 }
 
 function refreshModelDiagram() {
-    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"],
-        "modelDiagram", "model", "dot", flexmiEditor, emfaticEditor);
+    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"], "modelDiagram", "model", flexmiEditor, emfaticEditor);
 }
 
 function refreshMetamodelDiagram() {
-    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"],
-        "metamodelDiagram", "metamodel", "puml", flexmiEditor, emfaticEditor);
+    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"], "metamodelDiagram", "metamodel", flexmiEditor, emfaticEditor);
 }
 
 function refreshSecondModelDiagram() {
-    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"],
-        "secondModelDiagram", "model", "dot", secondFlexmiEditor, secondEmfaticEditor);
+    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"], "secondModelDiagram", "model", secondFlexmiEditor, secondEmfaticEditor);
 }
 
 function refreshSecondMetamodelDiagram() {
-    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"],
-        "secondMetamodelDiagram", "metamodel", "puml", secondFlexmiEditor, secondEmfaticEditor);
+    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"], "secondMetamodelDiagram", "metamodel", secondFlexmiEditor, secondEmfaticEditor);
 }
 
 function toggle(elementId, onEmpty) {
@@ -782,15 +849,18 @@ function toggle(elementId, onEmpty) {
     if (element == null) return;
 
     if (getComputedStyle(element).display == "none") {
-        element.style.display = "block";
+        element.style.display = "flex";
         if (element.innerHTML.length == 0) {
             onEmpty();
         }
     }
-    else element.style.display = "none";
+    else {
+        element.style.display = "none";
+    }
+    updateGutterVisibility();
 }
 
-function refreshDiagram(url, diagramId, diagramName, engine, modelEditor, metamodelEditor) {
+function refreshDiagram(url, diagramId, diagramName, modelEditor, metamodelEditor) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -808,7 +878,7 @@ function refreshDiagram(url, diagramId, diagramName, engine, modelEditor, metamo
                     setConsoleError(json.error);
                 }
                 else {
-                    renderDiagram(diagramId, json[jsonField], engine);
+                    renderDiagram(diagramId, json[jsonField]);
                 }
 
                 Metro.notify.killAll();
@@ -820,11 +890,17 @@ function refreshDiagram(url, diagramId, diagramName, engine, modelEditor, metamo
     longNotification("Rendering " + diagramName + " diagram");
 }
 
-function renderDiagram(diagramId, svg, engine) {
-    document.getElementById(diagramId).innerHTML = svg;
+function renderDiagram(diagramId, svg) {
+    var diagramElement = document.getElementById(diagramId);
+    diagramElement.innerHTML = svg;
     var svg = document.getElementById(diagramId).firstElementChild;
-    svg.style.height = "100%";
-    svg.style.width = "100%";
+
+    if (diagramId == "thirdModelDiagram") {
+        diagramElement.parentElement.style.padding = "0px";
+    }
+
+    svg.style.width = diagramElement.offsetWidth + "px";
+    svg.style.height = diagramElement.offsetHeight + "px";
 
     svgPanZoom(svg, {
       zoomEnabled: true,

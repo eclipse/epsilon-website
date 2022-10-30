@@ -66,11 +66,11 @@
     </script>
 </head>
 
-<body class="h-100" onresize="fit()">
+<body class="h-100" onresize="fit()" onload="fit();updateGutterVisibility();">
     <div id="navview" data-role="navview" style="display:none">
         <div class="navview-pane">
             <button class="pull-button">
-                <span class="default-icon-menu"></span>
+                <span class="default-icon-menu" id="toggleNavViewPane"></span>
             </button>
             <ul class="navview-menu">
                 <li class="item-header">Epsilon Playground</li>
@@ -97,8 +97,8 @@
             </ul>
         </div>
         <div class="navview-content">
-            <div id="splitter" data-role="splitter" class="h-100" style="min-height:800px">
-                <div data-role="splitter" data-split-mode="vertical">
+            <div id="splitter" data-role="splitter" class="h-100" style="min-height:800px" data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                <div data-role="splitter" data-split-mode="vertical"  data-on-resize-stop="fit()" data-on-resize-split="fit()" data-on-resize-window="fit()">
                     <div id="programPanel" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="">
                         <div class="editor" id="programEditor"></div>
                     </div>
@@ -106,37 +106,37 @@
                         <div class="editor" id="console"></div>
                     </div>
                 </div>
-                <div data-role="splitter" data-split-mode="vertical">
+                <div data-role="splitter" data-split-mode="vertical" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                     <div id="modelPanel" data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="modelPanelButtons" class="modelPanel">
-                        <div data-role="splitter" class="h-100">
+                        <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                             <div id="flexmiEditor" class="editor"></div>
-                            <div id="modelDiagram" class="diagram"></div>
+                            <div id="modelDiagram" class="diagram hidden"></div>
                         </div>
                     </div>
                     <div id="metamodelPanel" data-role="panel" data-title-caption="Metamodel" data-title-icon="<span class='mif-16 mif-emfatic'></span>" data-custom-buttons="metamodelPanelButtons" class="modelPanel">
-                        <div data-role="splitter" class="h-100">
+                        <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                             <div id="emfaticEditor" class="editor"></div>
                             <div id="metamodelDiagram" class="diagram"></div>
                         </div>
                     </div>
                 </div>
-                <div data-role="splitter" data-split-mode="vertical" id="secondModelSplitter">
+                <div data-role="splitter" data-split-mode="vertical" id="secondModelSplitter"  data-on-resize-stop="fit()" data-on-resize-split="fit()">
                     <div id="secondModelPanel" data-role="panel" data-title-caption="Second Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="secondModelPanelButtons" class="modelPanel">
-                        <div data-role="splitter" class="h-100">
+                        <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                             <div id="secondFlexmiEditor" class="editor"></div>
                             <div id="secondModelDiagram" class="diagram"></div>
                         </div>
                     </div>
                     <div id="secondMetamodelPanel" data-role="panel" data-title-caption="Second Metamodel" data-title-icon="<span class='mif-16 mif-emfatic'></span>" data-custom-buttons="secondMetamodelPanelButtons" class="modelPanel">
-                        <div data-role="splitter" class="h-100">
+                        <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                             <div id="secondEmfaticEditor" class="editor"></div>
                             <div id="secondMetamodelDiagram" class="diagram"></div>
                         </div>
                     </div>
                 </div>
-                <div data-role="splitter" data-split-mode="vertical" id="thirdModelSplitter">
+                <div data-role="splitter" data-split-mode="vertical" id="thirdModelSplitter" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                     <div id="thirdModelPanel" data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="thirdModelPanelButtons" class="modelPanel">
-                        <div class="diagram" id="thirdModelDiagram"></div>
+                        <div class="diagram standaloneDiagram" id="thirdModelDiagram"></div>
                         <div id="outputEditor" class="editor" style="display:none"></div>
                     </div>
                 </div>

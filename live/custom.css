@@ -13,6 +13,9 @@
 
 .diagram {
 	display:none;
+}
+
+.standaloneDiagram {
 	height:100%;
 	width:100%;
 }
@@ -144,8 +147,7 @@
 }
 
 .panel .panel-title .button {
-	background-color: #fff;
-	border-bottom:1px solid #dfdfdf;
+	background-color: transparent;
 	border-left: 0px;
 	border-right: 0px;
 	padding-left: 15px;
@@ -153,4 +155,8 @@
 
 body {
 	font-size: 16px
+}
+
+.hidden {
+	display:none;
 }
