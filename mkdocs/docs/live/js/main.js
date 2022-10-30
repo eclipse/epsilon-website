@@ -136,7 +136,7 @@ function fetchFile(name) {
 /**
  * Fetches the content of a file under the templates folder
  */
- function fetchTemplate(name) {
+function fetchTemplate(name) {
     var xhr = new XMLHttpRequest();
     var url = "templates/" + name;
     xhr.open("GET", url, false);
@@ -228,8 +228,17 @@ function setup() {
     consoleEditor.setValue("",1);
 
     document.getElementById("navview").style.display = "block";
-    //fit();
-    //setInterval(fit, 100);
+    
+    document.addEventListener('click', function(evt) {
+        //console.log(evt);
+        //console.log(evt.target);
+        //console.log(evt.target == document.getElementById("toggleNavViewPane"));
+
+        if (evt.target == document.getElementById("toggleNavViewPane")) {
+            console.log("Gotcha!");
+            setTimeout(function(){ fit(); }, 1000);
+        }
+    });
 
     $(window).keydown(function(event) {
       if ((event.metaKey && event.keyCode == 83) || (event.ctrlKey && event.keyCode == 83)) { 

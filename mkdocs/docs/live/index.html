@@ -70,7 +70,7 @@
     <div id="navview" data-role="navview" style="display:none">
         <div class="navview-pane">
             <button class="pull-button">
-                <span class="default-icon-menu"></span>
+                <span class="default-icon-menu" id="toggleNavViewPane"></span>
             </button>
             <ul class="navview-menu">
                 <li class="item-header">Epsilon Playground</li>
@@ -98,7 +98,7 @@
         </div>
         <div class="navview-content">
             <div id="splitter" data-role="splitter" class="h-100" style="min-height:800px" data-on-resize-stop="fit()" data-on-resize-split="fit()">
-                <div data-role="splitter" data-split-mode="vertical"  data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                <div data-role="splitter" data-split-mode="vertical"  data-on-resize-stop="fit()" data-on-resize-split="fit()" data-on-resize-window="fit()">
                     <div id="programPanel" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="">
                         <div class="editor" id="programEditor"></div>
                     </div>

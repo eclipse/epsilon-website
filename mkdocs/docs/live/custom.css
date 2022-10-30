@@ -147,8 +147,7 @@
 }
 
 .panel .panel-title .button {
-	background-color: #fff;
-	border-bottom:1px solid #dfdfdf;
+	background-color: transparent;
 	border-left: 0px;
 	border-right: 0px;
 	padding-left: 15px;
