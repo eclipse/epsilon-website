@@ -4,7 +4,7 @@ In this article we explain the steps required to publish your Epsilon related pr
 
 ## General Recommendations
 
-As part of the process you will configure your project to be under continuous integration (CI) which is automatically triggered when you push changes to master branch of your project's git repository. For this reason it is recommended that you create a *develop* branch in which you make frequent commits/pushes and only merge changes to the master branch when you want to release a new version (you might be interested in [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow))
+As part of the process you will configure your project to be under continuous integration (CI) which is automatically triggered when you push changes to the main branch of your project's git repository. For this reason it is recommended that you create a *develop* branch in which you make frequent commits/pushes and only merge changes to the main branch when you want to release a new version (you might be interested in [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow))
 
 ## Creating Feature Plugins
 
@@ -93,7 +93,7 @@ Check that the required JARs have been created in the *target* folder.
 
 ## Test your CI build
 
-Merge your repository changes (new files) to your master branch and push to GitHub. This should trigger a new build. Go to CircleCI and verify that your build completed without errors. CircleCI will simply execute a maven build so if your local build succeeded the CircleCi should too.
+Merge your repository changes (new files) to your main branch and push to GitHub. This should trigger a new build. Go to CircleCI and verify that your build completed without errors. CircleCI will simply execute a maven build so if your local build succeeded the CircleCi should too.
 
 Additionally check that all the JARs have been stored as artifacts. In your project's build information page click on the *Artifacts* tab:
 

@@ -1,8 +1,8 @@
 # Managing the target platform
 
-Epsilon stable and interim releases are built using [Eclipse Tycho](https://eclipse.org/tycho/), which repurposes [Apache Maven](http://maven.apache.org/) for automating the build of Eclipse plugins, features and update sites. Maven builds are launched automatically by the [Epsilon Hudson HIPP instance](https://hudson.eclipse.org/epsilon/) whenever a change in the `master` branch of the Epsilon Git repository is detected.
+Epsilon stable and interim releases are built using [Eclipse Tycho](https://eclipse.org/tycho/), which repurposes [Apache Maven](http://maven.apache.org/) for automating the build of Eclipse plugins, features and update sites. Maven builds are launched automatically by the [Epsilon Jenkins instance](https://ci.eclipse.org/epsilon) whenever a change in the `main` branch of the Epsilon Git repository is detected.
 
-Tycho requires defining a "target platform" with the Eclipse plugins and features that Epsilon should be compiled against. In the case of Epsilon, this target platform will usually include EMF, GMF, the Eclipse IDE and PDE, Emfatic, and then any other third-party components that might be useful (e.g. Sirius or Papyrus). The target platform is stored in the [plugins/org.eclipse.epsilon.targetplatform.target](https://github.com/eclipse/epsilon/tree/main/plugins/org.eclipse.epsilon.targetplatform/org.eclipse.epsilon.targetplatform.target) project.
+Tycho requires defining a "target platform" with the Eclipse plugins and features that Epsilon should be compiled against. In the case of Epsilon, this target platform will usually include EMF, GMF, the Eclipse IDE and PDE, Emfatic, and then any other third-party components that might be useful (e.g. Sirius or Papyrus). The target platform is stored in the [plugins/org.eclipse.epsilon.targetplatform.target](https://github.com/eclipse/epsilon/tree/main/releng/org.eclipse.epsilon.target/org.eclipse.epsilon.target.target) project.
 
 The target platform is an XML file that lists features or plugins from one or more update sites. It can be edited by hand, but it is rather unwieldy, so it is better to open it from Eclipse. A working Internet connection is needed to edit these files. Once you open the file, Eclipse will spend some time downloading features and plugins from the update sites and resolving dependencies. After it is done, you should see something like this:
 
@@ -34,4 +34,4 @@ Once the target platform has been revised and we have double-checked that everyt
 
     mvn clean install
 
-If this command succeeds, it is ready to be pushed. Push the changes, wait until the build succeeds in the [Epsilon Jenkins instance](https://ci.eclipse.org/epsilon/job/interim-kubernetes/job/master/) (Hudson checks every 5 minutes or so for changes), and then you're done!
+If this command succeeds, it is ready to be pushed. Push the changes, wait until the build succeeds in the [Epsilon Jenkins instance](https://ci.eclipse.org/epsilon/job/interim-kubernetes/job/main/) (Jenkins checks every 5 minutes or so for changes), and then you're done!
