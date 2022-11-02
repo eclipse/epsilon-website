@@ -43,7 +43,7 @@ Push the commit to Jenkins:
 git push
 ```
 
-[Here is an example commit](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/commit/?id=8f680d0bb7270e332d57fe24334012d3cfdae73b).
+[Here is an example commit](https://github.com/eclipse/epsilon/commit/8f680d0bb7270e332d57fe24334012d3cfdae73b).
 Typically this would be the last thing you do before tagging the release.
 After you've pushed this and tagged the repository with the Epsilon version, remember to bump the version to the next SNAPSHOT.
 

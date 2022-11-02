@@ -44,4 +44,4 @@ To run the transformation:
 - Right-click on `tree.emf` or `tree.ecore` and select `Register EPackages`
 - Right-click on `xml2emf.launch` and select `Run As` --> `xml2emf`
 
-Once the transformation has executed you can open `tree.model` to inspect the EMF model it has produced with the reflective tree-based editor. The complete source code of the example is available [here](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.etl.xml2emf).
+Once the transformation has executed you can open `tree.model` to inspect the EMF model it has produced with the reflective tree-based editor. The complete source code of the example is available [here](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.etl.xml2emf).

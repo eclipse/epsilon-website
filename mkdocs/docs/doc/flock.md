@@ -262,4 +262,4 @@ and languages in a [MoDELS paper](https://link.springer.com/chapter/10.1007/978-
 
 ## Additional Resources
 
-- [Executing a Flock migration transformation from Java](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone/flock/FlockStandaloneExample.java): Shows how to run Flock to migrate an EMF-based model from a headless Java application.
+- [Executing a Flock migration transformation from Java](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone/flock/FlockStandaloneExample.java): Shows how to run Flock to migrate an EMF-based model from a headless Java application.

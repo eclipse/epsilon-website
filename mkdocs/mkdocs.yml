@@ -70,8 +70,8 @@ extra:
       link: https://twitter.com/eclipseepsilon
     - icon: fontawesome/brands/youtube
       link: https://youtube.com/epsilondevs     
-repo_name: 'Git repository @ Eclipse'
-repo_url: 'https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/'
+#repo_name: 'Git repository @ GitHub'
+#repo_url: 'https://github.com/eclipse/epsilon-website'
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
@@ -158,7 +158,7 @@ plugins:
             'forum': 'https://www.eclipse.org/forums/index.php/f/22/'
             'doc/screencasts' : 'https://www.youtube.com/epsilondevs'
             'doc/lectures' : 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
-            'doc/examples' : 'https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples'
+            'doc/examples' : 'https://github.com/eclipse/epsilon/tree/main/examples'
             'doc/articles/emfatic.md': 'https://www.eclipse.org/emfatic'
             'doc/articles/eugenia-gmf-tutorial/index.md': 'https://www.eclipse.org/epsilon/doc/eugenia'
             'doc/articles/flexmi/index.md': 'https://www.eclipse.org/epsilon/doc/flexmi'

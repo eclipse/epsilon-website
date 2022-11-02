@@ -477,7 +477,7 @@ The `epsilon.for` task iterates over the files in a [fileset](https://ant.apache
 {{{ example("org.eclipse.epsilon.examples.workflow.for/build.xml", false) }}}
 ```
 
-The complete source code for this example is in [Epsilon's Git repo](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.for).
+The complete source code for this example is in [Epsilon's Git repo](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.for).
 
 ## Additional Resources
 

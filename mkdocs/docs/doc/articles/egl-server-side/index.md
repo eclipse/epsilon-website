@@ -8,7 +8,7 @@ In this article, we demonstrate using [EGL](../../egl) as a server-side scriptin
 
 - Download a fresh copy of Tomcat 6.0
 [here](http://tomcat.apache.org/download-60.cgi) and extract it
-- Download [egl-servlet-full.zip](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.egl.servlet/egl-servlet-full.zip)
+- Download [egl-servlet-full.zip](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.egl.servlet/egl-servlet-full.zip)
 - Extract all .jar files from the zip into the `lib` folder of Tomcat
 - Open `web.xml` in the `conf` directory of Tomcat and add the following
 snippet
@@ -103,7 +103,7 @@ A simple caching strategy is to populate the page and fragment caches from your 
 
 The main motivation for turning EGL into a server-side scripting language is its ability to work well with EMF models. EGL provides the `modelManager` built-in object to let you load EMF models that reside in the web application.
 
-To experiment with `modelManager`, download the [Graph.ecore](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/serverside/org.eclipse.epsilon.egl.servlet/Graph.ecore) and [Ecore.ecore](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/serverside/org.eclipse.epsilon.egl.servlet/Ecore.ecore) models and place them in your helloworld directory. Then, change your `index.egl` to look like this
+To experiment with `modelManager`, download the [Graph.ecore](https://github.com/eclipse/epsilon/tree/main/serverside/org.eclipse.epsilon.egl.servlet/Graph.ecore) and [Ecore.ecore](https://github.com/eclipse/epsilon/tree/main/serverside/org.eclipse.epsilon.egl.servlet/Ecore.ecore) models and place them in your helloworld directory. Then, change your `index.egl` to look like this
 
 ```egl
 [%

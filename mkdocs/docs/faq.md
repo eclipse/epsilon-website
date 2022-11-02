@@ -24,7 +24,7 @@ To get notified when a new version of Epsilon becomes available you can configur
 
 ## Can I use Epsilon in a non-Eclipse-based standalone Java application?
 
-Yes. There are several examples of doing just that in the [examples/org.eclipse.epsilon.examples.standalone](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone) project in the Git repository. Just grab your JARs through [Maven Central](../download).
+Yes. There are several examples of doing just that in the [examples/org.eclipse.epsilon.examples.standalone](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone) project in the Git repository. Just grab your JARs through [Maven Central](../download).
 
 ## How does Epsilon compare to the OMG family of languages?
 

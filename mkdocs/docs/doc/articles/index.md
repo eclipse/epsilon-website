@@ -127,7 +127,6 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 - [Managing the target platform](target-platform): This article outlines how to manage the target platform that Epsilon is built against.
 - [Adding new plugins](adding-new-plugins): This article outlines the process of adding new plugins to the main Epsilon repository.
 - [Preparing the macOS distribution](preparing-the-macosx-distribution): This article outlines the process of signing the Eclipse macOS distribution.
-- [Forking Epsilon as a non-committer with Git](git-fork-epsilon): This article shows how to branch Epsilon into a different remote repository whilst still getting updates from the main project.
 - [Publishing to the EpsilonLabs Updatesite](labsupdatesite): This article outlines the process for publishing a plugin (EMC driver/language/tool) from the EpsilonLabs Github organisation to the EpsilonLabs updatesite.
 - [Releasing a new version of Epsilon](release-tasks): This article lists all the tasks required for releasing a version of Epsilon.
 - [Releasing a new version to Maven Central](maven-release): This article outlines how to release a new version of the Epsilon standalone artifacts to Maven Central.

@@ -6,7 +6,7 @@ This article shows how [Picto](../../picto) can be used to produce graphical vie
 
 ## Setup
 
-- Import the projects below from the `examples` folder of the [Epsilon Git repository](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples)
+- Import the projects below from the `examples` folder of the [Epsilon Git repository](https://github.com/eclipse/epsilon/tree/main/examples)
     - `org.eclipse.epsilon.examples.picto.xtext.domainmodel`
     - `org.eclipse.epsilon.examples.picto.xtext.domainmodel.ide`
     - `org.eclipse.epsilon.examples.picto.xtext.domainmodel.ui`

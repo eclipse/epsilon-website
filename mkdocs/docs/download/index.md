@@ -59,9 +59,8 @@ The source code of Epsilon is in the following Git repository.
 
 | Type | Location |
 | - | - |
-| Users | `https://git.eclipse.org/r/epsilon/org.eclipse.epsilon.git`|
-| Committers | `ssh://user_id@git.eclipse.org:29418/epsilon/org.eclipse.epsilon.git`|
-| Release tag | `https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=2.4`|
+| Repository | `https://github.com/eclipse/epsilon`|
+| Release tag | `https://github.com/eclipse/epsilon/releases/tag/2.4`|
 
 Additional projects which are experimental or have dependencies which are incompatible with the Eclipse Public License are available in [Epsilon Labs](https://github.com/epsilonlabs).
 
@@ -83,7 +82,7 @@ instance, to use the `EOL engine` JAR from your `pom.xml`:
 
 ```
 
-To use the latest SNAPSHOT (interim) version of Epsilon, please see [the standalone example POM](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.standalone/pom.xml).
+To use the latest SNAPSHOT (interim) version of Epsilon, please see [the standalone example POM](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone/pom.xml).
 
 ## Older versions
 

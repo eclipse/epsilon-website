@@ -122,4 +122,4 @@ System.out.println(unparser.unparse(module));
 
 ## More Examples
 
-In Epsilon's Git repository, there are two example projects that show how to run [Epsilon from Java](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.standalone), and the [ANT Epsilon tasks in a headless environment](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.workflow.standalone) (i.e. from command line).
+In Epsilon's Git repository, there are two example projects that show how to run [Epsilon from Java](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone), and the [ANT Epsilon tasks in a headless environment](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone) (i.e. from command line).

@@ -179,7 +179,7 @@ context Staff {
 
 ## Creating Spreadsheets
 
-To create a spreadsheet from scratch (e.g. when it is produced by an ETL transformation), we also need to specify an `index` for each column in the XML mapping file. Below is an EOL program that creates the [spreadsheet above](#worksheets-columns-and-rows) from scratch, and the mapping file for it. The complete example is in [Epsilon's Git repo](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.excel).
+To create a spreadsheet from scratch (e.g. when it is produced by an ETL transformation), we also need to specify an `index` for each column in the XML mapping file. Below is an EOL program that creates the [spreadsheet above](#worksheets-columns-and-rows) from scratch, and the mapping file for it. The complete example is in [Epsilon's Git repo](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel).
 
 === "create-spreadsheet.eol"
     ```eol
@@ -220,7 +220,7 @@ To create a spreadsheet from scratch (e.g. when it is produced by an ETL transfo
 
 ## Working with Formulas
 
-To set the value of a cell to a formula, start its value with `=` as shown below. The complete example is in [Epsilon's Git repo](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.excel.formulas).
+To set the value of a cell to a formula, start its value with `=` as shown below. The complete example is in [Epsilon's Git repo](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel.formulas).
 
 === "create-spreadsheet-with-formulas.eol"
     ```eol

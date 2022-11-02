@@ -428,7 +428,7 @@ digraph G {
 !!! tip "Run this example"
     You can run and tweak this example is the [Epsilon Playground](../../live/?78a011a5).
 
-Outdentation also works with `if`, `switch`, `while` statements etc. More examples are available in the [unit tests folder of this feature](https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.egl.engine.test.acceptance/src/org/eclipse/epsilon/egl/test/acceptance/outdentation).
+Outdentation also works with `if`, `switch`, `while` statements etc. More examples are available in the [unit tests folder of this feature](https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.egl.engine.test.acceptance/src/org/eclipse/epsilon/egl/test/acceptance/outdentation).
 
 ## Traceability
 

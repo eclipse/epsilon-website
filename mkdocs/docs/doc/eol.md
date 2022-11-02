@@ -950,4 +950,4 @@ Additional resources about EOL are available [here](../articles/#epsilon-object-
 
 [^4]: <https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>
 
-[^5]: For further examples of ternary operator, see <https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol>
+[^5]: For further examples of ternary operator, see <https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol>
