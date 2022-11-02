@@ -160,19 +160,6 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-      </div>
-    
   </nav>
 </header>
     
@@ -199,19 +186,6 @@
     </a>
     Epsilon
   </label>
-  
-    <div class="md-nav__source">
-      
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -1064,7 +1038,7 @@
                 
                 <h1 id="managing-the-target-platform">Managing the target platform<a class="headerlink" href="#managing-the-target-platform" title="Permanent link">&para;</a></h1>
 <p>Epsilon stable and interim releases are built using <a href="https://eclipse.org/tycho/">Eclipse Tycho</a>, which repurposes <a href="http://maven.apache.org/">Apache Maven</a> for automating the build of Eclipse plugins, features and update sites. Maven builds are launched automatically by the <a href="https://hudson.eclipse.org/epsilon/">Epsilon Hudson HIPP instance</a> whenever a change in the <code>master</code> branch of the Epsilon Git repository is detected.</p>
-<p>Tycho requires defining a "target platform" with the Eclipse plugins and features that Epsilon should be compiled against. In the case of Epsilon, this target platform will usually include EMF, GMF, the Eclipse IDE and PDE, Emfatic, and then any other third-party components that might be useful (e.g. Sirius or Papyrus). The target platform is stored in the <a href="http://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/plugins/org.eclipse.epsilon.targetplatform/org.eclipse.epsilon.targetplatform.target">plugins/org.eclipse.epsilon.targetplatform.target</a> project.</p>
+<p>Tycho requires defining a "target platform" with the Eclipse plugins and features that Epsilon should be compiled against. In the case of Epsilon, this target platform will usually include EMF, GMF, the Eclipse IDE and PDE, Emfatic, and then any other third-party components that might be useful (e.g. Sirius or Papyrus). The target platform is stored in the <a href="https://github.com/eclipse/epsilon/tree/main/plugins/org.eclipse.epsilon.targetplatform/org.eclipse.epsilon.targetplatform.target">plugins/org.eclipse.epsilon.targetplatform.target</a> project.</p>
 <p>The target platform is an XML file that lists features or plugins from one or more update sites. It can be edited by hand, but it is rather unwieldy, so it is better to open it from Eclipse. A working Internet connection is needed to edit these files. Once you open the file, Eclipse will spend some time downloading features and plugins from the update sites and resolving dependencies. After it is done, you should see something like this:</p>
 <p><img alt="" src="target-editor.png" /></p>
 <p>In the picture, we can see three update sites (main Luna release, Luna updates and Emfatic), with some features pulled from them. In general, it is better to define target platforms at the feature level rather than at the plugin level, as they tend to be more stable across releases: it's better to pull in a few extra plugins than have the whole thing break because of a single missing plugin.</p>

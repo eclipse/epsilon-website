@@ -160,19 +160,6 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-      </div>
-    
   </nav>
 </header>
     
@@ -199,19 +186,6 @@
     </a>
     Epsilon
   </label>
-  
-    <div class="md-nav__source">
-      
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -1130,7 +1104,7 @@
                 <h1 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h1>
 <div class="admonition error">
 <p class="admonition-title">Regression in recent versions of Eclipse</p>
-<p>The Epsilon language editors in version 2.3 <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=578627">throw a null pointer exception upon initialisation</a> when installed on versions of Eclipse after 2021-12. This has been <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/commit/?id=7ed5f94154c1d29258aee8e16bac1d601ae65d85">fixed</a> in version 2.4 of Epsilon.</p>
+<p>The Epsilon language editors in version 2.3 <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=578627">throw a null pointer exception upon initialisation</a> when installed on versions of Eclipse after 2021-12. This has been <a href="https://github.com/eclipse/epsilon/commit/7ed5f94154c1d29258aee8e16bac1d601ae65d85">fixed</a> in version 2.4 of Epsilon.</p>
 </div>
 <p>The simplest way to get a copy of Eclipse with Epsilon 2.3 and all its dependencies installed, is to download the <a href="https://wiki.eclipse.org/Eclipse_Installer">Eclipse Installer</a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.</p>
 <p><img alt="Epsilon in Eclipse Installer" src="../../assets/images/eclipse-installer.png" /></p>
@@ -1226,16 +1200,12 @@
 </thead>
 <tbody>
 <tr>
-<td>Users</td>
-<td><code>https://git.eclipse.org/r/epsilon/org.eclipse.epsilon.git</code></td>
-</tr>
-<tr>
-<td>Committers</td>
-<td><code>ssh://user_id@git.eclipse.org:29418/epsilon/org.eclipse.epsilon.git</code></td>
+<td>Repository</td>
+<td><code>https://github.com/eclipse/epsilon</code></td>
 </tr>
 <tr>
 <td>Release tag</td>
-<td><code>https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tag/?id=2.3</code></td>
+<td><code>https://github.com/eclipse/epsilon/releases/tag/2.3</code></td>
 </tr>
 </tbody>
 </table>
@@ -1253,7 +1223,7 @@ instance, to use the <code>EOL engine</code> JAR from your <code>pom.xml</code>:
   ...
 <span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div>
-<p>To use the latest SNAPSHOT (interim) version of Epsilon, please see <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.standalone/pom.xml">the standalone example POM</a>.</p>
+<p>To use the latest SNAPSHOT (interim) version of Epsilon, please see <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone/pom.xml">the standalone example POM</a>.</p>
 <h2 id="older-versions">Older versions<a class="headerlink" href="#older-versions" title="Permanent link">&para;</a></h2>
 <p>Previous stable versions of Epsilon are available <a href="all-versions">here</a>.</p>
 <h2 id="this-website">This website<a class="headerlink" href="#this-website" title="Permanent link">&para;</a></h2>

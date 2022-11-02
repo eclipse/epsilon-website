@@ -160,19 +160,6 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-      </div>
-    
   </nav>
 </header>
     
@@ -199,19 +186,6 @@
     </a>
     Epsilon
   </label>
-  
-    <div class="md-nav__source">
-      
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -1282,7 +1256,7 @@
 <p class="admonition-title">Looking for in-depth articles?</p>
 <p>This page contains links to a selection of example projects in Epsilon's Git repository. If you are looking for more in-depth articles describing different features of Epsilon, please visit the <a href="../doc/articles">articles</a> section of the website.</p>
 </div>
-<p>Each example in this page comes in the form of an Eclipse project, which is stored under the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/">examples</a> dirctory of Epsilon's Git repository. To run an example, you need to:</p>
+<p>Each example in this page comes in the form of an Eclipse project, which is stored under the <a href="https://github.com/eclipse/epsilon/tree/main/examples/">examples</a> dirctory of Epsilon's Git repository. To run an example, you need to:</p>
 <ol>
 <li>Clone the repository</li>
 <li>Import the project in question into your Eclipse workspace</li>
@@ -1292,82 +1266,82 @@
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>To avoid copying the same metamodels across different example projects, some projects reuse Ecore metamodels stored in the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels</a> project.</p>
+<p>To avoid copying the same metamodels across different example projects, some projects reuse Ecore metamodels stored in the <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.metamodels">org.eclipse.epsilon.examples.metamodels</a> project.</p>
 </div>
 <p>If you are unable to run any of the examples below, please <a href="../forum">give us a shout</a>.</p>
 <h2 id="epsilon-object-language">Epsilon Object Language<a class="headerlink" href="#epsilon-object-language" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.buildooinstance">Create an OO model with EOL</a>: In this example we use EOL to programmatically construct a model that conforms to an object-oriented metamodel.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.modelmodification">Modify a Tree model with EOL</a>: In this example we use EOL to programmatically modify a model that conforms to a Tree metamodel and store the modified version as a new model.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.calljava">Call Java code from Epsilon</a>: In this example, we create a JFrame from EOL. The aim of this example is to show how to call Java code from within Epsilon languages.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.tools">Creating custom Java tools for Epsilon</a>: In this example, we create a custom tool for Epsilon.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.plainxml">Building and querying plain XML documents with EOL</a>: In this example, we use the plain XML driver of Epsilon to build and query an XML document that is not backed by a XSD/DTD.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.plainxml.copyfromtemplate">Cloning and copying XML elements across documents with EOL</a>: In this example, we use the plain XML driver of Epsilon to clone and copy XML elements across different documents with EOL.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.clone">Cloning EMF model elements with EOL</a>: In this example, we demonstrate how the EmfTool built-in tool can be used to perform deep-copy (cloning) of EMF model elements using EOL.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.profiling">Profiling and caching in EOL</a>: This example demonstrates the caching capabilities and the profiling tools provided by Epsilon.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.xsdxml">Manage XSD-backed XML files with EOL</a>: In this example we demonstrate using EOL to query an XSD-backed XML file.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.emc.simulink.examples">Manage Matlab Simulink/Stateflow blocks from Epsilon</a>: In this example we show how to manage Matlab Simulink/Stateflow blocks with EOL.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.buildooinstance">Create an OO model with EOL</a>: In this example we use EOL to programmatically construct a model that conforms to an object-oriented metamodel.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.modelmodification">Modify a Tree model with EOL</a>: In this example we use EOL to programmatically modify a model that conforms to a Tree metamodel and store the modified version as a new model.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.calljava">Call Java code from Epsilon</a>: In this example, we create a JFrame from EOL. The aim of this example is to show how to call Java code from within Epsilon languages.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.tools">Creating custom Java tools for Epsilon</a>: In this example, we create a custom tool for Epsilon.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.plainxml">Building and querying plain XML documents with EOL</a>: In this example, we use the plain XML driver of Epsilon to build and query an XML document that is not backed by a XSD/DTD.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.plainxml.copyfromtemplate">Cloning and copying XML elements across documents with EOL</a>: In this example, we use the plain XML driver of Epsilon to clone and copy XML elements across different documents with EOL.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.clone">Cloning EMF model elements with EOL</a>: In this example, we demonstrate how the EmfTool built-in tool can be used to perform deep-copy (cloning) of EMF model elements using EOL.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.profiling">Profiling and caching in EOL</a>: This example demonstrates the caching capabilities and the profiling tools provided by Epsilon.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.xsdxml">Manage XSD-backed XML files with EOL</a>: In this example we demonstrate using EOL to query an XSD-backed XML file.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.emc.simulink.examples">Manage Matlab Simulink/Stateflow blocks from Epsilon</a>: In this example we show how to manage Matlab Simulink/Stateflow blocks with EOL.</li>
 </ul>
 <h2 id="epsilon-transformation-language">Epsilon Transformation Language<a class="headerlink" href="#epsilon-transformation-language" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.tree2graph">Transform a Tree model to a Graph model with ETL</a>: In this example, we use ETL to transform a model that conforms to a Tree metamodel to a model that conforms to a Graph metamodel.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.rss2atom">Transform an RSS feed to an Atom feed using ETL</a>: In this example, we use ETL and the plain XML driver to transform an RSS feed to an Atom feed.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.etl.flowchart2html">Experiment with the different types of transformation rule in ETL using a Flowchart-to-HTML transformation.</a>: In this example, we show the different types of transformation rule that are provided by ETL, including plain, abstract, lazy, primary and greedy rules. We also explore rule inheritance and rules that generate more than model element. We transform from a Flowchart model to an HTML model.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.oo2db">Transform an OO model to a DB model with ETL</a>: In this example, we use ETL to transform a model that conforms to an Object-Oriented metamodel to a model that conforms to the Database metamodel.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.tree2graph">Transform a Tree model to a Graph model with ETL</a>: In this example, we use ETL to transform a model that conforms to a Tree metamodel to a model that conforms to a Graph metamodel.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.rss2atom">Transform an RSS feed to an Atom feed using ETL</a>: In this example, we use ETL and the plain XML driver to transform an RSS feed to an Atom feed.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.etl.flowchart2html">Experiment with the different types of transformation rule in ETL using a Flowchart-to-HTML transformation.</a>: In this example, we show the different types of transformation rule that are provided by ETL, including plain, abstract, lazy, primary and greedy rules. We also explore rule inheritance and rules that generate more than model element. We transform from a Flowchart model to an HTML model.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.oo2db">Transform an OO model to a DB model with ETL</a>: In this example, we use ETL to transform a model that conforms to an Object-Oriented metamodel to a model that conforms to the Database metamodel.</li>
 </ul>
 <h2 id="epsilon-generation-language">Epsilon Generation Language<a class="headerlink" href="#epsilon-generation-language" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.egl.flowchart">Experiment with the different features of EGL using a Flowchart-to-HTML transformation.</a>: In this example, we explore the main features of EGL by generating HTML text from an EMF model of a flowchart. We demonstrate the EGX coordination language, code formatters, preserving hand-written text with protected regions and generating a fine-grained trace model.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.egl.library">Generating HTML pages from an XML document</a>: In this example, we use the plain XML driver of Epsilon in the context of an EGL model-to-text transformation.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.egldoc">Generate HTML documentation from an Ecore metamodel with EGL</a>: In this example, we demonstrate how EGL can be used to generate HTML documentation from an Ecore metamodel.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.egl.flowchart">Experiment with the different features of EGL using a Flowchart-to-HTML transformation.</a>: In this example, we explore the main features of EGL by generating HTML text from an EMF model of a flowchart. We demonstrate the EGX coordination language, code formatters, preserving hand-written text with protected regions and generating a fine-grained trace model.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.egl.library">Generating HTML pages from an XML document</a>: In this example, we use the plain XML driver of Epsilon in the context of an EGL model-to-text transformation.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.egldoc">Generate HTML documentation from an Ecore metamodel with EGL</a>: In this example, we demonstrate how EGL can be used to generate HTML documentation from an Ecore metamodel.</li>
 </ul>
 <h2 id="epsilon-validation-language">Epsilon Validation Language<a class="headerlink" href="#epsilon-validation-language" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.validateoo">Validate an OO model with EVL</a>: In this example, we use EVL, to express constraints for models that conform to an Object-Oriented metamodel.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.evl.intermodel">Validate an OO model against a DB model with EVL</a>: In this example, we use EVL to expressing inter-model constraints.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.shortestpath">Dijkstra's shortest path algorithm with EOL/EVL</a>: In this example, we use EOL and EVL to implement Dijkstra's shortest path algorithm.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.validateoo">Validate an OO model with EVL</a>: In this example, we use EVL, to express constraints for models that conform to an Object-Oriented metamodel.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.evl.intermodel">Validate an OO model against a DB model with EVL</a>: In this example, we use EVL to expressing inter-model constraints.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.shortestpath">Dijkstra's shortest path algorithm with EOL/EVL</a>: In this example, we use EOL and EVL to implement Dijkstra's shortest path algorithm.</li>
 </ul>
 <h2 id="epsilon-merging-language">Epsilon Merging Language<a class="headerlink" href="#epsilon-merging-language" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.mergeentitywithvocabulary">Heterogeneous Model Merging with ECL/EML</a>: In this example, we demonstrate merging heterogeneous models using ECL and EML.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.mergeentitywithvocabulary">Heterogeneous Model Merging with ECL/EML</a>: In this example, we demonstrate merging heterogeneous models using ECL and EML.</li>
 </ul>
 <h2 id="epsilon-flock">Epsilon Flock<a class="headerlink" href="#epsilon-flock" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.flock.petrinets">Migrate Petri net models with Epsilon Flock</a>: In this example we demonstrate how to migrate a model in response to metamodel changes with Epsilon Flock.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flock.petrinets">Migrate Petri net models with Epsilon Flock</a>: In this example we demonstrate how to migrate a model in response to metamodel changes with Epsilon Flock.</li>
 </ul>
 <h2 id="epsilon-model-generation-language">Epsilon Model Generation Language<a class="headerlink" href="#epsilon-model-generation-language" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.emg.petrinet">Generate PetriNet models using EMG</a>: In this example we demonstrate how to generate PetriNet elements and how to define relations between them.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.emg.petrinet">Generate PetriNet models using EMG</a>: In this example we demonstrate how to generate PetriNet elements and how to define relations between them.</li>
 </ul>
 <h2 id="epsilon-pattern-language">Epsilon Pattern Language<a class="headerlink" href="#epsilon-pattern-language" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.epl">Find pattern matches in railway models using EPL</a>: In this example we demonstrate how to find matches of the patterns in the Train Benchmark models with EPL.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.epl">Find pattern matches in railway models using EPL</a>: In this example we demonstrate how to find matches of the patterns in the Train Benchmark models with EPL.</li>
 </ul>
 <h2 id="combining-the-epsilon-languages">Combining the Epsilon Languages<a class="headerlink" href="#combining-the-epsilon-languages" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.standalone">Use Epsilon in standalone Java applications</a>: In this example, we demonstrate how Epsilon languages can be used in standalone, non-Eclipse-based Java applications.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.mddtif">MDD-TIF complete case study</a>: In this example, we demonstrate how different languages in Epsilon (EVL, EGL, EML, ETL and ECL) can be combined to implement more complex operations.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.oomerging">Compare, validate and merge OO models</a>: In this example, we use ECL to compare two OO models, then use EVL to check the identified matches for consistency and finally EML to merge them.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.workflow.flowchart">Construct a workflow to orchestrate several Epsilon programs with Ant</a>: In this example we demonstrate how to use the built-in Epsilon Ant tasks to define a workflow by combining several Epsilon programs. Here, we validate, transform and generate HTML from a flowchart model.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.workflow.extension.example">Provide custom/extended tasks for the workflow</a>: In this example we demonstrate how you can define your own ANT tasks that extend the Epsilon workflow tasks.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.examples.workflow.transactions">Use model transactions in a workflow</a>: In this example we demonstrate using the ant-contrib try/catch tasks and the Epsilon model transactions tasks to conditionally rollback changes in models modified in a workflow.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone">Use Epsilon in standalone Java applications</a>: In this example, we demonstrate how Epsilon languages can be used in standalone, non-Eclipse-based Java applications.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.mddtif">MDD-TIF complete case study</a>: In this example, we demonstrate how different languages in Epsilon (EVL, EGL, EML, ETL and ECL) can be combined to implement more complex operations.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.oomerging">Compare, validate and merge OO models</a>: In this example, we use ECL to compare two OO models, then use EVL to check the identified matches for consistency and finally EML to merge them.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.flowchart">Construct a workflow to orchestrate several Epsilon programs with Ant</a>: In this example we demonstrate how to use the built-in Epsilon Ant tasks to define a workflow by combining several Epsilon programs. Here, we validate, transform and generate HTML from a flowchart model.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.workflow.extension.example">Provide custom/extended tasks for the workflow</a>: In this example we demonstrate how you can define your own ANT tasks that extend the Epsilon workflow tasks.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.transactions">Use model transactions in a workflow</a>: In this example we demonstrate using the ant-contrib try/catch tasks and the Epsilon model transactions tasks to conditionally rollback changes in models modified in a workflow.</li>
 </ul>
 <h2 id="eugenia">Eugenia<a class="headerlink" href="#eugenia" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eugenia.examples.friends">Implement a GMF editor with image nodes using Eugenia</a>: In this example we use Eugenia to implement a GMF editor with images instead of shapes for nodes.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eugenia.examples.endlabels">Implement a GMF editor with end labels in connections using Eugenia</a>: In this example we use Eugenia to implement a GMF editor with end labels in connections.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eugenia.examples.flowchart">Implement a flowchart GMF editor using Eugenia</a>: In this example we use Eugenia to implement a flowchart GMF editor, and EOL to polish its appearance.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eugenia.examples.friends">Implement a GMF editor with image nodes using Eugenia</a>: In this example we use Eugenia to implement a GMF editor with images instead of shapes for nodes.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eugenia.examples.endlabels">Implement a GMF editor with end labels in connections using Eugenia</a>: In this example we use Eugenia to implement a GMF editor with end labels in connections.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eugenia.examples.flowchart">Implement a flowchart GMF editor using Eugenia</a>: In this example we use Eugenia to implement a flowchart GMF editor, and EOL to polish its appearance.</li>
 </ul>
 <h2 id="eunit">EUnit<a class="headerlink" href="#eunit" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eunit.examples.eol">Test EOL scripts with EUnit</a>: In this example we show the basic structure of an EUnit test, some useful assertions for the basic types and how to test for errors and define our own assertions.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eunit.examples.bindings">Reuse EUnit tests with model and data bindings</a>: In this example we show how the same EUnit test can be reused for several models, and how EUnit supports several levels of parametric tests.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eunit.examples.evl">Test a model validation script with EUnit</a>: In this example we show how a model validation script written in EVL can be tested with EUnit, using the exportAsModel attribute of the EVL workflow task.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eunit.examples.egl.files">Test a model-to-text transformation with EUnit</a>: In this example we show how a model-to-text transformation written in EGL can be tested with EUnit and HUTN.</li>
-<li><a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/org.eclipse.epsilon.eunit.examples.junit">Integrate EUnit into a standard JUnit plug-in test</a>: In this example we show how to write an EUnit/JUnit plug-in test of an ETL transformation.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eunit.examples.eol">Test EOL scripts with EUnit</a>: In this example we show the basic structure of an EUnit test, some useful assertions for the basic types and how to test for errors and define our own assertions.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eunit.examples.bindings">Reuse EUnit tests with model and data bindings</a>: In this example we show how the same EUnit test can be reused for several models, and how EUnit supports several levels of parametric tests.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eunit.examples.evl">Test a model validation script with EUnit</a>: In this example we show how a model validation script written in EVL can be tested with EUnit, using the exportAsModel attribute of the EVL workflow task.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eunit.examples.egl.files">Test a model-to-text transformation with EUnit</a>: In this example we show how a model-to-text transformation written in EGL can be tested with EUnit and HUTN.</li>
+<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eunit.examples.junit">Integrate EUnit into a standard JUnit plug-in test</a>: In this example we show how to write an EUnit/JUnit plug-in test of an ETL transformation.</li>
 </ul>
 <h2 id="even-more-examples">Even more examples<a class="headerlink" href="#even-more-examples" title="Permanent link">&para;</a></h2>
-<p>More examples are available in the <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/plain/examples/">examples</a> folder of the Git repository.</p>
+<p>More examples are available in the <a href="https://github.com/eclipse/epsilon/tree/main/examples/">examples</a> folder of the Git repository.</p>
                 
               
               

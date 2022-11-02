@@ -160,19 +160,6 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-      </div>
-    
   </nav>
 </header>
     
@@ -199,19 +186,6 @@
     </a>
     Epsilon
   </label>
-  
-    <div class="md-nav__source">
-      
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -1168,7 +1142,7 @@ Book -- Author: books * / authors *</div>
 <h2 id="features-and-execution-algorithm">Features and Execution Algorithm<a class="headerlink" href="#features-and-execution-algorithm" title="Permanent link">&para;</a></h2>
 <p>Like all of Epsilon's rule-based (ERL) languages, an EGX module consists of any number of named rules, as well as optional <em>pre</em> and <em>post</em> blocks which can be used to perform arbitrarily complex tasks using imperative code before and after the execution of rules, respectively. The execution algorithm of EGX is quite simple, since the language itself is essentially a means to parameterise a <code>for</code> loop. EGX adds on top of ERL only a single top-level rule construct: the <code>GenerationRule</code>. The execution algorithm is thus as simple as executing all of these rules, in the order they are defined in the module. Thus, the remainder of this section describes the components and execution semantics of <code>GenerationRule</code>. Note that since variables declared in an earlier scope (executable block) within a <code>GenerationRule</code> are visible to later blocks, the order in which the engine executes each component block is important. Thus, we summarise each component block in execution order; which should also be the order in which they are declared by the user in the program. Note also that all of the component blocks of a <code>GenerationRule</code> are optional – that is, one can use any combination of them, including all or none.</p>
 <ul>
-<li><strong>transform</strong>: A parameter (name and type), optionally followed by the collection of elements to run the rule over. The parameter name is bound to the current element, and this rule is executed for all elements in the specified collection. If the user does not specify a domain from which the elements are drawn using <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.flexmi.risks/risks2html/risks2html.egx#n20">the <code>in:</code> construct</a>, the engine will retrieve all model elements matching the type (but not subtypes) of the parameter type. To include all types and subtypes of the specified parameter, rule must be marked with the <code>@greedy</code> annotation, otherwise the entire rule must be repeated for each subtype.</li>
+<li><strong>transform</strong>: A parameter (name and type), optionally followed by the collection of elements to run the rule over. The parameter name is bound to the current element, and this rule is executed for all elements in the specified collection. If the user does not specify a domain from which the elements are drawn using <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.risks/risks2html/risks2html.egx#n20">the <code>in:</code> construct</a>, the engine will retrieve all model elements matching the type (but not subtypes) of the parameter type. To include all types and subtypes of the specified parameter, rule must be marked with the <code>@greedy</code> annotation, otherwise the entire rule must be repeated for each subtype.</li>
 <li><strong>guard</strong>: True by default. If this returns false, the <code>GenerationRule</code> will skip execution of the remaining blocks for the current element (or altogether if the rule has no input elements).</li>
 <li><strong>pre</strong>: Arbitrary block of code, can be used to set up variables or any other pre-processing.</li>
 <li><strong>overwrite</strong>: Whether to overwrite the target file if it already exists. True by default.</li>

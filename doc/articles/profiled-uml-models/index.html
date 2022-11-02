@@ -160,19 +160,6 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-      </div>
-    
   </nav>
 </header>
     
@@ -199,19 +186,6 @@
     </a>
     Epsilon
   </label>
-  
-    <div class="md-nav__source">
-      
-<a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/" title="Go to repository" class="md-source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    Git repository @ Eclipse
-  </div>
-</a>
-    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -1108,7 +1082,7 @@
                 
                 
                 <h1 id="managing-profiled-uml-models-in-epsilon">Managing Profiled UML Models in Epsilon<a class="headerlink" href="#managing-profiled-uml-models-in-epsilon" title="Permanent link">&para;</a></h1>
-<p>This article shows how to create and query profiled <a href="https://wiki.eclipse.org/MDT-UML2">Eclipse UML</a> models using Epsilon's core language (<a href="../../eol">EOL</a>). For our example we will use <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.eol.uml.profiled/activityfunctions.uml">a profile</a> called <code>ActivityFunctions</code> which contains a single <code>Function</code> stereotype that applies to UML activities, and has a single <code>body</code> String property.</p>
+<p>This article shows how to create and query profiled <a href="https://wiki.eclipse.org/MDT-UML2">Eclipse UML</a> models using Epsilon's core language (<a href="../../eol">EOL</a>). For our example we will use <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.eol.uml.profiled/activityfunctions.uml">a profile</a> called <code>ActivityFunctions</code> which contains a single <code>Function</code> stereotype that applies to UML activities, and has a single <code>body</code> String property.</p>
 <h2 id="creating-a-profiled-uml-model">Creating a Profiled UML Model<a class="headerlink" href="#creating-a-profiled-uml-model" title="Permanent link">&para;</a></h2>
 <p>In the run configuration of our EOL program we need to add two models of type UML</p>
 <ul>
@@ -1171,7 +1145,7 @@ var ecoreProfile = umlTool.getProfile
 <h2 id="profiled-uml-models-in-rule-based-epsilon-languages">Profiled UML Models in Rule-Based Epsilon Languages<a class="headerlink" href="#profiled-uml-models-in-rule-based-epsilon-languages" title="Permanent link">&para;</a></h2>
 <p>In rule-based languages such as ETL and EVL, any required profiles must be applied in a <code>pre</code> block, before any of the rules (e.g. transformation rules, validation constraints) that refer to types in the profile are executed.</p>
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<p>The complete source code for this example is available in <a href="https://git.eclipse.org/c/epsilon/org.eclipse.epsilon.git/tree/examples/org.eclipse.epsilon.examples.eol.uml.profiled">Epsilon's Git repository</a>.</p>
+<p>The complete source code for this example is available in <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.eol.uml.profiled">Epsilon's Git repository</a>.</p>
                 
               
               
