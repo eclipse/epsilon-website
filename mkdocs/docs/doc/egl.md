@@ -9,7 +9,7 @@ EGL is a *template-based* language (i.e. EGL programs resemble the text that the
 - formatting algorithms (for producing generated text that is well-formatted and hence readable), and traceability mechanisms (for linking generated text with source models).
 
 !!! tip "Try EGL online"
-    You can run and fiddle with an EGL template that generates an ASCII-based Gantt chart from a project scheduling model in the [online Epsilon Playground](../../live/?egl).
+    You can run and fiddle with an EGL template that generates an ASCII-based Gantt chart from a project scheduling model in the [online Epsilon Playground](../../playground/?egl).
 
 ## Abstract Syntax
 
@@ -426,7 +426,7 @@ digraph G {
 ```
 
 !!! tip "Run this example"
-    You can run and tweak this example is the [Epsilon Playground](../../live/?78a011a5).
+    You can run and tweak this example is the [Epsilon Playground](../../playground/?78a011a5).
 
 Outdentation also works with `if`, `switch`, `while` statements etc. More examples are available in the [unit tests folder of this feature](https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.egl.engine.test.acceptance/src/org/eclipse/epsilon/egl/test/acceptance/outdentation).
 

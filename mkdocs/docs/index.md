@@ -13,7 +13,7 @@ Epsilon is a family of Java-based scripting languages for automating common mode
 
 !!! info "Online Playground"
 
-	If you prefer not to download/install anything just quite yet, you can fiddle with EMF models and metamodels, and with some of the Epsilon languages in the online [Epsilon Playground](live).
+	If you prefer not to download/install anything just quite yet, you can fiddle with EMF models and metamodels, and with some of the Epsilon languages in the online [Epsilon Playground](playground).
 
 ## Installation
 

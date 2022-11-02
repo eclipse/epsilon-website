@@ -3,7 +3,7 @@ nav:
   - Home: index.md
   - Download : 'download/index.md'
   - Getting Started: 'getting-started.md'
-  - Playground : 'live'
+  - Playground : 'playground'
   - Documentation:
     - Overview: 'doc/index.md'
     - Model Connectivity: 'doc/emc.md'

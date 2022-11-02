@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/metro-all.min.css" from="https://cdn.metroui.org.ua/v4.4.3/css/metro-all.min.css">
+    <link rel="stylesheet" href="custom.css">
+    <title>Epsilon Playground</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.png">
+    
+	<script>
+    var programPanelButtons;
+    var secondModelPanelButtons;
+    var thirdModelPanelButtons;
+
+    var modelPanelButtons = [{
+        html: buttonHtml("help", "Flexmi language reference"),
+        cls: "sys-button",
+        onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
+    },{
+        html: buttonHtml("refresh", "Render the model object diagram"),
+        cls: "sys-button",
+        onclick: "refreshModelDiagram()"
+    },{
+        html: buttonHtml("diagram", "Show/hide the model object diagram"),
+        cls: "sys-button",
+        onclick: "toggle('modelDiagram', function(){refreshModelDiagram();})"
+    }];
+    var metamodelPanelButtons = [{
+        html: buttonHtml("help", "Emfatic language reference"),
+        cls: "sys-button",
+        onclick: "window.open('https://www.eclipse.org/epsilon/doc/articles/playground/#emfatic-metamodels-in-the-playground');"
+    },{
+        html: buttonHtml("refresh", "Render the metamodel class diagram"),
+        cls: "sys-button",
+        onclick: "refreshMetamodelDiagram()"
+    },{
+        html: buttonHtml("diagram", "Show/hide the metamodel class diagram"),
+        cls: "sys-button",
+        onclick: "toggle('metamodelDiagram', function(){refreshMetamodelDiagram();})"
+    }];
+    var secondMetamodelPanelButtons = [{
+        html: buttonHtml("help", "Emfatic language reference"),
+        cls: "sys-button",
+        onclick: "window.open('https://www.eclipse.org/emfatic');"
+    },{
+        html: buttonHtml("refresh", "Render the metamodel class diagram"),
+        cls: "sys-button",
+        onclick: "refreshSecondMetamodelDiagram()"
+    },{
+        html: buttonHtml("diagram", "Show/hide the metamodel class diagram"),
+        cls: "sys-button",
+        onclick: "toggle('secondMetamodelDiagram', function(){refreshSecondMetamodelDiagram();})"
+    }];
+    var consolePanelButtons = [{
+        html: buttonHtml("clear", "Clear the console"),
+        cls: "sys-button",
+        onclick: "consoleEditor.setValue('')"
+    }];
+
+    function buttonHtml(icon, hint) {
+        return "<span class='mif-" + icon + "' data-role='hint' data-hint-text='" + hint + "' data-hint-position='bottom'></span>";
+    }
+
+    </script>
+</head>
+
+<body class="h-100" onresize="fit()" onload="fit();updateGutterVisibility();">
+    <div id="navview" data-role="navview" style="display:none">
+        <div class="navview-pane">
+            <button class="pull-button">
+                <span class="default-icon-menu" id="toggleNavViewPane"></span>
+            </button>
+            <ul class="navview-menu">
+                <li class="item-header">Epsilon Playground</li>
+                <li class="item-separator"></li>
+                <li class="item-separator" id="examples-end"></li>
+                <li>
+                    <a href="#" onclick="copyShortenedLink(event)" id="exampleLink">
+                        <span class="icon"><span class="mif-example-16 mif-link"></span></span>
+                        <span class="caption">Share</span>
+                    </a>
+                    <a href="#" onclick="showDownloadOptions(event)" id="exampleLink">
+                        <span class="icon"><span class="mif-example-16 mif-download"></span></span>
+                        <span class="caption">Download</span>
+                    </a>
+                    <a href="#" onclick="showSettings(event)" id="exampleLink">
+                        <span class="icon"><span class="mif-example-16 mif-settings"></span></span>
+                        <span class="caption">Settings</span>
+                    </a>
+                    <a href="https://eclipse.org/epsilon/doc/articles/playground" target=”_blank”>
+                        <span class="icon"><span class="mif-example-16 mif-info"></span></span>
+                        <span class="caption">About</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navview-content">
+            <div id="splitter" data-role="splitter" class="h-100" style="min-height:800px" data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                <div data-role="splitter" data-split-mode="vertical"  data-on-resize-stop="fit()" data-on-resize-split="fit()" data-on-resize-window="fit()">
+                    <div id="programPanel" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="">
+                        <div class="editor" id="programEditor"></div>
+                    </div>
+                    <div id="consolePanel" data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-16 mif-console'></span>" data-custom-buttons="consolePanelButtons">
+                        <div class="editor" id="console"></div>
+                    </div>
+                </div>
+                <div data-role="splitter" data-split-mode="vertical" data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                    <div id="modelPanel" data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="modelPanelButtons" class="modelPanel">
+                        <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                            <div id="flexmiEditor" class="editor"></div>
+                            <div id="modelDiagram" class="diagram hidden"></div>
+                        </div>
+                    </div>
+                    <div id="metamodelPanel" data-role="panel" data-title-caption="Metamodel" data-title-icon="<span class='mif-16 mif-emfatic'></span>" data-custom-buttons="metamodelPanelButtons" class="modelPanel">
+                        <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                            <div id="emfaticEditor" class="editor"></div>
+                            <div id="metamodelDiagram" class="diagram"></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="splitter" data-split-mode="vertical" id="secondModelSplitter"  data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                    <div id="secondModelPanel" data-role="panel" data-title-caption="Second Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="secondModelPanelButtons" class="modelPanel">
+                        <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                            <div id="secondFlexmiEditor" class="editor"></div>
+                            <div id="secondModelDiagram" class="diagram"></div>
+                        </div>
+                    </div>
+                    <div id="secondMetamodelPanel" data-role="panel" data-title-caption="Second Metamodel" data-title-icon="<span class='mif-16 mif-emfatic'></span>" data-custom-buttons="secondMetamodelPanelButtons" class="modelPanel">
+                        <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                            <div id="secondEmfaticEditor" class="editor"></div>
+                            <div id="secondMetamodelDiagram" class="diagram"></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="splitter" data-split-mode="vertical" id="thirdModelSplitter" data-on-resize-stop="fit()" data-on-resize-split="fit()">
+                    <div id="thirdModelPanel" data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" data-custom-buttons="thirdModelPanelButtons" class="modelPanel">
+                        <div class="diagram standaloneDiagram" id="thirdModelDiagram"></div>
+                        <div id="outputEditor" class="editor" style="display:none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/d3.v5.min.js" from="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/wasm/index.min.js" from="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+    <script src="js/metro.min.js" from="https://cdn.metroui.org.ua/v4.4.3/js/metro.min.js"></script>
+    <script src="js/ace/ace.js" from="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/eol.js" type="text/javascript"></script>
+    <script src="js/etl.js" type="text/javascript"></script>
+    <script src="js/evl.js" type="text/javascript"></script>
+    <script src="js/epl.js" type="text/javascript"></script>
+    <script src="js/egl.js" type="text/javascript"></script>
+    <script src="js/emfatic.js" type="text/javascript"></script>
+    <script src="js/svg-pan-zoom.min.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/handlebars.min.js" from="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-184785655-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-184785655-1');
+    </script>
+    <script async src="https://w.appzi.io/w.js?token=jlv6W"></script>
+    
+</body>
+
+</html>

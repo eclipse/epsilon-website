@@ -3,7 +3,7 @@
 EVL contributes model validation capabilities to Epsilon. More specifically, EVL can be used to specify and evaluate constraints and critiques on models of arbitrary metamodels and modelling technologies, and to produce human-readable error messages and executable quick fixes.
 
 !!! tip "Try EVL online"
-    You can run and fiddle with EVL constraints that validate a project scheduling model in the [online Epsilon Playground](../../live/?evl).
+    You can run and fiddle with EVL constraints that validate a project scheduling model in the [online Epsilon Playground](../../playground/?evl).
 
 ## Abstract Syntax
 
