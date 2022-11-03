@@ -14,6 +14,7 @@ var secondFlexmiEditor;
 var secondEmfaticEditor;
 var consoleEditor;
 var backendConfig = {};
+var showEditorLineNumbers = false;
 fetchBackendConfiguration();
 
 var examples = {};
@@ -375,6 +376,10 @@ function showSettings(event) {
         title: "Settings",
         content: 
         `
+        <h6>Editors</h6>
+        `
+        + createEditorLineNumbersCheckbox() +
+        `
         <h6>Visible Panels</h6>
         `
         + visibilityCheckboxes +
@@ -388,6 +393,7 @@ function showSettings(event) {
                     for (const panel of panels) {
                         applyPanelVisibility(panel);
                     }
+                    updateEditorLineNumbers();
                     updateGutterVisibility();
                     fit();
                 }
@@ -416,6 +422,11 @@ function applyPanelVisibility(panel) {
     else {
         parent.parentNode.style.display = "flex";
     }
+}
+
+function updateEditorLineNumbers() {
+    showEditorLineNumbers = document.getElementById("editorLineNumbers").checked;
+    editors.forEach(e => e.renderer.setShowGutter(showEditorLineNumbers));
 }
 
 function updateGutterVisibility() {
@@ -468,6 +479,12 @@ function getSiblings(element) {
     }
 
     return siblings;
+}
+
+function createEditorLineNumbersCheckbox() {
+    var checked = showEditorLineNumbers ? "checked" : "";
+
+    return '<input type="checkbox" id="editorLineNumbers" data-role="checkbox" data-caption="Show line numbers" ' + checked + '>';
 }
 
 function createPanelVisibilityCheckbox(panel) {
