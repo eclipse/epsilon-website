@@ -1,0 +1,21 @@
+for (task in Task.all) {
+    // Sort the efforts of each task by their percentage
+    var efforts = task.effort.sortBy(e|-e.percentage);
+	
+    // The person with the top effort is the lead of the task
+    // however, since some tasks may have no effort alllocated
+    // to them at all, efforts.first() may return null
+    // and efforts.first().person will then throw a null pointer exception
+    // Using ?.person instead will only attempt to access the person
+    // property if the effort is not null; otherwise it will return null.
+    var lead = efforts.first()?.person;
+
+    // Attempt to fetch the name of the lead
+    var leadName = lead?.name;
+    // Use the Elvis operator to set leadName 
+    // to "nobody" if it is null
+    leadName ?= "nobody";
+
+    ("Task " + task.title + " is led by " + leadName).println();
+
+}

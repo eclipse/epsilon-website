@@ -1,0 +1,12 @@
+// For every person in the model
+for (person in Person.all) {
+    // Attach a new extended ~tasks property to
+    // the person that records the tasks they contribute to
+    person.~tasks = Task.all.
+        select(t|t.effort.exists(e|e.person = person));
+}
+
+// Access the extended properties later in the program
+for (person in Person.all) {
+    (person.name + " contributes to " + person.~tasks.title.concat(", ")).println();
+}

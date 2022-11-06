@@ -131,5 +131,21 @@
 		"flexmi": "filegrams.flexmi",
 		"emfatic": "filegrams.emf",
 		"outputType": "dot"
+	},
+	{
+		"id": "extended-properties",
+		"title": "Extended Properties",
+		"language": "eol",
+		"program": "extended-properties.eol",
+		"flexmi": "psl.flexmi",
+		"emfatic": "psl.emf"
+	},
+	{
+		"id": "safe-navigation",
+		"title": "Safe Navigation",
+		"language": "eol",
+		"program": "safe-navigation.eol",
+		"flexmi": "psl-safe-navigation.flexmi",
+		"emfatic": "psl.emf"
 	}
 ]}
