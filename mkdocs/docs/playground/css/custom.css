@@ -40,87 +40,87 @@
 }
 
 .mif-eol::before {
-	content: url("images/eol.gif");
+	content: url("../images/eol.gif");
 }
 
 .mif-egl::before {
-    content: url("images/egl.png");
+    content: url("../images/egl.png");
 }
 
 .mif-etl::before {
-    content: url("images/etl.gif");
+    content: url("../images/etl.gif");
 }
 
 .mif-epl::before {
-    content: url("images/epl.gif");
+    content: url("../images/epl.gif");
 }
 
 .mif-evl::before {
-    content: url("images/evl.gif");
+    content: url("../images/evl.gif");
 }
 
 .mif-flexmi::before {
-    content: url("images/flexmi.png");
+    content: url("../images/flexmi.png");
 }
 
 .mif-html::before {
-    content: url("images/html.gif");
+    content: url("../images/html.gif");
 }
 
 .mif-emfatic::before {
-    content: url("images/emfatic.png");
+    content: url("../images/emfatic.png");
 }
 
 .mif-clear::before {
-	content: url("images/clear.gif");
+	content: url("../images/clear.gif");
 }
 
 .mif-console::before {
-	content: url("images/console.gif");
+	content: url("../images/console.gif");
 }
 
 .mif-diagram::before {
-	content: url("images/diagram.gif");
+	content: url("../images/diagram.gif");
 }
 
 .mif-refresh::before {
-	content: url("images/refresh.png");
+	content: url("../images/refresh.png");
 }
 
 .mif-run::before {
-	content: url("images/run.png");
+	content: url("../images/run.png");
 }
 
 .mif-info::before {
-	content: url("images/info.png");
+	content: url("../images/info.png");
 }
 
 .mif-link::before {
-	content: url("images/link.png");
+	content: url("../images/link.png");
 }
 
 .mif-help::before {
-	content: url("images/help.png");
+	content: url("../images/help.png");
 }
 
 .mif-problems::before {
-	content: url("images/problems.png");
+	content: url("../images/problems.png");
 }
 
 .mif-editor::before {
-	content: url("images/editor.gif");
+	content: url("../images/editor.gif");
 }
 
 .mif-highlight::before {
-	content: url("images/highlight.png");
+	content: url("../images/highlight.png");
 }
 
 .mif-download::before {
-	content: url("images/download.png");
+	content: url("../images/download.png");
 }
 
 .mif-settings::before {
-	content: url("images/settings.png");
+	content: url("../images/settings.png");
 }
 
 .panel .panel-title .custom-buttons {
