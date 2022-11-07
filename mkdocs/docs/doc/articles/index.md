@@ -90,6 +90,11 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 
 - [Running Epsilon's ANT Tasks from Command Line](running-epsilon-ant-tasks-from-command-line): This article shows how to run Epsilon's ANT tasks from command line or in the context of a CI build.
 
+## Development Environments
+
+- [VS Code](vscode): This article provides an overview of how you can edit and run Epsilon programs in the VS Code IDE.
+
+
 ## Human-Usable Textual Notation
 
 - [Using the Human-Usable Textual Notation (HUTN) in Epsilon](hutn-basic): This article demonstrates how to specify models using a textual notation.
