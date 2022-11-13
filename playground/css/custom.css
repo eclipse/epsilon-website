@@ -170,3 +170,15 @@ body {
 .ace_gutter-active-line {
 	background-color: white !important;
 }
+
+#preloader {
+	position: fixed; 
+	height: 100%; 
+	width: 100%; 
+	top:0; 
+	left: 0; 
+	background: white;
+	z-index:9999;
+	padding-top: 200px;
+	text-align: center;
+}

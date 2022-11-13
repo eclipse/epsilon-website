@@ -742,6 +742,11 @@ function fit() {
         }
     }
 
+    // Hide the preloader div if it's still visible
+    setTimeout(function(){ 
+        document.getElementById("preloader").style.display = "none"; 
+    }, 1000);
+
 }
 
 function setConsoleOutput(str) {
