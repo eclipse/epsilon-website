@@ -46,3 +46,7 @@ Epsilon is licensed under the [Eclipse Public License 2.0](https://www.eclipse.o
 Eclipse Epsilon and the Eclipse Epsilon project logo are trademarks of the Eclipse Foundation. Eclipse and the Eclipse logo are registered trademarks of the Eclipse Foundation.
 
 Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.
+
+## Acknowledgements
+
+We would like to thank ej-technologies for providing us with free licenses of their powerful [JProfiler Java profiler](https://www.ej-technologies.com/products/jprofiler/overview.html).
