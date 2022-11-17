@@ -70,8 +70,9 @@ extra:
       link: https://twitter.com/eclipseepsilon
     - icon: fontawesome/brands/youtube
       link: https://youtube.com/epsilondevs     
-#repo_name: 'Git repository @ GitHub'
-#repo_url: 'https://github.com/eclipse/epsilon-website'
+repo_name: 'Epsilon @ GitHub'
+repo_url: 'https://github.com/eclipse/epsilon'
+edit_uri: ../epsilon-website/edit/master/mkdocs/docs/
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
