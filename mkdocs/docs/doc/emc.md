@@ -1,6 +1,6 @@
 # The Epsilon Model Connectivity Layer (EMC)
 
-The Epsilon Model Connectivity (EMC) layer provides abstraction facilities over concrete modelling technologies such as [EMF](#eclipse-modeling-framework), [XML](#xmlcsv), [Simulink](#matlab-simulink) etc. and enables Epsilon programs to interact with models conforming to these technologies in a uniform manner. A graphical overview of the core classes and methods of EMC is displayed below.
+The Epsilon Model Connectivity (EMC) layer provides abstraction facilities over concrete modelling technologies such as [EMF](#eclipse-modeling-framework), [XML](#xmlcsvexcel), [Simulink](#matlab-simulink) etc. and enables Epsilon programs to interact with models conforming to these technologies in a uniform manner. A graphical overview of the core classes and methods of EMC is displayed below.
 
 !!! tip
 	If you are interested in examples of EMC-based drivers for Epsilon, rather than on the organisation of EMC itself, please scroll to the [bottom of this page](#emc-drivers).

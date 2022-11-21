@@ -36,7 +36,7 @@ The PlainXML driver uses predefined naming conventions to allow developers to pr
 
 ### How can I access elements by tag name? 
  
-The `t_` prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, `t_book.all` can be used to get all elements tagged as `<book>` in the document, `t_author.all` to retrieve all `<author>` elements etc. Also, if `b` is an element with a `<book>` tag, then `b.isTypeOf(t_book)` shall return true.
+The `t_` prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, `t_book.all` can be used to get all elements tagged as `<book>` in the document, `t_author.all` to retrieve all `<author>` elements etc. Also, if `b` is an element with a `<book>` tag, then `b.isTypeOf(t_book)` shall return true. If the tag name contains hyphens, underscores, and/or periods, you must escape the complete type name inside back ticks: `` `t_first-name `` 
 
 ```eol
 // Get all <book> elements
@@ -56,7 +56,7 @@ b.isTypeOf(t_library).println();
 
 ### How can I get the tag name of an element?
  
-You can use the `.tagName` property for this purpose. For instance, if `b` is an element tagged as `<book>`, `b.tagName` shall return `book`. The `tagName` property is read-only.
+You can use the `.name` property for this purpose. For instance, if `b` is an element tagged as `<book>`, `b.name` shall return `book`. The `name` property is read-only.
 
 ```eol
 // Get a random <book> element
@@ -64,8 +64,11 @@ var b = t_book.all.random();
 
 // Print its tag
 // Prints 'book'
-b.tagName.println();
+b.name.println();
 ```
+!!! warning "tagName property is deprecated"
+    Previously the `tagName` property was suggested for getting the tag name of an element. Due to the introduction of modules in Java 9 accessing this property is deprecated and future use can result in run time exceptions.
+
 
 ### How can I get/set the attributes of an element?
  
@@ -111,7 +114,7 @@ var b = t_book.all.random();
 
 // Print the tag of its parent node
 // Prints 'library'
-b.parentNode.tagName.println();
+b.parentNode.name.println();
 ```
 
 ### How do I get the children of an element?
@@ -139,7 +142,7 @@ var b = t_book.all.random();
 
 // Get its <author> children using the 
 // .children property
-var authors = b.children.select(a|a.tagName = "author");
+var authors = b.children.select(a|a.name = "author");
 
 // Do the same using the shorthand
 authors = b.c_author;
@@ -147,7 +150,7 @@ authors = b.c_author;
 // Get its <published> child and print
 // its text using the
 // .children property
-b.children.selectOne(p|p.tagName = "published").text.println();
+b.children.selectOne(p|p.name = "published").text.println();
 
 // Do the same using the shorthand
 // (e_ instead of c_ this time as 
@@ -194,6 +197,62 @@ You can use the `.root` property for this.
 
 ```eol
 XMLDoc.root = new t_library;
+```
+
+!!! warning "root element is required"
+    When writing scripts that create new XML documents, e.g. ETL, the root element must be set on the output model. This can be done ina `pre` block (e.g. if the root is not craeted by a transformation rule) or in a rule/operation/other. For the Library example above (where `lib` is the model name): 
+    ```etl
+    pre {
+        var root = new t_library;
+        lib.root = root;
+    }
+    ```
+    If a root element is not assigned, then the output file will be empty.
+
+### Using XML attributes as references
+
+The XML model type allows XML attributes to be used as references by using the attribute value as a "key" of another element. For example, we could extend the library example to include an author and editor reference on each book, and move authors to the root:
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<library>
+	<book title="EMF Eclipse Modeling Framework" pages="744" authors="DS,FB,MP,EM" editor="EG">
+		
+		<published>2009</published>
+	</book>
+	<book title="Eclipse Modeling Project: A Domain-Specific Language (DSL) Toolkit" pages="736" authors="RG">
+		<published>2009</published>
+	</book>
+	<book title="Official Eclipse 3.0 FAQs" pages="432">
+		<author>John Arthorne</author>
+		<author>Chris Laffra</author>
+		<published>2004</published>
+	</book>
+	<author id="DS">Dave Steinberg</author>
+	<author id="FB">Frank Budinsky</author>
+	<author id="MP">Marcelo Paternostro</author>
+	<author id="EM">Ed Merks</author>
+	<author id="RG">Richard Gronback</author>
+	<editor id="EG">Erich Gamma</editor>
+</library>
+```
+Note that the attributes used for references must be a coma separated list of "keys". 
+
+For enabling the references, we need to add the desired bindings to the model. The bind method has the following signature: `bind(String sourceTag, String sourceAttribute, String targetTag, String targetAttribute, boolean many)`. Thus, for the library example, in EOL this can be done like this:
+
+```eol
+model.bind("book", "authors", "author", "id", true);
+model.bind("book", "editor", "editor", "name", false);
+```
+where 'model' is the name of the model (as specified in the run configuration). These statements should be at the top of the EOL file so the bindings are added before any other code executes. For rule based languages, this could be done in a `pre` block. If invoking from [java](loading-an-xml-document-through-java-code)) the bind method can be called on the model variable. 
+
+After the bindings are in place, we can use them:
+
+```eol
+var lib = t_library.all.first();
+// Prints 4
+lib.c_book.first().authors.size().println();
+// Prints Frank Budinsky
+lib.c_book.first().authors.second().text.println();
 ```
 
 ## Adding an XML document to your launch configuration
