@@ -1,3 +1,285 @@
+class Panel {
+
+    id;
+    editor;
+
+    constructor(id) {
+        this.id = id;
+        this.editor = ace.edit(document.getElementById(this.id + 'Editor'));
+        this.editor.setShowPrintMargin(false);
+    }
+
+    setTitle(title) {
+        $("#" + this.id + "Panel")[0].dataset.titleCaption = title;
+    }
+
+    setIcon(icon) {
+        $("#" + this.id + "Panel")[0].dataset.titleIcon = "<span class='mif-16 mif-" + icon + "'></span>";
+    }
+
+    getEditor() {
+        return this.editor;
+    }
+
+    getValue() {
+        return this.editor.getValue();
+    }
+
+    setValue(value) {
+        this.editor.setValue((value+""), 1);
+    }
+
+}
+
+class ProgramPanel extends Panel {
+    
+    constructor() {
+        super("program");
+    }
+
+    setLanguage(language) {
+        this.editor.getSession().setMode("ace/mode/" + language);
+    }
+
+}
+
+class ConsolePanel extends Panel {
+
+    constructor() {
+        super("console");
+        this.editor.setReadOnly(true);
+        this.editor.setValue("",1);
+        //TODO: Fix exception thrown when this is enabled
+        //this.detectHyperlinks(this.editor);        
+    }
+
+    setOutput(str) {
+        document.getElementById("consoleEditor").style.color = "black";
+        this.editor.getSession().setUseWrapMode(false);
+        this.editor.setValue(str, 1);
+
+    }
+    
+    setError(str) {
+        document.getElementById("consoleEditor").style.color = "#CD352C";
+        this.editor.getSession().setUseWrapMode(true);
+        this.editor.setValue(str, 1);
+    }
+
+    detectHyperlinks(editor) {
+
+        var locationRegexp = /\(((.+?)@(\d+):(\d+)-(\d+):(\d+))\)/i;
+    
+        define("hoverlink", [], function(require, exports, module) {
+            "use strict";
+            
+            var oop = require("ace/lib/oop");
+            var event = require("ace/lib/event");
+            var Range = require("ace/range").Range;
+            var EventEmitter = require("ace/lib/event_emitter").EventEmitter;
+            
+            var HoverLink = function(editor) {
+                if (editor.hoverLink)
+                    return;
+                editor.hoverLink = this;
+                this.editor = editor;
+            
+                this.update = this.update.bind(this);
+                this.onMouseMove = this.onMouseMove.bind(this);
+                this.onMouseOut = this.onMouseOut.bind(this);
+                this.onClick = this.onClick.bind(this);
+                event.addListener(editor.renderer.scroller, "mousemove", this.onMouseMove);
+                event.addListener(editor.renderer.content, "mouseout", this.onMouseOut);
+                event.addListener(editor.renderer.content, "click", this.onClick);
+            };
+            
+            (function(){
+                oop.implement(this, EventEmitter);
+                
+                this.token = {};
+                this.range = new Range();
+            
+                this.update = function() {
+                    this.$timer = null;
+                    var editor = this.editor;
+                    var renderer = editor.renderer;
+                    
+                    var canvasPos = renderer.scroller.getBoundingClientRect();
+                    var offset = (this.x + renderer.scrollLeft - canvasPos.left - renderer.$padding) / renderer.characterWidth;
+                    var row = Math.floor((this.y + renderer.scrollTop - canvasPos.top) / renderer.lineHeight);
+                    var col = Math.round(offset);
+            
+                    var screenPos = {row: row, column: col, side: offset - col > 0 ? 1 : -1};
+                    var session = editor.session;
+                    var docPos = session.screenToDocumentPosition(screenPos.row, screenPos.column);
+                    
+                    var selectionRange = editor.selection.getRange();
+                    if (!selectionRange.isEmpty()) {
+                        if (selectionRange.start.row <= row && selectionRange.end.row >= row)
+                            return this.clear();
+                    }
+                    
+                    var line = editor.session.getLine(docPos.row);
+                    if (docPos.column == line.length) {
+                        var clippedPos = editor.session.documentToScreenPosition(docPos.row, docPos.column);
+                        if (clippedPos.column != screenPos.column) {
+                            return this.clear();
+                        }
+                    }
+                    
+                    var token = this.findLink(docPos.row, docPos.column);
+                    this.link = token;
+                    if (!token) {
+                        return this.clear();
+                    }
+                    this.isOpen = true
+                    editor.renderer.setCursorStyle("pointer");
+                    
+                    session.removeMarker(this.marker);
+                    
+                    this.range =  new Range(token.row, token.start, token.row, token.start + token.value.length);
+                    this.marker = session.addMarker(this.range, "ace_link_marker", "text", true);
+                };
+                
+                this.clear = function() {
+                    if (this.isOpen) {
+                        this.editor.session.removeMarker(this.marker);
+                        this.editor.renderer.setCursorStyle("");
+                        this.isOpen = false;
+                    }
+                };
+                
+                this.getMatchAround = function(regExp, string, col) {
+                    var match;
+                    regExp.lastIndex = 0;
+                    string.replace(regExp, function(str) {
+                        var offset = arguments[arguments.length-2];
+                        var length = str.length;
+                        if (offset <= col && offset + length >= col)
+                            match = {
+                                start: offset,
+                                value: str
+                            };
+                    });
+                
+                    return match;
+                };
+                
+                this.onClick = function() {
+                    if (this.link) {
+                        this.link.editor = this.editor;
+                        this._signal("open", this.link);
+                        this.clear()
+                    }
+                };
+                
+                this.findLink = function(row, column) {
+                    var editor = this.editor;
+                    var session = editor.session;
+                    var line = session.getLine(row);
+                    
+                    var match = this.getMatchAround(locationRegexp, line, column);
+                    if (!match)
+                        return;
+                    
+                    match.row = row;
+                    return match;
+                };
+                
+                this.onMouseMove = function(e) {
+                    if (this.editor.$mouseHandler.isMousePressed) {
+                        if (!this.editor.selection.isEmpty())
+                            this.clear();
+                        return;
+                    }
+                    this.x = e.clientX;
+                    this.y = e.clientY;
+                    this.update();
+                };
+            
+                this.onMouseOut = function(e) {
+                    this.clear();
+                };
+            
+                this.destroy = function() {
+                    this.onMouseOut();
+                    event.removeListener(this.editor.renderer.scroller, "mousemove", this.onMouseMove);
+                    event.removeListener(this.editor.renderer.content, "mouseout", this.onMouseOut);
+                    delete this.editor.hoverLink;
+                };
+            
+            }).call(HoverLink.prototype);
+            
+            exports.HoverLink = HoverLink;
+            
+            });
+            
+            HoverLink = require("hoverlink").HoverLink
+            editor.hoverLink = new HoverLink(editor);
+            editor.hoverLink.on("open", function(e) {
+                var location = e.value;
+                if (editor.getValue().indexOf(location) > -1) {
+                    var matches = location.match(locationRegexp);
+                    var Range = require("ace/range").Range;
+                    programPanel.getEditor().selection.setRange(new Range(
+                        parseInt(matches[3])-1, parseInt(matches[4]), 
+                        parseInt(matches[5])-1, parseInt(matches[6])));
+                }
+            })
+    }
+}
+
+class ModelPanel extends Panel {
+
+    editable;
+
+    constructor(id, editable) {
+        super(id);
+        this.editable = editable;
+        this.setupSyntaxHighlighting();
+    }
+
+    showDiagram() {
+        $("#" + this.id + "Diagram").show();
+    }
+
+    setupSyntaxHighlighting() {
+        this.editor.getSession().setMode("ace/mode/xml");
+        this.updateSyntaxHighlighting();
+        var self = this;
+        this.editor.getSession().on('change', function() {
+            self.updateSyntaxHighlighting();
+        });
+    }
+
+    /**
+     * Updates the syntax highlighting mode of a Flexmi
+     * editor based on its content. If the content starts with
+     * < then the XML flavour is assumed, otherwise, the YAML
+     * flavour is assumed
+     */
+    updateSyntaxHighlighting() {
+        var val = this.editor.getSession().getValue();
+        if ((val.trim()+"").startsWith("<")) {
+            this.editor.getSession().setMode("ace/mode/xml");
+        }
+        else {
+            this.editor.getSession().setMode("ace/mode/yaml");
+        }
+    }
+
+}
+
+class MetamodelPanel extends ModelPanel {
+    constructor(id) {
+        super(id, true);
+    }
+
+    setupSyntaxHighlighting() {
+        this.editor.getSession().setMode("ace/mode/emfatic");
+    }
+}
+
 var language = "eol";
 var outputType = "text";
 var outputLanguage = "text";
@@ -7,15 +289,17 @@ var secondModelEditable;
 var url = window.location + "";
 var questionMark = url.indexOf("?");
 var editors;
-var programEditor;
-var flexmiEditor;
-var emfaticEditor;
-var secondFlexmiEditor;
-var secondEmfaticEditor;
-var consoleEditor;
 var backendConfig = {};
 var showEditorLineNumbers = false;
 fetchBackendConfiguration();
+
+var programPanel = new ProgramPanel();
+var firstModelPanel = new ModelPanel("model");
+var secondModelPanel = new ModelPanel("secondModel");
+var thirdModelPanel = new ModelPanel("thirdModel");
+var firstMetamodelPanel = new MetamodelPanel("metamodel");
+var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
+var consolePanel = new ConsolePanel();
 
 var examples = {};
 fetchExamples();
@@ -181,31 +465,10 @@ function setup() {
         });
     });
 
-    programEditor = ace.edit(document.getElementById('programEditor'));
-    flexmiEditor = ace.edit(document.getElementById('flexmiEditor'));
-    emfaticEditor = ace.edit(document.getElementById('emfaticEditor'));
-    secondFlexmiEditor = ace.edit(document.getElementById('secondFlexmiEditor'));
-    secondEmfaticEditor = ace.edit(document.getElementById('secondEmfaticEditor'));
     outputEditor = ace.edit(document.getElementById('outputEditor'));
-    consoleEditor = ace.edit(document.getElementById('console'));
-    
-    editors = [programEditor, flexmiEditor, emfaticEditor, secondFlexmiEditor, secondEmfaticEditor, consoleEditor, outputEditor];
 
-    editors.forEach(e => e.setShowPrintMargin(false));
+    editors = [programPanel.getEditor(), firstModelPanel.getEditor(), firstMetamodelPanel.getEditor(), secondModelPanel.getEditor(), secondMetamodelPanel.getEditor(), consolePanel.getEditor(), outputEditor];
 
-    emfaticEditor.getSession().setMode("ace/mode/emfatic");
-    flexmiEditor.getSession().setMode("ace/mode/xml");
-
-    flexmiEditor.getSession().on('change', function() {
-      updateFlexmiEditorSyntaxHighlighting(flexmiEditor);
-    });
-
-    updateFlexmiEditorSyntaxHighlighting(flexmiEditor);
-
-    secondEmfaticEditor.getSession().setMode("ace/mode/emfatic");
-    secondFlexmiEditor.getSession().setMode("ace/mode/xml");
-    consoleEditor.setReadOnly(true);
-   
     arrangePanels();
 
     programPanelButtons = getProgramPanelButtons();
@@ -219,15 +482,13 @@ function setup() {
     thirdModelPanelButtons = getThirdModelPanelButtons();
 
     //TODO: Fix "undefined" when fields are empty
-    programEditor.getSession().setMode("ace/mode/" + language);
+    programPanel.setLanguage(language);
 
-    setEditorValue(programEditor, json.program);
-    setEditorValue(flexmiEditor, json.flexmi);
-    setEditorValue(emfaticEditor, json.emfatic);
-    setEditorValue(secondFlexmiEditor, json.secondFlexmi);
-    setEditorValue(secondEmfaticEditor, json.secondEmfatic);
-    consoleEditor.setValue("",1);
-    detectHyperlinks(consoleEditor);
+    programPanel.setValue(json.program);
+    firstModelPanel.setValue(json.flexmi);
+    firstMetamodelPanel.setValue(json.emfatic);
+    secondModelPanel.setValue(json.secondFlexmi);
+    secondMetamodelPanel.setValue(json.secondEmfatic);
 
     document.getElementById("navview").style.display = "block";
     
@@ -243,26 +504,6 @@ function setup() {
         event.preventDefault(); 
       }
     });
-}
-
-function setEditorValue(editor, value) {
-    editor.setValue((value+""), 1);
-}
-
-/**
- * Updates the syntax highlighting mode of a Flexmi
- * editor based on its content. If the content starts with
- * < then the XML flavour is assumed, otherwise, the YAML
- * flavour is assumed
- */
-function updateFlexmiEditorSyntaxHighlighting(editor) {
-    var val = editor.getSession().getValue();
-    if ((val.trim()+"").startsWith("<")) {
-        editor.getSession().setMode("ace/mode/xml");
-    }
-    else {
-        editor.getSession().setMode("ace/mode/yaml");
-    }
 }
 
 function setOutputLanguage() {
@@ -302,16 +543,16 @@ function showDownloadOptions(event) {
                 cls: "js-dialog-close success",
                 onclick: function(){
                     var zip = new JSZip();
-                    zip.file("program." + language, programEditor.getValue());
+                    zip.file("program." + language, programPanel.getEditor().getValue());
 
                     if (language != "etl") {
-                        zip.file("model.flexmi", flexmiEditor.getValue());
-                        zip.file("metamodel.emf", emfaticEditor.getValue());
+                        zip.file("model.flexmi", firstModelPanel.getValue());
+                        zip.file("metamodel.emf", firstMetamodelPanel.getValue());
                     }
                     else {
-                        zip.file("source.flexmi", flexmiEditor.getValue());
-                        zip.file("source.emf", emfaticEditor.getValue());
-                        zip.file("target.emf", secondEmfaticEditor.getValue());
+                        zip.file("source.flexmi", firstModelPanel.getValue());
+                        zip.file("source.emf", firstMetamodelPanel.getValue());
+                        zip.file("target.emf", secondMetamodelPanel.getValue());
                     }
 
                     var format = document.getElementById("format").value;
@@ -463,20 +704,6 @@ function getPreviousVisibleSibling(element) {
     }
 }
 
-function getSiblings(element) {
-    var siblings = [];
-    var sibling = elem.parentNode.firstChild;
-
-    while (sibling) {
-        if (sibling.nodeType === 1 && sibling !== elem) {
-            siblings.push(sibling);
-        }
-        sibling = sibling.nextSibling
-    }
-
-    return siblings;
-}
-
 function createEditorLineNumbersCheckbox() {
     var checked = showEditorLineNumbers ? "checked" : "";
 
@@ -582,87 +809,79 @@ function arrangePanels() {
     if (language == "eol") {
         toggle("secondModelSplitter");
         toggle("thirdModelSplitter");
-        setPanelTitle("programPanel", "Program (EOL)");
+        programPanel.setTitle("Program (EOL)");
     }
     else if (language == "egl") {
         if (outputType == "dot") {
             toggle("secondModelSplitter");
-            $("#thirdModelDiagram").show();       
-            setPanelTitle("thirdModelPanel", "Graphviz");
-            setPanelIcon("thirdModelPanel", "diagram");
+            thirdModelPanel.showDiagram();
+            thirdModelPanel.setTitle("Graphviz");
+            thirdModelPanel.setIcon("diagram");
         }
         else if (outputType == "html") {
             toggle("secondModelSplitter");
-            $("#thirdModelDiagram").show();
-            setPanelTitle("thirdModelPanel", "HTML");
-            setPanelIcon("thirdModelPanel", "html");
+            thirdModelPanel.showDiagram();
+            thirdModelPanel.setTitle("HTML");
+            thirdModelPanel.setIcon("html");
         }
         else if (outputType == "puml") {
             toggle("secondModelSplitter");
-            $("#thirdModelDiagram").show();
-            setPanelTitle("thirdModelPanel", "PlantUML");
-            setPanelIcon("thirdModelPanel", "diagram");
+            thirdModelPanel.showDiagram();
+            thirdModelPanel.setTitle("PlantUML");
+            thirdModelPanel.setIcon("diagram");
         }
         else if (outputType == "code") {
             toggle("secondModelSplitter");
             $("#thirdModelDiagram").hide();
             $("#outputEditor").show();
             setOutputEditorLanguage();
-            setPanelTitle("thirdModelPanel", "Generated Text");
-            setPanelIcon("thirdModelPanel", "editor");                
+            thirdModelPanel.setTitle("Generated Text");
+            thirdModelPanel.setIcon("editor");            
         }
         else {
             toggle("secondModelSplitter");
             toggle("thirdModelSplitter");
         }
-        setPanelTitle("programPanel", "Template (EGL)");
+        programPanel.setTitle("Template (EGL)");
     }
     else if (language == "etl" || language == "flock") {
         $("#thirdModelSplitter").hide();
         $("#secondModelDiagram").show();
-        $("#secondFlexmiEditor").hide();
+        $("#secondModelEditor").hide();
 
-        setPanelTitle("programPanel", "Transformation (ETL)");
-        setPanelTitle("modelPanel", "Source Model");
-        setPanelTitle("metamodelPanel", "Source Metamodel");
-        setPanelTitle("secondModelPanel", "Target Model");
-        setPanelTitle("secondMetamodelPanel", "Target Metamodel");
-        setPanelIcon("secondModelPanel", "diagram");
+        programPanel.setTitle("Transformation (ETL)");
+        firstModelPanel.setTitle("Source Model");
+        firstMetamodelPanel.setTitle("Source Metamodel");
+        secondModelPanel.setTitle("Target Model");
+        secondMetamodelPanel.setTitle("Target Metamodel");
+        secondModelPanel.setIcon("diagram");
     }
     else if (language == "evl" || language == "epl") {
         toggle("secondModelSplitter");
         $("#thirdModelDiagram").show();
         if (language == "evl") {
-            setPanelTitle("programPanel", "Constraints (EVL)");
-            setPanelTitle("thirdModelPanel", "Problems");
-            setPanelIcon("thirdModelPanel", "problems");
+            programPanel.setTitle("Constraints (EVL)");
+            thirdModelPanel.setTitle("Problems");
+            thirdModelPanel.setIcon("problems");
         }
         else {
-            setPanelTitle("programPanel", "Patterns (EPL)");
-            setPanelTitle("thirdModelPanel", "Pattern Matches");
-            setPanelIcon("thirdModelPanel", "diagram");
+            programPanel.setTitle("Patterns (EPL)");
+            thirdModelPanel.setTitle("Pattern Matches");
+            thirdModelPanel.setIcon("diagram");
         }
     }
     else if (language == "ecl") {
         // Hide nothing; we need everything
     }
-    setPanelIcon("programPanel", language);
+    programPanel.setIcon(language);
 }
 
 function emptyButtons() {
     return [];
 }
 
-function setPanelTitle(panelId, title) {
-    $("#" + panelId)[0].dataset.titleCaption = title;
-}
-
 function getPanelTitle(panelId) {
     return $("#" + panelId)[0].dataset.titleCaption;
-}
-
-function setPanelIcon(panelId, icon) {
-    $("#" + panelId)[0].dataset.titleIcon = "<span class='mif-16 mif-" + icon + "'></span>";
 }
 
 function editorsToJsonObject() {
@@ -670,11 +889,11 @@ function editorsToJsonObject() {
             "language": language,
             "outputType": outputType,
             "outputLanguage": outputLanguage,
-            "program": programEditor.getValue(), 
-            "emfatic": emfaticEditor.getValue(), 
-            "flexmi": flexmiEditor.getValue(),
-            "secondEmfatic": secondEmfaticEditor.getValue(),
-            "secondFlexmi": secondFlexmiEditor.getValue()
+            "program": programPanel.getValue(), 
+            "emfatic": firstMetamodelPanel.getValue(), 
+            "flexmi": firstModelPanel.getValue(),
+            "secondEmfatic": secondMetamodelPanel.getValue(),
+            "secondFlexmi": secondModelPanel.getValue()
         };
 }
 
@@ -696,14 +915,14 @@ function fit() {
     document.getElementById("splitter").style.minHeight = window.innerHeight + "px";
     document.getElementById("splitter").style.maxHeight = window.innerHeight + "px";
 
-    for (const editorId of ["programEditor", "console"]) {
+    for (const editorId of ["programEditor", "consoleEditor"]) {
         var editorElement = document.getElementById(editorId);
         if (editorElement != null) {
             editorElement.parentNode.style = "flex-basis: calc(100% - 4px);";
         }
     }
 
-    for (const editorId of ["flexmiEditor", "emfaticEditor", "secondFlexmiEditor", "secondEmfaticEditor"]) {
+    for (const editorId of ["modelEditor", "metamodelEditor", "secondModelEditor", "secondMetamodelEditor"]) {
         var editorElement = document.getElementById(editorId);
         if (editorElement != null) {
             editorElement.parentNode.parentNode.style = "flex-basis: calc(100% - 4px); padding: 0px";
@@ -749,18 +968,6 @@ function fit() {
 
 }
 
-function setConsoleOutput(str) {
-    document.getElementById("console").style.color = "black";
-    consoleEditor.getSession().setUseWrapMode(false);
-    consoleEditor.setValue(str, 1);
-}
-
-function setConsoleError(str) {
-    document.getElementById("console").style.color = "#CD352C";
-    consoleEditor.getSession().setUseWrapMode(true);
-    consoleEditor.setValue(str, 1);
-}
-
 function runProgram() {
 	
     var xhr = new XMLHttpRequest();
@@ -774,10 +981,10 @@ function runProgram() {
                 var json = JSON.parse(xhr.responseText);
 
                 if (json.hasOwnProperty("error")) {
-                    setConsoleError(json.error);
+                    consolePanel.setError(json.error);
                 }
                 else {
-                    setConsoleOutput(json.output);
+                    consolePanel.setOutput(json.output);
                     
                     if (language == "etl") {
                         renderDiagram("secondModelDiagram", json.targetModelDiagram);
@@ -792,10 +999,10 @@ function runProgram() {
                         if (outputType == "code") {
                             outputEditor.getSession().setUseWrapMode(false);
                             outputEditor.setValue(json.generatedText, 1);
-                            setConsoleOutput(json.output);
+                            consolePanel.setOutput(json.output);
                         }
                         else if (outputType == "html") {
-                            setConsoleOutput(json.output);
+                            consolePanel.setOutput(json.output);
                             var iframe = document.getElementById("htmlIframe");
                             if (iframe == null) {
                                 iframe = document.createElement("iframe");
@@ -809,7 +1016,7 @@ function runProgram() {
                         }
                         else if (outputType == "puml" || outputType == "dot") {
 
-                            setConsoleOutput(json.output);
+                            consolePanel.setOutput(json.output);
                             var krokiEndpoint = "";
                             if (outputType == "puml") krokiEndpoint = "plantuml";
                             else krokiEndpoint = "graphviz/svg"
@@ -828,7 +1035,7 @@ function runProgram() {
                             krokiXhr.send(json.generatedText);
                         }
                         else {
-                            setConsoleOutput(json.output + json.generatedText);
+                            consolePanel.setOutput(json.output + json.generatedText);
                         }
                     }
                 }
@@ -847,19 +1054,19 @@ function longNotification(title, cls="light") {
 }
 
 function refreshModelDiagram() {
-    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"], "modelDiagram", "model", flexmiEditor, emfaticEditor);
+    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"], "modelDiagram", "model", firstModelPanel.getEditor(), firstMetamodelPanel.getEditor());
 }
 
 function refreshMetamodelDiagram() {
-    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"], "metamodelDiagram", "metamodel", flexmiEditor, emfaticEditor);
+    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"], "metamodelDiagram", "metamodel", firstModelPanel.getEditor(), firstMetamodelPanel.getEditor());
 }
 
 function refreshSecondModelDiagram() {
-    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"], "secondModelDiagram", "model", secondFlexmiEditor, secondEmfaticEditor);
+    refreshDiagram(backendConfig["FlexmiToPlantUMLFunction"], "secondModelDiagram", "model", secondModelPanel.getEditor(), secondMetamodelPanel.getEditor());
 }
 
 function refreshSecondMetamodelDiagram() {
-    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"], "secondMetamodelDiagram", "metamodel", secondFlexmiEditor, secondEmfaticEditor);
+    refreshDiagram(backendConfig["EmfaticToPlantUMLFunction"], "secondMetamodelDiagram", "metamodel", secondModelPanel.getEditor(), secondMetamodelPanel.getEditor());
 }
 
 function toggle(elementId, onEmpty) {
@@ -893,7 +1100,7 @@ function refreshDiagram(url, diagramId, diagramName, modelEditor, metamodelEdito
                 if (diagramId.endsWith("etamodelDiagram")) jsonField = "metamodelDiagram";
                 
                 if (json.hasOwnProperty("error")) {
-                    setConsoleError(json.error);
+                    consolePanel.setError(json.error);
                 }
                 else {
                     renderDiagram(diagramId, json[jsonField]);
@@ -925,166 +1132,4 @@ function renderDiagram(diagramId, svg) {
       fit: true,
       center: true
     });
-}
-
-function detectHyperlinks(editor) {
-
-    var locationRegexp = /\(((.+?)@(\d+):(\d+)-(\d+):(\d+))\)/i;
-
-    define("hoverlink", [], function(require, exports, module) {
-        "use strict";
-        
-        var oop = require("ace/lib/oop");
-        var event = require("ace/lib/event");
-        var Range = require("ace/range").Range;
-        var EventEmitter = require("ace/lib/event_emitter").EventEmitter;
-        
-        var HoverLink = function(editor) {
-            if (editor.hoverLink)
-                return;
-            editor.hoverLink = this;
-            this.editor = editor;
-        
-            this.update = this.update.bind(this);
-            this.onMouseMove = this.onMouseMove.bind(this);
-            this.onMouseOut = this.onMouseOut.bind(this);
-            this.onClick = this.onClick.bind(this);
-            event.addListener(editor.renderer.scroller, "mousemove", this.onMouseMove);
-            event.addListener(editor.renderer.content, "mouseout", this.onMouseOut);
-            event.addListener(editor.renderer.content, "click", this.onClick);
-        };
-        
-        (function(){
-            oop.implement(this, EventEmitter);
-            
-            this.token = {};
-            this.range = new Range();
-        
-            this.update = function() {
-                this.$timer = null;
-                var editor = this.editor;
-                var renderer = editor.renderer;
-                
-                var canvasPos = renderer.scroller.getBoundingClientRect();
-                var offset = (this.x + renderer.scrollLeft - canvasPos.left - renderer.$padding) / renderer.characterWidth;
-                var row = Math.floor((this.y + renderer.scrollTop - canvasPos.top) / renderer.lineHeight);
-                var col = Math.round(offset);
-        
-                var screenPos = {row: row, column: col, side: offset - col > 0 ? 1 : -1};
-                var session = editor.session;
-                var docPos = session.screenToDocumentPosition(screenPos.row, screenPos.column);
-                
-                var selectionRange = editor.selection.getRange();
-                if (!selectionRange.isEmpty()) {
-                    if (selectionRange.start.row <= row && selectionRange.end.row >= row)
-                        return this.clear();
-                }
-                
-                var line = editor.session.getLine(docPos.row);
-                if (docPos.column == line.length) {
-                    var clippedPos = editor.session.documentToScreenPosition(docPos.row, docPos.column);
-                    if (clippedPos.column != screenPos.column) {
-                        return this.clear();
-                    }
-                }
-                
-                var token = this.findLink(docPos.row, docPos.column);
-                this.link = token;
-                if (!token) {
-                    return this.clear();
-                }
-                this.isOpen = true
-                editor.renderer.setCursorStyle("pointer");
-                
-                session.removeMarker(this.marker);
-                
-                this.range =  new Range(token.row, token.start, token.row, token.start + token.value.length);
-                this.marker = session.addMarker(this.range, "ace_link_marker", "text", true);
-            };
-            
-            this.clear = function() {
-                if (this.isOpen) {
-                    this.editor.session.removeMarker(this.marker);
-                    this.editor.renderer.setCursorStyle("");
-                    this.isOpen = false;
-                }
-            };
-            
-            this.getMatchAround = function(regExp, string, col) {
-                var match;
-                regExp.lastIndex = 0;
-                string.replace(regExp, function(str) {
-                    var offset = arguments[arguments.length-2];
-                    var length = str.length;
-                    if (offset <= col && offset + length >= col)
-                        match = {
-                            start: offset,
-                            value: str
-                        };
-                });
-            
-                return match;
-            };
-            
-            this.onClick = function() {
-                if (this.link) {
-                    this.link.editor = this.editor;
-                    this._signal("open", this.link);
-                    this.clear()
-                }
-            };
-            
-            this.findLink = function(row, column) {
-                var editor = this.editor;
-                var session = editor.session;
-                var line = session.getLine(row);
-                
-                var match = this.getMatchAround(locationRegexp, line, column);
-                if (!match)
-                    return;
-                
-                match.row = row;
-                return match;
-            };
-            
-            this.onMouseMove = function(e) {
-                if (this.editor.$mouseHandler.isMousePressed) {
-                    if (!this.editor.selection.isEmpty())
-                        this.clear();
-                    return;
-                }
-                this.x = e.clientX;
-                this.y = e.clientY;
-                this.update();
-            };
-        
-            this.onMouseOut = function(e) {
-                this.clear();
-            };
-        
-            this.destroy = function() {
-                this.onMouseOut();
-                event.removeListener(this.editor.renderer.scroller, "mousemove", this.onMouseMove);
-                event.removeListener(this.editor.renderer.content, "mouseout", this.onMouseOut);
-                delete this.editor.hoverLink;
-            };
-        
-        }).call(HoverLink.prototype);
-        
-        exports.HoverLink = HoverLink;
-        
-        });
-        
-        HoverLink = require("hoverlink").HoverLink
-        editor.hoverLink = new HoverLink(editor);
-        editor.hoverLink.on("open", function(e) {
-            var location = e.value;
-            if (editor.getValue().indexOf(location) > -1) {
-                var matches = location.match(locationRegexp);
-                var Range = require("ace/range").Range;
-                programEditor.selection.setRange(new Range(
-                    parseInt(matches[3])-1, parseInt(matches[4]), 
-                    parseInt(matches[5])-1, parseInt(matches[6])));
-            }
-        })
 }
