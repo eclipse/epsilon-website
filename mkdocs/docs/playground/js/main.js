@@ -5,7 +5,6 @@ var language = "eol";
 var outputType = "text";
 var outputLanguage = "text";
 var json;
-var secondModelEditable;
 var url = window.location + "";
 var questionMark = url.indexOf("?");
 var editors;
@@ -93,7 +92,7 @@ function setup() {
     if (json.outputLanguage != null) {outputLanguage = json.outputLanguage;}
     
     
-    secondModelEditable = !(language == "etl" || language == "flock");
+    var secondModelEditable = !(language == "etl" || language == "flock");
 
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
     thirdModelPanel = new OutputPanel("thirdModel", outputType, outputLanguage);

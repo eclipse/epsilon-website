@@ -325,7 +325,6 @@ class ModelPanel extends Panel {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     var json = JSON.parse(xhr.responseText);
-                    var t = d3.transition().ease(d3.easeLinear);
                     
                     // FIXME: Make both functions return the PlantUML diagram in a "diagram" field
                     var jsonField = "modelDiagram";
