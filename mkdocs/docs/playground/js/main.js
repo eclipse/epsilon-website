@@ -1,5 +1,6 @@
-import {ModelPanel, MetamodelPanel, ConsolePanel, ProgramPanel, OutputPanel} from './panels.js';
-import {ExampleManager} from './example-manager.js';
+import { ModelPanel, MetamodelPanel, ConsolePanel, ProgramPanel, OutputPanel } from './panels.js';
+import { ExampleManager } from './example-manager.js';
+import { DownloadManager } from './download-manager.js';
 
 var language = "eol";
 var outputType = "text";
@@ -21,6 +22,7 @@ var thirdModelPanel;
 
 var consolePanel = new ConsolePanel();
 var examplesManager = new ExampleManager();
+var downloadManager = new DownloadManager();
 
 examplesManager.fetchExamples();
 fetchBackendConfiguration();
@@ -68,19 +70,6 @@ function fetchBackendConfiguration() {
         for (const service of json.services){
             backendConfig[service.name] = service.url;
         }
-    }
-}
-
-/**
- * Fetches the content of a file under the templates folder
- */
-function fetchTemplate(name) {
-    var xhr = new XMLHttpRequest();
-    var url = "templates/" + name;
-    xhr.open("GET", url, false);
-    xhr.send(data);
-    if (xhr.status === 200) {    
-        return xhr.responseText;
     }
 }
 
@@ -151,69 +140,6 @@ function setup() {
 
     Metro.init();
     
-}
-
-function showDownloadOptions(event) {
-    event.preventDefault();
-    Metro.dialog.create({
-        title: "Download",
-        content: "<p>You can download this example and run it locally through Gradle or Maven. Please choose your preferred format below. </p><br/><select id='format' data-role='select'><option value='gradle'>Gradle</option><option value='maven'>Maven</option></select>",
-        actions: [
-           {
-                caption: "Download",
-                cls: "js-dialog-close success",
-                onclick: function(){
-                    var zip = new JSZip();
-                    zip.file("program." + language, programPanel.getEditor().getValue());
-
-                    if (language != "etl") {
-                        zip.file("model.flexmi", firstModelPanel.getValue());
-                        zip.file("metamodel.emf", firstMetamodelPanel.getValue());
-                    }
-                    else {
-                        zip.file("source.flexmi", firstModelPanel.getValue());
-                        zip.file("source.emf", firstMetamodelPanel.getValue());
-                        zip.file("target.emf", secondMetamodelPanel.getValue());
-                    }
-
-                    var format = document.getElementById("format").value;
-                    
-                    var templateData = {
-                        language: language, 
-                        etl: language == "etl",
-                        egl: language == "egl"
-                    };
-
-                    if (format == "gradle") {
-                        var template = Handlebars.compile(fetchTemplate("build.gradle"));
-                        zip.file("build.gradle", template(templateData));
-                        zip.file("readme.md", fetchTemplate("readme-gradle.txt"));
-                    }
-                    else if (format == "maven") {
-                        var template = Handlebars.compile(fetchTemplate("pom.xml"));
-                        zip.file("pom.xml", template(templateData));
-                        zip.file("readme.md", fetchTemplate("readme-maven.txt"));
-                    }
-
-                    // var img = zip.folder("images");
-                    zip.generateAsync({type:"blob"})
-                    .then(function(content) {
-                        var blob = new Blob([content], { type: "application/zip" });
-                        var url = window.URL || window.webkitURL;
-                        var link = url.createObjectURL(blob);
-                        var a = document.createElement("a");
-                        a.setAttribute("download", "playground-example.zip");
-                        a.setAttribute("href", link);
-                        a.click();
-                    });
-                }
-            },
-           {
-                caption: "Cancel",
-                cls: "js-dialog-close"
-            }
-        ]
-    });
 }
 
 function showSettings(event) {
@@ -661,6 +587,10 @@ function renderDiagram(diagramId, svg) {
     });
 }
 
+function showDownloadOptions(event) {
+    downloadManager.showDownloadOptions(event);
+}
+
 window.fit = fit;
 window.updateGutterVisibility = updateGutterVisibility;
 window.runProgram = runProgram;
@@ -680,3 +610,8 @@ window.longNotification = longNotification;
 window.showDownloadOptions = showDownloadOptions;
 window.showSettings = showSettings;
 window.copyShortenedLink = copyShortenedLink;
+
+window.downloadManager = downloadManager;
+
+// Needed by DownloadManager
+window.language = language;
