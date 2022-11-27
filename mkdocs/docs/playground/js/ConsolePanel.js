@@ -7,8 +7,7 @@ class ConsolePanel extends Panel {
         this.editor.setReadOnly(true);
         this.editor.setValue("", 1);
         $('#consolePanel')[0].dataset.customButtons = JSON.stringify(this.getButtons());
-        //TODO: Fix exception thrown when this is enabled
-        //this.detectHyperlinks(this.editor);        
+        this.detectHyperlinks(this.editor);        
     }
 
     getButtons() {
@@ -180,7 +179,7 @@ class ConsolePanel extends Panel {
 
         });
 
-        HoverLink = require("hoverlink").HoverLink;
+        var HoverLink = require("hoverlink").HoverLink;
         editor.hoverLink = new HoverLink(editor);
         editor.hoverLink.on("open", function (e) {
             var location = e.value;
