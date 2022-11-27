@@ -1,6 +1,10 @@
-import { ModelPanel, MetamodelPanel, ConsolePanel, ProgramPanel, OutputPanel } from './panels.js';
+import { ModelPanel } from './ModelPanel.js';
+import { ConsolePanel } from "./ConsolePanel.js";
+import { ProgramPanel } from "./ProgramPanel.js";
+import { OutputPanel } from "./OutputPanel.js";
 import { ExampleManager } from './example-manager.js';
 import { DownloadManager } from './download-manager.js';
+import { MetamodelPanel } from './MetamodelPanel.js';
 
 var language = "eol";
 var outputType = "text";
