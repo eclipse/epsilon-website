@@ -1,5 +1,5 @@
-class DownloadManager {
-    showDownloadOptions(event) {
+class DownloadDialog {
+    show(event) {
         event.preventDefault();
         var self = this;
         Metro.dialog.create({
@@ -77,4 +77,4 @@ class DownloadManager {
     }
 }
 
-export { DownloadManager };
+export { DownloadDialog };

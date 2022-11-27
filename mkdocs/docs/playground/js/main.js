@@ -3,8 +3,9 @@ import { ConsolePanel } from "./ConsolePanel.js";
 import { ProgramPanel } from "./ProgramPanel.js";
 import { OutputPanel } from "./OutputPanel.js";
 import { ExampleManager } from './ExampleManager.js';
-import { DownloadManager } from './DownloadManager.js';
+import { DownloadDialog } from './DownloadDialog.js';
 import { MetamodelPanel } from './MetamodelPanel.js';
+import { SettingsDialog } from './SettingsDialog.js';
 
 var language = "eol";
 var outputType = "text";
@@ -14,7 +15,6 @@ var url = window.location + "";
 var questionMark = url.indexOf("?");
 var editors;
 var backendConfig = {};
-var showEditorLineNumbers = false;
 
 var programPanel = new ProgramPanel();
 var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
@@ -26,7 +26,8 @@ var thirdModelPanel;
 
 var consolePanel = new ConsolePanel();
 var examplesManager = new ExampleManager();
-var downloadManager = new DownloadManager();
+var downloadDialog = new DownloadDialog();
+var settingsDialog = new SettingsDialog();
 
 examplesManager.fetchExamples();
 fetchBackendConfiguration();
@@ -146,127 +147,6 @@ function setup() {
     
 }
 
-function showSettings(event) {
-    event.preventDefault();
-
-    var panels = ["program", "console", "firstModel", "firstMetamodel"];
-
-    if (language == "etl" || language == "flock") panels.push("secondModel", "secondMetamodel");
-    else if (language == "evl" || language == "epl" || language == "egl") panels.push("thirdModel");
-
-    var visibilityCheckboxes = "";
-
-    for (const panel of panels) {
-        visibilityCheckboxes += createPanelVisibilityCheckbox(panel, true) + "<br/>";
-    }
-    
-    Metro.dialog.create({
-        title: "Settings",
-        content: 
-        `
-        <h6>Editors</h6>
-        `
-        + createEditorLineNumbersCheckbox() +
-        `
-        <h6>Visible Panels</h6>
-        `
-        + visibilityCheckboxes +
-        `
-        `,
-        actions: [
-           {
-                caption: "Apply",
-                cls: "js-dialog-close success",
-                onclick: function(){
-                    for (const panel of panels) {
-                        applyPanelVisibility(panel);
-                    }
-                    updateEditorLineNumbers();
-                    updateGutterVisibility();
-                    fit();
-                }
-            },
-           {
-                caption: "Cancel",
-                cls: "js-dialog-close"
-            }
-        ]
-    });
-}
-
-function applyPanelVisibility(panel) {
-    var display = "none";
-    if (document.getElementById(panel + "Visible").checked) {
-        display = "flex";
-    }
-    var parent = document.getElementById(panel + "Panel").parentNode;
-    parent.style.display = display;
-    
-    // If all the panels in the splitter panel are hiden, hide the splitter panel too
-    if (Array.prototype.slice.call(parent.parentNode.children).every(
-            child => child.style.display == "none" || child.className == "gutter")) {   
-            parent.parentNode.style.display = "none";
-    }
-    else {
-        parent.parentNode.style.display = "flex";
-    }
-}
-
-function updateEditorLineNumbers() {
-    showEditorLineNumbers = document.getElementById("editorLineNumbers").checked;
-    editors.forEach(e => e.renderer.setShowGutter(showEditorLineNumbers));
-}
-
-function updateGutterVisibility() {
-    for (const gutter of Array.prototype.slice.call(document.getElementsByClassName("gutter"))) {
-
-        var visibleSiblings = Array.prototype.slice.call(gutter.parentNode.children).filter(
-            child => child != gutter && getComputedStyle(child).display != "none");
-        
-        if (visibleSiblings.length > 1) {
-            var nextVisibleSibling = getNextVisibleSibling(gutter);
-            var previousVisibleSibling = getPreviousVisibleSibling(gutter);
-            if (nextVisibleSibling != null && nextVisibleSibling.className != "gutter" && previousVisibleSibling != null) {
-                gutter.style.display = "flex";
-            }
-            else {
-                gutter.style.display = "none";
-            }
-        }
-        else {
-            gutter.style.display = "none";
-        }
-    }
-}
-
-function getNextVisibleSibling(element) {
-    var sibling = element.nextElementSibling;
-    while (sibling != null) {
-        if (getComputedStyle(sibling).display != "none") return sibling;
-        sibling = sibling.nextElementSibling;
-    }
-}
-
-function getPreviousVisibleSibling(element) {
-    var sibling = element.previousElementSibling;
-    while (sibling != null) {
-        if (getComputedStyle(sibling).display != "none") return sibling;
-        sibling = sibling.previousElementSibling;
-    }
-}
-
-function createEditorLineNumbersCheckbox() {
-    var checked = showEditorLineNumbers ? "checked" : "";
-
-    return '<input type="checkbox" id="editorLineNumbers" data-role="checkbox" data-caption="Show line numbers" ' + checked + '>';
-}
-
-function createPanelVisibilityCheckbox(panel) {
-
-    var checked = document.getElementById(panel + "Panel").parentNode.style.display == "none" ? "" : "checked";
-
-    return '<input type="checkbox" id="' + panel + 'Visible" data-role="checkbox" data-caption="' +  getPanelTitle(panel + "Panel")+ '" ' + checked + '>';
-}
 
 function copyShortenedLink(event) {
     event.preventDefault();
@@ -390,7 +270,7 @@ function arrangePanels() {
     programPanel.setIcon(language);
 }
 
-function getPanelTitle(panelId) {
+export function getPanelTitle(panelId) {
     return $("#" + panelId)[0].dataset.titleCaption;
 }
 
@@ -411,7 +291,7 @@ function editorsToJson() {
     return JSON.stringify(editorsToJsonObject());
 }
 
-function fit() {
+export function fit() {
     
     document.getElementById("splitter").style.minHeight = window.innerHeight + "px";
     document.getElementById("splitter").style.maxHeight = window.innerHeight + "px";
@@ -588,8 +468,50 @@ function renderDiagram(diagramId, svg) {
     });
 }
 
+function updateGutterVisibility() {
+    for (const gutter of Array.prototype.slice.call(document.getElementsByClassName("gutter"))) {
+
+        var visibleSiblings = Array.prototype.slice.call(gutter.parentNode.children).filter(
+            child => child != gutter && getComputedStyle(child).display != "none");
+        
+        if (visibleSiblings.length > 1) {
+            var nextVisibleSibling = getNextVisibleSibling(gutter);
+            var previousVisibleSibling = getPreviousVisibleSibling(gutter);
+            if (nextVisibleSibling != null && nextVisibleSibling.className != "gutter" && previousVisibleSibling != null) {
+                gutter.style.display = "flex";
+            }
+            else {
+                gutter.style.display = "none";
+            }
+        }
+        else {
+            gutter.style.display = "none";
+        }
+    }
+}
+
+function getNextVisibleSibling(element) {
+    var sibling = element.nextElementSibling;
+    while (sibling != null) {
+        if (getComputedStyle(sibling).display != "none") return sibling;
+        sibling = sibling.nextElementSibling;
+    }
+}
+
+function getPreviousVisibleSibling(element) {
+    var sibling = element.previousElementSibling;
+    while (sibling != null) {
+        if (getComputedStyle(sibling).display != "none") return sibling;
+        sibling = sibling.previousElementSibling;
+    }
+}
+
 function showDownloadOptions(event) {
-    downloadManager.showDownloadOptions(event);
+    downloadDialog.show(event);
+}
+
+function showSettings(event) {
+    settingsDialog.show(event);
 }
 
 window.fit = fit;
@@ -612,7 +534,11 @@ window.showDownloadOptions = showDownloadOptions;
 window.showSettings = showSettings;
 window.copyShortenedLink = copyShortenedLink;
 
-window.downloadManager = downloadManager;
+window.downloadDialog = downloadDialog;
 
-// Needed by DownloadManager
+// Needed by DownloadDialog
 window.language = language;
+
+// Needed by SettinsDialog
+window.getPanelTitle = getPanelTitle;
+window.editors = editors;
