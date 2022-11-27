@@ -2,8 +2,8 @@ import { ModelPanel } from './ModelPanel.js';
 import { ConsolePanel } from "./ConsolePanel.js";
 import { ProgramPanel } from "./ProgramPanel.js";
 import { OutputPanel } from "./OutputPanel.js";
-import { ExampleManager } from './example-manager.js';
-import { DownloadManager } from './download-manager.js';
+import { ExampleManager } from './ExampleManager.js';
+import { DownloadManager } from './DownloadManager.js';
 import { MetamodelPanel } from './MetamodelPanel.js';
 
 var language = "eol";
@@ -321,7 +321,6 @@ function copyToClipboard(str) {
 }
 
 function arrangePanels() {
-    console.log("Arranging panels...");
     if (language == "eol") {
         toggle("secondModelSplitter");
         toggle("thirdModelSplitter");
@@ -388,7 +387,6 @@ function arrangePanels() {
     else if (language == "ecl") {
         // Hide nothing; we need everything
     }
-    console.log("Setting program panel icon to " + language);
     programPanel.setIcon(language);
 }
 
@@ -454,7 +452,6 @@ function fit() {
         if (diagramElement != null) {
             var svg = diagramElement.firstElementChild;
             if (svg != null) {
-                console.log(svg);
                 if (svg.tagName == "svg") {
                     diagramElement = diagramElement.parentElement.parentElement.parentElement;
                     svg.style.width = diagramElement.offsetWidth + "px";

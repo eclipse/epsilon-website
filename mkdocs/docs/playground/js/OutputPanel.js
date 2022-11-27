@@ -10,13 +10,10 @@ class OutputPanel extends ModelPanel {
         this.type = type;
         this.language = language;
         $('#' + id + 'Panel')[0].dataset.customButtons = JSON.stringify(this.getButtons());
-        console.log("Output panel editor " + this.getEditor());
         this.getEditor().getSession().setMode("ace/mode/" + language.toLowerCase());
     }
 
-    setupSyntaxHighlighting() {
-        console.log("Setting syntax highlighting of output panel");
-    }
+    setupSyntaxHighlighting() {}
 
     getButtons() {
         return (this.type == "code") ? [{
