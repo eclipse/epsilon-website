@@ -301,7 +301,7 @@ class ModelPanel extends Panel {
     }
 
     getButtons() {
-        return [{
+        return this.editable ? [{
             html: this.buttonHtml("help", "Flexmi language reference"),
             cls: "sys-button",
             onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
@@ -313,7 +313,7 @@ class ModelPanel extends Panel {
             html: this.buttonHtml("diagram", "Show/hide the model object diagram"),
             cls: "sys-button",
             onclick: "toggle('" + this.id + "Diagram', function(){" + this.id + "Panel.refreshDiagram();})"
-        }];
+        }] : [];
     }
 
     /* TODO: Rename to something more sensible */
@@ -357,6 +357,56 @@ class ModelPanel extends Panel {
     }
 }
 
+// TODO
+class OutputPanel extends ModelPanel {
+
+    type;
+    language;
+
+    constructor(id, type, language) {
+        super(id, false, null);
+        this.type = type;
+        this.language = language;
+        $('#' + id + 'Panel')[0].dataset.customButtons = JSON.stringify(this.getButtons());
+        console.log("Output panel editor " + this.getEditor());
+        this.getEditor().getSession().setMode("ace/mode/" + language.toLowerCase());
+    }
+
+    setupSyntaxHighlighting() {
+        console.log("Setting syntax highlighting of output panel");
+    }
+
+    getButtons() {
+        return (this.type == "code") ? [{
+            html: this.buttonHtml("highlight", "Set generated text language"),
+            cls: "sys-button",
+            onclick: this.id + "Panel.setOutputLanguage()"
+        }] : [];
+    }
+
+    setOutputLanguage() {
+        var self = this;
+        Metro.dialog.create({
+            title: "Set Generated Text Language",
+            content: "<p>You can set the language of the generated text to <a href='https://github.com/ajaxorg/ace/tree/master/lib/ace/mode'>any language</a> supported by the <a href='https://ace.c9.io/'>ACE editor</a>. </p><br><input type='text' id='language' data-role='input' value='" + self.language + "'>",
+            actions: [
+                {
+                    caption: "OK",
+                    cls: "js-dialog-close success",
+                    onclick: function(){
+                        var outputLanguage = document.getElementById("language").value;
+                        self.getEditor().getSession().setMode("ace/mode/" + outputLanguage.toLowerCase());
+                    }
+                },
+                {
+                    caption: "Cancel",
+                    cls: "js-dialog-close"
+                }
+            ]
+        });
+    }
+}
+
 class MetamodelPanel extends ModelPanel {
     constructor(id) {
         super(id, true, null);
@@ -389,4 +439,4 @@ class MetamodelPanel extends ModelPanel {
 
 }
 
-export {Panel, ModelPanel, MetamodelPanel, ConsolePanel, ProgramPanel};
+export {Panel, ModelPanel, MetamodelPanel, ConsolePanel, ProgramPanel, OutputPanel};

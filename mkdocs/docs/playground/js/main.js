@@ -1,4 +1,4 @@
-import {ModelPanel, MetamodelPanel, ConsolePanel, ProgramPanel} from './panels.js';
+import {ModelPanel, MetamodelPanel, ConsolePanel, ProgramPanel, OutputPanel} from './panels.js';
 import {ExampleManager} from './example-manager.js';
 
 var language = "eol";
@@ -11,15 +11,14 @@ var questionMark = url.indexOf("?");
 var editors;
 var backendConfig = {};
 var showEditorLineNumbers = false;
-var outputEditor;
 
 var programPanel = new ProgramPanel();
 var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
 var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
 
 var firstModelPanel = new ModelPanel("firstModel", true, firstMetamodelPanel);
-var secondModelPanel = new ModelPanel("secondModel", true, secondMetamodelPanel);
-var thirdModelPanel = new ModelPanel("thirdModel", true, null);
+var secondModelPanel;
+var thirdModelPanel;
 
 var consolePanel = new ConsolePanel();
 var examplesManager = new ExampleManager();
@@ -96,6 +95,9 @@ function setup() {
     
     secondModelEditable = !(language == "etl" || language == "flock");
 
+    secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
+    thirdModelPanel = new OutputPanel("thirdModel", outputType, outputLanguage);
+
     if (language == "etl") {
         document.getElementById("thirdModelSplitter").remove();
     }
@@ -120,22 +122,9 @@ function setup() {
         });
     });
 
-    outputEditor = ace.edit(document.getElementById('outputEditor'));
-
-    editors = [programPanel.getEditor(), firstModelPanel.getEditor(), firstMetamodelPanel.getEditor(), secondModelPanel.getEditor(), secondMetamodelPanel.getEditor(), consolePanel.getEditor(), outputEditor];
+    editors = [programPanel.getEditor(), firstModelPanel.getEditor(), firstMetamodelPanel.getEditor(), secondModelPanel.getEditor(), secondMetamodelPanel.getEditor(), consolePanel.getEditor(), thirdModelPanel.getEditor()];
 
     arrangePanels();
-
-    //programPanelButtons = getProgramPanelButtons();
-    //console.log("type of " + (typeof programPanelButtons == "object") + " " + Object.keys(programPanelButtons).length);
-    //$('#programPanel')[0].dataset.customButtons = JSON.stringify(programPanelButtons);
-
-    //secondModelPanelButtons = getSecondModelPanelButtons();
-    //if (language == "etl") {
-    //    $('#secondModelPanel')[0].dataset.customButtons = "secondModelPanelButtons";
-    //}
-
-    //thirdModelPanelButtons = getThirdModelPanelButtons();
 
     //TODO: Fix "undefined" when fields are empty
     programPanel.setLanguage(language);
@@ -163,32 +152,6 @@ function setup() {
 
     Metro.init();
     
-}
-
-function setOutputLanguage() {
-
-    Metro.dialog.create({
-        title: "Set Generated Text Language",
-        content: "<p>You can set the language of the generated text to <a href='https://github.com/ajaxorg/ace/tree/master/lib/ace/mode'>any language</a> supported by the <a href='https://ace.c9.io/'>ACE editor</a>. </p><br><input type='text' id='language' data-role='input' value='" + outputLanguage + "'>",
-        actions: [
-            {
-                caption: "OK",
-                cls: "js-dialog-close success",
-                onclick: function(){
-                    outputLanguage = document.getElementById("language").value;
-                    setOutputEditorLanguage();
-                }
-            },
-            {
-                caption: "Cancel",
-                cls: "js-dialog-close"
-            }
-        ]
-    });
-}
-
-function setOutputEditorLanguage() {
-    outputEditor.getSession().setMode("ace/mode/" + outputLanguage.toLowerCase());
 }
 
 function showDownloadOptions(event) {
@@ -238,7 +201,7 @@ function showDownloadOptions(event) {
                     .then(function(content) {
                         var blob = new Blob([content], { type: "application/zip" });
                         var url = window.URL || window.webkitURL;
-                        link = url.createObjectURL(blob);
+                        var link = url.createObjectURL(blob);
                         var a = document.createElement("a");
                         a.setAttribute("download", "playground-example.zip");
                         a.setAttribute("href", link);
@@ -257,7 +220,7 @@ function showDownloadOptions(event) {
 function showSettings(event) {
     event.preventDefault();
 
-    var panels = ["program", "console", "model", "metamodel"];
+    var panels = ["program", "console", "firstModel", "firstMetamodel"];
 
     if (language == "etl" || language == "flock") panels.push("secondModel", "secondMetamodel");
     else if (language == "evl" || language == "epl" || language == "egl") panels.push("thirdModel");
@@ -419,14 +382,6 @@ function copyShortenedLink(event) {
     return false;
 }
 
-function getThirdModelPanelButtons() {
-    return (outputType == "code") ? [{
-        html: buttonHtml("highlight", "Set generated text language"),
-        cls: "sys-button",
-        onclick: "setOutputLanguage()"
-    }] : [];
-}
-
 function copyToClipboard(str) {
     var el = document.createElement('textarea');
     el.value = str;
@@ -465,8 +420,7 @@ function arrangePanels() {
         else if (outputType == "code") {
             toggle("secondModelSplitter");
             $("#thirdModelDiagram").hide();
-            $("#outputEditor").show();
-            setOutputEditorLanguage();
+            $("#thirdModelEditor").show();
             thirdModelPanel.setTitle("Generated Text");
             thirdModelPanel.setIcon("editor");            
         }
@@ -509,25 +463,21 @@ function arrangePanels() {
     programPanel.setIcon(language);
 }
 
-function emptyButtons() {
-    return [];
-}
-
 function getPanelTitle(panelId) {
     return $("#" + panelId)[0].dataset.titleCaption;
 }
 
 function editorsToJsonObject() {
     return {
-            "language": language,
-            "outputType": outputType,
-            "outputLanguage": outputLanguage,
-            "program": programPanel.getValue(), 
-            "emfatic": firstMetamodelPanel.getValue(), 
-            "flexmi": firstModelPanel.getValue(),
-            "secondEmfatic": secondMetamodelPanel.getValue(),
-            "secondFlexmi": secondModelPanel.getValue()
-        };
+        "language": language,
+        "outputType": outputType,
+        "outputLanguage": outputLanguage,
+        "program": programPanel.getValue(), 
+        "emfatic": firstMetamodelPanel.getValue(), 
+        "flexmi": firstModelPanel.getValue(),
+        "secondEmfatic": secondMetamodelPanel.getValue(),
+        "secondFlexmi": secondModelPanel.getValue()
+    };
 }
 
 function editorsToJson() {
@@ -621,8 +571,8 @@ function runProgram() {
                     }
                     else if (language == "egl") {
                         if (outputType == "code") {
-                            outputEditor.getSession().setUseWrapMode(false);
-                            outputEditor.setValue(json.generatedText, 1);
+                            thirdModelPanel.getEditor().getSession().setUseWrapMode(false);
+                            thirdModelPanel.getEditor().setValue(json.generatedText, 1);
                             consolePanel.setOutput(json.output);
                         }
                         else if (outputType == "html") {
@@ -712,10 +662,6 @@ function renderDiagram(diagramId, svg) {
     });
 }
 
-function buttonHtml(icon, hint) {
-    return "<span class='mif-" + icon + "' data-role='hint' data-hint-text='" + hint + "' data-hint-position='bottom'></span>";
-}
-
 window.fit = fit;
 window.updateGutterVisibility = updateGutterVisibility;
 window.runProgram = runProgram;
@@ -732,3 +678,6 @@ window.backendConfig = backendConfig;
 window.toggle = toggle;
 window.renderDiagram = renderDiagram;
 window.longNotification = longNotification;
+window.showDownloadOptions = showDownloadOptions;
+window.showSettings = showSettings;
+window.copyShortenedLink = copyShortenedLink;
