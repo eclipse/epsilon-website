@@ -177,7 +177,7 @@ t_book.all.size().println();
 ```
 
 ### How can I add a child to an existing element?
- 
+
 You can use the `.appendChild(child)` operation for this.
 
 ```eol
@@ -192,7 +192,7 @@ lib.appendChild(b);
 ```
 
 ### How can I set the root element of an XML document?
- 
+
 You can use the `.root` property for this.
 
 ```eol
@@ -212,6 +212,7 @@ XMLDoc.root = new t_library;
 ### Using XML attributes as references
 
 The XML model type allows XML attributes to be used as references by using the attribute value as a "key" of another element. For example, we could extend the library example to include an author and editor reference on each book, and move authors to the root:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <library>
@@ -235,15 +236,17 @@ The XML model type allows XML attributes to be used as references by using the a
 	<editor id="EG">Erich Gamma</editor>
 </library>
 ```
-Note that the attributes used for references must be a coma separated list of "keys". 
 
-For enabling the references, we need to add the desired bindings to the model. The bind method has the following signature: `bind(String sourceTag, String sourceAttribute, String targetTag, String targetAttribute, boolean many)`. Thus, for the library example, in EOL this can be done like this:
+Note that the attributes used for references must be a comma-separated list of "keys". 
+
+For enabling the references, we need to add the desired bindings to the model. The `bind` method has the following signature: `bind(String sourceTag, String sourceAttribute, String targetTag, String targetAttribute, boolean many)`. Thus, for the library example, in EOL this can be done like this:
 
 ```eol
 model.bind("book", "authors", "author", "id", true);
 model.bind("book", "editor", "editor", "name", false);
 ```
-where 'model' is the name of the model (as specified in the run configuration). These statements should be at the top of the EOL file so the bindings are added before any other code executes. For rule based languages, this could be done in a `pre` block. If invoking from [java](loading-an-xml-document-through-java-code)) the bind method can be called on the model variable. 
+
+where `model` is the name of the model (as specified in the run configuration). These statements should be at the top of the EOL file so the bindings are added before any other code executes. For rule-based languages, this could be done in a `pre` block. If invoking from [java](#loading-an-xml-document-through-java-code)) the bind method can be called on the model variable.
 
 After the bindings are in place, we can use them:
 
