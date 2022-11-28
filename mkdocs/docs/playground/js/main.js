@@ -6,6 +6,8 @@ import { ExampleManager } from './ExampleManager.js';
 import { DownloadDialog } from './DownloadDialog.js';
 import { MetamodelPanel } from './MetamodelPanel.js';
 import { SettingsDialog } from './SettingsDialog.js';
+import { Preloader } from './Preloader.js';
+import { Backend } from './Backend.js';
 
 var language = "eol";
 var outputType = "text";
@@ -14,7 +16,6 @@ var json;
 var url = window.location + "";
 var questionMark = url.indexOf("?");
 var editors;
-var backendConfig = {};
 
 var programPanel = new ProgramPanel();
 var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
@@ -28,9 +29,12 @@ var consolePanel = new ConsolePanel();
 var examplesManager = new ExampleManager();
 var downloadDialog = new DownloadDialog();
 var settingsDialog = new SettingsDialog();
+var preloader = new Preloader();
+var backend = new Backend();
+var panels = [];
 
 examplesManager.fetchExamples();
-fetchBackendConfiguration();
+backend.configure();
 
 var content = "";
 
@@ -38,7 +42,7 @@ if (questionMark > -1) {
     content = url.substring(questionMark+1, url.length);
     if (!examplesManager.hasExample(content)) {
         var xhr = new XMLHttpRequest();
-        var url = backendConfig["ShortURLFunction"];
+        var url = backend.getShortURLService();
         
         xhr.open("POST", url, false);
         xhr.setRequestHeader("Content-Type", "application/json");
@@ -60,24 +64,6 @@ else {
     setup();
 }
 
-
-/**
- * Fetches the backend configuration from backend.json
- * and populates the backendConfig array
- */
-function fetchBackendConfiguration() {
-    var xhr = new XMLHttpRequest();
-    var url = "backend.json";
-    xhr.open("GET", url, false);
-    xhr.send();
-    if (xhr.status === 200) {    
-        var json = JSON.parse(xhr.responseText);
-        for (const service of json.services){
-            backendConfig[service.name] = service.url;
-        }
-    }
-}
-
 function setup() {
     if (json.eol != null) { json.program = json.eol; language = "eol";}
     else {language = json.language};
@@ -90,6 +76,8 @@ function setup() {
 
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
     thirdModelPanel = new OutputPanel("thirdModel", outputType, outputLanguage);
+
+    panels = [programPanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
 
     if (language == "etl") {
         document.getElementById("thirdModelSplitter").remove();
@@ -152,7 +140,7 @@ function copyShortenedLink(event) {
     event.preventDefault();
     var content = btoa(editorsToJson());
     var xhr = new XMLHttpRequest();
-    var url = backendConfig["ShortURLFunction"];
+    var url = backend.getShortURLService();
     
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -291,67 +279,20 @@ function editorsToJson() {
     return JSON.stringify(editorsToJsonObject());
 }
 
-export function fit() {
+function fit() {
     
-    document.getElementById("splitter").style.minHeight = window.innerHeight + "px";
-    document.getElementById("splitter").style.maxHeight = window.innerHeight + "px";
+    var splitter = document.getElementById("splitter");
+    splitter.style.minHeight = window.innerHeight + "px";
+    splitter.style.maxHeight = window.innerHeight + "px";
 
-    for (const editorId of ["programEditor", "consoleEditor"]) {
-        var editorElement = document.getElementById(editorId);
-        if (editorElement != null) {
-            editorElement.parentNode.style = "flex-basis: calc(100% - 4px);";
-        }
-    }
-
-    for (const editorId of ["firstModelEditor", "firstMetamodelEditor", "secondModelEditor", "secondMetamodelEditor"]) {
-        var editorElement = document.getElementById(editorId);
-        if (editorElement != null) {
-            editorElement.parentNode.parentNode.style = "flex-basis: calc(100% - 4px); padding: 0px";
-            var parentElement = editorElement.parentElement.parentElement.parentElement;
-            editorElement.style.width = parentElement.offsetWidth + "px";
-            editorElement.style.height = parentElement.offsetHeight - 42 + "px";
-        }
-    }
-
-    editors.forEach(e => e.resize());
-
-    for (const diagramId of ["thirdModelDiagram"]) {
-        var diagramElement = document.getElementById(diagramId);
-        if (diagramElement != null) {
-            var svg = diagramElement.firstElementChild;
-            if (svg != null && svg.tagName == "svg") {
-                diagramElement = diagramElement.parentElement.parentElement;
-                svg.style.width = diagramElement.offsetWidth + "px";
-                svg.style.height = diagramElement.offsetHeight - 42 + "px";
-            }
-        }
-    }
-
-    for (const diagramId of ["firstModelDiagram", "firstMetamodelDiagram", "secondModelDiagram", "secondMetamodelDiagram"]) {
-        var diagramElement = document.getElementById(diagramId);
-        if (diagramElement != null) {
-            var svg = diagramElement.firstElementChild;
-            if (svg != null) {
-                if (svg.tagName == "svg") {
-                    diagramElement = diagramElement.parentElement.parentElement.parentElement;
-                    svg.style.width = diagramElement.offsetWidth + "px";
-                    svg.style.height = diagramElement.offsetHeight - 42 + "px";
-                }
-            }
-        }
-    }
-
-    // Hide the preloader div if it's still visible
-    setTimeout(function(){ 
-        document.getElementById("preloader").style.display = "none"; 
-    }, 1000);
-
+    panels.forEach(panel => panel.fit());
+    preloader.hide();
 }
 
 function runProgram() {
 	
     var xhr = new XMLHttpRequest();
-    var url = backendConfig["RunEpsilonFunction"];
+    var url = backend.getRunEpsilonService();
     
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -430,7 +371,7 @@ function runProgram() {
 }
 
 function longNotification(title, cls="light") {
-    Metro.notify.create(/*"This may take a few seconds to complete.",*/ "<b>" + title + "...</b><br>This may take a few seconds to complete if the back end is not warmed up.", null, {keepOpen: true, cls: cls, width: 300});
+    Metro.notify.create("<b>" + title + "...</b><br>This may take a few seconds to complete if the back end is not warmed up.", null, {keepOpen: true, cls: cls, width: 300});
 }
 
 function toggle(elementId, onEmpty) {
@@ -526,7 +467,7 @@ window.thirdModelPanel = thirdModelPanel;
 window.firstMetamodelPanel = firstMetamodelPanel;
 window.secondMetamodelPanel = secondMetamodelPanel;
 
-window.backendConfig = backendConfig;
+window.backend = backend;
 window.toggle = toggle;
 window.renderDiagram = renderDiagram;
 window.longNotification = longNotification;

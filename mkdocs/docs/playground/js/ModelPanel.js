@@ -18,7 +18,7 @@ class ModelPanel extends Panel {
     }
 
     refreshDiagram() {
-        this.refreshDiagramImpl(backendConfig["FlexmiToPlantUMLFunction"], this.id + "Diagram", "model", this.getEditor(), this.metamodelPanel.getEditor());
+        this.refreshDiagramImpl(backend.getFlexmiToPlantUMLService(), this.id + "Diagram", "model", this.getEditor(), this.metamodelPanel.getEditor());
     }
 
     setupSyntaxHighlighting() {
@@ -101,6 +101,38 @@ class ModelPanel extends Panel {
             }
         );
     }
+
+    fit() {
+        // Fit the editor
+        var editorElement = document.getElementById(this.id + "Editor");
+        if (editorElement != null) {
+            editorElement.parentNode.parentNode.style = "flex-basis: calc(100% - 4px); padding: 0px";
+            var parentElement = editorElement.parentElement.parentElement.parentElement;
+            editorElement.style.width = parentElement.offsetWidth + "px";
+            editorElement.style.height = parentElement.offsetHeight - 42 + "px";
+        }
+
+        this.editor.resize();
+        
+        // Fit the diagram
+        var diagramElement = document.getElementById(this.id + "Diagram");
+        if (diagramElement != null) {
+            var svg = diagramElement.firstElementChild;
+            if (svg != null) {
+                if (svg.tagName == "svg") {
+                    diagramElement = diagramElement.parentElement.parentElement.parentElement;
+                    svg.style.width = diagramElement.offsetWidth + "px";
+                    svg.style.height = diagramElement.offsetHeight - 42 + "px";
+                }
+            }
+        }
+    }
+
+    fitDiagram() {
+        
+    }
+
+
 }
 
 export { ModelPanel };

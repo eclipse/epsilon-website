@@ -32,6 +32,9 @@ class Panel {
     buttonHtml(icon, hint) {
         return "<span class='mif-" + icon + "' data-role='hint' data-hint-text='" + hint + "' data-hint-position='bottom'></span>";
     }
+
+    fit() {}
+
 }
 
 export { Panel };

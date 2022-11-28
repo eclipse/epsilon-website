@@ -31,6 +31,14 @@ class ConsolePanel extends Panel {
         this.editor.setValue(str, 1);
     }
 
+    fit() {
+        var editorElement = document.getElementById(this.id + "Editor");
+        if (editorElement != null) {
+            editorElement.parentNode.style = "flex-basis: calc(100% - 4px);";
+        }
+        this.editor.resize();
+    }
+
     detectHyperlinks(editor) {
 
         var locationRegexp = /\(((.+?)@(\d+):(\d+)-(\d+):(\d+))\)/i;

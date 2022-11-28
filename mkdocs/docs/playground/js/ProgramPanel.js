@@ -11,6 +11,14 @@ class ProgramPanel extends Panel {
         $('#programPanel')[0].dataset.customButtons = JSON.stringify(this.getButtons(language));
     }
 
+    fit() {
+        var editorElement = document.getElementById(this.id + "Editor");
+        if (editorElement != null) {
+            editorElement.parentNode.style = "flex-basis: calc(100% - 4px);";
+        }
+        this.editor.resize();
+    }
+
     getButtons(language) {
         var languageName = (language == "flock" ? "Flock" : language.toUpperCase());
         return [{

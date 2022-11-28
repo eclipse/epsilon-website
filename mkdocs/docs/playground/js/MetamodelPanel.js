@@ -27,7 +27,7 @@ class MetamodelPanel extends ModelPanel {
     }
     
     refreshDiagram() {
-        this.refreshDiagramImpl(backendConfig["EmfaticToPlantUMLFunction"], this.id + "Diagram", "metamodel", null, this.getEditor());
+        this.refreshDiagramImpl(backend.getEmfaticToPlantUMLService(), this.id + "Diagram", "metamodel", null, this.getEditor());
     }
 
 }
