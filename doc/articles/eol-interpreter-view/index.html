@@ -1063,6 +1063,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#importing-external-operations" class="md-nav__link">
+    Importing External Operations
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1092,6 +1099,16 @@
 </div>
 <h2 id="accessing-selected-model-elements-and-variables">Accessing Selected Model Elements and Variables<a class="headerlink" href="#accessing-selected-model-elements-and-variables" title="Permanent link">&para;</a></h2>
 <p>Selected model elements in EMF-based editors can be accessed from the EOL script through the <code>self</code> variable. If multiple model elements are selected, then <code>self</code> will be a list containing all these elements, and if no model elements are selected, <code>self</code> will be <code>null</code>. Variables are accessible by name.</p>
+<h2 id="importing-external-operations">Importing External Operations<a class="headerlink" href="#importing-external-operations" title="Permanent link">&para;</a></h2>
+<p>You can import operations defined in EOL files in your workspace using an <code>import</code> statement with a <code>platform:/resource</code> URI, as shown below.</p>
+<pre class="prettyprint lang-eol"><code>// bar() is defined in bar.eol under the bar project
+import "platform:/resource/bar/bar.eol";
+
+return foo() + bar();
+
+operation foo() {
+    return "foo";
+}</code></pre>
                 
               
               
