@@ -3,7 +3,7 @@ import { ModelPanel } from './ModelPanel.js';
 class MetamodelPanel extends ModelPanel {
     constructor(id) {
         super(id, true, null);
-        $('#' + id + 'Panel')[0].dataset.customButtons = JSON.stringify(this.getButtons());
+        this.element.dataset.customButtons = JSON.stringify(this.getButtons());
         this.setTitleAndIcon("Metamodel", "emfatic");
     }
 

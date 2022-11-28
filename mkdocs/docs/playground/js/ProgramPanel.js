@@ -8,7 +8,7 @@ class ProgramPanel extends Panel {
 
     setLanguage(language) {
         this.editor.getSession().setMode("ace/mode/" + language);
-        $('#programPanel')[0].dataset.customButtons = JSON.stringify(this.getButtons(language));
+        this.element.dataset.customButtons = JSON.stringify(this.getButtons(language));
     }
 
     fit() {
@@ -30,6 +30,21 @@ class ProgramPanel extends Panel {
             cls: "sys-button",
             onclick: "runProgram()"
         }];
+    }
+
+    // TODO: Identical to ConsolePanel.createElement()
+    createElement() {
+        var root = document.createElement("div");
+        root.setAttribute("data-role", "panel");
+        root.setAttribute("id", this.id + "Panel");
+
+        var editor = document.createElement("div");
+        editor.setAttribute("id", this.id + "Editor");
+        editor.setAttribute("class", "editor");
+
+        root.appendChild(editor);
+        
+        return root;
     }
 }
 

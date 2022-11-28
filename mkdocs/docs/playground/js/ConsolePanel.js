@@ -1,4 +1,5 @@
 import { Panel } from "./Panel.js";
+import { Layout } from "./Layout.js";
 
 class ConsolePanel extends Panel {
 
@@ -6,7 +7,7 @@ class ConsolePanel extends Panel {
         super("console");
         this.editor.setReadOnly(true);
         this.editor.setValue("", 1);
-        $('#consolePanel')[0].dataset.customButtons = JSON.stringify(this.getButtons());
+        this.element.dataset.customButtons = JSON.stringify(this.getButtons());
         this.detectHyperlinks(this.editor);
         this.setTitleAndIcon("Console", "console");   
     }
@@ -38,6 +39,20 @@ class ConsolePanel extends Panel {
             editorElement.parentNode.style = "flex-basis: calc(100% - 4px);";
         }
         this.editor.resize();
+    }
+
+    createElement() {
+        var root = document.createElement("div");
+        root.setAttribute("data-role", "panel");
+        root.setAttribute("id", this.id + "Panel");
+
+        var editor = document.createElement("div");
+        editor.setAttribute("id", this.id + "Editor");
+        editor.setAttribute("class", "editor");
+
+        root.appendChild(editor);
+
+        return root;
     }
 
     detectHyperlinks(editor) {

@@ -15,9 +15,13 @@
 	display:none;
 }
 
-.standaloneDiagram {
+#thirdModelDiagram {
 	height:100%;
 	width:100%;
+}
+
+#thirdModelEditor {
+	display: none;
 }
 
 .rendering-error {

@@ -2,10 +2,12 @@ class Panel {
 
     id;
     editor;
+    element;
 
     constructor(id) {
         this.id = id;
-        this.editor = ace.edit(document.getElementById(this.id + 'Editor'));
+        this.getElement();
+        this.editor = ace.edit(this.element.querySelector('.editor'));
         this.editor.setShowPrintMargin(false);
     }
 
@@ -15,11 +17,11 @@ class Panel {
     }
 
     setTitle(title) {
-        $("#" + this.id + "Panel")[0].dataset.titleCaption = title;
+        this.element.dataset.titleCaption = title;
     }
 
     setIcon(icon) {
-        $("#" + this.id + "Panel")[0].dataset.titleIcon = "<span class='mif-16 mif-" + icon + "'></span>";
+        this.element.dataset.titleIcon = "<span class='mif-16 mif-" + icon + "'></span>";
     }
 
     getEditor() {
@@ -39,6 +41,15 @@ class Panel {
     }
 
     fit() {}
+
+    createElement() {}
+
+    getElement() {
+        if (!this.element) {
+            this.element = this.createElement();
+        }
+        return this.element;
+    }
 
 }
 

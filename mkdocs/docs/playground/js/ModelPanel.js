@@ -1,4 +1,5 @@
 import { Panel } from "./Panel.js";
+import { Layout } from "./Layout.js";
 
 class ModelPanel extends Panel {
 
@@ -10,7 +11,7 @@ class ModelPanel extends Panel {
         this.editable = editable;
         this.metamodelPanel = metamodelPanel;
         this.setupSyntaxHighlighting();
-        $('#' + id + 'Panel')[0].dataset.customButtons = JSON.stringify(this.getButtons());
+        this.element.dataset.customButtons = JSON.stringify(this.getButtons());
         this.setTitleAndIcon("Model", "flexmi");
     }
 
@@ -131,6 +132,30 @@ class ModelPanel extends Panel {
 
     fitDiagram() {
         
+    }
+
+    createElement() {
+        var root = document.createElement("div");
+        root.setAttribute("data-role", "panel");
+        root.setAttribute("class", "modelPanel");
+        root.setAttribute("id", this.id + "Panel");
+
+        var editor = document.createElement("div");
+        editor.setAttribute("id", this.id + "Editor");
+        editor.setAttribute("class", "editor");
+        
+        var diagram = document.createElement("div");
+        diagram.setAttribute("id", this.id + "Diagram");
+        diagram.setAttribute("class", "diagram");
+        
+        var splitter = Layout.createHorizontalSplitter([editor, diagram]);
+        splitter.setAttribute("class", "h-100");
+
+        root.appendChild(splitter);
+
+        console.log(root);
+
+        return root;
     }
 
 

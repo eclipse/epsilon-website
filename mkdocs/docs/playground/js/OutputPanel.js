@@ -9,7 +9,7 @@ class OutputPanel extends ModelPanel {
         super(id, false, null);
         this.type = type;
         this.language = language;
-        $('#' + id + 'Panel')[0].dataset.customButtons = JSON.stringify(this.getButtons());
+        this.element.dataset.customButtons = JSON.stringify(this.getButtons());
         this.getEditor().getSession().setMode("ace/mode/" + language.toLowerCase());
     }
 
@@ -56,7 +56,6 @@ class OutputPanel extends ModelPanel {
             }
         }
     }
-
 }
 
 export { OutputPanel };

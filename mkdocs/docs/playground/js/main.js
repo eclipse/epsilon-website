@@ -8,6 +8,7 @@ import { MetamodelPanel } from './MetamodelPanel.js';
 import { SettingsDialog } from './SettingsDialog.js';
 import { Preloader } from './Preloader.js';
 import { Backend } from './Backend.js';
+import { Layout } from './Layout.js';
 
 var language = "eol";
 var outputType = "text";
@@ -17,15 +18,15 @@ var url = window.location + "";
 var questionMark = url.indexOf("?");
 var editors;
 
-var programPanel = new ProgramPanel();
-var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
-var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
+export var programPanel = new ProgramPanel();
+export var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
+export var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
 
-var firstModelPanel = new ModelPanel("firstModel", true, firstMetamodelPanel);
-var secondModelPanel;
-var thirdModelPanel;
+export var firstModelPanel = new ModelPanel("firstModel", true, firstMetamodelPanel);
+export var secondModelPanel;
+export var thirdModelPanel;
 
-var consolePanel = new ConsolePanel();
+export var consolePanel = new ConsolePanel();
 var examplesManager = new ExampleManager();
 var downloadDialog = new DownloadDialog();
 var settingsDialog = new SettingsDialog();
@@ -65,18 +66,21 @@ else {
 }
 
 function setup() {
+
+
     if (json.eol != null) { json.program = json.eol; language = "eol";}
     else {language = json.language};
 
     if (json.outputType != null) {outputType = json.outputType;}
     if (json.outputLanguage != null) {outputLanguage = json.outputLanguage;}
     
-    
     var secondModelEditable = !(language == "etl" || language == "flock");
 
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
     thirdModelPanel = new OutputPanel("thirdModel", outputType, outputLanguage);
 
+    new Layout().create("navview-content");
+    
     panels = [programPanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
 
     if (language == "etl") {
