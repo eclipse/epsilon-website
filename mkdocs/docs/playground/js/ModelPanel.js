@@ -11,6 +11,7 @@ class ModelPanel extends Panel {
         this.metamodelPanel = metamodelPanel;
         this.setupSyntaxHighlighting();
         $('#' + id + 'Panel')[0].dataset.customButtons = JSON.stringify(this.getButtons());
+        this.setTitleAndIcon("Model", "flexmi");
     }
 
     showDiagram() {

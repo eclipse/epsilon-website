@@ -189,6 +189,7 @@ function copyToClipboard(str) {
 }
 
 function arrangePanels() {
+
     if (language == "eol") {
         toggle("secondModelSplitter");
         toggle("thirdModelSplitter");
@@ -198,27 +199,23 @@ function arrangePanels() {
         if (outputType == "dot") {
             toggle("secondModelSplitter");
             thirdModelPanel.showDiagram();
-            thirdModelPanel.setTitle("Graphviz");
-            thirdModelPanel.setIcon("diagram");
+            thirdModelPanel.setTitleAndIcon("Graphviz", "diagram");
         }
         else if (outputType == "html") {
             toggle("secondModelSplitter");
             thirdModelPanel.showDiagram();
-            thirdModelPanel.setTitle("HTML");
-            thirdModelPanel.setIcon("html");
+            thirdModelPanel.setTitleAndIcon("HTML", "html");
         }
         else if (outputType == "puml") {
             toggle("secondModelSplitter");
             thirdModelPanel.showDiagram();
-            thirdModelPanel.setTitle("PlantUML");
-            thirdModelPanel.setIcon("diagram");
+            thirdModelPanel.setTitleAndIcon("PlantUML", "diagram");
         }
         else if (outputType == "code") {
             toggle("secondModelSplitter");
             $("#thirdModelDiagram").hide();
             $("#thirdModelEditor").show();
-            thirdModelPanel.setTitle("Generated Text");
-            thirdModelPanel.setIcon("editor");            
+            thirdModelPanel.setTitleAndIcon("Generated Text", "editor");           
         }
         else {
             toggle("secondModelSplitter");
@@ -243,13 +240,11 @@ function arrangePanels() {
         $("#thirdModelDiagram").show();
         if (language == "evl") {
             programPanel.setTitle("Constraints (EVL)");
-            thirdModelPanel.setTitle("Problems");
-            thirdModelPanel.setIcon("problems");
+            thirdModelPanel.setTitleAndIcon("Problems", "problems");
         }
         else {
             programPanel.setTitle("Patterns (EPL)");
-            thirdModelPanel.setTitle("Pattern Matches");
-            thirdModelPanel.setIcon("diagram");
+            thirdModelPanel.setTitleAndIcon("Pattern Matches", "diagram");
         }
     }
     else if (language == "ecl") {

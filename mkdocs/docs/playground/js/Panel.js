@@ -9,6 +9,11 @@ class Panel {
         this.editor.setShowPrintMargin(false);
     }
 
+    setTitleAndIcon(title, icon) {
+        this.setTitle(title);
+        this.setIcon(icon);
+    }
+
     setTitle(title) {
         $("#" + this.id + "Panel")[0].dataset.titleCaption = title;
     }

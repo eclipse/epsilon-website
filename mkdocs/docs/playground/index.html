@@ -45,21 +45,21 @@
         <div class="navview-content">
             <div id="splitter" data-role="splitter" class="h-100" style="min-height:800px" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                 <div data-role="splitter" data-split-mode="vertical"  data-on-resize-stop="fit()" data-on-resize-split="fit()" data-on-resize-window="fit()">
-                    <div id="programPanel" data-role="panel" data-title-caption="Program (EOL)" data-title-icon="<span class='mif-apps'></span>" data-custom-buttons="">
+                    <div id="programPanel" data-role="panel">
                         <div class="editor" id="programEditor"></div>
                     </div>
-                    <div id="consolePanel" data-role="panel" data-title-caption="Console" data-title-icon="<span class='mif-16 mif-console'></span>">
+                    <div id="consolePanel" data-role="panel">
                         <div class="editor" id="consoleEditor"></div>
                     </div>
                 </div>
                 <div data-role="splitter" data-split-mode="vertical" data-on-resize-stop="fit()" data-on-resize-split="fit()">
-                    <div id="firstModelPanel" data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" class="modelPanel">
+                    <div id="firstModelPanel" data-role="panel" class="modelPanel">
                         <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                             <div id="firstModelEditor" class="editor"></div>
                             <div id="firstModelDiagram" class="diagram hidden"></div>
                         </div>
                     </div>
-                    <div id="firstMetamodelPanel" data-role="panel" data-title-caption="Metamodel" data-title-icon="<span class='mif-16 mif-emfatic'></span>" class="modelPanel">
+                    <div id="firstMetamodelPanel" data-role="panel" class="modelPanel">
                         <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                             <div id="firstMetamodelEditor" class="editor"></div>
                             <div id="firstMetamodelDiagram" class="diagram"></div>
@@ -67,13 +67,13 @@
                     </div>
                 </div>
                 <div data-role="splitter" data-split-mode="vertical" id="secondModelSplitter"  data-on-resize-stop="fit()" data-on-resize-split="fit()">
-                    <div id="secondModelPanel" data-role="panel" data-title-caption="Second Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" class="modelPanel">
+                    <div id="secondModelPanel" data-role="panel" class="modelPanel">
                         <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                             <div id="secondModelEditor" class="editor"></div>
                             <div id="secondModelDiagram" class="diagram"></div>
                         </div>
                     </div>
-                    <div id="secondMetamodelPanel" data-role="panel" data-title-caption="Second Metamodel" data-title-icon="<span class='mif-16 mif-emfatic'></span>" class="modelPanel">
+                    <div id="secondMetamodelPanel" data-role="panel" class="modelPanel">
                         <div data-role="splitter" class="h-100" data-on-resize-stop="fit()" data-on-resize-split="fit()">
                             <div id="secondMetamodelEditor" class="editor"></div>
                             <div id="secondMetamodelDiagram" class="diagram"></div>
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div data-role="splitter" data-split-mode="vertical" id="thirdModelSplitter" data-on-resize-stop="fit()" data-on-resize-split="fit()">
-                    <div id="thirdModelPanel" data-role="panel" data-title-caption="Model" data-title-icon="<span class='mif-16 mif-flexmi'></span>" class="modelPanel">
+                    <div id="thirdModelPanel" data-role="panel" class="modelPanel">
                         <div class="diagram standaloneDiagram" id="thirdModelDiagram"></div>
                         <div id="thirdModelEditor" class="editor" style="display:none"></div>
                     </div>

@@ -7,7 +7,8 @@ class ConsolePanel extends Panel {
         this.editor.setReadOnly(true);
         this.editor.setValue("", 1);
         $('#consolePanel')[0].dataset.customButtons = JSON.stringify(this.getButtons());
-        this.detectHyperlinks(this.editor);        
+        this.detectHyperlinks(this.editor);
+        this.setTitleAndIcon("Console", "console");   
     }
 
     getButtons() {
