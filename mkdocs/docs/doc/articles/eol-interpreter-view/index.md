@@ -10,3 +10,18 @@ Acceleo provides an [extensible interpreter view](https://wiki.eclipse.org/Accel
 ## Accessing Selected Model Elements and Variables
 
 Selected model elements in EMF-based editors can be accessed from the EOL script through the `self` variable. If multiple model elements are selected, then `self` will be a list containing all these elements, and if no model elements are selected, `self` will be `null`. Variables are accessible by name.
+
+## Importing External Operations
+
+You can import operations defined in EOL files in your workspace using an `import` statement with a `platform:/resource` URI, as shown below.
+
+```eol
+// bar() is defined in bar.eol under the bar project
+import "platform:/resource/bar/bar.eol";
+
+return foo() + bar();
+
+operation foo() {
+    return "foo";
+}
+```
