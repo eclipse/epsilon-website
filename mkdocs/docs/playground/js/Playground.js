@@ -10,7 +10,7 @@ import { Preloader } from './Preloader.js';
 import { Backend } from './Backend.js';
 import { Layout } from './Layout.js';
 
-var language = "eol";
+export var language = "eol";
 var outputType = "text";
 var outputLanguage = "text";
 var json;
@@ -21,13 +21,12 @@ var editors;
 export var programPanel = new ProgramPanel();
 export var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
 export var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
-
 export var firstModelPanel = new ModelPanel("firstModel", true, firstMetamodelPanel);
 export var secondModelPanel;
 export var thirdModelPanel;
 
 export var consolePanel = new ConsolePanel();
-var examplesManager = new ExampleManager();
+export var examplesManager = new ExampleManager();
 var downloadDialog = new DownloadDialog();
 var settingsDialog = new SettingsDialog();
 var preloader = new Preloader();
@@ -136,7 +135,7 @@ function setup() {
     });
 
     Metro.init();
-    
+    fit();
 }
 
 
@@ -257,7 +256,7 @@ function arrangePanels() {
     programPanel.setIcon(language);
 }
 
-export function getPanelTitle(panelId) {
+function getPanelTitle(panelId) {
     return $("#" + panelId)[0].dataset.titleCaption;
 }
 
@@ -454,6 +453,9 @@ function showSettings(event) {
     settingsDialog.show(event);
 }
 
+// Some functions and variables are accessed  
+// by onclick - or similer - events
+// We need to use window.x = x for this to work
 window.fit = fit;
 window.updateGutterVisibility = updateGutterVisibility;
 window.runProgram = runProgram;
@@ -473,12 +475,7 @@ window.longNotification = longNotification;
 window.showDownloadOptions = showDownloadOptions;
 window.showSettings = showSettings;
 window.copyShortenedLink = copyShortenedLink;
-
 window.downloadDialog = downloadDialog;
-
-// Needed by DownloadDialog
 window.language = language;
-
-// Needed by SettinsDialog
 window.getPanelTitle = getPanelTitle;
 window.editors = editors;

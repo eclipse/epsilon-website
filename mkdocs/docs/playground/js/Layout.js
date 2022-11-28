@@ -1,8 +1,9 @@
-import { programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel} from "./main.js";
+import {programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel} from './Playground.js';
 
 class Layout {
 
     create(rootId) {
+        console.log(programPanel);
         var root = document.getElementById(rootId);
         var splitter = Layout.createHorizontalSplitter(
             [
@@ -20,11 +21,11 @@ class Layout {
     }
 
     static createHorizontalSplitter(components, id = "") {
-        return this.createSplitter(true, components, id);
+        return Layout.createSplitter(true, components, id);
     }
 
     static createVerticalSplitter(components, id = "") {
-        return this.createSplitter(false, components, id);
+        return Layout.createSplitter(false, components, id);
     }
 
     static createSplitter(horizontal, components, id = "") {
@@ -33,11 +34,9 @@ class Layout {
         splitter.setAttribute("data-on-resize-stop", "fit()");
         splitter.setAttribute("data-on-resize-split", "fit()");
         splitter.setAttribute("data-on-resize-window", "fit()");
-        
-        if (!horizontal)
-            splitter.setAttribute("data-split-mode", "vertical");
-        if (id != "")
-            splitter.setAttribute("id", id);
+
+        if (!horizontal) splitter.setAttribute("data-split-mode", "vertical");
+        if (id != "") splitter.setAttribute("id", id);
         components.forEach(component => splitter.appendChild(component));
         return splitter;
     }

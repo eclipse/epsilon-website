@@ -130,10 +130,6 @@ class ModelPanel extends Panel {
         }
     }
 
-    fitDiagram() {
-        
-    }
-
     createElement() {
         var root = document.createElement("div");
         root.setAttribute("data-role", "panel");
