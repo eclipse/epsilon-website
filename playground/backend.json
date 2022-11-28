@@ -3,7 +3,6 @@
     {"name": "RunEpsilonFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/run-epsilon"},
     {"name": "FlexmiToPlantUMLFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/flexmi-to-plantuml"},
     {"name": "EmfaticToPlantUMLFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/emfatic-to-plantuml"},
-    {"name": "ShortURLFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url"},
-    {"name": "DownloadFunction", "url": "http://localhost:8007"}
+    {"name": "ShortURLFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/short-url"}
   ]
 }

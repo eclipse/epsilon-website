@@ -1141,6 +1141,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#using-xml-attributes-as-references" class="md-nav__link">
+    Using XML attributes as references
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1223,7 +1230,7 @@
 <h2 id="queryingmodifying-xml-documents-in-eol">Querying/modifying XML documents in EOL<a class="headerlink" href="#queryingmodifying-xml-documents-in-eol" title="Permanent link">&para;</a></h2>
 <p>The PlainXML driver uses predefined naming conventions to allow developers to programmatically access and modify XML documents in a concise way. This section outlines the supported conventions in the form of questions and answers followed by relevant examples.</p>
 <h3 id="how-can-i-access-elements-by-tag-name">How can I access elements by tag name?<a class="headerlink" href="#how-can-i-access-elements-by-tag-name" title="Permanent link">&para;</a></h3>
-<p>The <code>t_</code> prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, <code>t_book.all</code> can be used to get all elements tagged as <code>&lt;book&gt;</code> in the document, <code>t_author.all</code> to retrieve all <code>&lt;author&gt;</code> elements etc. Also, if <code>b</code> is an element with a <code>&lt;book&gt;</code> tag, then <code>b.isTypeOf(t_book)</code> shall return true.</p>
+<p>The <code>t_</code> prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, <code>t_book.all</code> can be used to get all elements tagged as <code>&lt;book&gt;</code> in the document, <code>t_author.all</code> to retrieve all <code>&lt;author&gt;</code> elements etc. Also, if <code>b</code> is an element with a <code>&lt;book&gt;</code> tag, then <code>b.isTypeOf(t_book)</code> shall return true. If the tag name contains hyphens, underscores, and/or periods, you must escape the complete type name inside back ticks: <code>`t_first-name</code> </p>
 <pre class="prettyprint lang-eol"><code>// Get all &lt;book&gt; elements
 var books = t_book.all;
 
@@ -1238,13 +1245,17 @@ b.isTypeOf(t_book).println();
 // Prints 'false'
 b.isTypeOf(t_library).println();</code></pre>
 <h3 id="how-can-i-get-the-tag-name-of-an-element">How can I get the tag name of an element?<a class="headerlink" href="#how-can-i-get-the-tag-name-of-an-element" title="Permanent link">&para;</a></h3>
-<p>You can use the <code>.tagName</code> property for this purpose. For instance, if <code>b</code> is an element tagged as <code>&lt;book&gt;</code>, <code>b.tagName</code> shall return <code>book</code>. The <code>tagName</code> property is read-only.</p>
+<p>You can use the <code>.name</code> property for this purpose. For instance, if <code>b</code> is an element tagged as <code>&lt;book&gt;</code>, <code>b.name</code> shall return <code>book</code>. The <code>name</code> property is read-only.</p>
 <pre class="prettyprint lang-eol"><code>// Get a random &lt;book&gt; element
 var b = t_book.all.random();
 
 // Print its tag
 // Prints 'book'
-b.tagName.println();</code></pre>
+b.name.println();</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">tagName property is deprecated</p>
+<p>Previously the <code>tagName</code> property was suggested for getting the tag name of an element. Due to the introduction of modules in Java 9 accessing this property is deprecated and future use can result in run time exceptions.</p>
+</div>
 <h3 id="how-can-i-getset-the-attributes-of-an-element">How can I get/set the attributes of an element?<a class="headerlink" href="#how-can-i-getset-the-attributes-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the attribute name as a property of the element object, prefixed by <code>a_</code>. For example, if <code>b</code> is the first book of <code>library.xml</code>, <code>b.a_title</code> will return <code>EMF Eclipse Modeling Framework</code>. Attribute properties are read/write.</p>
 <p>In this example, <code>b.a_pages</code> will return <code>744</code> as a string. For <code>744</code> to be returned as an integer instead, the <code>i_</code> prefix should be used instead (i.e. <code>b.i_pages</code>. The driver also supports the following preffixes: <code>b_</code> for boolean, <code>s_</code> for string (alias of <code>a_</code>) and <code>r_</code> for real values. </p>
@@ -1275,7 +1286,7 @@ var b = t_book.all.random();
 
 // Print the tag of its parent node
 // Prints 'library'
-b.parentNode.tagName.println();</code></pre>
+b.parentNode.name.println();</code></pre>
 <h3 id="how-do-i-get-the-children-of-an-element">How do I get the children of an element?<a class="headerlink" href="#how-do-i-get-the-children-of-an-element" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.children</code> read-only property for this.</p>
 <pre class="prettyprint lang-eol"><code>// Get the &lt;library&gt; element
@@ -1293,7 +1304,7 @@ var b = t_book.all.random();
 
 // Get its &lt;author&gt; children using the 
 // .children property
-var authors = b.children.select(a|a.tagName = "author");
+var authors = b.children.select(a|a.name = "author");
 
 // Do the same using the shorthand
 authors = b.c_author;
@@ -1301,7 +1312,7 @@ authors = b.c_author;
 // Get its &lt;published&gt; child and print
 // its text using the
 // .children property
-b.children.selectOne(p|p.tagName = "published").text.println();
+b.children.selectOne(p|p.name = "published").text.println();
 
 // Do the same using the shorthand
 // (e_ instead of c_ this time as 
@@ -1333,6 +1344,50 @@ lib.appendChild(b);</code></pre>
 <h3 id="how-can-i-set-the-root-element-of-an-xml-document">How can I set the root element of an XML document?<a class="headerlink" href="#how-can-i-set-the-root-element-of-an-xml-document" title="Permanent link">&para;</a></h3>
 <p>You can use the <code>.root</code> property for this.</p>
 <pre class="prettyprint lang-eol"><code>XMLDoc.root = new t_library;</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">root element is required</p>
+<p>When writing scripts that create new XML documents, e.g. ETL, the root element must be set on the output model. This can be done ina <code>pre</code> block (e.g. if the root is not craeted by a transformation rule) or in a rule/operation/other. For the Library example above (where <code>lib</code> is the model name): 
+<pre class="prettyprint lang-etl"><code>pre {
+    var root = new t_library;
+    lib.root = root;
+}</code></pre>
+If a root element is not assigned, then the output file will be empty.</p>
+</div>
+<h3 id="using-xml-attributes-as-references">Using XML attributes as references<a class="headerlink" href="#using-xml-attributes-as-references" title="Permanent link">&para;</a></h3>
+<p>The XML model type allows XML attributes to be used as references by using the attribute value as a "key" of another element. For example, we could extend the library example to include an author and editor reference on each book, and move authors to the root:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span>
+<span class="nt">&lt;library&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;EMF Eclipse Modeling Framework&quot;</span> <span class="na">pages=</span><span class="s">&quot;744&quot;</span> <span class="na">authors=</span><span class="s">&quot;DS,FB,MP,EM&quot;</span> <span class="na">editor=</span><span class="s">&quot;EG&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;Eclipse Modeling Project: A Domain-Specific Language (DSL) Toolkit&quot;</span> <span class="na">pages=</span><span class="s">&quot;736&quot;</span> <span class="na">authors=</span><span class="s">&quot;RG&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;Official Eclipse 3.0 FAQs&quot;</span> <span class="na">pages=</span><span class="s">&quot;432&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;author&gt;</span>John Arthorne<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Chris Laffra<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2004<span class="nt">&lt;/published&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+    <span class="nt">&lt;author</span> <span class="na">id=</span><span class="s">&quot;DS&quot;</span><span class="nt">&gt;</span>Dave Steinberg<span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;author</span> <span class="na">id=</span><span class="s">&quot;FB&quot;</span><span class="nt">&gt;</span>Frank Budinsky<span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;author</span> <span class="na">id=</span><span class="s">&quot;MP&quot;</span><span class="nt">&gt;</span>Marcelo Paternostro<span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;author</span> <span class="na">id=</span><span class="s">&quot;EM&quot;</span><span class="nt">&gt;</span>Ed Merks<span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;author</span> <span class="na">id=</span><span class="s">&quot;RG&quot;</span><span class="nt">&gt;</span>Richard Gronback<span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;editor</span> <span class="na">id=</span><span class="s">&quot;EG&quot;</span><span class="nt">&gt;</span>Erich Gamma<span class="nt">&lt;/editor&gt;</span>
+<span class="nt">&lt;/library&gt;</span>
+</code></pre></div>
+<p>Note that the attributes used for references must be a comma-separated list of "keys". </p>
+<p>For enabling the references, we need to add the desired bindings to the model. The <code>bind</code> method has the following signature: <code>bind(String sourceTag, String sourceAttribute, String targetTag, String targetAttribute, boolean many)</code>. Thus, for the library example, in EOL this can be done like this:</p>
+<pre class="prettyprint lang-eol"><code>model.bind("book", "authors", "author", "id", true);
+model.bind("book", "editor", "editor", "name", false);</code></pre>
+<p>where <code>model</code> is the name of the model (as specified in the run configuration). These statements should be at the top of the EOL file so the bindings are added before any other code executes. For rule-based languages, this could be done in a <code>pre</code> block. If invoking from <a href="#loading-an-xml-document-through-java-code">java</a>) the bind method can be called on the model variable.</p>
+<p>After the bindings are in place, we can use them:</p>
+<pre class="prettyprint lang-eol"><code>var lib = t_library.all.first();
+// Prints 4
+lib.c_book.first().authors.size().println();
+// Prints Frank Budinsky
+lib.c_book.first().authors.second().text.println();</code></pre>
 <h2 id="adding-an-xml-document-to-your-launch-configuration">Adding an XML document to your launch configuration<a class="headerlink" href="#adding-an-xml-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
 <p>To add an XML document to your Epsilon launch configuration, you need to select "Plain XML document" from the list of available model types.</p>
 <p><img alt="" src="select.png" /></p>
