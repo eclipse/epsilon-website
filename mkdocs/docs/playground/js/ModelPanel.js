@@ -149,8 +149,6 @@ class ModelPanel extends Panel {
 
         root.appendChild(splitter);
 
-        console.log(root);
-
         return root;
     }
 

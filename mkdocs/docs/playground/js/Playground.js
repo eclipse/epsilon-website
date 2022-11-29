@@ -60,7 +60,7 @@ if (questionMark > -1) {
     }
 }
 else {
-    json = examplesManager.fetchExample(Object.keys(examples)[0]);        
+    json = examplesManager.fetchExample(examplesManager.getFirstExample());        
     setup();
 }
 

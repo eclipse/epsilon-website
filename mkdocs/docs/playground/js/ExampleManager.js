@@ -46,6 +46,10 @@ class ExampleManager {
        return this.examples[id] != null;
     }
 
+    getFirstExample() {
+        return Object.keys(this.examples)[0];
+    }
+
     /**
      * Fetches the contents of the example with the provided ID
      */ 

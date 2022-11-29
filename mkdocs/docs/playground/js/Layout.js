@@ -3,7 +3,6 @@ import {programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, second
 class Layout {
 
     create(rootId) {
-        console.log(programPanel);
         var root = document.getElementById(rootId);
         var splitter = Layout.createHorizontalSplitter(
             [
