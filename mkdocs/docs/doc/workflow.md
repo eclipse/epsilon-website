@@ -465,6 +465,12 @@ The `epsilon.epl` task executes an EPL module, defined using the `src` attribute
 
 -   `exportAs`: The name under which the computed pattern match model should be made available to other Epsilon tasks of the workflow.
 
+### Model Generation Task
+
+The `epsilon.emg` tasks extends the `epsilon.epl` task and executes an [EMG](../emg) model generator. In addition to EPL's attributes, the task also provides the following attribute.
+
+- `seed` (optional): A long specifying the seed to drive the random number generator that underpins the random aspects of model generation. If a seed is not specified, a random seed will be used and the generator will (likely) produce a different model every time it is executed. Fixing the seed produces repeatable results across executions.
+
 ### Java Class Static Method Execution Task
 
 The `epsilon.java.executeStaticMethod` task executes a parameter-less static method, defined using the `method` attribute, of a Java class, defined using the `javaClass` attribute. This task can be useful for setting up the infrastructure of Xtext-based languages.
