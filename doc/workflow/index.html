@@ -836,6 +836,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#model-generation-task" class="md-nav__link">
+    Model Generation Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#java-class-static-method-execution-task" class="md-nav__link">
     Java Class Static Method Execution Task
   </a>
@@ -1538,6 +1545,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#model-generation-task" class="md-nav__link">
+    Model Generation Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#java-class-static-method-execution-task" class="md-nav__link">
     Java Class Static Method Execution Task
   </a>
@@ -1968,6 +1982,11 @@ z.println();</code></pre>
 <li>
 <p><code>exportAs</code>: The name under which the computed pattern match model should be made available to other Epsilon tasks of the workflow.</p>
 </li>
+</ul>
+<h3 id="model-generation-task">Model Generation Task<a class="headerlink" href="#model-generation-task" title="Permanent link">&para;</a></h3>
+<p>The <code>epsilon.emg</code> tasks extends the <code>epsilon.epl</code> task and executes an <a href="../emg">EMG</a> model generator. In addition to EPL's attributes, the task also provides the following attribute.</p>
+<ul>
+<li><code>seed</code> (optional): A long specifying the seed to drive the random number generator that underpins the random aspects of model generation. If a seed is not specified, a random seed will be used and the generator will (likely) produce a different model every time it is executed. Fixing the seed produces repeatable results across executions.</li>
 </ul>
 <h3 id="java-class-static-method-execution-task">Java Class Static Method Execution Task<a class="headerlink" href="#java-class-static-method-execution-task" title="Permanent link">&para;</a></h3>
 <p>The <code>epsilon.java.executeStaticMethod</code> task executes a parameter-less static method, defined using the <code>method</code> attribute, of a Java class, defined using the <code>javaClass</code> attribute. This task can be useful for setting up the infrastructure of Xtext-based languages.</p>
