@@ -13,7 +13,7 @@ import { Layout } from './Layout.js';
 export var language = "eol";
 var outputType = "text";
 var outputLanguage = "text";
-var json;
+var example;
 var url = window.location + "";
 var questionMark = url.indexOf("?");
 
@@ -35,42 +35,42 @@ var panels = [];
 examplesManager.fetchExamples();
 backend.configure();
 
-var content = "";
+var exampleId = "";
 
 if (questionMark > -1) {
-    content = url.substring(questionMark+1, url.length);
-    if (!examplesManager.hasExample(content)) {
+    exampleId = url.substring(questionMark+1, url.length);
+    if (!examplesManager.hasExample(exampleId)) {
         var xhr = new XMLHttpRequest();
         var url = backend.getShortURLService();
         
         xhr.open("POST", url, false);
         xhr.setRequestHeader("Content-Type", "application/json");
-        var data = JSON.stringify({"shortened": content});
+        var data = JSON.stringify({"shortened": exampleId});
         xhr.send(data);
         if (xhr.status === 200) {
-            content = atob(JSON.parse(xhr.responseText).content);
-            json = JSON.parse(content);
+            exampleId = atob(JSON.parse(xhr.responseText).content);
+            example = JSON.parse(exampleId);
             setup();
         }
     }
     else {
-        json = examplesManager.fetchExample(content);
+        example = examplesManager.fetchExample(exampleId);
         setup();
     }
 }
 else {
-    json = examplesManager.fetchExample(examplesManager.getFirstExample());        
+    example = examplesManager.fetchExample(examplesManager.getFirstExample());        
     setup();
 }
 
 function setup() {
 
 
-    if (json.eol != null) { json.program = json.eol; language = "eol";}
-    else {language = json.language};
+    if (example.eol != null) { example.program = example.eol; language = "eol";}
+    else {language = example.language};
 
-    if (json.outputType != null) {outputType = json.outputType;}
-    if (json.outputLanguage != null) {outputLanguage = json.outputLanguage;}
+    if (example.outputType != null) {outputType = example.outputType;}
+    if (example.outputLanguage != null) {outputLanguage = example.outputLanguage;}
     
     var secondModelEditable = !(language == "etl" || language == "flock");
 
@@ -86,11 +86,11 @@ function setup() {
     //TODO: Fix "undefined" when fields are empty
     programPanel.setLanguage(language);
 
-    programPanel.setValue(json.program);
-    firstModelPanel.setValue(json.flexmi);
-    firstMetamodelPanel.setValue(json.emfatic);
-    secondModelPanel.setValue(json.secondFlexmi);
-    secondMetamodelPanel.setValue(json.secondEmfatic);
+    programPanel.setValue(example.program);
+    firstModelPanel.setValue(example.flexmi);
+    firstMetamodelPanel.setValue(example.emfatic);
+    secondModelPanel.setValue(example.secondFlexmi);
+    secondMetamodelPanel.setValue(example.secondEmfatic);
 
     document.getElementById("navview").style.display = "block";
     
