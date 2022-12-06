@@ -3,12 +3,24 @@ class Panel {
     id;
     editor;
     element;
-
+    visible;
+    
     constructor(id) {
         this.id = id;
         this.getElement();
+
+        // Set up the panel's editor
         this.editor = ace.edit(this.element.querySelector('.editor'));
         this.editor.setShowPrintMargin(false);
+        this.editor.setTheme("ace/theme/eclipse");
+        this.editor.renderer.setShowGutter(false);
+        this.editor.setFontSize("1rem");
+        this.editor.setOptions({
+            fontSize: "11pt",
+            useSoftTabs: true
+        });
+        
+        this.visible = true;
     }
 
     setTitleAndIcon(title, icon) {
@@ -22,6 +34,14 @@ class Panel {
 
     setIcon(icon) {
         this.element.dataset.titleIcon = "<span class='mif-16 mif-" + icon + "'></span>";
+    }
+
+    setVisible(visible) {
+        this.visible = visible;
+    }
+
+    isVisible() {
+        return this.visible;
     }
 
     getEditor() {
