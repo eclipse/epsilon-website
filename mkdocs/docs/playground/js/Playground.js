@@ -78,33 +78,9 @@ function setup() {
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
     thirdModelPanel = new OutputPanel("thirdModel", outputType, outputLanguage);
 
-    new Layout().create("navview-content");
+    new Layout().create("navview-content", language);
     
     panels = [programPanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
-
-    if (language == "etl") {
-        document.getElementById("thirdModelSplitter").remove();
-    }
-    else if (language == "evl" || language == "epl") {
-        document.getElementById("secondModelSplitter").remove();    
-    }
-    else if (language == "eol" || language == "egl") {
-        document.getElementById("secondModelSplitter").remove();
-        if (outputType == "text" ) {
-            document.getElementById("thirdModelSplitter").remove();
-        }
-    }
-
-    Array.from(document.querySelectorAll('.editor')).forEach(function(e) {
-        var editor = ace.edit(e);
-        editor.setTheme("ace/theme/eclipse");
-        editor.renderer.setShowGutter(false);
-        editor.setFontSize("1rem");
-        editor.setOptions({
-            fontSize: "11pt",
-            useSoftTabs: true
-        });
-    });
 
     editors = [programPanel.getEditor(), firstModelPanel.getEditor(), firstMetamodelPanel.getEditor(), secondModelPanel.getEditor(), secondMetamodelPanel.getEditor(), consolePanel.getEditor(), thirdModelPanel.getEditor()];
 
@@ -193,45 +169,29 @@ function copyToClipboard(str) {
 
 function arrangePanels() {
 
-    if (language == "eol") {
-        toggle("secondModelSplitter");
-        toggle("thirdModelSplitter");
-        programPanel.setTitle("Program (EOL)");
-    }
-    else if (language == "egl") {
+    if (language == "egl") {
         if (outputType == "dot") {
-            toggle("secondModelSplitter");
             thirdModelPanel.showDiagram();
             thirdModelPanel.setTitleAndIcon("Graphviz", "diagram");
         }
         else if (outputType == "html") {
-            toggle("secondModelSplitter");
             thirdModelPanel.showDiagram();
             thirdModelPanel.setTitleAndIcon("HTML", "html");
         }
         else if (outputType == "puml") {
-            toggle("secondModelSplitter");
             thirdModelPanel.showDiagram();
             thirdModelPanel.setTitleAndIcon("PlantUML", "diagram");
         }
         else if (outputType == "code") {
-            toggle("secondModelSplitter");
             $("#thirdModelDiagram").hide();
             $("#thirdModelEditor").show();
             thirdModelPanel.setTitleAndIcon("Generated Text", "editor");           
         }
-        else {
-            toggle("secondModelSplitter");
-            toggle("thirdModelSplitter");
-        }
-        programPanel.setTitle("Template (EGL)");
     }
     else if (language == "etl" || language == "flock") {
-        $("#thirdModelSplitter").hide();
         $("#secondModelDiagram").show();
         $("#secondModelEditor").hide();
 
-        programPanel.setTitle("Transformation (ETL)");
         firstModelPanel.setTitle("Source Model");
         firstMetamodelPanel.setTitle("Source Metamodel");
         secondModelPanel.setTitle("Target Model");
@@ -239,21 +199,14 @@ function arrangePanels() {
         secondModelPanel.setIcon("diagram");
     }
     else if (language == "evl" || language == "epl") {
-        toggle("secondModelSplitter");
         $("#thirdModelDiagram").show();
         if (language == "evl") {
-            programPanel.setTitle("Constraints (EVL)");
             thirdModelPanel.setTitleAndIcon("Problems", "problems");
         }
         else {
-            programPanel.setTitle("Patterns (EPL)");
             thirdModelPanel.setTitleAndIcon("Pattern Matches", "diagram");
         }
     }
-    else if (language == "ecl") {
-        // Hide nothing; we need everything
-    }
-    programPanel.setIcon(language);
 }
 
 function getPanelTitle(panelId) {

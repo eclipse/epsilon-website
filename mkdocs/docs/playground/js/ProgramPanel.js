@@ -9,6 +9,15 @@ class ProgramPanel extends Panel {
     setLanguage(language) {
         this.editor.getSession().setMode("ace/mode/" + language);
         this.element.dataset.customButtons = JSON.stringify(this.getButtons(language));
+        var title = "";
+        switch (language) {
+            case "eol": title = "Program"; break;
+            case "etl": title = "Transformation"; break;
+            case "egl": title = "Template"; break;
+            case "evl": title = "Constraints"; break;
+            case "epl": title = "Patterns"; break;
+        }
+        this.setTitleAndIcon(title + " (" + language.toUpperCase() + ")", language);
     }
 
     fit() {
