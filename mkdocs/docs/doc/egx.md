@@ -75,6 +75,7 @@ Like all of Epsilon's rule-based (ERL) languages, an EGX module consists of any 
 * **template**: The path (usually relative) and name of the template to invoke.
 * **parameters**: Key-value pairs mapping variable names to values, which will be passed to the template. That is, the template will be populated with variable names (the keys) and values based on the provided Map.
 * **target**: The path of the file to which the output of the template should be written.
+* **formatter**: The `Formatter` implementation to post-process the output with. See the [documentation on formatters](egl.md#formatters) for more details.
 * **post**: Arbitrarily code block for post-processing. In addition to having access to all variable declared in previous blocks, a new variable called `generated` is also available, which is usually a reference to the generated file so the user can call any methods available on `java.io.File`. If the EGL execution engine has not been configured to output to files, or the `target` is ommitted, then this variable will be the output of the template as a String instead.
 
 The only other noteworthy aspect of EGX's execution algorithm is that it keeps a cache of templates which have been loaded, to avoid re-parsing and re-initialising them every time. Of course, the variables for the template are reset and rebound every time, as they may be different. The purpose of the cache is only to avoid the potentially expensive process of parsing EGL templates.
@@ -86,7 +87,7 @@ Owing to its rule-based declarative nature, EGX can execute rules independently,
 
 ## Example Programs
 
-Returning to our example, we can orchestrate the generation of Libraries as shown below, which demonstrates most of the features of EGX. Here we see how it is possible to screen eligible Library instances for generation, populate the template with the necessary parameters, invoke a different version of the template and direct the output to the desired file, all based on arbitrary user-defined criteria expressed declaratively using EOL. We can also compute aggregate metadata thanks to the pre and post blocks available both globally and on a per-rule basis. In this example, we simply compute the size of each file and print them once all transformations have taken place. Furthermore, we demonstrate that not all rules need to transform a specific model element: EGX can be used for convenience to invoke EGL templates with parameters, as shown by the `AuthorsAndBooks` rule. Here we only want to generate a single file from the Authors and Books in the model, where the logic for doing this is in a single EGL template. Although it wouldn't make much sense to use EGX purely for invoking single templates without parameters, the reader can perhaps appreciate that in large and complex models, there may be many different templates - e.g. one for each type - so all of the co-ordination in invoking them can be centralised to a single declarative file. EGX can thus be used as a workflow language in directing model-to-text transformations and is suitable for various use cases of almost any complexity.
+Returning to our example, we can orchestrate the generation of Libraries as shown below, which demonstrates most of the features of EGX. Here we see how it is possible to screen eligible Library instances for generation, populate the template with the necessary parameters, invoke a different version of the template, format the output, and direct the output to the desired file, all based on arbitrary user-defined criteria expressed declaratively using EOL. We can also compute aggregate metadata thanks to the pre and post blocks available both globally and on a per-rule basis. In this example, we simply compute the size of each file and print them once all transformations have taken place. Furthermore, we demonstrate that not all rules need to transform a specific model element: EGX can be used for convenience to invoke EGL templates with parameters, as shown by the `AuthorsAndBooks` rule. Here we only want to generate a single file from the Authors and Books in the model, where the logic for doing this is in a single EGL template. Although it wouldn't make much sense to use EGX purely for invoking single templates without parameters, the reader can perhaps appreciate that in large and complex models, there may be many different templates - e.g. one for each type - so all of the co-ordination in invoking them can be centralised to a single declarative file. EGX can thus be used as a workflow language in directing model-to-text transformations and is suitable for various use cases of almost any complexity.
 
 ```egx
 operation Book isValid() : Boolean {
@@ -96,6 +97,7 @@ operation Book isValid() : Boolean {
 pre {
   var outDirLib : String = "../libraries/";
   var libFileSizes = new Map;
+  var xml = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter");
 }
 
 rule Lib2XML transform lib : Library {
@@ -111,7 +113,7 @@ rule Lib2XML transform lib : Library {
     if (isBigLibrary) {
       libTemplate += "_minified";
     }
-    return libTemplate+".egl";
+    return libTemplate + ".egl";
   }
   parameters : Map {
     "name" = lib.name,
@@ -123,8 +125,9 @@ rule Lib2XML transform lib : Library {
     if (isBigLibrary) {
       outFile += "_compact";
     }
-    return outFile+".xml";
+    return outFile + ".xml";
   }
+  formatter : xml
   post {
     libFileSizes.put(generated.getName(), generated.length());
   }

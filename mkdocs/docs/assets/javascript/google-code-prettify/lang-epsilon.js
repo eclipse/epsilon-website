@@ -27,7 +27,7 @@ registerEpsilonLanguageHandler("egl", "");
 
 var erlKeywords = "pre|post|guard|extends";
 var etlKeywords = erlKeywords + "|transform|rule|to";
-var egxKeywords = erlKeywords + "|rule|transform|target|parameters|template|overwrite|merge";
+var egxKeywords = erlKeywords + "|rule|transform|target|parameters|template|overwrite|merge|formatter";
 
 registerEpsilonLanguageHandler("etl", etlKeywords);
 registerEpsilonLanguageHandler("egx", egxKeywords);

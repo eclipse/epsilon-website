@@ -4,7 +4,7 @@ This article provides a step-by-step guide for obtaining a local copy of the Eps
 
 ## Setting up your environment
 
-- Clone the Git repository at `https://github.com/eclipse/epsilon-website`.
+- Clone the Git repository at [https://github.com/eclipse/epsilon-website](https://github.com/eclipse/epsilon-website).
 - Download and install [virtualenv](https://virtualenv.pypa.io/en/stable/installation.html).
 - Navigate to the `mkdocs` folder, and run `./serve.sh` from a terminal. The first time this command is run, a Python virtual environment will be created unther the `mkdocs/env` directory. After the environment is ready (and on subsequent calls to `./serve.sh`), a local web server containing the Epsilon website will be running at [http://localhost:8000](http://localhost:8000).
 
@@ -26,7 +26,7 @@ If you are not a commiter, but you find any typos or parts of the website that d
 
 ## Pushing your changes
 
-When pushing your changes, please make sure to add the `-s` flag to your commit command (e.g. `git commit -m "Added new article" -s`), to add a sign-off footer, which is required by Gerrit [since mid-December 2020](https://bugs.eclipse.org/bugs/show_bug.cgi?id=569607#c16). There is also a `publish.sh` script in the repo, which creates separate commits for the changes to `mkdocs` and the changes to the generated static files, and then pushes both commits to the remote repo. You can use it as follows: `./publish.sh "Added new article"`.
+There is a `publish.sh` script in the repo, which creates separate commits for the changes to `mkdocs` and the changes to the generated static files, and then pushes both commits to the remote repo. You can use it as follows: `./publish.sh "Added new article"`.
 
 ## Finding broken links
 
