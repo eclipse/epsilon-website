@@ -291,8 +291,8 @@ asSequence()                                  |Returns a Sequence that contains 
 asSet()                                       |Returns a duplicate-free Set that contains the same elements as the collection.
 clear()                                       |Empties the collection
 clone() : Collection                          |Returns a new collection of the same type containing the same items with the original collection
-concat() : String                             |Returns the string created by converting each element of the collection to a string
-concat(separator : String) : String           |Returns the string created by converting each element of the collection to a string, using the given argument as a separator
+concat() : String                             |Returns the string created by converting each element of the collection to a string (equivalent to the `join` method used in some other languages)
+concat(separator : String) : String           |Returns the string created by converting each element of the collection to a string, using the given argument as a separator (equivalent to the `join` method used in some other languages)
 count(item : Any) : Integer                   |Returns the number of times the item exists in the collection
 excludes(item : Any) : Boolean                |Returns true if the collection excludes the `item`
 excludesAll(col : Collection) : Boolean       |Returns true if the collection excludes all the items of collection col
