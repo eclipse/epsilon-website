@@ -16,7 +16,6 @@ var outputLanguage = "text";
 var json;
 var url = window.location + "";
 var questionMark = url.indexOf("?");
-var editors;
 
 export var programPanel = new ProgramPanel();
 export var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
@@ -81,9 +80,7 @@ function setup() {
     new Layout().create("navview-content", language);
     
     panels = [programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
-
-    editors = [programPanel.getEditor(), firstModelPanel.getEditor(), firstMetamodelPanel.getEditor(), secondModelPanel.getEditor(), secondMetamodelPanel.getEditor(), consolePanel.getEditor(), thirdModelPanel.getEditor()];
-
+    
     arrangePanels();
 
     //TODO: Fix "undefined" when fields are empty
@@ -420,6 +417,7 @@ window.secondModelPanel = secondModelPanel;
 window.thirdModelPanel = thirdModelPanel;
 window.firstMetamodelPanel = firstMetamodelPanel;
 window.secondMetamodelPanel = secondMetamodelPanel;
+window.panels = panels;
 
 window.backend = backend;
 window.toggle = toggle;
@@ -431,4 +429,3 @@ window.copyShortenedLink = copyShortenedLink;
 window.downloadDialog = downloadDialog;
 window.language = language;
 window.getPanelTitle = getPanelTitle;
-window.editors = editors;
