@@ -2,8 +2,8 @@ import { Panel } from "./Panel.js";
 
 class ProgramPanel extends Panel {
 
-    constructor() {
-        super("program");
+    constructor(id = "program") {
+        super(id);
     }
 
     setLanguage(language) {
@@ -16,6 +16,7 @@ class ProgramPanel extends Panel {
             case "egl": title = "Template"; break;
             case "evl": title = "Constraints"; break;
             case "epl": title = "Patterns"; break;
+            case "egx": title = "Template Coordination"; break;
         }
         this.setTitleAndIcon(title + " (" + language.toUpperCase() + ")", language);
     }
@@ -30,6 +31,20 @@ class ProgramPanel extends Panel {
 
     getButtons(language) {
         var languageName = (language == "flock" ? "Flock" : language.toUpperCase());
+        var buttons = [{
+            html: this.buttonHtml("help", languageName + " language reference"),
+            cls: "sys-button",
+            onclick: "window.open('https://www.eclipse.org/epsilon/doc/'+language);"
+        }];
+        if (this.id == "program") {
+            buttons.push({
+                html: this.buttonHtml("run", "Run the program (Ctrl/Cmd+S)"),
+                cls: "sys-button",
+                onclick: "runProgram()"
+            });
+        }
+        return buttons;
+        /*
         return [{
             html: this.buttonHtml("help", languageName + " language reference"),
             cls: "sys-button",
@@ -38,7 +53,7 @@ class ProgramPanel extends Panel {
             html: this.buttonHtml("run", "Run the program (Ctrl/Cmd+S)"),
             cls: "sys-button",
             onclick: "runProgram()"
-        }];
+        }];*/
     }
 
     // TODO: Identical to ConsolePanel.createElement()

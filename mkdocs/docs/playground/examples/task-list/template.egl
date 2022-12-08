@@ -1,0 +1,5 @@
+Task List for [%=p.name%]
+---
+[%for (t in Task.all.select(t|t.effort.exists(e|e.person = p))){%]
+- [%=t.title%]
+[%}%]

@@ -34,7 +34,7 @@
                                 <epsilon.emf.loadModel name="Target" modelfile="target.xmi" metamodelfile="target.emf" read="false" store="true"/>
 
                                 <!-- Run program.{{ language }} against it -->
-                                <epsilon.{{ language }} src="program.{{ language }}">
+                                <epsilon.{{ task }} src="program.{{ language }}">
                                     <model ref="Source" />
                                     <model ref="Target" />
                                 </epsilon.{{ language }}>

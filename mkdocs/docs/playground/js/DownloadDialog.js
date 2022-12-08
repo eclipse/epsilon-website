@@ -1,3 +1,5 @@
+import { language, secondProgramPanel } from "./Playground.js";
+
 class DownloadDialog {
     show(event) {
         event.preventDefault();
@@ -12,7 +14,8 @@ class DownloadDialog {
                     onclick: function(){
                         var zip = new JSZip();
                         zip.file("program." + language, programPanel.getEditor().getValue());
-    
+                        if (language == "egx") zip.file("template.egl", secondProgramPanel.getEditor().getValue());
+
                         if (language != "etl") {
                             zip.file("model.flexmi", firstModelPanel.getValue());
                             zip.file("metamodel.emf", firstMetamodelPanel.getValue());
@@ -27,6 +30,7 @@ class DownloadDialog {
                         
                         var templateData = {
                             language: language, 
+                            task: language == "egx" ? "egl" : language,
                             etl: language == "etl",
                             egl: language == "egl"
                         };

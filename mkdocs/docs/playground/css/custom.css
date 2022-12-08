@@ -51,6 +51,10 @@
     content: url("../images/egl.png");
 }
 
+.mif-egx::before {
+    content: url("../images/egx.png");
+}
+
 .mif-etl::before {
     content: url("../images/etl.gif");
 }

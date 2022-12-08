@@ -1,0 +1,7 @@
+rule Person2TaskList
+    transform p : Person {
+
+    template: "template.egl"
+    
+    target: p.name + ".txt"
+}

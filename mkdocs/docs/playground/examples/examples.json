@@ -35,6 +35,16 @@
 		"outputType": "code"
 	},
 	{
+		"id": "egx",
+		"title": "Generate Task Lists",
+		"language": "egx",
+		"program": "task-list/task-list.egx",
+		"secondProgram": "task-list/template.egl",
+		"flexmi": "psl.flexmi",
+		"emfatic": "psl.emf",
+		"outputType": "code"
+	},
+	{
 		"id": "psl2graphviz",
 		"title": "Generate Effort Graph",
 		"language": "egl",

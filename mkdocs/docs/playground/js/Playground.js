@@ -18,6 +18,7 @@ var url = window.location + "";
 var questionMark = url.indexOf("?");
 
 export var programPanel = new ProgramPanel();
+export var secondProgramPanel = new ProgramPanel("secondProgram");
 export var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
 export var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
 export var firstModelPanel = new ModelPanel("firstModel", true, firstMetamodelPanel);
@@ -41,9 +42,8 @@ if (questionMark > -1) {
     exampleId = url.substring(questionMark+1, url.length);
     if (!examplesManager.hasExample(exampleId)) {
         var xhr = new XMLHttpRequest();
-        var url = backend.getShortURLService();
         
-        xhr.open("POST", url, false);
+        xhr.open("POST", backend.getShortURLService(), false);
         xhr.setRequestHeader("Content-Type", "application/json");
         var data = JSON.stringify({"shortened": exampleId});
         xhr.send(data);
@@ -79,14 +79,16 @@ function setup() {
 
     new Layout().create("navview-content", language);
     
-    panels = [programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
+    panels = [programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
     
     arrangePanels();
 
     //TODO: Fix "undefined" when fields are empty
     programPanel.setLanguage(language);
+    if (language == "egx") secondProgramPanel.setLanguage("egl");
 
     programPanel.setValue(example.program);
+    secondProgramPanel.setValue(example.secondProgram);
     firstModelPanel.setValue(example.flexmi);
     firstMetamodelPanel.setValue(example.emfatic);
     secondModelPanel.setValue(example.secondFlexmi);
@@ -116,9 +118,8 @@ function copyShortenedLink(event) {
     event.preventDefault();
     var content = btoa(editorsToJson());
     var xhr = new XMLHttpRequest();
-    var url = backend.getShortURLService();
     
-    xhr.open("POST", url, true);
+    xhr.open("POST", backend.getShortURLService(), true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
@@ -166,7 +167,7 @@ function copyToClipboard(str) {
 
 function arrangePanels() {
 
-    if (language == "egl") {
+    if (language == "egl" || language == "egx") {
         if (outputType == "dot") {
             thirdModelPanel.showDiagram();
             thirdModelPanel.setTitleAndIcon("Graphviz", "diagram");
@@ -216,6 +217,7 @@ function editorsToJsonObject() {
         "outputType": outputType,
         "outputLanguage": outputLanguage,
         "program": programPanel.getValue(), 
+        "secondProgram": secondProgramPanel.getValue(),
         "emfatic": firstMetamodelPanel.getValue(), 
         "flexmi": firstModelPanel.getValue(),
         "secondEmfatic": secondMetamodelPanel.getValue(),
@@ -264,10 +266,10 @@ function runProgram() {
                     else if (language == "epl") {
                         renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram);
                     }
-                    else if (language == "egl") {
+                    else if (language == "egl" || language == "egx") {
                         if (outputType == "code") {
                             thirdModelPanel.getEditor().getSession().setUseWrapMode(false);
-                            thirdModelPanel.getEditor().setValue(json.generatedText, 1);
+                            thirdModelPanel.getEditor().setValue(json.generatedText.trim(), 1);
                             consolePanel.setOutput(json.output);
                         }
                         else if (outputType == "html") {
@@ -411,6 +413,7 @@ window.updateGutterVisibility = updateGutterVisibility;
 window.runProgram = runProgram;
 
 window.programPanel = programPanel;
+window.secondProgramPanel = secondProgramPanel;
 window.consolePanel = consolePanel;
 window.firstModelPanel = firstModelPanel;
 window.secondModelPanel = secondModelPanel;

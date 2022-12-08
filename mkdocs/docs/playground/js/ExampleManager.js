@@ -56,6 +56,7 @@ class ExampleManager {
     fetchExample(id) {
         var example = this.examples[id];
         if (example.program != null) example.program = this.fetchFile(example.program);
+        if (example.secondProgram != null) example.secondProgram = this.fetchFile(example.secondProgram);
         if (example.flexmi != null) example.flexmi = this.fetchFile(example.flexmi);
         if (example.emfatic != null) example.emfatic = this.fetchFile(example.emfatic);
         if (example.secondFlexmi != null) example.secondFlexmi = this.fetchFile(example.secondFlexmi);
