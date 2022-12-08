@@ -80,7 +80,7 @@ function setup() {
 
     new Layout().create("navview-content", language);
     
-    panels = [programPanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
+    panels = [programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
 
     editors = [programPanel.getEditor(), firstModelPanel.getEditor(), firstMetamodelPanel.getEditor(), secondModelPanel.getEditor(), secondMetamodelPanel.getEditor(), consolePanel.getEditor(), thirdModelPanel.getEditor()];
 
