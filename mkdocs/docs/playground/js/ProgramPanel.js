@@ -34,7 +34,7 @@ class ProgramPanel extends Panel {
         var buttons = [{
             html: this.buttonHtml("help", languageName + " language reference"),
             cls: "sys-button",
-            onclick: "window.open('https://www.eclipse.org/epsilon/doc/'+language);"
+            onclick: "window.open('https://www.eclipse.org/epsilon/doc/" + language + "');"
         }];
         if (this.id == "program") {
             buttons.push({
