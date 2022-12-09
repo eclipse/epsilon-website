@@ -365,7 +365,6 @@ function renderDiagram(diagramId, svg) {
 }
 
 function updateGutterVisibility() {
-    /*
     for (const gutter of Array.prototype.slice.call(document.getElementsByClassName("gutter"))) {
 
         var visibleSiblings = Array.prototype.slice.call(gutter.parentNode.children).filter(
@@ -384,7 +383,7 @@ function updateGutterVisibility() {
         else {
             gutter.style.display = "none";
         }
-    }*/
+    }
 }
 
 function getNextVisibleSibling(element) {

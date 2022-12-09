@@ -1,5 +1,6 @@
 import { Panel } from "./Panel.js";
 import { Layout } from "./Layout.js";
+import { language, programPanel, secondProgramPanel } from "./Playground.js";
 
 class ConsolePanel extends Panel {
 
@@ -210,7 +211,13 @@ class ConsolePanel extends Panel {
             if (editor.getValue().indexOf(location) > -1) {
                 var matches = location.match(locationRegexp);
                 var Range = require("ace/range").Range;
-                programPanel.getEditor().selection.setRange(new Range(
+                var panel = programPanel;
+
+                if (language == "egx" && matches[2].split(".").pop() == "egl") {
+                    panel = secondProgramPanel;
+                }
+
+                panel.getEditor().selection.setRange(new Range(
                     parseInt(matches[3]) - 1, parseInt(matches[4]),
                     parseInt(matches[5]) - 1, parseInt(matches[6])));
             }
