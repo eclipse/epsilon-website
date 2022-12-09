@@ -132,6 +132,7 @@ class ModelPanel extends Panel {
 
     createElement() {
         var root = document.createElement("div");
+
         root.setAttribute("data-role", "panel");
         root.setAttribute("class", "modelPanel");
         root.setAttribute("id", this.id + "Panel");

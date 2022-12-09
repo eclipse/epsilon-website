@@ -5,7 +5,7 @@ class SettingsDialog {
     show(event) {
         event.preventDefault();
 
-        var panels = ["program", "console", "firstModel", "firstMetamodel"];
+        var panels = ["program", "secondProgram", "console", "firstModel", "firstMetamodel"];
 
         if (language == "etl" || language == "flock")
             panels.push("secondModel", "secondMetamodel");

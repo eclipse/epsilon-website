@@ -75,7 +75,7 @@ function setup() {
     var secondModelEditable = !(language == "etl" || language == "flock");
 
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
-    thirdModelPanel = new OutputPanel("thirdModel", outputType, outputLanguage);
+    thirdModelPanel = new OutputPanel("thirdModel", language, outputType, outputLanguage);
 
     new Layout().create("navview-content", language);
     
@@ -249,31 +249,36 @@ function runProgram() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                var json = JSON.parse(xhr.responseText);
+                var response = JSON.parse(xhr.responseText);
+                console.log(response);
 
-                if (json.hasOwnProperty("error")) {
-                    consolePanel.setError(json.error);
+                if (response.hasOwnProperty("error")) {
+                    consolePanel.setError(response.error);
                 }
                 else {
-                    consolePanel.setOutput(json.output);
+                    consolePanel.setOutput(response.output);
                     
                     if (language == "etl") {
-                        renderDiagram("secondModelDiagram", json.targetModelDiagram);
+                        renderDiagram("secondModelDiagram", response.targetModelDiagram);
                     }
                     else if (language == "evl") {
-                        renderDiagram("thirdModelDiagram", json.validatedModelDiagram);
+                        renderDiagram("thirdModelDiagram", response.validatedModelDiagram);
                     }
                     else if (language == "epl") {
-                        renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram);
+                        renderDiagram("thirdModelDiagram", response.patternMatchedModelDiagram);
                     }
-                    else if (language == "egl" || language == "egx") {
+                    else if (language == "egx") {
+                        thirdModelPanel.setGeneratedFiles(response.generatedFiles);
+                        //thirdModelPanel.getEditor().setValue(response.generatedText.trim(), 1);
+                        consolePanel.setOutput(response.output);
+                    }
+                    else if (language == "egl") {
                         if (outputType == "code") {
-                            thirdModelPanel.getEditor().getSession().setUseWrapMode(false);
-                            thirdModelPanel.getEditor().setValue(json.generatedText.trim(), 1);
-                            consolePanel.setOutput(json.output);
+                            thirdModelPanel.getEditor().setValue(response.generatedText.trim(), 1);
+                            consolePanel.setOutput(response.output);
                         }
                         else if (outputType == "html") {
-                            consolePanel.setOutput(json.output);
+                            consolePanel.setOutput(response.output);
                             var iframe = document.getElementById("htmlIframe");
                             if (iframe == null) {
                                 iframe = document.createElement("iframe");
@@ -283,11 +288,11 @@ function runProgram() {
                                 document.getElementById("thirdModelDiagram").appendChild(iframe);
                             }
                             
-                            iframe.srcdoc = json.generatedText;
+                            iframe.srcdoc = response.generatedText;
                         }
                         else if (outputType == "puml" || outputType == "dot") {
 
-                            consolePanel.setOutput(json.output);
+                            consolePanel.setOutput(response.output);
                             var krokiEndpoint = "";
                             if (outputType == "puml") krokiEndpoint = "plantuml";
                             else krokiEndpoint = "graphviz/svg"
@@ -303,10 +308,10 @@ function runProgram() {
                                     }
                                 }
                             };
-                            krokiXhr.send(json.generatedText);
+                            krokiXhr.send(response.generatedText);
                         }
                         else {
-                            consolePanel.setOutput(json.output + json.generatedText);
+                            consolePanel.setOutput(response.output + response.generatedText);
                         }
                     }
                 }
@@ -360,6 +365,7 @@ function renderDiagram(diagramId, svg) {
 }
 
 function updateGutterVisibility() {
+    /*
     for (const gutter of Array.prototype.slice.call(document.getElementsByClassName("gutter"))) {
 
         var visibleSiblings = Array.prototype.slice.call(gutter.parentNode.children).filter(
@@ -378,7 +384,7 @@ function updateGutterVisibility() {
         else {
             gutter.style.display = "none";
         }
-    }
+    }*/
 }
 
 function getNextVisibleSibling(element) {

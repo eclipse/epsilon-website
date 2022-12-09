@@ -37,7 +37,7 @@ class Layout {
         else if (language == "egx") {
             splitter = Layout.createHorizontalSplitter(
                 [
-                    Layout.createVerticalSplitter([programPanel.getElement(), secondProgramPanel.getElement(), consolePanel.getElement()]),
+                    Layout.createVerticalSplitter([Layout.createVerticalSplitter([programPanel.getElement(), secondProgramPanel.getElement()]), consolePanel.getElement()]),
                     Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
                     Layout.createVerticalSplitter([thirdModelPanel.getElement()])
                 ]
