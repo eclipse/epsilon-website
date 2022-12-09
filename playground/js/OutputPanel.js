@@ -1,33 +1,60 @@
 import { ModelPanel } from "./ModelPanel.js";
+import { language } from "./Playground.js";
 
 class OutputPanel extends ModelPanel {
 
-    type;
+    outputType;
+    outputLanguage;
     language;
+    generatedFiles;
 
-    constructor(id, type, language) {
+    constructor(id, language, outputType, outputLanguage) {
         super(id, false, null);
-        this.type = type;
+        this.outputType = outputType;
+        this.outputLanguage = outputLanguage;
         this.language = language;
         this.element.dataset.customButtons = JSON.stringify(this.getButtons());
-        this.getEditor().getSession().setMode("ace/mode/" + language.toLowerCase());
+        this.getEditor().getSession().setMode("ace/mode/" + outputLanguage.toLowerCase());
+        //this.getEditor().getSession().setUseWrapMode(false);
     }
 
     setupSyntaxHighlighting() {}
 
     getButtons() {
-        return (this.type == "code") ? [{
+        return (this.outputType == "code") ? [{
             html: this.buttonHtml("highlight", "Set generated text language"),
             cls: "sys-button",
             onclick: this.id + "Panel.setOutputLanguage()"
         }] : [];
     }
 
+    getSelect() {
+        return Metro.getPlugin("#generatedFiles", 'select');
+    }
+
+    setGeneratedFiles(generatedFiles) {
+        this.generatedFiles = generatedFiles;
+
+        var options = new Map();
+        for (const generatedFile of generatedFiles) {
+            options.set(generatedFile.path, "<span>" + generatedFile.path + "</span>");
+        }
+
+        var select = this.getSelect();
+        var previousSelection = select.getSelected();
+        
+        select.data(Object.fromEntries(options));
+
+        var selection = generatedFiles.find(f => f.path == previousSelection) != null ? previousSelection : generatedFiles[0]?.path;
+        select.val(selection);
+        this.displayGeneratedFile(selection);
+    }
+
     setOutputLanguage() {
         var self = this;
         Metro.dialog.create({
             title: "Set Generated Text Language",
-            content: "<p>You can set the language of the generated text to <a href='https://github.com/ajaxorg/ace/tree/master/lib/ace/mode'>any language</a> supported by the <a href='https://ace.c9.io/'>ACE editor</a>. </p><br><input type='text' id='language' data-role='input' value='" + self.language + "'>",
+            content: "<p>You can set the language of the generated text to <a href='https://github.com/ajaxorg/ace/tree/master/lib/ace/mode'>any language</a> supported by the <a href='https://ace.c9.io/'>ACE editor</a>. </p><br><input type='text' id='language' data-role='input' value='" + self.outputLanguage + "'>",
             actions: [
                 {
                     caption: "OK",
@@ -43,6 +70,43 @@ class OutputPanel extends ModelPanel {
                 }
             ]
         });
+    }
+
+    displayGeneratedFile(path) {
+        for (const generatedFile of this.generatedFiles) {
+            if (generatedFile.path == path) {
+                this.setValue(generatedFile.content);
+                // Set the right syntax highlighting for the file extension
+                var modelist = ace.require("ace/ext/modelist");
+                this.getEditor().getSession().setMode(modelist.getModeForPath(path + "").mode);
+                return;
+            }
+        }
+
+        // If the generated path is invalid, reset the editor
+        this.setValue("");
+        this.getEditor().getSession().setMode("ace/mode/text");
+    }
+
+    generatedFileSelected() {
+        this.displayGeneratedFile(this.getSelect().getSelected()[0]);
+    }
+
+    createElement() {
+        var root = super.createElement();
+        root.setAttribute("style", "padding: 0px");
+
+        if (language == "egx") {
+            var select = document.createElement("select");
+            select.setAttribute("data-role", "select");
+            select.setAttribute("data-on-item-select", "thirdModelPanel.generatedFileSelected()");
+            select.setAttribute("id", "generatedFiles");
+            select.setAttribute("style","width:100%");
+            root.insertBefore(select, root.children[0]);
+            console.log(this.select);
+        }
+
+        return root;
     }
 
     fit() {

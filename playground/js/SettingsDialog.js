@@ -5,7 +5,7 @@ class SettingsDialog {
     show(event) {
         event.preventDefault();
 
-        var panels = ["program", "console", "firstModel", "firstMetamodel"];
+        var panels = ["program", "secondProgram", "console", "firstModel", "firstMetamodel"];
 
         if (language == "etl" || language == "flock")
             panels.push("secondModel", "secondMetamodel");
@@ -72,7 +72,7 @@ class SettingsDialog {
 
     updateEditorLineNumbers() {
         this.showEditorLineNumbers = document.getElementById("editorLineNumbers").checked;
-        editors.forEach(e => e.renderer.setShowGutter(this.showEditorLineNumbers));
+        panels.forEach(p => p.getEditor().renderer.setShowGutter(this.showEditorLineNumbers));
     }
 
     createEditorLineNumbersCheckbox() {

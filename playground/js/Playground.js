@@ -13,12 +13,12 @@ import { Layout } from './Layout.js';
 export var language = "eol";
 var outputType = "text";
 var outputLanguage = "text";
-var json;
+var example;
 var url = window.location + "";
 var questionMark = url.indexOf("?");
-var editors;
 
 export var programPanel = new ProgramPanel();
+export var secondProgramPanel = new ProgramPanel("secondProgram");
 export var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
 export var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
 export var firstModelPanel = new ModelPanel("firstModel", true, firstMetamodelPanel);
@@ -36,64 +36,63 @@ var panels = [];
 examplesManager.fetchExamples();
 backend.configure();
 
-var content = "";
+var exampleId = "";
 
 if (questionMark > -1) {
-    content = url.substring(questionMark+1, url.length);
-    if (!examplesManager.hasExample(content)) {
+    exampleId = url.substring(questionMark+1, url.length);
+    if (!examplesManager.hasExample(exampleId)) {
         var xhr = new XMLHttpRequest();
-        var url = backend.getShortURLService();
         
-        xhr.open("POST", url, false);
+        xhr.open("POST", backend.getShortURLService(), false);
         xhr.setRequestHeader("Content-Type", "application/json");
-        var data = JSON.stringify({"shortened": content});
+        var data = JSON.stringify({"shortened": exampleId});
         xhr.send(data);
         if (xhr.status === 200) {
-            content = atob(JSON.parse(xhr.responseText).content);
-            json = JSON.parse(content);
+            exampleId = atob(JSON.parse(xhr.responseText).content);
+            example = JSON.parse(exampleId);
             setup();
         }
     }
     else {
-        json = examplesManager.fetchExample(content);
+        example = examplesManager.fetchExample(exampleId);
         setup();
     }
 }
 else {
-    json = examplesManager.fetchExample(examplesManager.getFirstExample());        
+    example = examplesManager.fetchExample(examplesManager.getFirstExample());        
     setup();
 }
 
 function setup() {
 
 
-    if (json.eol != null) { json.program = json.eol; language = "eol";}
-    else {language = json.language};
+    if (example.eol != null) { example.program = example.eol; language = "eol";}
+    else {language = example.language};
 
-    if (json.outputType != null) {outputType = json.outputType;}
-    if (json.outputLanguage != null) {outputLanguage = json.outputLanguage;}
+    if (example.outputType != null) {outputType = example.outputType;}
+    if (example.outputLanguage != null) {outputLanguage = example.outputLanguage;}
     
     var secondModelEditable = !(language == "etl" || language == "flock");
 
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
-    thirdModelPanel = new OutputPanel("thirdModel", outputType, outputLanguage);
+    thirdModelPanel = new OutputPanel("thirdModel", language, outputType, outputLanguage);
 
     new Layout().create("navview-content", language);
     
-    panels = [programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
-
-    editors = [programPanel.getEditor(), firstModelPanel.getEditor(), firstMetamodelPanel.getEditor(), secondModelPanel.getEditor(), secondMetamodelPanel.getEditor(), consolePanel.getEditor(), thirdModelPanel.getEditor()];
-
+    panels = [programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
+    
     arrangePanels();
 
     //TODO: Fix "undefined" when fields are empty
     programPanel.setLanguage(language);
+    if (language == "egx") secondProgramPanel.setLanguage("egl");
 
-    programPanel.setValue(json.program);
-    firstModelPanel.setValue(json.flexmi);
-    firstMetamodelPanel.setValue(json.emfatic);
-    secondModelPanel.setValue(json.secondFlexmi);
-    secondMetamodelPanel.setValue(json.secondEmfatic);
+    programPanel.setValue(example.program);
+    secondProgramPanel.setValue(example.secondProgram);
+    firstModelPanel.setValue(example.flexmi);
+    firstMetamodelPanel.setValue(example.emfatic);
+    secondModelPanel.setValue(example.secondFlexmi);
+    secondMetamodelPanel.setValue(example.secondEmfatic);
 
     document.getElementById("navview").style.display = "block";
     
@@ -119,9 +118,8 @@ function copyShortenedLink(event) {
     event.preventDefault();
     var content = btoa(editorsToJson());
     var xhr = new XMLHttpRequest();
-    var url = backend.getShortURLService();
     
-    xhr.open("POST", url, true);
+    xhr.open("POST", backend.getShortURLService(), true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
@@ -169,7 +167,7 @@ function copyToClipboard(str) {
 
 function arrangePanels() {
 
-    if (language == "egl") {
+    if (language == "egl" || language == "egx") {
         if (outputType == "dot") {
             thirdModelPanel.showDiagram();
             thirdModelPanel.setTitleAndIcon("Graphviz", "diagram");
@@ -219,6 +217,7 @@ function editorsToJsonObject() {
         "outputType": outputType,
         "outputLanguage": outputLanguage,
         "program": programPanel.getValue(), 
+        "secondProgram": secondProgramPanel.getValue(),
         "emfatic": firstMetamodelPanel.getValue(), 
         "flexmi": firstModelPanel.getValue(),
         "secondEmfatic": secondMetamodelPanel.getValue(),
@@ -250,31 +249,36 @@ function runProgram() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                var json = JSON.parse(xhr.responseText);
+                var response = JSON.parse(xhr.responseText);
+                console.log(response);
 
-                if (json.hasOwnProperty("error")) {
-                    consolePanel.setError(json.error);
+                if (response.hasOwnProperty("error")) {
+                    consolePanel.setError(response.error);
                 }
                 else {
-                    consolePanel.setOutput(json.output);
+                    consolePanel.setOutput(response.output);
                     
                     if (language == "etl") {
-                        renderDiagram("secondModelDiagram", json.targetModelDiagram);
+                        renderDiagram("secondModelDiagram", response.targetModelDiagram);
                     }
                     else if (language == "evl") {
-                        renderDiagram("thirdModelDiagram", json.validatedModelDiagram);
+                        renderDiagram("thirdModelDiagram", response.validatedModelDiagram);
                     }
                     else if (language == "epl") {
-                        renderDiagram("thirdModelDiagram", json.patternMatchedModelDiagram);
+                        renderDiagram("thirdModelDiagram", response.patternMatchedModelDiagram);
+                    }
+                    else if (language == "egx") {
+                        thirdModelPanel.setGeneratedFiles(response.generatedFiles);
+                        //thirdModelPanel.getEditor().setValue(response.generatedText.trim(), 1);
+                        consolePanel.setOutput(response.output);
                     }
                     else if (language == "egl") {
                         if (outputType == "code") {
-                            thirdModelPanel.getEditor().getSession().setUseWrapMode(false);
-                            thirdModelPanel.getEditor().setValue(json.generatedText, 1);
-                            consolePanel.setOutput(json.output);
+                            thirdModelPanel.getEditor().setValue(response.generatedText.trim(), 1);
+                            consolePanel.setOutput(response.output);
                         }
                         else if (outputType == "html") {
-                            consolePanel.setOutput(json.output);
+                            consolePanel.setOutput(response.output);
                             var iframe = document.getElementById("htmlIframe");
                             if (iframe == null) {
                                 iframe = document.createElement("iframe");
@@ -284,11 +288,11 @@ function runProgram() {
                                 document.getElementById("thirdModelDiagram").appendChild(iframe);
                             }
                             
-                            iframe.srcdoc = json.generatedText;
+                            iframe.srcdoc = response.generatedText;
                         }
                         else if (outputType == "puml" || outputType == "dot") {
 
-                            consolePanel.setOutput(json.output);
+                            consolePanel.setOutput(response.output);
                             var krokiEndpoint = "";
                             if (outputType == "puml") krokiEndpoint = "plantuml";
                             else krokiEndpoint = "graphviz/svg"
@@ -304,10 +308,10 @@ function runProgram() {
                                     }
                                 }
                             };
-                            krokiXhr.send(json.generatedText);
+                            krokiXhr.send(response.generatedText);
                         }
                         else {
-                            consolePanel.setOutput(json.output + json.generatedText);
+                            consolePanel.setOutput(response.output + response.generatedText);
                         }
                     }
                 }
@@ -414,12 +418,14 @@ window.updateGutterVisibility = updateGutterVisibility;
 window.runProgram = runProgram;
 
 window.programPanel = programPanel;
+window.secondProgramPanel = secondProgramPanel;
 window.consolePanel = consolePanel;
 window.firstModelPanel = firstModelPanel;
 window.secondModelPanel = secondModelPanel;
 window.thirdModelPanel = thirdModelPanel;
 window.firstMetamodelPanel = firstMetamodelPanel;
 window.secondMetamodelPanel = secondMetamodelPanel;
+window.panels = panels;
 
 window.backend = backend;
 window.toggle = toggle;
@@ -431,4 +437,3 @@ window.copyShortenedLink = copyShortenedLink;
 window.downloadDialog = downloadDialog;
 window.language = language;
 window.getPanelTitle = getPanelTitle;
-window.editors = editors;

@@ -1,4 +1,4 @@
-import {programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel} from './Playground.js';
+import {programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel} from './Playground.js';
 
 class Layout {
 
@@ -31,6 +31,15 @@ class Layout {
                     Layout.createVerticalSplitter([programPanel.getElement(), consolePanel.getElement()]),
                     Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
                     Layout.createVerticalSplitter([secondModelPanel.getElement(), secondMetamodelPanel.getElement()])
+                ]
+            );
+        }
+        else if (language == "egx") {
+            splitter = Layout.createHorizontalSplitter(
+                [
+                    Layout.createVerticalSplitter([Layout.createVerticalSplitter([programPanel.getElement(), secondProgramPanel.getElement()]), consolePanel.getElement()]),
+                    Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
+                    Layout.createVerticalSplitter([thirdModelPanel.getElement()])
                 ]
             );
         }

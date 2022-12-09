@@ -71,6 +71,16 @@
 		"outputType": "puml"
 	},
 	{
+		"id": "egx",
+		"title": "Generate Task Lists",
+		"language": "egx",
+		"program": "task-list/task-list.egx",
+		"secondProgram": "task-list/template.egl",
+		"flexmi": "psl.flexmi",
+		"emfatic": "psl.emf",
+		"outputType": "code"
+	},
+	{
 		"id": "epl",
 		"title": "Pattern Match Project Plan",
 		"language": "epl",
