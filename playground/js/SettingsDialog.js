@@ -5,12 +5,17 @@ class SettingsDialog {
     show(event) {
         event.preventDefault();
 
-        var panels = ["program", "secondProgram", "console", "firstModel", "firstMetamodel"];
+        var panels = ["program", "console", "firstModel", "firstMetamodel"];
 
         if (language == "etl" || language == "flock")
             panels.push("secondModel", "secondMetamodel");
-        else if (language == "evl" || language == "epl" || language == "egl")
+        else if (language == "evl" || language == "epl" || language == "egl" || language == "egx") {
             panels.push("thirdModel");
+            if (language == "egx") {
+                panels.push("secondProgram");
+            }
+        }
+        
 
         var visibilityCheckboxes = "";
 
@@ -82,7 +87,6 @@ class SettingsDialog {
     }
 
     createPanelVisibilityCheckbox(panel) {
-
         var checked = document.getElementById(panel + "Panel").parentNode.style.display == "none" ? "" : "checked";
 
         return '<input type="checkbox" id="' + panel + 'Visible" data-role="checkbox" data-caption="' + getPanelTitle(panel + "Panel") + '" ' + checked + '>';

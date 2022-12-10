@@ -20,27 +20,33 @@ class Layout {
             splitter = Layout.createHorizontalSplitter(
                 [
                     Layout.createVerticalSplitter([programPanel.getElement(), consolePanel.getElement()]),
-                    Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
-                    Layout.createVerticalSplitter([thirdModelPanel.getElement()])
-                ]
+                    Layout.createHorizontalSplitter([
+                        Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
+                        Layout.createVerticalSplitter([thirdModelPanel.getElement()])
+                    ], "50, 50")
+                ], "33, 64"
             );
         }
         else if (language == "etl" || language == "flock") {
             splitter = Layout.createHorizontalSplitter(
                 [
                     Layout.createVerticalSplitter([programPanel.getElement(), consolePanel.getElement()]),
-                    Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
-                    Layout.createVerticalSplitter([secondModelPanel.getElement(), secondMetamodelPanel.getElement()])
-                ]
+                    Layout.createHorizontalSplitter([
+                        Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
+                        Layout.createVerticalSplitter([secondModelPanel.getElement(), secondMetamodelPanel.getElement()])
+                    ], "50, 50")
+                ], "33, 64"
             );
         }
         else if (language == "egx") {
             splitter = Layout.createHorizontalSplitter(
                 [
                     Layout.createVerticalSplitter([Layout.createVerticalSplitter([programPanel.getElement(), secondProgramPanel.getElement()]), consolePanel.getElement()]),
-                    Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
-                    Layout.createVerticalSplitter([thirdModelPanel.getElement()])
-                ]
+                    Layout.createHorizontalSplitter([
+                        Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
+                        Layout.createVerticalSplitter([thirdModelPanel.getElement()])
+                    ], "50, 50")
+                ], "33, 64"
             );
         }
 
@@ -50,20 +56,21 @@ class Layout {
         root.appendChild(splitter);
     }
 
-    static createHorizontalSplitter(components) {
-        return Layout.createSplitter(true, components);
+    static createHorizontalSplitter(components, split = "50, 50") {
+        return Layout.createSplitter(true, components, split);
     }
 
-    static createVerticalSplitter(components) {
-        return Layout.createSplitter(false, components);
+    static createVerticalSplitter(components, split = "50, 50") {
+        return Layout.createSplitter(false, components, split);
     }
 
-    static createSplitter(horizontal, components) {
+    static createSplitter(horizontal, components, split) {
         var splitter = document.createElement("div");
         splitter.setAttribute("data-role", "splitter");
         splitter.setAttribute("data-on-resize-stop", "fit()");
         splitter.setAttribute("data-on-resize-split", "fit()");
         splitter.setAttribute("data-on-resize-window", "fit()");
+        splitter.setAttribute("data-split-sizes", split);
 
         if (!horizontal) splitter.setAttribute("data-split-mode", "vertical");
         components.forEach(component => splitter.appendChild(component));
