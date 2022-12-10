@@ -131,6 +131,10 @@
 	content: url("../images/settings.png");
 }
 
+.mif-more::before {
+	content: url("../images/more.png");
+}
+
 .panel .panel-title .custom-buttons {
 	margin-right: 10px;
 }
