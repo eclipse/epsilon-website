@@ -37,7 +37,7 @@
                                 <epsilon.{{ task }} src="program.{{ language }}">
                                     <model ref="Source" />
                                     <model ref="Target" />
-                                </epsilon.{{ language }}>
+                                </epsilon.{{ task }}>
 
                                 <!-- Dispose of both models -->
                                 <epsilon.disposeModel model="Source"/>
@@ -47,9 +47,9 @@
                                 <epsilon.emf.loadModel name="M" modelfile="model.flexmi" metamodelfile="metamodel.emf" />
 
                                 <!-- Run program.{{ language }} against it -->
-                                <epsilon.{{ language }} src="program.{{ language }}"{{#if egl}} target="generated.txt"{{/if}}>
+                                <epsilon.{{ task }} src="program.{{ language }}"{{#if egl}} target="generated.txt"{{/if}}>
                                     <model ref="M" />
-                                </epsilon.{{ language }}>
+                                </epsilon.{{ task }}>
 
                                 <!-- Dispose of the model -->
                                 <epsilon.disposeModel model="M"/>
