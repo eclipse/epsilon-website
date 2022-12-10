@@ -12,14 +12,18 @@ class ExampleManager {
         xhr.send();
         if (xhr.status === 200) {    
             var json = JSON.parse(xhr.responseText);
-            var examplesEnd = document.getElementById("examples-end");
-        
+            var more = document.getElementById("more");
+            var visibleExamples = 15;
+
+            // If we have fewer examples than we can display, we don't need the More menu
+            if (json.examples.length <= visibleExamples) more.style.display = "none";
+
+            var i = 0;
             for (const example of json.examples) {
                 this.examples[example.id] = example;
 
                 // Add a link for the example to the left hand side menu
                 var li = document.createElement("li");
-                examplesEnd.parentNode.insertBefore(li, examplesEnd);
                 
                 var a = document.createElement("a");
                 a.href = "?" + example.id;
@@ -38,6 +42,15 @@ class ExampleManager {
                 caption.innerHTML = example.title;
                 caption.classList.add("caption");
                 a.appendChild(caption);
+
+                if (i<visibleExamples) {
+                    more.parentNode.insertBefore(li, more);
+                }
+                else {
+                    var moreMenu = document.getElementById("moreMenu");
+                    moreMenu.appendChild(li);
+                }
+                i++;
             }
         }
     }

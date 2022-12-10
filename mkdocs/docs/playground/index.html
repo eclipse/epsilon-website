@@ -21,7 +21,16 @@
             <ul class="navview-menu">
                 <li class="item-header">Epsilon Playground</li>
                 <li class="item-separator"></li>
-                <li class="item-separator" id="examples-end"></li>
+
+                <li id="more">
+                    <a href="#" class="dropdown-toggle">
+                        <span class="icon"><span class="mif-more"></span></span>
+                        <span class="caption">More</span>
+                    </a>
+                    <ul class="navview-menu" data-role="dropdown" id="moreMenu">
+                    </ul>
+                </li>
+                <li class="item-separator"></li>                
                 <li>
                     <a href="#" onclick="copyShortenedLink(event)" id="exampleLink">
                         <span class="icon"><span class="mif-example-16 mif-link"></span></span>
