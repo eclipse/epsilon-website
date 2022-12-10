@@ -108,18 +108,6 @@ class OutputPanel extends ModelPanel {
 
         return root;
     }
-
-    fit() {
-        var diagramElement = document.getElementById(this.id + "Diagram");
-        if (diagramElement != null) {
-            var svg = diagramElement.firstElementChild;
-            if (svg != null && svg.tagName == "svg") {
-                diagramElement = diagramElement.parentElement.parentElement;
-                svg.style.width = diagramElement.offsetWidth + "px";
-                svg.style.height = diagramElement.offsetHeight - 42 + "px";
-            }
-        }
-    }
 }
 
 export { OutputPanel };
