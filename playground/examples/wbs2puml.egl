@@ -10,7 +10,7 @@
 
 [%for (task in wp.tasks){%]
 [*Task boxes also include a badge (filled circle) for each of their partners*]
-*** [%=task.title%][%if(task.partners.notEmpty()){%]\n[%=task.partners.collect(partner|"<color:" + partner.color + "><U+2B24></color>").concat("   ")%][%}%] 
+*** [%=task.title%][%if(task.partners.notEmpty()){%]\n[%=task.partners.collect(partner|"<color:" + partner.color + "><U+2B24></color>").concat(" ")%][%}%] 
 [%}%]
 [%}%]
 
