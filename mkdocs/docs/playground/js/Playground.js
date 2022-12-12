@@ -26,42 +26,17 @@ export var secondModelPanel;
 export var thirdModelPanel;
 
 export var consolePanel = new ConsolePanel();
-export var examplesManager = new ExampleManager();
 var downloadDialog = new DownloadDialog();
 var settingsDialog = new SettingsDialog();
 var preloader = new Preloader();
-var backend = new Backend();
+export var backend = new Backend();
+export var examplesManager = new ExampleManager();
 var panels = [];
 
-examplesManager.fetchExamples();
 backend.configure();
 
-var exampleId = "";
-
-if (questionMark > -1) {
-    exampleId = url.substring(questionMark+1, url.length);
-    if (!examplesManager.hasExample(exampleId)) {
-        var xhr = new XMLHttpRequest();
-        
-        xhr.open("POST", backend.getShortURLService(), false);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        var data = JSON.stringify({"shortened": exampleId});
-        xhr.send(data);
-        if (xhr.status === 200) {
-            exampleId = atob(JSON.parse(xhr.responseText).content);
-            example = JSON.parse(exampleId);
-            setup();
-        }
-    }
-    else {
-        example = examplesManager.fetchExample(exampleId);
-        setup();
-    }
-}
-else {
-    example = examplesManager.fetchExample(examplesManager.getFirstExample());        
-    setup();
-}
+example = examplesManager.getSelectedExample();
+setup();
 
 function setup() {
 
@@ -269,7 +244,6 @@ function runProgram() {
                     }
                     else if (language == "egx") {
                         thirdModelPanel.setGeneratedFiles(response.generatedFiles);
-                        //thirdModelPanel.getEditor().setValue(response.generatedText.trim(), 1);
                         consolePanel.setOutput(response.output);
                     }
                     else if (language == "egl") {
