@@ -1,3 +1,5 @@
+import "handlebars";
+
 import { ModelPanel } from './ModelPanel.js';
 import { ConsolePanel } from "./ConsolePanel.js";
 import { ProgramPanel } from "./ProgramPanel.js";

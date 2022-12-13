@@ -1,3 +1,5 @@
+import {define} from "ace-builds";
+
 define("ace/mode/egl_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module) {
 "use strict";
 
