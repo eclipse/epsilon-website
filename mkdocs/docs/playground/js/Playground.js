@@ -10,6 +10,8 @@ import { Preloader } from './Preloader.js';
 import { Backend } from './Backend.js';
 import { Layout } from './Layout.js';
 
+import './highlighting/languages.js';
+
 export var language = "eol";
 var outputType = "text";
 var outputLanguage = "text";
