@@ -15,6 +15,7 @@
     "ace-builds": "^1.14.0",
     "handlebars": "^4.7.7",
     "jszip": "^3.10.1",
+    "svg-pan-zoom": "^3.6.1",
     "webpack-cli": "^5.0.1"
   },
   "devDependencies": {

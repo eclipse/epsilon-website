@@ -3,8 +3,7 @@ import 'ace-builds/src-min-noconflict/theme-eclipse';
 import 'ace-builds/src-min-noconflict/mode-xml';
 import 'ace-builds/src-min-noconflict/mode-yaml';
 import 'ace-builds/src-min-noconflict/mode-java';
-
-//import "handlebars";
+import svgPanZoom from 'svg-pan-zoom';
 
 import { ModelPanel } from './ModelPanel.js';
 import { ConsolePanel } from "./ConsolePanel.js";
