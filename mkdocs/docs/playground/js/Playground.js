@@ -3,6 +3,9 @@ import 'ace-builds/src-min-noconflict/theme-eclipse';
 import 'ace-builds/src-min-noconflict/mode-xml';
 import 'ace-builds/src-min-noconflict/mode-yaml';
 import 'ace-builds/src-min-noconflict/mode-java';
+import 'ace-builds/src-min-noconflict/mode-html';
+import 'ace-builds/src-min-noconflict/ext-modelist';
+
 import svgPanZoom from 'svg-pan-zoom';
 
 import { ModelPanel } from './ModelPanel.js';
@@ -17,8 +20,7 @@ import { Preloader } from './Preloader.js';
 import { Backend } from './Backend.js';
 import { Layout } from './Layout.js';
 import 'metro4';
-
-import './highlighting/languages.js';
+import './highlighting/highlighting.js';
 
 export var language = "eol";
 var outputType = "text";
