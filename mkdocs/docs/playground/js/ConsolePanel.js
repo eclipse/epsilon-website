@@ -1,6 +1,7 @@
 import { Panel } from "./Panel.js";
 import { Layout } from "./Layout.js";
 import { language, programPanel, secondProgramPanel } from "./Playground.js";
+import { define } from "ace-builds";
 
 class ConsolePanel extends Panel {
 
@@ -9,7 +10,7 @@ class ConsolePanel extends Panel {
         this.editor.setReadOnly(true);
         this.editor.setValue("", 1);
         this.element.dataset.customButtons = JSON.stringify(this.getButtons());
-        //this.detectHyperlinks(this.editor);
+        this.detectHyperlinks(this.editor);
         this.setTitleAndIcon("Console", "console");   
     }
 
@@ -57,7 +58,6 @@ class ConsolePanel extends Panel {
     }
 
     detectHyperlinks(editor) {
-        /*
         var locationRegexp = /\(((.+?)@(\d+):(\d+)-(\d+):(\d+))\)/i;
 
         define("hoverlink", [], function (require, exports, module) {
@@ -204,13 +204,13 @@ class ConsolePanel extends Panel {
 
         });
 
-        var HoverLink = require("hoverlink").HoverLink;
+        var HoverLink = ace.require("hoverlink").HoverLink;
         editor.hoverLink = new HoverLink(editor);
         editor.hoverLink.on("open", function (e) {
             var location = e.value;
             if (editor.getValue().indexOf(location) > -1) {
                 var matches = location.match(locationRegexp);
-                var Range = require("ace/range").Range;
+                var Range = ace.require("ace/range").Range;
                 var panel = programPanel;
 
                 if (language == "egx" && matches[2].split(".").pop() == "egl") {
@@ -222,7 +222,6 @@ class ConsolePanel extends Panel {
                     parseInt(matches[5]) - 1, parseInt(matches[6])));
             }
         });
-        */
     }
 }
 
