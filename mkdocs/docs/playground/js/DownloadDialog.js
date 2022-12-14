@@ -1,3 +1,4 @@
+import Handlebars from "handlebars/lib/handlebars";
 import { language, secondProgramPanel } from "./Playground.js";
 
 class DownloadDialog {
