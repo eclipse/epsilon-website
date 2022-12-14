@@ -16,6 +16,7 @@ import { SettingsDialog } from './SettingsDialog.js';
 import { Preloader } from './Preloader.js';
 import { Backend } from './Backend.js';
 import { Layout } from './Layout.js';
+import 'metro4';
 
 import './highlighting/languages.js';
 
