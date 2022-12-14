@@ -6,6 +6,34 @@
  * see: http://github.com/jrburke/requirejs for details
  */
 
+/*!
+
+JSZip v3.10.1 - A JavaScript class for generating and reading zip files
+<http://stuartk.com/jszip>
+
+(c) 2009-2016 Stuart Knightley <stuart [at] stuartk.com>
+Dual licenced under the MIT license or GPLv3. See https://raw.github.com/Stuk/jszip/main/LICENSE.markdown.
+
+JSZip uses the library pako released under the MIT license :
+https://github.com/nodeca/pako/blob/main/LICENSE
+*/
+
+/*!
+ * Datetime v1.0.0, (https://github.com/olton/DatetimeJS.git)
+ * Copyright 2021 by Serhii Pimenov (https://pimenov.com.ua)
+ * Datetime.js is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers with comfortable modern API.
+ * Build at 11/01/2021 21:09:55
+ * Licensed under MIT
+ !*/
+
+/*! 
+ * Cake string library 1.0.0
+ * https://github.com/olton/cake
+ *
+ * Copyright 2020-2021 Serhii Pimenov
+ * Released under the MIT license
+ */
+
 /*! @license
 ==========================================================================
 SproutCore -- JavaScript Application Framework
@@ -36,3 +64,5 @@ For more information about SproutCore, visit http://www.sproutcore.com
 
 ==========================================================================
 @license */
+
+//!node.hasClass("expanded");
