@@ -57,7 +57,7 @@ class ConsolePanel extends Panel {
     }
 
     detectHyperlinks(editor) {
-
+        /*
         var locationRegexp = /\(((.+?)@(\d+):(\d+)-(\d+):(\d+))\)/i;
 
         define("hoverlink", [], function (require, exports, module) {
@@ -222,6 +222,7 @@ class ConsolePanel extends Panel {
                     parseInt(matches[5]) - 1, parseInt(matches[6])));
             }
         });
+        */
     }
 }
 
