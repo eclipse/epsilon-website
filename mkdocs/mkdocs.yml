@@ -148,6 +148,14 @@ markdown_extensions:
   - toc:
       permalink: true
 plugins:
+    - exclude:
+        glob:
+          - playground/cypress/*
+          - playground/node_modules/*
+          - playground/package-lock.json
+          - playground/cypress.config.js
+          - playground/webpack.config.js
+          - playground/package.json
     - search
     - macros:
         j2_block_start_string: '{{{%'
