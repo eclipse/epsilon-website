@@ -1970,6 +1970,10 @@ z.println();</code></pre>
 <p><code>migratedModel</code> : Specifies which of the currently loaded models should be used as the target of the model migration.</p>
 </li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title"><code>&lt;model&gt;</code> nested elements still required</p>
+<p>Please note that <code>originalModel</code> and <code>migratedModel</code> refer to models specified using <code>&lt;model&gt;</code> <a href="#0n-model-nested-elements">nested elements</a> under <code>epsilon.flock</code>.</p>
+</div>
 <h3 id="pattern-matching-task">Pattern Matching Task<a class="headerlink" href="#pattern-matching-task" title="Permanent link">&para;</a></h3>
 <p>The <code>epsilon.epl</code> task executes an EPL module, defined using the <code>src</code> attribute to perform pattern matching on the models that are specified using the <code>model</code> nested elements. In addition to the attributes defined by the ExecutableModuleTask, this task also provides the following attributes.</p>
 <ul>
