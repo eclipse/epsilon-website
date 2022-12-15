@@ -18,7 +18,3 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-var playground = "http://localhost:8000/playground/";
-var runButton = '[data-hint-text="Run the program (Ctrl/Cmd+S)"]';
-var toggleModelDiagramButton = '[data-hint-text="Show/hide the model object diagram"]';
