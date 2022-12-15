@@ -7,6 +7,10 @@ The Playground uses `webpack` for compiling dependencies and custom JavaScript i
 
 ## Testing
 
-We use [Cypress](https://cypress.io) for automated testing. Tests are stored under the `cypress/e2e` folder. To run a test, you need to use the following command:
+We use [Cypress](https://cypress.io) for automated testing. Tests are stored under the `cypress/e2e` folder. To run a single test, you need to use the following command:
 
 - `npx cypress run --spec "cypress/e2e/eol.cy.js"`
+
+To run all the end-to-end tests under `cypress/e2e`, you can use the following command:
+
+- `npx cypress run --spec "cypress/e2e/*.cy.js"`
