@@ -455,6 +455,9 @@ To support model migration, `FlockTask (epsilon.flock)` is provided for executin
 
 -   `migratedModel` : Specifies which of the currently loaded models should be used as the target of the model migration.
 
+!!! warning "`<model>` nested elements still required"
+    Please note that `originalModel` and `migratedModel` refer to models specified using `<model>` [nested elements](#0n-model-nested-elements) under `epsilon.flock`.
+
 ### Pattern Matching Task
 
 The `epsilon.epl` task executes an EPL module, defined using the `src` attribute to perform pattern matching on the models that are specified using the `model` nested elements. In addition to the attributes defined by the ExecutableModuleTask, this task also provides the following attributes.
