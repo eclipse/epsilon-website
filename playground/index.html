@@ -32,19 +32,19 @@
                 </li>
                 <li class="item-separator"></li>                
                 <li>
-                    <a href="#" onclick="copyShortenedLink(event)" id="exampleLink">
+                    <a href="#" onclick="copyShortenedLink(event)" id="copyShortened">
                         <span class="icon"><span class="mif-example-16 mif-link"></span></span>
                         <span class="caption">Share</span>
                     </a>
-                    <a href="#" onclick="showDownloadOptions(event)" id="exampleLink">
+                    <a href="#" onclick="showDownloadOptions(event)" id="showDownloadOptions">
                         <span class="icon"><span class="mif-example-16 mif-download"></span></span>
                         <span class="caption">Download</span>
                     </a>
-                    <a href="#" onclick="showSettings(event)" id="exampleLink">
+                    <a href="#" onclick="showSettings(event)" id="showSettings">
                         <span class="icon"><span class="mif-example-16 mif-settings"></span></span>
                         <span class="caption">Settings</span>
                     </a>
-                    <a href="https://eclipse.org/epsilon/doc/articles/playground" target=”_blank”>
+                    <a href="https://eclipse.org/epsilon/doc/articles/playground" target=”_blank” id="about">
                         <span class="icon"><span class="mif-example-16 mif-info"></span></span>
                         <span class="caption">About</span>
                     </a>
@@ -54,20 +54,7 @@
         <div class="navview-content" id="navview-content"/>
     </div>
     
-    <script src="js/metro.min.js" from="https://cdn.metroui.org.ua/v4.4.3/js/metro.js"></script>
-    <script src="js/ace/ace.js" from="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/ace/ext-modelist.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/eol.js" type="text/javascript"></script>
-    <script src="js/etl.js" type="text/javascript"></script>
-    <script src="js/evl.js" type="text/javascript"></script>
-    <script src="js/epl.js" type="text/javascript"></script>
-    <script src="js/egl.js" type="text/javascript"></script>
-    <script src="js/egx.js" type="text/javascript"></script>
-    <script src="js/emfatic.js" type="text/javascript"></script>
-    <script src="js/svg-pan-zoom.min.js"></script>
-    <script src="js/jszip.min.js"></script>
-    <script src="js/handlebars.min.js" from="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-    <script type="module" src="js/Playground.js"></script>
+    <script type="module" src="dist/bundle.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-184785655-1"></script>
