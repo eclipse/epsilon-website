@@ -97,6 +97,7 @@ function setup() {
     });
 
     Metro.init();
+    examplesManager.openActiveExamplesSubMenu();
     fit();
 }
 
