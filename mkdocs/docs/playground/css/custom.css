@@ -139,6 +139,10 @@
 	content: url("../images/folder.png");
 }
 
+.active-toggle .icon .mif-folder::before {
+	content: url("../images/open-folder.png");
+}
+
 .panel .panel-title .custom-buttons {
 	margin-right: 10px;
 }
@@ -197,4 +201,8 @@ body {
 	z-index:9999;
 	padding-top: 200px;
 	text-align: center;
+}
+
+.navview .navview-menu .dropdown-toggle::after {
+	display: none;
 }
