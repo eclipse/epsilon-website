@@ -1,161 +1,172 @@
 {
   "examples": [
 	{
-		"id": "eol",
-		"title": "Query Project Plan",
-		"language": "eol",
-		"program": "psl.eol",
-		"flexmi": "psl.flexmi",
-		"emfatic": "psl.emf"
+		"title": "Basic Examples",
+		"examples": [
+			{
+				"id": "eol",
+				"title": "Query Project Plan",
+				"language": "eol",
+				"program": "psl.eol",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf"
+			},
+			{
+				"id": "evl",
+				"title": "Validate Project Plan",
+				"language": "evl",
+				"program": "psl.evl",
+				"flexmi": "psl-evl.flexmi",
+				"emfatic": "psl.emf"
+			},
+			{
+				"id": "etl",
+				"title": "Transform to Deliverables",
+				"language": "etl",
+				"program": "psl2pdl.etl",
+				"flexmi": "psl2pdl.flexmi",
+				"emfatic": "psl.emf",
+				"secondEmfatic": "pdl.emf"
+			},
+			{
+				"id": "egl",
+				"title": "Generate Gantt Chart",
+				"language": "egl",
+				"program": "psl.egl",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf",
+				"outputType": "code"
+			},
+			{
+				"id": "egx",
+				"title": "Generate Task Lists",
+				"language": "egx",
+				"program": "task-list/task-list.egx",
+				"secondProgram": "task-list/template.egl",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf",
+				"outputType": "code"
+			},
+			{
+				"id": "epl",
+				"title": "Pattern Match Project Plan",
+				"language": "epl",
+				"program": "psl.epl",
+				"flexmi": "psl-epl.flexmi",
+				"emfatic": "psl.emf"
+			},
+			{
+				"id": "psl2graphviz",
+				"title": "Generate Effort Graph",
+				"language": "egl",
+				"program": "psl2graphviz.egl",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf",
+				"outputType": "dot"
+			},
+			{
+				"id": "psl2html",
+				"title": "Generate Effort Table",
+				"language": "egl",
+				"program": "psl2html.egl",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf",
+				"outputType": "html"
+			},
+			{
+				"id": "psl2pie",
+				"title": "Generate Task Pie Chart",
+				"language": "egl",
+				"program": "psl2pie.egl",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf",
+				"outputType": "html"
+			},
+			{
+				"id": "wbs2puml",
+				"title": "Generate Work Breakdown",
+				"language": "egl",
+				"program": "wbs2puml.egl",
+				"flexmi": "wbs.flexmi",
+				"emfatic": "wbs.emf",
+				"outputType": "puml"
+			}
+		]
 	},
 	{
-		"id": "evl",
-		"title": "Validate Project Plan",
-		"language": "evl",
-		"program": "psl.evl",
-		"flexmi": "psl-evl.flexmi",
-		"emfatic": "psl.emf"
+		"title": "State Machine Examples",
+		"examples": [
+			{
+				"id": "stmvalidate",
+				"title": "Validate State Machine",
+				"language": "evl",
+				"program": "stmvalidate.evl",
+				"flexmi": "stmvalidate.flexmi",
+				"emfatic": "stm.emf"
+			},
+			{
+				"id": "stm2graphviz",
+				"title": "State Machine Graph",
+				"language": "egl",
+				"program": "stm2graphviz.egl",
+				"flexmi": "stm.flexmi",
+				"emfatic": "stm.emf",
+				"outputType": "dot"
+			},
+			{
+				"id": "stm2java",
+				"title": "State Machine to Java",
+				"language": "egl",
+				"program": "stm2java.egl",
+				"flexmi": "stm.flexmi",
+				"emfatic": "stm.emf",
+				"outputType": "code",
+				"outputLanguage": "Java"
+			}
+		]
 	},
 	{
-		"id": "etl",
-		"title": "Transform to Deliverables",
-		"language": "etl",
-		"program": "psl2pdl.etl",
-		"flexmi": "psl2pdl.flexmi",
-		"emfatic": "psl.emf",
-		"secondEmfatic": "pdl.emf"
+		"title": "Model-to-Model Examples",
+		"examples": [
+			{
+				"id": "tree2graph",
+				"title": "Transform Tree to Graph",
+				"language": "etl",
+				"program": "tree2graph.etl",
+				"flexmi": "tree.flexmi",
+				"emfatic": "tree.emf",
+				"secondEmfatic": "graph.emf"
+			},
+			{
+				"id": "oo2db",
+				"title": "Transform OO 2 DB",
+				"language": "etl",
+				"program": "oo2db.etl",
+				"flexmi": "oo.yaml.flexmi",
+				"emfatic": "oo.emf",
+				"secondEmfatic": "db.emf"
+			}
+		]
 	},
 	{
-		"id": "egl",
-		"title": "Generate Gantt Chart",
-		"language": "egl",
-		"program": "psl.egl",
-		"flexmi": "psl.flexmi",
-		"emfatic": "psl.emf",
-		"outputType": "code"
-	},
-	{
-		"id": "psl2graphviz",
-		"title": "Generate Effort Graph",
-		"language": "egl",
-		"program": "psl2graphviz.egl",
-		"flexmi": "psl.flexmi",
-		"emfatic": "psl.emf",
-		"outputType": "dot"
-	},
-	{
-		"id": "psl2html",
-		"title": "Generate Effort Table",
-		"language": "egl",
-		"program": "psl2html.egl",
-		"flexmi": "psl.flexmi",
-		"emfatic": "psl.emf",
-		"outputType": "html"
-	},
-	{
-		"id": "psl2pie",
-		"title": "Generate Task Pie Chart",
-		"language": "egl",
-		"program": "psl2pie.egl",
-		"flexmi": "psl.flexmi",
-		"emfatic": "psl.emf",
-		"outputType": "html"
-	},
-	{
-		"id": "wbs2puml",
-		"title": "Generate Work Breakdown",
-		"language": "egl",
-		"program": "wbs2puml.egl",
-		"flexmi": "wbs.flexmi",
-		"emfatic": "wbs.emf",
-		"outputType": "puml"
-	},
-	{
-		"id": "egx",
-		"title": "Generate Task Lists",
-		"language": "egx",
-		"program": "task-list/task-list.egx",
-		"secondProgram": "task-list/template.egl",
-		"flexmi": "psl.flexmi",
-		"emfatic": "psl.emf",
-		"outputType": "code"
-	},
-	{
-		"id": "epl",
-		"title": "Pattern Match Project Plan",
-		"language": "epl",
-		"program": "psl.epl",
-		"flexmi": "psl-epl.flexmi",
-		"emfatic": "psl.emf"
-	},
-	{
-		"id": "tree2graph",
-		"title": "Transform Tree to Graph",
-		"language": "etl",
-		"program": "tree2graph.etl",
-		"flexmi": "tree.flexmi",
-		"emfatic": "tree.emf",
-		"secondEmfatic": "graph.emf"
-	},
-	{
-		"id": "oo2db",
-		"title": "Transform OO 2 DB",
-		"language": "etl",
-		"program": "oo2db.etl",
-		"flexmi": "oo.yaml.flexmi",
-		"emfatic": "oo.emf",
-		"secondEmfatic": "db.emf"
-	},
-	{
-		"id": "stm2java",
-		"title": "State Machine to Java",
-		"language": "egl",
-		"program": "stm2java.egl",
-		"flexmi": "stm.flexmi",
-		"emfatic": "stm.emf",
-		"outputType": "code",
-		"outputLanguage": "Java"
-	},
-	{
-		"id": "stm2graphviz",
-		"title": "State Machine Graph",
-		"language": "egl",
-		"program": "stm2graphviz.egl",
-		"flexmi": "stm.flexmi",
-		"emfatic": "stm.emf",
-		"outputType": "dot"
-	},
-	{
-		"id": "stmvalidate",
-		"title": "Validate State Machine",
-		"language": "evl",
-		"program": "stmvalidate.evl",
-		"flexmi": "stmvalidate.flexmi",
-		"emfatic": "stm.emf"
-	},
-	{
-		"id": "filegrams",
-		"title": "Filegrams",
-		"language": "egl",
-		"program": "filegrams.egl",
-		"flexmi": "filegrams.flexmi",
-		"emfatic": "filegrams.emf",
-		"outputType": "dot"
-	},
-	{
-		"id": "extended-properties",
-		"title": "Extended Properties",
-		"language": "eol",
-		"program": "extended-properties.eol",
-		"flexmi": "psl.flexmi",
-		"emfatic": "psl.emf"
-	},
-	{
-		"id": "safe-navigation",
-		"title": "Safe Navigation",
-		"language": "eol",
-		"program": "safe-navigation.eol",
-		"flexmi": "psl-safe-navigation.flexmi",
-		"emfatic": "psl.emf"
+		"title": "Advanced EOL Examples",
+		"examples": [
+			{
+				"id": "extended-properties",
+				"title": "Extended Properties",
+				"language": "eol",
+				"program": "extended-properties.eol",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf"
+			},
+			{
+				"id": "safe-navigation",
+				"title": "Safe Navigation",
+				"language": "eol",
+				"program": "safe-navigation.eol",
+				"flexmi": "psl-safe-navigation.flexmi",
+				"emfatic": "psl.emf"
+			}
+		]
 	}
 ]}
