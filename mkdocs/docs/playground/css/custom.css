@@ -206,3 +206,11 @@ body {
 .navview .navview-menu .dropdown-toggle::after {
 	display: none;
 }
+
+.compact .navview-menu .stay-open {
+	display: none !important;
+}
+
+.js-compact .navview-menu .stay-open {
+	display: none !important;
+}
