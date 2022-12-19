@@ -207,10 +207,22 @@ body {
 	display: none;
 }
 
-.compact .navview-menu .stay-open {
+.navview.compacted .navview-menu .navview-menu, .navview.js-compact:not(.expanded) .navview-menu .navview-menu {
+	position: relative;
+	left: inherit;
+	width: inherit;
+}
+
+.navview.compacted .navview-menu .navview-menu .caption, .navview.js-compact:not(.expanded) .navview-menu .navview-menu .caption {
 	display: none !important;
 }
 
-.js-compact .navview-menu .stay-open {
-	display: none !important;
+
+.navview.js-compact:not(.expanded) .navview-menu .navview-menu a:hover .caption {
+	display: flex !important;
+	background-color: #cecece;
+	display: block !important;
+	position: absolute;
+	left: calc(100% + 0px);
+	padding: 0 16px;
 }
