@@ -217,7 +217,8 @@ body {
 	display: none !important;
 }
 
-.navview.compacted .navview-menu .navview-menu .caption, .navview.js-compact:not(.expanded) .navview-menu .navview-menu a:hover .caption {
+
+.navview.js-compact:not(.expanded) .navview-menu .navview-menu a:hover .caption {
 	display: flex !important;
 	background-color: #cecece;
 	display: block !important;
