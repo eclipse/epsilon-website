@@ -15,7 +15,7 @@
     
     
       
-        <title>Scripting XML documents that conform to an XSD schema using Epsilon - Epsilon</title>
+        <title>Connecting to CDO repositories - Epsilon</title>
       
     
     
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scripting-xml-documents-that-conform-to-an-xsd-schema-using-epsilon" class="md-skip">
+        <a href="#connecting-to-cdo-repositories" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Scripting XML documents that conform to an XSD schema using Epsilon
+              Connecting to CDO repositories
             
           </span>
         </div>
@@ -1057,56 +1057,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#querying-an-xml-document" class="md-nav__link">
-    Querying an XML document
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#querying-xml-documents-in-eol" class="md-nav__link">
-    Querying XML documents in EOL
+  <a href="#how-to-use-from-eclipse" class="md-nav__link">
+    How to use from Eclipse
   </a>
-  
-    <nav class="md-nav" aria-label="Querying XML documents in EOL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-query-by-element-type" class="md-nav__link">
-    How can I query by element type?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-getset-the-attributes-of-an-element" class="md-nav__link">
-    How can I get/set the attributes of an element?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-can-i-set-the-text-of-an-element" class="md-nav__link">
-    How can I set the text of an element?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-do-i-create-an-element-and-add-it-to-an-existing-element" class="md-nav__link">
-    How do I create an element and add it to an existing element?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-an-xml-document-to-your-launch-configuration" class="md-nav__link">
-    Adding an XML document to your launch configuration
+  <a href="#how-to-use-from-java" class="md-nav__link">
+    How to use from Java
   </a>
   
 </li>
@@ -1123,7 +1089,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/eclipse/epsilon-website/edit/master/mkdocs/docs/doc/articles/xsd-xml/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/eclipse/epsilon-website/edit/master/mkdocs/docs/doc/articles/cdo-emc.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1131,124 +1097,45 @@
                   
                 
                 
-                <h1 id="scripting-xml-documents-that-conform-to-an-xsd-schema-using-epsilon">Scripting XML documents that conform to an XSD schema using Epsilon<a class="headerlink" href="#scripting-xml-documents-that-conform-to-an-xsd-schema-using-epsilon" title="Permanent link">&para;</a></h1>
-<p>In this article we demonstrate how you can create, query and modify XML documents backed by an XSD schema in Epsilon.</p>
-<h2 id="querying-an-xml-document">Querying an XML document<a class="headerlink" href="#querying-an-xml-document" title="Permanent link">&para;</a></h2>
-<p>We use the following <code>library.xml</code> as a base for demonstrating the EOL syntax for querying XML documents.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;library</span> <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;library.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;EMF Eclipse Modeling Framework&quot;</span> <span class="na">pages=</span><span class="s">&quot;744&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;author&gt;</span>Dave Steinberg<span class="nt">&lt;/author&gt;</span>
-        <span class="nt">&lt;author&gt;</span>Frank Budinsky<span class="nt">&lt;/author&gt;</span>
-        <span class="nt">&lt;author&gt;</span>Marcelo Paternostro<span class="nt">&lt;/author&gt;</span>
-        <span class="nt">&lt;author&gt;</span>Ed Merks<span class="nt">&lt;/author&gt;</span>
-        <span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
-    <span class="nt">&lt;/book&gt;</span>
-    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;Eclipse Modeling Project: A Domain-Specific Language (DSL) Toolkit&quot;</span> <span class="na">pages=</span><span class="s">&quot;736&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;author&gt;</span>Richard Gronback<span class="nt">&lt;/author&gt;</span>
-        <span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
-    <span class="nt">&lt;/book&gt;</span>
-    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;Official Eclipse 3.0 FAQs&quot;</span> <span class="na">pages=</span><span class="s">&quot;432&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;author&gt;</span>John Arthorne<span class="nt">&lt;/author&gt;</span>
-        <span class="nt">&lt;author&gt;</span>Chris Laffra<span class="nt">&lt;/author&gt;</span>
-        <span class="nt">&lt;published&gt;</span>2004<span class="nt">&lt;/published&gt;</span>
-    <span class="nt">&lt;/book&gt;</span>
-<span class="nt">&lt;/library&gt;</span>
-</code></pre></div>
-<p>The XSD schema <code>library.xsd</code> that backs the <code>library.xml</code> file is the following.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;xs:schema</span> <span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span> <span class="na">elementFormDefault=</span><span class="s">&quot;qualified&quot;</span> <span class="na">attributeFormDefault=</span><span class="s">&quot;unqualified&quot;</span><span class="nt">&gt;</span>
-<span class="cm">&lt;!-- XML Schema Generated from XML Document with XmlGrid.net Free Online Service http://xmlgrid.net --&gt;</span>
-    <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;library&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;xs:complexType&gt;</span>
-            <span class="nt">&lt;xs:sequence&gt;</span>
-                <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;book&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;xs:complexType&gt;</span>
-                        <span class="nt">&lt;xs:sequence&gt;</span>
-                            <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;author&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;&lt;/xs:element&gt;</span>
-                            <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;published&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:int&quot;</span><span class="nt">&gt;&lt;/xs:element&gt;</span>
-                        <span class="nt">&lt;/xs:sequence&gt;</span>
-                        <span class="nt">&lt;xs:attribute</span> <span class="na">name=</span><span class="s">&quot;title&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;&lt;/xs:attribute&gt;</span>
-                        <span class="nt">&lt;xs:attribute</span> <span class="na">name=</span><span class="s">&quot;pages&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:int&quot;</span><span class="nt">&gt;&lt;/xs:attribute&gt;</span>
-                    <span class="nt">&lt;/xs:complexType&gt;</span>
-                <span class="nt">&lt;/xs:element&gt;</span>
-            <span class="nt">&lt;/xs:sequence&gt;</span>
-        <span class="nt">&lt;/xs:complexType&gt;</span>
-    <span class="nt">&lt;/xs:element&gt;</span>
-<span class="nt">&lt;/xs:schema&gt;</span>
-</code></pre></div>
-<h2 id="querying-xml-documents-in-eol">Querying XML documents in EOL<a class="headerlink" href="#querying-xml-documents-in-eol" title="Permanent link">&para;</a></h2>
-<p>The XML driver uses a predefined naming convention to allow developers to programmatically access complex types in XML documents. </p>
-<h3 id="how-can-i-query-by-element-type">How can I query by element type?<a class="headerlink" href="#how-can-i-query-by-element-type" title="Permanent link">&para;</a></h3>
-<p>The word <code>Type</code> should be appended at the end of the name of the tag that is used to represent a type. In addition, the first letter of the tag should be capitalised (no matter if it is in lowercase in the schema/xml file). For instance, <code>BookType.all()</code> can be used to get all elements tagged as <code>&lt;book&gt;</code> in the document. Also, if <code>b</code> is an element with a <code>&lt;book&gt;</code> tag, then <code>b.isTypeOf(BookType)</code> shall return true.</p>
-<pre class="prettyprint lang-eol"><code>// Get the first library element in the document
-var library = LibraryType.all().first();
-
-// Get all the books contained in this library
-var allBooks = library.book;
-
-// We can get all the books in the document by querying directly the book type
-var allBooksAlternative = BookType.all();
-
-// Iterate through the collection of books, navigate the pages attribute and 
-// return the title of the book if it has more than 700 pages
-for (aBook in allBooks) {
-    if (aBook.pages &gt; 700) {
-        aBook.isTypeOf(BookType).println();
-        ("The " + aBook.title + " is a large book!").println();
-    }
-}</code></pre>
-<h3 id="how-can-i-getset-the-attributes-of-an-element">How can I get/set the attributes of an element?<a class="headerlink" href="#how-can-i-getset-the-attributes-of-an-element" title="Permanent link">&para;</a></h3>
-<p>You can use the attribute name as a property of the element object. For example, if <code>b</code> is the first book of <code>library.xml</code>, <code>b.title</code> will return <code>EMF Eclipse Modeling Framework</code>. Attribute properties are read/write.</p>
-<p>In this example, <code>b.pages</code> will return <code>744</code> as an integer. Thus, the following program will return the total number of pages of all the books in the library. </p>
-<pre class="prettyprint lang-eol"><code>// Get all the books contained in this library
-var allBooks = BookType.all();
-
-// Print the total number of pages of all books
-var total = 0;
-for (aBook in allBooks) {
-    total = total + aBook.pages;
-}
-("Total pages: " + total).println();
-
-// ... the same using collect() and sum() 
-// instead of a for loop
-BookType.all().collect(b|b.pages).sum().println();</code></pre>
-<h3 id="how-can-i-set-the-text-of-an-element">How can I set the text of an element?<a class="headerlink" href="#how-can-i-set-the-text-of-an-element" title="Permanent link">&para;</a></h3>
-<p>You can use the property name and the assignment symbol <code>=</code> for this.</p>
-<pre class="prettyprint lang-eol"><code>// Get the first book contained in the library
-var emfBook = BookType.all().first();
-
-// Set the title to a new one
-emfBook.title = "EMF Book";
-
-// Print the changed title (NB.: You need to have selected the "Store on disposal" 
-// option in the run configuration to save changes to the XML file.)
-var changedEmfBook =  BookType.all().first();
-changedEmfBook.title.println();</code></pre>
-<h3 id="how-do-i-create-an-element-and-add-it-to-an-existing-element">How do I create an element and add it to an existing element?<a class="headerlink" href="#how-do-i-create-an-element-and-add-it-to-an-existing-element" title="Permanent link">&para;</a></h3>
-<p>You can use the <code>new</code> operator for this. </p>
-<pre class="prettyprint lang-eol"><code>// Get all the books contained in this library
-var library = LibraryType.all().first();
-var allBooks = library.book;
-
-// Print the current number of books
-allBooks.size().println();
-
-// Create a new book
-var newBook: new BookType;
-newBook.title = "MDE in Practice";
-
-// Add the book to the library
-library.book.add(newBook);
-
-// Get all books and print the new size
-BookType.all().size().println();</code></pre>
-<h2 id="adding-an-xml-document-to-your-launch-configuration">Adding an XML document to your launch configuration<a class="headerlink" href="#adding-an-xml-document-to-your-launch-configuration" title="Permanent link">&para;</a></h2>
-<p>To add an XML document to your Epsilon launch configuration, you need to select "XML document backed by XSD (EMF)" from the list of available model types.</p>
-<p><img alt="" src="select.png" /></p>
-<p>Then you can configure the details of your document (name, file etc.) in the screen that pops up. If you are making changes to the XML document, remember to tick the "Store on disposal" check box to save the changes in your document. </p>
-<p><img alt="" src="configure.png" /></p>
+                <h1 id="connecting-to-cdo-repositories">Connecting to CDO repositories<a class="headerlink" href="#connecting-to-cdo-repositories" title="Permanent link">&para;</a></h1>
+<p>Since version 2.5.0, Epsilon includes an EMC driver to connect to an <a href="https://www.eclipse.org/cdo/">Eclipse CDO</a> model repository.
+Although CDO is EMF-based, and its model resources work relatively the same as standard EMF resources, accessing some of its additional features (e.g. branching and prefetching) requires using a specific model driver.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>When installing Epsilon, ensure that the "Epsilon CDO Model Support" feature in the "Epsilon CDO Integration" group is selected.</p>
+<p>If you are using the Epsilon launch configurations from Eclipse, you will also need the "Epsilon CDO Model Support Developer Tools Feature" in order to add CDO models.</p>
+<h2 id="how-to-use-from-eclipse">How to use from Eclipse<a class="headerlink" href="#how-to-use-from-eclipse" title="Permanent link">&para;</a></h2>
+<p>From an Epsilon launch confgiuration, go to the "Models" tab and click on "Add...".
+Tick the "Show all model types" box, to make "CDO Model" appear.
+Select "CDO Model" and click on OK.</p>
+<p>You will find the following options:</p>
+<ul>
+<li>Identification: this group works the same as any other model.</li>
+<li>Repository access: this group indicates how to locate the model.<ul>
+<li>URL: this is the same URL as that shown in the "CDO Repositories" view, removing the name of the repository (e.g. <code>jvm://local</code> for a JVM-only local repository).</li>
+<li>Repository: this is the name of the repository (same string that you entered from "Repository name" in CDO during creation). For instance, <code>repo</code>.</li>
+<li>Branch: this can be left empty if using the main branch, or you can enter the full path to the branch in question. Note that <code>branch1</code> created off from the main branch should be entered as <code>MAIN/branch1</code>, rather than as just <code>branch1</code>. (If you make a mistake, the driver will list the paths to all available branches.)</li>
+<li>Path: this is the absolute path (starting with <code>/</code>) to the relevant model resource in your CDO repository (e.g. <code>/model</code>).</li>
+<li>Create if missing: if ticked, the driver will automatically create the model resource if it does not exist yet in your repository.</li>
+</ul>
+</li>
+<li>Prefetching: this section controls CDO's options for automatically prefetching elements from the model, to reduce the number of roundtrips done over the network.<ul>
+<li>Initial collection prefetch size: when first fetching a collection, how many elements to fetch in advance. 0 means "do not fetch any objects until the lists are accessed".</li>
+<li>Collection resolving chunk size: how many elements to fetch in one chunk when needed.</li>
+<li>Revision prefetch size: when accessing revisions, how many revisions to fetch per chunk.</li>
+<li>Use CDO model-based feature analyzer: if enabled, CDO will track which features are being traversed and prefetch those in later accesses of objects of the same EClass.</li>
+</ul>
+</li>
+<li>Load/Store Options:<ul>
+<li>Due to the fact that CDO works like a database rather than like a file-based model (where you can immediately connect to it and access its entire contents), the "Read on load" option is not used by the driver.</li>
+<li>The "Store on disposal" option is honored, however. If ticked, the driver will commit a new revision when the model is disposed. If left unticked, the driver will discard the transaction without committing anything to the repository.</li>
+</ul>
+</li>
+</ul>
+<p>For an example with step-by-step instructions, please consult <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.emc.cdo.example">this project on Github</a>.</p>
+<h2 id="how-to-use-from-java">How to use from Java<a class="headerlink" href="#how-to-use-from-java" title="Permanent link">&para;</a></h2>
+<p>You will need to create a new instance of the <code>CDOModel</code> class, and use setter methods to configure it appropriately.
+The setter methods match the options listed above.</p>
+<p>For concrete examples, please consult the <a href="https://github.com/eclipse/epsilon/blob/main/tests/org.eclipse.epsilon.emc.cdo.test/src/org/eclipse/epsilon/emc/cdo/tests/CDOPluggedInTestSuite.java">JUnit tests for the driver</a>.</p>
                 
               
               
