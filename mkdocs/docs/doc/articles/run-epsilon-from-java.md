@@ -3,7 +3,7 @@
 While Epsilon's development tools are based on Eclipse, its runtime is not, and can be used from any (headless) Java application. For example, the back-end of the [Epsilon Playground](../../../playground) is a headless, server-less Java application that runs on Google's Cloud Platform.
 
 !!! info "Did you know that ..."
-    Contrary to popular belief, EMF is **not** tightly coupled to the Eclipse IDE either, and can also be embedded in any Java application by importing a couple of dependencies from [MavenCentral](https://mvnrepository.com/artifact/org.eclipse.emf).
+    Contrary to popular belief, EMF is **not** tightly coupled to the Eclipse IDE either, and can also be embedded in any Java application by importing a couple of dependencies from [Maven Central](https://mvnrepository.com/artifact/org.eclipse.emf).
 
 ## Dependencies
 
