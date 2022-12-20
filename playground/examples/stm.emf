@@ -2,6 +2,7 @@
 package stm;
 
 class StateMachine {
+    attr String name;
 	val State[*] states;
 	val Transition[*] transitions;
 }
