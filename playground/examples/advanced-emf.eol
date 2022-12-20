@@ -5,7 +5,7 @@ var stateMachine = StateMachine.all.first();
 a.eContainer().name.println();
 
 // stateMachine.eContents() returns all the 
-// states and transitiions in the state machine
+// states and transitions in the state machine
 stateMachine.eContents().size().println();
 
 // Create a new state D and add it to the state machine
