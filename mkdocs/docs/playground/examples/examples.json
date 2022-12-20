@@ -166,7 +166,35 @@
 				"program": "safe-navigation.eol",
 				"flexmi": "psl-safe-navigation.flexmi",
 				"emfatic": "psl.emf"
+			},
+			{
+				"id": "advanced-emf",
+				"title": "Advanced EMF",
+				"language": "eol",
+				"program": "advanced-emf.eol",
+				"flexmi": "stm.flexmi",
+				"emfatic": "stm.emf"
 			}
 		]
-	}
+	},
+	{
+		"title": "Advanced Flexmi Examples",
+		"examples": [
+			{
+				"id": "executable-attributes",
+				"title": "Executable Attributes",
+				"language": "eol",
+				"program": "advanced-flexmi/executable-attributes.eol",
+				"flexmi": "advanced-flexmi/executable-attributes.flexmi",
+				"emfatic": "psl.emf"
+			},
+			{
+				"id": "flexmi-templates",
+				"title": "Reusable Templates",
+				"language": "eol",
+				"program": "advanced-flexmi/templates.eol",
+				"flexmi": "advanced-flexmi/templates.flexmi",
+				"emfatic": "psl.emf"
+			}
+		]}
 ]}

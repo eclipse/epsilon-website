@@ -1,0 +1,25 @@
+<?nsuri psl?>
+<_>
+  <project title="ACME">
+    <person name="Alice"/>
+    <person name="Bob"/>
+    <person name="Charlie"/>
+    <simpletask title="Analysis" person="Alice" dur="3"/>
+    <simpletask title="Design" person="Bob" dur="3" />
+    <simpletask title="Implementation" person="Charlie" dur="6"/>
+  </project>
+
+  <!-- 
+    The simpletask template creates tasks that are 
+    allocated to a single person, and which start 
+    right after the end of their previous task
+  -->
+  <:template name="simpletask">
+    <parameter name="person"/>
+    <content>
+      <task :start="Task.all.indexOf(self).asVar('index') == 0 ? 1 : Task.all.get(index-1).asVar('previous').start + previous.duration">
+        <effort person="${person}"/>
+      </task>
+    </content>
+  </:template>
+</_>

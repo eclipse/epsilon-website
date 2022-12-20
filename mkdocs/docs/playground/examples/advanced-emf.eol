@@ -1,0 +1,25 @@
+var a = State.all.first();
+var stateMachine = StateMachine.all.first();
+
+// a.eContainer() returns the state machine
+a.eContainer().name.println();
+
+// stateMachine.eContents() returns all the 
+// states and transitiions in the state machine
+stateMachine.eContents().size().println();
+
+// Create a new state D and add it to the state machine
+var d = new State(name = "D");
+stateMachine.states.add(d);
+
+// Create a new transition from A to D and add it to the state machine
+var a2d = new Transition(from = a, to = d);
+stateMachine.transitions.add(a2d);
+
+// Note how a2d has been added to the outgoing
+// transitions of a and to the incoming 
+// transitions of d due to the opposite 
+// references in the metamodel:
+// from <-> outgoing and to <-> incoming
+a.outgoing.to.name.println();
+d.incoming.from.name.println();
