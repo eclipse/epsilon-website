@@ -226,3 +226,7 @@ body {
 	left: calc(100% + 0px);
 	padding: 0 16px;
 }
+
+.splitter .gutter::before {
+	background-color: inherit;
+}
