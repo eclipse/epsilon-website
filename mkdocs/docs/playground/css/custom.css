@@ -226,3 +226,85 @@ body {
 	left: calc(100% + 0px);
 	padding: 0 16px;
 }
+
+/* Dark theme */
+
+:root {
+	--dark1: #181818;
+	--dark2: #222222;
+	--dark-editor: rgb(39, 40, 34);
+	--dark-border: #323232;
+}
+
+.dark .navview-pane, .dark .navview-menu, .dark .notify-container, .dark .notify-message {
+	background-color: var(--dark1);
+	color: #C1C1C1;
+}
+
+.dark .panel, .dark .dialog, .dark .select, .dark .select .drop-container  {
+	background-color: var(--dark1);
+	color: #C1C1C1;
+}
+
+.dark .gutter, .dark .gutter.active {
+	background-color: var(--dark-border);
+}
+
+.dark .gutter::before {
+	background-color: var(--dark-border);
+}
+
+.dark .gutter {
+	border: 0px;
+}
+
+.dark .panel {
+	border: 1px solid var(--dark2);
+}
+
+.dark .navview-menu li a:hover, .dark .pull-button:hover {
+	background-color: var(--dark2);
+	color: #C1C1C1;
+}
+
+.dark .dialog {
+	border: 1px solid var(--dark-border);
+}
+
+.dark .dialog-title, .dark .panel-title {
+	border-bottom: 1px solid var(--dark-border);
+}
+
+.dark .dialog-actions {
+	border-top: 1px solid var(--dark-border);
+}
+
+.dark svg {
+	background: var(--dark-editor) !important;
+}
+
+.dark .diagram {
+	background-color: var(--dark-editor) !important;
+}
+
+.dark svg path {
+	stroke: white !important;
+}
+
+.dark svg line {
+	stroke: var(--dark-editor);
+}
+
+.dark svg polygon {
+	fill: white !important;
+	stroke: white !important;
+}
+
+.dark svg * {
+	filter: invert(100%);
+}
+
+.dark span[class^="mif-"]::before {
+	filter: invert(100%);
+}
+

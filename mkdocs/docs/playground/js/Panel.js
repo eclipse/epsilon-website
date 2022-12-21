@@ -12,7 +12,7 @@ class Panel {
         // Set up the panel's editor
         this.editor = ace.edit(this.element.querySelector('.editor'));
         this.editor.setShowPrintMargin(false);
-        this.editor.setTheme("ace/theme/eclipse");
+        this.editor.setTheme("ace/theme/monokai");
         this.editor.renderer.setShowGutter(false);
         this.editor.setFontSize("1rem");
         this.editor.setOptions({

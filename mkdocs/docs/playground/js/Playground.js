@@ -1,5 +1,6 @@
 import 'ace-builds/src-min-noconflict/ace';
 import 'ace-builds/src-min-noconflict/theme-eclipse';
+import 'ace-builds/src-min-noconflict/theme-monokai';
 import 'ace-builds/src-min-noconflict/mode-xml';
 import 'ace-builds/src-min-noconflict/mode-yaml';
 import 'ace-builds/src-min-noconflict/mode-java';
