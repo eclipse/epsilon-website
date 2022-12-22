@@ -234,6 +234,7 @@ body {
 	--dark2: #222222;
 	--dark-editor: rgb(39, 40, 34);
 	--dark-border: #323232;
+	--dark-font-color: #C1C1C1;
 }
 
 .dark .navview-pane, .dark .navview-menu, .dark .notify-container, .dark .notify-message {
@@ -288,7 +289,7 @@ body {
 }
 
 .dark svg path {
-	stroke: white !important;
+	stroke: var(--dark-font-color) !important;
 }
 
 .dark svg line {
@@ -296,15 +297,31 @@ body {
 }
 
 .dark svg polygon {
-	fill: white !important;
-	stroke: white !important;
-}
-
-.dark svg * {
-	filter: invert(100%);
+	fill: var(--dark-font-color) !important;
+	stroke: var(--dark-font-color) !important;
 }
 
 .dark span[class^="mif-"]::before {
-	filter: invert(100%);
+	filter: invert(100%) grayscale(100%);
+}
+
+.dark rect[fill="#F5F5DC"] {
+	fill: #526274;
+}
+
+.dark rect[fill="#F0FFFF"] {
+	fill: #EA930C;
+}
+
+.dark rect[fill="#FFFACD"] {
+	fill: #5B7551;
+}
+
+.dark rect[fill="#FFFAF0"] {
+	fill: #8F0A1B;
+}
+
+.dark svg text {
+	fill: white;
 }
 
