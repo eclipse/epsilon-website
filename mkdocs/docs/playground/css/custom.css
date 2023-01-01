@@ -47,6 +47,10 @@
 	content: url("../images/eol.gif");
 }
 
+.mif-flock::before {
+	content: url("../images/flock.png");
+}
+
 .mif-egl::before {
     content: url("../images/egl.png");
 }

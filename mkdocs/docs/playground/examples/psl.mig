@@ -1,0 +1,16 @@
+// Task has been renamed to Activity
+// in the evolved metamodel
+retype Task to Activity
+
+// The duration attribute in Task
+// has been replaced by an end 
+// attribute in Activity
+migrate Task {
+    migrated.end = original.start + original.duration;
+}
+
+// Project.tasks has been
+// renamed to Project.activities
+migrate Project {
+    migrated.activities = original.tasks.equivalent();
+}

@@ -26,15 +26,15 @@
                                 <!-- Set up the Epsilon EMF tasks -->
                                 <taskdef resource="org/eclipse/epsilon/workflow/tasks/emf/tasks.xml" />
                                 
-                                {{#if etl}}
+                                {{#if etlOrFlock}}
                                 <!-- Load the source.flexmi EMF model -->
                                 <epsilon.emf.loadModel name="Source" modelfile="source.flexmi" metamodelfile="source.emf" />
 
                                 <!-- Load the target.xmi EMF model -->
                                 <epsilon.emf.loadModel name="Target" modelfile="target.xmi" metamodelfile="target.emf" read="false" store="true"/>
 
-                                <!-- Run program.{{ language }} against it -->
-                                <epsilon.{{ task }} src="program.{{ language }}">
+                                <!-- Run program.{{ extension }} against it -->
+                                <epsilon.{{ task }} src="program.{{ extension }}"{{#if flock}} originalModel="Source" migratedModel= "Target"{{/if}}>
                                     <model ref="Source" />
                                     <model ref="Target" />
                                 </epsilon.{{ task }}>
@@ -46,8 +46,8 @@
                                 <!-- Load the model.flexmi EMF model -->
                                 <epsilon.emf.loadModel name="M" modelfile="model.flexmi" metamodelfile="metamodel.emf" />
 
-                                <!-- Run program.{{ language }} against it -->
-                                <epsilon.{{ task }} src="program.{{ language }}"{{#if egl}} target="generated.txt"{{/if}}>
+                                <!-- Run program.{{ extension }} against it -->
+                                <epsilon.{{ task }} src="program.{{ extension }}"{{#if egl}} target="generated.txt"{{/if}}>
                                     <model ref="M" />
                                 </epsilon.{{ task }}>
 

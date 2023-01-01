@@ -56,6 +56,20 @@
 				"emfatic": "psl.emf"
 			},
 			{
+				"id": "flock",
+				"title": "Migrate Project Plan",
+				"language": "flock",
+				"program": "psl.mig",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf",
+				"secondEmfatic": "pslv2.emf"
+			}
+		]
+	},
+	{
+		"title": "Model-to-Text Examples",
+		"examples": [
+			{
 				"id": "psl2graphviz",
 				"title": "Generate Effort Graph",
 				"language": "egl",
