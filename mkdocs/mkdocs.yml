@@ -36,11 +36,9 @@ nav:
       - Stable: 'https://download.eclipse.org/epsilon/stable-javadoc/'
       - Interim: 'https://download.eclipse.org/epsilon/interim-javadoc/'
   - Issues:
-      - Report a new issue: 'https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon'
-      - View open bugs: 'https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial'
-      - View enhancement requests: 'https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement'
-      - View issues resolved since the last stable release: 'https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced'
-      - View all issues: 'https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time'
+      - Report a new issue: 'https://github.com/eclipse/epsilon/issues/new/choose'
+      - View open issues: 'https://github.com/eclipse/epsilon/issues'
+      - Bugzilla (legacy): 'https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time'
   - Community:
       - Who is using Epsilon?:
         - Industry: 'users/index.md'

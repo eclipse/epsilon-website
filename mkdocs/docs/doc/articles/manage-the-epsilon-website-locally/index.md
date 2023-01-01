@@ -22,7 +22,7 @@ Once you've happy with the changes you've made to the Markdown sources, you can 
 
 As a convention for project commiters, introducing a change in the website is usually separated in two commits: the first one contains any changes to the Markdown sources, while the second one includes the result of building again the static site as described in the previous section.
 
-If you are not a commiter, but you find any typos or parts of the website that do not work as they should, thanks for [letting us know](https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon)!
+If you are not a commiter, but you find any typos or parts of the website that do not work as they should, thanks for [letting us know](https://github.com/eclipse/epsilon/issues)!
 
 ## Pushing your changes
 
