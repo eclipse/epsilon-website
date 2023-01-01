@@ -3,6 +3,10 @@
 !!! tip "Looking for in-depth articles?"
 	This page contains links to a selection of example projects in Epsilon's Git repository. If you are looking for more in-depth articles describing different features of Epsilon, please visit the [articles](../doc/articles) section of the website.
 
+!!! info "Online Playground"
+
+	If you prefer not to download/install anything just quite yet, you can fiddle with EMF models and metamodels, and with some of the Epsilon languages in the online [Epsilon Playground](../playground).
+
 Each example in this page comes in the form of an Eclipse project, which is stored under the [examples](https://github.com/eclipse/epsilon/tree/main/examples/) dirctory of Epsilon's Git repository. To run an example, you need to:
 
 1. Clone the repository

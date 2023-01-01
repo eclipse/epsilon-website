@@ -2,6 +2,10 @@
 
 Epsilon offers a wide range of tools so your starting point can differ depending on what you are trying to achieve.
 
+!!! info "Online Playground"
+
+	If you prefer not to download/install anything just quite yet, you can fiddle with EMF models and metamodels, and with some of the Epsilon languages in the online [Epsilon Playground](../playground).
+	
 - In most cases, your first step should be to download and install Epsilon as shown [here](../download).
 - If you are a complete newcomer to model-based software engineering and the Eclipse modelling ecosystem, you should start by watching [this series of lectures](https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI).
 - If you are interested in ways to create graphical editors or views for your EMF-based models, you can have a look at [Picto](../doc/picto) and [Eugenia](../doc/eugenia).
