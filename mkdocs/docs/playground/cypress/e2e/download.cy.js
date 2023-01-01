@@ -20,11 +20,13 @@ describe('Tests the download dialog', () => {
             cy.get('#showDownloadOptions').click();
             cy.get(".success").click(); // Download
 
+            // Download the zip file, extract it and run gradle run
             cy.readFile(exampleFile, { timeout: 15000 }).then((contents) => {
                 cy.exec("unzip " + exampleFile + " -d " + exampleFolder);
 
-                cy.exec("cd " + exampleFolder + "; gradle run").its('stdout')
-                .should('contain', 'BUILD SUCCESSFUL')
+                cy.exec("cd " + exampleFolder + "; gradle run")
+                    .its('stdout')
+                    .should('contain', 'BUILD SUCCESSFUL')
             });
         })
 });
