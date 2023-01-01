@@ -15,17 +15,18 @@ class DownloadDialog {
                     cls: "js-dialog-close success",
                     onclick: function(){
                         var zip = new JSZip();
-                        zip.file("program." + language, programPanel.getEditor().getValue());
+                        var extension = language == "flock" ? "mig" : language;
+                        zip.file("program." + extension, programPanel.getEditor().getValue());
                         if (language == "egx") zip.file("template.egl", secondProgramPanel.getEditor().getValue());
 
-                        if (language != "etl") {
-                            zip.file("model.flexmi", firstModelPanel.getValue());
-                            zip.file("metamodel.emf", firstMetamodelPanel.getValue());
-                        }
-                        else {
+                        if (language == "etl" || language == "flock") {
                             zip.file("source.flexmi", firstModelPanel.getValue());
                             zip.file("source.emf", firstMetamodelPanel.getValue());
                             zip.file("target.emf", secondMetamodelPanel.getValue());
+                        }
+                        else {
+                            zip.file("model.flexmi", firstModelPanel.getValue());
+                            zip.file("metamodel.emf", firstMetamodelPanel.getValue());
                         }
     
                         var format = document.getElementById("format").value;
@@ -33,7 +34,10 @@ class DownloadDialog {
                         var templateData = {
                             language: language, 
                             task: language == "egx" ? "egl" : language,
+                            extension: extension,
                             etl: language == "etl",
+                            flock: language == "flock",
+                            etlOrFlock: language == "etl" || language == "flock",
                             egl: language == "egl"
                         };
     

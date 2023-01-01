@@ -31,7 +31,7 @@ task setupEpsilonTasks {
 task run {
     dependsOn tasks.setupEpsilonTasks
     
-    {{#if etl}}
+    {{#if etlOrFlock}}
     // Load the source.flexmi EMF model
     ant.'epsilon.emf.loadModel'(name: 'Source', 
         modelfile: 'source.flexmi', metamodelfile: 'source.emf')
@@ -40,13 +40,13 @@ task run {
     ant.'epsilon.emf.loadModel'(name: 'Target', 
         modelfile: 'target.xmi', metamodelfile: 'target.emf', read: false, store: true)
 
-    // Run program.{{ task }} against them
-    ant.'epsilon.{{ task }}'(src: 'program.{{ language }}'){[ model(ref: 'Source'), model(ref: 'Target') ]}
+    // Run program.{{ extension }} against them
+    ant.'epsilon.{{ task }}'(src: 'program.{{ extension }}'{{#if flock}}, originalModel: 'Source', migratedModel: 'Target'{{/if}}){[ model(ref: 'Source'), model(ref: 'Target') ]}
     {{else}}
     // Load the model.flexmi EMF model
     ant.'epsilon.emf.loadModel'(name: 'M', modelfile: 'model.flexmi', metamodelfile: 'metamodel.emf')
 
     // Run program.{{ language }} against it
-    ant.'epsilon.{{ task }}'(src: 'program.{{ language }}'{{#if egl}}, target: 'generated.txt' {{/if}}){ model(ref: 'M') }
+    ant.'epsilon.{{ task }}'(src: 'program.{{ extension }}'{{#if egl}}, target: 'generated.txt' {{/if}}){ model(ref: 'M') }
     {{/if}}
 }

@@ -738,7 +738,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon" title="Report a new issue" class="md-nav__link">
+    <a href="https://github.com/eclipse/epsilon/issues/new/choose" title="Report a new issue" class="md-nav__link">
       Report a new issue
     </a>
   </li>
@@ -750,8 +750,8 @@
 
 
   <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=blocker&bug_severity=critical&bug_severity=major&bug_severity=normal&bug_severity=minor&bug_severity=trivial" title="View open bugs" class="md-nav__link">
-      View open bugs
+    <a href="https://github.com/eclipse/epsilon/issues" title="View open issues" class="md-nav__link">
+      View open issues
     </a>
   </li>
 
@@ -762,32 +762,8 @@
 
 
   <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_severity=enhancement" title="View enhancement requests" class="md-nav__link">
-      View enhancement requests
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=RESOLVED&list_id=17694438&product=epsilon&query_format=advanced" title="View issues resolved since the last stable release" class="md-nav__link">
-      View issues resolved since the last stable release
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time" title="View all issues" class="md-nav__link">
-      View all issues
+    <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time" title="Bugzilla (legacy)" class="md-nav__link">
+      Bugzilla (legacy)
     </a>
   </li>
 
@@ -1064,8 +1040,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#saving-and-sharing-your-work" class="md-nav__link">
-    Saving and sharing your work
+  <a href="#save-and-share-your-work" class="md-nav__link">
+    Save and share your work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-your-work" class="md-nav__link">
+    Download your work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-examples" class="md-nav__link">
+    Custom examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    Settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-container" class="md-nav__link">
+    Docker container
   </a>
   
 </li>
@@ -1164,12 +1168,22 @@ class Person {
     attr String name;
 }</code></pre>
 <p><img alt="" src="annotated.png" /></p>
-<h2 id="saving-and-sharing-your-work">Saving and sharing your work<a class="headerlink" href="#saving-and-sharing-your-work" title="Permanent link">&para;</a></h2>
-<p>To save or share your work, please click the "Share" button. This will create a short link that you can copy to your clipboard. Please note that the contents of your editors <strong>will be stored in the back-end of the Epsilon Playground</strong> so that they can be retrieved when you visit that link again later.</p>
+<h2 id="save-and-share-your-work">Save and share your work<a class="headerlink" href="#save-and-share-your-work" title="Permanent link">&para;</a></h2>
+<p>To share your work, click the <code>Share</code> button. This will create a short link that you can copy to your clipboard. Please note that the contents of the editors <strong>will be stored in the back-end of the Epsilon Playground</strong> so that they can be retrieved when you visit that link again later.</p>
+<h2 id="download-your-work">Download your work<a class="headerlink" href="#download-your-work" title="Permanent link">&para;</a></h2>
+<p>To download a zipped archive of your work, click the <code>Download</code> button. Depending on your selection in the dialog that pops up (<code>Gradle</code> or <code>Maven</code>), the zipped archive will also contain a <code>build.gradle</code> or <code>pom.xml</code> file that includes the Epsilon dependencies and the <a href="../../workflow">ANT tasks</a> you need to run the example from the command line in your own computer, as well as a <code>readme.md</code> file with instructions.</p>
+<h2 id="custom-examples">Custom examples<a class="headerlink" href="#custom-examples" title="Permanent link">&para;</a></h2>
+<p>You can launch the Playground with a custom set of examples by appending an <code>examples</code> parameter to the URL, which points to a JSON file that contains your own examples. For instance, this link below launches the Playground with its default set of examples.</p>
+<p><a href="https://eclipse.org/epsilon/playground/?examples=https://raw.githubusercontent.com/eclipse/epsilon-website/master/mkdocs/docs/playground/examples/examples.json">https://eclipse.org/epsilon/playground/?examples=https://raw.githubusercontent.com/eclipse/epsilon-website/master/mkdocs/docs/playground/examples/examples.json</a></p>
+<p>The structure of <a href="https://github.com/eclipse/epsilon-website/blob/master/mkdocs/docs/playground/examples/examples.json">examples.json</a> should be self-explanatory but if you have any questions, please let us know.</p>
+<h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">&para;</a></h2>
+<p>Through the <code>Settings</code> dialog, you can show/hide the different panels of the playground as well as line numbers in editors. If you hide the program panel, you can still run the program it contains using the <kbd>Ctrl+S</kbd> or <kbd>Cmd+S</kbd> keyboard shortcut.</p>
+<h2 id="docker-container">Docker container<a class="headerlink" href="#docker-container" title="Permanent link">&para;</a></h2>
+<p>If the Playground is a critical dependency for you (e.g. to support a training course), you may want to run your own instance through a <a href="https://github.com/epsilonlabs/playground-docker">Docker container</a>. Despite using <a href="https://github.com/eclipse/epsilon-website/tree/master/mkdocs/docs/playground/cypress/e2e">automated testing with Cypress</a>, as we are evolving the Playground, we may indadvertedly introduce regressions that break the Playground and make (parts of it) unusable for a period of time.</p>
 <h2 id="fair-usage-policy">Fair usage policy<a class="headerlink" href="#fair-usage-policy" title="Permanent link">&para;</a></h2>
 <p>The cost of running Epsilon Playground is proportional to the number of requests made to its Google Cloud Platform back-end (i.e. execution of programs and rendering of diagrams). With fair usage we can comfortably afford this cost and keep the Playground operational, but in case of excessive use we may have to take it down with no notice. To keep costs down, server-side operations that take more than 60 seconds to complete are automatically terminated. For extensive use, large models, or complex programs, please use the <a href="../../../download">development tools / Java libraries</a> provided on the Epsilon website instead, or run your own instance of the Epsilon Playground in a <a href="https://github.com/epsilonlabs/playground-docker">Docker container</a>.</p>
 <h2 id="reporting-bugs-and-requesting-help">Reporting bugs and requesting help<a class="headerlink" href="#reporting-bugs-and-requesting-help" title="Permanent link">&para;</a></h2>
-<p>Please submit bug reports in the <a href="https://bugs.eclipse.org/bugs/enter_bug.cgi?product=epsilon">Eclipse Bugzilla</a> and ask for help in <a href="../../../forum">Epsilon's forum</a>. You can submit feature requests too but please keep in mind that the Playground is not a replacement for Epsilon's <a href="../../../download">Eclipse-based development tools</a>. The Playground has been cursorily tested on recent versions of Firefox and Chrome. It's unlikely that we'll be able to invest too much effort in making it compatible with older/other browsers but any patches you may be able to contribute are always welcome.</p>
+<p>Please submit bug reports using <a href="https://github.com/eclipse/epsilon-website/issues">GitHub Issues</a> and ask for help in <a href="../../../forum">Epsilon's forum</a>. You can submit feature requests too but please keep in mind that the Playground is not a replacement for Epsilon's <a href="../../../download">Eclipse-based development tools</a>. The Playground has been tested on recent versions of Firefox and Chrome. It's unlikely that we'll be able to invest too much effort in making it compatible with older/other browsers but any pull requests you may be able to contribute are always welcome.</p>
                 
               
               

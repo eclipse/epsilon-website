@@ -10,15 +10,18 @@ class ProgramPanel extends Panel {
         this.editor.getSession().setMode("ace/mode/" + language);
         this.element.dataset.customButtons = JSON.stringify(this.getButtons(language));
         var title = "";
+        console.log(language);
         switch (language) {
             case "eol": title = "Program"; break;
             case "etl": title = "Transformation"; break;
+            case "flock": title = "Migration"; break;
             case "egl": title = "Template"; break;
             case "evl": title = "Constraints"; break;
             case "epl": title = "Patterns"; break;
             case "egx": title = "Template Coordination"; break;
         }
-        this.setTitleAndIcon(title + " (" + language.toUpperCase() + ")", language);
+
+        this.setTitleAndIcon(title + " (" + (language == "flock" ? "Flock" : language.toUpperCase()) + ")", language);
     }
 
     fit() {

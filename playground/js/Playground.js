@@ -55,6 +55,7 @@ function setup() {
 
     if (example.eol != null) { example.program = example.eol; language = "eol";}
     else {language = example.language};
+    console.log("Language: " + language);
 
     if (example.outputType != null) {outputType = example.outputType;}
     if (example.outputLanguage != null) {outputLanguage = example.outputLanguage;}
@@ -174,7 +175,7 @@ function arrangePanels() {
             thirdModelPanel.setTitleAndIcon("Generated Text", "editor");           
         }
     }
-    else if (language == "etl" || language == "flock") {
+    else if (language == "etl") {
         $("#secondModelDiagram").show();
         $("#secondModelEditor").hide();
 
@@ -182,6 +183,16 @@ function arrangePanels() {
         firstMetamodelPanel.setTitle("Source Metamodel");
         secondModelPanel.setTitle("Target Model");
         secondMetamodelPanel.setTitle("Target Metamodel");
+        secondModelPanel.setIcon("diagram");
+    }
+    else if (language == "flock") {
+        $("#secondModelDiagram").show();
+        $("#secondModelEditor").hide();
+
+        firstModelPanel.setTitle("Original Model");
+        firstMetamodelPanel.setTitle("Original Metamodel");
+        secondModelPanel.setTitle("Migrated Model");
+        secondMetamodelPanel.setTitle("Evolved Metamodel");
         secondModelPanel.setIcon("diagram");
     }
     else if (language == "evl" || language == "epl") {
@@ -246,7 +257,7 @@ function runProgram() {
                 else {
                     consolePanel.setOutput(response.output);
                     
-                    if (language == "etl") {
+                    if (language == "etl" || language == "flock") {
                         renderDiagram("secondModelDiagram", response.targetModelDiagram);
                     }
                     else if (language == "evl") {
