@@ -15,7 +15,7 @@
     
     
       
-        <title>Manage the Epsilon web site locally - Epsilon</title>
+        <title>Embedding Picto views in a static Markdown or HTML document - Epsilon</title>
       
     
     
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#manage-the-epsilon-web-site-locally" class="md-skip">
+        <a href="#embedding-picto-views-in-a-static-markdown-or-html-document" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Manage the Epsilon web site locally
+              Embedding Picto views in a static Markdown or HTML document
             
           </span>
         </div>
@@ -1033,43 +1033,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-your-environment" class="md-nav__link">
-    Setting up your environment
+  <a href="#static-views-in-picto" class="md-nav__link">
+    Static views in Picto
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#real-time-modification-of-the-website" class="md-nav__link">
-    Real-time modification of the website
+  <a href="#using-the-picto-view-tag" class="md-nav__link">
+    Using the &lt;picto-view&gt; tag
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-the-static-site" class="md-nav__link">
-    Building the static site
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating-the-website-contents" class="md-nav__link">
-    Updating the website contents
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pushing-your-changes" class="md-nav__link">
-    Pushing your changes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#finding-broken-links" class="md-nav__link">
-    Finding broken links
+  <a href="#iframes-and-dynamic-resizing-of-embedded-views" class="md-nav__link">
+    Iframes and Dynamic resizing of embedded views
   </a>
   
 </li>
@@ -1086,7 +1065,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/eclipse/epsilon-website/edit/master/mkdocs/docs/doc/articles/manage-the-epsilon-website-locally/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/eclipse/epsilon-website/edit/master/mkdocs/docs/doc/articles/picto-embedded-views/index.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1094,40 +1073,56 @@
                   
                 
                 
-                <h1 id="manage-the-epsilon-web-site-locally">Manage the Epsilon web site locally<a class="headerlink" href="#manage-the-epsilon-web-site-locally" title="Permanent link">&para;</a></h1>
-<p>This article provides a step-by-step guide for obtaining a local copy of the Epsilon website. The website is managed using the <a href="https://www.mkdocs.org/">mkdocs</a> library. The content is organised in different Markdown files, from which a static website can be generated.</p>
-<h2 id="setting-up-your-environment">Setting up your environment<a class="headerlink" href="#setting-up-your-environment" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Clone the Git repository at <a href="https://github.com/eclipse/epsilon-website">https://github.com/eclipse/epsilon-website</a>.</li>
-<li>Download and install <a href="https://virtualenv.pypa.io/en/stable/installation.html">virtualenv</a>.</li>
-<li>Navigate to the <code>mkdocs</code> folder, and run <code>./serve.sh</code> from a terminal. The first time this command is run, a Python virtual environment will be created unther the <code>mkdocs/env</code> directory. After the environment is ready (and on subsequent calls to <code>./serve.sh</code>), a local web server containing the Epsilon website will be running at <a href="http://localhost:8000">http://localhost:8000</a>.</li>
-</ul>
-<h2 id="real-time-modification-of-the-website">Real-time modification of the website<a class="headerlink" href="#real-time-modification-of-the-website" title="Permanent link">&para;</a></h2>
-<p>All the Markdown sources of the website are contained in the <code>mkdocs</code> folder. After running the <code>./serve.sh</code> command, we can alter these sources, and the changes will be reflected automatically in the local website. This is very useful to get quick feedback of our changes, as we do not have to regenerate the website each time we make a modification.</p>
-<p>To shutdown the local web server at any time, hit <code>CTRL + C</code> on the terminal you used to launch it in the first place.</p>
-<h2 id="building-the-static-site">Building the static site<a class="headerlink" href="#building-the-static-site" title="Permanent link">&para;</a></h2>
-<p>Once you've happy with the changes you've made to the Markdown sources, you can re-generate the static website. To do so, run <code>./build.sh</code> and wait for it to finish.</p>
-<h2 id="updating-the-website-contents">Updating the website contents<a class="headerlink" href="#updating-the-website-contents" title="Permanent link">&para;</a></h2>
-<p>As a convention for project commiters, introducing a change in the website is usually separated in two commits: the first one contains any changes to the Markdown sources, while the second one includes the result of building again the static site as described in the previous section.</p>
-<p>If you are not a commiter, but you find any typos or parts of the website that do not work as they should, thanks for <a href="https://github.com/eclipse/epsilon/issues">letting us know</a>!</p>
-<h2 id="pushing-your-changes">Pushing your changes<a class="headerlink" href="#pushing-your-changes" title="Permanent link">&para;</a></h2>
-<p>There is a <code>publish.sh</code> script in the repo, which creates separate commits for the changes to <code>mkdocs</code> and the changes to the generated static files, and then pushes both commits to the remote repo. You can use it as follows: <code>./publish.sh "Added new article"</code>.</p>
-<h2 id="finding-broken-links">Finding broken links<a class="headerlink" href="#finding-broken-links" title="Permanent link">&para;</a></h2>
-<p><code>wget</code> and <code>grep</code> can be used to find broken links in the Epsilon website. First, run the website locally by executing the <code>./serve.sh</code> command as described above. Then, we will traverse the website using <code>wget</code> with this command:</p>
-<div class="highlight"><pre><span></span><code>wget -e robots=off --spider -r --no-parent -o wget_errors.txt http://localhost:8000
+                <h1 id="embedding-picto-views-in-a-static-markdown-or-html-document">Embedding Picto views in a static Markdown or HTML document<a class="headerlink" href="#embedding-picto-views-in-a-static-markdown-or-html-document" title="Permanent link">&para;</a></h1>
+<p>It is possible to include other <a href="../../picto">Picto</a> views in a static Markdown or HTML document. This feature is very useful to e.g. create on-the-fly reports concerning one or more models that can be later exported and shared for discussion.</p>
+<p>We will reuse the social network example depicted in the <a href="../../picto">Picto</a> documentation. The complete source code of this example is available <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.socialnetwork/">here</a>.</p>
+<p><img alt="" src="readme.png" /></p>
+<p>The screenshot above depicts a visusalisation of a social network model. The Picto window shows a "Readme" view that is written in Markdown, and that contains other views from Picto's view tree.</p>
+<h2 id="static-views-in-picto">Static views in Picto<a class="headerlink" href="#static-views-in-picto" title="Permanent link">&para;</a></h2>
+<p>Although it is possible to embed Picto views in any type of Picto visualisation, this embedding becomes specially useful in statically defined views, which are briefly introduced in the following.</p>
+<p>By default, the views that are included in the tree of a Picto visualisation are determined by the transformation selected in the <code>.picto</code> configuration file, which is generally an special EGX transformation. It is possible to add extra views by using the <code>&lt;view&gt;</code> tag in a Picto file:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri picto?&gt;</span>
+<span class="nt">&lt;picto</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;egx&quot;</span><span class="w"> </span><span class="na">transformation=</span><span class="s">&quot;picto/socialnetwork.egx&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;view</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;Custom, Alice and Bob&quot;</span><span class="w"> </span><span class="na">icon=</span><span class="s">&quot;diagram-ff00ff&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;Persons2Graphviz&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;names&quot;</span><span class="w"> </span><span class="na">values=</span><span class="s">&quot;Alice, Bob&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/view&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;view</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;Readme&quot;</span><span class="w"> </span><span class="na">icon=</span><span class="s">&quot;document&quot;</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;markdown&quot;</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;socialnetwork/readme.md&quot;</span><span class="w"> </span><span class="na">position=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/picto&gt;</span>
 </code></pre></div>
-<p>We have used these options:</p>
-<ul>
-<li><code>-e robots=off</code> makes <code>wget</code> ignore <code>robots.txt</code>. This is OK in this case, as we're running the spider on our own local server.</li>
-<li><code>--spider</code> prevents <code>wget</code> from downloading page requisites that do not contain links</li>
-<li><code>-r</code> makes <code>wget</code> traverse through links</li>
-<li><code>--no-parent</code> prevents <code>wget</code> from leaving <code>/gmt/epsilon/</code></li>
-<li><code>-o wget_errors.txt</code> collects all messages in the <code>wget_errors.txt</code> file</li>
-</ul>
-<p>Once it's done, we can simply search for the word "404" in the log, with:</p>
-<div class="highlight"><pre><span></span><code>grep -B2 -w 404 wget_errors.txt
+<p>The snippet above shows the contents of the <code>socialnetwork.model.picto</code> file. The <code>&lt;picto&gt;</code> tag specifies the EGX transformation to use via the <code>format</code> and <code>transformation</code> attributes. Additionally, two <code>&lt;view&gt;</code> elements are added, of which we focus on the second one in this article, which is a static Picto view.</p>
+<p>A static Picto view depicts the contents of a static file. It can be defined by specifying its location in Picto's view tree (via the <code>path</code> and <code>position</code> attributes of the <code>&lt;view&gt;</code> tag) and the <code>source</code> and <code>format</code> of the file. In the example snippet, the "Readme" view appears first in the view tree (<code>position="0"</code>), and it is using the <code>socialnetwork/readme.md</code> file of the example project, whose contents are depicted below:</p>
+<div class="highlight"><pre><span></span><code><span class="gh"># Social network</span>
+
+This is a simple way to represent network connections.
+
+<span class="gu">## Alice&#39;s network &lt;a href=&quot;javascript:showView([&#39;Social Network&#39;, &#39;Alice&#39;])&quot;&gt;(Go to Alice)&lt;/a&gt;</span>
+
+&lt;picto-view path=&quot;Social Network, Alice&quot;/&gt;
+
+<span class="gu">## Embedded &quot;stats&quot; table view</span>
+
+&lt;picto-view path=&quot;Stats&quot; autoresize=&quot;true&quot;/&gt;
+
+<span class="gu">## Embedded PlantUML (escaped backticks)</span>
+
+\```render-plantuml
+<span class="ni">@startuml</span>
+Alice -&gt; Bob : Hello
+<span class="ni">@enduml</span>
+\```
+
+<span class="gu">## Static image</span>
+
+![<span class="nt">Epsilon logo</span>](<span class="na">socialnetwork/epsilon.png</span>)
 </code></pre></div>
-<p>We will get a list of all the URLs which reported 404 (Not Found) HTTP error codes.</p>
+<h2 id="using-the-picto-view-tag">Using the <code>&lt;picto-view&gt;</code> tag<a class="headerlink" href="#using-the-picto-view-tag" title="Permanent link">&para;</a></h2>
+<p>Embedding a Picto view is as easy as using the <code>&lt;picto-view&gt;</code> tag, specifying as <code>path</code> attribute the path of the view to be embedded in Picto's view tree. The Markdown file depicted above embeds two Picto views: the first one is Alice's social network (present in the <code>Social Network &gt; Alice</code> path in the view tree), while the second one is the stats table of the whole model.</p>
+<p>As mentioned, the use of the <code>&lt;picto-view&gt;</code> tag is not limited to static views such as the one of the example, and can be used inside any kind of views (e.g. those created with EGL transformations).</p>
+<h2 id="iframes-and-dynamic-resizing-of-embedded-views">Iframes and Dynamic resizing of embedded views<a class="headerlink" href="#iframes-and-dynamic-resizing-of-embedded-views" title="Permanent link">&para;</a></h2>
+<p>By default, an embedded picto view becomes as tall as the height of the contents that are originally rendered. However, the height of such contents might change dynamically, as it is the case of the stats table view: we can modify the number of elements shown in each page of the table, thus altering the required vertical space.</p>
+<p>For those cases where the height of a view might change dynamically, the <code>autoresize</code> attribute can be added to the <code>&lt;picto-view&gt;</code> tag to automatically adapt to such changes. In the example above, <code>autoresize</code> is set to <code>true</code> for the "Stats" view, so that pagination changes do not cause vertical cropping issues.</p>
+<p>If we only want to ensure that embedded views do not affect the host visualisation, we can enforce the use of an iframe by setting the <code>iframe</code> attribute to <code>true</code>. Note that setting <code>autoresize</code> to true also implies that an iframe will be used, so it is not necessary to specify both.</p>
                 
               
               

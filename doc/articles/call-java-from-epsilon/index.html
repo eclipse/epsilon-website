@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-5.4.0">
     
     
       
@@ -1085,25 +1085,25 @@
 <p>To address such issues and enable developers to implement non-standard functionality, Epsilon supports the Tool concept. A tool is a normal Java class that (optionally) conforms to a specific interface (<code>org.eclipse.epsilon.eol.tools.ITool</code>) and which can be instantiated and accessed from the context of an EOL (or any other EOL-based language such as EML, ETL, EVL etc) program. After instantiation, EOL can be used to invoke methods and access properties of the object. In this article we show how to create and declare a new tool (<code>org.eclipse.epsilon.examples.tools.SampleTool</code>), and then use it from an EOL program.</p>
 <h3 id="create-the-tool">Create the tool<a class="headerlink" href="#create-the-tool" title="Permanent link">&para;</a></h3>
 <p>The first step is to create a new plugin project named <code>org.eclipse.epsilon.examples.tools</code>. Then create a class named <code>SampleTool</code> with the following content.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">org.eclipse.epsilon.examples.tools</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">org.eclipse.epsilon.examples.tools</span><span class="p">;</span>
 
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SampleTool</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SampleTool</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hello &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hello &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="declare-the-tool">Declare the tool<a class="headerlink" href="#declare-the-tool" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1122,8 +1122,8 @@ sampleTool.name = "George";
 sampleTool.sayHello().println(); // Prints Hello George</code></pre>
 <h3 id="standalone-setup">Standalone setup<a class="headerlink" href="#standalone-setup" title="Permanent link">&para;</a></h3>
 <p>To use tools contributed via extensions in a standalone Java setup within Eclipse you'll need to add the following line of code.</p>
-<div class="highlight"><pre><span></span><code><span class="n">context</span><span class="p">.</span><span class="na">getNativeTypeDelegates</span><span class="p">().</span><span class="w"></span>
-<span class="w">  </span><span class="n">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExtensionPointToolNativeTypeDelegate</span><span class="p">());</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">context</span><span class="p">.</span><span class="na">getNativeTypeDelegates</span><span class="p">().</span>
+<span class="w">  </span><span class="n">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExtensionPointToolNativeTypeDelegate</span><span class="p">());</span>
 </code></pre></div>
 <p>You can get the source code of this example
 <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.tools">here</a>.</p>
