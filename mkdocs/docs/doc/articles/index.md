@@ -86,6 +86,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 - [Visualising Models with Picto and Sirius](visualising-models-with-picto-and-sirius): This article demonstrates using Picto to produce dynamic web-based views (pie and bar charts) from Sirius-based models.
 - [Visualising Xtext models with Picto](picto-xtext): This article shows how Picto can be used to produce graphical views from Xtext-based models.
 - [Table visualisations with Picto and Pinset](picto-tables): This article shows how to create table views in Picto that render static CSV files or those generated with a Pinset transformation.
+- [Embedding Picto views in static Markdown or HTML documents](picto-embedded-views): This article shows how to embed Picto views to create Markdown or HTML-based model reports.
 
 ## Workflow (ANT Tasks)
 
