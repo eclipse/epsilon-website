@@ -206,10 +206,6 @@ function arrangePanels() {
     }
 }
 
-function getPanelTitle(panelId) {
-    return $("#" + panelId)[0].dataset.titleCaption;
-}
-
 function editorsToJsonObject() {
     return {
         "language": language,
@@ -434,4 +430,3 @@ window.showSettings = showSettings;
 window.copyShortenedLink = copyShortenedLink;
 window.downloadDialog = downloadDialog;
 window.language = language;
-window.getPanelTitle = getPanelTitle;

@@ -89,7 +89,11 @@ class SettingsDialog {
     createPanelVisibilityCheckbox(panel) {
         var checked = document.getElementById(panel + "Panel").parentNode.style.display == "none" ? "" : "checked";
 
-        return '<input type="checkbox" id="' + panel + 'Visible" data-role="checkbox" data-caption="' + getPanelTitle(panel + "Panel") + '" ' + checked + '>';
+        return '<input type="checkbox" id="' + panel + 'Visible" data-role="checkbox" data-caption="' + this.getPanelTitle(panel + "Panel") + '" ' + checked + '>';
+    }
+
+    getPanelTitle(panelId) {
+        return $("#" + panelId)[0].dataset.titleCaption;
     }
 }
 
