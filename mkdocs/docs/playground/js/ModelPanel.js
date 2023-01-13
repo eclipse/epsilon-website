@@ -1,6 +1,8 @@
 import { Panel } from "./Panel.js";
 import { Layout } from "./Layout.js";
 
+import svgPanZoom from 'svg-pan-zoom';
+
 class ModelPanel extends Panel {
 
     editable;
@@ -69,6 +71,7 @@ class ModelPanel extends Panel {
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
+        var self = this;
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
@@ -83,7 +86,7 @@ class ModelPanel extends Panel {
                         consolePanel.setError(json.error);
                     }
                     else {
-                        renderDiagram(diagramId, json[jsonField]);
+                        self.renderDiagram(json[jsonField]);
                     }
 
                     Metro.notify.killAll();
@@ -93,6 +96,26 @@ class ModelPanel extends Panel {
         var data = this.modelToJson(modelEditor, metamodelEditor);
         xhr.send(data);
         longNotification("Rendering " + diagramName + " diagram");
+    }
+
+    renderDiagram(svg) {
+        var diagramId = this.id + "Diagram";
+        var diagramElement = document.getElementById(diagramId);
+        diagramElement.innerHTML = svg;
+        var svg = document.getElementById(diagramId).firstElementChild;
+        
+        if (diagramId == "thirdModelDiagram") {
+            diagramElement.parentElement.style.padding = "0px";
+        }
+    
+        svg.style.width = diagramElement.offsetWidth + "px";
+        svg.style.height = diagramElement.offsetHeight + "px";
+    
+        svgPanZoom(svg, {
+          zoomEnabled: true,
+          fit: true,
+          center: true
+        });
     }
 
     modelToJson(modelEditor, metamodelEditor) {

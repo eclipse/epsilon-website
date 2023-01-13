@@ -6,8 +6,6 @@ import 'ace-builds/src-min-noconflict/mode-java';
 import 'ace-builds/src-min-noconflict/mode-html';
 import 'ace-builds/src-min-noconflict/ext-modelist';
 
-import svgPanZoom from 'svg-pan-zoom';
-
 import { ModelPanel } from './ModelPanel.js';
 import { ConsolePanel } from "./ConsolePanel.js";
 import { ProgramPanel } from "./ProgramPanel.js";
@@ -254,13 +252,13 @@ function runProgram() {
                     consolePanel.setOutput(response.output);
                     
                     if (language == "etl" || language == "flock") {
-                        renderDiagram("secondModelDiagram", response.targetModelDiagram);
+                        secondModelPanel.renderDiagram(response.targetModelDiagram);
                     }
                     else if (language == "evl") {
-                        renderDiagram("thirdModelDiagram", response.validatedModelDiagram);
+                        thirdModelPanel.renderDiagram(response.validatedModelDiagram);
                     }
                     else if (language == "epl") {
-                        renderDiagram("thirdModelDiagram", response.patternMatchedModelDiagram);
+                        thirdModelPanel.renderDiagram(response.patternMatchedModelDiagram);
                     }
                     else if (language == "egx") {
                         thirdModelPanel.setGeneratedFiles(response.generatedFiles);
@@ -298,7 +296,7 @@ function runProgram() {
                             krokiXhr.onreadystatechange = function () {
                                 if (krokiXhr.readyState === 4) {
                                     if (krokiXhr.status === 200) {
-                                        renderDiagram("thirdModelDiagram", krokiXhr.responseText);
+                                        thirdModelPanel.renderDiagram(krokiXhr.responseText);
                                     }
                                 }
                             };
@@ -337,25 +335,6 @@ function toggle(elementId, onEmpty) {
         element.style.display = "none";
     }
     updateGutterVisibility();
-}
-
-function renderDiagram(diagramId, svg) {
-    var diagramElement = document.getElementById(diagramId);
-    diagramElement.innerHTML = svg;
-    var svg = document.getElementById(diagramId).firstElementChild;
-
-    if (diagramId == "thirdModelDiagram") {
-        diagramElement.parentElement.style.padding = "0px";
-    }
-
-    svg.style.width = diagramElement.offsetWidth + "px";
-    svg.style.height = diagramElement.offsetHeight + "px";
-
-    svgPanZoom(svg, {
-      zoomEnabled: true,
-      fit: true,
-      center: true
-    });
 }
 
 function updateGutterVisibility() {
@@ -423,7 +402,6 @@ window.panels = panels;
 
 window.backend = backend;
 window.toggle = toggle;
-window.renderDiagram = renderDiagram;
 window.longNotification = longNotification;
 window.showDownloadOptions = showDownloadOptions;
 window.showSettings = showSettings;
