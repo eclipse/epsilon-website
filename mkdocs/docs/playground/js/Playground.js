@@ -33,7 +33,7 @@ export var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
 export var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
 export var firstModelPanel = new ModelPanel("firstModel", true, firstMetamodelPanel);
 export var secondModelPanel;
-export var thirdModelPanel;
+export var outputPanel;
 
 export var consolePanel = new ConsolePanel();
 var downloadDialog = new DownloadDialog();
@@ -61,11 +61,11 @@ function setup() {
     var secondModelEditable = !(language == "etl" || language == "flock");
 
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
-    thirdModelPanel = new OutputPanel("thirdModel", language, outputType, outputLanguage);
+    outputPanel = new OutputPanel("output", language, outputType, outputLanguage);
 
     new Layout().create("navview-content", language);
     
-    panels = [programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
+    panels = [programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, outputPanel];
     
     arrangePanels();
 
@@ -156,22 +156,22 @@ function arrangePanels() {
 
     if (language == "egl" || language == "egx") {
         if (outputType == "dot") {
-            thirdModelPanel.showDiagram();
-            thirdModelPanel.setTitleAndIcon("Graphviz", "diagram");
+            outputPanel.showDiagram();
+            outputPanel.setTitleAndIcon("Graphviz", "diagram");
         }
         else if (outputType == "html") {
-            thirdModelPanel.showDiagram();
-            thirdModelPanel.setTitleAndIcon("HTML", "html");
+            outputPanel.showDiagram();
+            outputPanel.setTitleAndIcon("HTML", "html");
         }
         else if (outputType == "puml") {
-            thirdModelPanel.showDiagram();
-            thirdModelPanel.setTitleAndIcon("PlantUML", "diagram");
+            outputPanel.showDiagram();
+            outputPanel.setTitleAndIcon("PlantUML", "diagram");
         }
         else if (outputType == "code") {
-            thirdModelPanel.hideDiagram();
-            thirdModelPanel.showEditor();
+            outputPanel.hideDiagram();
+            outputPanel.showEditor();
 
-            thirdModelPanel.setTitleAndIcon("Generated Text", "editor");           
+            outputPanel.setTitleAndIcon("Generated Text", "editor");           
         }
     }
     else if (language == "etl") {
@@ -195,13 +195,13 @@ function arrangePanels() {
         secondModelPanel.setIcon("diagram");
     }
     else if (language == "evl" || language == "epl") {
-        thirdModelPanel.showDiagram();
+        outputPanel.showDiagram();
         
         if (language == "evl") {
-            thirdModelPanel.setTitleAndIcon("Problems", "problems");
+            outputPanel.setTitleAndIcon("Problems", "problems");
         }
         else {
-            thirdModelPanel.setTitleAndIcon("Pattern Matches", "diagram");
+            outputPanel.setTitleAndIcon("Pattern Matches", "diagram");
         }
     }
 }
@@ -257,18 +257,18 @@ function runProgram() {
                         secondModelPanel.renderDiagram(response.targetModelDiagram);
                     }
                     else if (language == "evl") {
-                        thirdModelPanel.renderDiagram(response.validatedModelDiagram);
+                        outputPanel.renderDiagram(response.validatedModelDiagram);
                     }
                     else if (language == "epl") {
-                        thirdModelPanel.renderDiagram(response.patternMatchedModelDiagram);
+                        outputPanel.renderDiagram(response.patternMatchedModelDiagram);
                     }
                     else if (language == "egx") {
-                        thirdModelPanel.setGeneratedFiles(response.generatedFiles);
+                        outputPanel.setGeneratedFiles(response.generatedFiles);
                         consolePanel.setOutput(response.output);
                     }
                     else if (language == "egl") {
                         if (outputType == "code") {
-                            thirdModelPanel.getEditor().setValue(response.generatedText.trim(), 1);
+                            outputPanel.getEditor().setValue(response.generatedText.trim(), 1);
                             consolePanel.setOutput(response.output);
                         }
                         else if (outputType == "html") {
@@ -279,7 +279,7 @@ function runProgram() {
                                 iframe.id = "htmlIframe"
                                 iframe.style.height = "100%";
                                 iframe.style.width = "100%";
-                                document.getElementById("thirdModelDiagram").appendChild(iframe);
+                                document.getElementById("outputDiagram").appendChild(iframe);
                             }
                             
                             iframe.srcdoc = response.generatedText;
@@ -298,7 +298,7 @@ function runProgram() {
                             krokiXhr.onreadystatechange = function () {
                                 if (krokiXhr.readyState === 4) {
                                     if (krokiXhr.status === 200) {
-                                        thirdModelPanel.renderDiagram(krokiXhr.responseText);
+                                        outputPanel.renderDiagram(krokiXhr.responseText);
                                     }
                                 }
                             };
@@ -397,7 +397,7 @@ window.secondProgramPanel = secondProgramPanel;
 window.consolePanel = consolePanel;
 window.firstModelPanel = firstModelPanel;
 window.secondModelPanel = secondModelPanel;
-window.thirdModelPanel = thirdModelPanel;
+window.outputPanel = outputPanel;
 window.firstMetamodelPanel = firstMetamodelPanel;
 window.secondMetamodelPanel = secondMetamodelPanel;
 window.panels = panels;

@@ -10,7 +10,7 @@ class SettingsDialog {
         if (language == "etl" || language == "flock")
             panels.push("secondModel", "secondMetamodel");
         else if (language == "evl" || language == "epl" || language == "egl" || language == "egx") {
-            panels.push("thirdModel");
+            panels.push("output");
             if (language == "egx") {
                 panels.push("secondProgram");
             }

@@ -116,7 +116,7 @@ class ModelPanel extends Panel {
         diagramElement.innerHTML = svg;
         var svg = document.getElementById(diagramId).firstElementChild;
         
-        if (diagramId == "thirdModelDiagram") {
+        if (diagramId == "outputDiagram") {
             diagramElement.parentElement.style.padding = "0px";
         }
     

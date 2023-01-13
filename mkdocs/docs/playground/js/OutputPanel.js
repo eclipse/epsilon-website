@@ -99,7 +99,7 @@ class OutputPanel extends ModelPanel {
         if (language == "egx") {
             var select = document.createElement("select");
             select.setAttribute("data-role", "select");
-            select.setAttribute("data-on-item-select", "thirdModelPanel.generatedFileSelected()");
+            select.setAttribute("data-on-item-select", "outputPanel.generatedFileSelected()");
             select.setAttribute("id", "generatedFiles");
             select.setAttribute("style","width:100%");
             root.insertBefore(select, root.children[0]);
