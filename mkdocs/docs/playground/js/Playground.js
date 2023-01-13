@@ -168,14 +168,15 @@ function arrangePanels() {
             thirdModelPanel.setTitleAndIcon("PlantUML", "diagram");
         }
         else if (outputType == "code") {
-            $("#thirdModelDiagram").hide();
-            $("#thirdModelEditor").show();
+            thirdModelPanel.hideDiagram();
+            thirdModelPanel.showEditor();
+
             thirdModelPanel.setTitleAndIcon("Generated Text", "editor");           
         }
     }
     else if (language == "etl") {
-        $("#secondModelDiagram").show();
-        $("#secondModelEditor").hide();
+        secondModelPanel.showDiagram();
+        secondModelPanel.hideEditor();
 
         firstModelPanel.setTitle("Source Model");
         firstMetamodelPanel.setTitle("Source Metamodel");
@@ -184,8 +185,8 @@ function arrangePanels() {
         secondModelPanel.setIcon("diagram");
     }
     else if (language == "flock") {
-        $("#secondModelDiagram").show();
-        $("#secondModelEditor").hide();
+        secondModelPanel.showDiagram();
+        secondModelPanel.hideEditor();
 
         firstModelPanel.setTitle("Original Model");
         firstMetamodelPanel.setTitle("Original Metamodel");
@@ -194,7 +195,8 @@ function arrangePanels() {
         secondModelPanel.setIcon("diagram");
     }
     else if (language == "evl" || language == "epl") {
-        $("#thirdModelDiagram").show();
+        thirdModelPanel.showDiagram();
+        
         if (language == "evl") {
             thirdModelPanel.setTitleAndIcon("Problems", "problems");
         }

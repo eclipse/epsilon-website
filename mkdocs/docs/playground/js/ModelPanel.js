@@ -21,6 +21,18 @@ class ModelPanel extends Panel {
         $("#" + this.id + "Diagram").show();
     }
 
+    hideDiagram() {
+        $("#" + this.id + "Diagram").hide();
+    }
+
+    showEditor() {
+        $("#" + this.id + "Editor").show();
+    }
+
+    hideEditor() {
+        $("#" + this.id + "Editor").hide();
+    }
+
     refreshDiagram() {
         this.refreshDiagramImpl(backend.getFlexmiToPlantUMLService(), this.id + "Diagram", "model", this.getEditor(), this.metamodelPanel.getEditor());
     }
