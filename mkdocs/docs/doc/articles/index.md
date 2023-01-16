@@ -95,7 +95,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 ## Development Environments
 
 - [VS Code](vscode): This article provides an overview of how you can edit and run Epsilon programs in the VS Code IDE.
-
+- [Sublime](https://github.com/epsilonlabs/sublime): This repository provides a package that adds Epsilon syntax highlighting capabilities to the [Sublime](https://www.sublimetext.com) editor.
 
 ## Human-Usable Textual Notation
 
