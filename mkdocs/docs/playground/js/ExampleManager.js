@@ -193,6 +193,8 @@ class ExampleManager {
             if (example.emfatic != null) example.emfatic = this.fetchFile(example.emfatic);
             if (example.secondFlexmi != null) example.secondFlexmi = this.fetchFile(example.secondFlexmi);
             if (example.secondEmfatic != null) example.secondEmfatic = this.fetchFile(example.secondEmfatic);
+            if (example.thirdFlexmi != null) example.thirdFlexmi = this.fetchFile(example.thirdFlexmi);
+            if (example.thirdEmfatic != null) example.thirdEmfatic = this.fetchFile(example.thirdEmfatic);
             return example;
         }
 

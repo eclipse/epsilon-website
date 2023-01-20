@@ -19,6 +19,8 @@ class ProgramPanel extends Panel {
             case "evl": title = "Constraints"; break;
             case "epl": title = "Patterns"; break;
             case "egx": title = "Template Coordination"; break;
+            case "ecl": title = "Match Rules"; break;
+            case "eml": title = "Merge Rules"; break;
         }
 
         this.setTitleAndIcon(title + " (" + (language == "flock" ? "Flock" : language.toUpperCase()) + ")", language);

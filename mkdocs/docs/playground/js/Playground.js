@@ -31,7 +31,9 @@ export var programPanel = new ProgramPanel();
 export var secondProgramPanel = new ProgramPanel("secondProgram");
 export var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
 export var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
+export var thirdMetamodelPanel = new MetamodelPanel("thirdMetamodel");
 export var firstModelPanel = new ModelPanel("firstModel", true, firstMetamodelPanel);
+export var thirdModelPanel = new ModelPanel("thirdModel", true, thirdMetamodelPanel);
 export var secondModelPanel;
 export var outputPanel;
 
@@ -58,20 +60,21 @@ function setup() {
     if (example.outputType != null) {outputType = example.outputType;}
     if (example.outputLanguage != null) {outputLanguage = example.outputLanguage;}
     
-    var secondModelEditable = !(language == "etl" || language == "flock");
+    var secondModelEditable = !(language == "etl" || language == "flock" || language == "eml");
 
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
     outputPanel = new OutputPanel("output", language, outputType, outputLanguage);
 
     new Layout().create("navview-content", language);
     
-    panels = [programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, outputPanel];
+    panels = [programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel, thirdMetamodelPanel, outputPanel];
     
     arrangePanels();
 
     //TODO: Fix "undefined" when fields are empty
     programPanel.setLanguage(language);
     if (language == "egx") secondProgramPanel.setLanguage("egl");
+    if (language == "eml") secondProgramPanel.setLanguage("ecl");
 
     programPanel.setValue(example.program);
     secondProgramPanel.setValue(example.secondProgram);
@@ -79,6 +82,8 @@ function setup() {
     firstMetamodelPanel.setValue(example.emfatic);
     secondModelPanel.setValue(example.secondFlexmi);
     secondMetamodelPanel.setValue(example.secondEmfatic);
+    thirdModelPanel.setValue(example.thirdFlexmi);
+    thirdMetamodelPanel.setValue(example.thirdEmfatic);
 
     document.getElementById("navview").style.display = "block";
     
@@ -184,6 +189,20 @@ function arrangePanels() {
         secondMetamodelPanel.setTitle("Target Metamodel");
         secondModelPanel.setIcon("diagram");
     }
+    else if (language == "eml") {
+        secondModelPanel.showDiagram();
+        secondModelPanel.hideEditor();
+
+        firstModelPanel.setTitle("Left Model");
+        firstMetamodelPanel.setTitle("Left Metamodel");
+        
+        thirdModelPanel.setTitle("Right Model");
+        thirdMetamodelPanel.setTitle("Right Metamodel");
+        
+        secondModelPanel.setTitle("Merged Model");
+        secondMetamodelPanel.setTitle("Target Metamodel");
+        secondModelPanel.setIcon("diagram");
+    }
     else if (language == "flock") {
         secondModelPanel.showDiagram();
         secondModelPanel.hideEditor();
@@ -216,7 +235,9 @@ function editorsToJsonObject() {
         "emfatic": firstMetamodelPanel.getValue(), 
         "flexmi": firstModelPanel.getValue(),
         "secondEmfatic": secondMetamodelPanel.getValue(),
-        "secondFlexmi": secondModelPanel.getValue()
+        "secondFlexmi": secondModelPanel.getValue(),
+        "thirdEmfatic": thirdMetamodelPanel.getValue(),
+        "thirdFlexmi": thirdModelPanel.getValue(),
     };
 }
 
@@ -253,7 +274,7 @@ function runProgram() {
                 else {
                     consolePanel.setOutput(response.output);
                     
-                    if (language == "etl" || language == "flock") {
+                    if (language == "etl" || language == "flock" || language == "eml") {
                         secondModelPanel.renderDiagram(response.targetModelDiagram);
                     }
                     else if (language == "evl") {
@@ -400,6 +421,8 @@ window.secondModelPanel = secondModelPanel;
 window.outputPanel = outputPanel;
 window.firstMetamodelPanel = firstMetamodelPanel;
 window.secondMetamodelPanel = secondMetamodelPanel;
+window.thirdModelPanel = thirdModelPanel;
+window.thirdMetamodelPanel = thirdMetamodelPanel;
 window.panels = panels;
 
 window.backend = backend;

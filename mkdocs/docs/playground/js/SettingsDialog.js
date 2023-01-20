@@ -7,15 +7,18 @@ class SettingsDialog {
 
         var panels = ["program", "console", "firstModel", "firstMetamodel"];
 
-        if (language == "etl" || language == "flock")
+        if (language == "etl" || language == "flock") {
             panels.push("secondModel", "secondMetamodel");
+        }
+        else if (language == "eml") {
+            panels.push("secondProgram", "thirdModel", "thirdMetamodel", "secondModel", "secondMetamodel");
+        }
         else if (language == "evl" || language == "epl" || language == "egl" || language == "egx") {
             panels.push("output");
             if (language == "egx") {
                 panels.push("secondProgram");
             }
         }
-        
 
         var visibilityCheckboxes = "";
 
