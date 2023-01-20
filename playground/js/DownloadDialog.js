@@ -18,11 +18,19 @@ class DownloadDialog {
                         var extension = language == "flock" ? "mig" : language;
                         zip.file("program." + extension, programPanel.getEditor().getValue());
                         if (language == "egx") zip.file("template.egl", secondProgramPanel.getEditor().getValue());
+                        if (language == "eml") zip.file("program.ecl", secondProgramPanel.getEditor().getValue());
 
                         if (language == "etl" || language == "flock") {
                             zip.file("source.flexmi", firstModelPanel.getValue());
                             zip.file("source.emf", firstMetamodelPanel.getValue());
                             zip.file("target.emf", secondMetamodelPanel.getValue());
+                        }
+                        else if (language == "eml") {
+                            zip.file("left.flexmi", firstModelPanel.getValue());
+                            zip.file("left.emf", firstMetamodelPanel.getValue());
+                            zip.file("right.flexmi", thirdModelPanel.getValue());
+                            zip.file("right.emf", thirdMetamodelPanel.getValue());
+                            zip.file("target.emf", secondMetamodelPanel.getValue());                            
                         }
                         else {
                             zip.file("model.flexmi", firstModelPanel.getValue());
@@ -42,17 +50,16 @@ class DownloadDialog {
                         };
     
                         if (format == "gradle") {
-                            var template = Handlebars.compile(self.fetchTemplate("build.gradle"));
+                            var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "build-eml.gradle" : "build.gradle"));
                             zip.file("build.gradle", template(templateData));
                             zip.file("readme.md", self.fetchTemplate("readme-gradle.txt"));
                         }
                         else if (format == "maven") {
-                            var template = Handlebars.compile(self.fetchTemplate("pom.xml"));
+                            var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "pom-eml.xml" : "pom.xml"));
                             zip.file("pom.xml", template(templateData));
                             zip.file("readme.md", self.fetchTemplate("readme-maven.txt"));
                         }
     
-                        // var img = zip.folder("images");
                         zip.generateAsync({type:"blob"})
                         .then(function(content) {
                             var blob = new Blob([content], { type: "application/zip" });

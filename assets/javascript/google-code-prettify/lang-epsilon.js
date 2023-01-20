@@ -32,7 +32,7 @@ var egxKeywords = erlKeywords + "|rule|transform|target|parameters|template|over
 registerEpsilonLanguageHandler("etl", etlKeywords);
 registerEpsilonLanguageHandler("egx", egxKeywords);
 registerEpsilonLanguageHandler("evl", erlKeywords + "|context|constraint|critique|check|do|message|title|fix|guard");
-registerEpsilonLanguageHandler("eml", etlKeywords + "|with|merge");
+registerEpsilonLanguageHandler("eml", etlKeywords + "|with|merge|into");
 registerEpsilonLanguageHandler("ecl", erlKeywords + "|rule|compare|match|with");
 registerEpsilonLanguageHandler("mig", erlKeywords + "|migrate|to|ignoring|retype|delete|when");
 registerEpsilonLanguageHandler("epl", erlKeywords + "|match|onmatch|nomatch|pattern|do|from");

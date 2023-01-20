@@ -15,12 +15,12 @@
 	display:none;
 }
 
-#thirdModelDiagram {
+#outputDiagram {
 	height:100%;
 	width:100%;
 }
 
-#thirdModelEditor {
+#outputEditor {
 	display: none;
 }
 
@@ -57,6 +57,14 @@
 
 .mif-egx::before {
     content: url("../images/egx.png");
+}
+
+.mif-eml::before {
+    content: url("../images/eml.png");
+}
+
+.mif-ecl::before {
+    content: url("../images/ecl.png");
 }
 
 .mif-etl::before {

@@ -216,6 +216,9 @@ class ConsolePanel extends Panel {
                 if (language == "egx" && matches[2].split(".").pop() == "egl") {
                     panel = secondProgramPanel;
                 }
+                if (language == "eml" && matches[2].split(".").pop() == "ecl") {
+                    panel = secondProgramPanel;
+                }
 
                 panel.getEditor().selection.setRange(new Range(
                     parseInt(matches[3]) - 1, parseInt(matches[4]),

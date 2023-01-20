@@ -63,6 +63,18 @@
 				"flexmi": "psl.flexmi",
 				"emfatic": "psl.emf",
 				"secondEmfatic": "pslv2.emf"
+			},			
+			{
+				"id": "eml",
+				"title": "Merge Project Plans",
+				"language": "eml",
+				"program": "psl.eml",
+				"secondProgram": "psl.ecl",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf",
+				"secondEmfatic": "psl.emf",
+				"thirdFlexmi": "psl-right.flexmi",
+				"thirdEmfatic": "psl.emf"
 			}
 		]
 	},

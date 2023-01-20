@@ -1,4 +1,4 @@
-import {programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel} from './Playground.js';
+import {programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel, thirdMetamodelPanel, outputPanel} from './Playground.js';
 
 class Layout {
 
@@ -22,7 +22,7 @@ class Layout {
                     Layout.createVerticalSplitter([programPanel.getElement(), consolePanel.getElement()]),
                     Layout.createHorizontalSplitter([
                         Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
-                        Layout.createVerticalSplitter([thirdModelPanel.getElement()])
+                        Layout.createVerticalSplitter([outputPanel.getElement()])
                     ], "50, 50")
                 ], "33, 64"
             );
@@ -41,12 +41,32 @@ class Layout {
         else if (language == "egx") {
             splitter = Layout.createHorizontalSplitter(
                 [
-                    Layout.createVerticalSplitter([Layout.createVerticalSplitter([programPanel.getElement(), secondProgramPanel.getElement()]), consolePanel.getElement()]),
+                    Layout.createVerticalSplitter([
+                        Layout.createVerticalSplitter([programPanel.getElement(), secondProgramPanel.getElement()]), 
+                        consolePanel.getElement()]
+                    ),
                     Layout.createHorizontalSplitter([
                         Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
-                        Layout.createVerticalSplitter([thirdModelPanel.getElement()])
+                        Layout.createVerticalSplitter([outputPanel.getElement()])
                     ], "50, 50")
                 ], "33, 64"
+            );
+        }
+        else if (language == "eml") {
+            splitter = Layout.createHorizontalSplitter(
+                [
+                    Layout.createVerticalSplitter([
+                        Layout.createVerticalSplitter([programPanel.getElement(), secondProgramPanel.getElement()]), 
+                        consolePanel.getElement()]
+                    ),
+                    Layout.createHorizontalSplitter([
+                        Layout.createHorizontalSplitter([
+                            Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
+                            Layout.createVerticalSplitter([thirdModelPanel.getElement(), thirdMetamodelPanel.getElement()])
+                        ], "50, 50"),
+                        Layout.createVerticalSplitter([secondModelPanel.getElement(), secondMetamodelPanel.getElement()])
+                    ], "64, 33")
+                ], "25, 75"
             );
         }
 

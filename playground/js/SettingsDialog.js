@@ -7,15 +7,18 @@ class SettingsDialog {
 
         var panels = ["program", "console", "firstModel", "firstMetamodel"];
 
-        if (language == "etl" || language == "flock")
+        if (language == "etl" || language == "flock") {
             panels.push("secondModel", "secondMetamodel");
+        }
+        else if (language == "eml") {
+            panels.push("secondProgram", "thirdModel", "thirdMetamodel", "secondModel", "secondMetamodel");
+        }
         else if (language == "evl" || language == "epl" || language == "egl" || language == "egx") {
-            panels.push("thirdModel");
+            panels.push("output");
             if (language == "egx") {
                 panels.push("secondProgram");
             }
         }
-        
 
         var visibilityCheckboxes = "";
 
@@ -89,7 +92,11 @@ class SettingsDialog {
     createPanelVisibilityCheckbox(panel) {
         var checked = document.getElementById(panel + "Panel").parentNode.style.display == "none" ? "" : "checked";
 
-        return '<input type="checkbox" id="' + panel + 'Visible" data-role="checkbox" data-caption="' + getPanelTitle(panel + "Panel") + '" ' + checked + '>';
+        return '<input type="checkbox" id="' + panel + 'Visible" data-role="checkbox" data-caption="' + this.getPanelTitle(panel + "Panel") + '" ' + checked + '>';
+    }
+
+    getPanelTitle(panelId) {
+        return $("#" + panelId)[0].dataset.titleCaption;
     }
 }
 

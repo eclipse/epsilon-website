@@ -1,0 +1,51 @@
+configurations {
+    epsilon
+}
+
+repositories {
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    epsilon 'org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.4.0'
+    epsilon 'org.eclipse.epsilon:org.eclipse.epsilon.workflow.emf:2.4.0'
+    epsilon ('org.eclipse.emfatic:org.eclipse.emfatic.core:1.1.0-SNAPSHOT') {
+        exclude group: 'org.eclipse.platform'
+    }
+}
+
+task setupEpsilonTasks {
+    // Set up the core Epsilon tasks
+    ant.taskdef(resource: 'org/eclipse/epsilon/workflow/tasks/tasks.xml', 
+        classpath: configurations.epsilon.asPath, loaderref: 'epsilon')
+    // Set up the Epsilon EMF tasks
+    ant.taskdef(resource: 'org/eclipse/epsilon/workflow/tasks/emf/tasks.xml', 
+        classpath: configurations.epsilon.asPath, loaderref: 'epsilon')
+    // Set logging level to info so that EOL's println() is not suppressed
+    ant.lifecycleLogLevel = 'INFO'
+}
+
+task run {
+    dependsOn tasks.setupEpsilonTasks
+    
+    // Load the left.flexmi EMF model
+    ant.'epsilon.emf.loadModel'(name: 'Left', aliases: 'Source',
+        modelfile: 'left.flexmi', metamodelfile: 'left.emf')
+
+    // Load the right.flexmi EMF model
+    ant.'epsilon.emf.loadModel'(name: 'Right', aliases: 'Source',
+        modelfile: 'right.flexmi', metamodelfile: 'right.emf')
+
+    // Run program.ecl against them to establish matches
+    ant.'epsilon.ecl'(src: 'program.ecl', exportMatchTrace: 'matchTrace'){[ model(ref: 'Left'), model(ref: 'Right') ]}
+
+    // Load the target.xmi EMF model
+    ant.'epsilon.emf.loadModel'(name: 'Merged', aliases: 'Target',
+        modelfile: 'merged.xmi', metamodelfile: 'target.emf', read: false, store: true)
+
+    // Run program.eml against the left and right models to merge them using the matches established above
+    ant.'epsilon.eml'(src: 'program.eml', useMatchTrace: 'matchTrace'){[ model(ref: 'Left'), model(ref: 'Right'), model(ref: 'Merged')]}
+}

@@ -6,8 +6,6 @@ import 'ace-builds/src-min-noconflict/mode-java';
 import 'ace-builds/src-min-noconflict/mode-html';
 import 'ace-builds/src-min-noconflict/ext-modelist';
 
-import svgPanZoom from 'svg-pan-zoom';
-
 import { ModelPanel } from './ModelPanel.js';
 import { ConsolePanel } from "./ConsolePanel.js";
 import { ProgramPanel } from "./ProgramPanel.js";
@@ -33,9 +31,11 @@ export var programPanel = new ProgramPanel();
 export var secondProgramPanel = new ProgramPanel("secondProgram");
 export var firstMetamodelPanel = new MetamodelPanel("firstMetamodel");
 export var secondMetamodelPanel = new MetamodelPanel("secondMetamodel");
+export var thirdMetamodelPanel = new MetamodelPanel("thirdMetamodel");
 export var firstModelPanel = new ModelPanel("firstModel", true, firstMetamodelPanel);
+export var thirdModelPanel = new ModelPanel("thirdModel", true, thirdMetamodelPanel);
 export var secondModelPanel;
-export var thirdModelPanel;
+export var outputPanel;
 
 export var consolePanel = new ConsolePanel();
 var downloadDialog = new DownloadDialog();
@@ -60,20 +60,21 @@ function setup() {
     if (example.outputType != null) {outputType = example.outputType;}
     if (example.outputLanguage != null) {outputLanguage = example.outputLanguage;}
     
-    var secondModelEditable = !(language == "etl" || language == "flock");
+    var secondModelEditable = !(language == "etl" || language == "flock" || language == "eml");
 
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
-    thirdModelPanel = new OutputPanel("thirdModel", language, outputType, outputLanguage);
+    outputPanel = new OutputPanel("output", language, outputType, outputLanguage);
 
     new Layout().create("navview-content", language);
     
-    panels = [programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel];
+    panels = [programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel, thirdMetamodelPanel, outputPanel];
     
     arrangePanels();
 
     //TODO: Fix "undefined" when fields are empty
     programPanel.setLanguage(language);
     if (language == "egx") secondProgramPanel.setLanguage("egl");
+    if (language == "eml") secondProgramPanel.setLanguage("ecl");
 
     programPanel.setValue(example.program);
     secondProgramPanel.setValue(example.secondProgram);
@@ -81,6 +82,8 @@ function setup() {
     firstMetamodelPanel.setValue(example.emfatic);
     secondModelPanel.setValue(example.secondFlexmi);
     secondMetamodelPanel.setValue(example.secondEmfatic);
+    thirdModelPanel.setValue(example.thirdFlexmi);
+    thirdMetamodelPanel.setValue(example.thirdEmfatic);
 
     document.getElementById("navview").style.display = "block";
     
@@ -158,26 +161,27 @@ function arrangePanels() {
 
     if (language == "egl" || language == "egx") {
         if (outputType == "dot") {
-            thirdModelPanel.showDiagram();
-            thirdModelPanel.setTitleAndIcon("Graphviz", "diagram");
+            outputPanel.showDiagram();
+            outputPanel.setTitleAndIcon("Graphviz", "diagram");
         }
         else if (outputType == "html") {
-            thirdModelPanel.showDiagram();
-            thirdModelPanel.setTitleAndIcon("HTML", "html");
+            outputPanel.showDiagram();
+            outputPanel.setTitleAndIcon("HTML", "html");
         }
         else if (outputType == "puml") {
-            thirdModelPanel.showDiagram();
-            thirdModelPanel.setTitleAndIcon("PlantUML", "diagram");
+            outputPanel.showDiagram();
+            outputPanel.setTitleAndIcon("PlantUML", "diagram");
         }
         else if (outputType == "code") {
-            $("#thirdModelDiagram").hide();
-            $("#thirdModelEditor").show();
-            thirdModelPanel.setTitleAndIcon("Generated Text", "editor");           
+            outputPanel.hideDiagram();
+            outputPanel.showEditor();
+
+            outputPanel.setTitleAndIcon("Generated Text", "editor");           
         }
     }
     else if (language == "etl") {
-        $("#secondModelDiagram").show();
-        $("#secondModelEditor").hide();
+        secondModelPanel.showDiagram();
+        secondModelPanel.hideEditor();
 
         firstModelPanel.setTitle("Source Model");
         firstMetamodelPanel.setTitle("Source Metamodel");
@@ -185,9 +189,23 @@ function arrangePanels() {
         secondMetamodelPanel.setTitle("Target Metamodel");
         secondModelPanel.setIcon("diagram");
     }
+    else if (language == "eml") {
+        secondModelPanel.showDiagram();
+        secondModelPanel.hideEditor();
+
+        firstModelPanel.setTitle("Left Model");
+        firstMetamodelPanel.setTitle("Left Metamodel");
+        
+        thirdModelPanel.setTitle("Right Model");
+        thirdMetamodelPanel.setTitle("Right Metamodel");
+        
+        secondModelPanel.setTitle("Merged Model");
+        secondMetamodelPanel.setTitle("Target Metamodel");
+        secondModelPanel.setIcon("diagram");
+    }
     else if (language == "flock") {
-        $("#secondModelDiagram").show();
-        $("#secondModelEditor").hide();
+        secondModelPanel.showDiagram();
+        secondModelPanel.hideEditor();
 
         firstModelPanel.setTitle("Original Model");
         firstMetamodelPanel.setTitle("Original Metamodel");
@@ -196,18 +214,15 @@ function arrangePanels() {
         secondModelPanel.setIcon("diagram");
     }
     else if (language == "evl" || language == "epl") {
-        $("#thirdModelDiagram").show();
+        outputPanel.showDiagram();
+        
         if (language == "evl") {
-            thirdModelPanel.setTitleAndIcon("Problems", "problems");
+            outputPanel.setTitleAndIcon("Problems", "problems");
         }
         else {
-            thirdModelPanel.setTitleAndIcon("Pattern Matches", "diagram");
+            outputPanel.setTitleAndIcon("Pattern Matches", "diagram");
         }
     }
-}
-
-function getPanelTitle(panelId) {
-    return $("#" + panelId)[0].dataset.titleCaption;
 }
 
 function editorsToJsonObject() {
@@ -220,7 +235,9 @@ function editorsToJsonObject() {
         "emfatic": firstMetamodelPanel.getValue(), 
         "flexmi": firstModelPanel.getValue(),
         "secondEmfatic": secondMetamodelPanel.getValue(),
-        "secondFlexmi": secondModelPanel.getValue()
+        "secondFlexmi": secondModelPanel.getValue(),
+        "thirdEmfatic": thirdMetamodelPanel.getValue(),
+        "thirdFlexmi": thirdModelPanel.getValue(),
     };
 }
 
@@ -257,22 +274,22 @@ function runProgram() {
                 else {
                     consolePanel.setOutput(response.output);
                     
-                    if (language == "etl" || language == "flock") {
-                        renderDiagram("secondModelDiagram", response.targetModelDiagram);
+                    if (language == "etl" || language == "flock" || language == "eml") {
+                        secondModelPanel.renderDiagram(response.targetModelDiagram);
                     }
                     else if (language == "evl") {
-                        renderDiagram("thirdModelDiagram", response.validatedModelDiagram);
+                        outputPanel.renderDiagram(response.validatedModelDiagram);
                     }
                     else if (language == "epl") {
-                        renderDiagram("thirdModelDiagram", response.patternMatchedModelDiagram);
+                        outputPanel.renderDiagram(response.patternMatchedModelDiagram);
                     }
                     else if (language == "egx") {
-                        thirdModelPanel.setGeneratedFiles(response.generatedFiles);
+                        outputPanel.setGeneratedFiles(response.generatedFiles);
                         consolePanel.setOutput(response.output);
                     }
                     else if (language == "egl") {
                         if (outputType == "code") {
-                            thirdModelPanel.getEditor().setValue(response.generatedText.trim(), 1);
+                            outputPanel.getEditor().setValue(response.generatedText.trim(), 1);
                             consolePanel.setOutput(response.output);
                         }
                         else if (outputType == "html") {
@@ -283,7 +300,7 @@ function runProgram() {
                                 iframe.id = "htmlIframe"
                                 iframe.style.height = "100%";
                                 iframe.style.width = "100%";
-                                document.getElementById("thirdModelDiagram").appendChild(iframe);
+                                document.getElementById("outputDiagram").appendChild(iframe);
                             }
                             
                             iframe.srcdoc = response.generatedText;
@@ -302,7 +319,7 @@ function runProgram() {
                             krokiXhr.onreadystatechange = function () {
                                 if (krokiXhr.readyState === 4) {
                                     if (krokiXhr.status === 200) {
-                                        renderDiagram("thirdModelDiagram", krokiXhr.responseText);
+                                        outputPanel.renderDiagram(krokiXhr.responseText);
                                     }
                                 }
                             };
@@ -341,25 +358,6 @@ function toggle(elementId, onEmpty) {
         element.style.display = "none";
     }
     updateGutterVisibility();
-}
-
-function renderDiagram(diagramId, svg) {
-    var diagramElement = document.getElementById(diagramId);
-    diagramElement.innerHTML = svg;
-    var svg = document.getElementById(diagramId).firstElementChild;
-
-    if (diagramId == "thirdModelDiagram") {
-        diagramElement.parentElement.style.padding = "0px";
-    }
-
-    svg.style.width = diagramElement.offsetWidth + "px";
-    svg.style.height = diagramElement.offsetHeight + "px";
-
-    svgPanZoom(svg, {
-      zoomEnabled: true,
-      fit: true,
-      center: true
-    });
 }
 
 function updateGutterVisibility() {
@@ -420,18 +418,18 @@ window.secondProgramPanel = secondProgramPanel;
 window.consolePanel = consolePanel;
 window.firstModelPanel = firstModelPanel;
 window.secondModelPanel = secondModelPanel;
-window.thirdModelPanel = thirdModelPanel;
+window.outputPanel = outputPanel;
 window.firstMetamodelPanel = firstMetamodelPanel;
 window.secondMetamodelPanel = secondMetamodelPanel;
+window.thirdModelPanel = thirdModelPanel;
+window.thirdMetamodelPanel = thirdMetamodelPanel;
 window.panels = panels;
 
 window.backend = backend;
 window.toggle = toggle;
-window.renderDiagram = renderDiagram;
 window.longNotification = longNotification;
 window.showDownloadOptions = showDownloadOptions;
 window.showSettings = showSettings;
 window.copyShortenedLink = copyShortenedLink;
 window.downloadDialog = downloadDialog;
 window.language = language;
-window.getPanelTitle = getPanelTitle;

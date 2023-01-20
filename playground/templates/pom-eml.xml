@@ -1,0 +1,90 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>epsilon-maven</artifactId>
+    <groupId>org.eclipse.epsilon</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <configuration>
+                            <target>
+                                <!-- Set up the core Epsilon tasks -->
+                                <taskdef resource="org/eclipse/epsilon/workflow/tasks/tasks.xml" />
+
+                                <!-- Set up the Epsilon EMF tasks -->
+                                <taskdef resource="org/eclipse/epsilon/workflow/tasks/emf/tasks.xml" />
+                                
+                                <!-- Load the left.flexmi EMF model -->
+                                <epsilon.emf.loadModel name="Left" aliases="Source" modelfile="left.flexmi" metamodelfile="left.emf" />
+
+                                <!-- Load the left.flexmi EMF model -->
+                                <epsilon.emf.loadModel name="Right" aliases="Source" modelfile="right.flexmi" metamodelfile="right.emf" />
+
+                                <!-- Run program.ecl against them to establish matches -->
+                                <epsilon.ecl src="program.ecl" exportMatchTrace="matchTrace">
+                                    <model ref="Left" />
+                                    <model ref="Right" />
+                                </epsilon.ecl>
+
+                                <!-- Load the target.xmi EMF model -->
+                                <epsilon.emf.loadModel name="Merged" aliases="Target" modelfile="merged.xmi" metamodelfile="target.emf" read="false" store="true"/>
+
+                                <!-- Run program.eml against the left and right models to merge them using the matches established above -->
+                                <epsilon.eml src="program.eml" useMatchTrace="matchTrace">
+                                    <model ref="Left" />
+                                    <model ref="Right" />
+                                    <model ref="Merged" />
+                                </epsilon.eml>
+
+                                <!-- Dispose of all models -->
+                                <epsilon.disposeModel model="Left"/>
+                                <epsilon.disposeModel model="Right"/>
+                                <epsilon.disposeModel model="Merged"/>
+                                
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.eclipse.epsilon</groupId>
+                        <artifactId>org.eclipse.epsilon.workflow</artifactId>
+                        <version>2.4.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.eclipse.epsilon</groupId>
+                        <artifactId>org.eclipse.epsilon.workflow.emf</artifactId>
+                        <version>2.4.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.eclipse.emfatic</groupId>
+                        <artifactId>org.eclipse.emfatic.core</artifactId>
+                        <version>1.1.0-SNAPSHOT</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>org.eclipse.platform</groupId>
+                                <artifactId>*</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+  
