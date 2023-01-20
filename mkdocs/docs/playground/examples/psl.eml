@@ -45,7 +45,7 @@ rule Effort2Effort
     to t : Target!Effort {
 
     t.person ::= s.person;
-    t.percentage ::= s.percentage;
+    t.percentage = s.percentage;
 }
 
 // Persons found in only one of the
