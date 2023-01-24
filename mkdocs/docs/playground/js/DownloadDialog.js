@@ -50,12 +50,12 @@ class DownloadDialog {
                         };
     
                         if (format == "gradle") {
-                            var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "build-eml.gradle" : "build.gradle"));
+                            var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "build-eml.gradle" : "build.gradle.handlebars"));
                             zip.file("build.gradle", template(templateData));
                             zip.file("readme.md", self.fetchTemplate("readme-gradle.txt"));
                         }
                         else if (format == "maven") {
-                            var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "pom-eml.xml" : "pom.xml"));
+                            var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "pom-eml.xml" : "pom.xml.handlebars"));
                             zip.file("pom.xml", template(templateData));
                             zip.file("readme.md", self.fetchTemplate("readme-maven.txt"));
                         }
