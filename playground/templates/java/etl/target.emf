@@ -1,0 +1,17 @@
+@namespace(uri="pdl", prefix="")
+package pdl;
+
+class Project {
+	attr String title;
+	val Deliverable[*] deliverables;
+}
+
+class Deliverable {
+	attr String title;
+	attr int due;
+	ref Person lead;
+}
+
+class Person {
+	attr String name;
+}

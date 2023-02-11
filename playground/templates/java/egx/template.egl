@@ -1,0 +1,21 @@
+[*Generate a <h1> with the name of the person*]
+<h1>[%=p.name%]'s Tasks</h1>
+
+[*Generate a table for the person's tasks*]
+<table>
+[*For every task*]
+[%for (t in p.getTasks()){%]
+[*Generate a row with the title of the task*]
+    <tr>
+        <td>[%=t.title%]</td>
+    </tr>
+[%}%]
+</table>
+
+[%
+// Returns the tasks of a person
+operation Person getTasks() {
+    return Task.all.select(
+        t|t.effort.exists(e|e.person = self));
+}
+%]

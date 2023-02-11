@@ -1,0 +1,40 @@
+rule Project2Project
+	transform s : Source!Project
+	to t : Target!Project {
+
+	t.title = s.title;
+
+	// Transform the tasks of the source
+	// project using the Task2Deliverable
+	// rule and assign the result to
+	// t.deliverables
+	t.deliverables ::= s.tasks;
+}
+
+// Transform each task to a deliverable
+// to be submitted at the end of the task
+rule Task2Deliverable
+	transform t : Source!Task
+	to d : Target!Deliverable {
+
+	d.title = t.title + " Report";
+	d.due = t.start + t.duration;
+
+	// The lead of the deliverable
+	// is the person with the highest
+	// effort in the task
+	d.lead ::= t.effort.sortBy(e|-e.percentage).
+		first()?.person;
+}
+
+// @lazy means that persons will be transformed
+// only upon request. As such, Charlie will not
+// appear in the target model because he leads
+// no deliverables
+@lazy
+rule Person2Person
+	transform s : Source!Person
+	to t : Target!Person {
+
+	t.name = s.name;
+}
