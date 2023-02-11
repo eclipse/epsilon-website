@@ -8,7 +8,7 @@ class DownloadDialog {
         var self = this;
         Metro.dialog.create({
             title: "Download",
-            content: "<p>You can download this example and run it locally through Gradle or Maven. Please choose your preferred format below. </p><br/><select id='format' data-role='select'><option value='gradle'>Gradle</option><option value='maven'>Maven</option></select>",
+            content: "<p>You can download this example and run it locally through Gradle or Maven. Please choose your preferred format below. </p><br/><select id='format' data-role='select'><option value='gradle'>Gradle</option><option value='maven'>Maven</option><option value='java-gradle'>Java (Gradle)</option><option value='java-maven'>Java (Maven)</option></select>",
             actions: [
                {
                     caption: "Download",
@@ -58,6 +58,15 @@ class DownloadDialog {
                             var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "pom-eml.xml" : "pom.xml.handlebars"));
                             zip.file("pom.xml", template(templateData));
                             zip.file("readme.md", self.fetchTemplate("readme-maven.txt"));
+                        }
+                        else if (format.startsWith("java-")) {
+                            zip.file("src/main/java/org/eclipse/epsilon/examples/Example.java", self.fetchTemplate("java/" + language + "/src/main/java/org/eclipse/epsilon/examples/Example.java"));
+                            if (format == "java-maven") {
+                                zip.file("pom.xml", self.fetchTemplate("java/" + language + "/pom.xml"));
+                            }
+                            else {
+                                zip.file("build.gradle", self.fetchTemplate("java/" + language + "/build.gradle"));    
+                            }
                         }
     
                         zip.generateAsync({type:"blob"})
