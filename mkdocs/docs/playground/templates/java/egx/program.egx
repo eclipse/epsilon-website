@@ -1,0 +1,11 @@
+// For every person in the model
+rule Person2TaskList
+    transform p : Person {
+
+    // run the EGL template below
+    template: "template.egl"
+    
+    // and generate a HTML page
+    // containing its output
+    target: p.name + ".html"
+}
