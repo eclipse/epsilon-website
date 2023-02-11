@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- To run from command line use: 
-	mvn compile exec:java -Dexec.mainClass="org.eclipse.epsilon.examples.Example" -Dorg.eclipse.emf.common.util.ReferenceClearingQueue=false 
--->
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0"
@@ -9,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.eclipse.epsilon</groupId>
-	<artifactId>playground.examples.eol</artifactId>
+	<artifactId>examples</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<repositories>
