@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="psl" xsi:schemaLocation="psl target.emf">
+  <Task title="Analysis" start="1" duration="3">
+    <effort person="/1"/>
+  </Task>
+  <Person name="Alice"/>
+  <Task title="Design" start="4" duration="6">
+    <effort person="/3"/>
+  </Task>
+  <Person name="Bob"/>
+  <Task title="Implementation" start="7" duration="3">
+    <effort person="/3" percentage="50"/>
+    <effort person="/1" percentage="50"/>
+  </Task>
+  <Task title="Testing" start="10" duration="3">
+    <effort person="/6" percentage="50"/>
+    <effort person="/7" percentage="50"/>
+  </Task>
+  <Person name="Bob"/>
+  <Person name="Alice"/>
+</xmi:XMI>
