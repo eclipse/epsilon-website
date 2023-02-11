@@ -8,7 +8,7 @@ class DownloadDialog {
         var self = this;
         Metro.dialog.create({
             title: "Download",
-            content: "<p>You can download this example and run it locally through Gradle or Maven. Please choose your preferred format below. </p><br/><select id='format' data-role='select'><option value='gradle'>Gradle</option><option value='maven'>Maven</option><option value='java-gradle'>Java (Gradle)</option><option value='java-maven'>Java (Maven)</option></select>",
+            content: "<p>You can download this example and run it locally through Gradle, Maven or Java. Please choose your preferred format below. </p><br/><select id='format' data-role='select'><option value='gradle'>Gradle</option><option value='maven'>Maven</option><option value='java-gradle'>Java (Gradle)</option><option value='java-maven'>Java (Maven)</option></select>",
             actions: [
                {
                     caption: "Download",
