@@ -52,22 +52,22 @@ class DownloadDialog {
                         if (format == "gradle") {
                             var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "build-eml.gradle" : "build.gradle.handlebars"));
                             zip.file("build.gradle", template(templateData));
-                            zip.file("readme.md", self.fetchTemplate("readme-gradle.md"));
+                            zip.file("readme.md", self.fetchTemplate("readme-gradle.txt"));
                         }
                         else if (format == "maven") {
                             var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "pom-eml.xml" : "pom.xml.handlebars"));
                             zip.file("pom.xml", template(templateData));
-                            zip.file("readme.md", self.fetchTemplate("readme-maven.md"));
+                            zip.file("readme.md", self.fetchTemplate("readme-maven.txt"));
                         }
                         else if (format.startsWith("java-")) {
                             zip.file("src/main/java/org/eclipse/epsilon/examples/Example.java", self.fetchTemplate("java/" + language + "/src/main/java/org/eclipse/epsilon/examples/Example.java"));
                             if (format == "java-maven") {
                                 zip.file("pom.xml", self.fetchTemplate("java/" + language + "/pom.xml"));
-                                zip.file("readme.md", self.fetchTemplate("java/readme-maven.md"));
+                                zip.file("readme.md", self.fetchTemplate("java/readme-maven.txt"));
                             }
                             else {
                                 zip.file("build.gradle", self.fetchTemplate("java/" + language + "/build.gradle"));
-                                zip.file("readme.md", self.fetchTemplate("readme-gradle.md"));
+                                zip.file("readme.md", self.fetchTemplate("readme-gradle.txt"));
                             }
                         }
     
