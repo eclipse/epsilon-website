@@ -12,6 +12,16 @@ const environments = [
         name: "Maven",
         command: "mvn verify",
         success: "BUILD SUCCESS"
+    },
+    {
+        name: "Java (Gradle)",
+        command: 'gradle run',
+        success: "BUILD SUCCESSFUL"
+    },
+    {
+        name: "Java (Maven)",
+        command: 'mvn compile exec:java -Dexec.mainClass="org.eclipse.epsilon.examples.Example" -Dorg.eclipse.emf.common.util.ReferenceClearingQueue=false',
+        success: "BUILD SUCCESS"
     }
 ]
 const examples = ["eol", "etl", "evl", "epl", "egl", "egx", "flock", "eml"];
