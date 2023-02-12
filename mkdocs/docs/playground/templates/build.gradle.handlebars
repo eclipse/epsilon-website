@@ -31,7 +31,25 @@ task setupEpsilonTasks {
 task run {
     dependsOn tasks.setupEpsilonTasks
     
-    {{#if etlOrFlock}}
+    {{#if eml}}
+    // Load the left.flexmi EMF model
+    ant.'epsilon.emf.loadModel'(name: 'Left', aliases: 'Source',
+        modelfile: 'left.flexmi', metamodelfile: 'left.emf')
+
+    // Load the right.flexmi EMF model
+    ant.'epsilon.emf.loadModel'(name: 'Right', aliases: 'Source',
+        modelfile: 'right.flexmi', metamodelfile: 'right.emf')
+
+    // Run program.ecl against them to establish matches
+    ant.'epsilon.ecl'(src: 'program.ecl', exportMatchTrace: 'matchTrace'){[ model(ref: 'Left'), model(ref: 'Right') ]}
+
+    // Load the target.xmi EMF model
+    ant.'epsilon.emf.loadModel'(name: 'Merged', aliases: 'Target',
+        modelfile: 'merged.xmi', metamodelfile: 'target.emf', read: false, store: true)
+
+    // Run program.eml against the left and right models to merge them using the matches established above
+    ant.'epsilon.eml'(src: 'program.eml', useMatchTrace: 'matchTrace'){[ model(ref: 'Left'), model(ref: 'Right'), model(ref: 'Merged')]}
+    {{else if etlOrFlock}}
     // Load the source.flexmi EMF model
     ant.'epsilon.emf.loadModel'(name: 'Source', 
         modelfile: 'source.flexmi', metamodelfile: 'source.emf')
