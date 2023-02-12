@@ -25,34 +25,8 @@
 
                                 <!-- Set up the Epsilon EMF tasks -->
                                 <taskdef resource="org/eclipse/epsilon/workflow/tasks/emf/tasks.xml" />
-                                
-                                <!-- Load the left.flexmi EMF model -->
-                                <epsilon.emf.loadModel name="Left" aliases="Source" modelfile="left.flexmi" metamodelfile="left.emf" />
 
-                                <!-- Load the left.flexmi EMF model -->
-                                <epsilon.emf.loadModel name="Right" aliases="Source" modelfile="right.flexmi" metamodelfile="right.emf" />
-
-                                <!-- Run program.ecl against them to establish matches -->
-                                <epsilon.ecl src="program.ecl" exportMatchTrace="matchTrace">
-                                    <model ref="Left" />
-                                    <model ref="Right" />
-                                </epsilon.ecl>
-
-                                <!-- Load the target.xmi EMF model -->
-                                <epsilon.emf.loadModel name="Merged" aliases="Target" modelfile="merged.xmi" metamodelfile="target.emf" read="false" store="true"/>
-
-                                <!-- Run program.eml against the left and right models to merge them using the matches established above -->
-                                <epsilon.eml src="program.eml" useMatchTrace="matchTrace">
-                                    <model ref="Left" />
-                                    <model ref="Right" />
-                                    <model ref="Merged" />
-                                </epsilon.eml>
-
-                                <!-- Dispose of all models -->
-                                <epsilon.disposeModel model="Left"/>
-                                <epsilon.disposeModel model="Right"/>
-                                <epsilon.disposeModel model="Merged"/>
-                                
+                                {{> antPartial }}
                             </target>
                         </configuration>
                         <goals>

@@ -8,7 +8,7 @@ class DownloadDialog {
         var self = this;
         Metro.dialog.create({
             title: "Download",
-            content: "<p>You can download this example and run it locally through Gradle, Maven or Java. Please choose your preferred format below. </p><br/><select id='format' data-role='select'><option value='gradle'>Gradle</option><option value='maven'>Maven</option><option value='java-gradle'>Java (Gradle)</option><option value='java-maven'>Java (Maven)</option></select>",
+            content: "<p>You can download this example and run it locally through Gradle, Maven, ANT or Java. Please choose your preferred format below. </p><br/><select id='format' data-role='select'><option value='gradle'>Gradle</option><option value='maven'>Maven</option><option value='ant-eclipse'>Ant (Eclipse)</option><option value='java-gradle'>Java (Gradle)</option><option value='java-maven'>Java (Maven)</option></select>",
             actions: [
                {
                     caption: "Download",
@@ -46,18 +46,31 @@ class DownloadDialog {
                             etl: language == "etl",
                             flock: language == "flock",
                             etlOrFlock: language == "etl" || language == "flock",
-                            egl: language == "egl"
+                            egl: language == "egl",
+                            eml: language == "eml"
                         };
     
                         if (format == "gradle") {
-                            var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "build-eml.gradle" : "build.gradle.handlebars"));
+                            var template = Handlebars.compile(self.fetchTemplate("gradle/build.gradle.handlebars"));
                             zip.file("build.gradle", template(templateData));
-                            zip.file("readme.md", self.fetchTemplate("readme-gradle.txt"));
+                            zip.file("readme.md", self.fetchTemplate("gradle/readme.txt"));
                         }
                         else if (format == "maven") {
-                            var template = Handlebars.compile(self.fetchTemplate(language == "eml" ? "pom-eml.xml" : "pom.xml.handlebars"));
-                            zip.file("pom.xml", template(templateData));
-                            zip.file("readme.md", self.fetchTemplate("readme-maven.txt"));
+                            var antTemplate = Handlebars.compile(self.fetchTemplate("ant/ant.xml.handlebars"));
+                            var ant = antTemplate(templateData);
+                            var template = Handlebars.compile(self.fetchTemplate("maven/pom.xml.handlebars"));
+                            Handlebars.registerPartial('antPartial', '{{{ant}}}');
+                            zip.file("pom.xml", template({ant: ant}));
+                            zip.file("readme.md", self.fetchTemplate("maven/readme.txt"));
+                        }
+                        else if (format == "ant-eclipse") {
+                            var antTemplate = Handlebars.compile(self.fetchTemplate("ant/ant.xml.handlebars"));
+                            var ant = antTemplate(templateData);
+                            var template = Handlebars.compile(self.fetchTemplate("ant/build.xml.handlebars"));
+                            Handlebars.registerPartial('antPartial', '{{{ant}}}');
+                            zip.file("build.xml", template({ant: ant}));
+                            zip.file("readme.md", self.fetchTemplate("ant/readme.txt"));
+                            zip.file(".project", self.fetchTemplate("ant/project.handlebars"));
                         }
                         else if (format.startsWith("java-")) {
                             zip.file("src/main/java/org/eclipse/epsilon/examples/Example.java", self.fetchTemplate("java/" + language + "/src/main/java/org/eclipse/epsilon/examples/Example.java"));
