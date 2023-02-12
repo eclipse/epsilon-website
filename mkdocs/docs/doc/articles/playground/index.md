@@ -79,7 +79,11 @@ To share your work, click the `Share` button. This will create a short link that
 
 ## Download your work
 
-To download a zipped archive of your work, click the `Download` button. Depending on your selection in the dialog that pops up (`Gradle` or `Maven`), the zipped archive will also contain a `build.gradle` or `pom.xml` file that includes the Epsilon dependencies and the [ANT tasks](../../workflow) you need to run the example from the command line in your own computer, as well as a `readme.md` file with instructions.
+To download a zipped archive of your work, click the `Download` button. Depending on your selection, the zipped archived will contain the model management program(s), the models and metamodels of the example, a `readme.md` file with instructions as well as:
+
+- `Gradle`/`Maven`: a `build.gradle` or `pom.xml` file that includes the Epsilon dependencies and the [ANT tasks](../../workflow) you need to run the example from the command line
+- `Ant (Eclipse)`: a `build.xml` file that in includes the [ANT tasks](../../workflow) you need to run the example from within Eclipse
+- `Java (Gradle)`/`Java (Maven)`: a Java class that runs the model management program using Epsilon's API, and a `build.gradle` or `pom.xml` file that includes the Epsilon dependencies
 
 ## Custom examples
 
