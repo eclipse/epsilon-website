@@ -1,5 +1,8 @@
 <project default="main">
     <target name="main">
         {{> antPartial }}
+
+        <!-- Refresh the project to pick up any created or updated files -->
+    	<eclipse.refreshLocal resource="playground-example" depth="infinite"/>
     </target>
 </project>
