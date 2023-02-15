@@ -130,7 +130,8 @@ To keep very long values out of Flexmi models altogether, appending an `_` to th
 
 ### Attribute Assignment
 
-The Flexmi parser uses an implementation of the [Hungarian algorithm](https://en.wikipedia.org/wiki/Hungarian_algorithm) to decide the best match of XML attribute names to EAttibute/(non-containment) EReference names.
+The Flexmi parser uses an implementation of the [Hungarian algorithm](https://en.wikipedia.org/wiki/Hungarian_algorithm) to decide the best match of XML attribute names to EAttribute and non-containment EReference names.
+Containment EReference names are currently ignored during matching.
 
 ## Executable Attributes
 
@@ -175,6 +176,30 @@ You can also use `:var`/`:global` and EOL attributes to refer to model elements 
   </task>
 </project>
 ```
+
+## Object Initialization
+
+An XML element representing an object can have an `:init` child with complex EOL-based initialization logic.
+For example, this would initialize the "Analysis" task to have an Effort child pointing to the first Person in the model:
+
+```xml
+<?nsuri psl?>
+<project title="ACME">
+  <person name="Alice"/>
+  <person name="Bob"/>
+  <task title="Analysis" start="1" dur="3">
+    <:init>
+      var effort = new Effort();
+      self.effort.add(effort);
+      effort.person = Person.all.first();
+    </:init>
+  </task>
+</project>
+```
+
+!!! warning "ITool instances not available"
+
+    Since Flexmi is designed to work from outside Eclipse, [Eclipse extension point-based tools](../articles/call-java-from-epsilon/index.md) are not available from Flexmi EOL code.
 
 ## Including and Importing other Flexmi Models
 
