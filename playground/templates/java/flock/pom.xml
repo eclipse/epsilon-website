@@ -25,8 +25,6 @@
 	<properties>
 		<epsilon.version>2.4.0</epsilon.version>
 		<epsilon.scope>compile</epsilon.scope>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencies>
