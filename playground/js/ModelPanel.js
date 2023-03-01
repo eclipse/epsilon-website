@@ -122,12 +122,12 @@ class ModelPanel extends Panel {
     
         svg.style.width = diagramElement.offsetWidth + "px";
         svg.style.height = diagramElement.offsetHeight + "px";
-    
+        
         svgPanZoom(svg, {
           zoomEnabled: true,
-          fit: true,
-          center: true
-        });
+          fit: false, 
+          center: false
+        }).zoom(0.9);
     }
 
     modelToJson(modelEditor, metamodelEditor) {
