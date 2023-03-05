@@ -71,18 +71,32 @@ instance, to use the `EOL engine` JAR from your `pom.xml`:
 
 ```xml
 <dependencies>
-  ...
 	<dependency>
 	    <groupId>org.eclipse.epsilon</groupId>
 	    <artifactId>org.eclipse.epsilon.eol.engine</artifactId>
 	    <version>2.4.0</version>
 	</dependency>
-  ...
 </dependencies>
-
 ```
 
-To use the latest SNAPSHOT (interim) version of Epsilon, please see [the standalone example POM](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone/pom.xml).
+To use the latest SNAPSHOT (interim) version of Epsilon, you should add the Sonatype snapshots repository to your `pom.xml` and set the version of the Epsilon libraries to `2.5.0-SNAPSHOT` as shown below.
+
+```xml
+<repositories>
+	<repository>
+		<id>ossrh</id>
+		<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+	</repository>
+</repositories>
+
+<dependencies>
+  	<dependency>
+  		<groupId>org.eclipse.epsilon</groupId>
+  		<artifactId>org.eclipse.epsilon.eol.engine</artifactId>
+	    <version>2.5.0-SNAPSHOT</version>
+  	</dependency>
+</dependencies>
+```
 
 ## Older versions
 
