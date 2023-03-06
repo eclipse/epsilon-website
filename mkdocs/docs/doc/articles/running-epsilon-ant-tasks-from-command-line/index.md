@@ -79,7 +79,7 @@ You can also use [Flexmi](../../flexmi) instead of XMI (`library.flexmi` instead
 === "Ivy/ANT"
 
     ```xml
-    <dependency org="org.eclipse.emfatic" name="org.eclipse.emfatic.core" rev="0.8.0-SNAPSHOT" conf="binaries->default"/>
+    <dependency org="org.eclipse.emfatic" name="org.eclipse.emfatic.core" rev="1.1.0-SNAPSHOT" conf="binaries->default"/>
     ```
 
 === "Maven"
@@ -88,14 +88,14 @@ You can also use [Flexmi](../../flexmi) instead of XMI (`library.flexmi` instead
     <dependency>
         <groupId>org.eclipse.emfatic</groupId>
         <artifactId>org.eclipse.emfatic.core</artifactId>
-        <version>0.8.0-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
     </dependency>
     ```
 
 === "Gradle"
     
     ```groovy
-    epsilon 'org.eclipse.emfatic:org.eclipse.emfatic.core:0.8.0-SNAPSHOT'
+    epsilon 'org.eclipse.emfatic:org.eclipse.emfatic.core:1.1.0-SNAPSHOT'
     ```
 
 A complete Gradle example that uses `library.flexmi` instead of (the XMI-based) `library.model`, and `library.emf` instead of `library.ecore` is shown below.
