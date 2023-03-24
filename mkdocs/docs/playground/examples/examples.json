@@ -156,11 +156,20 @@
 		"examples": [
 			{
 				"id": "cclvalidate",
-				"title": "Validate Component Model",
+				"title": "Validate Components",
 				"language": "evl",
 				"program": "ccl/ccl.evl",
 				"flexmi": "ccl/ccl.flexmi",
 				"emfatic": "ccl/ccl.emf"
+			},
+			{
+				"id": "ccl2dot",
+				"title": "Components to Graphviz",
+				"language": "egl",
+				"program": "ccl/ccl2dot.egl",
+				"flexmi": "ccl/ccl.flexmi",
+				"emfatic": "ccl/ccl.emf",
+				"outputType": "dot"
 			}
 		]
 	},
