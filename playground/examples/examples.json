@@ -152,6 +152,19 @@
 		]
 	},
 	{
+		"title": "Component Examples",
+		"examples": [
+			{
+				"id": "cclvalidate",
+				"title": "Validate Component Model",
+				"language": "evl",
+				"program": "ccl/ccl.evl",
+				"flexmi": "ccl/ccl.flexmi",
+				"emfatic": "ccl/ccl.emf"
+			}
+		]
+	},
+	{
 		"title": "Model-to-Model Examples",
 		"examples": [
 			{

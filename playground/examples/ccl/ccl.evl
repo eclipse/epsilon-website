@@ -1,0 +1,59 @@
+context Component {
+
+    /* Component names must start with an upper-case letter */
+    constraint ValidName {
+        check: self.name = self.name.firstToUpperCase()
+        message: self.name + " should start with an upper-case letter"
+    }
+
+    /* Component names must be globally unique */
+    constraint UniqueName {
+        check: Component.all.select(c|c.name = self.name).size() == 1
+        message: "Duplicate component name " + self.name
+    }
+
+    /* Components must be connected to at least one more component */
+    constraint IsConnected {
+        check: Connector.all.exists(c|self.ports.includes(c.source)
+            or self.ports.includes(c.target))
+        message: "Component " + self.name + " is disconnected"
+    }
+}
+
+context Connector {
+
+    /* If a connector connects two ports, their types must match */
+    constraint PortTypesMatch {
+        check: self.source.type = self.target.type
+        message: "The types of the source and target ports don't match"
+    }
+
+    /* The source and target ports of a connector must belong to different components */
+    constraint DifferentComponents {
+        check: self.source.component <> self.target.component
+        message: "Cannot connect ports of the same component"
+    }
+}
+
+context Port {
+
+    /* The name of a port must be unique within its container component */
+    constraint UniqueName {
+        check: self.component.ports.select(p|p.name = self.name).size() == 1
+        message: "Duplicate port name " + self.name
+    }
+}
+
+context InPort {
+
+    /* Either all input ports of a component are connected or none */
+    constraint IsConnected {
+        check: self.component.ports.exists(p : InPort|p.isConnected()) implies self.isConnected()
+        message: "Either all or no input ports must be connected"
+    }
+
+}
+
+operation InPort isConnected() : Boolean {
+    return Connector.all.exists(c|c.target = self);
+}
