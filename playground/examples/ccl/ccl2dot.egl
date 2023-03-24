@@ -55,14 +55,6 @@ operation Component toDot() {
 [%
 }
 
-operation Component getOutPorts() {
-    return self.ports.select(p : OutPort | true);
-}
-
-operation Component getInPorts() {
-    return self.ports.select(p : InPort | true);
-}
-
 /**
  * Gets a unique ID for each port
  */ 
@@ -71,7 +63,7 @@ operation Port getDotID(){
 }
 
 /**
- * Comptutes the label of a component port
+ * Computes the label of a component port
  */
 operation getPortCell(ports : Collection, index : Integer) {
 	var cell = "<td cellpadding='2' align='left'";
@@ -85,5 +77,13 @@ operation getPortCell(ports : Collection, index : Integer) {
 	}
 	cell += "</td>";
 	return cell;
+}
+
+operation Component getOutPorts() {
+    return self.ports.select(p : OutPort | true);
+}
+
+operation Component getInPorts() {
+    return self.ports.select(p : InPort | true);
 }
 %]
