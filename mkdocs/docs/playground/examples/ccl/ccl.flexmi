@@ -1,0 +1,25 @@
+<?nsuri ccl?>
+<_>
+    <!-- Computes (NOT A) OR (B and C) -->
+    <component name="NotGate">
+        <in name="x"/>
+        <out name="notX"/>
+    </component>
+    <component name="AndGate">
+        <in name="a"/>
+        <in name="b"/>
+        <out name="aAndB"/>
+    </component>
+    <component name="OrGate">
+        <in name="a"/>
+        <in name="b"/>
+        <out name="aOrB"/>
+    </component>
+    <component name="Circle">
+        <in name="x"/>
+        <out name="y"/>
+    </component>
+    <connector source="Circle.y" target="Circle.x"/>
+    <connector source="NotGate.notX" target="OrGate.a"/>
+    <connector source="AndGate.aAndB" target="OrGate.b"/>
+</_>
