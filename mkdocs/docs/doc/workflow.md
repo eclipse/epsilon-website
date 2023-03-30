@@ -89,7 +89,7 @@ Binding between the XML tags that describe the tasks and the actual implementati
 
 ANT also supports more advanced features including nested XML elements and `filesets`, however providing a complete discussion is beyond the scope of this page.
 
-## Integration Challenges 
+## Integration Challenges
 
 A simple approach to extending ANT with support for model management tasks would be to implement one standalone task for each language in Epsilon. However, such an approach demonstrates a number of integration and performance shortcomings which are discussed below.
 
@@ -248,7 +248,7 @@ The example below demonstrates an exemplar usage of the `epsilon.startTransactio
 
 <epsilon.eol>
     <![CDATA[
-    Tree1!Tree.allInstances.size().println(); // prints 0 
+    Tree1!Tree.allInstances.size().println(); // prints 0
     Tree2!Tree.allInstances.size().println(); // prints 0
     ]]>
     <model ref="Tree1"/>
@@ -257,9 +257,9 @@ The example below demonstrates an exemplar usage of the `epsilon.startTransactio
 
 <epsilon.startTransaction name="T1" models="Tree1"/>
 
-<epsilon.eol> 
+<epsilon.eol>
     <![CDATA[
-    var t1 : new Tree1!Tree; 
+    var t1 : new Tree1!Tree;
     Tree1!Tree.allInstances.size().println(); // prints 1
     var t2 : new Tree2!Tree;
     Tree2!Tree.allInstances.size().println(); // prints 1
@@ -272,8 +272,8 @@ The example below demonstrates an exemplar usage of the `epsilon.startTransactio
 
 <epsilon.eol>
     <![CDATA[
-    Tree1!Tree.allInstances.size().println(); // prints 0 
-    Tree2!Tree.allInstances.size().println(); // prints 1 
+    Tree1!Tree.allInstances.size().println(); // prints 0
+    Tree2!Tree.allInstances.size().println(); // prints 1
     ]]>
     <model ref="Tree1"/>
     <model ref="Tree2"/>
@@ -369,7 +369,7 @@ To facilitate low-level integration between different Epsilon tasks, each task c
       <exports ref="x" ant="true"/>
     </epsilon.eol>
     <echo>${x}</echo> <!-- Prints  1 -->
-  </target> 
+  </target>
 </project>
 ```
 
@@ -474,13 +474,19 @@ The `epsilon.emg` tasks extends the `epsilon.epl` task and executes an [EMG](../
 
 - `seed` (optional): A long specifying the seed to drive the random number generator that underpins the random aspects of model generation. If a seed is not specified, a random seed will be used and the generator will (likely) produce a different model every time it is executed. Fixing the seed produces repeatable results across executions.
 
+### Dataset Extraction Task
+
+The `epsilon.pinset` task executes a [Pinset](../pinset) module specified using the `src` attribute to generate CSV datasets from models. It also provides the following attribute.
+
+- `outputFolder` (optional): A path specifying the folder where the CSV files will be generated. If not provided, the CSVs will be created in the same folder where the `.pinset` source file resides.
+
 ### Java Class Static Method Execution Task
 
 The `epsilon.java.executeStaticMethod` task executes a parameter-less static method, defined using the `method` attribute, of a Java class, defined using the `javaClass` attribute. This task can be useful for setting up the infrastructure of Xtext-based languages.
 
 ### For Task
 
-The `epsilon.for` task iterates over the files in a [fileset](https://ant.apache.org/manual/Types/fileset.html) and executes its nested tasks. An example that uses `epsilon.for` to run an EOL program on XML files contained in a folder called `loop` is show below. 
+The `epsilon.for` task iterates over the files in a [fileset](https://ant.apache.org/manual/Types/fileset.html) and executes its nested tasks. An example that uses `epsilon.for` to run an EOL program on XML files contained in a folder called `loop` is show below.
 
 ```xml
 {{{ example("org.eclipse.epsilon.examples.workflow.for/build.xml", false) }}}
