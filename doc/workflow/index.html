@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-5.4.0">
     
     
       
@@ -843,6 +843,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dataset-extraction-task" class="md-nav__link">
+    Dataset Extraction Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#java-class-static-method-execution-task" class="md-nav__link">
     Java Class Static Method Execution Task
   </a>
@@ -1528,6 +1535,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dataset-extraction-task" class="md-nav__link">
+    Dataset Extraction Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#java-class-static-method-execution-task" class="md-nav__link">
     Java Class Static Method Execution Task
   </a>
@@ -1631,14 +1645,14 @@ Target -- Target: depends *
 Project -- HashMap: references *</div>
 <h3 id="concrete-syntax">Concrete Syntax<a class="headerlink" href="#concrete-syntax" title="Permanent link">&para;</a></h3>
 <p>In terms of concrete syntax, ANT provides an XML-based syntax. In the listing below, an exemplar ANT project that compiles a set of Java files is illustrated. The project contains one target (<code>main</code>) which is also set to be the <code>default</code> target. The <code>main</code> target contains one <code>javac</code> task that specifies attributes such as <code>srcdir</code>, <code>destdir</code> and <code>classpath</code>, which define that the Java compiler will compile a set of Java files contained into the <code>src</code> directory into classes that should be placed in the <code>build</code> directory using <code>dependencies.jar</code> as an external library.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;javac</span> <span class="na">srcdir=</span><span class="s">&quot;${src}&quot;</span>
-             <span class="na">destdir=</span><span class="s">&quot;${build}&quot;</span>
-             <span class="na">classpath=</span><span class="s">&quot;dependencies.jar&quot;</span>
-             <span class="na">debug=</span><span class="s">&quot;on&quot;</span>
-             <span class="na">source=</span><span class="s">&quot;1.4&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/target&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;javac</span><span class="w"> </span><span class="na">srcdir=</span><span class="s">&quot;${src}&quot;</span>
+<span class="w">             </span><span class="na">destdir=</span><span class="s">&quot;${build}&quot;</span>
+<span class="w">             </span><span class="na">classpath=</span><span class="s">&quot;dependencies.jar&quot;</span>
+<span class="w">             </span><span class="na">debug=</span><span class="s">&quot;on&quot;</span>
+<span class="w">             </span><span class="na">source=</span><span class="s">&quot;1.4&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <h3 id="extending-ant">Extending ANT<a class="headerlink" href="#extending-ant" title="Permanent link">&para;</a></h3>
@@ -1732,17 +1746,17 @@ LoadModelTask *-- ParameterNestedElement: parameters *</div>
 <h3 id="model-loading-tasks">Model Loading Tasks<a class="headerlink" href="#model-loading-tasks" title="Permanent link">&para;</a></h3>
 <p>The <code>LoadModelTask (epsilon.loadModel)</code> loads a model from an arbitrary location (e.g. file-system, database) and adds it to the project repository so that subsequent Epsilon tasks can query or modify it. Since Epsilon supports many modelling technologies (e.g. EMF, MDR, XML), the <code>LoadModelTask</code> defines only three generic attributes. The <code>name</code> attribute specifies the name of the model in the project repository. The <code>type</code> attribute specifies the modelling technology with which the model is captured and is used to resolve the technology-specific model loading functionality. Finally, the <code>aliases</code> attribute defines a comma-separated list of alternative names by which the model can be accessed in the model repository.</p>
 <p>The rest of the information needed to load a model is implementation-specific and is therefore provided through <code>parameter</code> nested elements, each one defining a pair of <code>name</code>-<code>value</code> attributes. As an example, a task for loading an EMF model that has a file-based ECore metamodel is displayed below.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;modelFile&quot;</span> <span class="na">value=</span><span class="s">&quot;TreeInstance.ecore&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;metamodelFile&quot;</span> <span class="na">path=</span><span class="s">&quot;Tree.ecore&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;isMetamodelFileBased&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;readOnLoad&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tree1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modelFile&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;TreeInstance.ecore&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;metamodelFile&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;Tree.ecore&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;isMetamodelFileBased&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;readOnLoad&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/epsilon.loadModel&gt;</span>
 </code></pre></div>
 <p><code>LoadEmfModelTask</code> is a specialised version of <code>LoadModelTask</code> only for EMF models. While the <code>type</code> attribute is no longer available, the task still supports the <code>name</code> and <code>aliases</code> attributes. In addition, some of the values which had to be provided through <code>parameter</code> nested elements can now be set using regular attributes, such as <code>modelFile</code>, <code>modelUri</code>, <code>metamodelFile</code> (which implicitly indicates that the metamodel is file-based), <code>metamodelUri</code>, <code>reuseUnmodifiedMetamodelFile</code> (which can be set to "false" to avoid reusing file-based metamodels that have not been modified since the last time they were loaded), <code>read</code> (equivalent to <code>readOnLoad</code>) and <code>store</code> (equivalent to <code>storeOnDisposal</code>). The listing below shows the equivalent fragment required to produce the same result as in the listing above.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span>
-  <span class="na">modelFile=</span><span class="s">&quot;TreeInstance.ecore&quot;</span>
-  <span class="na">metamodelFile=</span><span class="s">&quot;Tree.ecore&quot;</span> <span class="nt">/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.emf.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tree1&quot;</span>
+<span class="w">  </span><span class="na">modelFile=</span><span class="s">&quot;TreeInstance.ecore&quot;</span>
+<span class="w">  </span><span class="na">metamodelFile=</span><span class="s">&quot;Tree.ecore&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div>
 <h3 id="model-storing-task">Model Storing Task<a class="headerlink" href="#model-storing-task" title="Permanent link">&para;</a></h3>
 <p>The <code>StoreModelTask (epsilon.storeModel)</code> is used to store a model residing in the project repository. The <code>StoreModelTask</code> defines three attributes:</p>
@@ -1765,40 +1779,40 @@ LoadModelTask *-- ParameterNestedElement: parameters *</div>
 <h3 id="the-committransaction-and-rollbacktransaction-tasks">The CommitTransaction and RollbackTransaction Tasks<a class="headerlink" href="#the-committransaction-and-rollbacktransaction-tasks" title="Permanent link">&para;</a></h3>
 <p>The <code>epsilon.commitTransaction</code> and <code>epsilon.rollbackTransaction</code> tasks define a <code>name</code> attribute through which the transaction to be committed/rolled-back is located in the project's active transactions. If several active transactions with the same name exist the more recent one is selected.</p>
 <p>The example below demonstrates an exemplar usage of the <code>epsilon.startTransaction</code> and <code>epsilon.rollbackTransaction</code> tasks. In this example, two empty models Tree1 and Tree2 are loaded in lines 1,2. Then, the EOL task of line 4 queries the models and prints the number of instances of the <code>Tree</code> metaclass in each one of them (which is 0 for both). Then, in line 13, a transaction named T1 is started on model Tree1. The EOL task of line 15, creates a new instance of Tree in both Tree1 and Tree2 and prints the number of instances of Tree in the two models (which is 1 for both models). Then, in line 26, the T1 transaction is rolled-back and any changes done in its context to model Tree1 (but not Tree2) are undone. Therefore, the EOL task of line 28, which prints the number of instances of Tree in both models, prints 0 for Tree1 but 1 for Tree2.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree1&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/epsilon.loadModel&gt;</span>
-<span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree2&quot;</span> <span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/epsilon.loadModel&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tree1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/epsilon.loadModel&gt;</span>
+<span class="nt">&lt;epsilon.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tree2&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/epsilon.loadModel&gt;</span>
 
 <span class="nt">&lt;epsilon.eol&gt;</span>
-    <span class="cp">&lt;![CDATA[</span>
-<span class="cp">    Tree1!Tree.allInstances.size().println(); // prints 0 </span>
+<span class="w">    </span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">    Tree1!Tree.allInstances.size().println(); // prints 0</span>
 <span class="cp">    Tree2!Tree.allInstances.size().println(); // prints 0</span>
 <span class="cp">    ]]&gt;</span>
-    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Tree2&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/epsilon.eol&gt;</span>
 
-<span class="nt">&lt;epsilon.startTransaction</span> <span class="na">name=</span><span class="s">&quot;T1&quot;</span> <span class="na">models=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;epsilon.startTransaction</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;T1&quot;</span><span class="w"> </span><span class="na">models=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
 
-<span class="nt">&lt;epsilon.eol&gt;</span> 
-    <span class="cp">&lt;![CDATA[</span>
-<span class="cp">    var t1 : new Tree1!Tree; </span>
+<span class="nt">&lt;epsilon.eol&gt;</span>
+<span class="w">    </span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">    var t1 : new Tree1!Tree;</span>
 <span class="cp">    Tree1!Tree.allInstances.size().println(); // prints 1</span>
 <span class="cp">    var t2 : new Tree2!Tree;</span>
 <span class="cp">    Tree2!Tree.allInstances.size().println(); // prints 1</span>
 <span class="cp">    ]]&gt;</span>
-    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Tree2&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/epsilon.eol&gt;</span>
 
-<span class="nt">&lt;epsilon.rollbackTransaction</span> <span class="na">name=</span><span class="s">&quot;T1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;epsilon.rollbackTransaction</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;T1&quot;</span><span class="nt">/&gt;</span>
 
 <span class="nt">&lt;epsilon.eol&gt;</span>
-    <span class="cp">&lt;![CDATA[</span>
-<span class="cp">    Tree1!Tree.allInstances.size().println(); // prints 0 </span>
-<span class="cp">    Tree2!Tree.allInstances.size().println(); // prints 1 </span>
+<span class="w">    </span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">    Tree1!Tree.allInstances.size().println(); // prints 0</span>
+<span class="cp">    Tree2!Tree.allInstances.size().println(); // prints 1</span>
 <span class="cp">    ]]&gt;</span>
-    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Tree1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Tree2&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/epsilon.eol&gt;</span>
 </code></pre></div>
 <div class="mermaid mermaid-90">classDiagram
@@ -1833,27 +1847,27 @@ EtlTask --|&gt; ExecutableModuleTask
 EolTask --|&gt; ExecutableModuleTask</div>
 <h3 id="the-abstract-executable-module-task">The Abstract Executable Module Task<a class="headerlink" href="#the-abstract-executable-module-task" title="Permanent link">&para;</a></h3>
 <p>This task is the base of all the model management tasks presented in the following section. Its aim is to encapsulate the commonalities of Epsilon tasks in order to reduce duplication among them. As already discussed, in Epsilon, specifications of model management tasks are organized in executable modules. While modules can be stored anywhere, in the case of the workflow it is assumed that they are either stored as separate files in the file-system or they are provided inline within the worfklow. Thus, this abstract task defines an <code>src</code> attribute that specifies the path of the source file in which the Epsilon module is stored, but also supports inline specification of the source of the module. The two alternatives are demonstrated in the listings below.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;HelloWorld.eol&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/target&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.eol</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;HelloWorld.eol&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;epsilon.eol&gt;</span>
-            <span class="cp">&lt;![CDATA[</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.eol&gt;</span>
+<span class="w">            </span><span class="cp">&lt;![CDATA[</span>
 <span class="cp">                &quot;Hello world&quot;.println();</span>
 <span class="cp">            ]]&gt;</span>
-        <span class="nt">&lt;/epsilon.eol&gt;</span>
-    <span class="nt">&lt;/target&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/epsilon.eol&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <p>Optionally, users can enable debugging for the module to be run by setting the <code>debug</code> attribute to <code>true</code>. An example is shown below. If the module reaches a breakpoint, users will be able to run the code step by step and inspect the stack trace and its variables.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;HelloWorld.eol&quot;</span> <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/target&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;epsilon.eol</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;HelloWorld.eol&quot;</span><span class="w"> </span><span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <p>The task also defines the following nested elements:</p>
@@ -1863,14 +1877,14 @@ EolTask --|&gt; ExecutableModuleTask</div>
 <p>The <code>parameter</code> nested elements enable users to communicate String parameters to tasks. Each <code>parameter</code> element defines a <code>name</code> and a <code>value</code> attribute. Before executing the module, each <code>parameter</code> element is transformed into a String variable with the respective name and value which is then made accessible to the module.</p>
 <h4 id="0n-exports-nested-elements">0..n exports nested elements<a class="headerlink" href="#0n-exports-nested-elements" title="Permanent link">&para;</a></h4>
 <p>To facilitate low-level integration between different Epsilon tasks, each task can export a number of variables to the project context, so that subsequent tasks can access them later. Each <code>export</code> nested element defines the three attributes. The <code>ref</code> attribute specifies the name of the variable to be exported, the <code>as</code> string attribute defines the name by which the variable is stored in the project context and the <code>optional</code> boolean attribute specifies whether the variable is mandatory. If <code>optional</code> is set to <code>false</code> and the module does not specify such a variable, an ANT <code>BuildException</code> is raised. If the <code>ant</code> attribute is set to true, the variable is exported as an ANT variable, as shown below.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;epsilon.eol&gt;</span>
-      var x = 1;
-      <span class="nt">&lt;exports</span> <span class="na">ref=</span><span class="s">&quot;x&quot;</span> <span class="na">ant=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/epsilon.eol&gt;</span>
-    <span class="nt">&lt;echo&gt;</span>${x}<span class="nt">&lt;/echo&gt;</span> <span class="cm">&lt;!-- Prints  1 --&gt;</span>
-  <span class="nt">&lt;/target&gt;</span> 
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;epsilon.eol&gt;</span>
+<span class="w">      </span>var<span class="w"> </span>x<span class="w"> </span>=<span class="w"> </span>1;
+<span class="w">      </span><span class="nt">&lt;exports</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">ant=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/epsilon.eol&gt;</span>
+<span class="w">    </span><span class="nt">&lt;echo&gt;</span>${x}<span class="nt">&lt;/echo&gt;</span><span class="w"> </span><span class="cm">&lt;!-- Prints  1 --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <h4 id="0n-uses-nested-elements">0..n uses nested elements<a class="headerlink" href="#0n-uses-nested-elements" title="Permanent link">&para;</a></h4>
@@ -1880,12 +1894,12 @@ EolTask --|&gt; ExecutableModuleTask</div>
 var x : String = "Some string";</code></pre>
 <pre class="prettyprint lang-eol"><code>// User.eol
 z.println();</code></pre>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;Exporter.eol&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;exports</span> <span class="na">ref=</span><span class="s">&quot;x&quot;</span> <span class="na">as=</span><span class="s">&quot;y&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.eol</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;Exporter.eol&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;exports</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">as=</span><span class="s">&quot;y&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/epsilon.eol&gt;</span>
 
-<span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;User.eol&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;uses</span> <span class="na">ref=</span><span class="s">&quot;y&quot;</span> <span class="na">as=</span><span class="s">&quot;z&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;epsilon.eol</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;User.eol&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;uses</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">as=</span><span class="s">&quot;z&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/epsilon.eol&gt;</span>
 </code></pre></div>
 <h2 id="model-management-tasks">Model Management Tasks<a class="headerlink" href="#model-management-tasks" title="Permanent link">&para;</a></h2>
@@ -1968,35 +1982,40 @@ z.println();</code></pre>
 <ul>
 <li><code>seed</code> (optional): A long specifying the seed to drive the random number generator that underpins the random aspects of model generation. If a seed is not specified, a random seed will be used and the generator will (likely) produce a different model every time it is executed. Fixing the seed produces repeatable results across executions.</li>
 </ul>
+<h3 id="dataset-extraction-task">Dataset Extraction Task<a class="headerlink" href="#dataset-extraction-task" title="Permanent link">&para;</a></h3>
+<p>The <code>epsilon.pinset</code> task executes a <a href="../pinset">Pinset</a> module specified using the <code>src</code> attribute to generate CSV datasets from models. It also provides the following attribute.</p>
+<ul>
+<li><code>outputFolder</code> (optional): A path specifying the folder where the CSV files will be generated. If not provided, the CSVs will be created in the same folder where the <code>.pinset</code> source file resides.</li>
+</ul>
 <h3 id="java-class-static-method-execution-task">Java Class Static Method Execution Task<a class="headerlink" href="#java-class-static-method-execution-task" title="Permanent link">&para;</a></h3>
 <p>The <code>epsilon.java.executeStaticMethod</code> task executes a parameter-less static method, defined using the <code>method</code> attribute, of a Java class, defined using the <code>javaClass</code> attribute. This task can be useful for setting up the infrastructure of Xtext-based languages.</p>
 <h3 id="for-task">For Task<a class="headerlink" href="#for-task" title="Permanent link">&para;</a></h3>
-<p>The <code>epsilon.for</code> task iterates over the files in a <a href="https://ant.apache.org/manual/Types/fileset.html">fileset</a> and executes its nested tasks. An example that uses <code>epsilon.for</code> to run an EOL program on XML files contained in a folder called <code>loop</code> is show below. </p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<p>The <code>epsilon.for</code> task iterates over the files in a <a href="https://ant.apache.org/manual/Types/fileset.html">fileset</a> and executes its nested tasks. An example that uses <code>epsilon.for</code> to run an EOL program on XML files contained in a folder called <code>loop</code> is show below.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
 
-        <span class="cm">&lt;!-- Load t1.xml once as Ta --&gt;</span>
-        <span class="nt">&lt;epsilon.xml.loadModel</span> <span class="na">name=</span><span class="s">&quot;Ta&quot;</span> <span class="na">file=</span><span class="s">&quot;t1.xml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- Load t1.xml once as Ta --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.xml.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Ta&quot;</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;t1.xml&quot;</span><span class="nt">/&gt;</span>
 
-        <span class="cm">&lt;!-- For every XML file in the loop directory --&gt;</span>
-        <span class="nt">&lt;epsilon.for&gt;</span>
-            <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&quot;loop&quot;</span> <span class="na">includes=</span><span class="s">&quot;*.xml&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!-- For every XML file in the loop directory --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.for&gt;</span>
+<span class="w">            </span><span class="nt">&lt;fileset</span><span class="w"> </span><span class="na">dir=</span><span class="s">&quot;loop&quot;</span><span class="w"> </span><span class="na">includes=</span><span class="s">&quot;*.xml&quot;</span><span class="nt">/&gt;</span>
 
-            <span class="cm">&lt;!-- Load the file as Tb --&gt;</span>
-            <span class="nt">&lt;epsilon.xml.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tb&quot;</span> <span class="na">file=</span><span class="s">&quot;loop/${it}&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="cm">&lt;!-- Load the file as Tb --&gt;</span>
+<span class="w">            </span><span class="nt">&lt;epsilon.xml.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tb&quot;</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;loop/${it}&quot;</span><span class="nt">/&gt;</span>
 
-            <span class="cm">&lt;!-- Run an EOL program on Ta and Tb --&gt;</span>
-            <span class="nt">&lt;epsilon.eol&gt;</span>
-                Ta!t_tree.all.a_name.println();
-                Tb!t_tree.all.a_name.println();
-                <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Ta&quot;</span><span class="nt">/&gt;</span>
-                <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tb&quot;</span><span class="nt">/&gt;</span>   
-            <span class="nt">&lt;/epsilon.eol&gt;</span>
+<span class="w">            </span><span class="cm">&lt;!-- Run an EOL program on Ta and Tb --&gt;</span>
+<span class="w">            </span><span class="nt">&lt;epsilon.eol&gt;</span>
+<span class="w">                </span>Ta!t_tree.all.a_name.println();
+<span class="w">                </span>Tb!t_tree.all.a_name.println();
+<span class="w">                </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Ta&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Tb&quot;</span><span class="nt">/&gt;</span><span class="w">   </span>
+<span class="w">            </span><span class="nt">&lt;/epsilon.eol&gt;</span>
 
-            <span class="cm">&lt;!-- Dispose of Tb --&gt;</span>
-            <span class="nt">&lt;epsilon.disposeModel</span> <span class="na">model=</span><span class="s">&quot;Tb&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/epsilon.for&gt;</span>
-    <span class="nt">&lt;/target&gt;</span>
+<span class="w">            </span><span class="cm">&lt;!-- Dispose of Tb --&gt;</span>
+<span class="w">            </span><span class="nt">&lt;epsilon.disposeModel</span><span class="w"> </span><span class="na">model=</span><span class="s">&quot;Tb&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/epsilon.for&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <p>The complete source code for this example is in <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.for">Epsilon's Git repo</a>.</p>
