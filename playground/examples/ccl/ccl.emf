@@ -6,7 +6,9 @@ class Component {
 }
 
 class Connector {
+    @diagram(direction="up")
     ref OutPort source;
+    @diagram(direction="up")
     ref InPort target;
 }
 
