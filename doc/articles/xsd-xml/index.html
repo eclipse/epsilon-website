@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-5.4.0">
     
     
       
@@ -1112,45 +1112,45 @@
 <h2 id="querying-an-xml-document">Querying an XML document<a class="headerlink" href="#querying-an-xml-document" title="Permanent link">&para;</a></h2>
 <p>We use the following <code>library.xml</code> as a base for demonstrating the EOL syntax for querying XML documents.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;library</span><span class="w"> </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;library.xsd&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;book</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;EMF Eclipse Modeling Framework&quot;</span><span class="w"> </span><span class="na">pages=</span><span class="s">&quot;744&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;author&gt;</span>Dave<span class="w"> </span>Steinberg<span class="nt">&lt;/author&gt;</span>
-<span class="w">        </span><span class="nt">&lt;author&gt;</span>Frank<span class="w"> </span>Budinsky<span class="nt">&lt;/author&gt;</span>
-<span class="w">        </span><span class="nt">&lt;author&gt;</span>Marcelo<span class="w"> </span>Paternostro<span class="nt">&lt;/author&gt;</span>
-<span class="w">        </span><span class="nt">&lt;author&gt;</span>Ed<span class="w"> </span>Merks<span class="nt">&lt;/author&gt;</span>
-<span class="w">        </span><span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/book&gt;</span>
-<span class="w">    </span><span class="nt">&lt;book</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Eclipse Modeling Project: A Domain-Specific Language (DSL) Toolkit&quot;</span><span class="w"> </span><span class="na">pages=</span><span class="s">&quot;736&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;author&gt;</span>Richard<span class="w"> </span>Gronback<span class="nt">&lt;/author&gt;</span>
-<span class="w">        </span><span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/book&gt;</span>
-<span class="w">    </span><span class="nt">&lt;book</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Official Eclipse 3.0 FAQs&quot;</span><span class="w"> </span><span class="na">pages=</span><span class="s">&quot;432&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;author&gt;</span>John<span class="w"> </span>Arthorne<span class="nt">&lt;/author&gt;</span>
-<span class="w">        </span><span class="nt">&lt;author&gt;</span>Chris<span class="w"> </span>Laffra<span class="nt">&lt;/author&gt;</span>
-<span class="w">        </span><span class="nt">&lt;published&gt;</span>2004<span class="nt">&lt;/published&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/book&gt;</span>
+<span class="nt">&lt;library</span> <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;library.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;EMF Eclipse Modeling Framework&quot;</span> <span class="na">pages=</span><span class="s">&quot;744&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Dave Steinberg<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Frank Budinsky<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Marcelo Paternostro<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Ed Merks<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;Eclipse Modeling Project: A Domain-Specific Language (DSL) Toolkit&quot;</span> <span class="na">pages=</span><span class="s">&quot;736&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Richard Gronback<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2009<span class="nt">&lt;/published&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
+    <span class="nt">&lt;book</span> <span class="na">title=</span><span class="s">&quot;Official Eclipse 3.0 FAQs&quot;</span> <span class="na">pages=</span><span class="s">&quot;432&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;author&gt;</span>John Arthorne<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;author&gt;</span>Chris Laffra<span class="nt">&lt;/author&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2004<span class="nt">&lt;/published&gt;</span>
+    <span class="nt">&lt;/book&gt;</span>
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
 <p>The XSD schema <code>library.xsd</code> that backs the <code>library.xml</code> file is the following.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;xs:schema</span><span class="w"> </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="w"> </span><span class="na">elementFormDefault=</span><span class="s">&quot;qualified&quot;</span><span class="w"> </span><span class="na">attributeFormDefault=</span><span class="s">&quot;unqualified&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;xs:schema</span> <span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span> <span class="na">elementFormDefault=</span><span class="s">&quot;qualified&quot;</span> <span class="na">attributeFormDefault=</span><span class="s">&quot;unqualified&quot;</span><span class="nt">&gt;</span>
 <span class="cm">&lt;!-- XML Schema Generated from XML Document with XmlGrid.net Free Online Service http://xmlgrid.net --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;library&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;xs:complexType&gt;</span>
-<span class="w">            </span><span class="nt">&lt;xs:sequence&gt;</span>
-<span class="w">                </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;book&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;xs:complexType&gt;</span>
-<span class="w">                        </span><span class="nt">&lt;xs:sequence&gt;</span>
-<span class="w">                            </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;author&quot;</span><span class="w"> </span><span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;&lt;/xs:element&gt;</span>
-<span class="w">                            </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;published&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:int&quot;</span><span class="nt">&gt;&lt;/xs:element&gt;</span>
-<span class="w">                        </span><span class="nt">&lt;/xs:sequence&gt;</span>
-<span class="w">                        </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;title&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;&lt;/xs:attribute&gt;</span>
-<span class="w">                        </span><span class="nt">&lt;xs:attribute</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;pages&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:int&quot;</span><span class="nt">&gt;&lt;/xs:attribute&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;/xs:complexType&gt;</span>
-<span class="w">                </span><span class="nt">&lt;/xs:element&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/xs:sequence&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/xs:complexType&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/xs:element&gt;</span>
+    <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;library&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xs:complexType&gt;</span>
+            <span class="nt">&lt;xs:sequence&gt;</span>
+                <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;book&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;xs:complexType&gt;</span>
+                        <span class="nt">&lt;xs:sequence&gt;</span>
+                            <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;author&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;&lt;/xs:element&gt;</span>
+                            <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;published&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:int&quot;</span><span class="nt">&gt;&lt;/xs:element&gt;</span>
+                        <span class="nt">&lt;/xs:sequence&gt;</span>
+                        <span class="nt">&lt;xs:attribute</span> <span class="na">name=</span><span class="s">&quot;title&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;&lt;/xs:attribute&gt;</span>
+                        <span class="nt">&lt;xs:attribute</span> <span class="na">name=</span><span class="s">&quot;pages&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:int&quot;</span><span class="nt">&gt;&lt;/xs:attribute&gt;</span>
+                    <span class="nt">&lt;/xs:complexType&gt;</span>
+                <span class="nt">&lt;/xs:element&gt;</span>
+            <span class="nt">&lt;/xs:sequence&gt;</span>
+        <span class="nt">&lt;/xs:complexType&gt;</span>
+    <span class="nt">&lt;/xs:element&gt;</span>
 <span class="nt">&lt;/xs:schema&gt;</span>
 </code></pre></div>
 <h2 id="querying-xml-documents-in-eol">Querying XML documents in EOL<a class="headerlink" href="#querying-xml-documents-in-eol" title="Permanent link">&para;</a></h2>
