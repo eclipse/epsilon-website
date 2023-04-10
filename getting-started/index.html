@@ -231,18 +231,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../download/" title="Download" class="md-nav__link">
-      Download
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -253,9 +241,70 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Getting Started
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="Getting Started" class="md-nav__link md-nav__link--active">
       Getting Started
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trying-epsilon-in-the-playground" class="md-nav__link">
+    Trying Epsilon in the Playground
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-epsilon-as-a-java-library" class="md-nav__link">
+    Using Epsilon as a Java library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon-in-mavengradle-builds" class="md-nav__link">
+    Epsilon in Maven/Gradle Builds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon-in-eclipse" class="md-nav__link">
+    Epsilon in Eclipse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon-in-other-ideseditors" class="md-nav__link">
+    Epsilon in other IDEs/Editors
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -268,6 +317,18 @@
   <li class="md-nav__item">
     <a href="../playground" title="Playground" class="md-nav__link">
       Playground
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../download/" title="Download" class="md-nav__link">
+      Download
     </a>
   </li>
 
@@ -1033,6 +1094,51 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trying-epsilon-in-the-playground" class="md-nav__link">
+    Trying Epsilon in the Playground
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-epsilon-as-a-java-library" class="md-nav__link">
+    Using Epsilon as a Java library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon-in-mavengradle-builds" class="md-nav__link">
+    Epsilon in Maven/Gradle Builds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon-in-eclipse" class="md-nav__link">
+    Epsilon in Eclipse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon-in-other-ideseditors" class="md-nav__link">
+    Epsilon in other IDEs/Editors
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1052,24 +1158,52 @@
                 
                 
                 <h1 id="getting-started-with-epsilon">Getting Started with Epsilon<a class="headerlink" href="#getting-started-with-epsilon" title="Permanent link">&para;</a></h1>
-<p>Epsilon offers a wide range of tools so your starting point can differ depending on what you are trying to achieve.</p>
+<p>Epsilon provides a set of languages and tools for tasks such as <a href="../doc/egl">model-to-text transformation</a>, <a href="../doc/etl">model-to-model transformation</a>, <a href="../doc/evl">model validation</a> (all of which extend <a href="../doc/eol">the same core language</a>), <a href="../doc/flexmi">model editing</a>, <a href="../doc/modelink">weaving</a> and <a href="../doc/picto">visualisation</a>. While some Epsilon tools are <a href="#epsilon-in-eclipse">Eclipse IDE plugins</a>, most of Epsilon does not depend on the Eclipse IDE and can be used from standard Java applications and from Maven/Gradle builds.</p>
 <div class="admonition info">
-<p class="admonition-title">Online Playground</p>
-<p>If you prefer not to download/install anything just quite yet, you can fiddle with EMF models and metamodels, and with some of the Epsilon languages in the online <a href="../playground">Epsilon Playground</a>.</p>
+<p class="admonition-title">New to Model-Based Software Engineering?</p>
+<p>If you are a newcomer to model-based software engineering and the Eclipse modelling ecosystem, you may find <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI">this series of lectures</a> useful.</p>
 </div>
+<h2 id="trying-epsilon-in-the-playground">Trying Epsilon in the Playground<a class="headerlink" href="#trying-epsilon-in-the-playground" title="Permanent link">&para;</a></h2>
+<p>You can try most Epsilon languages in the online <a href="../playground">Epsilon Playground</a>, without needing to download or install anything.</p>
+<p><img alt="Screenshot of the Epsilon Playground" src="../doc/articles/playground/playground.png" /></p>
+<h2 id="using-epsilon-as-a-java-library">Using Epsilon as a Java library<a class="headerlink" href="#using-epsilon-as-a-java-library" title="Permanent link">&para;</a></h2>
+<p>The execution engines of Epsilon's languages, the <a href="../doc/flexmi">Flexmi</a> parser, and drivers for <a href="../doc/articles/#epsilon-and-emf-models">EMF</a>, <a href="../doc/articles/profiled-uml-models">UML</a>, <a href="../doc/articles/plain-xml">XML</a> and <a href="../doc/articles/excel">Excel</a> are available as standard Java libraries through <a href="https://central.sonatype.com/namespace/org.eclipse.epsilon">Maven Central</a>. To get started with parsing and executing Epsilon programs from your Java application:</p>
 <ul>
-<li>In most cases, your first step should be to download and install Epsilon as shown <a href="../download">here</a>.</li>
-<li>If you are a complete newcomer to model-based software engineering and the Eclipse modelling ecosystem, you should start by watching <a href="https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI">this series of lectures</a>.</li>
-<li>If you are interested in ways to create graphical editors or views for your EMF-based models, you can have a look at <a href="../doc/picto">Picto</a> and <a href="../doc/eugenia">Eugenia</a>.</li>
-<li>If you are looking for a generic textual (XML/YAML-based) syntax to create/edit EMF-based models, you should look at <a href="../doc/flexmi">Flexmi</a>.</li>
-<li>If you are interested in automating model management activities such as code generation, you should have a look at the languages that Epsilon offers for <a href="../doc/egl">model-to-text transformation</a>, <a href="../doc/etl">model-to-model transformation</a> and <a href="../evl">model validation</a> (all of which extend <a href="../doc/eol">the same core language</a>).<ul>
-<li>To find out more about how you can run Epsilon programs within Eclipse, have a look at our <a href="../screencasts">screencasts on YouTube</a>.</li>
-<li>To understand how you can run Epsilon programs from your Java application, have a look at <a href="../doc/articles/run-epsilon-from-java/">this article</a>.</li>
-<li>To find out how you can run Epsilon programs from ANT, Maven and Gradle build scripts, <a href="../doc/articles/running-epsilon-ant-tasks-from-command-line/">this article</a> should be a good starting point.</li>
+<li>Go to the <a href="../playground">Epsilon Playground</a> and select one of the examples;</li>
+<li>Click the <code>Download</code> button and select <code>Java (Maven)</code> or <code>Java (Gradle)</code> from the window that pops up to download a zipped copy of the example. The downloaded zip file includes an <code>Example</code> Java class as well as a <code>pom.xml</code>/<code>build.gradle</code> file with all the Epsilon dependencies;</li>
+<li>Import the example in your favourite Java IDE (e.g. Eclipse, IntelliJ, VS Code) and run the <code>Example</code> class;</li>
+<li>Alternatively, follow the instructions in the <code>readme.txt</code> to run the example from command line (you only need to have Java and Maven/Gradle installed);</li>
+<li>Read <a href="../doc/articles/run-epsilon-from-java/">this article</a> that introduces Epsilon's Java API.</li>
 </ul>
-</li>
-<li>Epsilon and the broader Eclipse modelling ecosystem can appear intimidating at first but if you stick around long enough, it will all make sense and you will add a very powerful and versatile set of technologies to your tool belt.</li>
+<h2 id="epsilon-in-mavengradle-builds">Epsilon in Maven/Gradle Builds<a class="headerlink" href="#epsilon-in-mavengradle-builds" title="Permanent link">&para;</a></h2>
+<p>On some occasions you may need to include model management tasks in your build/CI pipeline (e.g. to validate a model and generate code from it). For such scenarios, Epsilon provides Ant tasks that can be used in the context of Maven and Gradle builds. To get started with running Epsilon from Maven/Gradle builds:</p>
+<ul>
+<li>Go to the <a href="../playground">Epsilon Playground</a> and select one of the examples;</li>
+<li>Click the <code>Download</code> button and select <code>Maven</code> or <code>Gradle</code> from the window that pops up to download a zipped copy of the example. The downloaded zip file includes a <code>pom.xml</code>/<code>build.gradle</code> file with all the Epsilon dependencies and the respective Epsilon Ant tasks;</li>
+<li>Follow the instructions in the <code>readme.txt</code> to run the example from command line (you only need to have Java and Maven/Gradle installed).</li>
 </ul>
+<h2 id="epsilon-in-eclipse">Epsilon in Eclipse<a class="headerlink" href="#epsilon-in-eclipse" title="Permanent link">&para;</a></h2>
+<p>Epsilon provides a rich set of Eclipse plugins for editing, running, <a href="../doc/articles/profiling">profiling</a> and <a href="../doc/articles/debugger">debugging</a> model management programs. It also includes tools for <a href="../doc/flexmi">editing</a>, <a href="../doc/modelink">weaving</a> and <a href="../doc/picto">visualising</a> models. You can <a href="../download">install these tools</a> through Epsilon's update site or through the Eclipse Installer.</p>
+<h2 id="epsilon-in-other-ideseditors">Epsilon in other IDEs/Editors<a class="headerlink" href="#epsilon-in-other-ideseditors" title="Permanent link">&para;</a></h2>
+<p>Support for syntax highlighting Epsilon programs, Flexmi models and <a href="https://eclipse.org/emfatic">Emfatic</a> metamodels is available for the following IDEs and editors, beyond Eclipse.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../doc/articles/vscode">VS Code</a></td>
+<td><img alt="" src="../doc/articles/vscode/vscode.png" /></td>
+</tr>
+<tr>
+<td><a href="https://github.com/epsilonlabs/sublime">Sublime</a></td>
+<td><img alt="" src="../doc/articles/sublime/sublime.png" /></td>
+</tr>
+</tbody>
+</table>
                 
               
               
@@ -1088,7 +1222,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../download/" title="Download" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1097,19 +1231,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Download
+                Home
               </span>
             </div>
           </a>
         
         
-          <a href="../doc/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../download/" title="Download" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Overview
+                Download
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

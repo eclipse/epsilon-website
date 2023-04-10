@@ -15,7 +15,7 @@
     
     
       
-        <title>Eugenia: Automated Invocation with Ant - Epsilon</title>
+        <title>Epsilon Debugger - Epsilon</title>
       
     
     
@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eugenia-automated-invocation-with-ant" class="md-skip">
+        <a href="#epsilon-debugger" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Eugenia: Automated Invocation with Ant
+              Epsilon Debugger
             
           </span>
         </div>
@@ -1024,37 +1024,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limiting-the-steps-to-be-run" class="md-nav__link">
-    Limiting the steps to be run
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-extra-models-for-polishing" class="md-nav__link">
-    Using extra models for polishing
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1065,7 +1034,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/eclipse/epsilon-website/edit/master/mkdocs/docs/doc/articles/eugenia-ant/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/eclipse/epsilon-website/edit/master/mkdocs/docs/doc/articles/debugger.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1073,59 +1042,9 @@
                   
                 
                 
-                <h1 id="eugenia-automated-invocation-with-ant">Eugenia: Automated Invocation with Ant<a class="headerlink" href="#eugenia-automated-invocation-with-ant" title="Permanent link">&para;</a></h1>
-<p>Eugenia can be called from Ant, using the <code>&lt;epsilon.eugenia&gt;</code> Ant task. This way, the creation of the GMF editors can be easily automated by using a standard Ant Builder. Additionally, the Ant task has several features which are not currently available through the regular graphical user interface.</p>
-<p>In this article, we will show how to invoke the Eugenia Ant task and offer some recommendations on how to adopt it.</p>
-<h2 id="basic-usage">Basic usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
-<p>The Eugenia Ant task only requires specifying the source Emfatic description or Ecore model through the <code>src</code> attribute:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Generate myfile.ecore from myfile.emf and then proceed --&gt;</span>
-<span class="nt">&lt;epsilon.eugenia</span> <span class="na">src=</span><span class="s">&quot;myfile.emf&quot;</span><span class="nt">/&gt;</span>
-
-<span class="cm">&lt;!-- Start directly from the Ecore model --&gt;</span>
-<span class="nt">&lt;epsilon.eugenia</span> <span class="na">src=</span><span class="s">&quot;myfile.ecore&quot;</span><span class="nt">/&gt;</span>
-</code></pre></div>
-<div class="admonition warning important">
-<p class="admonition-title">Warning</p>
-<p>The Eugenia Ant task requires that the Ant buildfile is run from the same JRE as the workspace. Please check the <a href="../../../doc/workflow">Workflow</a> documentation for instructions on how to do it.</p>
-</div>
-<h2 id="limiting-the-steps-to-be-run">Limiting the steps to be run<a class="headerlink" href="#limiting-the-steps-to-be-run" title="Permanent link">&para;</a></h2>
-<p>Normally, Eugenia runs all these steps:</p>
-<ul>
-<li>Clean the models from the previous run (the <code>clean</code> step)</li>
-<li>If <code>src</code> is an Emfatic source file (with the <code>.emf</code> extension), generate the Ecore model from it (<code>ecore</code>)</li>
-<li>Generate the EMF GenModel from the Ecore model and polish it with <code>Ecore2GenModel.eol</code> if available (<code>genmodel</code>)</li>
-<li>Generate the GmfGraph, GmfTool and GmfMap models and polish them with <code>Ecore2GMF.eol</code> if available (<code>gmf</code>)</li>
-<li>Generate the GmfGen model and polish it with <code>FixGMFGen.eol</code> if available (<code>gmfgen</code>)</li>
-<li>Generate the EMF code from the EMF GenModel model (<code>emfcode</code>)</li>
-<li>Generate the GMF code from the GMFGen model (<code>gmfcode</code>)
-Optionally, the Ant task can run only some of these steps. The <code>firstStep</code> attribute can be used to specify the first step to be run, and the <code>lastStep</code> can be used to specify the last step to be run. For example:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Skips the clean, ecore and genmodel steps --&gt;</span>
-<span class="nt">&lt;epsilon.eugenia</span> <span class="na">src=</span><span class="s">&quot;myfile.ecore&quot;</span> <span class="na">firstStep=</span><span class="s">&quot;gmf&quot;</span><span class="nt">/&gt;</span>
-
-<span class="cm">&lt;!-- Does not run the emfcode and gmfcode steps --&gt;</span>
-<span class="nt">&lt;epsilon.eugenia</span> <span class="na">src=</span><span class="s">&quot;myfile.emf&quot;</span> <span class="na">lastStep=</span><span class="s">&quot;gmfgen&quot;</span><span class="nt">/&gt;</span>
-
-<span class="cm">&lt;!-- Only runs the gmf and gmfgen steps --&gt;</span>
-<span class="nt">&lt;epsilon.eugenia</span> <span class="na">src=</span><span class="s">&quot;myfile.ecore&quot;</span> <span class="na">firstStep=</span><span class="s">&quot;gmf&quot;</span> <span class="na">lastStep=</span><span class="s">&quot;gmfgen&quot;</span><span class="nt">/&gt;</span>
-</code></pre></div>
-<h2 id="using-extra-models-for-polishing">Using extra models for polishing<a class="headerlink" href="#using-extra-models-for-polishing" title="Permanent link">&para;</a></h2>
-<p>Additional models to be used in a polishing transformation can be specified through the <code>&lt;model&gt;</code> nested element. <code>&lt;model&gt;</code> has three attributes:</p>
-<ul>
-<li><code>ref</code> (mandatory) is the name with which the model was loaded into the model repository of the Ant project, using the Epsilon model loading Ant tasks.</li>
-<li><code>as</code> (optional) is the name to be used for the model inside the polishing transformation.</li>
-<li><code>step</code> (mandatory) is the identifier of the Eugenia step to which we will add the model reference.
-As an example, consider the following fragment:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Labels&quot;</span>
-  <span class="na">modelfile=</span><span class="s">&quot;my.model&quot;</span> <span class="na">metamodeluri=</span><span class="s">&quot;mymetamodelURI&quot;</span>
-  <span class="na">read=</span><span class="s">&quot;true&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-
-<span class="nt">&lt;epsilon.eugenia</span> <span class="na">src=</span><span class="s">&quot;myfile.emf&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Labels&quot;</span> <span class="na">step=</span><span class="s">&quot;gmf&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/epsilon.eugenia&gt;</span>
-</code></pre></div>
-<p>This example will make the Labels model available to the <code>Ecore2GMF.eol</code> polishing transformation, which is part of the <code>gmf</code> step.</p>
+                <h1 id="epsilon-debugger">Epsilon Debugger<a class="headerlink" href="#epsilon-debugger" title="Permanent link">&para;</a></h1>
+<p>Epsilon includes an interactive Eclipse-based debugger, which is demonstrated in the screencast below.</p>
+<iframe width="90%" height="494" src="https://www.youtube.com/embed/gZPHoW-DaiU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 
               
               
