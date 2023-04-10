@@ -80,7 +80,7 @@ class DownloadDialog {
                             }
                             else {
                                 zip.file("build.gradle", self.fetchTemplate("java/" + language + "/build.gradle"));
-                                zip.file("readme.md", self.fetchTemplate("readme-gradle.txt"));
+                                zip.file("readme.md", self.fetchTemplate("java/readme-gradle.txt"));
                             }
                         }
     
