@@ -1,9 +1,9 @@
 site_name: Epsilon
 nav:
   - Home: index.md
-  - Download : 'download/index.md'
   - Getting Started: 'getting-started.md'
   - Playground : 'playground'
+  - Download : 'download/index.md'
   - Documentation:
     - Overview: 'doc/index.md'
     - Model Connectivity: 'doc/emc.md'

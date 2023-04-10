@@ -1,9 +1,13 @@
 # Eclipse Epsilon <a href="forum"><img src="assets/images/forum-badge.svg" style="float:right;position:relative;top:8px"></a>
 
-Epsilon is a family of Java-based scripting languages for automating common model-based software engineering tasks, such as [code generation](doc/egl), [model-to-model transformation](doc/etl) and [model validation](doc/evl), that work out of the box with EMF (including [Xtext](https://www.eclipse.org/Xtext) and [Sirius](https://www.eclipse.org/sirius)), UML (including Cameo/MagicDraw), Simulink, XML and [other types of models](doc/emc). Epsilon also includes Eclipse-based editors and debuggers, convenient reflective tools for [textual modelling](doc/flexmi) and [model visualisation](doc/picto), and [Apache Ant](doc/workflow) tasks.
+Epsilon is a family of scripting languages and tools for automating common model-based software engineering tasks such as [code generation](doc/egl), [model-to-model transformation](doc/etl), [model validation](doc/evl) and [model visualisation](doc/picto), that work out of the box with EMF (including [Xtext](https://www.eclipse.org/Xtext) and [Sirius](https://www.eclipse.org/sirius)), UML (including Cameo/MagicDraw), Simulink, XML and [other types of models](doc/emc).
+
+Epsilon can be used as a [standard Java library](getting-started/#using-epsilon-as-a-java-library), and also provides [Apache Ant](doc/workflow) tasks that can be embedded in [Maven/Gradle builds](getting-started/#epsilon-in-mavengradle-builds). Editing support for Epsilon programs is available in [Eclipse](download), [VS Code](doc/articles/vscode) and [Sublime](https://github.com/epsilonlabs/sublime).
 
 <div class="carousel">
   <div><img src="doc/articles/eol-interpreter-view/eol-interpreter.gif"/></div>
+  <div><img data-lazy="doc/articles/vscode/vscode.png"/></div>
+  <div><img data-lazy="doc/articles/sublime/sublime.png"/></div>
   <div><img data-lazy="doc/flexmi/screenshot.png"/></div>
   <div><img data-lazy="doc/picto/picto-eclipse.png"/></div>
   <div><img data-lazy="doc/articles/simulink/epsilon-simulink.png"/></div>
