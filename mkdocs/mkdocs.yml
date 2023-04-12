@@ -67,7 +67,7 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/eclipseepsilon
     - icon: fontawesome/brands/youtube
-      link: https://youtube.com/epsilondevs     
+      link: https://youtube.com/epsilondevs
 repo_name: 'Epsilon @ GitHub'
 repo_url: 'https://github.com/eclipse/epsilon'
 edit_uri: ../epsilon-website/edit/master/mkdocs/docs/
@@ -162,10 +162,9 @@ plugins:
         j2_variable_end_string: '}}}'
     - redirects:
         redirect_maps:
-            'forum': 'https://www.eclipse.org/forums/index.php/f/22/'
-            'doc/screencasts' : 'https://www.youtube.com/epsilondevs'
-            'doc/lectures' : 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
-            'doc/examples' : 'https://github.com/eclipse/epsilon/tree/main/examples'
+            'forum.md': 'https://www.eclipse.org/forums/index.php/f/22/'
+            'doc/screencasts.md' : 'https://www.youtube.com/epsilondevs'
+            'doc/lectures.md' : 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
             'doc/articles/emfatic.md': 'https://www.eclipse.org/emfatic'
             'doc/articles/eugenia-gmf-tutorial/index.md': 'https://www.eclipse.org/epsilon/doc/eugenia'
             'doc/articles/flexmi/index.md': 'https://www.eclipse.org/epsilon/doc/flexmi'
