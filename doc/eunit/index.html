@@ -1575,17 +1575,17 @@ Theories</p>
 <p>EUnit uses standard Ant buildfiles: running EUnit is as simple as using its Ant task. Users may run EUnit more than once in a single Ant launch: the graphical user interface will automatically aggregate the results of all test suites.</p>
 <h4 id="eunit-invocations">EUnit Invocations<a class="headerlink" href="#eunit-invocations" title="Permanent link">&para;</a></h4>
 <p>An example invocation of the EUnit Ant task using the most common features is shown in the listing below. Users will normally only use some of these features at a time, though. Optional attributes have been listed between brackets. Some nested elements can be repeated 0+ times (<code>*</code>) or 0-1 times (<code>?</code>). Valid alternatives for an attribute are separated with <code>|</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.eunit</span> <span class="na">src=</span><span class="s">&quot;...&quot;</span>
-    <span class="err">[</span><span class="na">failOnErrors=</span><span class="s">&quot;...&quot;</span><span class="err">]</span>
-    <span class="err">[</span><span class="na">package=</span><span class="s">&quot;..&quot;</span><span class="err">]</span>
-    <span class="err">[</span><span class="na">toDir=</span><span class="s">&quot;...&quot;</span><span class="err">]</span>
-    <span class="err">[</span><span class="na">report=</span><span class="s">&quot;yes|no&quot;</span><span class="err">]</span>
-    <span class="err">[</span><span class="na">saveModelDeltas=</span><span class="s">&quot;yes|no&quot;</span><span class="err">]</span><span class="nt">&gt;</span>
-  (<span class="nt">&lt;model</span>     <span class="na">ref=</span><span class="s">&quot;OldName&quot;</span> <span class="err">[</span><span class="na">as=</span><span class="s">&quot;NewName&quot;</span><span class="err">]</span><span class="nt">/&gt;</span>)*
-  (<span class="nt">&lt;uses</span>      <span class="na">ref=</span><span class="s">&quot;x&quot;</span> <span class="err">[</span><span class="na">as=</span><span class="s">&quot;y&quot;</span><span class="err">]</span> <span class="nt">/&gt;</span>)*
-  (<span class="nt">&lt;exports</span>   <span class="na">ref=</span><span class="s">&quot;z&quot;</span> <span class="err">[</span><span class="na">as=</span><span class="s">&quot;w&quot;</span><span class="err">]</span> <span class="nt">/&gt;</span>)*
-  (<span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;myparam&quot;</span> <span class="na">value=</span><span class="s">&quot;myvalue&quot;</span> <span class="nt">/&gt;</span>)*
-  (<span class="nt">&lt;modelTasks&gt;</span><span class="cm">&lt;!-- Zero or more Ant tasks --&gt;</span><span class="nt">&lt;/modelTasks&gt;</span>)?
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.eunit</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;...&quot;</span>
+<span class="w">    </span><span class="err">[</span><span class="na">failOnErrors=</span><span class="s">&quot;...&quot;</span><span class="err">]</span>
+<span class="w">    </span><span class="err">[</span><span class="na">package=</span><span class="s">&quot;..&quot;</span><span class="err">]</span>
+<span class="w">    </span><span class="err">[</span><span class="na">toDir=</span><span class="s">&quot;...&quot;</span><span class="err">]</span>
+<span class="w">    </span><span class="err">[</span><span class="na">report=</span><span class="s">&quot;yes|no&quot;</span><span class="err">]</span>
+<span class="w">    </span><span class="err">[</span><span class="na">saveModelDeltas=</span><span class="s">&quot;yes|no&quot;</span><span class="err">]</span><span class="nt">&gt;</span>
+<span class="w">  </span>(<span class="nt">&lt;model</span><span class="w">     </span><span class="na">ref=</span><span class="s">&quot;OldName&quot;</span><span class="w"> </span><span class="err">[</span><span class="na">as=</span><span class="s">&quot;NewName&quot;</span><span class="err">]</span><span class="nt">/&gt;</span>)*
+<span class="w">  </span>(<span class="nt">&lt;uses</span><span class="w">      </span><span class="na">ref=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="err">[</span><span class="na">as=</span><span class="s">&quot;y&quot;</span><span class="err">]</span><span class="w"> </span><span class="nt">/&gt;</span>)*
+<span class="w">  </span>(<span class="nt">&lt;exports</span><span class="w">   </span><span class="na">ref=</span><span class="s">&quot;z&quot;</span><span class="w"> </span><span class="err">[</span><span class="na">as=</span><span class="s">&quot;w&quot;</span><span class="err">]</span><span class="w"> </span><span class="nt">/&gt;</span>)*
+<span class="w">  </span>(<span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;myparam&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;myvalue&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>)*
+<span class="w">  </span>(<span class="nt">&lt;modelTasks&gt;</span><span class="cm">&lt;!-- Zero or more Ant tasks --&gt;</span><span class="nt">&lt;/modelTasks&gt;</span>)?
 <span class="nt">&lt;/epsilon.eunit&gt;</span>
 </code></pre></div>
 <p>The EUnit Ant task is based on the Epsilon abstract executable module task, inheriting some useful features. The attribute <code>src</code> points to the path of the EOL file, and the optional attribute <code>failOnErrors</code> can be set to false to prevent EUnit from aborting the Ant launch if a test case fails. EUnit also inherits support for importing and exporting global variables through the <code>&lt;uses&gt;</code> and <code>&lt;exports&gt;</code> elements: the original name is set in <code>ref</code>, and the optional <code>as</code> attribute allows for using a different name. For receiving parameters as name-value piars, the <code>&lt;parameter&gt;</code> element can be used.</p>
@@ -1785,30 +1785,30 @@ the table below.</p>
 <p>After describing the basic syntax, we will show how to use EUnit to test an ETL transformation.</p>
 <p>The Ant buildfile is shown in the listing below. It has two targets: <code>run-tests</code> (lines 2-19) invokes the EUnit suite, and <code>tree2graph</code> (lines 23-28) is a helper target which transforms model <code>Tree</code> into model <code>Graph</code> using ETL. The <code>&lt;modelTasks&gt;</code> nested element is used to load the input, expected output and output EMF models. <code>Graph</code> is loaded with <code>read</code> set to <code>false</code>: the model will be initially empty, and will be populated by the ETL transformation.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project&gt;</span>
-  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;run-tests&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;epsilon.eunit</span> <span class="na">src=</span><span class="s">&quot;test-external.eunit&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;modelTasks&gt;</span>
-        <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree&quot;</span>
-            <span class="na">modelfile=</span><span class="s">&quot;tree.model&quot;</span>
-            <span class="na">metamodelfile=</span><span class="s">&quot;tree.ecore&quot;</span>
-            <span class="na">read=</span><span class="s">&quot;true&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;GraphExpected&quot;</span>
-            <span class="na">modelfile=</span><span class="s">&quot;graph.model&quot;</span>
-            <span class="na">metamodelfile=</span><span class="s">&quot;graph.ecore&quot;</span>
-            <span class="na">read=</span><span class="s">&quot;true&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Graph&quot;</span>
-            <span class="na">modelfile=</span><span class="s">&quot;transformed.model&quot;</span>
-            <span class="na">metamodelfile=</span><span class="s">&quot;graph.ecore&quot;</span>
-            <span class="na">read=</span><span class="s">&quot;false&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;/modelTasks&gt;</span>
-    <span class="nt">&lt;/epsilon.eunit&gt;</span>
-  <span class="nt">&lt;/target&gt;</span>
-  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;tree2graph&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;epsilon.etl</span> <span class="na">src=</span><span class="s">&quot;${basedir}/resources/Tree2Graph.etl&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Tree&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Graph&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/epsilon.etl&gt;</span>
-  <span class="nt">&lt;/target&gt;</span>
+<span class="w">  </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;run-tests&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;epsilon.eunit</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;test-external.eunit&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;modelTasks&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.emf.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tree&quot;</span>
+<span class="w">            </span><span class="na">modelfile=</span><span class="s">&quot;tree.model&quot;</span>
+<span class="w">            </span><span class="na">metamodelfile=</span><span class="s">&quot;tree.ecore&quot;</span>
+<span class="w">            </span><span class="na">read=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.emf.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;GraphExpected&quot;</span>
+<span class="w">            </span><span class="na">modelfile=</span><span class="s">&quot;graph.model&quot;</span>
+<span class="w">            </span><span class="na">metamodelfile=</span><span class="s">&quot;graph.ecore&quot;</span>
+<span class="w">            </span><span class="na">read=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.emf.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Graph&quot;</span>
+<span class="w">            </span><span class="na">modelfile=</span><span class="s">&quot;transformed.model&quot;</span>
+<span class="w">            </span><span class="na">metamodelfile=</span><span class="s">&quot;graph.ecore&quot;</span>
+<span class="w">            </span><span class="na">read=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/modelTasks&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/epsilon.eunit&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/target&gt;</span>
+<span class="w">  </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tree2graph&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;epsilon.etl</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;${basedir}/resources/Tree2Graph.etl&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Tree&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Graph&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/epsilon.etl&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <p>The EOL script is shown in the listing below: it invokes the helper task (line 3) and checks that the obtained model is equal to the expected model (line 4). Internally, EMC will perform the comparison using EMF Compare.</p>
@@ -1821,11 +1821,11 @@ operation transformationWorksAsExpected() {
 <p>In the previous section, the EOL file is kept very concise because the model setup and model management tasks under test were specified in the Ant buildfile. In this section, we will inline the models and the tasks into the EOL script instead.</p>
 <p>The Ant buildfile is shown in the listing below. It is now very simple: all it needs to do is run the EOL script. However, since we will parse HUTN in the EOL script, we must make sure the s of the metamodels are registered.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project&gt;</span>
-  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;run-tests&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;epsilon.emf.register</span> <span class="na">file=</span><span class="s">&quot;tree.ecore&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;epsilon.emf.register</span> <span class="na">file=</span><span class="s">&quot;graph.ecore&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;epsilon.eunit</span> <span class="na">src=</span><span class="s">&quot;test-inlined.eunit&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/target&gt;</span>
+<span class="w">  </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;run-tests&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;epsilon.emf.register</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;tree.ecore&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;epsilon.emf.register</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;graph.ecore&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;epsilon.eunit</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;test-inlined.eunit&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <p>The EOL script used is shown below. Instead of loading models through the Ant tasks, the <code>loadHutn</code> operation has been used to load the models. The test itself is almost the same, but instead of running a helper target, it invokes an operation which creates and runs the ETL Ant task through the <code>antProject</code> variable provided by EUnit, taking advantage of the support in EOL for invoking Java code through reflection.</p>
@@ -1883,41 +1883,41 @@ operation runETL() {
 </ol>
 <p>The listing below shows the Ant buildfile which would be required for running these steps, showing that while EUnit can use the existing ATL tasks as-is, the required helper task is quite longer than the one shown above. Ideally, Ant tasks should be adapted or wrapped to use models directly from the EMC model repository.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project&gt;</span>
-  <span class="cm">&lt;!-- ... omitted ... --&gt;</span>
-  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;atl&quot;</span><span class="nt">&gt;</span>
-    <span class="cm">&lt;!-- Create temporary files for input and output models --&gt;</span>
-    <span class="nt">&lt;tempfile</span> <span class="na">property=</span><span class="s">&quot;atl.temp.srcfile&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;tempfile</span> <span class="na">property=</span><span class="s">&quot;atl.temp.dstfile&quot;</span> <span class="nt">/&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- ... omitted ... --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;atl&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Create temporary files for input and output models --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;tempfile</span><span class="w"> </span><span class="na">property=</span><span class="s">&quot;atl.temp.srcfile&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;tempfile</span><span class="w"> </span><span class="na">property=</span><span class="s">&quot;atl.temp.dstfile&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-    <span class="cm">&lt;!-- Save input model to a file --&gt;</span>
-    <span class="nt">&lt;epsilon.storeModel</span> <span class="na">model=</span><span class="s">&quot;Tree&quot;</span>
-      <span class="na">target=</span><span class="s">&quot;${atl.temp.srcfile}&quot;</span> <span class="nt">/&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Save input model to a file --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;epsilon.storeModel</span><span class="w"> </span><span class="na">model=</span><span class="s">&quot;Tree&quot;</span>
+<span class="w">      </span><span class="na">target=</span><span class="s">&quot;${atl.temp.srcfile}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-    <span class="cm">&lt;!-- Load the metamodels and the source model --&gt;</span>
-    <span class="nt">&lt;atl.loadModel</span> <span class="na">name=</span><span class="s">&quot;TreeMM&quot;</span> <span class="na">metamodel=</span><span class="s">&quot;MOF&quot;</span>
-      <span class="na">path=</span><span class="s">&quot;metamodels/tree.ecore&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;atl.loadModel</span> <span class="na">name=</span><span class="s">&quot;GraphMM&quot;</span> <span class="na">metamodel=</span><span class="s">&quot;MOF&quot;</span>
-      <span class="na">path=</span><span class="s">&quot;metamodels/graph.ecore&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;atl.loadModel</span> <span class="na">name=</span><span class="s">&quot;Tree&quot;</span> <span class="na">metamodel=</span><span class="s">&quot;TreeMM&quot;</span>
-      <span class="na">path=</span><span class="s">&quot;${atl.temp.srcfile}&quot;</span> <span class="nt">/&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Load the metamodels and the source model --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;atl.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TreeMM&quot;</span><span class="w"> </span><span class="na">metamodel=</span><span class="s">&quot;MOF&quot;</span>
+<span class="w">      </span><span class="na">path=</span><span class="s">&quot;metamodels/tree.ecore&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;atl.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;GraphMM&quot;</span><span class="w"> </span><span class="na">metamodel=</span><span class="s">&quot;MOF&quot;</span>
+<span class="w">      </span><span class="na">path=</span><span class="s">&quot;metamodels/graph.ecore&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;atl.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tree&quot;</span><span class="w"> </span><span class="na">metamodel=</span><span class="s">&quot;TreeMM&quot;</span>
+<span class="w">      </span><span class="na">path=</span><span class="s">&quot;${atl.temp.srcfile}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-    <span class="cm">&lt;!-- Run ATL and save the model --&gt;</span>
-    <span class="nt">&lt;atl.launch</span> <span class="na">path=</span><span class="s">&quot;transformation/tree2graph.atl&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;inmodel</span> <span class="na">name=</span><span class="s">&quot;IN&quot;</span>   <span class="na">model=</span><span class="s">&quot;Tree&quot;</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;outmodel</span> <span class="na">name=</span><span class="s">&quot;OUT&quot;</span> <span class="na">model=</span><span class="s">&quot;Graph&quot;</span> <span class="na">metamodel=</span><span class="s">&quot;GraphMM&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/atl.launch&gt;</span>
-    <span class="nt">&lt;atl.saveModel</span> <span class="na">model=</span><span class="s">&quot;Graph&quot;</span> <span class="na">path=</span><span class="s">&quot;${atl.temp.dstfile}&quot;</span> <span class="nt">/&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Run ATL and save the model --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;atl.launch</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;transformation/tree2graph.atl&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;inmodel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;IN&quot;</span><span class="w">   </span><span class="na">model=</span><span class="s">&quot;Tree&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;outmodel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;OUT&quot;</span><span class="w"> </span><span class="na">model=</span><span class="s">&quot;Graph&quot;</span><span class="w"> </span><span class="na">metamodel=</span><span class="s">&quot;GraphMM&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/atl.launch&gt;</span>
+<span class="w">    </span><span class="nt">&lt;atl.saveModel</span><span class="w"> </span><span class="na">model=</span><span class="s">&quot;Graph&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;${atl.temp.dstfile}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-    <span class="cm">&lt;!-- Load it back into the EUnit suite --&gt;</span>
-    <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Graph&quot;</span>
-      <span class="na">modelfile=</span><span class="s">&quot;${atl.temp.dstfile}&quot;</span>
-      <span class="na">metamodeluri=</span><span class="s">&quot;Graph&quot;</span>
-      <span class="na">read=</span><span class="s">&quot;true&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span> <span class="nt">/&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Load it back into the EUnit suite --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;epsilon.emf.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Graph&quot;</span>
+<span class="w">      </span><span class="na">modelfile=</span><span class="s">&quot;${atl.temp.dstfile}&quot;</span>
+<span class="w">      </span><span class="na">metamodeluri=</span><span class="s">&quot;Graph&quot;</span>
+<span class="w">      </span><span class="na">read=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-    <span class="cm">&lt;!-- Delete temporary files --&gt;</span>
-    <span class="nt">&lt;delete</span> <span class="na">file=</span><span class="s">&quot;${atl.temp.srcfile}&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;delete</span> <span class="na">file=</span><span class="s">&quot;${atl.temp.dstfile}&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;/target&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Delete temporary files --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;delete</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;${atl.temp.srcfile}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;delete</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;${atl.temp.dstfile}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <p>Another advantage in making model management tasks EMC-aware is that they can easily “export” their results as models, making them easier to test. For instance, the EVL Ant task allows for exporting its results as a model by setting the attribute <code>exportAsModel</code> to <code>true</code>. This way, EOL can query the results as any regular model. This is simpler than transforming the validated model to a problem metamodel. The example in the listing below checks that a single warning was produced due to the expected rule (<code>LabelsStartWithT</code>) and the expected model element.</p>

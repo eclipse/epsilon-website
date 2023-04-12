@@ -1115,42 +1115,42 @@ class Interaction extends Step {
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri minisd?&gt;</span>
 <span class="cp">&lt;?render-egx minisd2plantuml.egx?&gt;</span>
 <span class="nt">&lt;_&gt;</span>
-    <span class="nt">&lt;participant</span> <span class="na">name=</span><span class="s">&quot;Customer&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;participant</span> <span class="na">name=</span><span class="s">&quot;ATM&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;participant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Customer&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;participant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ATM&quot;</span><span class="nt">/&gt;</span>
 
-    <span class="nt">&lt;scenario</span> <span class="na">title=</span><span class="s">&quot;Customer-ATM&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Insert card&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Request PIN&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Enter PIN&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;alt</span> <span class="na">title=</span><span class="s">&quot;Check PIN&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;PIN valid&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Display options&quot;</span><span class="nt">/&gt;</span>
-                <span class="nt">&lt;alt</span> <span class="na">title=</span><span class="s">&quot;Options&quot;</span><span class="nt">&gt;</span>
-                    <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;Cash withdrawal&quot;</span><span class="nt">&gt;</span>
-                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Select cash withdrawal&quot;</span><span class="nt">/&gt;</span>
-                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Ask for amount&quot;</span><span class="nt">/&gt;</span>
-                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Enter amount&quot;</span><span class="nt">/&gt;</span>
-                        <span class="nt">&lt;alt</span> <span class="na">title=</span><span class="s">&quot;Check funds&quot;</span><span class="nt">&gt;</span>
-                            <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;Sufficient funds&quot;</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Produce cash&quot;</span><span class="nt">/&gt;</span>
-                            <span class="nt">&lt;/block&gt;</span>
-                            <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;Insufficient funds&quot;</span><span class="nt">&gt;</span>
-                                <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Produce error message&quot;</span><span class="nt">/&gt;</span>
-                            <span class="nt">&lt;/block&gt;</span>
-                        <span class="nt">&lt;/alt&gt;</span>
-                    <span class="nt">&lt;/block&gt;</span>
-                    <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;Balance display&quot;</span><span class="nt">&gt;</span>
-                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;Customer&quot;</span> <span class="na">to=</span><span class="s">&quot;ATM&quot;</span> <span class="na">msg=</span><span class="s">&quot;Select balance display&quot;</span><span class="nt">/&gt;</span>
-                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Display balance&quot;</span><span class="nt">/&gt;</span>
-                        <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Return card&quot;</span><span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/block&gt;</span>
-                <span class="nt">&lt;/alt&gt;</span>
-            <span class="nt">&lt;/block&gt;</span>
-            <span class="nt">&lt;block</span> <span class="na">title=</span><span class="s">&quot;PIN invalid&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;int</span> <span class="na">from=</span><span class="s">&quot;ATM&quot;</span> <span class="na">to=</span><span class="s">&quot;Customer&quot;</span> <span class="na">msg=</span><span class="s">&quot;Try again&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;/block&gt;</span>
-        <span class="nt">&lt;/alt&gt;</span>
-    <span class="nt">&lt;/scenario&gt;</span>
+<span class="w">    </span><span class="nt">&lt;scenario</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Customer-ATM&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Insert card&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Request PIN&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Enter PIN&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;alt</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Check PIN&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;block</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;PIN valid&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Display options&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;alt</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Options&quot;</span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;block</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Cash withdrawal&quot;</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Select cash withdrawal&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Ask for amount&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Enter amount&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;alt</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Check funds&quot;</span><span class="nt">&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;block</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Sufficient funds&quot;</span><span class="nt">&gt;</span>
+<span class="w">                                </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Produce cash&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;/block&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;block</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Insufficient funds&quot;</span><span class="nt">&gt;</span>
+<span class="w">                                </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Produce error message&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                            </span><span class="nt">&lt;/block&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;/alt&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/block&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;block</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;Balance display&quot;</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Select balance display&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Display balance&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Return card&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/block&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/alt&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/block&gt;</span>
+<span class="w">            </span><span class="nt">&lt;block</span><span class="w"> </span><span class="na">title=</span><span class="s">&quot;PIN invalid&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;int</span><span class="w"> </span><span class="na">from=</span><span class="s">&quot;ATM&quot;</span><span class="w"> </span><span class="na">to=</span><span class="s">&quot;Customer&quot;</span><span class="w"> </span><span class="na">msg=</span><span class="s">&quot;Try again&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/block&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/alt&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/scenario&gt;</span>
 <span class="nt">&lt;/_&gt;</span>
 </code></pre></div>
 <h2 id="visualisation-transformation">Visualisation Transformation<a class="headerlink" href="#visualisation-transformation" title="Permanent link">&para;</a></h2>

@@ -1103,24 +1103,24 @@
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>Epsilon libraries are available on <a href="https://mvnrepository.com/artifact/org.eclipse.epsilon">MavenCentral</a>. Below is a fragment of a Maven <code>pom.xml</code> file, where we declare dependencies to the execution engine of Epsilon's <a href="../../eol">core expression language</a> and on Epsilon's driver for EMF-based models. As the EMF driver has a dependency on EMF, we don't need to declare a dependency to the EMF libraries on MavenCentral; Maven will fetch these automatically for us.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.emc.emf<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>2.2.0<span class="nt">&lt;/version&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.eol.engine<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>2.2.0<span class="nt">&lt;/version&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-    ...
+<span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">        </span><span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.emc.emf<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;version&gt;</span>2.2.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">        </span><span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.eol.engine<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">        </span><span class="nt">&lt;version&gt;</span>2.2.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
+<span class="w">    </span>...
 <span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div>
 <h2 id="parsing-and-executing-epsilon-programs">Parsing and Executing Epsilon Programs<a class="headerlink" href="#parsing-and-executing-epsilon-programs" title="Permanent link">&para;</a></h2>
 <p>Having declared a dependency to the EOL engine, parsing and executing an EOL program is as simple as that.</p>
-<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;program.eol&quot;</span><span class="p">));</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;program.eol&quot;</span><span class="p">));</span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1128,70 +1128,70 @@
 </div>
 <h2 id="loading-models">Loading Models<a class="headerlink" href="#loading-models" title="Permanent link">&para;</a></h2>
 <p>Most of your Epsilon programs will need to run against models of some sort. To run an EOL program against a model (<code>model.xmi</code>) that conforms to a file-based Ecore metamodel (<code>metamodel.ecore</code>), you can extend the code above as follows.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Loads the EMF model</span><span class="w"></span>
-<span class="n">EmfModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EmfModel</span><span class="p">();</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">setMetamodelFile</span><span class="p">(</span><span class="s">&quot;metamodel.ecore&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">setModelFile</span><span class="p">(</span><span class="s">&quot;model.xmi&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="c1">// Set the name by which the model will be</span><span class="w"></span>
-<span class="c1">// referred to in the program. Useful if</span><span class="w"></span>
-<span class="c1">// the program manages more than one models</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="c1">// Read the contents of the model from disk</span><span class="w"></span>
-<span class="c1">// when the model is loaded. Set to false</span><span class="w"></span>
-<span class="c1">// to ignore existing model contents (e.g.</span><span class="w"></span>
-<span class="c1">// if the model is the target of a </span><span class="w"></span>
-<span class="c1">// model-to-text transformation)</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">setReadOnLoad</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
-<span class="c1">// Save any changes made to the model</span><span class="w"></span>
-<span class="c1">// when it is disposed</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">setStoredOnDisposal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">load</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Loads the EMF model</span>
+<span class="n">EmfModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EmfModel</span><span class="p">();</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setMetamodelFile</span><span class="p">(</span><span class="s">&quot;metamodel.ecore&quot;</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setModelFile</span><span class="p">(</span><span class="s">&quot;model.xmi&quot;</span><span class="p">);</span>
+<span class="c1">// Set the name by which the model will be</span>
+<span class="c1">// referred to in the program. Useful if</span>
+<span class="c1">// the program manages more than one models</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">);</span>
+<span class="c1">// Read the contents of the model from disk</span>
+<span class="c1">// when the model is loaded. Set to false</span>
+<span class="c1">// to ignore existing model contents (e.g.</span>
+<span class="c1">// if the model is the target of a </span>
+<span class="c1">// model-to-text transformation)</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setReadOnLoad</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="c1">// Save any changes made to the model</span>
+<span class="c1">// when it is disposed</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setStoredOnDisposal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
 
-<span class="c1">// Parses and executes the EOL program</span><span class="w"></span>
-<span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;program.eol&quot;</span><span class="p">));</span><span class="w"></span>
-<span class="c1">// Makes the model accessible from the program</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w"></span>
+<span class="c1">// Parses and executes the EOL program</span>
+<span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;program.eol&quot;</span><span class="p">));</span>
+<span class="c1">// Makes the model accessible from the program</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 
-<span class="c1">// Saves any changes to the model</span><span class="w"></span>
-<span class="c1">// and unloads it from memory</span><span class="w"></span>
-<span class="c1">// Use model.getContext().</span><span class="w"></span>
-<span class="c1">//   getModelRepository().dispose() </span><span class="w"></span>
-<span class="c1">// instead if multiple models are involved</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">dispose</span><span class="p">();</span><span class="w"></span>
+<span class="c1">// Saves any changes to the model</span>
+<span class="c1">// and unloads it from memory</span>
+<span class="c1">// Use model.getContext().</span>
+<span class="c1">//   getModelRepository().dispose() </span>
+<span class="c1">// instead if multiple models are involved</span>
+<span class="n">model</span><span class="p">.</span><span class="na">dispose</span><span class="p">();</span>
 </code></pre></div>
 <h2 id="adding-variables">Adding Variables<a class="headerlink" href="#adding-variables" title="Permanent link">&para;</a></h2>
 <p>You can add variables to your Epsilon program and provide their values from Java as shown below.</p>
-<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;s.println();&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getFrameStack</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="n">Variable</span><span class="p">.</span><span class="w"></span>
-<span class="w">    </span><span class="nf">createReadOnlyVariable</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">));</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;s.println();&quot;</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getFrameStack</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="n">Variable</span><span class="p">.</span>
+<span class="w">    </span><span class="nf">createReadOnlyVariable</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">));</span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 </code></pre></div>
 <h2 id="analysing-epsilon-programs">Analysing Epsilon Programs<a class="headerlink" href="#analysing-epsilon-programs" title="Permanent link">&para;</a></h2>
 <p>Epsilon programs do not have an Ecore-based metamodel, but you can query and analyse them through Epsilon's Java API as shown below.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Parse an ETL transformation</span><span class="w"></span>
-<span class="n">EtlModule</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EtlModule</span><span class="p">();</span><span class="w"></span>
-<span class="n">m</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;rule A2B transform a : In!A to b : Out!B { b.name = a.name; }&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parse an ETL transformation</span>
+<span class="n">EtlModule</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EtlModule</span><span class="p">();</span>
+<span class="n">m</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;rule A2B transform a : In!A to b : Out!B { b.name = a.name; }&quot;</span><span class="p">);</span>
 
-<span class="c1">// Get the first rule of the transformation</span><span class="w"></span>
-<span class="n">TransformationRule</span><span class="w"> </span><span class="n">a2b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">getTransformationRules</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="c1">// Print its name</span><span class="w"></span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a2b</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span><span class="w"></span>
+<span class="c1">// Get the first rule of the transformation</span>
+<span class="n">TransformationRule</span><span class="w"> </span><span class="n">a2b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">getTransformationRules</span><span class="p">().</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="c1">// Print its name</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a2b</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
 
-<span class="c1">// Get the body of the A2B rule</span><span class="w"></span>
-<span class="n">StatementBlock</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">StatementBlock</span><span class="p">)</span><span class="w"> </span><span class="n">a2b</span><span class="p">.</span><span class="na">getBody</span><span class="p">().</span><span class="na">getBody</span><span class="p">();</span><span class="w"></span>
-<span class="c1">// Print the number of statements it contains</span><span class="w"></span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">body</span><span class="p">.</span><span class="na">getStatements</span><span class="p">().</span><span class="na">size</span><span class="p">());</span><span class="w"></span>
+<span class="c1">// Get the body of the A2B rule</span>
+<span class="n">StatementBlock</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">StatementBlock</span><span class="p">)</span><span class="w"> </span><span class="n">a2b</span><span class="p">.</span><span class="na">getBody</span><span class="p">().</span><span class="na">getBody</span><span class="p">();</span>
+<span class="c1">// Print the number of statements it contains</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">body</span><span class="p">.</span><span class="na">getStatements</span><span class="p">().</span><span class="na">size</span><span class="p">());</span>
 </code></pre></div>
 <p>As of version 2.3, Epsilon programs can also be analysed using <a href="https://en.wikipedia.org/wiki/Visitor_pattern">visitors</a>. As an example, see the <code>EolUnparser</code> class which recursively visits the contents of an <code>EolModule</code> and pretty-prints it. To implement your own analyser, you will need to implement the <code>IEolVisitor</code> interface for EOL, or the respective <code>IE*lVisitor</code> interfaces for other Epsilon-based languages. Using a combination of <code>E*lUnparser</code> and your custom visitor, you can easily rewrite Epsilon programs too.</p>
-<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;&#39;Hello world&#39;.println();&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;&#39;Hello world&#39;.println();&quot;</span><span class="p">);</span>
 
-<span class="n">EolUnparser</span><span class="w"> </span><span class="n">unparser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolUnparser</span><span class="p">();</span><span class="w"></span>
-<span class="c1">// Prints &quot;Hello world&quot;.println();</span><span class="w"></span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">unparser</span><span class="p">.</span><span class="na">unparse</span><span class="p">(</span><span class="n">module</span><span class="p">));</span><span class="w"></span>
+<span class="n">EolUnparser</span><span class="w"> </span><span class="n">unparser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolUnparser</span><span class="p">();</span>
+<span class="c1">// Prints &quot;Hello world&quot;.println();</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">unparser</span><span class="p">.</span><span class="na">unparse</span><span class="p">(</span><span class="n">module</span><span class="p">));</span>
 </code></pre></div>
 <h2 id="more-examples">More Examples<a class="headerlink" href="#more-examples" title="Permanent link">&para;</a></h2>
 <p>In Epsilon's Git repository, there are two example projects that show how to run <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone">Epsilon from Java</a>, and the <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone">ANT Epsilon tasks in a headless environment</a> (i.e. from command line).</p>

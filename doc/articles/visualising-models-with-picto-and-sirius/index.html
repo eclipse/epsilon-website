@@ -1113,19 +1113,19 @@
 <p><img alt="Picto Sirius Visualisation" src="img/img5.PNG" /></p>
 <h2 id="modifying-the-example">Modifying the Example<a class="headerlink" href="#modifying-the-example" title="Permanent link">&para;</a></h2>
 <p>The <code>org.eclipse.epsilon.examples.picto.sirius</code> plug-in uses the <code>pictoSource</code> extension point and the <code>BasicFamilyPictoSource</code> class to allow Picto to obtain model elements and auto-refresh on save of the Sirius editor. This uses part of the Sirius API to get the root element of the diagram.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">protected</span><span class="w"> </span><span class="n">EObject</span><span class="w"> </span><span class="nf">getRootOfDiagram</span><span class="p">(</span><span class="n">IEditorPart</span><span class="w"> </span><span class="n">editorPart</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSiriusEditor</span><span class="p">(</span><span class="n">editorPart</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">DDiagramEditor</span><span class="w"> </span><span class="n">editor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">DDiagramEditor</span><span class="p">)</span><span class="w"> </span><span class="n">editorPart</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">protected</span><span class="w"> </span><span class="n">EObject</span><span class="w"> </span><span class="nf">getRootOfDiagram</span><span class="p">(</span><span class="n">IEditorPart</span><span class="w"> </span><span class="n">editorPart</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isSiriusEditor</span><span class="p">(</span><span class="n">editorPart</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">DDiagramEditor</span><span class="w"> </span><span class="n">editor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">DDiagramEditor</span><span class="p">)</span><span class="w"> </span><span class="n">editorPart</span><span class="p">;</span>
 <span class="w">        </span><span class="n">DSemanticDiagramImpl</span><span class="w"> </span><span class="n">diagram</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
-<span class="w">            </span><span class="p">(</span><span class="n">DSemanticDiagramImpl</span><span class="p">)</span><span class="w"> </span><span class="n">editor</span><span class="p">.</span><span class="na">getRepresentation</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">diagram</span><span class="p">.</span><span class="na">getTarget</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="n">DSemanticDiagramImpl</span><span class="p">)</span><span class="w"> </span><span class="n">editor</span><span class="p">.</span><span class="na">getRepresentation</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">diagram</span><span class="p">.</span><span class="na">getTarget</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="kd">protected</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isSiriusEditor</span><span class="p">(</span><span class="n">IEditorPart</span><span class="w"> </span><span class="n">editorPart</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">editorPart</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">DDiagramEditor</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">protected</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isSiriusEditor</span><span class="p">(</span><span class="n">IEditorPart</span><span class="w"> </span><span class="n">editorPart</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">editorPart</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">DDiagramEditor</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>The <code>basicfamily.egx</code> file (located in the resources directory of the <code>org.eclipse.epsilon.examples.picto.sirius</code> plug-in) coordinates the generation of the Picto views.</p>
 <p>The <code>model2bar.egl</code> and <code>model2pie.egl</code> files generate the respective bar and pie chart views using the ChartJS framework.</p>

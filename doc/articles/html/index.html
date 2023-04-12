@@ -1332,73 +1332,73 @@ operation t_td getRealValue() {
 <p><img alt="" src="configure.png" /></p>
 <h2 id="loading-a-html-document-in-your-ant-buildfile">Loading a HTML document in your ANT buildfile<a class="headerlink" href="#loading-a-html-document-in-your-ant-buildfile" title="Permanent link">&para;</a></h2>
 <p>The following ANT build file demonstrates how you can use ANT to load/store and process HTML documents with Epsilon.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
 
-        <span class="nt">&lt;epsilon.loadModel</span> <span class="na">name=</span><span class="s">&quot;M&quot;</span> <span class="na">type=</span><span class="s">&quot;HTML&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;readOnLoad&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;storeOnDisposal&quot;</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;parameter</span> <span class="na">name=</span><span class="s">&quot;file&quot;</span> <span class="na">file=</span><span class="s">&quot;sales.html&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/epsilon.loadModel&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;M&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;HTML&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;readOnLoad&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;storeOnDisposal&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;parameter</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;file&quot;</span><span class="w"> </span><span class="na">file=</span><span class="s">&quot;sales.html&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/epsilon.loadModel&gt;</span>
 
-        <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;sales.eol&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;M&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/epsilon.eol&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.eol</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;sales.eol&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;M&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/epsilon.eol&gt;</span>
 
-    <span class="nt">&lt;/target&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <h2 id="loading-a-html-document-through-java-code">Loading a HTML document through Java code<a class="headerlink" href="#loading-a-html-document-through-java-code" title="Permanent link">&para;</a></h2>
 <p>The following excerpt demonstrates using HTML models using Epsilon's Java API.</p>
-<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
 
-<span class="n">HtmlModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HtmlModel</span><span class="p">();</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">setFile</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span><span class="w"></span>
-<span class="n">model</span><span class="p">.</span><span class="na">load</span><span class="p">();</span><span class="w"></span>
+<span class="n">HtmlModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HtmlModel</span><span class="p">();</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="na">setFile</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">));</span>
+<span class="n">model</span><span class="p">.</span><span class="na">load</span><span class="p">();</span>
 
-<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setModule</span><span class="p">(</span><span class="n">module</span><span class="p">);</span><span class="w"></span>
-<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w"></span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getModelRepository</span><span class="p">().</span><span class="na">addModel</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">setModule</span><span class="p">(</span><span class="n">module</span><span class="p">);</span>
+<span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 </code></pre></div>
 <h2 id="loading-a-remote-html-document-in-gradle">Loading a remote HTML document in Gradle<a class="headerlink" href="#loading-a-remote-html-document-in-gradle" title="Permanent link">&para;</a></h2>
 <p>The example below shows a standalone Gradle file (<code>build.gradle</code>) that runs a set of EOL queries (<code>queries.eol</code>) against the HTML behind the Epsilon homepage.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">build.gradle</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="n">configurations</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">configurations</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">epsilon</span>
+<span class="o">}</span>
 
-<span class="n">repositories</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">maven</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">url</span><span class="w"> </span><span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="o">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">mavenCentral</span><span class="o">()</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="n">repositories</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">maven</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="n">url</span><span class="w"> </span><span class="s2">&quot;https://oss.sonatype.org/content/repositories/snapshots&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">    </span><span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
 
-<span class="n">dependencies</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0-SNAPSHOT&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.html:2.3.0-SNAPSHOT&#39;</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.workflow:2.3.0-SNAPSHOT&#39;</span>
+<span class="w">    </span><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon:org.eclipse.epsilon.emc.html:2.3.0-SNAPSHOT&#39;</span>
+<span class="o">}</span>
 
-<span class="n">task</span><span class="w"> </span><span class="n">setupEpsilonTasks</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Set up the core Epsilon tasks</span><span class="w"></span>
+<span class="n">task</span><span class="w"> </span><span class="n">setupEpsilonTasks</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1">// Set up the core Epsilon tasks</span>
 <span class="w">    </span><span class="n">ant</span><span class="o">.</span><span class="na">taskdef</span><span class="o">(</span><span class="nl">resource:</span><span class="w"> </span><span class="s1">&#39;org/eclipse/epsilon/workflow/tasks/tasks.xml&#39;</span><span class="o">,</span><span class="w"> </span>
-<span class="w">        </span><span class="nl">classpath:</span><span class="w"> </span><span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span><span class="w"> </span><span class="nl">loaderref:</span><span class="w"> </span><span class="s1">&#39;epsilon&#39;</span><span class="o">)</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Set logging level to info so that EOL&#39;s println() is not suppressed</span><span class="w"></span>
-<span class="w">    </span><span class="n">ant</span><span class="o">.</span><span class="na">lifecycleLogLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;INFO&#39;</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="nl">classpath:</span><span class="w"> </span><span class="n">configurations</span><span class="o">.</span><span class="na">epsilon</span><span class="o">.</span><span class="na">asPath</span><span class="o">,</span><span class="w"> </span><span class="nl">loaderref:</span><span class="w"> </span><span class="s1">&#39;epsilon&#39;</span><span class="o">)</span>
+<span class="w">    </span><span class="c1">// Set logging level to info so that EOL&#39;s println() is not suppressed</span>
+<span class="w">    </span><span class="n">ant</span><span class="o">.</span><span class="na">lifecycleLogLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;INFO&#39;</span>
+<span class="o">}</span>
 
-<span class="n">task</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">dependsOn</span><span class="w"> </span><span class="n">tasks</span><span class="o">.</span><span class="na">setupEpsilonTasks</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Load the eclipse.org/epsilon webpage as a HTML model</span><span class="w"></span>
+<span class="n">task</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">dependsOn</span><span class="w"> </span><span class="n">tasks</span><span class="o">.</span><span class="na">setupEpsilonTasks</span>
+<span class="w">    </span><span class="c1">// Load the eclipse.org/epsilon webpage as a HTML model</span>
 <span class="w">    </span><span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.loadModel&#39;</span><span class="o">(</span><span class="nl">name:</span><span class="w"> </span><span class="s1">&#39;HTML&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">type:</span><span class="w"> </span><span class="s1">&#39;HTML&#39;</span><span class="o">,</span><span class="w">  </span>
-<span class="w">        </span><span class="nl">impl:</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon.emc.html.HtmlModel&#39;</span><span class="o">,)</span><span class="w"></span>
-<span class="w">        </span><span class="o">{</span><span class="w"> </span><span class="n">parameter</span><span class="o">(</span><span class="nl">name:</span><span class="w"> </span><span class="s1">&#39;uri&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">value:</span><span class="w"> </span><span class="s1">&#39;https://www.eclipse.org/epsilon/&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">}</span><span class="w"></span>
+<span class="w">        </span><span class="nl">impl:</span><span class="w"> </span><span class="s1">&#39;org.eclipse.epsilon.emc.html.HtmlModel&#39;</span><span class="o">,)</span>
+<span class="w">        </span><span class="o">{</span><span class="w"> </span><span class="n">parameter</span><span class="o">(</span><span class="nl">name:</span><span class="w"> </span><span class="s1">&#39;uri&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">value:</span><span class="w"> </span><span class="s1">&#39;https://www.eclipse.org/epsilon/&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">}</span>
 
-<span class="w">    </span><span class="c1">// Run query.eol against it</span><span class="w"></span>
-<span class="w">    </span><span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span><span class="w"> </span><span class="s1">&#39;queries.eol&#39;</span><span class="o">){</span><span class="w"> </span><span class="n">model</span><span class="o">(</span><span class="nl">ref:</span><span class="w"> </span><span class="s1">&#39;HTML&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">}</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Run query.eol against it</span>
+<span class="w">    </span><span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span><span class="w"> </span><span class="s1">&#39;queries.eol&#39;</span><span class="o">){</span><span class="w"> </span><span class="n">model</span><span class="o">(</span><span class="nl">ref:</span><span class="w"> </span><span class="s1">&#39;HTML&#39;</span><span class="o">)</span><span class="w"> </span><span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">queries.eol</label><div class="tabbed-content">
