@@ -1135,15 +1135,15 @@
 snippet</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;servlet&gt;</span>
-<span class="w">  </span><span class="nt">&lt;servlet-name&gt;</span>egl<span class="nt">&lt;/servlet-name&gt;</span>
-<span class="w">  </span><span class="nt">&lt;servlet-class&gt;</span>
-<span class="w">    </span>org.eclipse.epsilon.egl.servlet.EglServlet
-<span class="w">  </span><span class="nt">&lt;/servlet-class&gt;</span>
-<span class="w">  </span><span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
+  <span class="nt">&lt;servlet-name&gt;</span>egl<span class="nt">&lt;/servlet-name&gt;</span>
+  <span class="nt">&lt;servlet-class&gt;</span>
+    org.eclipse.epsilon.egl.servlet.EglServlet
+  <span class="nt">&lt;/servlet-class&gt;</span>
+  <span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
 <span class="nt">&lt;/servlet&gt;</span>
 <span class="nt">&lt;servlet-mapping&gt;</span>
-<span class="w">  </span><span class="nt">&lt;servlet-name&gt;</span>egl<span class="nt">&lt;/servlet-name&gt;</span>
-<span class="w">  </span><span class="nt">&lt;url-pattern&gt;</span>*.egl<span class="nt">&lt;/url-pattern&gt;</span>
+  <span class="nt">&lt;servlet-name&gt;</span>egl<span class="nt">&lt;/servlet-name&gt;</span>
+  <span class="nt">&lt;url-pattern&gt;</span>*.egl<span class="nt">&lt;/url-pattern&gt;</span>
 <span class="nt">&lt;/servlet-mapping&gt;</span>
 </code></pre></div>
 <ul>
@@ -1231,7 +1231,7 @@ loadModels();
 <h2 id="running-egl-on-google-app-engine">Running EGL on Google App Engine<a class="headerlink" href="#running-egl-on-google-app-engine" title="Permanent link">&para;</a></h2>
 <p>By default App Engine will treat EGL files as static content and serve their source code instead of executing them. To work around this, add the following snippet under the root element of the <code>appengine-web.xml</code> configuration file of your App Engine application.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;static-files&gt;</span>
-<span class="w">  </span><span class="nt">&lt;exclude</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;*.egl&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;exclude</span> <span class="na">path=</span><span class="s">&quot;*.egl&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/static-files&gt;</span>
 </code></pre></div>
 <h2 id="working-with-big-models">Working with big models<a class="headerlink" href="#working-with-big-models" title="Permanent link">&para;</a></h2>

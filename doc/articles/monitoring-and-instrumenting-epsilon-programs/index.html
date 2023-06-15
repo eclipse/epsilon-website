@@ -1045,30 +1045,30 @@
                 <h1 id="monitoring-and-instrumenting-epsilon-programs">Monitoring and Instrumenting Epsilon Programs<a class="headerlink" href="#monitoring-and-instrumenting-epsilon-programs" title="Permanent link">&para;</a></h1>
 <p>Epsilon interpreters provide support for hooking into the execution of model management programs. This can be useful for monitoring and instrumenting Epsilon programs at runtime, and for computing metrics (e.g. model/metamodel/statement coverage, performance metrics) of interest.</p>
 <p>The listing below demonstrates parsing an EOL program and adding an <code>IExecutionListener</code> to its interpreter, which prints the program's statements/expressions to the console as soon as they are executed.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span>
-<span class="w">    </span><span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;for (i in 1.to(10)) { i.println(); }&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getExecutorFactory</span><span class="p">().</span><span class="na">addExecutionListener</span><span class="p">(</span>
-<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">IExecutionListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="s">&quot;for (i in 1.to(10)) { i.println(); }&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getExecutorFactory</span><span class="p">().</span><span class="na">addExecutionListener</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">IExecutionListener</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="nd">@Override</span><span class="w"></span>
 <span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">finishedExecutingWithException</span><span class="p">(</span><span class="n">ModuleElement</span><span class="w"> </span><span class="n">me</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                </span><span class="n">EolRuntimeException</span><span class="w"> </span><span class="n">exception</span><span class="p">,</span><span class="w"> </span><span class="n">IEolContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">                </span><span class="n">EolRuntimeException</span><span class="w"> </span><span class="n">exception</span><span class="p">,</span><span class="w"> </span><span class="n">IEolContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
 
-<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="nd">@Override</span><span class="w"></span>
 <span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">finishedExecuting</span><span class="p">(</span><span class="n">ModuleElement</span><span class="w"> </span><span class="n">me</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                </span><span class="n">IEolContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">IEolContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">me</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">me</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">            </span><span class="nd">@Override</span>
-<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">aboutToExecute</span><span class="p">(</span><span class="n">ModuleElement</span><span class="w"> </span><span class="n">me</span><span class="p">,</span><span class="w"> </span><span class="n">IEolContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">);</span>
-<span class="w">    </span><span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="w">            </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">aboutToExecute</span><span class="p">(</span><span class="n">ModuleElement</span><span class="w"> </span><span class="n">me</span><span class="p">,</span><span class="w"> </span><span class="n">IEolContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>To monitor the execution of an ETL transformation, EVL constraints etc. you can replace <code>EolModule</code> with <code>EtlModule</code>, <code>EvlModule</code> etc.</p>
                 

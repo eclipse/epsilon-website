@@ -1095,14 +1095,14 @@ Make sure that all tests pass in the Tycho build first.</p>
 <p>Check the project metadata in the <code>pom-plain.xml</code> file, which lists the current developers, SCM URLs, and other details.</p>
 <h2 id="preparing-a-maven-release">Preparing a Maven release<a class="headerlink" href="#preparing-a-maven-release" title="Permanent link">&para;</a></h2>
 <p>Set the version in the <code>pom-plain.xml</code> files:</p>
-<div class="highlight"><pre><span></span><code>mvn<span class="w"> </span>-f<span class="w"> </span>pom-plain.xml<span class="w"> </span>versions:set
+<div class="highlight"><pre><span></span><code>mvn -f pom-plain.xml versions:set
 </code></pre></div>
 <p>Enter the version number of the release, and create a commit for it:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>...
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Set pom-plain versions to X.Y.Z&quot;</span>
+<div class="highlight"><pre><span></span><code>git add ...
+git commit -m <span class="s2">&quot;Set pom-plain versions to X.Y.Z&quot;</span>
 </code></pre></div>
 <p>Push the commit to Jenkins:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push
+<div class="highlight"><pre><span></span><code>git push
 </code></pre></div>
 <p><a href="https://github.com/eclipse/epsilon/commit/8f680d0bb7270e332d57fe24334012d3cfdae73b">Here is an example commit</a>.
 Typically this would be the last thing you do before tagging the release.

@@ -1221,7 +1221,7 @@ context Sync {
 <p>While errors/warnings are persisted across sessions, quick-fixes are not. Therefore, if you run validation and re-start Eclipse, in the new Eclipse instance the problems will still appear in the editor/problems view but quick-fixes will not be available until you run validation again. We are currently working on a fix for this.</p>
 <h2 id="recipes">Recipes<a class="headerlink" href="#recipes" title="Permanent link">&para;</a></h2>
 <p>If you need validation to be performed whenever your diagram is saved add the following line in the <code>doSaveDocument(IProgressMonitor monitor, Object element, IDocument document, boolean overwrite)</code> method of your <code>XXXDocumentProvider</code> class (located in the <code>.diagram.part</code> package) in your diagram plugin.</p>
-<div class="highlight"><pre><span></span><code><span class="n">ValidateAction</span><span class="p">.</span><span class="na">runValidation</span><span class="p">((</span><span class="n">View</span><span class="p">)</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span>
+<div class="highlight"><pre><span></span><code><span class="n">ValidateAction</span><span class="p">.</span><span class="na">runValidation</span><span class="p">((</span><span class="n">View</span><span class="p">)</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span><span class="w"></span>
 </code></pre></div>
                 
               

@@ -1141,10 +1141,10 @@ operation Integer fib() : Integer {
 <p>You can turn profiling on through the "Profiling" tab of the run configuration of your Epsilon program.</p>
 <h2 id="enabling-profiling-in-epsilon-ant-tasks">Enabling Profiling in Epsilon ANT tasks<a class="headerlink" href="#enabling-profiling-in-epsilon-ant-tasks" title="Permanent link">&para;</a></h2>
 <p>In addition to profiling specific code blocks, we can use the Epsilon profiling tools to profile entire model management operations invoked as ANT tasks by setting the optional profile attribute to true. In the following example, we have created an ANT build-file that invokes the Fib.eol EOL program we demonstrated above.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;epsilon.eol</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;Fib.eol&quot;</span><span class="w"> </span><span class="na">profile=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/target&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;epsilon.eol</span> <span class="na">src=</span><span class="s">&quot;Fib.eol&quot;</span> <span class="na">profile=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <p>Executing the ANT build-file and refreshing the following Profiling view makes it look like this:</p>
