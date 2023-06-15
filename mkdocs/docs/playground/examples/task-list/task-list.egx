@@ -7,5 +7,5 @@ rule Person2TaskList
     
     // and generate a HTML page
     // containing its output
-    target: p.name + ".html"
+    target: "gen/" + p.name + ".html"
 }
