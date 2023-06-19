@@ -1,7 +1,6 @@
-import { Panel } from "./Panel.js";
-import { Layout } from "./Layout.js";
-import { language, programPanel, secondProgramPanel } from "./Playground.js";
 import { define } from "ace-builds";
+import { Panel } from "./Panel.js";
+import { language, programPanel, secondProgramPanel } from "./Playground.js";
 
 class ConsolePanel extends Panel {
 
@@ -10,7 +9,10 @@ class ConsolePanel extends Panel {
         this.editor.setReadOnly(true);
         this.editor.setValue("", 1);
         this.element.dataset.customButtons = JSON.stringify(this.getButtons());
-        this.detectHyperlinks(this.editor);
+
+        this.defineHoverlink();
+        this.detectSemanticErrorLinks(this.editor);
+        this.detectSyntacticErrorLinks(this.editor);
         this.setTitleAndIcon("Console", "console");   
     }
 
@@ -57,9 +59,7 @@ class ConsolePanel extends Panel {
         return root;
     }
 
-    detectHyperlinks(editor) {
-        var locationRegexp = /\(((.+?)@(\d+):(\d+)-(\d+):(\d+))\)/i;
-
+    defineHoverlink() {
         define("hoverlink", [], function (require, exports, module) {
             "use strict";
 
@@ -68,11 +68,14 @@ class ConsolePanel extends Panel {
             var Range = require("ace/range").Range;
             var EventEmitter = require("ace/lib/event_emitter").EventEmitter;
 
-            var HoverLink = function (editor) {
-                if (editor.hoverLink)
+            var HoverLink = function (editor, regex, fieldName) {
+                this.fieldName = fieldName;
+                if (editor[this.fieldName])
                     return;
-                editor.hoverLink = this;
+                
+                editor[this.fieldName] = this;
                 this.editor = editor;
+                this.regex = regex;
 
                 this.update = this.update.bind(this);
                 this.onMouseMove = this.onMouseMove.bind(this);
@@ -110,7 +113,7 @@ class ConsolePanel extends Panel {
                     }
 
                     var line = editor.session.getLine(docPos.row);
-                    if (docPos.column == line.length) {
+                    if (docPos.column === line.length) {
                         var clippedPos = editor.session.documentToScreenPosition(docPos.row, docPos.column);
                         if (clippedPos.column != screenPos.column) {
                             return this.clear();
@@ -168,7 +171,7 @@ class ConsolePanel extends Panel {
                     var session = editor.session;
                     var line = session.getLine(row);
 
-                    var match = this.getMatchAround(locationRegexp, line, column);
+                    var match = this.getMatchAround(this.regex, line, column);
                     if (!match)
                         return;
 
@@ -195,7 +198,7 @@ class ConsolePanel extends Panel {
                     this.onMouseOut();
                     event.removeListener(this.editor.renderer.scroller, "mousemove", this.onMouseMove);
                     event.removeListener(this.editor.renderer.content, "mouseout", this.onMouseOut);
-                    delete this.editor.hoverLink;
+                    delete this.editor[this.fieldName];
                 };
 
             }).call(HoverLink.prototype);
@@ -203,27 +206,73 @@ class ConsolePanel extends Panel {
             exports.HoverLink = HoverLink;
 
         });
+    }
 
-        var HoverLink = ace.require("hoverlink").HoverLink;
-        editor.hoverLink = new HoverLink(editor);
-        editor.hoverLink.on("open", function (e) {
-            var location = e.value;
-            if (editor.getValue().indexOf(location) > -1) {
-                var matches = location.match(locationRegexp);
-                var Range = ace.require("ace/range").Range;
-                var panel = programPanel;
+    selectRange(editor, e, getSelectionOptions) {
+        var location = e.value;
+        if (editor.getValue().indexOf(location) > -1) {
+            var Range = ace.require("ace/range").Range;
+            var selectionOptions = getSelectionOptions(location);
 
-                if (language == "egx" && matches[2].split(".").pop() == "egl") {
-                    panel = secondProgramPanel;
-                }
-                if (language == "eml" && matches[2].split(".").pop() == "ecl") {
-                    panel = secondProgramPanel;
-                }
+            var guard = selectionOptions.guard;
+            var panel = selectionOptions.panel;
 
+            // The operation is always performed except when a guard is defined and it is false
+            var shouldExecute = guard === undefined || guard === true;
+            if (shouldExecute) {
                 panel.getEditor().selection.setRange(new Range(
-                    parseInt(matches[3]) - 1, parseInt(matches[4]),
-                    parseInt(matches[5]) - 1, parseInt(matches[6])));
+                    selectionOptions.startLine,
+                    selectionOptions.startColumn,
+                    selectionOptions.endLine,
+                    selectionOptions.endColumn
+                ));  
             }
+        }
+    }
+
+    detectSemanticErrorLinks(editor) {
+        var that = this;
+        var semErrorRegex = /\(((.+?)@(\d+):(\d+)-(\d+):(\d+))\)/i;
+        var HoverLink = ace.require("hoverlink").HoverLink;
+        editor.semanticErrorLinks = new HoverLink(editor, semErrorRegex, "semanticErrorLinks");
+        editor.semanticErrorLinks.on("open", function (e) {
+            var getSelectionOptions = function (val) {
+                var matches = val.match(semErrorRegex);
+                var programExtension = matches[2].split(".").pop();
+                return {
+                    panel: language === "egx" && programExtension === "egl"
+                           || language === "eml" && programExtension === "ecl"
+                           ? secondProgramPanel
+                           : programPanel,
+                    startLine: parseInt(matches[3]) - 1,
+                    startColumn: parseInt(matches[4]),
+                    endLine: parseInt(matches[5]) - 1,
+                    endColumn: parseInt(matches[6]),
+                };
+            }
+            that.selectRange(editor, e, getSelectionOptions);
+        });
+    }
+
+    detectSyntacticErrorLinks(editor) {
+        var that = this;
+        var synErrorRegex = /^Line: (\d+),( Column: \d+,)?/i;
+        var HoverLink = ace.require("hoverlink").HoverLink;
+        editor.syntacticErrorLinks = new HoverLink(editor, synErrorRegex, "syntacticErrorLinks");
+        editor.syntacticErrorLinks.on("open", function (e) {
+            var getSelectionOptions = function (val) {
+                var matches = val.match(synErrorRegex);
+                var lineNumber = parseInt(matches[1]) - 1;
+                return {
+                    guard: language != "egx" && language != "eml",
+                    panel: programPanel,
+                    startLine: lineNumber,
+                    startColumn: 0,
+                    endLine: lineNumber + 1,
+                    endColumn: 0,
+                };
+            }
+            that.selectRange(editor, e, getSelectionOptions);
         });
     }
 }
