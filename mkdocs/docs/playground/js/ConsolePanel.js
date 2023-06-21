@@ -68,7 +68,7 @@ class ConsolePanel extends Panel {
             var Range = require("ace/range").Range;
             var EventEmitter = require("ace/lib/event_emitter").EventEmitter;
 
-            var HoverLink = function (editor, regex, fieldName) {
+            var HoverLink = function (editor, regex, fieldName, disableOn) {
                 this.fieldName = fieldName;
                 if (editor[this.fieldName])
                     return;
@@ -81,6 +81,8 @@ class ConsolePanel extends Panel {
                 this.onMouseMove = this.onMouseMove.bind(this);
                 this.onMouseOut = this.onMouseOut.bind(this);
                 this.onClick = this.onClick.bind(this);
+                this.disableOn = disableOn;
+
                 event.addListener(editor.renderer.scroller, "mousemove", this.onMouseMove);
                 event.addListener(editor.renderer.content, "mouseout", this.onMouseOut);
                 event.addListener(editor.renderer.content, "click", this.onClick);
@@ -93,6 +95,10 @@ class ConsolePanel extends Panel {
                 this.range = new Range();
 
                 this.update = function () {
+                    if (this.disableOn()) {
+                        return;
+                    }
+
                     this.$timer = null;
                     var editor = this.editor;
                     var renderer = editor.renderer;
@@ -214,19 +220,12 @@ class ConsolePanel extends Panel {
             var Range = ace.require("ace/range").Range;
             var selectionOptions = getSelectionOptions(location);
 
-            var guard = selectionOptions.guard;
-            var panel = selectionOptions.panel;
-
-            // The operation is always performed except when a guard is defined and it is false
-            var shouldExecute = guard === undefined || guard === true;
-            if (shouldExecute) {
-                panel.getEditor().selection.setRange(new Range(
-                    selectionOptions.startLine,
-                    selectionOptions.startColumn,
-                    selectionOptions.endLine,
-                    selectionOptions.endColumn
-                ));  
-            }
+            selectionOptions.panel.getEditor().selection.setRange(new Range(
+                selectionOptions.startLine,
+                selectionOptions.startColumn,
+                selectionOptions.endLine,
+                selectionOptions.endColumn
+            ));  
         }
     }
 
@@ -234,7 +233,12 @@ class ConsolePanel extends Panel {
         var that = this;
         var semErrorRegex = /\(((.+?)@(\d+):(\d+)-(\d+):(\d+))\)/i;
         var HoverLink = ace.require("hoverlink").HoverLink;
-        editor.semanticErrorLinks = new HoverLink(editor, semErrorRegex, "semanticErrorLinks");
+        editor.semanticErrorLinks = new HoverLink(
+            editor,
+            semErrorRegex,
+            "semanticErrorLinks",
+            () => false
+        );
         editor.semanticErrorLinks.on("open", function (e) {
             var getSelectionOptions = function (val) {
                 var matches = val.match(semErrorRegex);
@@ -258,13 +262,17 @@ class ConsolePanel extends Panel {
         var that = this;
         var synErrorRegex = /^Line: (\d+),( Column: \d+,)?/i;
         var HoverLink = ace.require("hoverlink").HoverLink;
-        editor.syntacticErrorLinks = new HoverLink(editor, synErrorRegex, "syntacticErrorLinks");
+        editor.syntacticErrorLinks = new HoverLink(
+            editor,
+            synErrorRegex,
+            "syntacticErrorLinks",
+            () => language === "egx" || language === "eml"
+        );
         editor.syntacticErrorLinks.on("open", function (e) {
             var getSelectionOptions = function (val) {
                 var matches = val.match(synErrorRegex);
                 var lineNumber = parseInt(matches[1]) - 1;
                 return {
-                    guard: language != "egx" && language != "eml",
                     panel: programPanel,
                     startLine: lineNumber,
                     startColumn: 0,
