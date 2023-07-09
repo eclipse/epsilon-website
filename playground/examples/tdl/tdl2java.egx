@@ -1,0 +1,7 @@
+rule Table2Class
+    transform table : Table {
+
+    template: "template.egl"
+    
+    target: "gen/" + table.name + ".java"
+}

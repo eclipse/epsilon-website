@@ -152,6 +152,29 @@
 		]
 	},
 	{
+		"title": "Java Table Examples",
+		"examples": [
+			{
+				"id": "tdl2java",
+				"title": "Generate Java Table",
+				"language": "egx",
+				"program": "tdl/tdl2java.egx",
+				"secondProgram": "tdl/template.egl",
+				"flexmi": "tdl/tdl-yaml.flexmi",
+				"emfatic": "tdl/tdl.emf",
+				"outputType": "code"
+			},
+			{
+				"id": "validatetdl",
+				"title": "Validate Java Table Model",
+				"language": "evl",
+				"program": "tdl/validate.evl",
+				"flexmi": "tdl/tdl-with-errors-yaml.flexmi",
+				"emfatic": "tdl/tdl.emf"
+			}
+		]
+	},
+	{
 		"title": "Component Examples",
 		"examples": [
 			{

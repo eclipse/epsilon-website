@@ -1,0 +1,9 @@
+<?nsuri tdl?>
+<_>
+	<table name="examinationResults" package="org.eclipse.epsilon.examples">
+		<column name="student" type="java.lang.String"/>
+		<column name="course" type="java.lang.String"/>
+		<column name="Mark" type="java.lang.Integer"/>
+	</table>
+	<table name="EmptyTable"/>
+</_>

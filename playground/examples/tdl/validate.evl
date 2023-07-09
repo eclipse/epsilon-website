@@ -1,0 +1,28 @@
+context Table {
+
+    constraint HasColumns {
+        check: self.columns.size() > 0
+        message: "Table " + self.name + "\nhas no columns"
+    }
+
+    critique HasSearchableColumns {
+        guard: self.satisfies("HasColumns")
+
+        check: self.columns.exists(c|c.searchable)
+
+        message: "Table " + self.name + "\nhas no searchable columns"
+    }
+
+    critique NameStartsWithUpperCase {
+        check: self.name = self.name.ftuc()
+        message: "Table names should start\nwith an uppercase letter"
+    }
+
+}
+
+context Column {
+    critique NameStartsWithLowerCase {
+        check: self.name = self.name.ftlc()
+        message: "Column names should start\nwith a lowercase letter"
+    }
+}

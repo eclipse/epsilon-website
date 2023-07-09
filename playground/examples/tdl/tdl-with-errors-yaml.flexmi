@@ -1,0 +1,23 @@
+?nsuri: tdl
+table: {
+    name: examinationResults,
+    package: org.eclipse.epsilon.examples,
+    column: {
+        name: student,
+        searchable: false,
+        type: java.lang.String
+    },
+    column: {
+        name: course,
+        searchable: false,
+        type: java.lang.String
+    },
+    column: {
+        name: Mark,
+        searchable: false,
+        type: java.lang.Integer
+    } 
+}
+table: {
+    name: EmptyTable
+}
