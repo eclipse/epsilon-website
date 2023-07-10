@@ -614,7 +614,16 @@ assert(a == b);
 
 ### Enumerations
 
-EOL provides the \# operator for accessing enumeration literals. For example, the VisibilityEnum\#vk\_public expression returns the value of the literal `vk_public` of the `VisibilityEnum` enumeration. For EMF metamodels, `VisibilityEnum#vk_public.instance` can also be used.
+EOL provides the `\#` operator for accessing enumeration literals. For example, the `VisibilityEnum\#vk\_public` expression returns the value of the literal `vk_public` of the `VisibilityEnum` enumeration. For EMF metamodels, `VisibilityEnum#vk_public.instance` can also be used.
+
+Since 2.5.0, you can optionally omit the type when referring to enumeration literals. All these options are available:
+
+* `#vk_public`
+* `VisibilityEnum#vk_public`
+* `Model!#vk_public`
+* `Model!VisibilityEnum#vk_public`
+
+If a reference to an enumeration literal is ambiguous (i.e. there are several enumerations with a literal with the given name), EOL will report a warning and continue executing by assuming it refers to the first match.
 
 Statements
 ----------
