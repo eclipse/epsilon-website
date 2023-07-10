@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-5.4.0">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-5.4.0">
     
     
       
@@ -1404,28 +1404,28 @@ PatternMatchModel -- Match: matches *</div>
 <h2 id="interoperability-with-other-model-management-tasks">Interoperability with Other Model Management Tasks<a class="headerlink" href="#interoperability-with-other-model-management-tasks" title="Permanent link">&para;</a></h2>
 <p>As a <em>PatternMatchModel</em> is an instance of <em>IModel</em>, after its computation it can be manipulated by other Epsilon programs. For example, the listing below demonstrates running the EPL module and passing its output to the EVL constraints that follow and, if validation is successful, to an ETL transformation where it is used to guide the generation of a UML model.</p>
 <p>In lines 4-7, the Java model is loaded and is assigned the name <code>Java</code>. Then, in line 9, the Java model is passed on to <code>publicfield.epl</code> for pattern matching. The result of pattern matching, which is an instance of the <code>PatternMatchModel</code> class (and therefore also an instance of <code>IModel</code>) is exported to the global context under the name <code>Patterns</code>. Then, in line 13, both the <code>Patterns</code> and the <code>Java</code> models are passed on to the EVL model validation task which performs validation of the identified pattern matches.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
 
-        <span class="nt">&lt;epsilon.emf.loadModel</span> <span class="na">name=</span><span class="s">&quot;Java&quot;</span>
-            <span class="na">modelfile=</span><span class="s">&quot;org.eclipse.epsilon.eol.engine_java.xmi&quot;</span> 
-            <span class="na">metamodeluri=</span><span class="s">&quot;...MoDisco/Java/0.2.incubation/java&quot;</span>
-            <span class="na">read=</span><span class="s">&quot;true&quot;</span> <span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.emf.loadModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Java&quot;</span>
+<span class="w">            </span><span class="na">modelfile=</span><span class="s">&quot;org.eclipse.epsilon.eol.engine_java.xmi&quot;</span><span class="w"> </span>
+<span class="w">            </span><span class="na">metamodeluri=</span><span class="s">&quot;...MoDisco/Java/0.2.incubation/java&quot;</span>
+<span class="w">            </span><span class="na">read=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">store=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
 
-        <span class="nt">&lt;epsilon.epl</span> <span class="na">src=</span><span class="s">&quot;publicfield.epl&quot;</span> <span class="na">exportAs=</span><span class="s">&quot;Patterns&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Java&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/epsilon.epl&gt;</span> 
+<span class="w">        </span><span class="nt">&lt;epsilon.epl</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;publicfield.epl&quot;</span><span class="w"> </span><span class="na">exportAs=</span><span class="s">&quot;Patterns&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Java&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/epsilon.epl&gt;</span><span class="w"> </span>
 
-        <span class="nt">&lt;epsilon.evl</span> <span class="na">src=</span><span class="s">&quot;constraints.evl&quot;</span><span class="nt">&gt;</span> 
-            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Patterns&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Java&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/epsilon.evl&gt;</span> 
+<span class="w">        </span><span class="nt">&lt;epsilon.evl</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;constraints.evl&quot;</span><span class="nt">&gt;</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Patterns&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Java&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/epsilon.evl&gt;</span><span class="w"> </span>
 
-        <span class="nt">&lt;epsilon.etl</span> <span class="na">src=</span><span class="s">&quot;java2uml.etl&quot;</span><span class="nt">&gt;</span> 
-            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Patterns&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;model</span> <span class="na">ref=</span><span class="s">&quot;Java&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;/epsilon.etl&gt;</span>
-    <span class="nt">&lt;/target&gt;</span>
+<span class="w">        </span><span class="nt">&lt;epsilon.etl</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;java2uml.etl&quot;</span><span class="nt">&gt;</span><span class="w"> </span>
+<span class="w">            </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Patterns&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Java&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/epsilon.etl&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/target&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 <p>Line 1 below defines a set of constraints that will be applied to instances of the <em>PublicField</em> type from the <em>Patterns</em> model. As discussed above, these are all matched instances of the <em>PublicField</em> pattern. Line 4, specifies the condition that needs to be satisfied by instances of the pattern. Notice the <em>self.getter</em> and <em>self.field</em> expressions which return the <em>MethodDeclaration</em> and <em>FieldDeclaration</em> bound to the instance of the pattern. Then, line 5 defines the message that should be produced for instances of <em>PublicField</em> that do not satisfy this constraint.</p>
