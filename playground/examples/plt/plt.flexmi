@@ -1,0 +1,47 @@
+<?nsuri plt?>
+<palette>
+    <colour name="white" hex="ffffff"/>
+    <colour name="black" hex="000000"/>
+    
+    <colour name="lightblue" hex="00C2DE"/>
+    <colour name="darkblue" hex="001E82"/>
+    <colour name="lightgreen" hex="78BF26"/>
+    <colour name="darkgreen" hex="144835"/>
+    <colour name="pink" hex="E31A82"/>
+    <colour name="purple" hex="3C0032"/>
+    <colour name="yellow" hex="FFD200"/>
+    <colour name="coolgrey" hex="A3ADB4"/>
+    <colour name="warmgrey" hex="A6A091"/>
+    <colour name="orange" hex="FD5000"/>
+    
+    <group name="Primary Colourways">
+        <combo back="lightblue" fore="black"/>
+        <combo back="lightgreen" fore="black"/>
+        <combo back="yellow" fore="black"/>
+        <combo back="darkblue" fore="white"/>
+        <combo back="darkgreen" fore="white"/>
+        <combo back="purple" fore="white"/>
+        <combo back="pink" fore="white"/>
+    </group>
+    
+    <group name="Complementary Colours">    
+        <combo back="lightblue" fore="darkblue" invert="true"/>
+        <combo back="yellow" fore="darkblue" invert="true"/>
+        <combo back="lightgreen" fore="darkblue" invert="true"/>
+        <combo back="lightgreen" fore="darkgreen" invert="true"/>
+        <combo back="yellow" fore="darkgreen" invert="true"/>
+        <combo back="yellow" fore="purple" invert="true"/>
+        <combo back="pink" fore="purple" invert="true"/>
+        <combo back="lightblue" fore="purple" invert="true"/>
+    </group>
+    
+    <group name="Supporting Colourways">
+        <combo back="coolgrey" fore="darkgreen"/>
+        <combo back="orange" fore="darkblue"/>
+        <combo back="warmgrey" fore="purple"/>
+        <combo back="purple" fore="orange"/>
+        <combo back="white" fore="darkblue"/>
+        <combo back="white" fore="orange"/>
+    </group>
+    
+</palette>

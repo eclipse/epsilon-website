@@ -1,0 +1,23 @@
+@namespace(uri="plt", prefix="")
+package plt;
+
+class Palette {
+	val Colour[*] colours;
+	val Group[*] groups;
+}
+
+class Group {
+    attr String name;
+    val Combination[*] combinations;
+}
+
+class Colour {
+    attr String name;
+    attr String hex;
+}
+
+class Combination {
+    ref Colour background;
+    ref Colour foreground;
+    attr boolean invertible = false;
+}
