@@ -116,6 +116,15 @@
 				"flexmi": "wbs.flexmi",
 				"emfatic": "wbs.emf",
 				"outputType": "puml"
+			},
+			{
+				"id": "plt2html",
+				"title": "Generate SVG Variants",
+				"language": "egl",
+				"program": "plt/plt2html.egl",
+				"flexmi": "plt/plt.flexmi",
+				"emfatic": "plt/plt.emf",
+				"outputType": "html"
 			}
 		]
 	},

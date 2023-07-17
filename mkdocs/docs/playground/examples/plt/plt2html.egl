@@ -1,0 +1,57 @@
+[*Generates variants of an SVG image according to colour combinations specified in a model*]
+<html>
+<head>
+[*Bootstrap CSS*]
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+</head>
+[%
+// Create inverse colour combinations for combinations marked as invertible
+for (g in Group.all) {
+    for (c in g.combinations.clone()) {
+        if (c.invertible) {
+            var inverse : new Combination;
+            inverse.foreground = c.background;
+            inverse.background = c.foreground;
+            // Add the inverse combination right after the combination itself
+            g.combinations.add(g.combinations.indexOf(c) + 1, inverse);
+        }
+    }
+}
+var combinationNumber = 0;
+%]
+<body style="padding:10px">
+[%for (g in Group.all){%]
+<h1>[%=g.name%]</h1>
+<div style="display:flex;flex-wrap:wrap">
+[%for (c in g.combinations){
+    combinationNumber ++;
+    var class = "triangle" + Combination.all.indexOf(c);%]
+<div style="padding:5px">
+<h5>Option [%=combinationNumber%]</h5>
+<svg xmlns="http://www.w3.org/2000/svg" style="padding:20px;background-color:#[%=c.background.hex%]" viewBox="0 0 112.2 151.14" width="100px">
+   <defs>
+      <style>.[%=class%]{fill:#[%=c.foreground.hex%];stroke-width: 1px;stroke: #[%=c.background.hex%];}</style>
+   </defs>
+   <g id="Layer_2" data-name="Layer 2">
+      <g id="Layer_1-2" data-name="Layer 1">
+         <polygon class="[%=class%]" points="112.2 21.59 112.2 64.77 74.8 43.18 112.2 21.59" />
+         <polygon class="[%=class%]" points="74.8 86.36 112.2 64.77 112.2 107.96 74.8 86.37 74.8 86.36" />
+         <polygon class="[%=class%]" points="74.8 0 112.2 21.59 74.8 43.18 74.8 0" />
+         <polygon class="[%=class%]" points="112.2 107.96 74.8 129.55 74.8 86.37 112.2 107.96" />
+         <polygon class="[%=class%]" points="37.4 21.59 74.8 0 74.8 43.18 37.4 21.59" />
+         <polygon class="[%=class%]" points="37.4 64.78 0 43.18 37.4 21.59 37.4 64.78" />
+         <polygon class="[%=class%]" points="0 86.37 0 43.19 37.4 64.78 0 86.37" />
+         <polygon class="[%=class%]" points="74.8 86.37 37.4 107.96 37.4 64.78 74.8 86.36 74.8 86.37" />
+         <polygon class="[%=class%]" points="0 129.55 0 86.37 37.4 107.96 0 129.55" />
+         <polygon class="[%=class%]" points="0 86.37 0 86.36 37.4 64.78 37.4 107.96 0 86.37" />
+         <polygon class="[%=class%]" points="112.2 64.77 74.8 86.36 74.8 43.18 112.2 64.77" />
+         <polygon class="[%=class%]" points="37.4 151.14 0 129.55 37.4 107.96 37.4 151.14" />
+      </g>
+   </g>
+</svg>
+</div>
+[%}%]
+</div>
+[%}%]
+</body>
+</html>
