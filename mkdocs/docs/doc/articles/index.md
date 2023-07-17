@@ -11,6 +11,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 - [Call Java functional interfaces from Epsilon](lambda-expressions): This article demonstrates how to call native methods which take functions as their parameter, using lambdas and streams directly from Epsilon using EOL syntax.
 - [Profiling Epsilon Programs](profiling): This article demonstrates how to profile Epsilon programs using the platform's built-in profiling tools.
 - [EOL Interpreter View](eol-interpreter-view): This article demonstrates an Eclipse view for running EOL scripts against selected model elements in EMF-based editors.
+- [Epsilon Debugger](debugger): Demonstrates how to use the Eclipse-based step-by-step debugging support in the Epsilon languages.
 
 ## Epsilon Validation Language
 
