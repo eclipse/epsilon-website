@@ -57,6 +57,8 @@ nav:
 theme:
   name: material
   custom_dir: custom_theme
+  features:
+    - content.code.copy
   logo: 'assets/images/epsilon-white-background.png'
   favicon: 'assets/images/favicon.png'
   palette:
