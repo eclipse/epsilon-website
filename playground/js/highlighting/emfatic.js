@@ -9,7 +9,7 @@ var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var emfaticHighlightRules = function() {
 
     var keywords = (
-        "abstract|attr|class|enum|extends|import|package|ref|val|op|readonly|volatile|transient|unsettable|derived|unique|ordered|resolve|id"
+        "abstract|attr|class|enum|extends|import|package|ref|val|op|readonly|volatile|transient|unsettable|derived|unique|ordered|resolve|id|datatype"
     );
 
     var builtinConstants = (
