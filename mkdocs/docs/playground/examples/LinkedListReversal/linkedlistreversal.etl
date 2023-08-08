@@ -1,0 +1,16 @@
+rule LinkedList2LinkedList 
+    transform s : Source!LinkedList
+    to t : Target!LinkedList {
+        
+    t.nodes ::= s.nodes;
+    t.head ::= Source!Node.all.selectOne(n|n.next == null);
+}
+
+rule Node2Node
+    transform s : Source!Node
+    to t : Target!Node {
+    
+    t.name = s.name;
+    t.next ::= Source!Node.all.selectOne(n|n.next = s);
+}
+

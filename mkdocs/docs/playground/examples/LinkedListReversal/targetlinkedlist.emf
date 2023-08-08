@@ -1,0 +1,12 @@
+@namespace(uri="linkedlist", prefix="")
+package linkedlist;
+
+class LinkedList {
+	ref Node head;
+	val Node[*] nodes;
+}
+
+class Node {
+    attr String name;
+    ref Node next;
+}

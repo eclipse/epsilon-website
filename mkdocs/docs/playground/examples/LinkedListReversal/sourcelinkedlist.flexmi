@@ -1,0 +1,5 @@
+<?nsuri linkedlist?>
+<linkedlist head="N1">
+    <node label="N1" next="N2"/>
+    <node label="N2"/>
+</linkedlist>
