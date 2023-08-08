@@ -25,6 +25,8 @@ rule Transition2TargetLink
 	a.ahref = "#" + t.target.name;
 }
 
+// Results of equivalents() operation can be prioritized (ordered) using rules that are declared @primary
+//Primary rule's results precede other rules
 @primary
 rule Transition2Heading 
 	transform t : Source!Transition

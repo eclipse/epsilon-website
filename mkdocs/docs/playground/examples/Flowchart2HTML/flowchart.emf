@@ -2,7 +2,7 @@
 package flowchart;
 
 abstract class NamedElement {
-	attr String[1] name;
+	attr String name;
 }
 
 class Flowchart extends NamedElement {
@@ -16,8 +16,8 @@ abstract class Node extends NamedElement {
 }
 
 class Transition extends NamedElement {
-   ref Node[1]#outgoing source;
-   ref Node[1]#incoming target;
+   ref Node#outgoing source;
+   ref Node#incoming target;
 }
 
 class Action extends Node {

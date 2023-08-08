@@ -1,6 +1,6 @@
 rule Action2Elements
 	transform a : Source!Action
-	to container : Target!DIV, title : Target!H1, link : Target!A {
+	to container : Target!DIV, title : Target!H1, link : Target!A { //Note only one source element is transformed into 3 targets
 	
 	// Note that "Get up" is not transformed as it has no outgoing transitions
 	guard: a.outgoing.notEmpty() 

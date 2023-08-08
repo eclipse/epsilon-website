@@ -234,7 +234,12 @@
 				"flexmi": "LinkedListReversal/sourcelinkedlist.flexmi",
 				"emfatic": "LinkedListReversal/sourcelinkedlist.emf",
 				"secondEmfatic": "LinkedListReversal/targetlinkedlist.emf"
-			},
+			}
+		]
+	},
+	{
+		"title": "Flowchart2HTML ETL Examples",
+		"examples": [
 			{
 				"id": "base",
 				"title": "Flowchart to HTML: Base example",

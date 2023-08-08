@@ -1,3 +1,7 @@
+//This rule is used to transform a NamedElement into a Heading.
+//Flowchart class extends NamedElement, so all Flowchart elements will be transformed into Headings.
+
+//@greedy tag prioritizes execution of this rule over other rules.
 @greedy
 rule NamedElement2Heading
 	transform e : Source!NamedElement

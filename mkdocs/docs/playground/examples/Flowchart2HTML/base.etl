@@ -1,3 +1,9 @@
+/*
+This ETL program converts a flowchart model to a HTML document. 
+Specifically, it turns all flowchart elements and sub-elements into headings.
+*/
+
+//This rule transforms all flowchart elements to headings
 rule Flowchart2Heading
 	transform f : Source!Flowchart
 	to h1 : Target!H1 {
@@ -5,6 +11,7 @@ rule Flowchart2Heading
 	h1.value = f.name;
 }
 
+//This rule transforms all action elements to headings
 rule Action2Heading
 	transform a : Source!Action
 	to h1 : Target!H1 {
@@ -12,6 +19,7 @@ rule Action2Heading
 	h1.value = a.name;
 }
 
+//This rule transforms all decision elements to headings
 rule Decision2Heading
 	transform d : Source!Decision
 	to h1 : Target!H1 {
@@ -19,6 +27,7 @@ rule Decision2Heading
 	h1.value = d.name;
 }
 
+//This rule transforms all transition elements to headings
 rule Transition2Heading
 	transform t : Source!Transition
 	to h1 : Target!H1 {

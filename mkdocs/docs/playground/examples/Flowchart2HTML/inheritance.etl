@@ -5,13 +5,14 @@ rule Flowchart2H1
 	transform e : Source!Flowchart
 	to h1 : Target!H1 {
 	
-	h1.value = "Flowchart " + e.name;
+	h1.value = "Flowchart " + e.name; //Assigns the name of the flowchart to the value of the h1 element
 }
 
+//Transform subflows into headings
 rule Subflow2H1
 	transform e : Source!Subflow
 	to h1 : Target!H1
-	extends Flowchart2H1 {
+	extends Flowchart2H1 { //Subflow2H1 inherits from Flowchart2H1
 	
 	h1.value = "Subflow " + h1.value;
 }

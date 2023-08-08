@@ -1,3 +1,5 @@
+//This ETL program transforms flowchart elements and sub-elements into HTML headings
+
 rule Flowchart2Heading
 	transform f : Source!Flowchart
 	to div : Target!DIV {
@@ -5,6 +7,7 @@ rule Flowchart2Heading
 	div.children.addAll(f.nodes.equivalent());
 }
 
+//Lazy rules are invoked after all non-lazy rules have been executed
 @lazy
 rule Action2Heading 
 	transform a : Source!Action
@@ -28,5 +31,4 @@ rule Transition2Heading
 	to h1 : Target!H1 {
 	
 	h1.value = t.name;
-}
 }
