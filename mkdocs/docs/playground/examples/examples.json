@@ -230,10 +230,10 @@
 				"id": "linkedlistreversal",
 				"title": "Reverse a linked list",
 				"language": "etl",
-				"program": "LinkedListReversal/linkedlistreversal.etl",
-				"flexmi": "LinkedListReversal/sourcelinkedlist.flexmi",
-				"emfatic": "LinkedListReversal/sourcelinkedlist.emf",
-				"secondEmfatic": "LinkedListReversal/targetlinkedlist.emf"
+				"program": "linked-list-reversal/linkedlistreversal.etl",
+				"flexmi": "linked-list-reversal/sourcelinkedlist.flexmi",
+				"emfatic": "linked-list-reversal/sourcelinkedlist.emf",
+				"secondEmfatic": "linked-list-reversal/targetlinkedlist.emf"
 			}
 		]
 	},
@@ -244,64 +244,64 @@
 				"id": "base",
 				"title": "Base example",
 				"language": "etl",
-				"program": "Flowchart2HTML/base.etl",
-				"flexmi": "Flowchart2HTML/wakeup.flexmi",
-				"emfatic": "Flowchart2HTML/flowchart.emf",
-				"secondEmfatic": "Flowchart2HTML/html.emf"
+				"program": "flowchart2html/base.etl",
+				"flexmi": "flowchart2html/wakeup.flexmi",
+				"emfatic": "flowchart2html/flowchart.emf",
+				"secondEmfatic": "flowchart2html/html.emf"
 			},
 			{
 				"id": "equivalent",
 				"title": "Equivalent method example",
 				"language": "etl",
-				"program": "Flowchart2HTML/equivalent.etl",
-				"flexmi": "Flowchart2HTML/wakeup.flexmi",
-				"emfatic": "Flowchart2HTML/flowchart.emf",
-				"secondEmfatic": "Flowchart2HTML/html.emf"
+				"program": "flowchart2html/equivalent.etl",
+				"flexmi": "flowchart2html/wakeup.flexmi",
+				"emfatic": "flowchart2html/flowchart.emf",
+				"secondEmfatic": "flowchart2html/html.emf"
 			},
 			{
 				"id": "greedy",
 				"title": "Greedy tag example",
 				"language": "etl",
-				"program": "Flowchart2HTML/greedy.etl",
-				"flexmi": "Flowchart2HTML/wakeup.flexmi",
-				"emfatic": "Flowchart2HTML/flowchart.emf",
-				"secondEmfatic": "Flowchart2HTML/html.emf"
+				"program": "flowchart2html/greedy.etl",
+				"flexmi": "flowchart2html/wakeup.flexmi",
+				"emfatic": "flowchart2html/flowchart.emf",
+				"secondEmfatic": "flowchart2html/html.emf"
 			},
 			{
 				"id": "inheritance",
 				"title": "Inheritance example",
 				"language": "etl",
-				"program": "Flowchart2HTML/inheritance.etl",
-				"flexmi": "Flowchart2HTML/wakeup_with_subflow.flexmi",
-				"emfatic": "Flowchart2HTML/flowchart.emf",
-				"secondEmfatic": "Flowchart2HTML/html.emf"
+				"program": "flowchart2html/inheritance.etl",
+				"flexmi": "flowchart2html/wakeup_with_subflow.flexmi",
+				"emfatic": "flowchart2html/flowchart.emf",
+				"secondEmfatic": "flowchart2html/html.emf"
 			},
 			{
 				"id": "lazy",
 				"title": "Lazy tag example",
 				"language": "etl",
-				"program": "Flowchart2HTML/lazy.etl",
-				"flexmi": "Flowchart2HTML/wakeup.flexmi",
-				"emfatic": "Flowchart2HTML/flowchart.emf",
-				"secondEmfatic": "Flowchart2HTML/html.emf"
+				"program": "flowchart2html/lazy.etl",
+				"flexmi": "flowchart2html/wakeup.flexmi",
+				"emfatic": "flowchart2html/flowchart.emf",
+				"secondEmfatic": "flowchart2html/html.emf"
 			},
 			{
 				"id": "multiple_targets",
 				"title": "Multiple targets example",
 				"language": "etl",
-				"program": "Flowchart2HTML/multiple_targets.etl",
-				"flexmi": "Flowchart2HTML/wakeup.flexmi",
-				"emfatic": "Flowchart2HTML/flowchart.emf",
-				"secondEmfatic": "Flowchart2HTML/html.emf"
+				"program": "flowchart2html/multiple_targets.etl",
+				"flexmi": "flowchart2html/wakeup.flexmi",
+				"emfatic": "flowchart2html/flowchart.emf",
+				"secondEmfatic": "flowchart2html/html.emf"
 			},
 			{
 				"id": "primary",
 				"title": "Primary tag example",
 				"language": "etl",
-				"program": "Flowchart2HTML/primary.etl",
-				"flexmi": "Flowchart2HTML/wakeup.flexmi",
-				"emfatic": "Flowchart2HTML/flowchart.emf",
-				"secondEmfatic": "Flowchart2HTML/html.emf"
+				"program": "flowchart2html/primary.etl",
+				"flexmi": "flowchart2html/wakeup.flexmi",
+				"emfatic": "flowchart2html/flowchart.emf",
+				"secondEmfatic": "flowchart2html/html.emf"
 			}
 		]
 	},
