@@ -2,7 +2,7 @@
 
 In this article we demonstrate how you can query list of references stored in BibTeX files in Epsilon programs using the BibTeX EMC driver. All the examples in this article demonstrate using EOL to script BibTeX files. However, it's worth stressing that BibTeX files are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - XML or EMF-based -, or to text), compare and merge your BibTeX files.
 
-##Querying a BibTeX file
+## Querying a BibTeX file
 
 
 We use the following `eclipse.bib` as a base for demonstrating the EOL
