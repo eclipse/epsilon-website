@@ -1,4 +1,7 @@
-# Using Epsilon for ECore Validation, Setting and Invocation Delegation
+# Using Epsilon for Ecore Validation, Setting and Invocation Delegation
+
+!!! note
+    This Feature is available in versions >= 2.5.0
 
 EMF provides three delegation mechanisms that enable functionality not directly supported by EMF to be delegated to a technology that can support it.
 
@@ -6,7 +9,7 @@ EMF provides three delegation mechanisms that enable functionality not directly 
  - Setting Delegate supports getting an initial or derived computed value for an EStructuralFeature
  - Invocation Delegate supports the execution of a function defined by an EOperation
 
-Epsilon supports using EOL for setting and invocation delegation and EVL for validation delegation. Delegate registration and delegate implementation are added to the ECore model via EAnnotations.
+Epsilon supports using EOL for setting and invocation delegation and EVL for validation delegation. Delegate registration and delegate implementation are added to the Ecore model via EAnnotations.
 
 ## Delegate Registration
 
@@ -90,7 +93,7 @@ Validation delegation allows to specify contraints for an EClassifier and consis
 
 ### Specifying Constraints
 
-All ECore constraints must be listed in an EAnnotation on the EClassifier
+All Ecore constraints must be listed in an EAnnotation on the EClassifier
 
 ```
 source = http://www.eclipse.org/emf/2002/Ecore
