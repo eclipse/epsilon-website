@@ -44,6 +44,7 @@ This page links to more than **60 articles** on various aspects of Epsilon. Shou
 - [Parsing XML documents as EMF models with Flexmi](../flexmi): This article demonstrates how you can use Flexmi to parse XML documents in a fuzzy manner as instances of Ecore metamodels.
 - [Modularity Mechanisms in Flexmi](modular-flexmi): This article demonstrates how you can break down Flexmi models over multiple files and use templates to capture complex reusable structures in your models.
 - [Connecting to CDO repositories](cdo-emc.md): This article shows how to connect to an Eclipse Connected Data Objects model repository from Epsilon.
+- [Using Epsilon for Ecore Validation, Setting and Invocation Delegation](epsilon-in-ecore): This shows how to use Epsilon in an Ecore model to provide Invocation and Setting delegation with EOL and Validation Delegation with EVL.
 
 ## Epsilon and UML models
 - [Managing Profiled UML Models in Epsilon](profiled-uml-models): This article shows how to create and query profiled Eclipse UML models using Epsilon's core language.
