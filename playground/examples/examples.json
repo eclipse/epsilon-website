@@ -225,6 +225,15 @@
 				"flexmi": "oo.yaml.flexmi",
 				"emfatic": "oo.emf",
 				"secondEmfatic": "db.emf"
+			},
+			{
+				"id": "notes2coins",
+				"title": "Transform Notes to Coins",
+				"language": "etl",
+				"program": "notes-and-coins/notes2coins.etl",
+				"flexmi": "notes-and-coins/notes.flexmi",
+				"emfatic": "notes-and-coins/notes.emf",
+				"secondEmfatic": "notes-and-coins/coins.emf"
 			}
 		]
 	},
