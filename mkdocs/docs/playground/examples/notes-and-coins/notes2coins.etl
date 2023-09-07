@@ -1,0 +1,29 @@
+// Transforms a wallet with notes
+// into a pouch with 1-unit coins
+rule WalletToPouch
+    transform wallet : Source!Wallet
+    to pouch : Target!Pouch {
+    
+    pouch.coins ::= wallet.notes;
+}
+
+// Demonstrates how to transform an
+// element into multiple elements
+rule NoteToCoins
+    transform note : Source!Note
+    // The type of the output variable
+    // is a sequence as we don't know
+    // in advance how many 1-unit
+    // coins will be produced for a note
+    to coins : Sequence<Target!Coin> {
+    
+    // Only consider notes
+    // with positive values
+    guard: note.value > 0
+    
+    for (i in 1.`to`(note.value)) { // `to` is in back-ticks because it's a keyword in ETL
+        var coin = new Target!Coin;
+        coin.value = 1;
+        coins.add(coin);
+    }
+}

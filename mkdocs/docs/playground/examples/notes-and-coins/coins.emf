@@ -1,0 +1,9 @@
+package coins;
+
+class Pouch {
+    val Coin[*] coins;
+}
+
+class Coin {
+    attr int value;
+}

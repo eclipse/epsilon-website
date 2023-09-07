@@ -1,0 +1,9 @@
+package notes;
+
+class Wallet {
+    val Note[*] notes;
+}
+
+class Note {
+    attr int value;
+}
