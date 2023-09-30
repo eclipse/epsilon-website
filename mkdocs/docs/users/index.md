@@ -13,6 +13,7 @@
 ![THALES](logos/thales.png)
 ![Siemens](logos/siemens.png)
 ![Rolls-Royce](logos/rr.png)
+![Leonardo](logos/leonardo.png)
 ![IBM](logos/ibm.png)
 ![Oracle](logos/oracle.png)
 ![Codebots](logos/codebots.png)
@@ -53,6 +54,7 @@ Rolls-Royce
 	[3](https://bugs.eclipse.org/bugs/show_bug.cgi?id=381984),
 	[4](https://bugs.eclipse.org/bugs/show_bug.cgi?id=383547),
 	[5](https://bugs.eclipse.org/bugs/show_bug.cgi?id=390339)],
+Leonardo [[1](https://results2021.ref.ac.uk/impact/41737117-c238-442e-9a53-8d8610b1e534?page=1)],
 IBM 
 	[[1](https://bugs.eclipse.org/bugs/show_bug.cgi?id=264709),
 	[2](https://bugs.eclipse.org/bugs/show_bug.cgi?id=268085),
