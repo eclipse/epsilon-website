@@ -1246,7 +1246,9 @@
 <p>The EGl diff processor uses un-diffed lines to match sections of the file and then uses any diff entries till the next un-diffed lines to modify (add/remove/keep) the file. Deletions will also be used to match locations. All additions before a deletion/un-diff will be inserted before the deleted/un-diffed line. All additions after a deletion/un-diff will be inserted after the deleted/un-diffed line.</p>
 <h2 id="example-templates">Example Templates<a class="headerlink" href="#example-templates" title="Permanent link">&para;</a></h2>
 <p>In this example we want to insert getters in a Java class file. </p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">getters.egl</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">getters.egl</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-egl"><code>[%for (a in c.eAllAttributes.excludingAll(c.eAttributes)) {%]
 +
 +   /**
@@ -1264,6 +1266,7 @@
 +} //[%=c.name%]Impl (Patched)</code></pre>
 </div>
 </div>
+</div>
 <ul>
 <li>There are no un-diffed lines in the template.</li>
 <li>There is one deletion: <code>-} //[%=c.name%]Impl</code>, thus the processor would match the closing bracket of the Java class commented with the Java class name.</li>
@@ -1272,11 +1275,14 @@
 <li>A new closing bracket with the modified comment is added.</li>
 </ul>
 <p>In this other example, we want to modify the toString method of a Java class.</p>
-<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">toString.egl</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">toString.egl</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-egl"><code>    public String toString() {
         ---
 +       return "[%=c.name%]";
     }</code></pre>
+</div>
 </div>
 </div>
 <ul>
@@ -1315,6 +1321,8 @@ rule EClass2ToString
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -1376,7 +1384,7 @@ rule EClass2ToString
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

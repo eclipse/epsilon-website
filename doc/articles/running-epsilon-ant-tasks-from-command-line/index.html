@@ -1291,7 +1291,9 @@
 BUILD SUCCESSFUL
 </code></pre></div>
 <p>The complete source code is below and in <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone">Epsilon's Git repo</a>.</p>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">build.xml</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">build.xml</label><label for="__tabbed_1_2">ivy.xml</label><label for="__tabbed_1_3">ivysettings.xml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;run-epsilon&quot;</span><span class="w"> </span><span class="na">xmlns:ivy=</span><span class="s">&quot;antlib:org.apache.ivy.ant&quot;</span><span class="nt">&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- This part of the build file runs our Epsilon tasks --&gt;</span>
@@ -1349,7 +1351,7 @@ BUILD SUCCESSFUL
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">ivy.xml</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;ivy-module</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;2.0&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;info</span><span class="w"> </span><span class="na">organisation=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">module=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;configurations&gt;</span>
@@ -1364,7 +1366,7 @@ BUILD SUCCESSFUL
 <span class="nt">&lt;/ivy-module&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">ivysettings.xml</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;ivysettings&gt;</span>
 
 <span class="w">    </span><span class="nt">&lt;settings</span><span class="w"> </span><span class="na">defaultResolver=</span><span class="s">&quot;default-chain&quot;</span><span class="w"> </span><span class="na">defaultConflictManager=</span><span class="s">&quot;all&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -1382,9 +1384,12 @@ BUILD SUCCESSFUL
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="maven">Maven<a class="headerlink" href="#maven" title="Permanent link">&para;</a></h2>
 <p>Since Maven can run Ant tasks, Epsilon Ant tasks can also be executed from a Maven build (<code>mvn clean install</code>) as shown below. </p>
-<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">pom.xml</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">pom.xml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project&gt;</span>
 <span class="w">  </span><span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 <span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>epsilon-maven<span class="nt">&lt;/artifactId&gt;</span>
@@ -1466,9 +1471,12 @@ BUILD SUCCESSFUL
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="gradle">Gradle<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h2>
 <p>Since Gradle can also <a href="https://docs.gradle.org/current/userguide/ant.html">run Ant tasks</a>, Epsilon Ant tasks can also be executed from a Gradle build (<code>gradle run</code>) as shown below.</p>
-<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">build.gradle</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">build.gradle</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configurations</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">epsilon</span>
 <span class="o">}</span>
@@ -1523,13 +1531,16 @@ BUILD SUCCESSFUL
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="flexmi-and-emfatic">Flexmi and Emfatic<a class="headerlink" href="#flexmi-and-emfatic" title="Permanent link">&para;</a></h2>
 <p>You can also use <a href="../../flexmi">Flexmi</a> instead of XMI (<code>library.flexmi</code> instead of <code>library.model</code>) for the model, and <a href="https://eclipse.org/emfatic">Emfatic</a> instead of Ecore (<code>library.emf</code> instead of <code>library.ecore</code>) by adding the following dependency to your ANT/Maven/Gradle build.</p>
-<div class="tabbed-set" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Ivy/ANT</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Ivy/ANT</label><label for="__tabbed_4_2">Maven</label><label for="__tabbed_4_3">Gradle</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency</span><span class="w"> </span><span class="na">org=</span><span class="s">&quot;org.eclipse.emfatic&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;org.eclipse.emfatic.core&quot;</span><span class="w"> </span><span class="na">rev=</span><span class="s">&quot;1.1.0-SNAPSHOT&quot;</span><span class="w"> </span><span class="na">conf=</span><span class="s">&quot;binaries-&gt;default&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Maven</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.eclipse.emfatic<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>org.eclipse.emfatic.core<span class="nt">&lt;/artifactId&gt;</span>
@@ -1537,13 +1548,16 @@ BUILD SUCCESSFUL
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">Gradle</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">epsilon</span><span class="w"> </span><span class="s1">&#39;org.eclipse.emfatic:org.eclipse.emfatic.core:1.1.0-SNAPSHOT&#39;</span>
 </code></pre></div>
 </div>
 </div>
+</div>
 <p>A complete Gradle example that uses <code>library.flexmi</code> instead of (the XMI-based) <code>library.model</code>, and <code>library.emf</code> instead of <code>library.ecore</code> is shown below.</p>
-<div class="tabbed-set" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">build.gradle</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">build.gradle</label><label for="__tabbed_5_2">library.eol</label><label for="__tabbed_5_3">library.flexmi</label><label for="__tabbed_5_4">library.emf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configurations</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">epsilon</span>
 <span class="o">}</span>
@@ -1585,12 +1599,12 @@ BUILD SUCCESSFUL
 <span class="o">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">library.eol</label><div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-eol"><code>for (writer in Writer.all) {
     (writer.name + " wrote " + writer.books.title.concat(", ")).println();
 }</code></pre>
 </div>
-<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">library.flexmi</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri library?&gt;</span>
 <span class="nt">&lt;library&gt;</span>
 <span class="w">  </span><span class="nt">&lt;writer</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Agatha Christie&quot;</span><span class="nt">/&gt;</span>
@@ -1598,7 +1612,7 @@ BUILD SUCCESSFUL
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><label for="__tabbed_5_4">library.emf</label><div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-emf"><code>@namespace(uri="library", prefix="")
 package library;
 
@@ -1628,9 +1642,12 @@ enum BookCategory {
 </code></pre>
 </div>
 </div>
+</div>
 <h2 id="excel">Excel<a class="headerlink" href="#excel" title="Permanent link">&para;</a></h2>
 <p>The example below demonstrates using the generic <code>epsilon.loadModel</code> task to run the same EOL program against an <a href="../excel">Excel spreadsheet</a>.</p>
-<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">build.gradle</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">build.gradle</label><label for="__tabbed_6_2">mapping.xml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configurations</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">epsilon</span>
 <span class="o">}</span>
@@ -1668,7 +1685,7 @@ enum BookCategory {
 <span class="o">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">mapping.xml</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;spreadsheet&gt;</span>
 <span class="w">  </span><span class="nt">&lt;worksheet</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Writer&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;column</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">/&gt;</span>
@@ -1685,9 +1702,12 @@ enum BookCategory {
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="uml">UML<a class="headerlink" href="#uml" title="Permanent link">&para;</a></h2>
 <p>Models conforming to the <a href="http://wiki.eclipse.org/MDT/UML2">Eclipse UML2 metamodel</a> can be queried as shown below.</p>
-<div class="tabbed-set" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">build.gradle</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">build.gradle</label><label for="__tabbed_7_2">uml.eol</label><label for="__tabbed_7_3">model.uml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configurations</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">epsilon</span>
 <span class="o">}</span>
@@ -1739,14 +1759,14 @@ enum BookCategory {
 <span class="o">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">uml.eol</label><div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-eol"><code>// Print the names of all
 // classes in the model
 for (c in Class.all) {
     c.name.println();
 }</code></pre>
 </div>
-<input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">model.uml</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;xmi:XMI</span><span class="w"> </span><span class="na">xmi:version=</span><span class="s">&quot;2.1&quot;</span><span class="w"> </span><span class="na">xmlns:xmi=</span><span class="s">&quot;http://schema.omg.org/spec/XMI/2.1&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xmlns:uml=</span><span class="s">&quot;http://www.eclipse.org/uml2/5.0.0/UML&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;uml:Model</span><span class="w"> </span><span class="na">xmi:id=</span><span class="s">&quot;_in3dgJiMEeuzROqeHhotPw&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;umlcddemo&quot;</span><span class="nt">&gt;</span>
@@ -1993,9 +2013,12 @@ for (c in Class.all) {
 </code></pre></div>
 </div>
 </div>
+</div>
 <h3 id="genmymodel">GenMyModel<a class="headerlink" href="#genmymodel" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.genmymodel.com/">GenMyModel</a> is a web-based modelling tool that can be used to create UML2-compliant models. You can consume the XMI representation of a public <a href="https://app.genmymodel.com/api/dictionary/projects/_in3dgJiMEeuzROqeHhotPw">GenMyModel UML model</a> directly from Epsilon as shown below.</p>
-<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">build.gradle</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">build.gradle</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configurations</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">epsilon</span>
 <span class="o">}</span>
@@ -2049,6 +2072,7 @@ for (c in Class.all) {
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="epsilon-1x">Epsilon 1.x<a class="headerlink" href="#epsilon-1x" title="Permanent link">&para;</a></h2>
 <p>If you would like to use an older (1.x) version of Epsilon, you can use <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone.1x">this example instead</a>, which uses a fat jar we used to produce (<code>epsilon-1.x-kitchensink.jar</code>) before moving all our jars to Maven Central/Sonatype.</p>
 
@@ -2061,6 +2085,8 @@ for (c in Class.all) {
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -2122,7 +2148,7 @@ for (c in Class.all) {
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

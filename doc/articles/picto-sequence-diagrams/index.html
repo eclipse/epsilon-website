@@ -1306,7 +1306,9 @@ class Interaction extends Step {
 <h2 id="visualisation-transformation">Visualisation Transformation<a class="headerlink" href="#visualisation-transformation" title="Permanent link">&para;</a></h2>
 <p>To visualise models that conform to the minisd DSL (such as the Customer-ATM model above) in Picto, we have written a model-to-text transformation in EGL, that transforms such models into a series of PlantUML sequence diagrams.</p>
 <p>In particular, the transformation produces one sequence diagram for the entire model, and one sequence diagram for each execution path in it. The <a href="../../egx">EGX</a> orchestration program and the <a href="../../egl">EGL</a> template are shown below.</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">minisd2plantuml.egx</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">minisd2plantuml.egx</label><label for="__tabbed_1_2">minisd2plantuml.egl</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-egx"><code>rule Scenario2PlantUml 
     transform s : Scenario {
 
@@ -1348,7 +1350,7 @@ rule Alt2PlantUml
 
 }</code></pre>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">minisd2plantuml.egl</label><div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-egl"><code>@startuml
 [%
 var excludedBlocks = Sequence{};
@@ -1398,6 +1400,7 @@ operation Block toPlantUml() {
 %]</code></pre>
 </div>
 </div>
+</div>
 <h2 id="drill-down-sequence-diagrams">Drill-Down Sequence Diagrams<a class="headerlink" href="#drill-down-sequence-diagrams" title="Permanent link">&para;</a></h2>
 <p>The result is a set of sequence diagrams that we can navigate to drill down the alternative interaction paths. Notice how selecting an alternative (e.g. <code>Sufficient funds</code>) hides all irrelevant information from the sequence diagram (e.g. <code>Balance display</code>, <code>PIN invalid</code>).</p>
 <p><img alt="" src="picto-minisd.gif" /></p>
@@ -1415,6 +1418,8 @@ operation Block toPlantUml() {
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -1476,7 +1481,7 @@ operation Block toPlantUml() {
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

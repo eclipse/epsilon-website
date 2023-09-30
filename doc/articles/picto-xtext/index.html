@@ -1390,7 +1390,9 @@ entity Comment extends HasAuthor {
 </code></pre></div>
 <h3 id="the-visualisation-transformation">The Visualisation Transformation<a class="headerlink" href="#the-visualisation-transformation" title="Permanent link">&para;</a></h3>
 <p>The visualisation transformation has been implemented using Epsilon's <a href="../../egl">EGL model-to-text transformation language</a> and produces Graphviz-based class diagrams from the active entity model. The transformation consists of the <code>dmodel.egx</code> coordination rules, and the <code>entity2graphviz.egl</code> template shown below. The transformation produces one view for each entity in the model, which consists of the entity itself, any super/sub-types it may have, as well as other entities that it is related to. </p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">dmodel.egx</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">dmodel.egx</label><label for="__tabbed_1_2">entity2graphviz.egl</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-egx"><code>rule Entity2Graphviz
     transform e : Entity {
 
@@ -1404,7 +1406,7 @@ entity Comment extends HasAuthor {
 
 }</code></pre>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">entity2graphviz.egl</label><div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-egl"><code>digraph G {
     graph[splines=ortho]
     node[fontname=Arial, fontsize=10, shape=record]
@@ -1505,6 +1507,7 @@ operation Entity getColour() {
 %]</code></pre>
 </div>
 </div>
+</div>
 <h3 id="interactive-diagrams">Interactive Diagrams<a class="headerlink" href="#interactive-diagrams" title="Permanent link">&para;</a></h3>
 <p>As shown below, you can navigate between diagrams and back to the Xtext editor using Picto's built-in <code>showElement</code> and <code>showView</code> <a href="../../picto#interactive-diagrams">JavaScript functions</a>.</p>
 <p><img alt="" src="show-element.gif" /></p>
@@ -1520,6 +1523,8 @@ operation Entity getColour() {
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -1581,7 +1586,7 @@ operation Entity getColour() {
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

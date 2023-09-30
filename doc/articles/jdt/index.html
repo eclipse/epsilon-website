@@ -1291,7 +1291,9 @@
 <h2 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">&para;</a></h2>
 <p>In <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.jdt.picto">this example</a>, we use the JDT driver and <a href="../../picto">Picto</a> to generate PlantUML diagrams from existing Java code on the fly.</p>
 <p><img alt="" src="picto-jdt.png" /></p>
-<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">jcd.flexmi</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">jcd.flexmi</label><label for="__tabbed_1_2">jcd.picto</label><label for="__tabbed_1_3">jcd.egx</label><label for="__tabbed_1_4">cd.egl</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri jcd?&gt;</span>
 <span class="nt">&lt;_&gt;</span>
 <span class="w">    </span><span class="nt">&lt;diagram</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Kitchen Sink&quot;</span><span class="nt">&gt;</span>
@@ -1340,7 +1342,7 @@
 <span class="nt">&lt;/_&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">jcd.picto</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?nsuri picto?&gt;</span>
 <span class="nt">&lt;picto</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;egx&quot;</span><span class="w"> </span><span class="na">transformation=</span><span class="s">&quot;jcd.egx&quot;</span><span class="w"> </span><span class="na">standalone=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
 <span class="w">     </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;EMF&quot;</span><span class="nt">&gt;</span>
@@ -1355,7 +1357,7 @@
 <span class="nt">&lt;/picto&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">jcd.egx</label><div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-egx"><code>rule Diagram2PlantUML 
     transform diagram : JCD!Diagram {
 
@@ -1368,7 +1370,7 @@
 
 }</code></pre>
 </div>
-<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">cd.egl</label><div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-egl"><code>@startuml
 hide circle
 [%diagram.populate();%]
@@ -1548,6 +1550,7 @@ operation JCD!Method getLabel() {
 %]</code></pre>
 </div>
 </div>
+</div>
 
 
 
@@ -1558,6 +1561,8 @@ operation JCD!Method getLabel() {
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -1619,7 +1624,7 @@ operation JCD!Method getLabel() {
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

@@ -1334,7 +1334,9 @@
   }
 </style>
 
-<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Student</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Student</label><label for="__tabbed_1_2">Staff</label><label for="__tabbed_1_3">Module</label><label for="__tabbed_1_4">Mark</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p><table>
   <tr><td class="h">&nbsp;</td><td class="h">A</td><td class="h">B</td><td class="h">C</td><td class="h">D</td><td class="h">E</td><td class="h">F</td></tr>
   <tr><td class="h">1</td><td>id</td><td>firstname</td><td>lastname</td><td>age</td><td>supervisor</td><td>modules</td></tr>
@@ -1342,7 +1344,7 @@
   <tr><td class="h">3</td><td>js502</td><td>Jane</td><td>Smith</td><td>22</td><td>mt506</td><td>MSD,HCI</td></tr>
 </table></p>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Staff</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><table>
   <tr><td class="h">&nbsp;</td><td class="h">A</td><td class="h">B</td><td class="h">C</td><td class="h">D</td><td class="h">E</td><td class="h">F</td></tr>
   <tr><td class="h">1</td><td>id</td><td>firstname</td><td>lastname</td><td>teaches</td><td></td><td></td></tr>
@@ -1350,7 +1352,7 @@
   <tr><td class="h">3</td><td>dj503</td><td>Daniel</td><td>Jackson</td><td>HCI</td><td></td><td></td></tr>
 </table></p>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Module</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><table>
   <tr><td class="h">&nbsp;</td><td class="h">A</td><td class="h">B</td><td class="h">C</td><td class="h">D</td><td class="h">E</td><td class="h">F</td></tr>
   <tr><td class="h">1</td><td>id</td><td>title</td><td>term</td><td></td><td></td><td></td></tr>
@@ -1359,13 +1361,14 @@
   <tr><td class="h">4</td><td>RQE</td><td>Requirements Engineering</td><td>Spring</td><td></td><td></td><td></td></tr>
 </table></p>
 </div>
-<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">Mark</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p><table>
   <tr><td class="h">&nbsp;</td><td class="h">A</td><td class="h">B</td><td class="h">C</td><td class="h">D</td><td class="h">E</td><td class="h">F</td></tr>
   <tr><td class="h">1</td><td>student</td><td>module</td><td>mark</td><td></td><td></td><td></td></tr>
   <tr><td class="h">2</td><td>jt501</td><td>MSD</td><td>62</td><td></td><td></td><td></td></tr>
   <tr><td class="h">3</td><td>js502</td><td>HCI</td><td>74</td><td></td><td></td><td></td></tr>
 </table></p>
+</div>
 </div>
 </div>
 <h2 id="references-and-column-types">References and Column Types<a class="headerlink" href="#references-and-column-types" title="Permanent link">&para;</a></h2>
@@ -1448,7 +1451,9 @@ to.teaches = to.teaches.including(module);</code></pre>
 }</code></pre>
 <h2 id="creating-spreadsheets">Creating Spreadsheets<a class="headerlink" href="#creating-spreadsheets" title="Permanent link">&para;</a></h2>
 <p>To create a spreadsheet from scratch (e.g. when it is produced by an ETL transformation), we also need to specify an <code>index</code> for each column in the XML mapping file. Below is an EOL program that creates the <a href="#worksheets-columns-and-rows">spreadsheet above</a> from scratch, and the mapping file for it. The complete example is in <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel">Epsilon's Git repo</a>.</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">create-spreadsheet.eol</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">create-spreadsheet.eol</label><label for="__tabbed_2_2">mapping.xml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-eol"><code>// Create the modules
 var MSD = new Module(id="MSD", 
   title="Modelling and System Design", term="Autumn");
@@ -1477,7 +1482,7 @@ var jane = new Student(id="js502", firstname="Jane",
 new Mark(student=joe, module=MSD, mark=62);
 new Mark(student=jane, module=HCI, mark=74);</code></pre>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">mapping.xml</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;spreadsheet&gt;</span>
 <span class="w">  </span><span class="nt">&lt;worksheet</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Student&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;column</span><span class="w"> </span><span class="na">index=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;id&quot;</span><span class="nt">/&gt;</span>
@@ -1517,9 +1522,12 @@ new Mark(student=jane, module=HCI, mark=74);</code></pre>
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="working-with-formulas">Working with Formulas<a class="headerlink" href="#working-with-formulas" title="Permanent link">&para;</a></h2>
 <p>To set the value of a cell to a formula, start its value with <code>=</code> as shown below. The complete example is in <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel.formulas">Epsilon's Git repo</a>.</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">create-spreadsheet-with-formulas.eol</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">create-spreadsheet-with-formulas.eol</label><label for="__tabbed_3_2">mapping.xml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-eol"><code>var calc : new Calc;
 calc.a = 1;
 calc.b = 2;
@@ -1527,7 +1535,7 @@ calc.sum = "=A2+B2";
 
 calc.sum.println(); // Prints 3</code></pre>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">mapping.xml</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;spreadsheet&gt;</span>
 <span class="w">  </span><span class="nt">&lt;worksheet</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Calc&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;column</span><span class="w"> </span><span class="na">index=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="na">datatype=</span><span class="s">&quot;integer&quot;</span><span class="nt">/&gt;</span>
@@ -1536,6 +1544,7 @@ calc.sum.println(); // Prints 3</code></pre>
 <span class="w">  </span><span class="nt">&lt;/worksheet&gt;</span>
 <span class="nt">&lt;/spreadsheet&gt;</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <h2 id="reflective-access">Reflective Access<a class="headerlink" href="#reflective-access" title="Permanent link">&para;</a></h2>
@@ -1570,6 +1579,8 @@ for (w in M.worksheets) {
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -1631,7 +1642,7 @@ for (w in M.worksheets) {
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

@@ -1824,7 +1824,9 @@ For example, this would initialize the "Analysis" task to have an Effort child p
 <p class="admonition-title">Info</p>
 <p>The YAML flavour of Flexmi supports all the features of the XML flavour, including <a href="#reusable-templates">plain</a> and <a href="#dynamic-templates-and-slots">dynamic templates</a>, and <a href="#executable-attributes">executable attributes</a>. Also, it is worth noting that YAML is a superset of JSON.</p>
 </div>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Indentation-based</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Indentation-based</label><label for="__tabbed_1_2">Curly brackets-based</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">psl</span>
 <span class="nt">project</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ACME</span>
@@ -1848,7 +1850,7 @@ For example, this would initialize the "Analysis" task to have an Effort child p
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">effort</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">person</span><span class="p">:</span><span class="w"> </span><span class="nv">Alice</span><span class="p p-Indicator">,</span><span class="nt"> perc</span><span class="p">:</span><span class="w"> </span><span class="nv">50</span><span class="p p-Indicator">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Curly brackets-based</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">?nsuri</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">psl</span>
 <span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
 <span class="nt">  name</span><span class="p">:</span><span class="w"> </span><span class="nv">ACME</span><span class="p p-Indicator">,</span>
@@ -1875,6 +1877,7 @@ For example, this would initialize the "Analysis" task to have an Effort child p
 <span class="w">  </span><span class="p p-Indicator">}</span>
 <span class="p p-Indicator">}</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <p>For multi-valued attributes and non-containment references, comma-separated values, or lists of scalars can be used as shown below.</p>
@@ -1948,6 +1951,8 @@ For example, this would initialize the "Analysis" task to have an Effort child p
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -2044,7 +2049,7 @@ For example, this would initialize the "Analysis" task to have an Effort child p
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>

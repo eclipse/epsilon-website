@@ -1514,7 +1514,9 @@ operation t_td getRealValue() {
 </code></pre></div>
 <h2 id="loading-a-remote-html-document-in-gradle">Loading a remote HTML document in Gradle<a class="headerlink" href="#loading-a-remote-html-document-in-gradle" title="Permanent link">&para;</a></h2>
 <p>The example below shows a standalone Gradle file (<code>build.gradle</code>) that runs a set of EOL queries (<code>queries.eol</code>) against the HTML behind the Epsilon homepage.</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">build.gradle</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">build.gradle</label><label for="__tabbed_1_2">queries.eol</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configurations</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="n">epsilon</span>
 <span class="o">}</span>
@@ -1551,7 +1553,7 @@ operation t_td getRealValue() {
 <span class="o">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">queries.eol</label><div class="tabbed-content">
+<div class="tabbed-block">
 <pre class="prettyprint lang-eol"><code>// Print the text of all &lt;strong&gt; elements
 for (s in t_strong.all) {
     s.text().println();
@@ -1574,6 +1576,7 @@ for (li in ul.c_li) {
 }</code></pre>
 </div>
 </div>
+</div>
 <h2 id="additional-resources">Additional resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <p>The Epsilon HTML driver leverages the excellent Jsoup HTML parser. In fact, all elements returned via EOL queries are instances of the <code>org.jsoup.nodes.Element</code> class and as such, <a href="https://jsoup.org/apidocs/org/jsoup/nodes/Element.html">all methods of the class</a> can be invoked on them through EOL.</p>
 
@@ -1586,6 +1589,8 @@ for (li in ul.c_li) {
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -1647,7 +1652,7 @@ for (li in ul.c_li) {
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
