@@ -1,6 +1,6 @@
 # Articles
 
-This page links to more than **60 articles** on various aspects of Epsilon. Should you find that an article is outdated, please [let us know](https://www.eclipse.org/epsilon/forum).
+This page links to more than **80 articles** on various aspects of Epsilon. Should you find that an article is outdated, please [let us know](https://www.eclipse.org/epsilon/forum).
 
 ## Epsilon Object Language
 
