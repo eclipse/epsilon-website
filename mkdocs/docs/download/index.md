@@ -1,5 +1,7 @@
 # Download
 
+!!! failure "Epsilon Installer is Broken"
+    Epsilon depends on the GMF Tooling project, which has been terminated and its update site has been removed. Until the update site [gets restored](https://gitlab.eclipse.org/eclipsefdn/emo-team/emo/-/issues/593), please use the update sites below instead of the installer and omit the `Epsilon GMF Integration` feature to install Epsilon. 
 
 The simplest way to get a copy of Eclipse with Epsilon 2.4 and all its dependencies installed, is to download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer) and select Epsilon. Note that you will need a [Java Runtime Environment](https://adoptopenjdk.net/) installed on your system.
 
