@@ -1213,6 +1213,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-tools-contributed-by-plugins" class="md-nav__link">
+    Using Tools Contributed by Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#analysing-epsilon-programs" class="md-nav__link">
     Analysing Epsilon Programs
   </a>
@@ -1318,6 +1325,11 @@
 <span class="n">module</span><span class="p">.</span><span class="na">getContext</span><span class="p">().</span><span class="na">getFrameStack</span><span class="p">().</span><span class="na">put</span><span class="p">(</span><span class="n">Variable</span><span class="p">.</span>
 <span class="w">    </span><span class="nf">createReadOnlyVariable</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">));</span>
 <span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="using-tools-contributed-by-plugins">Using Tools Contributed by Plugins<a class="headerlink" href="#using-tools-contributed-by-plugins" title="Permanent link">&para;</a></h2>
+<p>To use <a href="../call-java-from-epsilon/">tools</a> contributed by other plugins in a standalone Java setup within Eclipse you'll need to add the following line of code.</p>
+<div class="highlight"><pre><span></span><code><span class="n">context</span><span class="p">.</span><span class="na">getNativeTypeDelegates</span><span class="p">().</span>
+<span class="w">  </span><span class="n">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ExtensionPointToolNativeTypeDelegate</span><span class="p">());</span>
 </code></pre></div>
 <h2 id="analysing-epsilon-programs">Analysing Epsilon Programs<a class="headerlink" href="#analysing-epsilon-programs" title="Permanent link">&para;</a></h2>
 <p>Epsilon programs do not have an Ecore-based metamodel, but you can query and analyse them through Epsilon's Java API as shown below.</p>
