@@ -89,6 +89,16 @@ module.getContext().getFrameStack().put(Variable.
 module.execute();
 ``` 
 
+## Using Tools Contributed by Plugins
+
+To use [tools](../call-java-from-epsilon/) contributed by other plugins in a standalone Java setup within Eclipse you'll need to add the following line of code.
+
+```java
+context.getNativeTypeDelegates().
+  add(new ExtensionPointToolNativeTypeDelegate());
+```
+
+
 ## Analysing Epsilon Programs
 
 Epsilon programs do not have an Ecore-based metamodel, but you can query and analyse them through Epsilon's Java API as shown below.
