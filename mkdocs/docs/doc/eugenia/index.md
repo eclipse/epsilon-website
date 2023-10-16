@@ -1,4 +1,8 @@
 # Graphical Model Editor development with Eugenia/GMF
+
+!!! warning "Eugenia discontinued in Epsilon 2.5"
+    Following the [archival of the GMF Tooling project](https://projects.eclipse.org/projects/modeling.gmf-tooling), Eugenia has been discontinued from version 2.5 onwards. While you can still use Eugenia with older versions of Epsilon, you may want to consider more actively-maintained tools such as [Eclipse Sirius](https://eclipse.org/sirius) if you need to develop a graphical editor, or [Picto](../picto) if you are only interested in producing read-only views from models.
+
 Eugenia is a tool that simplifies the development of GMF-based graphical model editors by automatically generating the `.gmfgraph`, `.gmftool` and `.gmfmap` models needed by GMF editor from a single annotated Ecore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic; an Ecore version is available [here](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eugenia.examples.filesystem/model/filesystem.ecore)) it can generate a fully functional GMF editor, a screenshot of which is displayed below.
 
 ## The Filesystem metamodel
@@ -199,7 +203,3 @@ To add copyright information to your generated .gmfgen model, simply create a fi
 Now that you've learned how to generate a GMF-based editor using Eugenia, you may also want to add some constraints to your editor, which you can then evaluate (explicitly or on-save) to [check the correctness/consistency of your models](../articles/evl-gmf-integration):
 
 ![](Filesystemwitherrorshighlighted.png)
-
-## Eugenia and GMF Tooling
-
-Eugenia builds on top of the [GMF Tooling](https://www.eclipse.org/gmf-tooling/) framework, which is no longer actively maintained. While you can still use Eugenia/GMF to develop fully-functional editors, you may want to consider more actively-maintained tools such as [Eclipse Sirius](https://eclipse.org/sirius) if you need to develop a graphical editor, or [Picto](../picto) if you are only interested in producing read-only views from models.
