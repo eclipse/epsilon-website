@@ -6,11 +6,11 @@ The simplest way to get a copy of Eclipse with Epsilon 2.4 and all its dependenc
 
 | OS | Architecture | Eclipse Installer |
 | - | - | - |
-| Windows | x86_64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-win64.exe> |
-| Mac | x86_64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-mac64.dmg> |
-| Mac | AArch64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-mac-aarch64.dmg> |
-| Linux | x86_64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-linux64.tar.gz> |
-| Linux | AArch64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-linux-aarch64.tar.gz> |
+| Windows | x86_64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-jre-win64.exe> |
+| Mac | x86_64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-jre-mac64.dmg> |
+| Mac | AArch64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-jre-mac-aarch64.dmg> |
+| Linux | x86_64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-jre-linux64.tar.gz> |
+| Linux | AArch64 | <http://www.eclipse.org/downloads/download.php?file=/oomph/products/eclipse-inst-jre-linux-aarch64.tar.gz> |
 
 
 !!! tip "Can't find Epsilon?"
