@@ -1261,10 +1261,12 @@
 <h1 id="epsilon-playground">Epsilon Playground<a class="headerlink" href="#epsilon-playground" title="Permanent link">&para;</a></h1>
 <p>The <a href="../../../playground">Epsilon Playground</a> is a web application for fiddling with metamodelling, modelling and automated model management using <a href="https://eclipse.org/emfatic">Emfatic</a>, <a href="../../flexmi">Flexmi</a> and Epsilon's languages. Its back-end is implemented using <a href="https://cloud.google.com/functions">Google Cloud Platform Functions</a> and the front-end builds heavily on the <a href="https://metroui.org.ua">Metro 4</a> framework. Diagrams are rendered using <a href="https://plantuml.com">PlantUML</a> and <a href="https://kroki.io">Kroki</a>.</p>
 <h2 id="emfatic-metamodels-in-the-playground">Emfatic Metamodels in the Playground<a class="headerlink" href="#emfatic-metamodels-in-the-playground" title="Permanent link">&para;</a></h2>
-<p>For metamodelling, the Playground uses Ecore's <a href="https://eclipse.org/emfatic">Emfatic</a> textual syntax, augmented with a couple of <a href="https://www.eclipse.org/emfatic/#annotations">annotations</a> to control the graphical layout of the metamodels.</p>
+<p>For metamodelling, the Playground uses Ecore's <a href="https://eclipse.org/emfatic">Emfatic</a> textual syntax, augmented with a couple of <a href="https://www.eclipse.org/emfatic/#annotations">annotations</a> to control the graphical appearance of the metamodels.</p>
 <ul>
-<li><code>@diagram(direction="up/down/left/right")</code>: Can be attached to references (<code>val</code>/<code>ref</code>) to specify the direction of the respective edge in the diagram (<code>right</code> by default for non-containment references, and <code>down</code> for containment references)</li>
-<li><code>@diagram(inheritance.direction="up/down/left/right")</code>: Can be attached to classes to specify the direction of its inheritance edges in the diagram (<code>up</code> by default).</li>
+<li><code>@diagram(direction="up/down/left/right/none")</code>: Can be attached to references (<code>val</code>/<code>ref</code>) and to attributes of enumeration type to specify the direction of the respective edge in the diagram (<code>right</code> by default for non-containment references, <code>left</code> for enumeration-typed attributes, and <code>down</code> for containment references). Setting the direction to <code>none</code> hides the edge.</li>
+<li><code>@diagram(inheritance.direction="up/down/left/right/none")</code>: Can be attached to classes to specify the direction of its inheritance edges in the diagram (<code>up</code> by default).</li>
+<li><code>@diagram(color="&lt;color&gt;")</code>: Can be attached to classes and enumerations to specify their color. Specified colors need to follow one of the <a href="https://plantuml.com/color">PlantUML color formats</a>.</li>
+<li><code>@diagram(monochrome="true/false/&lt;color&gt;")</code>: Can be attached to packages to specify that all their classes/enumerations should be displayed with the same color.</li>
 </ul>
 <p>For example, the plain Emfatic metamodel below is rendered as follows:</p>
 <pre class="prettyprint lang-emf"><code>package ptl;
@@ -1318,6 +1320,11 @@ class Person {
     attr String name;
 }</code></pre>
 <p><img alt="" src="annotated.png" /></p>
+<p>Changing the first line to</p>
+<pre class="prettyprint lang-emf"><code>@diagram(monochrome="true")
+package ptl;</code></pre>
+<p>produces the monochrome diagram below.</p>
+<p><img alt="" src="monochrome.png" /></p>
 <h2 id="save-and-share-your-work">Save and share your work<a class="headerlink" href="#save-and-share-your-work" title="Permanent link">&para;</a></h2>
 <p>To share your work, click the <code>Share</code> button. This will create a short link that you can copy to your clipboard. Please note that the contents of the editors <strong>will be stored in the back-end of the Epsilon Playground</strong> so that they can be retrieved when you visit that link again later.</p>
 <h2 id="download-your-work">Download your work<a class="headerlink" href="#download-your-work" title="Permanent link">&para;</a></h2>
