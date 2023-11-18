@@ -4,10 +4,12 @@ The [Epsilon Playground](../../../playground) is a web application for fiddling 
 
 ## Emfatic Metamodels in the Playground
 
-For metamodelling, the Playground uses Ecore's [Emfatic](https://eclipse.org/emfatic) textual syntax, augmented with a couple of [annotations](https://www.eclipse.org/emfatic/#annotations) to control the graphical layout of the metamodels.
+For metamodelling, the Playground uses Ecore's [Emfatic](https://eclipse.org/emfatic) textual syntax, augmented with a couple of [annotations](https://www.eclipse.org/emfatic/#annotations) to control the graphical appearance of the metamodels.
 
-- `@diagram(direction="up/down/left/right")`: Can be attached to references (`val`/`ref`) to specify the direction of the respective edge in the diagram (`right` by default for non-containment references, and `down` for containment references)
-- `@diagram(inheritance.direction="up/down/left/right")`: Can be attached to classes to specify the direction of its inheritance edges in the diagram (`up` by default).
+- `@diagram(direction="up/down/left/right/none")`: Can be attached to references (`val`/`ref`) and to attributes of enumeration type to specify the direction of the respective edge in the diagram (`right` by default for non-containment references, `left` for enumeration-typed attributes, and `down` for containment references). Setting the direction to `none` hides the edge.
+- `@diagram(inheritance.direction="up/down/left/right/none")`: Can be attached to classes to specify the direction of its inheritance edges in the diagram (`up` by default).
+- `@diagram(color="<color>")`: Can be attached to classes and enumerations to specify their color. Specified colors need to follow one of the [PlantUML color formats](https://plantuml.com/color).
+- `@diagram(monochrome="true/false/<color>")`: Can be attached to packages to specify that all their classes/enumerations should be displayed with the same color.
 
 For example, the plain Emfatic metamodel below is rendered as follows:
 
@@ -69,9 +71,20 @@ class Person {
 }
 ```
 
-
-
 ![](annotated.png)
+
+Changing the first line to
+
+```emf
+@diagram(monochrome="true")
+package ptl;
+```
+
+produces the monochrome diagram below.
+
+![](monochrome.png)
+
+
 
 ## Save and share your work
 
