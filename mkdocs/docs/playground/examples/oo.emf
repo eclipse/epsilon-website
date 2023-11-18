@@ -39,6 +39,7 @@ class Reference extends StructuralFeature {
 
 class Attribute extends StructuralFeature {
 	attr boolean isMany;
+	@diagram(direction="none")
 	ref Datatype type;
 }
 

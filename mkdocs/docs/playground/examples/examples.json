@@ -219,7 +219,7 @@
 			},
 			{
 				"id": "oo2db",
-				"title": "Transform OO 2 DB",
+				"title": "Transform OO to DB",
 				"language": "etl",
 				"program": "oo2db.etl",
 				"flexmi": "oo.yaml.flexmi",
