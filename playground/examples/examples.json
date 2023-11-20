@@ -285,5 +285,19 @@
 				"flexmi": "advanced-flexmi/templates.flexmi",
 				"emfatic": "psl.emf"
 			}
-		]}
+		]
+	},
+	{
+		"title": "Advanced ETL Examples",
+		"examples": [
+			{
+				"id": "tree2graph-equivalent",
+				"title": "Equivalents in Tree to Graph",
+				"language": "etl",
+				"program": "tree2graph-equivalent.etl",
+				"flexmi": "tree.flexmi",
+				"emfatic": "tree.emf",
+				"secondEmfatic": "graph.emf"
+			}
+	]}
 ]}
