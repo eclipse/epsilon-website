@@ -1,0 +1,74 @@
+post {
+    for (t in Source!Tree) {
+        ('Tree ' + t.label + ':').println();
+        t.equivalent().format().println(t.label + '.equivalent(): ');
+        t.equivalents().collect(e|e.format()).println(t.label + '.equivalents(): ');
+        ''.println();
+    }
+
+    Source!Tree.all.equivalent().collect(e|e.format()).println('Tree.all.equivalent(): ');
+    Source!Tree.all.equivalents().collect(e|e.collect(f|f.format())).println('Tree.all.equivalents(): ');
+}
+
+// Transform the top-level tree to a graph
+rule Tree2Graph
+	transform s : Source!Tree
+	to t : Target!Graph {
+
+	// Only applies to top-level trees
+	guard: not s.parent.isDefined()
+
+	t.name = s.label;
+}
+
+// Transform all other trees to a node
+@abstract
+rule AbstractTree2Node
+	transform s : Source!Tree
+	to n : Target!Node {
+
+	// Copy the label across
+	n.name = s.label;
+
+	// Get hold of the one graph
+	// created in the previous rule
+	var graph = Target!Graph.all.first();
+	graph.nodes.add(n);
+}
+
+rule Tree2Node
+	transform s : Source!Tree
+	to n : Target!Node
+	extends AbstractTree2Node
+{
+	guard: s.parent.isDefined() and not s.parent.parent.isDefined()
+}    
+
+// For nodes at least 2 levels down,
+// add an edge that connects it to
+// the node produced by its parent
+rule Tree2NodeAndEdge
+	transform s : Source!Tree
+	to n : Target!Node, e : Target!Edge
+	extends AbstractTree2Node
+{
+    guard: s.parent.isDefined() and s.parent.parent.isDefined()
+
+	e.source ::= s.parent;
+	e.target = n;
+
+	var graph = Target!Graph.all.first();
+	graph.edges.add(e);
+}
+
+operation Target!Node format() {
+    return 'Node ' + self.name;
+}
+
+operation Target!Graph format() {
+    return 'Graph ' + self.name;
+}
+
+operation Target!Edge format() {
+    return 'Edge from (' + self.source.format() + ') to (' + self.target.format() + ')';
+}
