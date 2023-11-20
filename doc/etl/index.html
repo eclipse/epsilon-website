@@ -1476,7 +1476,16 @@ rule &lt;name&gt;
 <p>Finally, when all rules have been executed, the <code>post</code> blocks of the module are executed in the order in which they have been declared.</p>
 <h3 id="source-elements-resolution">Source Elements Resolution<a class="headerlink" href="#source-elements-resolution" title="Permanent link">&para;</a></h3>
 <p>Resolving target elements that have been (or can be) transformed from source elements by other rules is a frequent task in the body of a transformation rule. To automate this task and reduce coupling between rules, ETL contributes the <code>equivalents()</code> and <code>equivalent()</code> built-in operations that automatically resolve source elements to their transformed counterparts in the target models.</p>
-<p>When the <code>equivalents()</code> operation is applied on a single source element (as opposed to a collection of them), it inspects the established transformation trace (displayed in the figure below) and invokes the applicable rules (if necessary) to calculate the counterparts of the element in the target model. When applied to a collection it returns a <code>Bag</code> containing <code>Bag</code>s that in turn contain the counterparts of the source elements contained in the collection. The <code>equivalents()</code> operation can be also invoked with an arbitrary number of rule names as parameters to invoke and return only the equivalents created by specific rules. Unlike the main execution scheduling scheme discussed above, the <code>equivalents()</code> operation invokes both lazy and non-lazy rules. It is worth noting that lazy rules are computationally expensive and should be used with caution as they can significantly degrade the performance of the overall transformation.</p>
+<p>The <code>equivalents()</code> operation can be invoked on both single source elements and on collections of source elements:</p>
+<ul>
+<li>
+<p>On a single source element, it inspects the established transformation trace (displayed in the figure below) and invokes the applicable rules (if necessary) to calculate the counterparts of the element in the target model.</p>
+</li>
+<li>
+<p>On a collection, it returns a <code>Bag</code> containing <code>Bag</code>s that in turn contain the counterparts of the source elements contained in the collection. </p>
+</li>
+</ul>
+<p>The <code>equivalents()</code> operation can be also invoked with an arbitrary number of rule names as parameters, to invoke and return only the equivalents created by specific rules. Unlike the main execution scheduling scheme discussed above, the <code>equivalents()</code> operation invokes both lazy and non-lazy rules. It is worth noting that lazy rules are computationally expensive and should be used with caution as they can significantly degrade the performance of the overall transformation.</p>
 <p>With regard to the ordering of the results of the <code>equivalents()</code> operations, the returned elements appear in the respective order of the rules that have created them. An exception to this occurs when one of the rules is declared as <code>primary</code>, in which case its results precede the results of all other rules.</p>
 <div class="mermaid mermaid-80">classDiagram
 
@@ -1494,8 +1503,13 @@ EtlContext -- TransformationTrace
 EtlContext -- ITransformationStrategy: strategy
 TransformationTrace -- Transformation: transformations *
 Transformation -- TransformRule: rule</div>
-<p>ETL also provides the convenient <code>equivalent()</code> operation which, when applied to a single element, returns only the first element of the respective result that would have been returned by the <code>equivalents()</code> operation discussed above. Also, when applied to a collection the <code>equivalent()</code> operation returns a flattened collection (as opposed to the result of <code>equivalents()</code> which is a <code>Bag</code> of <code>Bag</code>s in this case). As with the <code>equivalents()</code> operation, the <code>equivalent()</code> operation can also be invoked with or without parameters.</p>
-<p>The semantics of the <code>equivalent()</code> operation is further illustrated through a simple example. In this example, we need to transform a model that conforms to the Tree metamodel displayed below into a model that conforms to the Graph metamodel, also displayed below.</p>
+<p>ETL also provides the convenient <code>equivalent()</code> operation:</p>
+<ul>
+<li>When applied to a single element, <code>equivalent()</code> returns only the first element of the respective result that would have been returned by the <code>equivalents()</code> operation discussed above.</li>
+<li>When applied to a collection, the <code>equivalent()</code> operation returns a flattened version (i.e. a <code>Bag</code> of model elements) of the <code>Bag</code> of <code>Bags</code> that <code>equivalents()</code> would have returned.</li>
+</ul>
+<p>As with the <code>equivalents()</code> operation, the <code>equivalent()</code> operation can also be invoked with or without parameters.</p>
+<p>The semantics of the <code>equivalent()</code> operation are further illustrated through a simple example. In this example, we need to transform a model that conforms to the Tree metamodel displayed below into a model that conforms to the Graph metamodel, also displayed below.</p>
 <div class="mermaid mermaid-70">classDiagram
 class Node {
     +label: String
@@ -1528,6 +1542,7 @@ Edge -- Node</div>
     }
 }</code></pre>
 <p>In lines 1--3, the <code>Tree2Node</code> rule specifies that it can transform elements of the <code>Tree</code> type in the <code>Tree</code> model into elements of the <code>Node</code> type in the <code>Graph</code> model. In line 5 it specifies that the label of the created Node should be the same as the label of the source Tree. If the parent of the source <code>Tree</code> is defined (line 7), the rule creates a new <code>Edge</code> (line 8) and sets its <code>source</code> property to the created <code>Node</code> (line 9) and its <code>target</code> property to the <code>equivalent</code> <code>Node</code> of the source <code>Tree</code>'s <code>parent</code> (line 10).</p>
+<p>The Epsilon Playground includes a <a href="../../playground/?tree2graph-equivalent">more comprehensive version of this example</a>, providing comparisons between the various ways to use the <code>equivalent()</code> and <code>equivalents()</code> operations.</p>
 <h4 id="persisting-the-transformation-trace">Persisting the transformation trace<a class="headerlink" href="#persisting-the-transformation-trace" title="Permanent link">&para;</a></h4>
 <p>ETL does not provide built-in support for persisting the transformation trace, however, you can access it through <code>System.context.transformationTrace</code> and persist (parts of) it in a format of your choice (e.g. in a <code>post</code> block of your transformation).</p>
 <h3 id="overriding-the-semantics-of-the-eol-special-assignment-operator">Overriding the semantics of the EOL Special Assignment Operator<a class="headerlink" href="#overriding-the-semantics-of-the-eol-special-assignment-operator" title="Permanent link">&para;</a></h3>
