@@ -90,7 +90,13 @@ Finally, when all rules have been executed, the `post` blocks of the module are 
 
 Resolving target elements that have been (or can be) transformed from source elements by other rules is a frequent task in the body of a transformation rule. To automate this task and reduce coupling between rules, ETL contributes the `equivalents()` and `equivalent()` built-in operations that automatically resolve source elements to their transformed counterparts in the target models.
 
-When the `equivalents()` operation is applied on a single source element (as opposed to a collection of them), it inspects the established transformation trace (displayed in the figure below) and invokes the applicable rules (if necessary) to calculate the counterparts of the element in the target model. When applied to a collection it returns a `Bag` containing `Bag`s that in turn contain the counterparts of the source elements contained in the collection. The `equivalents()` operation can be also invoked with an arbitrary number of rule names as parameters to invoke and return only the equivalents created by specific rules. Unlike the main execution scheduling scheme discussed above, the `equivalents()` operation invokes both lazy and non-lazy rules. It is worth noting that lazy rules are computationally expensive and should be used with caution as they can significantly degrade the performance of the overall transformation.
+The `equivalents()` operation can be invoked on both single source elements and on collections of source elements:
+
+* On a single source element, it inspects the established transformation trace (displayed in the figure below) and invokes the applicable rules (if necessary) to calculate the counterparts of the element in the target model.
+
+* On a collection, it returns a `Bag` containing `Bag`s that in turn contain the counterparts of the source elements contained in the collection. 
+
+The `equivalents()` operation can be also invoked with an arbitrary number of rule names as parameters, to invoke and return only the equivalents created by specific rules. Unlike the main execution scheduling scheme discussed above, the `equivalents()` operation invokes both lazy and non-lazy rules. It is worth noting that lazy rules are computationally expensive and should be used with caution as they can significantly degrade the performance of the overall transformation.
 
 With regard to the ordering of the results of the `equivalents()` operations, the returned elements appear in the respective order of the rules that have created them. An exception to this occurs when one of the rules is declared as `primary`, in which case its results precede the results of all other rules.
 
@@ -113,9 +119,14 @@ TransformationTrace -- Transformation: transformations *
 Transformation -- TransformRule: rule
 ```
 
-ETL also provides the convenient `equivalent()` operation which, when applied to a single element, returns only the first element of the respective result that would have been returned by the `equivalents()` operation discussed above. Also, when applied to a collection the `equivalent()` operation returns a flattened collection (as opposed to the result of `equivalents()` which is a `Bag` of `Bag`s in this case). As with the `equivalents()` operation, the `equivalent()` operation can also be invoked with or without parameters.
+ETL also provides the convenient `equivalent()` operation:
 
-The semantics of the `equivalent()` operation is further illustrated through a simple example. In this example, we need to transform a model that conforms to the Tree metamodel displayed below into a model that conforms to the Graph metamodel, also displayed below.
+* When applied to a single element, `equivalent()` returns only the first element of the respective result that would have been returned by the `equivalents()` operation discussed above.
+* When applied to a collection, the `equivalent()` operation returns a flattened version (i.e. a `Bag` of model elements) of the `Bag` of `Bags` that `equivalents()` would have returned.
+
+As with the `equivalents()` operation, the `equivalent()` operation can also be invoked with or without parameters.
+
+The semantics of the `equivalent()` operation are further illustrated through a simple example. In this example, we need to transform a model that conforms to the Tree metamodel displayed below into a model that conforms to the Graph metamodel, also displayed below.
 
 ```mermaid-70
 classDiagram
@@ -156,6 +167,8 @@ rule Tree2Node
 ```
 
 In lines 1--3, the `Tree2Node` rule specifies that it can transform elements of the `Tree` type in the `Tree` model into elements of the `Node` type in the `Graph` model. In line 5 it specifies that the label of the created Node should be the same as the label of the source Tree. If the parent of the source `Tree` is defined (line 7), the rule creates a new `Edge` (line 8) and sets its `source` property to the created `Node` (line 9) and its `target` property to the `equivalent` `Node` of the source `Tree`'s `parent` (line 10).
+
+The Epsilon Playground includes a [more comprehensive version of this example](../../playground/?tree2graph-equivalent), providing comparisons between the various ways to use the `equivalent()` and `equivalents()` operations.
 
 #### Persisting the transformation trace
 
