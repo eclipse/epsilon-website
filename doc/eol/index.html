@@ -1869,19 +1869,19 @@
 <p>You can run and fiddle with an EOL program that queries a project scheduling model in the <a href="../../playground/?eol">online Epsilon Playground</a>.</p>
 </div>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
-<p>EOL programs are organized in <code>modules</code>. Each module defines a <code>body</code> and a number of <code>operations</code>. The body is a block of statements that are evaluated when the module is executed<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Each operation defines the kind of objects on which it is applicable (<code>context</code>), a <code>name</code>, a set of <code>parameters</code> and optionally a <code>return type</code>. Modules can also import other modules using <code>import</code> statements and access their operations, as shown in the listing below.</p>
-<pre class="prettyprint lang-eol"><code>// file imported.eol
+<p>EOL programs are organized in <code>modules</code>. Each module defines a <code>body</code> and a number of <code>operations</code>. The body is a block of statements that are evaluated when the module is executed. Each operation defines the kind of objects on which it is applicable (<code>context</code>), a <code>name</code>, a set of <code>parameters</code> and optionally a <code>return type</code>. Modules can also import other modules using <code>import</code> statements and access their operations, as shown in the listing below.</p>
+<p><pre class="prettyprint lang-eol"><code>// file imported.eol
 operation hello() {
   "Hello world!".println();
-}
-
-// file importer.eol
+}</code></pre>
+&nbsp;
+<pre class="prettyprint lang-eol"><code>// file importer.eol
 // We can use relative/absolute paths or platform:/ URIs
 import "imported.eol";
 
 hello(); // main body
 
-// ... more operations could be placed here ...</code></pre>
+// ... more operations could be placed here ...</code></pre></p>
 <div class="mermaid mermaid-100">classDiagram
 class EolModule {
   +main:StatementBlock
@@ -1911,7 +1911,7 @@ Annotation &lt;|-- ExecutableAnnotation
 Annotation &lt;|-- SimpleAnnotation</div>
 <h2 id="user-defined-operations">User-Defined Operations<a class="headerlink" href="#user-defined-operations" title="Permanent link">&para;</a></h2>
 <p>In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type.</p>
-<p>For example, consider the code excerpts displayed in the listings below. In the first listing, the operations <code>add1</code> and <code>add2</code> are defined in the context of the built-in <code>Integer</code> type, which is specified before their names. Therefore, they can be invoked in line 1 using the <code>1.add1().add2()</code> expression: the context (the integer <code>1</code>) will be assigned to the special variable <code>self</code>. On the other hand, in the second listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.</p>
+<p>For example, consider the code excerpts displayed in the listings below. In the first listing, the operations <code>add1</code> and <code>add2</code> are defined in the context of the built-in <code>Integer</code> type, which is specified before their names. Therefore, they can be invoked in line 1 using the <code>1.add1().add2()</code> expression: the context (the integer <code>1</code>) will be assigned to the special variable <code>self</code>.</p>
 <pre class="prettyprint lang-eol"><code>1.add1().add2().println();
 
 operation Integer add1() : Integer {
@@ -1921,6 +1921,7 @@ operation Integer add1() : Integer {
 operation Integer add2() : Integer {
   return self + 2;
 }</code></pre>
+<p>On the other hand, in the following listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.</p>
 <pre class="prettyprint lang-eol"><code>add2(add1(1)).println();
 
 operation add1(base : Integer) : Integer {
@@ -1941,6 +1942,15 @@ operation String test() {
 operation Integer test() {
   (self + "is an integer").println();
 }</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Statements after operations ignored</p>
+<p>Any loose statements after the first operation of an EOL program will be ignored by the EOL interpeter e.g.
+<pre class="prettyprint lang-eol"><code>"This statement will be executed".println();
+
+operation foo() {}
+
+"This statement won't be executed".println();</code></pre></p>
+</div>
 <h3 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h3>
 <p>EOL supports two types of annotations: simple and executable. A simple annotation specifies a name and a set of String values while an executable annotation specifies a name and an expression. The concrete syntaxes of simple and executable annotations are displayed in the listing below.</p>
 <pre class="prettyprint lang-eol"><code>// Simple annotation
@@ -2006,7 +2016,7 @@ PrimitiveType &lt;|-- Real
 EOL](images/EOLTypes.png)-->
 
 <p>The operations supported by
-instances of the Any type are outlined in the table below<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+instances of the Any type are outlined in the table below<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
 <table>
 <thead>
 <tr>
@@ -2065,7 +2075,7 @@ instances of the Any type are outlined in the table below<sup id="fnref:2"><a cl
 </tr>
 <tr>
 <td>format([pattern : String]) : String</td>
-<td>Uses the provided pattern to form a String representation of the object on which the method is invoked. The pattern argument must conform to the format string syntax defined by Java<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</td>
+<td>Uses the provided pattern to form a String representation of the object on which the method is invoked. The pattern argument must conform to the format string syntax defined by Java<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</td>
 </tr>
 <tr>
 <td>hasProperty(name : String) : Boolean</td>
@@ -2485,7 +2495,7 @@ instances of the Any type are outlined in the table below<sup id="fnref:2"><a cl
 </tbody>
 </table>
 <p>Also, EOL collections support the following first-order operations. Apart from <code>aggregate</code> and <code>closure</code>, all of these operations have a parallel variant which can take advantage of multiple cores to improve performance. All computations contained in these operations are assumed to be free from side-effects (i.e. do not mutate global variables).</p>
-<p>Aside from the following built-in first-order operations which are evaluated eagerly, all Collection types in the Java implementation of EOL support Streams. This allows for chains of queries and transformations on collections to be evaluated more efficiently. A stream can be obtained by calling the <code>stream()</code> method on the collection. The API is defined by the Java standard library<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>.</p>
+<p>Aside from the following built-in first-order operations which are evaluated eagerly, all Collection types in the Java implementation of EOL support Streams. This allows for chains of queries and transformations on collections to be evaluated more efficiently. A stream can be obtained by calling the <code>stream()</code> method on the collection. The API is defined by the Java standard library<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
 <table>
 <thead>
 <tr>
@@ -2927,7 +2937,7 @@ operation Any println() : Any {
 </tbody>
 </table>
 <h3 id="ternary-operator">Ternary Operator<a class="headerlink" href="#ternary-operator" title="Permanent link">&para;</a></h3>
-<p>As of version 2.0, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup>. Note that is also possible to use the <code>else</code> keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.</p>
+<p>As of version 2.0, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. Note that is also possible to use the <code>else</code> keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.</p>
 <pre class="prettyprint lang-eol"><code>var result = 2+2==4 ? "Yes" else "No";
 return ((result == "Yes" ? 1 : 0) * 2 == 2).mod(2) == 0;</code></pre>
 <h3 id="safe-navigation-and-elvis-operator">Safe Navigation and Elvis Operator<a class="headerlink" href="#safe-navigation-and-elvis-operator" title="Permanent link">&para;</a></h3>
@@ -3235,19 +3245,16 @@ implementation" src="../images/ConsoleUserInput.png" /></p>
 <hr />
 <ol>
 <li id="fn:1">
-<p>Although the EOL parser permits loose statements (e.g. not contained in operations) between/after operations, these are ignored at runtime.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Parameters within square brackets are optional&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Parameters within square brackets are optional&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><a href="http://download.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax">http://download.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p><a href="http://download.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax">http://download.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:4">
-<p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-<li id="fn:5">
-<p>For further examples of ternary operator, see <a href="https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol">https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>For further examples of ternary operator, see <a href="https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol">https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
