@@ -7,14 +7,16 @@ EOL is the core expression language of Epsilon, and the foundation for task-spec
 
 ## Syntax
 
-EOL programs are organized in `modules`. Each module defines a `body` and a number of `operations`. The body is a block of statements that are evaluated when the module is executed[^1]. Each operation defines the kind of objects on which it is applicable (`context`), a `name`, a set of `parameters` and optionally a `return type`. Modules can also import other modules using `import` statements and access their operations, as shown in the listing below.
+EOL programs are organized in `modules`. Each module defines a `body` and a number of `operations`. The body is a block of statements that are evaluated when the module is executed. Each operation defines the kind of objects on which it is applicable (`context`), a `name`, a set of `parameters` and optionally a `return type`. Modules can also import other modules using `import` statements and access their operations, as shown in the listing below.
 
 ```eol
 // file imported.eol
 operation hello() {
   "Hello world!".println();
 }
-
+```
+&nbsp;
+```eol
 // file importer.eol
 // We can use relative/absolute paths or platform:/ URIs
 import "imported.eol";
@@ -58,7 +60,7 @@ Annotation <|-- SimpleAnnotation
 
 In mainstream object oriented languages such as Java and C++, operations are defined inside classes and can be invoked on instances of those classes. EOL on the other hand is not object-oriented in the sense that it does not define classes itself, but nevertheless needs to manage objects of types defined externally to it (e.g. in metamodels). By defining the context-type of an operation explicitly, the operation can be called on instances of the type as if it was natively defined by the type.
 
-For example, consider the code excerpts displayed in the listings below. In the first listing, the operations `add1` and `add2` are defined in the context of the built-in `Integer` type, which is specified before their names. Therefore, they can be invoked in line 1 using the `1.add1().add2()` expression: the context (the integer `1`) will be assigned to the special variable `self`. On the other hand, in the second listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.
+For example, consider the code excerpts displayed in the listings below. In the first listing, the operations `add1` and `add2` are defined in the context of the built-in `Integer` type, which is specified before their names. Therefore, they can be invoked in line 1 using the `1.add1().add2()` expression: the context (the integer `1`) will be assigned to the special variable `self`.
 
 ```eol
 1.add1().add2().println();
@@ -71,6 +73,8 @@ operation Integer add2() : Integer {
   return self + 2;
 }
 ```
+
+On the other hand, in the following listing where no context is defined, they have to be invoked in a nested manner which follows an in-to-out direction instead of the left to right direction used by the former excerpt. As complex model queries often involve invoking multiple properties and operations, this technique is particularly beneficial to the overall readability of the code.
 
 ```eol
 add2(add1(1)).println();
@@ -98,6 +102,17 @@ operation Integer test() {
   (self + "is an integer").println();
 }
 ```
+
+!!! warning "Statements after operations ignored"
+    Any loose statements after the first operation of an EOL program will be ignored by the EOL interpeter e.g.
+    ```eol
+    "This statement will be executed".println();
+    
+    operation foo() {}
+
+    "This statement won't be executed".println();
+    ```
+
 
 ### Annotations
 
@@ -191,7 +206,7 @@ PrimitiveType <|-- Real
 EOL](images/EOLTypes.png)-->
 
 The operations supported by
-instances of the Any type are outlined in the table below[^2].
+instances of the Any type are outlined in the table below[^1].
 
 Signature |Description
 ----------|-----------
@@ -207,7 +222,7 @@ asSet() : Set                           | Returns a new Set containing the objec
 asString() : String                     | Returns a string representation of the object
 err(\[prefix : String\]) : Any          | Prints a string representation of the object on which it is invoked to the error stream prefixed with the optional `prefix` string and returns the object on which it was invoked. In this way, the `err` operation can be used for debugging purposes in a non-invasive manner
 errln(\[prefix : String\]) : Any        | Has the same effects as the `err` operation but also produces a new line in the output stream.
-format(\[pattern : String\]) : String   | Uses the provided pattern to form a String representation of the object on which the method is invoked. The pattern argument must conform to the format string syntax defined by Java[^3].
+format(\[pattern : String\]) : String   | Uses the provided pattern to form a String representation of the object on which the method is invoked. The pattern argument must conform to the format string syntax defined by Java[^2].
 hasProperty(name : String) : Boolean    | Returns true if the object has a property with the specified name or false otherwise
 ifUndefined(alt : Any) : Any            | If the object is undefined, it returns alt else it returns the object
 isDefined() : Boolean                   | Returns true if the object is defined and false otherwise
@@ -333,7 +348,7 @@ third() : Any                     |Returns the third item of the collection
 
 Also, EOL collections support the following first-order operations. Apart from `aggregate` and `closure`, all of these operations have a parallel variant which can take advantage of multiple cores to improve performance. All computations contained in these operations are assumed to be free from side-effects (i.e. do not mutate global variables).
 
-Aside from the following built-in first-order operations which are evaluated eagerly, all Collection types in the Java implementation of EOL support Streams. This allows for chains of queries and transformations on collections to be evaluated more efficiently. A stream can be obtained by calling the `stream()` method on the collection. The API is defined by the Java standard library[^4].
+Aside from the following built-in first-order operations which are evaluated eagerly, all Collection types in the Java implementation of EOL support Streams. This allows for chains of queries and transformations on collections to be evaluated more efficiently. A stream can be obtained by calling the `stream()` method on the collection. The API is defined by the Java standard library[^3].
 
 Signature |Description
 ----------|----------- 
@@ -575,7 +590,7 @@ false|false|true
 
 ### Ternary Operator
 
-As of version 2.0, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this[^5]. Note that is also possible to use the `else` keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.
+As of version 2.0, EOL has a ternary operator which is a concise way of using if/else as an expression. The semantics and syntax are similar to Java, but can be used anywhere as an expression, not only in variable assignments or return statements. The listing below shows some examples of this[^4]. Note that is also possible to use the `else` keyword in place of the colon for separating the true and false expressions for greater clarity. As one would expect, the branches are evaluated lazily: only one of the branches is executed and returned as the result of the expression depending on the value of the Boolean expression before the question mark.
 
 ```eol
 var result = 2+2==4 ? "Yes" else "No";
@@ -951,12 +966,10 @@ User-input facilities have been found to be particularly useful in all model man
 
 Additional resources about EOL are available [here](../articles/#epsilon-object-language).
 
-[^1]: Although the EOL parser permits loose statements (e.g. not contained in operations) between/after operations, these are ignored at runtime.
+[^1]: Parameters within square brackets are optional
 
-[^2]: Parameters within square brackets are optional
+[^2]: <http://download.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax>
 
-[^3]: <http://download.oracle.com/javase/8/docs/api/java/util/Formatter.html#syntax>
+[^3]: <https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>
 
-[^4]: <https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>
-
-[^5]: For further examples of ternary operator, see <https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol>
+[^4]: For further examples of ternary operator, see <https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol>
