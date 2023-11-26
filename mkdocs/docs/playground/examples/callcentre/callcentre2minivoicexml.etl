@@ -1,0 +1,106 @@
+rule Model2Document
+    transform m: Source!Model
+    to d: Target!Document {
+
+    // First dialog must be the one with no incoming transitions
+    d.dialogs = m.steps.sortBy(s|s.incoming.size())
+                    .equivalents()
+                    .flatten()
+                    .select(e|e.isKindOf(Target!Dialog));
+}
+
+// STEPS TO DIALOGS (FORMS / MENUS)
+@abstract
+rule Step2Dialog 
+    transform s: Source!Step 
+    to d: Target!Dialog {
+    
+    d.id = s.name;
+} 
+
+rule Statement2Form 
+    transform s: Source!Statement 
+    to d: Target!Form 
+    extends Step2Dialog {
+    
+    var b = d.addBlock();
+    var p = new Target!Prompt;
+    p.text = s.text;
+    b.content.add(p);
+}
+ 
+rule CallRedirection2Form 
+    transform cr: Source!CallRedirection 
+    to d: Target!Form 
+    extends Step2Dialog {
+    
+    var t = new Target!Transfer;
+    t.dest = "tel:" + cr.number;
+    d.items.add(t);
+}
+ 
+rule InputQuestion2Form 
+    transform iq: Source!InputQuestion 
+    to d: Target!Form 
+    extends Step2Dialog {
+    
+    var f = new Target!Field;
+    f.name = iq.variable;
+    d.items.add(f);
+
+    if (not ''.equals(iq.text)) {
+        var p = new Target!Prompt;
+        p.text = iq.text;
+        f.prompt = p; 
+    }
+}
+ 
+rule Decision2Menu 
+    transform d: Source!Decision 
+    to m: Target!Menu 
+    extends Step2Dialog {
+    
+    if (not ''.equals(d.text)) {
+        var p = new Target!Prompt;
+        p.text = d.text;
+        m.prompt = p;
+    }
+}
+
+// TRANSITIONS TO CHOICES / GOTO
+rule DecisionTransition2Choice 
+    transform t: Source!Transition 
+    to c: Target!Choice {
+    
+    guard: t.from.isKindOf(Source!Decision)
+
+    var m = t.from.equivalent();
+    c.dtmf = (m.choices.size() + 1).asString();
+    c.text = t.text;
+    c.next = t.`to`.equivalent();
+
+    m.choices.add(c);
+}
+
+rule OtherTransition2GoTo 
+    transform t: Source!Transition 
+    to g: Target!GoTo {
+  
+    guard: not t.from.isKindOf(Source!Decision)
+
+    var sourceForm = t.from.equivalent();
+    var b = sourceForm.items.last;
+    if (b.isUndefined() or not b.isKindOf(Target!Block)) {
+        b = sourceForm.addBlock();
+    }
+
+    g.next = t.`to`.equivalent();
+    b.content.add(g);
+}
+
+// HELPER OPERATIONS
+operation Target!Form addBlock(): Target!Block {
+    var b = new Target!Block;
+    self.items.add(b);
+    return b;
+}

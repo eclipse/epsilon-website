@@ -1,0 +1,61 @@
+package minivoicexml;
+
+/*
+ * This metamodel is a *major* simplification of the W3C VoiceXML spec
+ * in https://www.w3.org/TR/voicexml20/
+ */
+
+class Document {
+	val Dialog[*] dialogs;
+}
+
+abstract class Dialog {
+	unique attr String ~id;
+}
+
+class Form extends Dialog {
+    val FormItem[*] items;
+}
+
+abstract class FormItem {
+    attr String name;	
+}
+
+class Field extends FormItem {
+    // A piece of info to be provided by the caller
+    val Prompt[?] prompt;
+}
+
+class Block extends FormItem {
+	val ExecutableContent[*] content;
+}
+
+class Transfer extends FormItem {
+	/*
+	  The URI of the destination (telephone, IP telephony address). Platforms must 
+	  support the tel: URL syntax described in [RFC2806] and may support other
+	  URI-based addressing schemes.
+	*/
+	attr String dest;
+}
+
+class Menu extends Dialog {
+  val Prompt[?] prompt;
+  val Choice[*] choices;
+}
+
+class Choice {
+	attr String text;
+	attr String dtmf;
+	ref Dialog next;
+}
+
+abstract class ExecutableContent {}
+
+class Prompt extends ExecutableContent {
+	attr String text;
+}
+
+class GoTo extends ExecutableContent {
+	ref Dialog next;
+}

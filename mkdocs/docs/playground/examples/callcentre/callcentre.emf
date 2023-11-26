@@ -1,0 +1,32 @@
+package callcentre;
+
+class Model {
+	attr String name;
+	val Step[*] steps;
+	val Transition[*] transitions;
+}
+
+abstract class Step {
+	attr String name;
+	attr String text;
+	ref Transition[*]#to incoming;
+	ref Transition[*]#from outgoing;
+}
+
+class Statement extends Step {}
+
+class Decision extends Step {}
+
+class CallRedirection extends Step {
+	attr String number;
+}
+
+class InputQuestion extends Step {
+    attr String variable;
+}
+
+class Transition {
+	attr String text;
+	ref Step#outgoing from;
+	ref Step#incoming to;
+}
