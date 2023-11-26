@@ -9,7 +9,7 @@ var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 var eclHighlightRules = function() {
 
     var keywords = (
-        "match|with|auto|do|compare|rule|from|pre|post|not|delete|import|for|while|in|and|or|operation|return|var|throw|if|new|else|transaction|abort|break|continue|assert|assertError|not|function|default|switch|case|as|ext|driver|alias|model|breakAll|async|group|nor|xor|implies"
+        "match|with|auto|do|compare|rule|pre|post|not|delete|import|for|while|in|and|or|operation|return|var|throw|if|new|else|transaction|abort|break|continue|assert|assertError|not|function|default|switch|case|as|ext|driver|alias|model|breakAll|async|group|nor|xor|implies"
     );
 
     var builtinConstants = (
