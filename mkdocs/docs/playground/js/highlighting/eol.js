@@ -29,7 +29,7 @@ var eolHighlightRules = function() {
         "keyword": keywords,
         "constant.language": builtinConstants,
         "storage.type": dataTypes
-    }, "identifier", true);
+    }, "identifier", false);
 
     this.$rules = {
         "start" : [ {
