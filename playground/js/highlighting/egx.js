@@ -29,7 +29,7 @@ define("ace/mode/egx_highlight_rules",["require","exports","module","ace/lib/oop
             "keyword": keywords,
             "constant.language": builtinConstants,
             "storage.type": dataTypes
-        }, "identifier", true);
+        }, "identifier", false);
     
         this.$rules = {
             "start" : [ {
