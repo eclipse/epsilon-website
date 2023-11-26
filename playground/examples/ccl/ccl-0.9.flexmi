@@ -1,0 +1,20 @@
+<?nsuri ccl/0.9?>
+<_>
+    <!-- Computes (NOT A) OR (B and C) -->
+    <component name="Not">
+        <port name="in" dir="in"/>
+        <port name="out" dir="out"/>
+    </component>
+    <component name="And">
+        <port name="a" dir="in"/>
+        <port name="b" dir="in"/>
+        <port name="out" dir="out"/>
+    </component>
+    <component name="Or">
+        <port name="a" dir="in"/>
+        <port name="b" dir="in"/>
+        <port name="out" dir="in"/>
+    </component>
+    <connector source="Not.out" target="Or.a"/>
+    <connector source="And.out" target="Or.b"/>
+</_>

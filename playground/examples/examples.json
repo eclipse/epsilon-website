@@ -202,6 +202,15 @@
 				"flexmi": "ccl/ccl.flexmi",
 				"emfatic": "ccl/ccl.emf",
 				"outputType": "dot"
+			},
+			{
+				"id": "flock",
+				"title": "Migrate Ports",
+				"language": "flock",
+				"program": "ccl/ccl.mig",
+				"flexmi": "ccl/ccl-0.9.flexmi",
+				"emfatic": "ccl/ccl-0.9.emf",
+				"secondEmfatic": "ccl/ccl.emf"
 			}
 		]
 	},
@@ -234,6 +243,15 @@
 				"flexmi": "notes-and-coins/notes.flexmi",
 				"emfatic": "notes-and-coins/notes.emf",
 				"secondEmfatic": "notes-and-coins/coins.emf"
+			},
+			{
+				"id": "callcentre2minivoicexml",
+				"title": "Call Centre to Mini VoiceXML",
+				"language": "etl",
+				"program": "callcentre/callcentre2minivoicexml.etl",
+				"flexmi": "callcentre/callcentre.flexmi",
+				"emfatic": "callcentre/callcentre.emf",
+				"secondEmfatic": "callcentre/minivoicexml.emf"
 			}
 		]
 	},
@@ -298,15 +316,6 @@
 				"flexmi": "tree.flexmi",
 				"emfatic": "tree.emf",
 				"secondEmfatic": "graph.emf"
-			},
-			{
-				"id": "callcentre2minivoicexml",
-				"title": "Call Centre to Mini VoiceXML",
-				"language": "etl",
-				"program": "callcentre/callcentre2minivoicexml.etl",
-				"flexmi": "callcentre/callcentre.flexmi",
-				"emfatic": "callcentre/callcentre.emf",
-				"secondEmfatic": "callcentre/minivoicexml.emf"
 			}
 	]}
 ]}

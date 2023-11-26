@@ -1,0 +1,16 @@
+retype Port to InPort when: original.isInput()
+
+retype Port to OutPort when: original.isOutput()
+
+migrate Connector {
+    migrated.source = original.from.equivalent();
+    migrated.target = original.`to`.equivalent();
+}
+
+operation Original!Port isInput() : Boolean {
+    return self.direction == Original!Direction#IN;
+}
+
+operation Original!Port isOutput() : Boolean {
+    return self.direction == Original!Direction#OUT;
+}
