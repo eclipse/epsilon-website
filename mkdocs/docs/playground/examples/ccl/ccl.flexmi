@@ -15,6 +15,6 @@
         <in name="b"/>
         <out name="out"/>
     </component>
-    <connector source="Not.out" target="Or.a"/>
-    <connector source="And.out" target="Or.b"/>
+    <connector from="Not.out" to="Or.a"/>
+    <connector from="And.out" to="Or.b"/>
 </_>

@@ -1,0 +1,25 @@
+@namespace(uri="ccl/0.9")
+package ccl;
+
+class Component {
+    attr String name;
+    val Port[*]#component ports;
+}
+
+class Connector {
+    ref Port from;
+    ref Port to;
+}
+
+class Port {
+    attr String name;
+    attr String type = "boolean";
+    @diagram(direction="right")
+    attr Direction direction;
+    ref Component#ports component;
+}
+
+enum Direction {
+    IN;
+    OUT;
+}
