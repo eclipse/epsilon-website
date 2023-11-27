@@ -1471,7 +1471,7 @@ As an example, here is an EOL script which sets <code>M.root.y</code> to a deep 
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="managing-the-model-root-in-declarative-epsilon-scripts">Managing the model root in declarative Epsilon scripts<a class="headerlink" href="#managing-the-model-root-in-declarative-epsilon-scripts" title="Permanent link">&para;</a></h3>
-<p>When writing Epsilon scripts that create JSON objects and arrays using declarative strategies (e.g. ETL), it will be necessary to set the root of the JSON model in a <code>post</code> block. This is because in a creating a <code>JSONObject</code> or a <code>JSONArray</code> will not automatically add it to the contents of the model, unlike other types of models (e.g. EMF).</p>
+<p>When writing Epsilon scripts that create JSON objects and arrays using declarative strategies (e.g. ETL), it will be necessary to set the root of the JSON model in a <code>post</code> block. This is because in a JSON model, creating a <code>JSONObject</code> or a <code>JSONArray</code> will not automatically add it to the contents of the model.</p>
 <p>As an example, here is an ETL script which transforms EMF models that conform to a <code>Tree</code> metamodel into JSON documents:</p>
 <pre class="prettyprint lang-etl"><code>post {
   var sourceRoots = Source.getResource().contents; 
