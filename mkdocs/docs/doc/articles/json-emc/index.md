@@ -247,7 +247,7 @@ Since `M.root.y` is not the same object anymore, the last line only affects `M.r
 
 ### Managing the model root in declarative Epsilon scripts
 
-When writing Epsilon scripts that create JSON objects and arrays using declarative strategies (e.g. ETL), it will be necessary to set the root of the JSON model in a `post` block. This is because in a creating a `JSONObject` or a `JSONArray` will not automatically add it to the contents of the model, unlike other types of models (e.g. EMF).
+When writing Epsilon scripts that create JSON objects and arrays using declarative strategies (e.g. ETL), it will be necessary to set the root of the JSON model in a `post` block. This is because in a JSON model, creating a `JSONObject` or a `JSONArray` will not automatically add it to the contents of the model.
 
 As an example, here is an ETL script which transforms EMF models that conform to a `Tree` metamodel into JSON documents:
 
