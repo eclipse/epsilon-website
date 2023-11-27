@@ -47,6 +47,7 @@ This page links to more than **80 articles** on various aspects of Epsilon. Shou
 - [Using Epsilon for Ecore Validation, Setting and Invocation Delegation](epsilon-in-ecore): This shows how to use Epsilon in an Ecore model to provide Invocation and Setting delegation with EOL and Validation Delegation with EVL.
 
 ## Epsilon and UML models
+
 - [Managing Profiled UML Models in Epsilon](profiled-uml-models): This article shows how to create and query profiled Eclipse UML models using Epsilon's core language.
 
 ## Epsilon and Simulink models
@@ -58,12 +59,14 @@ This page links to more than **80 articles** on various aspects of Epsilon. Shou
 
 - [Scripting XML documents using Epsilon](plain-xml): In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed) in Epsilon programs using the PlainXML driver.
 - [Scripting XML documents that conform to an XSD schema using Epsilon](xsd-xml): In this article we demonstrate how you can create, query and modify XML documents backed by an XSD schema in Epsilon.
-- [Scripting YAML documents using Epsilon](yaml-emc): This article demonstrates how you can query YAML documents with Epsilon programs using the YAML driver.
+- [Scripting YAML documents using Epsilon](yaml-emc): This article demonstrates how you can query and modify YAML documents with Epsilon programs using the YAML driver.
+- [Scripting JSON documents using Epsilon](json-emc): This article shows how you can create, query and modify JSON documents with Epsilon programs using the JSON driver.
 - [Scripting CSV files using Epsilon](csv-emc): This article demonstrates how you can query CSV files with Epsilon programs using the CSV driver.
 - [Scripting Excel spreadsheets using Epsilon](excel): In this article we demonstrate how you can create, query and modify Excel spreadsheets in Epsilon programs.
 - [Scripting HTML documents using Epsilon](html): In this article we demonstrate how you can create, query and modify HTML documents in Epsilon programs using the HTML driver.
 - [Scripting BibTeX files using Epsilon](bibtex): In this article we demonstrate how you can query a list of references stored in BibTeX files with Epsilon programs using the BibTeX driver.
 - [Treating Java code as a model in Epsilon](jdt): In this article we demonstrate how Epsilon languages can query Java code as if it were a model, using a driver that builds on the Eclipse Java Development Tools.
+
 ## Eugenia
 
 ### Fundamentals

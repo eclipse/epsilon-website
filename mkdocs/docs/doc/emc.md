@@ -103,9 +103,9 @@ Epsilon also provides mature support for querying and modifying Matlab Simulink 
 
 Cameo Systems Modeler is a widely-used graphical systems modelling tool. A driver that allows Epsilon programs to read/write Cameo models is available under [EpsilonLabs on GitHub](https://github.com/epsilonlabs/emc-cameo).
 
-### CSV / Excel / XML / YAML
+### CSV / Excel / JSON / XML / YAML
 
-For quick and dirty metamodel-less modelling, Epsilon also supports [CSV files](../articles/csv-emc), [Excel spreadsheets](../articles/excel), [plain XML documents](../articles/plain-xml), and [YAML files](../articles/yaml-emc).
+For quick and dirty metamodel-less modelling, Epsilon also supports [CSV files](../articles/csv-emc), [Excel spreadsheets](../articles/excel), [JSON documents](../articles/json-emc), [plain XML documents](../articles/plain-xml), and [YAML files](../articles/yaml-emc).
 
 ### Eclipse Hawk
 

@@ -325,5 +325,5 @@ module.execute();
 ```
 
 ## Additional resources
- 
-* [MDENet Community](https://community.mde-network.org/courses/4609253/content): Additional learning resources about MDE with the Epsilon Framework
+
+- [MDENet Community](https://community.mde-network.org/courses/4609253/content): Additional learning resources about MDE with the Epsilon Framework.
