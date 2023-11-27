@@ -1226,19 +1226,27 @@
 <h1 id="running-epsilon-from-source">Running Epsilon from Source<a class="headerlink" href="#running-epsilon-from-source" title="Permanent link">&para;</a></h1>
 <p>To run Epsilon from source, you need to:</p>
 <ul>
-<li>Download a copy of the <a href="https://www.eclipse.org/downloads">latest version of Eclipse</a> and select the "Eclipse IDE for Eclipse Committers" option when prompted during the installation process. </li>
-<li>Clone the Git repository from <code>https://github.com/eclipse/epsilon</code> </li>
+<li>Download a copy of the <a href="https://www.eclipse.org/downloads">latest version of Eclipse</a> and select the "Eclipse IDE for Eclipse Committers" option when prompted during the installation process.</li>
+<li>Clone the Git repository from <code>https://github.com/eclipse/epsilon</code></li>
 <li>Import all the projects under the <code>plugins</code>, <code>features</code>, and <code>tests</code> folders in your workspace.</li>
-<li>(optional) To organise your workspace, you can create <a href="http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Fconcepts%2Fcworkset.htm">working sets</a>. For example, you could create three working sets that mirror the contents of the folders above (<code>plugins</code>, <code>features</code>, and <code>tests</code>). </li>
-<li>Open <code>releng/org.eclipse.epsilon.target/org.eclipse.epsilon.target.target</code> and click the "Set as Active Target Platform" link on the top right </li>
+<li>(optional) To organise your workspace, you can create <a href="http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Fconcepts%2Fcworkset.htm">working sets</a>. For example, you could create three working sets that mirror the contents of the folders above (<code>plugins</code>, <code>features</code>, and <code>tests</code>).</li>
+<li>Open <code>releng/org.eclipse.epsilon.target/org.eclipse.epsilon.target.target</code> and click the "Set as Active Target Platform" link on the top right</li>
 <li>Right-click on any Epsilon plugin project in the Project Explorer and select Run as → Eclipse Application</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Using your own Eclipse IDE and Maven m2e integration</p>
+<p>If you would prefer to keep using your own Eclipse IDE instance instead of downloading a new one, please keep in mind that the target platform of the current interim version of Epsilon uses recent features to pull some dependencies directly from Maven Central. To use this target platform, you must install the latest version of the <a href="https://eclipse.dev/m2e/">m2e integration plugin</a>, which can be found here: <a href="https://download.eclipse.org/technology/m2e/releases/latest">https://download.eclipse.org/technology/m2e/releases/latest</a></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Managing the target platform with the CBI Target Platform Definition DSL</p>
+<p>If needed, you can modify the target platform using the integrated editor provided by Eclipse when opening the <code>org.eclipse.epsilon.target.target</code> file. Alternatively, you can use the <a href="https://github.com/eclipse-cbi/targetplatform-dsl">Target Platform Definition DSL</a> provided by Eclipse CBI. The <code>org.eclipse.epsilon.target.target.tpd</code> file contains a target platform specified with this DSL, and used to auto-generate the <code>.target</code> version.</p>
+</div>
 <h2 id="naming-conventions">Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The execution engines for the various Epsilon languages are located in <code>org.eclipse.epsilon.*.engine</code> plugins. These are Eclipse-independent. </li>
-<li>Plugins named <code>*.dt</code> contain development tools (e.g. editors, run configurations, debuggers) for the respective Epsilon languages. </li>
-<li>Plugins named <code>org.eclipse.epsilon.emc.*</code> contain Epsilon Model Connectivity (EMC) drivers through which Epsilon languages can interact with different types of models (e.g. EMF models, spreadsheets etc.) </li>
-<li>Plugins named <code>org.eclipse.epsilon.emc.*.dt</code> contain development tools (e.g. model configuration dialogs) for the respective EMC drivers. </li>
+<li>The execution engines for the various Epsilon languages are located in <code>org.eclipse.epsilon.*.engine</code> plugins. These are Eclipse-independent.</li>
+<li>Plugins named <code>*.dt</code> contain development tools (e.g. editors, run configurations, debuggers) for the respective Epsilon languages.</li>
+<li>Plugins named <code>org.eclipse.epsilon.emc.*</code> contain Epsilon Model Connectivity (EMC) drivers through which Epsilon languages can interact with different types of models (e.g. EMF models, spreadsheets etc.)</li>
+<li>Plugins named <code>org.eclipse.epsilon.emc.*.dt</code> contain development tools (e.g. model configuration dialogs) for the respective EMC drivers.</li>
 <li>Plugins named <code>*.workflow</code> contribute <a href="../../workflow">ANT tasks</a>.</li>
 </ul>
 <h2 id="modifying-the-epsilon-parsers">Modifying the Epsilon parsers<a class="headerlink" href="#modifying-the-epsilon-parsers" title="Permanent link">&para;</a></h2>
