@@ -1,4 +1,3 @@
-import { file } from 'jszip';
 import { playground } from './constants.js';
 const path = require('path');
 
