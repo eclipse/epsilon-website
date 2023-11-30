@@ -16,14 +16,32 @@ class DownloadDialog {
                     onclick: function(){
                         var zip = new JSZip();
                         var extension = language == "flock" ? "mig" : language;
+                        
+                        var format = document.getElementById("format").value;
+                        
+                        var templateData = {
+                            language: language, 
+                            task: language == "egx" ? "egl" : language,
+                            extension: extension,
+                            etl: language == "etl",
+                            flock: language == "flock",
+                            etlOrFlock: language == "etl" || language == "flock",
+                            egl: language == "egl",
+                            eml: language == "eml",
+                            sourceModelName: language == "flock" ? "Original" : "Source",
+                            targetModelName: language == "flock" ? "Migrated" : "Target",
+                            sourceModelFileName: language == "flock" ? "original" : "source",
+                            targetModelFileName: language == "flock" ? "migrated" : "target",
+                        };
+
                         zip.file("program." + extension, programPanel.getEditor().getValue());
                         if (language == "egx") zip.file("template.egl", secondProgramPanel.getEditor().getValue());
                         if (language == "eml") zip.file("program.ecl", secondProgramPanel.getEditor().getValue());
 
                         if (language == "etl" || language == "flock") {
-                            zip.file("source.flexmi", firstModelPanel.getValue());
-                            zip.file("source.emf", firstMetamodelPanel.getValue());
-                            zip.file("target.emf", secondMetamodelPanel.getValue());
+                            zip.file(templateData.sourceModelFileName + ".flexmi", firstModelPanel.getValue());
+                            zip.file(templateData.sourceModelFileName + ".emf", firstMetamodelPanel.getValue());
+                            zip.file(templateData.targetModelFileName + ".emf", secondMetamodelPanel.getValue());
                         }
                         else if (language == "eml") {
                             zip.file("left.flexmi", firstModelPanel.getValue());
@@ -37,18 +55,7 @@ class DownloadDialog {
                             zip.file("metamodel.emf", firstMetamodelPanel.getValue());
                         }
     
-                        var format = document.getElementById("format").value;
                         
-                        var templateData = {
-                            language: language, 
-                            task: language == "egx" ? "egl" : language,
-                            extension: extension,
-                            etl: language == "etl",
-                            flock: language == "flock",
-                            etlOrFlock: language == "etl" || language == "flock",
-                            egl: language == "egl",
-                            eml: language == "eml"
-                        };
     
                         if (format == "gradle") {
                             var template = Handlebars.compile(self.fetchTemplate("gradle/build.gradle.handlebars"));

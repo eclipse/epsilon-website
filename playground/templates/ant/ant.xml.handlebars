@@ -26,21 +26,21 @@
 <epsilon.disposeModel model="Right"/>
 <epsilon.disposeModel model="Merged"/>
 {{else if etlOrFlock}}
-<!-- Load the source.flexmi EMF model -->
-<epsilon.emf.loadModel name="Source" modelfile="source.flexmi" metamodelfile="source.emf" />
+<!-- Load the {{ sourceModelFileName }}.flexmi EMF model -->
+<epsilon.emf.loadModel name="{{ sourceModelName }}" modelfile="{{ sourceModelFileName }}.flexmi" metamodelfile="{{ sourceModelFileName }}.emf" />
 
-<!-- Load the target.xmi EMF model -->
-<epsilon.emf.loadModel name="Target" modelfile="target.xmi" metamodelfile="target.emf" read="false" store="true"/>
+<!-- Load the {{ targetModelFileName }}.xmi EMF model -->
+<epsilon.emf.loadModel name="{{ targetModelName }}" modelfile="{{ targetModelFileName }}.xmi" metamodelfile="{{ targetModelFileName }}.emf" read="false" store="true"/>
 
 <!-- Run program.{{ extension }} against it -->
-<epsilon.{{ task }} src="program.{{ extension }}"{{#if flock}} originalModel="Source" migratedModel= "Target"{{/if}}>
-    <model ref="Source" />
-    <model ref="Target" />
+<epsilon.{{ task }} src="program.{{ extension }}"{{#if flock}} originalModel="{{ sourceModelName }}" migratedModel= "{{ targetModelName }}"{{/if}}>
+    <model ref="{{ sourceModelName }}" />
+    <model ref="{{ targetModelName }}" />
 </epsilon.{{ task }}>
 
 <!-- Dispose of both models -->
-<epsilon.disposeModel model="Source"/>
-<epsilon.disposeModel model="Target"/>
+<epsilon.disposeModel model="{{ sourceModelName }}"/>
+<epsilon.disposeModel model="{{ targetModelName }}"/>
 {{else}}
 <!-- Load the model.flexmi EMF model -->
 <epsilon.emf.loadModel name="M" modelfile="model.flexmi" metamodelfile="metamodel.emf" />

@@ -20,37 +20,37 @@ public class Example {
         FlockModule module = new FlockModule();
         module.parse(new File("program.mig"));
         
-        // Load the original model from source.flexmi using source.emf as its metamodel
-        EmfModel source = new EmfModel();
-        source.setName("Source");
-        source.setModelFile("source.flexmi");
-        source.setMetamodelFile("source.emf");
-        source.setReadOnLoad(true);
-        source.setStoredOnDisposal(false);
-        source.load();
+        // Load the original model from original.flexmi using original.emf as its metamodel
+        EmfModel original = new EmfModel();
+        original.setName("Original");
+        original.setModelFile("original.flexmi");
+        original.setMetamodelFile("original.emf");
+        original.setReadOnLoad(true);
+        original.setStoredOnDisposal(false);
+        original.load();
 
-        // Configure the migrated model using target.emf as its metamodel
-        EmfModel target = new EmfModel();
-        target.setName("Target");
-        // We use XMI instead of Flexmi as the format of the target model as Flexmi is a read-only format
-        target.setModelFile("target.xmi");
-        target.setMetamodelFile("target.emf");
-        target.setReadOnLoad(false);
-        target.setStoredOnDisposal(true);
-        target.load();
+        // Configure the migrated model using migrated.emf as its metamodel
+        EmfModel migrated = new EmfModel();
+        migrated.setName("Migrated");
+        // We use XMI instead of Flexmi as the format of the migrated model as Flexmi is a read-only format
+        migrated.setModelFile("migrated.xmi");
+        migrated.setMetamodelFile("migrated.emf");
+        migrated.setReadOnLoad(false);
+        migrated.setStoredOnDisposal(true);
+        migrated.load();
 
         // Make the models available to the migration transformation
-        module.getContext().getModelRepository().addModel(source);
-        module.getContext().getModelRepository().addModel(target);
+        module.getContext().getModelRepository().addModel(original);
+        module.getContext().getModelRepository().addModel(migrated);
 
         // Configure the original and migrated models of the migration transformation
-        module.getContext().setOriginalModel(source);
-        module.getContext().setMigratedModel(target);
+        module.getContext().setOriginalModel(original);
+        module.getContext().setMigratedModel(migrated);
 
         // Execute the Flock migration transformation
         module.execute();
 
-        // Save the target model and dispose of both models
+        // Save the migrated model and dispose of both models
         module.getContext().getModelRepository().dispose();
     }
 }
