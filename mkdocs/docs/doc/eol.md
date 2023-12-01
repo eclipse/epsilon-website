@@ -629,7 +629,7 @@ assert(a == b);
 
 ### Enumerations
 
-EOL provides the `\#` operator for accessing enumeration literals. For example, the `VisibilityEnum\#vk\_public` expression returns the value of the literal `vk_public` of the `VisibilityEnum` enumeration. For EMF metamodels, `VisibilityEnum#vk_public.instance` can also be used.
+EOL provides the `#` operator for accessing enumeration literals. For example, the `VisibilityEnum#vk_public` expression returns the value of the literal `vk_public` of the `VisibilityEnum` enumeration. For EMF metamodels, `VisibilityEnum#vk_public.instance` can also be used.
 
 Since 2.5.0, you can optionally omit the type when referring to enumeration literals. All these options are available:
 
@@ -933,12 +933,12 @@ Model management operations can be executed in a number of runtime environments 
 Signature |Description
 ----------|-----------   
 inform(message : String) |Displays the specified message to the user
-confirm(message : String, \[default : Boolean\]) : Boolean |Prompts the user to confirm if the condition described by the message holds
-prompt(message : String, \[default : String\]) : String |Prompts the user for a string in response to the message
-promptInteger(message : String, \[default : Integer\]) : Integer |Prompts the user for an Integer
-promptReal(message : String, \[default : Real\]) : Real |Prompts the user for a Real
-choose(message : String, options : Sequence, \[default : Any\]) : Any  |Prompts the user to select one of the options
-chooseMany(message : String, options : Sequence, \[default : Sequence\]) : Sequence |Prompts the user to select one or more of the options
+confirm(message : String, [default : Boolean]) : Boolean |Prompts the user to confirm if the condition described by the message holds
+prompt(message : String, [default : String]) : String |Prompts the user for a string in response to the message
+promptInteger(message : String, [default : Integer]) : Integer |Prompts the user for an Integer
+promptReal(message : String, [default : Real]) : Real |Prompts the user for a Real
+choose(message : String, options : Sequence, [default : Any]) : Any  |Prompts the user to select one of the options
+chooseMany(message : String, options : Sequence, [default : Sequence]) : Sequence |Prompts the user to select one or more of the options
 
 As displayed above, all the methods of the `IUserInput` interface accept
 a `default` parameter. The purpose of this parameter is dual. First, it
