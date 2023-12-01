@@ -180,7 +180,7 @@ class ModelPanel extends Panel {
         diagram.setAttribute("id", this.id + "Diagram");
         diagram.setAttribute("class", "diagram");
         
-        var splitter = Layout.createHorizontalSplitter([editor, diagram], "0, 100");
+        var splitter = Layout.createHorizontalSplitter([editor, diagram]);
         splitter.setAttribute("class", "h-100");
 
         root.appendChild(splitter);
