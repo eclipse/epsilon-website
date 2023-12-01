@@ -10,6 +10,7 @@ nav:
     - Languages:
         - Object Language (EOL): 'doc/eol.md'
         - Code Generation (EGL): 'doc/egl.md'
+        - Code Generation (EGX): 'doc/egx.md'
         - Model Validation (EVL): 'doc/evl.md'
         - Model Transformation (ETL): 'doc/etl.md'
         - Model Comparison (ECL): 'doc/ecl.md'
