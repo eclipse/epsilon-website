@@ -253,13 +253,15 @@ While EMF provides support for [reflective model instantiation](../articles/refl
 
 ## Gallery
 
-![](picto-minisd.png)
+[![](picto-minisd.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.plantuml.minisd)
 
-![](picto-risks.png)
+[![](picto-comps.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.comps)
 
-![](picto-gsn.png)
+[![](picto-risks.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.risks)
 
-![Table generated with the Pinset language](../articles/picto-tables/pinset-picto.png)
+[![](picto-gsn.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.gsn)
+
+[![Table generated with the Pinset language](../articles/picto-tables/pinset-picto.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.socialnetwork)
 
 ## Additional Resources
 
