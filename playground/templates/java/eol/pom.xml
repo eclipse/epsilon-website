@@ -29,6 +29,25 @@
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<mainClass>org.eclipse.epsilon.examples.Example</mainClass>
+					<systemProperties>
+						<systemProperty>
+							<key>org.eclipse.emf.common.util.ReferenceClearingQueue</key>
+							<value>false</value>
+						</systemProperty>
+					</systemProperties>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.eclipse.epsilon</groupId>
