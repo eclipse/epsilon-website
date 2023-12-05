@@ -1,3 +1,5 @@
+import {programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, secondProgramPanel, thirdModelPanel, thirdMetamodelPanel, outputPanel} from './Playground.js'
+
 class SettingsDialog {
 
     showEditorLineNumbers = false;
@@ -5,18 +7,18 @@ class SettingsDialog {
     show(event) {
         event.preventDefault();
 
-        var panels = ["program", "console", "firstModel", "firstMetamodel"];
+        var panels = [programPanel, consolePanel, firstModelPanel, firstMetamodelPanel];
 
         if (language == "etl" || language == "flock") {
-            panels.push("secondModel", "secondMetamodel");
+            panels.push(secondModelPanel, secondMetamodelPanel);
         }
         else if (language == "eml") {
-            panels.push("secondProgram", "thirdModel", "thirdMetamodel", "secondModel", "secondMetamodel");
+            panels.push(secondProgramPanel, thirdModelPanel, thirdMetamodelPanel, secondModelPanel, secondMetamodelPanel);
         }
         else if (language == "evl" || language == "epl" || language == "egl" || language == "egx") {
-            panels.push("output");
+            panels.push(outputPanel);
             if (language == "egx") {
-                panels.push("secondProgram");
+                panels.push(secondProgramPanel);
             }
         }
 
@@ -45,7 +47,8 @@ class SettingsDialog {
                     cls: "js-dialog-close success",
                     onclick: function () {
                         for (const panel of panels) {
-                            self.applyPanelVisibility(panel);
+                            var visible = document.getElementById(panel.getId() + "Visible").checked;
+                            panel.setVisible(visible);
                         }
                         self.updateEditorLineNumbers();
                         updateGutterVisibility();
@@ -60,24 +63,6 @@ class SettingsDialog {
         });
     }
 
-    applyPanelVisibility(panel) {
-        var display = "none";
-        if (document.getElementById(panel + "Visible").checked) {
-            display = "flex";
-        }
-        var parent = document.getElementById(panel + "Panel").parentNode;
-        parent.style.display = display;
-
-        // If all the panels in the splitter panel are hiden, hide the splitter panel too
-        if (Array.prototype.slice.call(parent.parentNode.children).every(
-            child => child.style.display == "none" || child.className == "gutter")) {
-            parent.parentNode.style.display = "none";
-        }
-        else {
-            parent.parentNode.style.display = "flex";
-        }
-    }
-
     updateEditorLineNumbers() {
         this.showEditorLineNumbers = document.getElementById("editorLineNumbers").checked;
         panels.forEach(p => p.getEditor().renderer.setShowGutter(this.showEditorLineNumbers));
@@ -90,14 +75,12 @@ class SettingsDialog {
     }
 
     createPanelVisibilityCheckbox(panel) {
-        var checked = document.getElementById(panel + "Panel").parentNode.style.display == "none" ? "" : "checked";
-
-        return '<input type="checkbox" id="' + panel + 'Visible" data-role="checkbox" data-caption="' + this.getPanelTitle(panel + "Panel") + '" ' + checked + '>';
+        var checked = panel.isVisible() ? "checked" : "";
+        
+        return '<input type="checkbox" id="' + panel.getId() + 'Visible" data-role="checkbox" data-caption="' + panel.getTitle() + '" ' + checked + '>';
     }
 
-    getPanelTitle(panelId) {
-        return $("#" + panelId)[0].dataset.titleCaption;
-    }
+    
 }
 
 export { SettingsDialog };

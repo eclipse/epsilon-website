@@ -32,11 +32,32 @@ class Panel {
         this.element.dataset.titleCaption = title;
     }
 
+    getTitle() {
+        return this.element.dataset.titleCaption;
+    }
+
     setIcon(icon) {
         this.element.dataset.titleIcon = "<span class='mif-16 mif-" + icon + "'></span>";
     }
 
     setVisible(visible) {
+        if (this.visible != visible) {
+            var display = "none";
+            if (visible) {
+                display = "flex";
+            }
+            var parent = document.getElementById(this.getId() + "Panel").parentNode;
+            parent.style.display = display;
+
+            // If all the panels in the splitter panel are hiden, hide the splitter panel too
+            if (Array.prototype.slice.call(parent.parentNode.children).every(
+                child => child.style.display == "none" || child.className == "gutter")) {
+                parent.parentNode.style.display = "none";
+            }
+            else {
+                parent.parentNode.style.display = "flex";
+            }
+        }
         this.visible = visible;
     }
 
@@ -69,6 +90,10 @@ class Panel {
             this.element = this.createElement();
         }
         return this.element;
+    }
+
+    getId() {
+        return this.id;
     }
 
 }
