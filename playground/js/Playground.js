@@ -55,8 +55,7 @@ function setup() {
 
     if (example.eol != null) { example.program = example.eol; language = "eol";}
     else {language = example.language};
-    console.log("Language: " + language);
-
+    
     if (example.outputType != null) {outputType = example.outputType;}
     if (example.outputLanguage != null) {outputLanguage = example.outputLanguage;}
     

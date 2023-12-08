@@ -1226,7 +1226,7 @@
 <h1 id="development-instructions">Development Instructions<a class="headerlink" href="#development-instructions" title="Permanent link">&para;</a></h1>
 <p>The Playground uses <code>webpack</code> for compiling dependencies and custom JavaScript into a single <code>bundle.js</code> file under <code>dist</code>, which is then used in <code>index.html</code>. To rebuild <code>bundle.js</code> you need to run the following commands:</p>
 <ul>
-<li><code>npx webpack --mode=development</code> for a development build (faster build, larger <code>bundle.js</code>)</li>
+<li><code>npx webpack --watch --mode=development</code> for a development build (faster build, larger <code>bundle.js</code>)</li>
 <li><code>npx webpack --mode=production</code> before you push to GitHub (slower build, smaller <code>bundle.js</code>)</li>
 </ul>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>

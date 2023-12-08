@@ -10,7 +10,12 @@ class Backend {
         if (xhr.status === 200) {
             var json = JSON.parse(xhr.responseText);
             for (const service of json.services) {
-                this.services[service.name] = service.url;
+                if (service.port != null) {
+                    this.services[service.name] = "http://localhost:" + service.port;
+                }
+                else {
+                    this.services[service.name] = service.url;
+                }
             }
         }
     }

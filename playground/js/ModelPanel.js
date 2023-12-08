@@ -111,23 +111,69 @@ class ModelPanel extends Panel {
     }
 
     renderDiagram(svg) {
+
         var diagramId = this.id + "Diagram";
         var diagramElement = document.getElementById(diagramId);
-        diagramElement.innerHTML = svg;
-        var svg = document.getElementById(diagramId).firstElementChild;
         
         if (diagramId == "outputDiagram") {
             diagramElement.parentElement.style.padding = "0px";
         }
-    
-        svg.style.width = diagramElement.offsetWidth + "px";
-        svg.style.height = diagramElement.offsetHeight + "px";
         
-        svgPanZoom(svg, {
-          zoomEnabled: true,
-          fit: false, 
-          center: false
-        }).zoom(0.9);
+        svgPanZoom(this.embed(svg, diagramElement), {
+          minZoom: 0
+        });
+    }
+
+    embed(svg, container) {
+
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(svg, "image/svg+xml");
+        svg = doc.documentElement;
+
+        var svgHeight = svg.height.baseVal.value;
+        var svgWidth = svg.width.baseVal.value;
+
+        var containerHeight = container.offsetHeight;
+        var containerWidth = container.offsetWidth;
+
+        var scaleX = containerWidth / svgWidth;
+        var scaleY = containerHeight / svgHeight;
+        
+        var viewBoxWidthBeforeScaling = svg.viewBox.baseVal.width;
+        var viewBoxHeightBeforeScaling = svg.viewBox.baseVal.height;
+
+        var viewBoxWidth;
+        var viewBoxHeight;
+
+        if (svgHeight > containerHeight || svgWidth > containerWidth) {
+            var scale = Math.min(scaleX, scaleY);
+            svgHeight = Math.floor(svgHeight * scale);
+            svgWidth = Math.floor(svgWidth * scale);
+
+            svg.style.height = containerHeight + "px";
+            svg.style.width = containerWidth + "px";
+
+            viewBoxWidth = viewBoxWidthBeforeScaling * (containerWidth / svgWidth);
+            viewBoxHeight = viewBoxHeightBeforeScaling * (containerHeight / svgHeight);
+
+            svg.viewBox.baseVal.width = viewBoxWidth;
+            svg.viewBox.baseVal.height = viewBoxHeight;
+        }
+        else {
+            viewBoxWidth = viewBoxWidthBeforeScaling * scaleX;
+            viewBoxHeight = viewBoxHeightBeforeScaling * scaleY;
+            svg.viewBox.baseVal.height = viewBoxHeight;
+            svg.viewBox.baseVal.width = viewBoxWidth;
+            
+            svg.style.width = containerWidth + "px";
+            svg.style.height = containerHeight + "px";
+        }
+
+        svg.viewBox.baseVal.x = svg.viewBox.baseVal.x - ((viewBoxWidth - viewBoxWidthBeforeScaling) / 2);
+        svg.viewBox.baseVal.y = svg.viewBox.baseVal.y - ((viewBoxHeight - viewBoxHeightBeforeScaling) / 2);
+        
+        container.innerHTML = svg.outerHTML;
+        return container.firstElementChild;
     }
 
     modelToJson(modelEditor, metamodelEditor) {
@@ -180,7 +226,7 @@ class ModelPanel extends Panel {
         diagram.setAttribute("id", this.id + "Diagram");
         diagram.setAttribute("class", "diagram");
         
-        var splitter = Layout.createHorizontalSplitter([editor, diagram]);
+        var splitter = Layout.createHorizontalSplitter([editor, diagram], "0,100");
         splitter.setAttribute("class", "h-100");
 
         root.appendChild(splitter);
