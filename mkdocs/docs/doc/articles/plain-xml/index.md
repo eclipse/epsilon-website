@@ -1,6 +1,6 @@
 # Scripting XML documents using Epsilon
  
-In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed)  in Epsilon programs using the  PlainXML driver added in version 0.8.9. All the examples in this article demonstrate using EOL to script XML documents. However, it's worth stressing that XML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - XML or EMF-based -, or to text), compare and merge your XML documents.
+In this article we demonstrate how you can create, query and modify plain standalone XML documents (i.e. no XSD/DTD needed) in Epsilon programs using the PlainXML driver added in version 0.8.9. All the examples in this article demonstrate using EOL to script XML documents. However, it's worth stressing that XML documents are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - XML or EMF-based -, or to text), compare and merge your XML documents.
 
 <iframe width="90%" height="494" src="https://www.youtube.com/embed/GV1Wyx4SiQQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -36,7 +36,7 @@ The PlainXML driver uses predefined naming conventions to allow developers to pr
 
 ### How can I access elements by tag name? 
  
-The `t_` prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, `t_book.all` can be used to get all elements tagged as `<book>` in the document, `t_author.all` to retrieve all `<author>` elements etc. Also, if `b` is an element with a `<book>` tag, then `b.isTypeOf(t_book)` shall return true. If the tag name contains hyphens, underscores, and/or periods, you must escape the complete type name inside back ticks: `` `t_first-name `` 
+The `t_` prefix in front of the name of the tag is used to represent a type, instances of which are all the elements with that tag. For instance, `t_book.all` can be used to get all elements tagged as `<book>` in the document, `t_author.all` to retrieve all `<author>` elements etc. Also, if `b` is an element with a `<book>` tag, then `b.isTypeOf(t_book)` shall return true. If the tag name contains hyphens, underscores, and/or periods, you must escape the complete type name inside back ticks: `` `t_first-name` `` 
 
 ```eol
 // Get all <book> elements
@@ -74,7 +74,7 @@ b.name.println();
  
 You can use the attribute name as a property of the element object, prefixed by `a_`. For example, if `b` is the first book of `library.xml`, `b.a_title` will return `EMF Eclipse Modeling Framework`. Attribute properties are read/write.
 
-In this example, `b.a_pages` will return `744` as a string. For `744` to be returned as an integer instead, the `i_` prefix should be used instead (i.e. `b.i_pages`. The driver also supports the following preffixes: `b_` for boolean, `s_` for string (alias of `a_`) and `r_` for real values. 
+In this example, `b.a_pages` will return `744` as a string. For `744` to be returned as an integer instead, the `i_` prefix should be used instead (i.e. `b.i_pages`. The driver also supports the following prefixes: `b_` for boolean, `s_` for string (alias of `a_`) and `r_` for real values. 
 
 ```eol
 // Print all the titles of the books in the library
@@ -134,7 +134,7 @@ for (b in lib.children) {
 
 ### How do I get child elements with a specific tag name?
  
-Using what you've learned so far, you can do this using a combination of the `.children` property and the select/selectOne() operations. However, the driver also supports `e_` and `c_`-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. `e_` and `c_` properties are read-only.
+Using what you've learned so far, you can do this using a combination of the `.children` property and the `select()`/`selectOne()` operations. However, the driver also supports `e_` and `c_`-prefixed shorthand properties for accessing one or a collection of elements with the specified name respectively. `e_` and `c_` properties are read-only.
 
 ```eol
 // Get a random book
@@ -199,8 +199,8 @@ You can use the `.root` property for this.
 XMLDoc.root = new t_library;
 ```
 
-!!! warning "root element is required"
-    When writing scripts that create new XML documents, e.g. ETL, the root element must be set on the output model. This can be done ina `pre` block (e.g. if the root is not craeted by a transformation rule) or in a rule/operation/other. For the Library example above (where `lib` is the model name): 
+!!! warning "Root element is required"
+    When writing scripts that create new XML documents, e.g. ETL, the root element must be set on the output model. This can be done in a `pre` block (e.g. if the root is not created by a transformation rule) or in a rule/operation/other. For the Library example above (where `lib` is the model name): 
     ```etl
     pre {
         var root = new t_library;
@@ -237,7 +237,7 @@ The XML model type allows XML attributes to be used as references by using the a
 </library>
 ```
 
-Note that the attributes used for references must be a comma-separated list of "keys". 
+Note that the attributes used for references must be a comma-separated list of "keys".
 
 For enabling the references, we need to add the desired bindings to the model. The `bind` method has the following signature: `bind(String sourceTag, String sourceAttribute, String targetTag, String targetAttribute, boolean many)`. Thus, for the library example, in EOL this can be done like this:
 
@@ -264,7 +264,7 @@ To add an XML document to your Epsilon launch configuration, you need to select 
 
 ![](select.png)
 
-Then you can configure the details of your document (name, file etc.) in the screen that pops up. To load an XML document that is not in the Eclipse workspace, untick the "Workspace file" check box and provide a full uri for your document (e.g. `http://api.twitter.com/1/statuses/followers/epsilonews.xml` or `file:/c:/myxml.xml`). 
+Then you can configure the details of your document (name, file etc.) in the screen that pops up. To load an XML document that is not in the Eclipse workspace, untick the "Workspace file" check box and provide a full URI for your document (e.g. `http://api.twitter.com/1/statuses/followers/epsilonews.xml` or `file:/c:/myxml.xml`).
 
 ![](configure.png)
 
