@@ -1700,7 +1700,12 @@ operation isLayerActive(id : String) {
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <ul>
 <li>If you can't find the Picto view, you will need to upgrade to a version of Epsilon &gt;= 2.0</li>
-<li>Graphviz (on which the PlantUML integration also depends) does not ship as part of Picto. You will need to install it manually on your computer.</li>
+<li>Graphviz (on which the PlantUML integration also depends) does not ship as part of Picto. You will need to install it manually on your computer. Picto expects the Graphviz programs (e.g. <code>dot</code>, <code>circo</code>) to be:<ul>
+<li>Anywhere on the path in Windows</li>
+<li>Under <code>/usr/local/bin/</code> in Mac OS</li>
+<li>Under <code>/usr/bin/</code> in Linux</li>
+</ul>
+</li>
 </ul>
 <h2 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h2>
 <p>While EMF provides support for <a href="../articles/reflective-emf-tutorial">reflective model instantiation</a> within the same Eclipse workspace, graphical and textual modelling frameworks that sit on top of it such as GMF, Sirius and Xtext involve code generation and/or contributing to Eclipse extension points and hence require spawning a new Eclipse instance. While this inconvenience can pay off for large DSLs, it feels like an overkill when one needs to throw together a small DSL in situ. The original aim of Picto was to complement Flexmi in this respect by contributing model visualisation capabilities where creating a new dedicated graphical editor is considered to be an overkill.</p>
