@@ -245,7 +245,10 @@ Picto also suports a standalone mode, where the details of the models to be visu
 ## Troubleshooting
 
 * If you can't find the Picto view, you will need to upgrade to a version of Epsilon >= 2.0
-* Graphviz (on which the PlantUML integration also depends) does not ship as part of Picto. You will need to install it manually on your computer.
+* Graphviz (on which the PlantUML integration also depends) does not ship as part of Picto. You will need to install it manually on your computer. Picto expects the Graphviz programs (e.g. `dot`, `circo`) to be:
+    * Anywhere on the path in Windows
+    * Under `/usr/local/bin/` in Mac OS
+    * Under `/usr/bin/` in Linux
 
 ## Philosophy
 
