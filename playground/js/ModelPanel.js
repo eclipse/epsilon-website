@@ -13,7 +13,7 @@ class ModelPanel extends Panel {
         this.editable = editable;
         this.metamodelPanel = metamodelPanel;
         this.setupSyntaxHighlighting();
-        this.element.dataset.customButtons = JSON.stringify(this.getButtons());
+        this.createButtons();
         this.setTitleAndIcon("Model", "flexmi");
     }
 

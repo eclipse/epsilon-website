@@ -19,8 +19,23 @@ class Panel {
             fontSize: "11pt",
             useSoftTabs: true
         });
-        
+
         this.visible = true;
+    }
+
+    createButtons() {
+        this.element.dataset.customButtons = JSON.stringify(this.getAllButtons());
+    }
+
+    getAllButtons() {
+        return this.getButtons();
+        /*
+        var buttons = this.getButtons();
+        return [{
+            html: this.buttonHtml("close", "Close panel"),
+            cls: "sys-button",
+            onclick:  this.id + "Panel.setVisible(false)"
+        }].concat(buttons);*/
     }
 
     setTitleAndIcon(title, icon) {
@@ -75,6 +90,8 @@ class Panel {
 
     setValue(value) {
         this.editor.setValue((value+""), 1);
+        // Reset undo manager
+        this.editor.session.getUndoManager().reset(); 
     }
 
     buttonHtml(icon, hint) {

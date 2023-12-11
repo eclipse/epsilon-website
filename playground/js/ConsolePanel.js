@@ -7,8 +7,8 @@ class ConsolePanel extends Panel {
     constructor() {
         super("console");
         this.editor.setReadOnly(true);
-        this.editor.setValue("", 1);
-        this.element.dataset.customButtons = JSON.stringify(this.getButtons());
+        this.setValue("");
+        this.createButtons();
 
         this.defineHoverlink();
         this.detectSemanticErrorLinks(this.editor);
@@ -27,14 +27,14 @@ class ConsolePanel extends Panel {
     setOutput(str) {
         document.getElementById("consoleEditor").style.color = "black";
         this.editor.getSession().setUseWrapMode(false);
-        this.editor.setValue(str, 1);
+        this.setValue(str);
 
     }
 
     setError(str) {
         document.getElementById("consoleEditor").style.color = "#CD352C";
         this.editor.getSession().setUseWrapMode(true);
-        this.editor.setValue(str, 1);
+        this.setValue(str);
     }
 
     fit() {
