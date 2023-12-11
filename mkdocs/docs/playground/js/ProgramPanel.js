@@ -2,13 +2,16 @@ import { Panel } from "./Panel.js";
 
 class ProgramPanel extends Panel {
 
+    language;
+
     constructor(id = "program") {
         super(id);
     }
 
     setLanguage(language) {
+        this.language = language;
         this.editor.getSession().setMode("ace/mode/" + language);
-        this.element.dataset.customButtons = JSON.stringify(this.getButtons(language));
+        this.createButtons();
         var title = "";
         console.log(language);
         switch (language) {
@@ -34,12 +37,12 @@ class ProgramPanel extends Panel {
         this.editor.resize();
     }
 
-    getButtons(language) {
-        var languageName = (language == "flock" ? "Flock" : language.toUpperCase());
+    getButtons() {
+        var languageName = (this.language == "flock" ? "Flock" : this.language.toUpperCase());
         var buttons = [{
             html: this.buttonHtml("help", languageName + " language reference"),
             cls: "sys-button",
-            onclick: "window.open('https://www.eclipse.org/epsilon/doc/" + language + "');"
+            onclick: "window.open('https://www.eclipse.org/epsilon/doc/" + this.language + "');"
         }];
         if (this.id == "program") {
             buttons.push({

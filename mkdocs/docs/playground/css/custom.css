@@ -151,6 +151,10 @@
 	content: url("../images/folder.png");
 }
 
+.mif-close::before {
+	content: url("../images/close.png");
+}
+
 .active-toggle .icon .mif-folder::before {
 	content: url("../images/open-folder.png");
 }

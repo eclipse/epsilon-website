@@ -13,7 +13,7 @@ class OutputPanel extends ModelPanel {
         this.outputType = outputType;
         this.outputLanguage = outputLanguage;
         this.language = language;
-        this.element.dataset.customButtons = JSON.stringify(this.getButtons());
+        this.createButtons();
         this.getEditor().getSession().setMode("ace/mode/" + outputLanguage.toLowerCase());
         //this.getEditor().getSession().setUseWrapMode(false);
     }
