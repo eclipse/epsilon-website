@@ -1,4 +1,5 @@
 import {programPanel, secondProgramPanel, consolePanel, firstModelPanel, firstMetamodelPanel, secondModelPanel, secondMetamodelPanel, thirdModelPanel, thirdMetamodelPanel, outputPanel} from './Playground.js';
+import { Splitter  } from './Splitter.js';
 
 class Layout {
 
@@ -9,94 +10,74 @@ class Layout {
         var splitter;
         
         if (language == "eol") {
-            splitter = Layout.createHorizontalSplitter(
-                [
-                    Layout.createVerticalSplitter([programPanel.getElement(), consolePanel.getElement()]),
-                    Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()])
-                ]
+            splitter = new Splitter(
+                new Splitter(programPanel, consolePanel, "vertical"),
+                new Splitter(firstModelPanel, firstMetamodelPanel, "vertical")
             );
         }
         else if (language == "evl" || language == "epl" || language == "egl") {
-            splitter = Layout.createHorizontalSplitter(
-                [
-                    Layout.createVerticalSplitter([programPanel.getElement(), consolePanel.getElement()]),
-                    Layout.createHorizontalSplitter([
-                        Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
-                        Layout.createVerticalSplitter([outputPanel.getElement()])
-                    ], "50, 50")
-                ], "33, 64"
+
+            splitter = new Splitter(
+                new Splitter(programPanel, consolePanel, "vertical"),
+                new Splitter(
+                    new Splitter(firstModelPanel, firstMetamodelPanel, "vertical"),
+                    new Splitter(outputPanel, null)
+                ), 
+                "horizontal", "33, 67"
             );
         }
         else if (language == "etl" || language == "flock") {
-            splitter = Layout.createHorizontalSplitter(
-                [
-                    Layout.createVerticalSplitter([programPanel.getElement(), consolePanel.getElement()]),
-                    Layout.createHorizontalSplitter([
-                        Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
-                        Layout.createVerticalSplitter([secondModelPanel.getElement(), secondMetamodelPanel.getElement()])
-                    ], "50, 50")
-                ], "33, 64"
+
+            splitter = new Splitter(
+                new Splitter(programPanel, consolePanel, "vertical"),
+                new Splitter(
+                    new Splitter(firstModelPanel, firstMetamodelPanel, "vertical"),
+                    new Splitter(secondModelPanel, secondMetamodelPanel, "vertical")
+                ),
+                "horizontal", "33, 67"
             );
         }
         else if (language == "egx") {
-            splitter = Layout.createHorizontalSplitter(
-                [
-                    Layout.createVerticalSplitter([
-                        Layout.createVerticalSplitter([programPanel.getElement(), secondProgramPanel.getElement()]), 
-                        consolePanel.getElement()]
-                    ),
-                    Layout.createHorizontalSplitter([
-                        Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
-                        Layout.createVerticalSplitter([outputPanel.getElement()])
-                    ], "50, 50")
-                ], "33, 64"
+
+            splitter = new Splitter(
+                new Splitter(
+                    new Splitter(programPanel, secondProgramPanel, "vertical"),
+                    new Splitter(consolePanel, null, "vertical"),
+                    "vertical", "67, 33"
+                ),
+                new Splitter(
+                    new Splitter(firstModelPanel, firstMetamodelPanel, "vertical"),
+                    new Splitter(outputPanel, null)
+                ),
+                "horizontal", "33, 67"
             );
         }
         else if (language == "eml") {
-            splitter = Layout.createHorizontalSplitter(
-                [
-                    Layout.createVerticalSplitter([
-                        Layout.createVerticalSplitter([programPanel.getElement(), secondProgramPanel.getElement()]), 
-                        consolePanel.getElement()]
+
+            splitter = new Splitter(
+                new Splitter(
+                    new Splitter(programPanel, secondProgramPanel, "vertical"),
+                    new Splitter(consolePanel, null),
+                    "vertical",
+                    "67, 33"
+                ),
+                new Splitter(
+                    new Splitter(
+                        new Splitter(firstModelPanel, firstMetamodelPanel, "vertical"),
+                        new Splitter(thirdModelPanel, thirdMetamodelPanel, "vertical")
                     ),
-                    Layout.createHorizontalSplitter([
-                        Layout.createHorizontalSplitter([
-                            Layout.createVerticalSplitter([firstModelPanel.getElement(), firstMetamodelPanel.getElement()]),
-                            Layout.createVerticalSplitter([thirdModelPanel.getElement(), thirdMetamodelPanel.getElement()])
-                        ], "50, 50"),
-                        Layout.createVerticalSplitter([secondModelPanel.getElement(), secondMetamodelPanel.getElement()])
-                    ], "64, 33")
-                ], "25, 75"
+                    new Splitter(
+                        new Splitter(secondModelPanel, secondMetamodelPanel, "vertical")
+                    ),
+                    "horizontal", "67, 33"
+                ),
+                "horizontal", "25, 75"
             );
         }
 
-        splitter.setAttribute("class", "h-100");
-        splitter.setAttribute("id", "splitter");
-        splitter.setAttribute("style", "min-height:800px");
-        root.appendChild(splitter);
+        splitter.setRoot();
+        root.appendChild(splitter.getElement());
     }
-
-    static createHorizontalSplitter(components, split = "50, 50") {
-        return Layout.createSplitter(true, components, split);
-    }
-
-    static createVerticalSplitter(components, split = "50, 50") {
-        return Layout.createSplitter(false, components, split);
-    }
-
-    static createSplitter(horizontal, components, split) {
-        var splitter = document.createElement("div");
-        splitter.setAttribute("data-role", "splitter");
-        splitter.setAttribute("data-on-resize-stop", "fit()");
-        splitter.setAttribute("data-on-resize-split", "fit()");
-        splitter.setAttribute("data-on-resize-window", "fit()");
-        splitter.setAttribute("data-split-sizes", split);
-
-        if (!horizontal) splitter.setAttribute("data-split-mode", "vertical");
-        components.forEach(component => splitter.appendChild(component));
-        return splitter;
-    }
-
 }
 
 export { Layout };

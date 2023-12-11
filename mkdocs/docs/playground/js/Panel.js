@@ -4,7 +4,8 @@ class Panel {
     editor;
     element;
     visible;
-    
+    parent; // The parent splitter
+
     constructor(id) {
         this.id = id;
         this.getElement();
@@ -111,6 +112,14 @@ class Panel {
 
     getId() {
         return this.id;
+    }
+
+    setParent(parent) {
+        this.parent = parent;
+    }
+
+    getParent() {
+        return this.parent;
     }
 
 }

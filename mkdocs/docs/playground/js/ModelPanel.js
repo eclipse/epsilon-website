@@ -1,5 +1,5 @@
 import { Panel } from "./Panel.js";
-import { Layout } from "./Layout.js";
+import { Splitter } from "./Splitter.js";
 
 import svgPanZoom from 'svg-pan-zoom';
 
@@ -226,7 +226,7 @@ class ModelPanel extends Panel {
         diagram.setAttribute("id", this.id + "Diagram");
         diagram.setAttribute("class", "diagram");
         
-        var splitter = Layout.createHorizontalSplitter([editor, diagram], "0,100");
+        var splitter = new Splitter(editor, diagram, "horizontal", "0,100").getElement(); //Layout.createHorizontalSplitter([editor, diagram], "0,100");
         splitter.setAttribute("class", "h-100");
 
         root.appendChild(splitter);
