@@ -1,3 +1,5 @@
+import { fit } from './Playground.js'
+
 class Panel {
 
     id;
@@ -29,14 +31,12 @@ class Panel {
     }
 
     getAllButtons() {
-        return this.getButtons();
-        /*
         var buttons = this.getButtons();
         return [{
             html: this.buttonHtml("close", "Close panel"),
             cls: "sys-button",
             onclick:  this.id + "Panel.setVisible(false)"
-        }].concat(buttons);*/
+        }].concat(buttons);
     }
 
     setTitleAndIcon(title, icon) {
@@ -58,23 +58,15 @@ class Panel {
 
     setVisible(visible) {
         if (this.visible != visible) {
-            var display = "none";
-            if (visible) {
-                display = "flex";
-            }
-            var parent = document.getElementById(this.getId() + "Panel").parentNode;
-            parent.style.display = display;
+            this.visible = visible;
 
-            // If all the panels in the splitter panel are hiden, hide the splitter panel too
-            if (Array.prototype.slice.call(parent.parentNode.children).every(
-                child => child.style.display == "none" || child.className == "gutter")) {
-                parent.parentNode.style.display = "none";
+            this.element.parentNode.style.display = visible ? "flex" : "none";
+            
+            if (this.parent) {
+                this.parent.childVisibilityChanged();
             }
-            else {
-                parent.parentNode.style.display = "flex";
-            }
+            window.fit();
         }
-        this.visible = visible;
     }
 
     isVisible() {

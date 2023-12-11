@@ -2,6 +2,8 @@ import { Panel } from "./Panel.js";
 
 class Splitter {
 
+    visible = true;
+    root = false;
     components;
     element;
     parent; // The splitter's parent splitter
@@ -21,7 +23,9 @@ class Splitter {
         this.element.setAttribute("data-split-mode", direction);
         for (const component of this.components) {
             if (component instanceof Panel || component instanceof Splitter) {
+                component.setParent(this);
                 this.element.appendChild(component.getElement());
+                this.childVisibilityChanged();
             }
             else {
                 this.element.appendChild(component);
@@ -34,9 +38,14 @@ class Splitter {
     }
 
     setRoot() {
+        this.root = true;
         this.element.setAttribute("class", "h-100");
         this.element.setAttribute("id", "splitter");
         this.element.setAttribute("style", "min-height:800px");
+    }
+
+    isRoot() {
+        return this.root;
     }
 
     setParent(parent) {
@@ -45,6 +54,42 @@ class Splitter {
 
     getParent() {
         return this.parent;
+    }
+
+    setVisible(visible) {
+        if (visible != this.visible) {
+            this.visible = visible;
+            this.element.style.display = visible ? "flex" : "none";
+            if (this.parent) {
+                this.parent.childVisibilityChanged();
+            }
+        }
+    }
+
+    isVisible() {
+        return this.visible;
+    }
+
+    childVisibilityChanged() {
+        this.setVisible(this.isRoot() || !this.components.every(item => !item.isVisible()));
+        if (this.isVisible()) {
+            if (this.components.length == 1) {
+                this.setGutterVisible(false);
+            }
+            else {
+                this.setGutterVisible(this.components.every(item => item.isVisible()));
+            }
+        }
+    }
+
+    setGutterVisible(visible) {
+        for (const child of this.element.children) {
+            console.log(child);
+            if (child.classList.contains("gutter")) {
+                console.log("Found gutter!");
+                child.style.display = visible ? "flex" : "none";
+            }
+        }
     }
 
 }
