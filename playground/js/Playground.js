@@ -52,7 +52,6 @@ setup();
 
 function setup() {
 
-
     if (example.eol != null) { example.program = example.eol; language = "eol";}
     else {language = example.language};
     
@@ -100,6 +99,7 @@ function setup() {
     });
 
     Metro.init();
+    panels.forEach(panel => panel.init());    
     examplesManager.openActiveExamplesSubMenu();
     fit();
 }
@@ -265,7 +265,6 @@ function runProgram() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
-                console.log(response);
 
                 if (response.hasOwnProperty("error")) {
                     consolePanel.setError(response.error);
@@ -337,6 +336,25 @@ function runProgram() {
     var data = editorsToJson();
     xhr.send(data);
     longNotification("Executing program");
+}
+
+function getActivePanels() {
+    var panels = [programPanel, consolePanel, firstModelPanel, firstMetamodelPanel];
+
+    if (language == "etl" || language == "flock") {
+        panels.push(secondModelPanel, secondMetamodelPanel);
+    }
+    else if (language == "eml") {
+        panels.push(secondProgramPanel, thirdModelPanel, thirdMetamodelPanel, secondModelPanel, secondMetamodelPanel);
+    }
+    else if (language == "evl" || language == "epl" || language == "egl" || language == "egx") {
+        panels.push(outputPanel);
+        if (language == "egx") {
+            panels.push(secondProgramPanel);
+        }
+    }
+
+    return panels;
 }
 
 function longNotification(title, cls="light") {
@@ -432,3 +450,4 @@ window.showSettings = showSettings;
 window.copyShortenedLink = copyShortenedLink;
 window.downloadDialog = downloadDialog;
 window.language = language;
+window.getActivePanels = getActivePanels;

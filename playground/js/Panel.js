@@ -4,7 +4,10 @@ class Panel {
     editor;
     element;
     visible;
-    
+    parent; // The parent splitter
+    maximised = false;
+    hiddenPanels = [];
+
     constructor(id) {
         this.id = id;
         this.getElement();
@@ -29,13 +32,6 @@ class Panel {
 
     getAllButtons() {
         return this.getButtons();
-        /*
-        var buttons = this.getButtons();
-        return [{
-            html: this.buttonHtml("close", "Close panel"),
-            cls: "sys-button",
-            onclick:  this.id + "Panel.setVisible(false)"
-        }].concat(buttons);*/
     }
 
     setTitleAndIcon(title, icon) {
@@ -57,27 +53,61 @@ class Panel {
 
     setVisible(visible) {
         if (this.visible != visible) {
-            var display = "none";
-            if (visible) {
-                display = "flex";
-            }
-            var parent = document.getElementById(this.getId() + "Panel").parentNode;
-            parent.style.display = display;
+            this.visible = visible;
 
-            // If all the panels in the splitter panel are hiden, hide the splitter panel too
-            if (Array.prototype.slice.call(parent.parentNode.children).every(
-                child => child.style.display == "none" || child.className == "gutter")) {
-                parent.parentNode.style.display = "none";
+            this.element.parentNode.style.display = visible ? "flex" : "none";
+            
+            if (this.parent) {
+                this.parent.childVisibilityChanged();
             }
-            else {
-                parent.parentNode.style.display = "flex";
-            }
+            window.fit();
         }
-        this.visible = visible;
     }
 
     isVisible() {
         return this.visible;
+    }
+
+    // Executed after Metro has initialised
+    // using Metro.init
+    init() {
+        if (!this.element.parentNode) return;
+        var self = this;
+
+        // Double-clicking on the title of the panel maximises the panel
+        this.element.parentNode.addEventListener('dblclick', function(e) {
+            if (e.target.classList.contains("caption")) {
+                self.toggleMaximise();
+            }
+        }, true);
+
+        // Middle-clicking on the title of the panel hides the panel
+        this.element.parentNode.addEventListener('auxclick', function(e) {
+            if (e.target.classList.contains("caption") && e.which == 2) {
+                //e.preventDefault();
+                if (self.maximised) self.toggleMaximise();
+                self.setVisible(false);
+            }
+        }, true);
+
+    }
+
+    toggleMaximise() {
+        if (this.maximised) {
+            for (const panel of this.hiddenPanels) {
+                panel.setVisible(true);
+            }
+            this.hiddenPanels = [];
+        }
+        else {
+            for (const panel of window.getActivePanels()) {
+                if (panel.isVisible() && panel != this) {
+                    this.hiddenPanels.push(panel);
+                    panel.setVisible(false);
+                }
+            }
+        }
+        this.maximised = !this.maximised;
     }
 
     getEditor() {
@@ -111,6 +141,14 @@ class Panel {
 
     getId() {
         return this.id;
+    }
+
+    setParent(parent) {
+        this.parent = parent;
+    }
+
+    getParent() {
+        return this.parent;
     }
 
 }

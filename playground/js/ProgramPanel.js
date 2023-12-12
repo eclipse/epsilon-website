@@ -13,7 +13,7 @@ class ProgramPanel extends Panel {
         this.editor.getSession().setMode("ace/mode/" + language);
         this.createButtons();
         var title = "";
-        console.log(language);
+        
         switch (language) {
             case "eol": title = "Program"; break;
             case "etl": title = "Transformation"; break;
