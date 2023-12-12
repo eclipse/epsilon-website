@@ -103,7 +103,6 @@ class OutputPanel extends ModelPanel {
             select.setAttribute("id", "generatedFiles");
             select.setAttribute("style","width:100%");
             root.insertBefore(select, root.children[0]);
-            console.log(this.select);
         }
 
         return root;

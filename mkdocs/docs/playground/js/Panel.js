@@ -1,5 +1,3 @@
-import { fit } from './Playground.js'
-
 class Panel {
 
     id;
@@ -7,6 +5,8 @@ class Panel {
     element;
     visible;
     parent; // The parent splitter
+    maximised = false;
+    hiddenPanels = [];
 
     constructor(id) {
         this.id = id;
@@ -31,12 +31,7 @@ class Panel {
     }
 
     getAllButtons() {
-        var buttons = this.getButtons();
-        return [{
-            html: this.buttonHtml("close", "Close panel"),
-            cls: "sys-button",
-            onclick:  this.id + "Panel.setVisible(false)"
-        }].concat(buttons);
+        return this.getButtons();
     }
 
     setTitleAndIcon(title, icon) {
@@ -71,6 +66,48 @@ class Panel {
 
     isVisible() {
         return this.visible;
+    }
+
+    // Executed after Metro has initialised
+    // using Metro.init
+    init() {
+        if (!this.element.parentNode) return;
+        var self = this;
+
+        // Double-clicking on the title of the panel maximises the panel
+        this.element.parentNode.addEventListener('dblclick', function(e) {
+            if (e.target.classList.contains("caption")) {
+                self.toggleMaximise();
+            }
+        }, true);
+
+        // Middle-clicking on the title of the panel hides the panel
+        this.element.parentNode.addEventListener('auxclick', function(e) {
+            if (e.target.classList.contains("caption") && e.which == 2) {
+                //e.preventDefault();
+                if (self.maximised) self.toggleMaximise();
+                self.setVisible(false);
+            }
+        }, true);
+
+    }
+
+    toggleMaximise() {
+        if (this.maximised) {
+            for (const panel of this.hiddenPanels) {
+                panel.setVisible(true);
+            }
+            this.hiddenPanels = [];
+        }
+        else {
+            for (const panel of window.getActivePanels()) {
+                if (panel.isVisible() && panel != this) {
+                    this.hiddenPanels.push(panel);
+                    panel.setVisible(false);
+                }
+            }
+        }
+        this.maximised = !this.maximised;
     }
 
     getEditor() {

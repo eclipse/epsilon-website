@@ -84,9 +84,7 @@ class Splitter {
 
     setGutterVisible(visible) {
         for (const child of this.element.children) {
-            console.log(child);
             if (child.classList.contains("gutter")) {
-                console.log("Found gutter!");
                 child.style.display = visible ? "flex" : "none";
             }
         }
