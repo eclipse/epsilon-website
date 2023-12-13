@@ -27,10 +27,10 @@ The EMG language does not provide additional syntax. Instead it provides a set o
 |Name|Description|
 |-|-|
 instances | Defines the number of instances to create. This annotation accepts one parameter. The parameter can be an expression that resolves to an Integer (e.g. literal, variable name, etc.) or a sequence in the form `Sequence {min, max}`). An integer value statically defines how many instances are to be created. A sequence defines a range that is used by the engine to generates a random number *n* of instances, with `min <= n <= max`.|
-list | Defines an identifier (listID) for a placeholder list for the elements created. This annotation accepts one parameter. The parameter is the identifier (String) that can later be used in operations that accept it as an argument in order to access the elements created by the operation.|
+list | Defines an identifier (*listID*) for a placeholder list for the elements created. This annotation accepts one parameter. The parameter is the identifier (String) that can later be used in operations that accept it as an argument in order to access the elements created by the operation.|
 parameters | If the instantiated type accepts/needs arguments for instantiation, the parameters annotation can be used to provide them. This annotation accepts one parameter. The parameter must be a Sequence that contains the desired arguments in the order expected by the constructor.
 
-All three annotations are executable and hence must be prefixed with a $ symbol when used. Further, these annotations are only evaluated on *create* operations.
+All three annotations are executable and hence must be prefixed with a `$` symbol when used. Further, these annotations are only evaluated on *create* operations.
 
 The EPL pattern annotations are:
 
@@ -48,14 +48,14 @@ Additionally the EMG engine provides a set of predefined operations that provide
 
 | Signature | Description |
 | - | - |
-nextAddTo(n : Integer, m : Integer): Sequence(Integer) | Returns a sequence of n integers who's sum is equal to m.
+nextAddTo(n : Integer, m : Integer): Sequence(Integer) | Returns a sequence of *n* integers who's sum is equal to *m*.
 nextBoolean() | Returns the next pseudorandom, uniformly distributed `boolean` value.
-nextCamelCaseWords(charSet : String, length : Integer, minWordLength : Integer) : String | Generates a string of the given length formatted as CamelCase, with subwords of a minimum length of the minWordLength argument, using characters from the given charSet.
-nextCapitalisedWord(charSet : String, length : Integer) : String | Generate a Capitalized string of the given length using characters from the given charSet.
-nextFromCollection(c : Sequence) : Any | Returns the next `object` from the collection, selected pseudoramdomly using the uniform distribution. If the collection is empty, returns null.
-nextFromList(listID : String) : Any | Returns the next `object` from the list, selected pseudoramdomly using the uniform distribution. If the list is empty, returns null. The *listID* can either be a name defined by the \@list annotation or a parameter name from the run configuration. In the latter case, the parameter value can be either a comma separated string or a file path. If it is a comma separated string, then a list is created by splitting the string, if the value is a path, then the file will be read and each line will be treated as a list element.
-nextFromListAsSample(listID : String) : Any | Same as nextFromList, but in this case the list is treated as a sample without replacement, i.e. each call will return a unique member of the list.
-nextHttpURI(addPort : Boolean, addPath : Boolean, addQuery : Boolean, addFragment : Boolean) : String | Generates a random URI that complies to http:\[//host\[:port\]\]\[/\]path \[?query\]\[\#fragment\]. The path, query and fragment parts are optional and will be added if the respective argument is True.
+nextCamelCaseWords(charSet : String, length : Integer, minWordLength : Integer) : String | Generates a string of the given length formatted as CamelCase, with subwords of a minimum length of the *minWordLength* argument, using characters from the given *charSet*.
+nextCapitalisedWord(charSet : String, length : Integer) : String | Generates a Capitalized string of the given length using characters from the given *charSet*.
+nextFromCollection(c : Sequence) : Any | Returns the next `object` from the collection, selected pseudorandomly using the uniform distribution. If the collection is empty, returns null.
+nextFromList(listID : String) : Any | Returns the next `object` from the list, selected pseudorandomly using the uniform distribution. If the list is empty, returns null. The *listID* can either be a name defined by the `@list` annotation or a parameter name from the run configuration. In the latter case, the parameter value can be either a comma separated string or a file path. If it is a comma separated string, then a list is created by splitting the string; if the value is a path, then the file will be read and each line will be treated as a list element.
+nextFromListAsSample(listID : String) : Any | Same as *nextFromList*, but in this case the list is treated as a sample without replacement, i.e. each call will return a unique member of the list.
+nextHttpURI(addPort : Boolean, addPath : Boolean, addQuery : Boolean, addFragment : Boolean) : String | Generates a random URI that complies to `http:[//host[:port]][/]path [?query][#fragment]`. The path, query and fragment parts are optional and will be added if the respective argument is True.
 nextInt() : Integer | Returns the next pseudorandom, uniformly distributed integer. All `2^32` possible integer values should be produced with (approximately) equal probability.
 nextInt(upper : Integer) : Integer | Returns a pseudorandom, uniformly distributed integer value between 0 (inclusive) and *upper* (exclusive). The argument must be positive.
 nextInt(lower: Integer, upper : Integer) : Integer | Returns a pseudorandom, uniformly distributed integer value between lower and upper (endpoints included). The arguments must be positive and `upper >= lower`.
@@ -67,12 +67,12 @@ nextSample(listID : String, k : Integer) : Sequence(Any) | Same as nextSample bu
 nextString() : String | Returns the next string made up from characters of the `LETTER` character set, pseudorandomly selected with a uniform distribution. The length of the string is between 4 and 10 characters. 
 nextString(length : Integer) : String | Returns the next String made up from characters of the `LETTER` character set, pseudorandomly selected with a uniform distribution. The length of the String is equal to *length*.
 nextString(charSet : String, length : Integer) : String | Returns the next String of the given *length* using the specified character set, pseudorandomly selected with a uniform distribution.
-nextURI() : String | Generates a random URI that complies to: scheme:\[//\[user:password\]host\[:port\]\]\[/\]path \[?query\]\[\#fragment\]. The port, path, query and fragment are added randomly. The scheme is randomly selected from: http, ssh and ftp. For ssh and ftp, a user and pasword are randomly generated. The host is generated from a random string and uses a top-level domain. The number of paths and queries are random between 1 and 4.
+nextURI() : String | Generates a random URI that complies to: `scheme:[//[user:password]host[:port]][/]path [?query][#fragment]`. The port, path, query and fragment are added randomly. The scheme is randomly selected from: http, ssh and ftp. For ssh and ftp, a user and pasword are randomly generated. The host is generated from a random string and uses a top-level domain. The number of paths and queries are random between 1 and 4.
 nextURI(addPort : Boolean, addPath : Boolean, addQuery : Boolean, addFragment : Boolean) : String | Same as nextURI, but the given arguments control what additional port, path, query and fragment information is added.
-nextUUID() : String | Returns a type 4 (pseudo randomly generated) UUID. The UUID is generated using a cryptographically strong pseudo random number generator.
+nextUUID() : String | Returns a type 4 (pseudorandomly generated) UUID. The UUID is generated using a cryptographically strong pseudorandom number generator.
 nextValue() : Real | Returns the next pseudorandom value, picked from the configured distribution (by default the uniform distribution is used).
-nextValue(d : String, p : Sequence) : Real | Returns the next pseudorandom, from the provided distribution `d`. The parameters `p` are used to configure the distribution (if required). The supported distributions are: Binomial, Exponential and Uniform. For Binomial parameters are: numberOfTrials and probabilityOfSuccess. For Exponential the mean. For Uniform the lower and upper values (lower inclusive).
-setNextValueDistribution(d : String, p : Sequence) | Define the distribution to use for calls to *nextValue()*. Parameters are the same as for nextValue(d, p).
+nextValue(d : String, p : Sequence) : Real | Returns the next pseudorandom, from the provided distribution `d`. The parameters `p` are used to configure the distribution (if required). The supported distributions are: Binomial, Exponential and Uniform. For Binomial parameters are: *numberOfTrials* and *probabilityOfSuccess*. For Exponential, the mean. For Uniform, the lower and upper values (lower inclusive).
+setNextValueDistribution(d : String, p : Sequence) | Define the distribution to use for calls to *nextValue()*. Parameters are the same as for *nextValue(d, p)*.
 
 #### Character Sets for String operations
 
@@ -164,7 +164,7 @@ operation Transition create() {
 
 In the previous section, the *places* and *transitions* references of the PetriNet were defined during the creation of the Place and Transition elements. For more complex reference patterns, EMG leverages the use of EPL patterns. For example, Arcs can have complex constraints in order to determine the source and target transition/place, and possibly even having separate rules for each type of Arc.
 
-The EPL pattern in the listing below creates two arcs in order to connect a source and a target Place via a Transition. The pattern matches all transitions in a given PetriNet. The pattern body selects a random Place for the source and a random Place for the target (the while loops are used to pick places that have the lowest incoming/outgoing arcs possible). The weight of the arc is generated randomly from 0 to 10 (*nextInt(10)*). The pattern has been annotated with the \@probability annotation which will effectively only use 70% of the transitions to create arcs (i.e. of all the possible PetriNet-Transition matches, the code of the pattern will only be executed with a probability of 0.70).
+The EPL pattern in the listing below creates two arcs in order to connect a source and a target Place via a Transition. The pattern matches all transitions in a given PetriNet. The pattern body selects a random Place for the source and a random Place for the target (the while loops are used to pick places that have the lowest incoming/outgoing arcs possible). The weight of the arc is generated randomly from 0 to 10 (*nextInt(10)*). The pattern has been annotated with the `@probability` annotation which will effectively only use 70% of the transitions to create arcs (i.e. of all the possible PetriNet-Transition matches, the code of the pattern will only be executed with a probability of 0.70).
 
 ```epl
 @probability 0.7
@@ -225,7 +225,7 @@ If it is a file path, then each line of the file will be loaded as an item to th
 
 ### Values as a model
 
-A more powerful approach would be to use an existing model to serve as the source for attribute values. Given that there are several websites[^1] to generate random data in the form of CSV files, we recommend the use of a CSV model to serve as an attribute value source. A CSV file with *name*, *lastName*, and *email* can be easily generated and loaded as a second model the the EMG script. Then, a Row of data can be picked randomly to set an element's attributes. The listing below shows this approach.
+A more powerful approach would be to use an existing model to serve as the source for attribute values. Given that there are several websites[^1] to generate random data in the form of CSV files, we recommend the use of a CSV model to serve as an attribute value source. A CSV file with *name*, *lastName*, and *email* can be easily generated and loaded as a second model in the EMG script. Then, a Row of data can be picked randomly to set an element's attributes. The listing below shows this approach.
 
 ```eol
 $instances num_p
