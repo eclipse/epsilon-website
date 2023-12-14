@@ -27,6 +27,40 @@ class ProgramPanel extends Panel {
         }
 
         this.setTitleAndIcon(title + " (" + (language == "flock" ? "Flock" : language.toUpperCase()) + ")", language);
+
+        var self = this;
+        this.editor.getSession().on('change', function () {
+            //var Range = ace.require("ace/range").Range;
+            //self.editor.session.addMarker(new Range(0, 0, 1, 5), "parse-error", "text");
+            self.parse();
+        });
+    }
+
+    cj;
+
+    async parse() {
+        if (!this.cj) {
+            await cheerpjInit();
+            this.cj = await cheerpjRunLibrary("/app/java/target/epsilon.jar");
+        }
+        var ModuleParser = await this.cj.org.eclipse.epsilon.playground.ModuleParser;
+        var m = await new ModuleParser();
+        var annotations = await m.parse(this.getValue());
+        this.editor.getSession().setAnnotations(JSON.parse(annotations));
+        
+        //console.log(ok);
+        /*
+        for (const parseProblem of await m.getParseProblems()) {
+            annotations.push({
+                row: await parseProblem.getLine(),
+                column: await parseProblem.getColumn(),
+                text: await parseProblem.getReason(),
+                type: "error"
+            });
+        }
+        editor.getSession().setAnnotations(annotations);*/
+        //
+        //console.log("Parsed " + ok);
     }
 
     fit() {
