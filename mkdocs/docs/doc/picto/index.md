@@ -244,11 +244,14 @@ Picto also suports a standalone mode, where the details of the models to be visu
 
 ## Troubleshooting
 
-* If you can't find the Picto view, you will need to upgrade to a version of Epsilon >= 2.0
+* If you can't find the Picto view, you will need to upgrade to a version of Epsilon >= 2.0.
 * Graphviz (on which the PlantUML integration also depends) does not ship as part of Picto. You will need to install it manually on your computer. Picto expects the Graphviz programs (e.g. `dot`, `circo`) to be:
-    * Anywhere on the path in Windows
-    * Under `/usr/local/bin/` in MacOS
-    * Under `/usr/bin/` in Linux
+    * Anywhere on the path in Windows.
+    * Under `/usr/local/bin/` in MacOS.
+    * Under `/usr/bin/` in Linux.
+* If you are using Windows and some of the web content is not rendering correctly, you may want to enable the option in "Window - Preferences - Epsilon - Picto" to use Edge as the embedded browser.
+    * This is available from Epsilon 2.5, and it requires Eclipse 4.19 (2021-03) or later.
+    * If it still fails to render, you may need to install [Microsoft WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2/).
 
 ## Philosophy
 
