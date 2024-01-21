@@ -125,6 +125,15 @@
 				"flexmi": "plt/plt.flexmi",
 				"emfatic": "plt/plt.emf",
 				"outputType": "html"
+			},
+			{
+				"id": "tgl2dot",
+				"title": "Generate Typed Graph",
+				"language": "egl",
+				"program": "tgl/tgl2dot.egl",
+				"flexmi": "tgl/tgl.flexmi",
+				"emfatic": "tgl/tgl.emf",
+				"outputType": "dot"
 			}
 		]
 	},

@@ -1,0 +1,30 @@
+package tgl;
+
+class Graph {
+    attr Direction direction;
+    val Node[*] nodes;
+    val Edge[*] edges;
+    val Type[*] types;
+}
+
+class Node {
+    attr String name;
+    ref Type type;
+}
+
+class Edge {
+    ref Node from;
+    ref Node to;
+}
+
+class Type {
+    attr String name;
+    attr String color;
+}
+
+enum Direction {
+    LR; // Left to right
+    RL; // Right to left
+    TB; // Top bottom
+    BT; // Bottom top
+}
