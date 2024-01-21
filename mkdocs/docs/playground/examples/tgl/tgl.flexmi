@@ -1,0 +1,15 @@
+<?nsuri tgl?>
+<graph direction="LR">
+    <type name="worker"/>
+    <type name="job" color="wheat"/>
+    <node name="J1" type="job"/>
+    <node name="J2" type="job"/>
+    <node name="J3" type="job"/>
+    <node name="J4" type="job"/>
+    <node name="W1" type="worker"/>
+    <node name="W2" type="worker"/>
+    <edge from="J1" to="W1"/>
+    <edge from="J2" to="W1"/>
+    <edge from="J3" to="W2"/>
+    <edge from="J4" to="W1"/>
+</graph>

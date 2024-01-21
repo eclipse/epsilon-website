@@ -1,0 +1,42 @@
+digraph G {
+    rankdir="[%=Graph.all.first().getDirection()%]"
+	node[fontname="Arial",style="rounded,filled",shape="box"]
+	edge[fontname="Arial"]
+
+    [*Generate a Graphviz node for each node*]
+    [%for (node in Node.all){%]
+    [%=node.getId()%][label="[%=node.name%]", fillcolor="[%=node.getColor()%]"]    
+    [%}%]
+
+    [*Generate a Graphviz edge for the edges that have a valid "from" and "to" node*]
+    [%for (edge in Edge.all.select(e|e.from.isDefined() and e.to.isDefined())){%]
+    [%=edge.from.getId()%] -> [%=edge.to.getId()%]
+    [%}%]
+}
+[*%out.toString().println();%*]
+
+[%
+operation Node getId() {
+    return "n" + Node.all.indexOf(self);
+}
+
+operation Graph getDirection() {
+    if (self.direction.isDefined()) return self.direction;
+    else return "LR";
+}
+
+operation Node getColor() {
+    if (self.type.isDefined()) return self.type.getColor();
+    else return getColors().first();
+}
+
+operation Type getColor() {
+    if (self.color.isDefined()) return self.color;
+    else return getColors().at(Type.all.indexOf(self).mod(getColors().size()));
+}
+
+@cached
+operation getColors() {
+	return Sequence{"azure", "beige", "floralwhite", "lemonchiffon", "mistyrose", "DDFADC", "pink", "wheat", "FAECFF"};
+}
+%]
