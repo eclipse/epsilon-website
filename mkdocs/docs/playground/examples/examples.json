@@ -134,6 +134,16 @@
 				"flexmi": "tgl/tgl.flexmi",
 				"emfatic": "tgl/tgl.emf",
 				"outputType": "dot"
+			},
+			{
+				"id": "ipml",
+				"title": "Generate LLM Prompts",
+				"language": "egx",
+				"program": "ipml/ipml.egx",
+				"secondProgram": "ipml/template.egl",
+				"flexmi": "ipml/ipml.flexmi",
+				"emfatic": "ipml/ipml.emf",
+				"outputType": "code"
 			}
 		]
 	},

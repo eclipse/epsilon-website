@@ -1,0 +1,13 @@
+package ipml;
+
+class Image {
+    attr String subject;
+    val Variant[*]#image variants;
+}
+
+// Each image can have multiple variants with different styles and moods
+class Variant {
+    attr String style; // e.g. impressionism, surrealism, art nouveau, individual artists
+    attr String mood; // e.g. serene, energetic, mysterious
+    ref Image#variants image;
+}
