@@ -1,0 +1,13 @@
+// Generate an LLM prompt for each image variant
+rule Variant2Text
+    transform v : Variant {
+
+    template: "template.egl"
+
+    target: "gen/" + v.getFilename() + ".txt"
+}
+
+operation Variant getFilename() {
+    return "Image " + (Image.all.indexOf(self.image) + 1) + 
+           " - Variant " + (self.image.variants.indexOf(self) + 1);
+}

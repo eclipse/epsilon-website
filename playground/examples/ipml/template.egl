@@ -1,0 +1,7 @@
+Please generate an image of [%=v.image.subject%].
+[%if (v.style.isDefined()){%]
+The style should be [%=v.style%].
+[%}%]
+[%if (v.mood.isDefined()){%]
+The mood should be [%=v.mood%].
+[%}%]
