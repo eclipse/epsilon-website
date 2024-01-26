@@ -136,6 +136,13 @@ class ModelPanel extends Panel {
         var containerHeight = container.offsetHeight;
         var containerWidth = container.offsetWidth;
 
+        // For some reason, every time the SVG is inserted under the container,
+        // the container's height grows by 6px, which causes the SVG to 
+        // move downwards with every re-generation. Interestingly, this only
+        // happens with diagrams in the output panel.
+        // This is a temporary fix until we get to the bottom of this.
+        if (this.id == "output") containerHeight = containerHeight - 6;
+
         var scaleX = containerWidth / svgWidth;
         var scaleY = containerHeight / svgHeight;
         
