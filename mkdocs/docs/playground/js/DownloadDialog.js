@@ -39,7 +39,7 @@ class DownloadDialog {
                         if (language == "egx") zip.file("template.egl", secondProgramPanel.getEditor().getValue());
                         if (language == "eml") zip.file("program.ecl", secondProgramPanel.getEditor().getValue());
 
-                        if (language == "etl" || language == "emg" || language == "flock") {
+                        if (language == "etl" || language == "flock") {
                             zip.file(templateData.sourceModelFileName + ".flexmi", firstModelPanel.getValue());
                             zip.file(templateData.sourceModelFileName + ".emf", firstMetamodelPanel.getValue());
                             zip.file(templateData.targetModelFileName + ".emf", secondMetamodelPanel.getValue());
