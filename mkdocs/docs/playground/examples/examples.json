@@ -345,5 +345,18 @@
 				"emfatic": "tree.emf",
 				"secondEmfatic": "graph.emf"
 			}
-	]}
+	]},
+	{
+		"title": "Model Generation Examples",
+		"examples": [
+			{
+				"id": "emg",
+				"title": "Petri Net Generation",
+				"language": "emg",
+				"program": "petri-net/petri.emg",
+				"flexmi": "petri-net/petri.flexmi",
+				"emfatic": "petri-net/petri.emf"
+			}
+		]
+	}
 ]}

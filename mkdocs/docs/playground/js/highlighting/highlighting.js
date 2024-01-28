@@ -1,5 +1,6 @@
 import './eol.js';
 import './etl.js';
+import './emg.js';
 import './flock.js';
 import './evl.js';
 import './epl.js';

@@ -58,7 +58,7 @@ function setup() {
     if (example.outputType != null) {outputType = example.outputType;}
     if (example.outputLanguage != null) {outputLanguage = example.outputLanguage;}
     
-    var secondModelEditable = !(language == "etl" || language == "flock" || language == "eml");
+    var secondModelEditable = !(language == "etl" || language == "emg" || language == "flock" || language == "eml");
 
     secondModelPanel = new ModelPanel("secondModel", secondModelEditable, secondMetamodelPanel);
     outputPanel = new OutputPanel("output", language, outputType, outputLanguage);
@@ -178,7 +178,7 @@ function arrangePanels() {
             outputPanel.setTitleAndIcon("Generated Text", "editor");           
         }
     }
-    else if (language == "etl") {
+    else if (language == "etl" || language == "emg") {
         secondModelPanel.showDiagram();
         secondModelPanel.hideEditor();
 
@@ -272,7 +272,7 @@ function runProgram() {
                 else {
                     consolePanel.setOutput(response.output);
                     
-                    if (language == "etl" || language == "flock" || language == "eml") {
+                    if (language == "etl" || language == "emg" || language == "flock" || language == "eml") {
                         secondModelPanel.renderDiagram(response.targetModelDiagram);
                     }
                     else if (language == "evl") {
@@ -341,7 +341,7 @@ function runProgram() {
 function getActivePanels() {
     var panels = [programPanel, consolePanel, firstModelPanel, firstMetamodelPanel];
 
-    if (language == "etl" || language == "flock") {
+    if (language == "etl" || language == "emg" || language == "flock") {
         panels.push(secondModelPanel, secondMetamodelPanel);
     }
     else if (language == "eml") {
