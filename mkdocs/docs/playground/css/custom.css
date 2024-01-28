@@ -71,6 +71,10 @@
     content: url("../images/etl.gif");
 }
 
+.mif-emg::before {
+    content: url("../images/epl.gif");
+}
+
 .mif-epl::before {
     content: url("../images/epl.gif");
 }

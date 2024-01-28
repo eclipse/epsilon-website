@@ -37,6 +37,17 @@ class Layout {
                 "horizontal", "33, 67"
             );
         }
+        else if (language == "emg") {
+
+            splitter = new Splitter(
+                new Splitter(programPanel, consolePanel, "vertical"),
+                new Splitter(
+                    new Splitter(firstModelPanel, firstMetamodelPanel, "vertical"),
+                    new Splitter(secondModelPanel, null)
+                ), 
+                "horizontal", "33, 67"
+            );
+        }
         else if (language == "egx") {
 
             splitter = new Splitter(

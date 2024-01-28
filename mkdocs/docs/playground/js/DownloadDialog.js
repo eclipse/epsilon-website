@@ -24,6 +24,7 @@ class DownloadDialog {
                             task: language == "egx" ? "egl" : language,
                             extension: extension,
                             etl: language == "etl",
+                            emg: language == "emg",
                             flock: language == "flock",
                             etlOrFlock: language == "etl" || language == "flock",
                             egl: language == "egl",
@@ -38,7 +39,7 @@ class DownloadDialog {
                         if (language == "egx") zip.file("template.egl", secondProgramPanel.getEditor().getValue());
                         if (language == "eml") zip.file("program.ecl", secondProgramPanel.getEditor().getValue());
 
-                        if (language == "etl" || language == "flock") {
+                        if (language == "etl" || language == "emg" || language == "flock") {
                             zip.file(templateData.sourceModelFileName + ".flexmi", firstModelPanel.getValue());
                             zip.file(templateData.sourceModelFileName + ".emf", firstMetamodelPanel.getValue());
                             zip.file(templateData.targetModelFileName + ".emf", secondMetamodelPanel.getValue());
