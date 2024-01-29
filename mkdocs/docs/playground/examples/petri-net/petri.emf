@@ -1,4 +1,4 @@
-package PetriNet;
+package petriNet;
 
 abstract class Element {
   attr String name;
