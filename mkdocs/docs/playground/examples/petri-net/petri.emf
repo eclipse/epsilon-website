@@ -1,7 +1,7 @@
 package PetriNet;
 
 abstract class Element {
-  !ordered attr String[1] name;
+  attr String name;
 }
 
 class PetriNet extends Element {
@@ -11,29 +11,29 @@ class PetriNet extends Element {
 }
 
 class Place extends Element {
-  !ordered ref TransToPlaceArc[*]#target incoming;
-  !ordered ref PlaceToTransArc[*]#source outgoing;
+  ref TransToPlaceArc[*]#target incoming;
+  ref PlaceToTransArc[*]#source outgoing;
 }
 
 class Transition extends Element {
-  !ordered ref PlaceToTransArc[+]#target incoming;
-  !ordered ref TransToPlaceArc[+]#source outgoing;
+  ref PlaceToTransArc[+]#target incoming;
+  ref TransToPlaceArc[+]#source outgoing;
 }
 
 class Arc {
-  !ordered attr int[1] weight;
+  attr int weight;
 }
 
 class PlaceToTransArc extends Arc {
   @diagram(direction="none")
-  !ordered ref Place[1]#outgoing source;
+  ref Place#outgoing source;
   @diagram(direction="none")
-  !ordered ref Transition[1]#incoming target;
+  ref Transition#incoming target;
 }
 
 class TransToPlaceArc extends Arc {
   @diagram(direction="none")
-  !ordered ref Transition[1]#outgoing source;
+  ref Transition#outgoing source;
   @diagram(direction="none")
-  !ordered ref Place[1]#incoming target;
+  ref Place#incoming target;
 }
