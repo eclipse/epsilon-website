@@ -1,0 +1,39 @@
+package petriNet;
+
+abstract class Element {
+  attr String name;
+}
+
+class PetriNet extends Element {
+  val Place[+] places;
+  val Transition[*] transitions;
+  val Arc[*] arcs;
+}
+
+class Place extends Element {
+  ref TransToPlaceArc[*]#target incoming;
+  ref PlaceToTransArc[*]#source outgoing;
+}
+
+class Transition extends Element {
+  ref PlaceToTransArc[+]#target incoming;
+  ref TransToPlaceArc[+]#source outgoing;
+}
+
+class Arc {
+  attr int weight;
+}
+
+class PlaceToTransArc extends Arc {
+  @diagram(direction="none")
+  ref Place#outgoing source;
+  @diagram(direction="none")
+  ref Transition#incoming target;
+}
+
+class TransToPlaceArc extends Arc {
+  @diagram(direction="none")
+  ref Transition#outgoing source;
+  @diagram(direction="none")
+  ref Place#incoming target;
+}
