@@ -6,10 +6,9 @@ describe('Tests the default EMG example', () => {
     }),
     it('Tests that the example loads fine and there is text in all editors', () => {
       cy.contains('PetriNet create()');
-      cy.contains('?nsuri PetriNet');
-      cy.contains('package PetriNet;');
+      cy.contains('package petriNet;');
     }),
-    it('Checks that the transformation runs fine and a deliverable is produced', () => {
+    it('Checks that the generation runs fine and a Petri Net is produced', () => {
       cy.get(runButton).click();
       cy.contains(":PetriNet");
     })
