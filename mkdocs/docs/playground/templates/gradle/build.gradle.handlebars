@@ -60,6 +60,12 @@ task run {
 
     // Run program.{{ extension }} against them
     ant.'epsilon.{{ task }}'(src: 'program.{{ extension }}'{{#if flock}}, originalModel: '{{ sourceModelName }}', migratedModel: '{{ targetModelName }}'{{/if}}){[ model(ref: '{{ sourceModelName }}'), model(ref: '{{ targetModelName }}') ]}
+    {{else if emg}}
+    // Generate the model in model.xmi using metamodel.emf as the metamodel
+    ant.'epsilon.emf.loadModel'(name: 'Model', modelfile: 'model.xmi', metamodelfile: 'metamodel.emf', read: false, store: true)
+
+    // Run program.emg against it
+    ant.'epsilon.emg'(src: 'program.emg'){ model(ref: 'Model') }
     {{else}}
     // Load the model.flexmi EMF model
     ant.'epsilon.emf.loadModel'(name: 'M', modelfile: 'model.flexmi', metamodelfile: 'metamodel.emf')

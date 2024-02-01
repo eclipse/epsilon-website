@@ -41,6 +41,14 @@
 <!-- Dispose of both models -->
 <epsilon.disposeModel model="{{ sourceModelName }}"/>
 <epsilon.disposeModel model="{{ targetModelName }}"/>
+{{else if emg}}
+<!-- Generate the model in model.xmi using metamodel.emf as the metamodel -->
+<epsilon.emf.loadModel name="Model" modelfile="model.xmi" metamodelfile="metamodel.emf" read="false" store="true"/>
+<!-- Run program.emg against it  -->
+<epsilon.emg src="program.emg">
+    <model ref="Model"/>
+</epsilon.emg>
+<epsilon.disposeModel model="Model"/>
 {{else}}
 <!-- Load the model.flexmi EMF model -->
 <epsilon.emf.loadModel name="M" modelfile="model.flexmi" metamodelfile="metamodel.emf" />
