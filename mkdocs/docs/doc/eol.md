@@ -308,9 +308,17 @@ Finally, the Boolean type represents true/false states and provides no additiona
 
 ### Collections and Maps
 
-EOL provides four types of collections and a Map type. The `Bag` type represents non-unique, unordered collections and implements the `java.util.Collection` interface, the Sequence type represents non-unique, ordered collections and implements the `java.util.List` interface, the Set type represents unique and unordered collections and implements the `java.util.Set` interface, the OrderedSet represents unique and ordered collections. Since version 2.0, there are also two concurrent collection types, which can safely be modified from multiple threads. These are `ConcurrentBag` and `ConcurrentSet`, which are thread-safe variants of the `Bag` and `Set` types respectively.
+EOL provides several types of collections and a Map type:
 
-All collection types inherit from the abstract `Collection` type. Apart from simple operations, EOL also supports logic operations on collections. The following operations (along with any operations declared on the `java.util.Collection` interface) apply to all types of collections:
+* The `Bag` type represents non-unique, unordered collections and implements the `java.util.Collection` interface.
+* The `Sequence` type represents non-unique, ordered collections and implements the `java.util.List` interface.
+* The `Set` type represents unique and unordered collections and implements the `java.util.Set` interface.
+* The `OrderedSet` represents unique and ordered collections.
+* Since version 2.0, there are also two concurrent collection types, which can safely be modified from multiple threads. These are `ConcurrentBag` and `ConcurrentSet`, which are thread-safe variants of the `Bag` and `Set` types respectively.
+
+All collection types inherit from the abstract `Collection` type.
+
+Apart from simple operations, EOL also supports logic operations on collections. The following operations (along with any operations declared on the `java.util.Collection` interface) apply to all types of collections:
 
 Signature |Description
 ----------|----------- 
