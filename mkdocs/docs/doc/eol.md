@@ -103,8 +103,8 @@ operation Integer test() {
 }
 ```
 
-!!! warning "Statements after operations ignored"
-    Any loose statements after the first operation of an EOL program will be ignored by the EOL interpeter e.g.
+!!! warning "Statements after operations are ignored"
+    Any loose statements after the first operation of an EOL program will be ignored by the EOL interpreter e.g.
     ```eol
     "This statement will be executed".println();
     
@@ -113,6 +113,22 @@ operation Integer test() {
     "This statement won't be executed".println();
     ```
 
+!!! warning "Statements outside operations in imported modules are ignored"
+    Any statements outside operations in imported EOL modules will be ignored.
+
+    For example, suppose you had this `utilities.eol` file:
+    ```eol
+    "This statement will be ignored".println();
+
+    operation useful() { /* code */ }
+    ```
+
+    If you tried to run this `main.eol` file, the above `println()` call would not be executed:
+    ```eol
+    import "utilities.eol";
+
+    useful();
+    ```
 
 ### Annotations
 
