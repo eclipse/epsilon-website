@@ -683,15 +683,19 @@ Real|0.0
 
 The scope of variables in EOL is generally limited to the block of statements where they are defined, including any nested blocks. Nevertheless, as discussed in the sequel, there are cases in task-specific languages that build atop EOL where the scope of variables is expanded to other non-nested blocks as well. EOL also allows variable shadowing; that is to define a variable with the same name in a nested block that overrides a variable defined in an outer block.
 
-The listing below provides an example of declaring and using variables. 
+The listing below provides an example of declaring and using variables.
 
-- Line 1 defines a variable named `i` of type `Integer` and assigns it an initial value of `5`. 
-- Line 2 defines a variable named `c` of type `Class` (from model Uml) and creates a new instance of the type in the model (by using the `new` keyword). 
-- The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a `String` value to an `Integer` variable. 
-- The condition of line 4 returns true since the `c` variable has been initialized before. 
-- Line 5 defines a new variable also named `i` that is of type `String` and which overrides the `Integer` variable declared in line 1. 
-- Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String. 
-- Finally, as the program has exited the scope of the `if` statement, the assignment statement of line 7 is also legitimate as it refers to the `i` variable defined in line 1.
+- Line 1 defines a variable named `i` of type `Integer` and assigns it an initial value of `5`.
+- Line 2 defines a variable named `c` of type `Class` (from model Uml) and creates a new instance of the type in the model (by using the `new` keyword).
+- The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a `String` value to an `Integer` variable.
+- The condition of line 4 returns true since the `c` variable has been initialized before.
+- Line 5 defines a new variable also named `i` that is of type `String` and which overrides the `Integer` variable declared in line 1.
+- Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String.
+- As the program has exited the scope of the `if` statement, the assignment statement of line 7 is also legitimate as it refers to the `i` variable defined in line 1.
+- In line 8, we declare `s1` as a `Sequence` of any type of value.
+- Line 9 declares `s2` as a `Sequence` containing values of type `Integer`. Note that type parameters can be written as `CollectionType<ValueType>` or as `CollectionType(ValueType)`.
+- Line 10 declares `m1` as a `Map` where the keys and values can be of any type.
+- Line 11 declares `m2` as a `Map` where the keys are `String`s, and the values are `Integer`s.
 
 ```eol
 var i : Integer = 5;
@@ -702,7 +706,14 @@ if (c.isDefined()) {
   i = "somevalue";
 }
 i = 3;
+var s1 : Sequence;
+var s2 : Sequence<Integer>;
+var m1 : Map;
+var m2 : Map(String, Integer);
 ```
+
+!!! warning "Type parameters are only for documentation purposes in version 2.5.0"
+    As of version 2.5.0, type parameters (e.g. `<Integer>` in `Sequence<Integer>`, or `(String, Integer)` in `Map(String, Integer)`) are only used for documentation purposes. EOL does not enforce that values of appropriate types are used during execution.
 
 ### Assignment Statement
 
