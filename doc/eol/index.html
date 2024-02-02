@@ -1957,13 +1957,25 @@ operation Integer test() {
   (self + "is an integer").println();
 }</code></pre>
 <div class="admonition warning">
-<p class="admonition-title">Statements after operations ignored</p>
-<p>Any loose statements after the first operation of an EOL program will be ignored by the EOL interpeter e.g.
+<p class="admonition-title">Statements after operations are ignored</p>
+<p>Any loose statements after the first operation of an EOL program will be ignored by the EOL interpreter e.g.
 <pre class="prettyprint lang-eol"><code>"This statement will be executed".println();
 
 operation foo() {}
 
 "This statement won't be executed".println();</code></pre></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Statements outside operations in imported modules are ignored</p>
+<p>Any statements outside operations in imported EOL modules will be ignored.</p>
+<p>For example, suppose you had this <code>utilities.eol</code> file:
+<pre class="prettyprint lang-eol"><code>"This statement will be ignored".println();
+
+operation useful() { /* code */ }</code></pre></p>
+<p>If you tried to run this <code>main.eol</code> file, the above <code>println()</code> call would not be executed:
+<pre class="prettyprint lang-eol"><code>import "utilities.eol";
+
+useful();</code></pre></p>
 </div>
 <h3 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h3>
 <p>EOL supports two types of annotations: simple and executable. A simple annotation specifies a name and a set of String values while an executable annotation specifies a name and an expression. The concrete syntaxes of simple and executable annotations are displayed in the listing below.</p>
@@ -2317,8 +2329,16 @@ instances of the Any type are outlined in the table below<sup id="fnref:1"><a cl
 </table>
 <p>Finally, the Boolean type represents true/false states and provides no additional operations to those provided by the base Any type.</p>
 <h3 id="collections-and-maps">Collections and Maps<a class="headerlink" href="#collections-and-maps" title="Permanent link">&para;</a></h3>
-<p>EOL provides four types of collections and a Map type. The <code>Bag</code> type represents non-unique, unordered collections and implements the <code>java.util.Collection</code> interface, the Sequence type represents non-unique, ordered collections and implements the <code>java.util.List</code> interface, the Set type represents unique and unordered collections and implements the <code>java.util.Set</code> interface, the OrderedSet represents unique and ordered collections. Since version 2.0, there are also two concurrent collection types, which can safely be modified from multiple threads. These are <code>ConcurrentBag</code> and <code>ConcurrentSet</code>, which are thread-safe variants of the <code>Bag</code> and <code>Set</code> types respectively.</p>
-<p>All collection types inherit from the abstract <code>Collection</code> type. Apart from simple operations, EOL also supports logic operations on collections. The following operations (along with any operations declared on the <code>java.util.Collection</code> interface) apply to all types of collections:</p>
+<p>EOL provides several types of collections and a Map type:</p>
+<ul>
+<li>The <code>Bag</code> type represents non-unique, unordered collections and implements the <code>java.util.Collection</code> interface.</li>
+<li>The <code>Sequence</code> type represents non-unique, ordered collections and implements the <code>java.util.List</code> interface.</li>
+<li>The <code>Set</code> type represents unique and unordered collections and implements the <code>java.util.Set</code> interface.</li>
+<li>The <code>OrderedSet</code> represents unique and ordered collections.</li>
+<li>Since version 2.0, there are also two concurrent collection types, which can safely be modified from multiple threads. These are <code>ConcurrentBag</code> and <code>ConcurrentSet</code>, which are thread-safe variants of the <code>Bag</code> and <code>Set</code> types respectively.</li>
+</ul>
+<p>All collection types inherit from the abstract <code>Collection</code> type.</p>
+<p>Apart from simple operations, EOL also supports logic operations on collections. The following operations (along with any operations declared on the <code>java.util.Collection</code> interface) apply to all types of collections:</p>
 <table>
 <thead>
 <tr>
@@ -3012,15 +3032,19 @@ assert(a == b);</code></pre>
 </table>
 <h5 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h5>
 <p>The scope of variables in EOL is generally limited to the block of statements where they are defined, including any nested blocks. Nevertheless, as discussed in the sequel, there are cases in task-specific languages that build atop EOL where the scope of variables is expanded to other non-nested blocks as well. EOL also allows variable shadowing; that is to define a variable with the same name in a nested block that overrides a variable defined in an outer block.</p>
-<p>The listing below provides an example of declaring and using variables. </p>
+<p>The listing below provides an example of declaring and using variables.</p>
 <ul>
-<li>Line 1 defines a variable named <code>i</code> of type <code>Integer</code> and assigns it an initial value of <code>5</code>. </li>
-<li>Line 2 defines a variable named <code>c</code> of type <code>Class</code> (from model Uml) and creates a new instance of the type in the model (by using the <code>new</code> keyword). </li>
-<li>The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a <code>String</code> value to an <code>Integer</code> variable. </li>
-<li>The condition of line 4 returns true since the <code>c</code> variable has been initialized before. </li>
-<li>Line 5 defines a new variable also named <code>i</code> that is of type <code>String</code> and which overrides the <code>Integer</code> variable declared in line 1. </li>
-<li>Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String. </li>
-<li>Finally, as the program has exited the scope of the <code>if</code> statement, the assignment statement of line 7 is also legitimate as it refers to the <code>i</code> variable defined in line 1.</li>
+<li>Line 1 defines a variable named <code>i</code> of type <code>Integer</code> and assigns it an initial value of <code>5</code>.</li>
+<li>Line 2 defines a variable named <code>c</code> of type <code>Class</code> (from model Uml) and creates a new instance of the type in the model (by using the <code>new</code> keyword).</li>
+<li>The commented out assignment statement of line 3 would raise a runtime error since it would attempt to assign a <code>String</code> value to an <code>Integer</code> variable.</li>
+<li>The condition of line 4 returns true since the <code>c</code> variable has been initialized before.</li>
+<li>Line 5 defines a new variable also named <code>i</code> that is of type <code>String</code> and which overrides the <code>Integer</code> variable declared in line 1.</li>
+<li>Therefore the assignment statement of line 6 is legitimate as it assigns a string value to a variable of type String.</li>
+<li>As the program has exited the scope of the <code>if</code> statement, the assignment statement of line 7 is also legitimate as it refers to the <code>i</code> variable defined in line 1.</li>
+<li>In line 8, we declare <code>s1</code> as a <code>Sequence</code> of any type of value.</li>
+<li>Line 9 declares <code>s2</code> as a <code>Sequence</code> containing values of type <code>Integer</code>. Note that type parameters can be written as <code>CollectionType&lt;ValueType&gt;</code> or as <code>CollectionType(ValueType)</code>.</li>
+<li>Line 10 declares <code>m1</code> as a <code>Map</code> where the keys and values can be of any type.</li>
+<li>Line 11 declares <code>m2</code> as a <code>Map</code> where the keys are <code>String</code>s, and the values are <code>Integer</code>s.</li>
 </ul>
 <pre class="prettyprint lang-eol"><code>var i : Integer = 5;
 var c : new Uml!Class;
@@ -3029,7 +3053,15 @@ if (c.isDefined()) {
   var i : String;
   i = "somevalue";
 }
-i = 3;</code></pre>
+i = 3;
+var s1 : Sequence;
+var s2 : Sequence&lt;Integer&gt;;
+var m1 : Map;
+var m2 : Map(String, Integer);</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Type parameters are only for documentation purposes in version 2.5.0</p>
+<p>As of version 2.5.0, type parameters (e.g. <code>&lt;Integer&gt;</code> in <code>Sequence&lt;Integer&gt;</code>, or <code>(String, Integer)</code> in <code>Map(String, Integer)</code>) are only used for documentation purposes. EOL does not enforce that values of appropriate types are used during execution.</p>
+</div>
 <h3 id="assignment-statement">Assignment Statement<a class="headerlink" href="#assignment-statement" title="Permanent link">&para;</a></h3>
 <p>The assignment statement is used to update the values of variables and properties of native objects and model elements.</p>
 <h5 id="variable-assignment">Variable Assignment<a class="headerlink" href="#variable-assignment" title="Permanent link">&para;</a></h5>
