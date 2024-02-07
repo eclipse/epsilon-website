@@ -1447,7 +1447,7 @@ value = body EOL expression
 </code></pre></div>
 <p>The body EOL expression is evaluated to validate the EClassifier instance (EObject) with the instance assigned to the special variable <code>self</code>. The body EOL expression of the contraint must be a valid EOL operation body, i.e., no syntax errors, and have a <code>return</code> statement. The runtime result type of the return statement must be <code>boolean</code>.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<p>The following annotated EMF metamodel (expressed using <a href="https://eclipse.dev/emfatic/">Emfatic</a>; an Ecore version is available <a href="todo">here</a>) shows how to use the Epsilon delegates:</p>
+<p>The following annotated EMF metamodel (expressed using <a href="https://eclipse.dev/emfatic/">Emfatic</a> shows how to use the Epsilon delegates:</p>
 <p>First, we register the delegates in the EPacakge:</p>
 <pre class="prettyprint lang-emf"><code>@Ecore(
     validationDelegates="http://eclipse.dev/epsilon/ecore/EVL",
