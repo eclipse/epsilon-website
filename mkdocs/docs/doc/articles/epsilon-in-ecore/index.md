@@ -137,7 +137,7 @@ The body EOL expression is evaluated to validate the EClassifier instance (EObje
 
 ## Example
 
-The following annotated EMF metamodel (expressed using [Emfatic](https://eclipse.dev/emfatic/); an Ecore version is available [here](todo)) shows how to use the Epsilon delegates:
+The following annotated EMF metamodel (expressed using [Emfatic](https://eclipse.dev/emfatic/) shows how to use the Epsilon delegates:
 
 First, we register the delegates in the EPacakge:
 

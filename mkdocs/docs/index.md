@@ -29,7 +29,7 @@ Download the [Eclipse Installer](https://wiki.eclipse.org/Eclipse_Installer) and
 
 - **One syntax to rule them all:** All languages in Epsilon build on top of a [common expression language](doc/eol) which means that you can reuse code across your model-to-model transformations, code generators, validation constraints etc.
 - **Integrated development tools:**  All languages in Epsilon are supported by editors providing syntax and error highlighting, code templates, and graphical tools for configuring, running, debugging and profiling Epsilon programs. 
-- **Documentation, Documentation, Documentation:** More than [80 articles](doc/articles), [15 screencasts](doc/screencasts) and [40 examples](doc/examples) are available to help you get from novice to expert.
+- **Documentation, Documentation, Documentation:** More than [80 articles](doc/articles), [15 screencasts](doc/screencasts) and [40 examples](examples) are available to help you get from novice to expert.
 - **Strong support for EMF:** Epsilon supports all flavours of EMF, including reflective, generated and non-XMI (textual) models such as these specified using Xtext or EMFText-based DSLs.
 - **No EMF? No problem:** While Epsilon provides strong support for EMF, it is not bound to EMF at all. In fact, support for EMF is implemented as a driver for the model connectivity layer of Epsilon. Other drivers provide support for XML, CSV, Simulink and you can even roll out your own driver!
 - **No Eclipse? No problem either:** While Epsilon provides strong support for Eclipse, we also provide [standalone JARs through Maven Central](download/#maven) that you can use to [embed Epsilon in your plain Java](doc/articles/run-epsilon-from-java) or Android application.
