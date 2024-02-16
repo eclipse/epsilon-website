@@ -93,7 +93,7 @@ Below are known *drivers* that implement the EMC interfaces discussed above and 
 
 ### Eclipse Modeling Framework
 
-The Eclipse Modelling Framework (EMF) is one of the most robust and widely used open-source modelling frameworks, and the cornerstone of an extensive ecosystem of technologies for graphical/textual model editing, model comparison and merging etc. Being an Eclipse project, Epsilon naturally provides support for all flavours of EMF models (e.g. textual, graphical, XSD-based XML), and most of the [screencasts](../screencasts), [articles](../articles/) and [examples](../examples) in Epsilon's Git repository use EMF models. Epsilon can also connect to [CDO repositories](articles/cdo-emc.md) of EMF models.
+The Eclipse Modelling Framework (EMF) is one of the most robust and widely used open-source modelling frameworks, and the cornerstone of an extensive ecosystem of technologies for graphical/textual model editing, model comparison and merging etc. Being an Eclipse project, Epsilon naturally provides support for all flavours of EMF models (e.g. textual, graphical, XSD-based XML), and most of the [screencasts](../screencasts), [articles](../articles/) and [examples](../../examples) in Epsilon's Git repository use EMF models. Epsilon can also connect to [CDO repositories](articles/cdo-emc.md) of EMF models.
 
 ### Matlab Simulink
 
