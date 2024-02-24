@@ -1,15 +1,41 @@
 <?nsuri tgl?>
-<graph direction="LR">
-    <type name="worker"/>
-    <type name="job" color="wheat"/>
-    <node name="J1" type="job"/>
-    <node name="J2" type="job"/>
-    <node name="J3" type="job"/>
-    <node name="J4" type="job"/>
-    <node name="W1" type="worker"/>
-    <node name="W2" type="worker"/>
-    <edge from="J1" to="W1"/>
-    <edge from="J2" to="W1"/>
-    <edge from="J3" to="W2"/>
-    <edge from="J4" to="W1"/>
-</graph>
+<_>
+    <graph direction="LR">
+        <!-- The graph consists of three types of nodes: workers, jobs and orchestrators -->
+        <type name="worker"/>
+        <type name="orchestrator"/>
+        <type name="job" color="wheat"/>
+
+        <!-- Define one orchestrator, two workers and four jobs -->
+        <node name="J1" type="job"/>
+        <node name="J2" type="job"/>
+        <node name="J3" type="job"/>
+        <node name="J4" type="job"/>
+        <node name="O" type="orchestrator"/>
+        <node name="W1" type="worker"/>
+        <node name="W2" type="worker"/>
+
+        <!-- The orchestrator sends job J1 to worker W1 -->
+        <edge from="O" to="J1"/>
+        <edge from="J1" to="W1"/>
+
+        <!-- Use the path template (see below) instead of individual edges for conciseness -->
+        <path nodes="O, J2, W1"/>
+        <path nodes="O, J3, W2"/>
+        <path nodes="O, J4, W2"/>
+    </graph>
+
+    <!-- Template that produces many consecutive <edge> elements using EGL -->
+    <:template name="path">
+        <parameter name="nodes"/>
+        <content language="EGL">
+            <![CDATA[
+            [%var ids = nodes.split(",");%]
+            [%for (id in ids){%]
+            [%if (hasMore){%]
+            <edge from="[%=id.trim()%]" to="[%=ids.at(loopCount).trim()%]"/>
+            [%}}%]
+            ]]>
+        </content>
+    </:template>
+</_>

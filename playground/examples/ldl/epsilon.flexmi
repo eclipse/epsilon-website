@@ -1,0 +1,16 @@
+<?nsuri ldl?>
+<_>
+    <language id="EOL" name="Epsilon Object Language"/>
+    <language id="EVL" name="Epsilon Validation Language" extends="EOL"/>
+    <language id="ETL" name="Epsilon Transformation Language" extends="ETL"/>
+    <language id="EML" name="Epsilon Merging Language" extends="ETL"/>
+    <language id="ECL" name="Epsilon Comparison Language" extends="EOL"/>
+    <language id="EPL" name="Epsilon Pattern Language" extends="EOL"/>
+    <language id="EMG" name="Epsilon Model Generation Language" extends="EPL"/>
+    <language id="EGL" name="Epsilon Generation Language" extends="EOL"/>
+    <language id="EGX" name="Epsilon Generation Coordination Language" extends="EOL"/>
+    <language id="Pinset" extends="EOL"/>
+    <language id="Flock" extension="mig" extends="EOL"/>
+    <language id="Flexmi"/>
+    <language id="Emfatic" extension="emf"/>
+</_>
