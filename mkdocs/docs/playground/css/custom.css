@@ -39,12 +39,13 @@
 
 .mif-example-16::before {
 	position: relative;
-	top: 2px;
+	top: 3px;
 	margin: 0px;
+	margin-left: 1px;
 }
 
 .mif-eol::before {
-	content: url("../images/eol.gif");
+	content: url("../images/eol.png");
 }
 
 .mif-flock::before {
@@ -68,15 +69,15 @@
 }
 
 .mif-etl::before {
-    content: url("../images/etl.gif");
+    content: url("../images/etl.png");
 }
 
 .mif-epl::before {
-    content: url("../images/epl.gif");
+    content: url("../images/epl.png");
 }
 
 .mif-evl::before {
-    content: url("../images/evl.gif");
+    content: url("../images/evl.png");
 }
 
 .mif-flexmi::before {
@@ -92,15 +93,15 @@
 }
 
 .mif-clear::before {
-	content: url("../images/clear.gif");
+	content: url("../images/clear.png");
 }
 
 .mif-console::before {
-	content: url("../images/console.gif");
+	content: url("../images/console.png");
 }
 
 .mif-diagram::before {
-	content: url("../images/diagram.gif");
+	content: url("../images/diagram.png");
 }
 
 .mif-refresh::before {
@@ -253,4 +254,17 @@ body {
 
 .splitter .gutter::before {
 	background-color: inherit;
+}
+
+.navview .navview-pane {
+	background-color: rgb(246, 246, 246);
+}
+
+.navview .navview-menu {
+	background-color: rgb(246, 246, 246);
+}
+
+.panel .panel-title {
+	border-bottom: 0px;
+	color: rgb(87, 83, 78);
 }
