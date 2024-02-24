@@ -144,6 +144,15 @@
 				"flexmi": "ipml/ipml.flexmi",
 				"emfatic": "ipml/ipml.emf",
 				"outputType": "code"
+			},
+			{
+				"id": "ldl",
+				"title": "Generate Language Report",
+				"language": "egl",
+				"program": "ldl/ldl2html.egl",
+				"flexmi": "ldl/epsilon.flexmi",
+				"emfatic": "ldl/ldl.emf",
+				"outputType": "html"
 			}
 		]
 	},

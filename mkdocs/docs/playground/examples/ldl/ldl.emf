@@ -1,0 +1,8 @@
+package ldl;
+
+class Language {
+    id attr String ~id;
+    attr String name;
+    ref Language ~extends;
+    attr String extension;
+}
