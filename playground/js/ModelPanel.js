@@ -80,6 +80,10 @@ class ModelPanel extends Panel {
 
     /* TODO: Rename to something more sensible */
     refreshDiagramImpl(url, diagramId, diagramName, modelEditor, metamodelEditor) {
+
+        var diagramElement = document.getElementById(diagramId);
+        diagramElement.innerHTML = '<img src="images/preloader.gif" style="width:100px;margin:auto"/>'
+
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
@@ -101,13 +105,13 @@ class ModelPanel extends Panel {
                         self.renderDiagram(json[jsonField]);
                     }
 
-                    Metro.notify.killAll();
+                    //Metro.notify.killAll();
                 }
             }
         };
         var data = this.modelToJson(modelEditor, metamodelEditor);
         xhr.send(data);
-        longNotification("Rendering " + diagramName + " diagram");
+        //longNotification("Rendering " + diagramName + " diagram");
     }
 
     renderDiagram(svg) {
