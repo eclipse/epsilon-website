@@ -85,7 +85,7 @@
 }
 
 .mif-html::before {
-    content: url("../images/html.gif");
+    content: url("../images/html.png");
 }
 
 .mif-emfatic::before {
@@ -129,7 +129,7 @@
 }
 
 .mif-editor::before {
-	content: url("../images/editor.gif");
+	content: url("../images/editor.png");
 }
 
 .mif-highlight::before {
@@ -267,4 +267,11 @@ body {
 .panel .panel-title {
 	border-bottom: 0px;
 	color: rgb(87, 83, 78);
+}
+
+.hint {
+    background-color: rgb(246, 246, 246);
+    color: rgb(87, 83, 78);
+	box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
+	padding: 2px;
 }
