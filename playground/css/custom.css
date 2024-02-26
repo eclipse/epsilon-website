@@ -275,3 +275,16 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
 	padding: 2px;
 }
+
+.model-rendering-error {
+	margin:auto;
+	text-align:center;
+	padding: 30px;
+	
+}
+
+.model-rendering-error-message {
+	margin:auto;
+	text-align:center;
+	color: rgb(205, 53, 44);
+}

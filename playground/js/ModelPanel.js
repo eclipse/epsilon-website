@@ -98,8 +98,16 @@ class ModelPanel extends Panel {
                     if (diagramId.endsWith("etamodelDiagram"))
                         jsonField = "metamodelDiagram";
 
+                    var message = "A diagram cannot be shown due to the following error ";
+                    if (jsonField == "metamodelDiagram") {
+                        message += " in the metamodel.";
+                    }
+                    else {
+                        message += " in the model or its metamodel.";
+                    }
+
                     if (json.hasOwnProperty("error")) {
-                        consolePanel.setError(json.error);
+                        diagramElement.innerHTML = '<div class="model-rendering-error">' + message + '<div class="model-rendering-error-message">' + json.error + '</div></div>';
                     }
                     else {
                         self.renderDiagram(json[jsonField]);
