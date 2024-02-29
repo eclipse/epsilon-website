@@ -72,10 +72,37 @@ class ModelPanel extends Panel {
             cls: "sys-button",
             onclick: this.id + "Panel.refreshDiagram()"
         }, {
-            html: this.buttonHtml("diagram", "Show/hide the model object diagram"),
+            html: this.buttonHtml("diagram", "Show/hide the model object diagram", this.getDiagramButtonId()),
             cls: "sys-button",
-            onclick: "toggle('" + this.id + "Diagram', function(){" + this.id + "Panel.refreshDiagram();})"
+            onclick: this.id + "Panel.toggleDiagram()"
         }] : [];
+    }
+
+    toggleDiagram() {
+        var element = document.getElementById(this.id + "Diagram");
+        if (element == null) return;
+    
+        if (getComputedStyle(element).display == "none") {
+            element.style.display = "flex";
+            this.getDiagramButton().className = "mif-diagram-hide";
+            if (element.innerHTML.length == 0) {
+                this.refreshDiagram();
+            }
+        }
+        else {
+            element.style.display = "none";
+            this.getDiagramButton().className = "mif-diagram";
+        }
+        this.fit();
+        updateGutterVisibility();
+    }
+
+    getDiagramButtonId() {
+        return this.id + "DiagramButton";
+    }
+
+    getDiagramButton() {
+        return document.getElementById(this.getDiagramButtonId());
     }
 
     /* TODO: Rename to something more sensible */

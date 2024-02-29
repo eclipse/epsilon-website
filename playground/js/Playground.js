@@ -361,22 +361,6 @@ function longNotification(title, cls="light") {
     Metro.notify.create("<b>" + title + "...</b><br>This may take a few seconds to complete if the back end is not warmed up.", null, {keepOpen: true, cls: cls, width: 300});
 }
 
-function toggle(elementId, onEmpty) {
-    var element = document.getElementById(elementId);
-    if (element == null) return;
-
-    if (getComputedStyle(element).display == "none") {
-        element.style.display = "flex";
-        if (element.innerHTML.length == 0) {
-            onEmpty();
-        }
-    }
-    else {
-        element.style.display = "none";
-    }
-    updateGutterVisibility();
-}
-
 function updateGutterVisibility() {
     for (const gutter of Array.prototype.slice.call(document.getElementsByClassName("gutter"))) {
 
@@ -443,7 +427,6 @@ window.thirdMetamodelPanel = thirdMetamodelPanel;
 window.panels = panels;
 
 window.backend = backend;
-window.toggle = toggle;
 window.longNotification = longNotification;
 window.showDownloadOptions = showDownloadOptions;
 window.showSettings = showSettings;

@@ -104,6 +104,14 @@
 	content: url("../images/diagram.png");
 }
 
+.mif-diagram::before-hid {
+	content: url("../images/diagram-hide.png");
+}
+
+.mif-diagram-hide::before {
+	content: url("../images/diagram-hide.png");
+}
+
 .mif-refresh::before {
 	content: url("../images/refresh.png");
 }

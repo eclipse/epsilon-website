@@ -21,9 +21,9 @@ class MetamodelPanel extends ModelPanel {
             cls: "sys-button",
             onclick: this.id + "Panel.refreshDiagram()"
         },{
-            html: this.buttonHtml("diagram", "Show/hide the metamodel class diagram"),
+            html: this.buttonHtml("diagram", "Show/hide the metamodel class diagram", this.getDiagramButtonId()),
             cls: "sys-button",
-            onclick: "toggle('" + this.id + "Diagram', function(){" + this.id + "Panel.refreshDiagram();})"
+            onclick: this.id + "Panel.toggleDiagram()"
         }];
     }
     
