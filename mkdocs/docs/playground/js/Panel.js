@@ -124,8 +124,12 @@ class Panel {
         this.editor.session.getUndoManager().reset(); 
     }
 
-    buttonHtml(icon, hint) {
-        return "<span class='mif-" + icon + "' data-role='hint' data-hint-text='" + hint + "' data-hint-position='bottom'></span>";
+    buttonHtml(icon, hint, id = null) {
+        var idAttribute = "";
+        if (id != null) {
+            idAttribute = " id = " + "'" + id + "' ";
+        }
+        return "<span class='mif-" + icon + "' data-role='hint' data-hint-text='" + hint + "' data-hint-position='bottom'" + idAttribute+ "></span>";
     }
 
     fit() {}
