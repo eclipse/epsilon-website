@@ -18,5 +18,5 @@ cp docs/assets/images/* site/assets/images/
 
 # Synchronise with repository root
 rsync -ravz --delete \
-  --exclude mkdocs --exclude .git --exclude README.md \
+  --exclude mkdocs --exclude .git --exclude README.md CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE NOTICE SECURITY.md \
   site/ ../
