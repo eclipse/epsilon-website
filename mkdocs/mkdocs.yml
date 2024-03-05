@@ -61,6 +61,7 @@ theme:
   features:
     - content.code.copy
     - content.tabs.link
+    - navigation.footer
   logo: 'assets/images/epsilon-white-background.png'
   favicon: 'assets/images/favicon.png'
   palette:
@@ -177,7 +178,7 @@ plugins:
             'doc/articles/exeed-reference/index.md': 'https://www.eclipse.org/epsilon/doc/exeed'
 
 
-copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved.'
+copyright: 'Copyright © Eclipse Foundation, Inc. All Rights Reserved <br/> <a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a> &centerdot; <a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a> &centerdot; <a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a>'
 extra_css:
   - 'assets/stylesheets/mermaid.css'
   - 'assets/javascript/google-code-prettify/prettify.css'
