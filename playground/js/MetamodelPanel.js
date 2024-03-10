@@ -17,13 +17,13 @@ class MetamodelPanel extends ModelPanel {
             cls: "sys-button",
             onclick: "window.open('https://www.eclipse.org/epsilon/doc/articles/playground/#emfatic-metamodels-in-the-playground');"
         },{
-            html: this.buttonHtml("refresh", "Render the metamodel class diagram"),
-            cls: "sys-button",
-            onclick: this.id + "Panel.refreshDiagram()"
-        },{
             html: this.buttonHtml("diagram", "Show/hide the metamodel class diagram", this.getDiagramButtonId()),
             cls: "sys-button",
             onclick: this.id + "Panel.toggleDiagram()"
+        },{
+            html: this.buttonHtml("refresh", "Refresh the metamodel class diagram", this.getDiagramRefreshButtonId()),
+            cls: "sys-button",
+            onclick: this.id + "Panel.refreshDiagram()"
         }];
     }
     

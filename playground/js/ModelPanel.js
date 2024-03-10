@@ -17,6 +17,11 @@ class ModelPanel extends Panel {
         this.setTitleAndIcon("Model", "flexmi");
     }
 
+    init() {
+        super.init();
+        this.setDiagramRefreshButtonVisible(false);
+    }
+
     showDiagram() {
         $("#" + this.id + "Diagram").show();
     }
@@ -68,13 +73,13 @@ class ModelPanel extends Panel {
             cls: "sys-button",
             onclick: "window.open('https://www.eclipse.org/epsilon/doc/flexmi');"
         }, {
-            html: this.buttonHtml("refresh", "Render the model object diagram"),
-            cls: "sys-button",
-            onclick: this.id + "Panel.refreshDiagram()"
-        }, {
             html: this.buttonHtml("diagram", "Show/hide the model object diagram", this.getDiagramButtonId()),
             cls: "sys-button",
             onclick: this.id + "Panel.toggleDiagram()"
+        }, {
+            html: this.buttonHtml("refresh", "Refresh the model object diagram", this.getDiagramRefreshButtonId()),
+            cls: "sys-button",
+            onclick: this.id + "Panel.refreshDiagram()"
         }] : [];
     }
 
@@ -88,10 +93,12 @@ class ModelPanel extends Panel {
             if (element.innerHTML.length == 0) {
                 this.refreshDiagram();
             }
+            this.setDiagramRefreshButtonVisible(true);
         }
         else {
             element.style.display = "none";
             this.getDiagramButton().className = "mif-diagram";
+            this.setDiagramRefreshButtonVisible(false);
         }
         this.fit();
         updateGutterVisibility();
@@ -103,6 +110,17 @@ class ModelPanel extends Panel {
 
     getDiagramButton() {
         return document.getElementById(this.getDiagramButtonId());
+    }
+
+    getDiagramRefreshButtonId() {
+        return this.id + "DiagramRefreshButton";
+    }
+
+    setDiagramRefreshButtonVisible(visible) {
+        var diagramRefreshButton = document.getElementById(this.getDiagramRefreshButtonId());
+        if (diagramRefreshButton != null) {
+            diagramRefreshButton.parentElement.style.display = visible ? "flex" : "none";
+        }
     }
 
     /* TODO: Rename to something more sensible */
