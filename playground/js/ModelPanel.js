@@ -7,6 +7,7 @@ class ModelPanel extends Panel {
 
     editable;
     metamodelPanel;
+    diagramSvg;
 
     constructor(id, editable, metamodelPanel) {
         super(id);
@@ -20,6 +21,7 @@ class ModelPanel extends Panel {
     init() {
         super.init();
         this.setDiagramRefreshButtonVisible(false);
+        this.setFitDiagramButtonVisible(!this.editable);
     }
 
     showDiagram() {
@@ -80,7 +82,15 @@ class ModelPanel extends Panel {
             html: this.buttonHtml("refresh", "Refresh the model object diagram", this.getDiagramRefreshButtonId()),
             cls: "sys-button",
             onclick: this.id + "Panel.refreshDiagram()"
-        }] : [];
+        }, {
+            html: this.buttonHtml("fit-diagram", "Fit the model object diagram", this.getFitDiagramButtonId()),
+            cls: "sys-button",
+            onclick: this.id + "Panel.fitDiagram()"
+        }] : [{
+            html: this.buttonHtml("fit-diagram", "Fit the model object diagram", this.getFitDiagramButtonId()),
+            cls: "sys-button",
+            onclick: this.id + "Panel.fitDiagram()"
+        }];
     }
 
     toggleDiagram() {
@@ -94,11 +104,13 @@ class ModelPanel extends Panel {
                 this.refreshDiagram();
             }
             this.setDiagramRefreshButtonVisible(true);
+            this.setFitDiagramButtonVisible(true);
         }
         else {
             element.style.display = "none";
             this.getDiagramButton().className = "mif-diagram";
             this.setDiagramRefreshButtonVisible(false);
+            this.setFitDiagramButtonVisible(false);
         }
         this.fit();
         updateGutterVisibility();
@@ -106,6 +118,10 @@ class ModelPanel extends Panel {
 
     getDiagramButtonId() {
         return this.id + "DiagramButton";
+    }
+
+    getFitDiagramButtonId() {
+        return this.id + "FitDiagramButton";
     }
 
     getDiagramButton() {
@@ -120,6 +136,19 @@ class ModelPanel extends Panel {
         var diagramRefreshButton = document.getElementById(this.getDiagramRefreshButtonId());
         if (diagramRefreshButton != null) {
             diagramRefreshButton.parentElement.style.display = visible ? "flex" : "none";
+        }
+    }
+
+    setFitDiagramButtonVisible(visible) {
+        var fitDiagramButton = document.getElementById(this.getFitDiagramButtonId());
+        if (fitDiagramButton != null) {
+            fitDiagramButton.parentElement.style.display = visible ? "flex" : "none";
+        }
+    }
+
+    fitDiagram() {
+        if (this.diagramSvg) {
+            this.renderDiagram(this.diagramSvg);
         }
     }
 
@@ -153,25 +182,24 @@ class ModelPanel extends Panel {
 
                     if (json.hasOwnProperty("error")) {
                         diagramElement.innerHTML = '<div class="model-rendering-error">' + message + '<div class="model-rendering-error-message">' + json.error + '</div></div>';
+                        self.diagramSvg = null;
                     }
                     else {
                         self.renderDiagram(json[jsonField]);
                     }
-
-                    //Metro.notify.killAll();
                 }
             }
         };
         var data = this.modelToJson(modelEditor, metamodelEditor);
         xhr.send(data);
-        //longNotification("Rendering " + diagramName + " diagram");
     }
 
     renderDiagram(svg) {
-
         var diagramId = this.id + "Diagram";
         var diagramElement = document.getElementById(diagramId);
         
+        this.diagramSvg = svg;
+
         if (diagramId == "outputDiagram") {
             diagramElement.parentElement.style.padding = "0px";
         }
@@ -198,7 +226,7 @@ class ModelPanel extends Panel {
         // move downwards with every re-generation. Interestingly, this only
         // happens with diagrams in the output panel.
         // This is a temporary fix until we get to the bottom of this.
-        if (this.id == "output") containerHeight = containerHeight - 6;
+        if (this.id == "output" || !this.editable) containerHeight = containerHeight - 6;
 
         var scaleX = containerWidth / svgWidth;
         var scaleY = containerHeight / svgHeight;

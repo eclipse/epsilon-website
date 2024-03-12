@@ -25,7 +25,11 @@ class OutputPanel extends ModelPanel {
             html: this.buttonHtml("highlight", "Set generated text language"),
             cls: "sys-button",
             onclick: this.id + "Panel.setOutputLanguage()"
-        }] : [];
+        }] : [{
+            html: this.buttonHtml("fit-diagram", "Fit the diagram", this.getFitDiagramButtonId()),
+            cls: "sys-button",
+            onclick: this.id + "Panel.fitDiagram()"
+        }];
     }
 
     getSelect() {
@@ -106,6 +110,11 @@ class OutputPanel extends ModelPanel {
         }
 
         return root;
+    }
+
+    init() {
+        super.init();
+        this.setFitDiagramButtonVisible(true);
     }
 }
 
