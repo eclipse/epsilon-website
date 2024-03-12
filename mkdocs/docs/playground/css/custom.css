@@ -100,6 +100,10 @@
 	content: url("../images/console.png");
 }
 
+.mif-fit-diagram::before {
+	content: url("../images/fit-diagram.png");
+}
+
 .mif-diagram::before {
 	content: url("../images/diagram.png");
 }

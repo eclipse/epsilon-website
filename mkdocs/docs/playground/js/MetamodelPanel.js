@@ -24,6 +24,10 @@ class MetamodelPanel extends ModelPanel {
             html: this.buttonHtml("refresh", "Refresh the metamodel class diagram", this.getDiagramRefreshButtonId()),
             cls: "sys-button",
             onclick: this.id + "Panel.refreshDiagram()"
+        }, {
+            html: this.buttonHtml("fit-diagram", "Fit the metamodel class diagram", this.getFitDiagramButtonId()),
+            cls: "sys-button",
+            onclick: this.id + "Panel.fitDiagram()"
         }];
     }
     
