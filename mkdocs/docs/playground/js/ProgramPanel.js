@@ -17,6 +17,7 @@ class ProgramPanel extends Panel {
         switch (language) {
             case "eol": title = "Program"; break;
             case "etl": title = "Transformation"; break;
+            case "emg": title = "Generation"; break;
             case "flock": title = "Migration"; break;
             case "egl": title = "Template"; break;
             case "evl": title = "Constraints"; break;

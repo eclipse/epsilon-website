@@ -9,7 +9,7 @@ class SettingsDialog {
 
         var panels = [programPanel, consolePanel, firstModelPanel, firstMetamodelPanel];
 
-        if (language == "etl" || language == "flock") {
+        if (language == "etl" || language == "emg" || language == "flock") {
             panels.push(secondModelPanel, secondMetamodelPanel);
         }
         else if (language == "eml") {
