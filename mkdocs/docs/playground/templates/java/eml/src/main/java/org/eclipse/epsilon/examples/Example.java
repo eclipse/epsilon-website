@@ -19,7 +19,7 @@ public class Example {
 
         // Parse the ECL matching rules
         EclModule eclModule = new EclModule();
-        eclModule.parse("program.ecl");
+        eclModule.parse(new File("program.ecl"));
 
         // Parse the EML merging rules
         EmlModule emlModule = new EmlModule();
@@ -35,7 +35,7 @@ public class Example {
         left.setStoredOnDisposal(false);
         left.load();
 
-        // Load the left model from left.flexmi using left.emf as its metamodel
+        // Load the right model from right.flexmi using right.emf as its metamodel
         EmfModel right = new EmfModel();
         right.setName("Right");
         right.getAliases().add("Source");
