@@ -1365,7 +1365,7 @@
 
 
 <h1 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h1>
-<p>The simplest way to get a copy of Eclipse with Epsilon 2.4 and all its dependencies installed, is to download the <a href="https://wiki.eclipse.org/Eclipse_Installer">Eclipse Installer</a> and select Epsilon. Note that you will need a <a href="https://adoptopenjdk.net/">Java Runtime Environment</a> installed on your system.</p>
+<p>The simplest way to get a copy of Eclipse with Epsilon 2.5 and all its dependencies installed, is to download the <a href="https://wiki.eclipse.org/Eclipse_Installer">Eclipse Installer</a> and select Epsilon.</p>
 <p><img alt="Epsilon in Eclipse Installer" src="../assets/images/eclipse-installer.png" /></p>
 <table>
 <thead>
@@ -1413,10 +1413,6 @@
 </div>
 <h2 id="update-sites">Update Sites<a class="headerlink" href="#update-sites" title="Permanent link">&para;</a></h2>
 <p>Alternatively, you can use the following update sites through the <code>Help</code> &rarr; <code>Install new software</code> menu in Eclipse to install (parts of) Epsilon.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Please note that updates in recent (2022) versions of Eclipse have broken <a href="../doc/eugenia">Eugenia</a>. If you need to install Eugenia, please use an older version of Eclipse.</p>
-</div>
 <table>
 <thead>
 <tr>
@@ -1427,7 +1423,7 @@
 <tbody>
 <tr>
 <td>Stable</td>
-<td><code>http://download.eclipse.org/epsilon/updates/2.4/</code></td>
+<td><code>http://download.eclipse.org/epsilon/updates/2.5/</code></td>
 </tr>
 <tr>
 <td>Interim</td>
@@ -1456,7 +1452,7 @@
 <tbody>
 <tr>
 <td>Stable</td>
-<td><a href="https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/2.4/epsilon-2.4-site.zip">https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/2.4/epsilon-2.4-site.zip</a></td>
+<td><a href="https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/2.5/epsilon-2.5-site.zip">https://www.eclipse.org/downloads/download.php?file=/epsilon/updates/2.5/epsilon-2.5-site.zip</a></td>
 </tr>
 <tr>
 <td>Interim</td>
@@ -1482,7 +1478,7 @@
 </tr>
 <tr>
 <td>Release tag</td>
-<td><code>https://github.com/eclipse/epsilon/releases/tag/2.4</code></td>
+<td><code>https://github.com/eclipse/epsilon/releases/tag/2.5</code></td>
 </tr>
 </tbody>
 </table>
@@ -1494,11 +1490,11 @@ instance, to use the <code>EOL engine</code> JAR from your <code>pom.xml</code>:
 <span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">        </span><span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.eol.engine<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">        </span><span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">        </span><span class="nt">&lt;version&gt;</span>2.5.0<span class="nt">&lt;/version&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div>
-<p>To use the latest SNAPSHOT (interim) version of Epsilon, you should add the Sonatype snapshots repository to your <code>pom.xml</code> and set the version of the Epsilon libraries to <code>2.5.0-SNAPSHOT</code> as shown below.</p>
+<p>To use the latest SNAPSHOT (interim) version of Epsilon, you should add the Sonatype snapshots repository to your <code>pom.xml</code> and set the version of the Epsilon libraries to <code>2.6.0-SNAPSHOT</code> as shown below.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;repositories&gt;</span>
 <span class="w">    </span><span class="nt">&lt;repository&gt;</span>
 <span class="w">        </span><span class="nt">&lt;id&gt;</span>ossrh<span class="nt">&lt;/id&gt;</span>
@@ -1510,7 +1506,7 @@ instance, to use the <code>EOL engine</code> JAR from your <code>pom.xml</code>:
 <span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">        </span><span class="nt">&lt;groupId&gt;</span>org.eclipse.epsilon<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>org.eclipse.epsilon.eol.engine<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">        </span><span class="nt">&lt;version&gt;</span>2.5.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="w">        </span><span class="nt">&lt;version&gt;</span>2.6.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;/dependencies&gt;</span>
 </code></pre></div>
