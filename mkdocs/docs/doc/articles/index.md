@@ -8,6 +8,7 @@ This page links to more than **80 articles** on various aspects of Epsilon. Shou
 - [Extended Properties](extended-properties): This article demonstrates the extended properties mechanism in EOL (and by inheritance, in all languages in Epsilon).
 - [Call Java from Epsilon](call-java-from-epsilon): This article demonstrates how to create Java objects, access their properties and call their methods from Epsilon languages.
 - [Running Epsilon from Java](run-epsilon-from-java): This article demonstrates how to parse and execute Epsilon programs and load models from headless Java applications.
+- [Running Epsilon Programs on POJOs](epsilon-pojos): This article demonstrates how to run EOL programs and EGL templates on plain-old Java objects (POJOs).
 - [Call Java functional interfaces from Epsilon](lambda-expressions): This article demonstrates how to call native methods which take functions as their parameter, using lambdas and streams directly from Epsilon using EOL syntax.
 - [Profiling Epsilon Programs](profiling): This article demonstrates how to profile Epsilon programs using the platform's built-in profiling tools.
 - [EOL Interpreter View](eol-interpreter-view): This article demonstrates an Eclipse view for running EOL scripts against selected model elements in EMF-based editors.
@@ -22,6 +23,7 @@ This page links to more than **80 articles** on various aspects of Epsilon. Shou
 ## Epsilon Generation Language
 
 - [Code Generation Tutorial with EGL](code-generation-tutorial-egl): This article demonstrates using EGL templates to generate HTML files from an XML document.
+- [Running Epsilon Programs on POJOs](epsilon-pojos): This article demonstrates how to run EOL programs and EGL templates on plain-old Java objects (POJOs).
 - [Using template operations in EGL](egl-template-operations): This article demonstrates template operations for writing re-usable code in EGL (the model-to-text language of Epsilon).
 - [EGL as a server-side language](egl-server-side): This article demonstrates using EGL (the model-to-text language of Epsilon) in Tomcat to produce HTML pages from EMF models on the fly.
 - [Co-ordinating EGL templates with EGX](egx-parameters): This article demonstrates how to parameterize EGL templates and execute them multiple times to produce multiple files.
