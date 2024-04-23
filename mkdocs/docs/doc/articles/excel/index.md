@@ -101,9 +101,19 @@ Each worksheet can have an optional name (if a name is not provided, the name of
 Each `column` needs to specify at least either its zero-based `index` in the context of the worksheet it belongs to, or its `name` (if a name is not provided, the cell value in the first row is used, as discussed above). Additionally, a `column` can have:
 
 * `alias`: an alternative name for the column.
-* `datatype`: the type of the values in the column. As of Epsilon 2.5.0, the valid options (ignoring case) are `string`, `integer`, `boolean`, `double`, or `float`. The default datatype is `string`, although the type of the cell value in the spreadsheet takes precedence (e.g. if it is numeric, then it will only matter whether the `datatype` is `integer`, `double`, or `float`).
+* `datatype`: the type of the values in the column. As of Epsilon 2.5.0, the valid options (ignoring case) are `string`, `integer`, `boolean`, `double`, or `float`. The default datatype is `string`.
 * `many`: it can be `true` or `false`. If `true`, then its cells will be considered to contain unbounded collections, separated by the `delimeter`(see below). Columns are single-valued by default.
 * `delimeter`: the delimiter used to separate values if `many` is `true`. The default delimeter is `,`.
+
+As of 2.6.0, numeric values are converted to various datatypes as follows:
+
+* `string`: the textual representation of the cell's value is used, applying its declared format if possible. If the cell format is not supported, a format similar to the Excel General format will be used: `#` for whole numbers and `#.##########` for decimal numbers (see the Apache POI [DateFormatter](https://poi.apache.org/apidocs/4.1/org/apache/poi/ss/usermodel/DataFormatter.html) documentation).
+* `integer`, `double`, and `float`:  the cell value is computed (using the formula if one is present), and then cast to the appropriate datatype.
+* `boolean`: zero values will be treated as `false`, and non-zero values will be treated as `true`.
+
+??? bug "Issues with numeric cell values in Epsilon 2.5.0 and earlier"
+
+    In Epsilon 2.5.0 and earlier releases, the Excel driver only supported the `integer`, `double`, and `float` datatypes for cells with numeric values. `string` and `boolean` datatypes were ignored, and treated as `double`. See [issue #89](https://github.com/eclipse/epsilon/issues/89).
 
 ### Reference
 In a configuration document we can also specify ID-based references to capture relationships between columns belonging to potentially different worksheets. Each reference has a `source` and a `target` column, an optional `name` (if a name is not specified, the name of the source column is used to navigate the reference), a cardinality (`many` attribute), and specifies whether updates to cells of the target column should be propagated automatically (`cascadeUpdates` attribute) to the respective cells in the source column to preserve referential integrity.
