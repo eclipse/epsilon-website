@@ -137,7 +137,6 @@ This page links to more than **80 articles** on various aspects of Epsilon. Shou
 - [Call for User Stories](call-for-user-stories): This is a kind request to all Epsilon Users.
 - [Manage the Epsilon website locally](manage-the-epsilon-website-locally): This article demonstrates how to manage the Epsilon website in your machine.
 - [Epsilon development principles](development-principles): These are the guiding principles used by the developers of Epsilon.
-- [Resolved bugs](resolved-bugs): This article discusses the different types of resolved bugs in Epsilon.
 - [Managing the target platform](target-platform): This article outlines how to manage the target platform that Epsilon is built against.
 - [Adding new plugins](adding-new-plugins): This article outlines the process of adding new plugins to the main Epsilon repository.
 - [Preparing the macOS distribution](preparing-the-macosx-distribution): This article outlines the process of signing the Eclipse macOS distribution.

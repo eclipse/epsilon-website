@@ -75,8 +75,7 @@ catch (Exception ex) {
 
 ## Bug/Feature Tracking
 
-1. **Trace changes using Bugzilla**: we use Bugzilla to document and discuss design and implementation changes. We often raise our own bugs. We use bug numbers in commit messages to maintain trace links between the code and discussions about the code.
-2. **Adhere to Bugzilla conventions**: we follow a small set of [Bugzilla conventions](../resolved-bugs).
+**Trace changes using GitHub Issues**: we use [Github Issues](https://github.com/eclipse/epsilon/issues) to document and discuss design and implementation changes. We often raise our own issues. We use issue numbers in commit messages to maintain trace links between the code and discussions about the code.
 
 ## Source Code Management
 
