@@ -108,7 +108,9 @@ The structure of [examples.json](https://github.com/eclipse/epsilon-website/blob
 
 ## Settings
 
-Through the `Settings` dialog, you can show/hide the different panels of the playground as well as line numbers in editors. If you hide the program panel, you can still run the program it contains using the <kbd>Ctrl+S</kbd> or <kbd>Cmd+S</kbd> keyboard shortcut.
+Through the `Settings` dialog, you can show/hide the different panels of the playground as well as line numbers in editors. You can also hide a panel by middle-clicking and maximise/restore it by double-clicking on its title.
+
+If you hide the program panel, you can still run the program it contains using the <kbd>Ctrl+S</kbd> or <kbd>Cmd+S</kbd> keyboard shortcut.
 
 ## Docker container
 
