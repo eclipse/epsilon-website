@@ -41,10 +41,7 @@ class Layout {
 
             splitter = new Splitter(
                 new Splitter(programPanel, consolePanel, "vertical"),
-                new Splitter(
-                    new Splitter(firstMetamodelPanel, null, "vertical"),
-                    new Splitter(secondModelPanel, null)
-                ), 
+                new Splitter(firstMetamodelPanel, secondModelPanel), 
                 "horizontal", "33, 67"
             );
         }

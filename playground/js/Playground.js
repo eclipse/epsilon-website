@@ -347,10 +347,15 @@ function runProgram() {
 }
 
 function getActivePanels() {
-    var panels = [programPanel, consolePanel, firstModelPanel, firstMetamodelPanel];
+    var panels = [programPanel, consolePanel];
 
-    if (language == "etl" || language == "emg" || language == "flock") {
+    if (language != "emg") panels.push(firstModelPanel, firstMetamodelPanel);
+
+    if (language == "etl" || language == "flock") {
         panels.push(secondModelPanel, secondMetamodelPanel);
+    }
+    else if (language == "emg") {
+        panels.push(firstMetamodelPanel, secondModelPanel);
     }
     else if (language == "eml") {
         panels.push(secondProgramPanel, thirdModelPanel, thirdMetamodelPanel, secondModelPanel, secondMetamodelPanel);
