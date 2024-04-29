@@ -350,7 +350,7 @@
 		"title": "Model Generation Examples",
 		"examples": [
 			{
-				"id": "emg",
+				"id": "generate-petri-net",
 				"title": "Petri Net Generation",
 				"language": "emg",
 				"program": "petri-net/petri.emg",
