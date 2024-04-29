@@ -73,7 +73,7 @@
 }
 
 .mif-emg::before {
-    content: url("../images/epl.gif");
+    content: url("../images/epl.png");
 }
 
 .mif-epl::before {

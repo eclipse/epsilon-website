@@ -16,3 +16,11 @@ To run all the end-to-end tests under `cypress/e2e`, you can use the following c
 - `npx cypress run --browser firefox --spec "cypress/e2e/*.cy.js"`
 
 Note: When the browser is not set to `firefox`, tests in `download.cy.js` can be flaky.
+
+### Disable Live Reloading
+
+To speed up test execution, please disable live reloading by serving the website using the following command.
+
+```
+./serve.sh --no-livereload
+```
