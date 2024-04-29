@@ -178,7 +178,7 @@ function arrangePanels() {
             outputPanel.setTitleAndIcon("Generated Text", "editor");           
         }
     }
-    else if (language == "etl" || language == "emg") {
+    else if (language == "etl") {
         secondModelPanel.showDiagram();
         secondModelPanel.hideEditor();
 
@@ -186,6 +186,14 @@ function arrangePanels() {
         firstMetamodelPanel.setTitle("Source Metamodel");
         secondModelPanel.setTitle("Target Model");
         secondMetamodelPanel.setTitle("Target Metamodel");
+        secondModelPanel.setIcon("diagram");
+    }
+    else if (language == "emg") {
+        secondModelPanel.showDiagram();
+        secondModelPanel.hideEditor();
+
+        firstMetamodelPanel.setTitle("Metamodel");
+        secondModelPanel.setTitle("Generated Model");
         secondModelPanel.setIcon("diagram");
     }
     else if (language == "eml") {
