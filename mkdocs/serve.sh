@@ -13,4 +13,4 @@ fi
 # Serve the website
 source env/bin/activate
 pip install -r requirements.txt
-mkdocs serve
+mkdocs serve "$*"

@@ -72,6 +72,10 @@
     content: url("../images/etl.png");
 }
 
+.mif-emg::before {
+    content: url("../images/epl.png");
+}
+
 .mif-epl::before {
     content: url("../images/epl.png");
 }
