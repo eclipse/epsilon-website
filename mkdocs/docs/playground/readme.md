@@ -22,5 +22,5 @@ Note: When the browser is not set to `firefox`, tests in `download.cy.js` can be
 To speed up test execution, please disable live reloading by serving the website using the following command.
 
 ```
-./serve.sh --no-livereload
+./serve-no-livereload.sh
 ```

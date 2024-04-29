@@ -10,7 +10,7 @@ if ! test -d env; then
   virtualenv -p python3 env
 fi
 
-# Serve the website
+# Serve the website without live reloading (useful for tests)
 source env/bin/activate
 pip install -r requirements.txt
-mkdocs serve
+mkdocs serve --no-livereload
