@@ -7,25 +7,7 @@ class SettingsDialog {
     show(event) {
         event.preventDefault();
 
-        var panels = [programPanel, consolePanel];
-        
-        if (language != "emg") panels.push(firstModelPanel, firstMetamodelPanel);
-
-        if (language == "etl" || language == "flock") {
-            panels.push(secondModelPanel, secondMetamodelPanel);
-        }
-        else if (language == "emg") {
-            panels.push(firstMetamodelPanel, secondModelPanel);
-        }
-        else if (language == "eml") {
-            panels.push(secondProgramPanel, thirdModelPanel, thirdMetamodelPanel, secondModelPanel, secondMetamodelPanel);
-        }
-        else if (language == "evl" || language == "epl" || language == "egl" || language == "egx") {
-            panels.push(outputPanel);
-            if (language == "egx") {
-                panels.push(secondProgramPanel);
-            }
-        }
+        var panels = window.getActivePanels();
 
         var visibilityCheckboxes = "";
 
