@@ -24,6 +24,7 @@ class DownloadDialog {
                             task: language == "egx" ? "egl" : language,
                             extension: extension,
                             etl: language == "etl",
+                            emg: language == "emg",
                             flock: language == "flock",
                             etlOrFlock: language == "etl" || language == "flock",
                             egl: language == "egl",
@@ -49,6 +50,8 @@ class DownloadDialog {
                             zip.file("right.flexmi", thirdModelPanel.getValue());
                             zip.file("right.emf", thirdMetamodelPanel.getValue());
                             zip.file("target.emf", secondMetamodelPanel.getValue());                            
+                        } else if (language == "emg") {
+                            zip.file("metamodel.emf", firstMetamodelPanel.getValue());
                         }
                         else {
                             zip.file("model.flexmi", firstModelPanel.getValue());

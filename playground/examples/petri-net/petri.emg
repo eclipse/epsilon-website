@@ -1,0 +1,56 @@
+pre {
+    var num_p = 3;
+}
+
+$instances 1
+@list net
+operation PetriNet create() {
+    self.name = nextCamelCaseString(15, 10);
+}
+
+$instances num_p
+operation Place create() {
+    self.name = "P_" + nextString("LETTER_LOWER", 15);
+    nextFromList("net").transitions.add(self);
+}
+
+$instances num_p / 2
+operation Transition create() {
+    self.name = "T_" + nextString("LETTER_LOWER", 15);
+    nextFromList("net").transitions.add(self);
+}
+
+@probability 0.7
+pattern Transition
+net:PetriNet,
+tra:Transition
+from: net.transitions {
+    onmatch {
+        var size = 0;
+        var freeSources = Place.all().select(s | s.incoming.size() == size);
+        while (freeSources.isEmpty()) {
+            size += 1;
+            freeSources = Place.all().select(s | s.incoming.size() == size);
+        }
+        size = 0;
+        var freeTarget = Place.all().select(s | s.outgoing.size() == size);
+        while (freeTarget.isEmpty()) {
+            size += 1;
+            freeTarget = Place.all().select(s | s.outgoing.size() == size);
+        }
+        var source = nextFromCollection(freeSources);
+        var target = nextFromCollection(freeTarget);
+        var a1:Arc = new PlaceToTransArc();
+        a1.weight = nextInt(10);
+        a1.source = source;
+        net.places.add(source);
+        a1.target = tra;
+        net.arcs.add(a1);
+        var a2:Arc = new TransToPlaceArc();
+        a1.weight = nextInt(10);
+        a2.source = tra;
+        a2.target = target;
+        net.places.add(target);
+        net.arcs.add(a2);
+    }
+}

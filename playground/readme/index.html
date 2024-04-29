@@ -1203,6 +1203,19 @@
     Testing
   </a>
   
+    <nav class="md-nav" aria-label="Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-live-reloading" class="md-nav__link">
+    Disable Live Reloading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1239,6 +1252,10 @@
 <li><code>npx cypress run --browser firefox --spec "cypress/e2e/*.cy.js"</code></li>
 </ul>
 <p>Note: When the browser is not set to <code>firefox</code>, tests in <code>download.cy.js</code> can be flaky.</p>
+<h3 id="disable-live-reloading">Disable Live Reloading<a class="headerlink" href="#disable-live-reloading" title="Permanent link">&para;</a></h3>
+<p>To speed up test execution, please disable live reloading by serving the website using the following command.</p>
+<div class="highlight"><pre><span></span><code>./serve-no-livereload.sh
+</code></pre></div>
 
 
 
