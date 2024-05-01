@@ -2092,6 +2092,10 @@ instances of the Any type are outlined in the table below<sup id="fnref:1"><a cl
 <td>Returns a string representation of the object</td>
 </tr>
 <tr>
+<td>asVar(name : String) : Any</td>
+<td>Creates a new variable with the specified name out of the object, and returns the object</td>
+</tr>
+<tr>
 <td>err([prefix : String]) : Any</td>
 <td>Prints a string representation of the object on which it is invoked to the error stream prefixed with the optional <code>prefix</code> string and returns the object on which it was invoked. In this way, the <code>err</code> operation can be used for debugging purposes in a non-invasive manner</td>
 </tr>
@@ -2118,6 +2122,10 @@ instances of the Any type are outlined in the table below<sup id="fnref:1"><a cl
 <tr>
 <td>isKindOf(type : Type) : Boolean</td>
 <td>Returns true if the object is of the given type or one of its subtypes and false otherwise</td>
+</tr>
+<tr>
+<td>instanceOf(type : Type) : Boolean</td>
+<td>Alias for <code>isKindOf</code></td>
 </tr>
 <tr>
 <td>isTypeOf(type : Type) : Boolean</td>
