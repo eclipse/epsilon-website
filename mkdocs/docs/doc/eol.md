@@ -236,6 +236,7 @@ asFloat() : Float                       | Returns a Java Float based on the stri
 asSequence() : Sequence                 | Returns a new Sequence containing the object
 asSet() : Set                           | Returns a new Set containing the object
 asString() : String                     | Returns a string representation of the object
+asVar(name : String) : Any              | Creates a new variable with the specified name out of the object, and returns the object
 err(\[prefix : String\]) : Any          | Prints a string representation of the object on which it is invoked to the error stream prefixed with the optional `prefix` string and returns the object on which it was invoked. In this way, the `err` operation can be used for debugging purposes in a non-invasive manner
 errln(\[prefix : String\]) : Any        | Has the same effects as the `err` operation but also produces a new line in the output stream.
 format(\[pattern : String\]) : String   | Uses the provided pattern to form a String representation of the object on which the method is invoked. The pattern argument must conform to the format string syntax defined by Java[^2].
@@ -243,6 +244,7 @@ hasProperty(name : String) : Boolean    | Returns true if the object has a prope
 ifUndefined(alt : Any) : Any            | If the object is undefined, it returns alt else it returns the object
 isDefined() : Boolean                   | Returns true if the object is defined and false otherwise
 isKindOf(type : Type) : Boolean         | Returns true if the object is of the given type or one of its subtypes and false otherwise
+instanceOf(type : Type) : Boolean       | Alias for `isKindOf`
 isTypeOf(type : Type) : Boolean         | Returns true if the object is of the given type and false otherwise
 isUndefined() : Boolean                 | Returns true if the object is undefined and false otherwise
 owningModel() : Model                   | Returns the model that contains this object or an undefined value otherwise
