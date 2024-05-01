@@ -810,6 +810,62 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://download.eclipse.org/epsilon/2.4.0-javadoc/" class="md-nav__link">
+        2.4.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://download.eclipse.org/epsilon/2.3.0-javadoc/" class="md-nav__link">
+        2.3.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://download.eclipse.org/epsilon/2.2.0-javadoc/" class="md-nav__link">
+        2.2.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://download.eclipse.org/epsilon/2.1.0-javadoc/" class="md-nav__link">
+        2.1.0
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1302,6 +1358,7 @@ You can verify the tag was pushed by checking the output of <code>git ls-remote 
 <h3 id="update-the-website">Update the website<a class="headerlink" href="#update-the-website" title="Permanent link">&para;</a></h3>
 <p>The Epsilon website's <a href="https://www.eclipse.org/epsilon/download/">Download page</a> should be the only place in the <a href="https://github.com/eclipse/epsilon-website">website repo</a> that needs updating. Specifically, you will need to change two source files in the <a href="https://github.com/eclipse/epsilon-website/tree/master/mkdocs/docs/download">source directory</a>.
 Add the new release info to <code>all-versions.md</code>. Copy <code>index.md</code> and rename it to the current / old release. Then update <code>index.md</code> to mention the new release. Generally it should be as easy as Find and Replacing the old version with the new one.</p>
+<p>You should also update the list of Javadoc URLs in <code>mkdocs.yml</code>, adding the link to the previous stable release as the <code>Stable</code> link will now point to the new stable release.</p>
 <p>Also don't forget to build the static site for changes to take effect.</p>
 <h3 id="bump-up-versions">Bump up versions<a class="headerlink" href="#bump-up-versions" title="Permanent link">&para;</a></h3>
 <p>Run the following commands from the root of the repository, replacing <code>X.Y.Z</code> with the full version number of the release (where Z is the patch, usually 0). Tycho will automatically take care of updating the Maven and PDE projects (<code>MANIFEST.MF</code>, <code>feature.xml</code> etc.). Note that the standalone POMs (i.e. the <code>pom-plain.xml</code> files) are bumped separately using the third command below. Also note the order: run the Tycho one first, then bump <code>epsilon.version</code>, then run the Tycho versions bump again and it should succeed.</p>
