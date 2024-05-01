@@ -50,8 +50,8 @@ Additionally the EMG engine provides a set of predefined operations that provide
 | - | - |
 nextAddTo(n : Integer, m : Integer): Sequence(Integer) | Returns a sequence of *n* integers who's sum is equal to *m*.
 nextBoolean() | Returns the next pseudorandom, uniformly distributed `boolean` value.
-nextCamelCaseWords(charSet : String, length : Integer, minWordLength : Integer) : String | Generates a string of the given length formatted as CamelCase, with subwords of a minimum length of the *minWordLength* argument, using characters from the given *charSet*.
-nextCapitalisedWord(charSet : String, length : Integer) : String | Generates a Capitalized string of the given length using characters from the given *charSet*.
+nextCamelCaseString(length : Integer, minWordLength : Integer) : String | Generates a string of the given length formatted as CamelCase, with subwords of a minimum length of the *minWordLength* argument.
+nextCapitalisedString(charSet : String, length : Integer) : String | Generates a Capitalized string of the given length using characters from the given *charSet*.
 nextFromCollection(c : Sequence) : Any | Returns the next `object` from the collection, selected pseudorandomly using the uniform distribution. If the collection is empty, returns null.
 nextFromList(listID : String) : Any | Returns the next `object` from the list, selected pseudorandomly using the uniform distribution. If the list is empty, returns null. The *listID* can either be a name defined by the `@list` annotation or a parameter name from the run configuration. In the latter case, the parameter value can be either a comma separated string or a file path. If it is a comma separated string, then a list is created by splitting the string; if the value is a path, then the file will be read and each line will be treated as a list element.
 nextFromListAsSample(listID : String) : Any | Same as *nextFromList*, but in this case the list is treated as a sample without replacement, i.e. each call will return a unique member of the list.
