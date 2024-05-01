@@ -40,6 +40,8 @@ You can verify the tag was pushed by checking the output of `git ls-remote --tag
 The Epsilon website's [Download page](https://www.eclipse.org/epsilon/download/) should be the only place in the [website repo](https://github.com/eclipse/epsilon-website) that needs updating. Specifically, you will need to change two source files in the [source directory](https://github.com/eclipse/epsilon-website/tree/master/mkdocs/docs/download).
 Add the new release info to `all-versions.md`. Copy `index.md` and rename it to the current / old release. Then update `index.md` to mention the new release. Generally it should be as easy as Find and Replacing the old version with the new one.
 
+You should also update the list of Javadoc URLs in `mkdocs.yml`, adding the link to the previous stable release as the `Stable` link will now point to the new stable release.
+
 Also don't forget to build the static site for changes to take effect.
 
 ### Bump up versions
