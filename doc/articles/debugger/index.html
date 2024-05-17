@@ -1248,6 +1248,109 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-epsilon-scripts-embedded-in-java-programs" class="md-nav__link">
+    Debugging Epsilon scripts embedded in Java programs
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging Epsilon scripts embedded in Java programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-the-epsilondebugserver-into-your-program" class="md-nav__link">
+    Importing the EpsilonDebugServer into your program
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wrapping-your-module-with-the-epsilondebugserver" class="md-nav__link">
+    Wrapping your module with the EpsilonDebugServer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-module-uris-to-your-ide-files" class="md-nav__link">
+    Mapping module URIs to your IDE files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-epsilon-scripts-running-from-ant-workflows" class="md-nav__link">
+    Debugging Epsilon scripts running from Ant workflows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-adapter-protocol-clients-tested-with-epsilon" class="md-nav__link">
+    Debug Adapter Protocol clients tested with Epsilon
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug Adapter Protocol clients tested with Epsilon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eclipse-lsp4e" class="md-nav__link">
+    Eclipse LSP4E
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-visual-studio-code" class="md-nav__link">
+    Microsoft Visual Studio Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Microsoft Visual Studio Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-dap-server" class="md-nav__link">
+    Starting the DAP server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-launching-a-debug-configuration" class="md-nav__link">
+    Creating and launching a debug configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-click-launching-and-debugging" class="md-nav__link">
+    Single-click launching and debugging
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1268,6 +1371,161 @@
 <p>All Epsilon languages include interactive Eclipse-based debuggers.
 The debugger for the Epsilon Object Language is demonstrated in the screencast below.</p>
 <iframe width="90%" height="494" src="https://www.youtube.com/embed/gZPHoW-DaiU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>Since 2.6.0, you can debug Epsilon scripts which run from outside an Eclipse launch configuration (e.g. <a href="../run-epsilon-from-java/">embedded in a Java program</a> or <a href="../running-epsilon-ant-tasks-from-command-line/">executed from the command line</a>), using the Epsilon <a href="https://microsoft.github.io/debug-adapter-protocol/">Debug Adapter Protocol</a> server and a <a href="#debug-adapter-protocol-clients-tested-with-epsilon">DAP client</a>.</p>
+<p>The <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.eol.dap"><code>examples.eol.dap</code></a> project on GitHub shows several examples of how to do this, and further information on various use cases is listed below.</p>
+<h2 id="debugging-epsilon-scripts-embedded-in-java-programs">Debugging Epsilon scripts embedded in Java programs<a class="headerlink" href="#debugging-epsilon-scripts-embedded-in-java-programs" title="Permanent link">&para;</a></h2>
+<p>If you are running your Epsilon script from a Java program, you can wrap your module in an <code>EpsilonDebugServer</code> class provided by Epsilon and debug it through a DAP client of your choice.</p>
+<h3 id="importing-the-epsilondebugserver-into-your-program">Importing the EpsilonDebugServer into your program<a class="headerlink" href="#importing-the-epsilondebugserver-into-your-program" title="Permanent link">&para;</a></h3>
+<p>If you are developing a regular Java program, you will need to add a dependency to the <code>org.eclipse.epsilon.eol.dap</code> Maven artifact of your chosen Epsilon release.
+More information on the stable and interim Epsilon Maven artifacts is available from our <a href="https://eclipse.dev/epsilon/download/#maven">download page</a>.</p>
+<p>If you are developing an Eclipse plug-in, you will need to declare a dependency on the <code>org.eclipse.epsilon.eol.dap</code> plugin.</p>
+<h3 id="wrapping-your-module-with-the-epsilondebugserver">Wrapping your module with the EpsilonDebugServer<a class="headerlink" href="#wrapping-your-module-with-the-epsilondebugserver" title="Permanent link">&para;</a></h3>
+<p>The next step is to replace your regular <code>module.execute()</code> call with this code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">new</span><span class="w"> </span><span class="n">EpsilonDebugServer</span><span class="p">(</span><span class="n">module</span><span class="p">,</span><span class="w"> </span><span class="mi">4040</span><span class="p">).</span><span class="na">run</span><span class="p">();</span>
+</code></pre></div>
+<p>The first line wraps the module with Epsilon's DAP server and indicates that it will listen on TCP port 4040.
+The second line starts the server and blocks until the script has completed its execution.
+The server will automatically shut down once the script has completed its execution.</p>
+<p>The script will not start its execution until a DAP client connects to it, to allow you to set any necessary breakpoints.</p>
+<p>The next step is to connect to the DAP server with your DAP client of choice.
+Several options are discussed in the <a href="#debug-adapter-protocol-clients-tested-with-epsilon">DAP client</a> section.</p>
+<h3 id="mapping-module-uris-to-your-ide-files">Mapping module URIs to your IDE files<a class="headerlink" href="#mapping-module-uris-to-your-ide-files" title="Permanent link">&para;</a></h3>
+<p>If your Epsilon scripts are being loaded from URIs rather than regular files, you will need to tell the <code>EpsilonDebugServer</code> how to map those module URIs to the files with your breakpoints.
+Here is a simplified excerpt from the <code>DebugClasspathBasedEOL</code> example, which shows how to do this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">EolModule</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EolModule</span><span class="p">();</span>
+<span class="n">URI</span><span class="w"> </span><span class="n">classpathUri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DebugClasspathBasedEOL</span><span class="p">.</span><span class="na">class</span><span class="p">.</span><span class="na">getResource</span><span class="p">(</span><span class="s">&quot;your.eol&quot;</span><span class="p">).</span><span class="na">toURI</span><span class="p">();</span>
+<span class="n">module</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">classpathUri</span><span class="p">);</span>
+
+<span class="n">EpsilonDebugServer</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EpsilonDebugServer</span><span class="p">(</span><span class="n">module</span><span class="p">,</span><span class="w"> </span><span class="mi">4040</span><span class="p">);</span>
+<span class="n">server</span><span class="p">.</span><span class="na">getDebugAdapter</span><span class="p">().</span><span class="na">getUriToPathMappings</span><span class="p">().</span><span class="na">put</span><span class="p">(</span>
+<span class="w">    </span><span class="n">classpathUri</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Paths</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;src/path/to/your.eol&quot;</span><span class="p">));</span>
+
+<span class="n">server</span><span class="p">.</span><span class="na">run</span><span class="p">();</span>
+</code></pre></div>
+<p>A debugging session would work like this:</p>
+<ul>
+<li>From your DAP client, you would set some breakpoints in <code>your.eol</code>.</li>
+<li>Run the above code, leaving the script waiting for a DAP connection.</li>
+<li>Connect with your DAP client, which will send the breakpoints in <code>src/path/to/your.eol</code> file.</li>
+<li>The DAP server will map the <code>src/path/to/your.eol</code> breakpoints to your parsed module.</li>
+<li>The DAP server will start the execution of your script.</li>
+<li>The script will reach one of the breakpoints and stop execution.</li>
+<li>The server will map the location that we stopped in to <code>src/path/to/your.eol</code> file and report it to your DAP client.</li>
+<li>Your DAP client will then highlight the relevant line and allow you to inspect variables and control execution.</li>
+</ul>
+<h2 id="debugging-epsilon-scripts-running-from-ant-workflows">Debugging Epsilon scripts running from Ant workflows<a class="headerlink" href="#debugging-epsilon-scripts-running-from-ant-workflows" title="Permanent link">&para;</a></h2>
+<p>If you need to debug your Epsilon script that you are <a href="../running-epsilon-ant-tasks-from-command-line/">running from the command line</a> (e.g. Ant or Gradle), you will need to use the Debug Adapter Protocol support available from Epsilon 2.6.0.
+To do so, set the <code>debug</code> and <code>debugPort</code> attributes in your Ant task, like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;epsilon.eol</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">debugPort=</span><span class="s">&quot;4040&quot;</span><span class="nt">/&gt;</span>
+</code></pre></div>
+<p>When executed, this task will start a DAP server listening on TCP port 4040.
+It wait for a connection from a <a href="#debug-adapter-protocol-clients-tested-with-epsilon">DAP client</a>, and then start the script.</p>
+<p>Epsilon includes an <a href="https://github.com/eclipse/epsilon/blob/main/examples/org.eclipse.epsilon.examples.eol.dap/build.xml">example</a> of an Ant buildfile that uses DAP for debugging.
+There is also an <a href="https://github.com/eclipse/epsilon/blob/main/examples/org.eclipse.epsilon.examples.eol.dap/epsilon/build.gradle">example of a Gradle script</a>.</p>
+<h2 id="debug-adapter-protocol-clients-tested-with-epsilon">Debug Adapter Protocol clients tested with Epsilon<a class="headerlink" href="#debug-adapter-protocol-clients-tested-with-epsilon" title="Permanent link">&para;</a></h2>
+<p>After the <code>EpsilonDebugServer</code> has started and is waiting for a DAP connection, you should be able to connect to it with a DAP client of your choice.
+This section details two DAP clients that have been tested with the Epsilon DAP server.</p>
+<h3 id="eclipse-lsp4e">Eclipse LSP4E<a class="headerlink" href="#eclipse-lsp4e" title="Permanent link">&para;</a></h3>
+<p>To use this client, install it from its <a href="https://github.com/eclipse/lsp4e">official repository</a>.
+You will need the "Debug Adapter client for Eclipse IDE" feature.</p>
+<p>Set your breakpoints as usual. Once the DAP server is running and waiting for connections (as shown in the terminal with the "Started Epsilon debug server" text), start an LSP4E debug configuration that attaches to the relevant port in <code>127.0.0.1</code>:</p>
+<p><img alt="DAP LSP4E debug configuration attaching to port 4040" src="lsp4e-configuration.png" /></p>
+<p>Once LSP4E connects to the DAP server, the script will start running.
+After hitting a breakpoint, you will be prompted to switch to the Debug perspective, as usual:</p>
+<p><img alt="LSP4E debugger stopped on an EOL breakpoint" src="lsp4e-debugger.png" /></p>
+<h3 id="microsoft-visual-studio-code">Microsoft Visual Studio Code<a class="headerlink" href="#microsoft-visual-studio-code" title="Permanent link">&para;</a></h3>
+<p>Recent versions of the <a href="../vscode/">VS Code</a> support in Epsilon include support for the Epsilon DAP server.
+Epsilon includes an <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.eol.dap/epsilon">example Gradle project</a> with VS Code configuration files that you can use as a starting point.
+The rest of the section breaks down some of these details.</p>
+<h4 id="starting-the-dap-server">Starting the DAP server<a class="headerlink" href="#starting-the-dap-server" title="Permanent link">&para;</a></h4>
+<p>First, you will need to add the <code>debug</code> and <code>debugPort</code> attributes to the Ant tasks being executed from your Gradle script:</p>
+<div class="highlight"><pre><span></span><code><span class="n">task</span><span class="w"> </span><span class="n">runHello</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="n">dependsOn</span><span class="w"> </span><span class="n">tasks</span><span class="o">.</span><span class="na">setupEpsilonTasks</span>
+<span class="w">  </span><span class="n">doLast</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="n">ant</span><span class="o">.</span><span class="s1">&#39;epsilon.eol&#39;</span><span class="o">(</span><span class="nl">src:</span><span class="w"> </span><span class="s1">&#39;01-hello.eol&#39;</span><span class="o">,</span><span class="w"> </span><span class="nl">debug:</span><span class="w"> </span><span class="kc">true</span><span class="o">,</span><span class="w"> </span><span class="nl">debugPort:</span><span class="w"> </span><span class="mi">4040</span><span class="o">)</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>Note how the Epsilon task is wrapped in a <code>doLast</code> block, to ensure it only runs when we explicitly run the task, and not on Gradle's configure phase.
+When the task is run, execution will suspend until a DAP client (VS Code in this case) connects to the DAP server.</p>
+<h4 id="creating-and-launching-a-debug-configuration">Creating and launching a debug configuration<a class="headerlink" href="#creating-and-launching-a-debug-configuration" title="Permanent link">&para;</a></h4>
+<p>You will then need to add a launch configuration to your <code>launch.json</code> file.
+Based on the above example, you would need something like:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;epsilon&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attach&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug 01-hello&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4040</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Set breakpoints as usual.
+Launch the above configuration, and you should be able to hit breakpoints, control execution, and inspect variables as usual:</p>
+<p><img alt="VS Code debugger stopped on an EOL breakpoint" src="vscode-debugger.png" /></p>
+<h4 id="single-click-launching-and-debugging">Single-click launching and debugging<a class="headerlink" href="#single-click-launching-and-debugging" title="Permanent link">&para;</a></h4>
+<p>The above approach requires separately launching your Gradle task, and your debug configuration.
+You can configure VS Code to launch the Gradle task for you, by using a <code>preLaunchTask</code>.</p>
+<p>First, open the Command Palette as usual (Ctrl+Shift+P in Windows/Linux, or "View - Command Palette..." from the menus), and select "Tasks: Configure Task":</p>
+<p><img alt="VS Code Command Palette showing Configure Task" src="vscode-configure_task.png" /></p>
+<p>Select the "Gradle: ..." task corresponding to the Gradle task to be executed:</p>
+<p><img alt="VS Code Command Palette showing the Gradle task to be configured" src="vscode-gradle_task.png" /></p>
+<p>This add a rather verbose block to your <a href="https://code.visualstudio.com/Docs/editor/tasks"><code>tasks.json</code></a> file:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gradle&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;script&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runHello&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;other&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;org.eclipse.epsilon.examples.eol.dap&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;buildFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../org.eclipse.epsilon/examples/org.eclipse.epsilon.examples.eol.dap/epsilon/build.gradle&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;rootProject&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;org.eclipse.epsilon.examples.eol.dap&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;projectFolder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../org.eclipse.epsilon/examples/org.eclipse.epsilon.examples.eol.dap/epsilon&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;workspaceFolder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../org.eclipse.epsilon/examples/org.eclipse.epsilon.examples.eol.dap/epsilon&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;javaDebug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;$gradle&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gradle: runHello&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This JSON block needs a number of changes before it can be used:</p>
+<ul>
+<li>Remove the unnecessary <code>id</code>, <code>description</code>, <code>project</code>, and <code>rootProject</code> fields.</li>
+<li>Use <code>${workspaceFolder}</code> to shorten the values of <code>buildFile</code>, <code>projectFolder</code>, and <code>workspaceFolder</code>.</li>
+<li>Change <code>args</code> to <code>"--info"</code>: we need the INFO log messages to detect when the DAP server has started.</li>
+<li>Add the <code>"$epsilon-debug"</code> problem matcher, which will detect when the DAP server has started.</li>
+<li>Optionally, change the label to <code>"epsilonDebug: runHello"</code>, to distinguish it from a normal Gradle task execution.</li>
+<li>Add an <code>"isBackground": true</code> setting, to mark it as a background task. Otherwise, debugging will never start as VS Code will indefinitely wait for this task to complete, rather than read the INFO messages to detect when the DAP server has started.</li>
+</ul>
+<p>You should end up with something like the following:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gradle&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;script&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runHello&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;other&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;buildFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build.gradle&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;workspaceFolder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;projectFolder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;--info&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;$gradle&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;$epsilon-debug&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;epsilonDebug: hello&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isBackground&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now that the task has been set up, you can return to your <code>launch.json</code> file, and use the task as your <code>preLaunchTask</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;epsilon&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attach&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug 01-hello&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4040</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;epsilonDebug: hello&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>After these steps, launching <code>Debug 01-hello</code> should run the Gradle task, wait until the DAP server is started, and then start the debugging session as usual.</p>
 
 
 
