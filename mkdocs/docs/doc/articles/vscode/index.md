@@ -6,7 +6,7 @@ You can now edit and run Epsilon programs, and edit [Flexmi](../../flexmi) model
 
 To do this you will need to install the following VS Code extensions:
 
-- [Eclipse Epsilon Languages](https://marketplace.visualstudio.com/items?itemName=SamHarris.eclipse-epsilon-languages): Syntax highlighting, terminal hyperlinking
+- [Eclipse Epsilon Languages](https://marketplace.visualstudio.com/items?itemName=SamHarris.eclipse-epsilon-languages): Syntax highlighting, terminal hyperlinking, [debugging](../debugger.md#microsoft-visual-studio-code)
 - [Gradle for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle): Support for running Gradle build files
 
 ## Give it a spin!
