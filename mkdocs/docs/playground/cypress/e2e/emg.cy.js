@@ -5,11 +5,11 @@ describe('Tests the default EMG example', () => {
       cy.visit(playground + "?emg");
     }),
     it('Tests that the example loads fine and there is text in all editors', () => {
-      cy.contains('PetriNet create()');
-      cy.contains('package petriNet;');
+      cy.contains('Project create()');
+      cy.contains('package psl;');
     }),
-    it('Checks that the generation runs fine and a Petri Net is produced', () => {
+    it('Checks that the generation runs fine and a Project is produced', () => {
       cy.get(runButton).click();
-      cy.contains(":PetriNet");
+      cy.contains(":Project");
     })
   });

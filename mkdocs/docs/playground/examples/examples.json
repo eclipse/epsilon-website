@@ -75,6 +75,13 @@
 				"secondEmfatic": "psl.emf",
 				"thirdFlexmi": "psl-right.flexmi",
 				"thirdEmfatic": "psl.emf"
+			},
+			{
+				"id": "emg",
+				"title": "Generate Project Plans",
+				"language": "emg",
+				"program": "psl.emg",
+				"emfatic": "psl.emf"
 			}
 		]
 	},
