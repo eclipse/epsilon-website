@@ -9,19 +9,6 @@
 	<artifactId>examples</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
-	<repositories>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 	<properties>
 		<epsilon.version>2.4.0</epsilon.version>
 		<epsilon.scope>compile</epsilon.scope>
@@ -70,7 +57,7 @@
 		<dependency>
 			<groupId>org.eclipse.emfatic</groupId>
 			<artifactId>org.eclipse.emfatic.core</artifactId>
-			<version>1.1.0-SNAPSHOT</version>
+			<version>1.1.0</version>
 		</dependency>
 	</dependencies>
 
