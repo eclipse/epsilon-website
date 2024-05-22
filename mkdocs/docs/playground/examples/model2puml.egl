@@ -1,0 +1,133 @@
+@startuml
+skinparam roundCorner 0
+skinparam objectBorderThickness 1
+!pragma layout smetana
+skinparam classFontName system-ui
+
+[%var elements = M.allInstances();%]
+
+[*Generate a node for every model element*]
+[%for (e in elements) { %]
+object "[%=e.getNodeLabel()%]" as [%=e.getNodeId()%] #[%=e.eClass().getColor()%] {
+	[%var attributes = e.eClass().getEAllAttributes().select(attr|e.eIsSet(attr));%]
+	[%for (attr in attributes){%]
+	[%=attr.name%] = [%=e.getAttributeValue(attr)%]
+	[%}%]
+}
+[%}%]
+
+[*Generate an edge for every reference between elements omitting opposites*]
+[%for (e in elements) {%]
+[%for (r in e.getReferenced()) {%]
+[%for (v in r.at(0).select(r|M.allInstances().includes(r))){%]
+[%if (r.at(1).eOpposite.isUndefined() or r.at(1).eOpposite.name.compareTo(r.at(1).name) > 0){%]
+
+[%=e.getNodeId()%] --> [%=v.getNodeId()%] [%=getReferenceLabel(e, v, r.at(1))%]
+[%}}}}%]
+	
+@enduml
+[%
+operation Any getNodeId() {
+	return "N" + M.allInstances().indexOf(self);
+}
+operation Any getNodeLabel() {
+	return ":" + self.eClass().name + " ";
+}
+
+operation Any getAttributeValue(attr) {
+	var value = self.eGet(attr) + "";
+	value = value.escapeXml();
+	var chopped = false;
+	if (value.indexOf("\n").asVar("newLineIndex") > -1) {
+		value = value.substring(0, newLineIndex);
+		chopped = true;
+	}
+	if (value.length() > 25) { 
+		value = value.substring(0, 25);
+		chopped = true;
+	}
+	if (chopped) value += " ...";
+	return value;
+}
+
+operation Any getReferenced() {
+
+	if (self.isUndefined()) return Sequence{};
+
+	var c = self.eClass();
+	var referenced : Sequence;
+	for (r in c.getEAllReferences()) {
+		referenced.add(Sequence{self.eGet(r).asSequence(), r});
+	}
+	return referenced;
+}
+operation getReferenceLabel(s, t, r) {
+	
+	for (ref in s.eClass().getEAllReferences()) {
+		if (ref.eType.isSuperTypeOf(t.eClass()) and r <> ref) {
+			return " : " + r.name;
+		}
+	}
+	return "";
+}
+
+operation Integer mod(i : Integer) {
+    return self - (self/i * i);
+}
+
+@cached
+operation getColors() {
+	return Sequence{"azure", "beige", "floralwhite", "lemonchiffon", "mistyrose", "DDFADC", "pink", "wheat", "FAECFF"};
+}
+
+operation Any /*EClass*/ getColor() {
+
+	// If a color is specified for the class, use it
+	var color = self.getAnnotationValue("diagram", "color");
+	if (color != null) return color;
+
+	// If the container package is monochrome use that colour
+	var monochrome = self.eContainer().getMonochrome();
+	
+	// If monochrome is true, return a default color
+	if (monochrome == "true") {
+		return "floralwhite";
+	}
+	// Else if a non-false value is specified treat it as the selected color
+	else if (monochrome <> null and monochrome <> "false") { 
+		return monochrome;
+	}
+	else { // Else use an automatic colour from the list above
+		var colors = getColors();
+		return colors.get(self.eContainer().eContents().indexOf(self).mod(colors.size()));
+	}
+}
+
+operation Any /*EPackage*/ getMonochrome() {
+	var monochrome = self.getAnnotationValue("diagram", "monochrome");
+	if (monochrome != null) {
+		return monochrome;
+	}
+	else if (self.eContainer() != null) {
+		return self.eContainer().getMonochrome();
+	}
+	else {
+		return null;
+	}
+}
+
+operation Any /*EModelElement*/ getAnnotationValue(name : String, detail : String) : Any {
+	var ann = self.eAnnotations.selectOne(a|a.source = name);
+	var det;
+
+	if (ann.isDefined()) {
+		det = ann.details.selectOne(d|d.key = detail);
+	}
+
+	if (det.isDefined()) {
+		return det.value;
+	}
+
+	return det;
+}
+%]
