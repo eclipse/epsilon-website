@@ -153,6 +153,15 @@
 				"flexmi": "ldl/epsilon.flexmi",
 				"emfatic": "ldl/ldl.emf",
 				"outputType": "html"
+			},
+			{
+				"id": "model2puml",
+				"title": "Generate Object Diagram",
+				"language": "egl",
+				"program": "model2puml.egl",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf",
+				"outputType": "puml"
 			}
 		]
 	},
