@@ -80,7 +80,7 @@ guard: t.effort.size() >= 2 {
 		var participatedEfforts = t.effort.select(e | e.person == p);
 		var jointEffortsPercentage = participatedEfforts.percentage.sum();
 
-		// Delete all existings efforts and
+		// Delete all existing efforts and
 		// create a new one with the joint percentage
 		for (e in participatedEfforts) {
 			delete e;
