@@ -58,7 +58,8 @@ nextFromListAsSample(listID : String) : Any | Same as *nextFromList*, but in thi
 nextHttpURI(addPort : Boolean, addPath : Boolean, addQuery : Boolean, addFragment : Boolean) : String | Generates a random URI that complies to `http:[//host[:port]][/]path [?query][#fragment]`. The path, query and fragment parts are optional and will be added if the respective argument is True.
 nextInt() : Integer | Returns the next pseudorandom, uniformly distributed integer. All `2^32` possible integer values should be produced with (approximately) equal probability.
 nextInt(upper : Integer) : Integer | Returns a pseudorandom, uniformly distributed integer value between 0 (inclusive) and *upper* (exclusive). The argument must be positive.
-nextInt(lower: Integer, upper : Integer) : Integer | Returns a pseudorandom, uniformly distributed integer value between lower and upper (endpoints included). The arguments must be positive and `upper >= lower`.
+nextInteger(upper : Integer) : Integer | Alias for `nextInt(upper : Integer)`.
+nextInteger(lower: Integer, upper : Integer) : Integer | Returns a pseudorandom, uniformly distributed integer value between lower and upper (endpoints included). The arguments must be positive and `upper >= lower`.
 nextReal() : Real | Returns the next pseudorandom, uniformly distributed `real` value between `0.0` and `1.0`.
 nextReal(upper : Real) : Real | Returns the next pseudorandom, uniformly distributed `real` value between `0.0` and *upper* (inclusive).
 nextReal(lower: Real, upper : Real) : Real | Returns a pseudorandom, uniformly distributed `real` value between *lower* and *upper* (endpoints included).
