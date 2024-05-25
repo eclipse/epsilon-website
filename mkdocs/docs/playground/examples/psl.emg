@@ -1,20 +1,25 @@
+// Generates PSL models that satisfy the following constraints
+// - Each project involves at least one person
+// - Each task has at least one contributor
+// - The contribution of a person to a task is specified only once
+
 pre {
-	var numProjects = 3;
-	var numTasks = 6;
-	var numPersons = 5;
-	var numEfforts = 9;
+	var numberOfProjects = 3;
+	var numberOfTasks = 6;
+	var numberOfPersons = 5;
+	var numberOfEfforts = 9;
 	
-	var taskNames = Sequence {"Initial Planning", "Requirements Gathering", "Design Phase", "Prototype Development", "Code Implementation", "Unit Testing", "Integration Testing", "System Testing", "User Acceptance Testing", "Deployment Preparation", "Production Deployment", "Post-Deployment Support", "Documentation Writing", "Performance Optimization", "Security Review", "Code Refactoring", "Bug Fixing", "Feature Enhancement", "Client Training", "Project Closure"};
+	var taskNames = Sequence {"Initial Planning", "Requirements Gathering", "Design", "Prototype Development", "Implementation", "Unit Testing", "Integration Testing", "System Testing", "User Acceptance Testing", "Deployment Preparation", "Production Deployment", "Post-Deployment Support", "Documentation Writing", "Performance Optimization", "Security Review", "Code Refactoring", "Bug Fixing", "Feature Enhancement", "Client Training", "Project Closure"};
 	var personNames = Sequence {"James", "Pedro", "Anek", "Rose", "Maria", "Liam", "Olivia", "Noah", "Emma", "Ava", "Elijah", "Sophia", "Isabella", "Mia", "Lucas", "Amelia", "Ethan", "Harper", "Mason", "Evelyn"};
 }
 
-$instances numProjects
+$instances numberOfProjects
 @list projects
 operation Project create() {
 	self.title = "P_" + nextString("LETTER_UPPER", 4);
 }
 
-$instances numTasks
+$instances numberOfTasks
 @list tasks
 operation Task create() {
 	self.title = nextFromCollection(taskNames);
@@ -23,13 +28,13 @@ operation Task create() {
 	nextFromList("projects").tasks.add(self);
 }
 
-$instances numPersons
+$instances numberOfPersons
 @list persons
 operation Person create() {
 	self.name = nextFromCollection(personNames);
 	
-	// To ensure that every project is participated by
-	// at least one person, distribute persons among
+	// To ensure that every project involves at
+	// least one person, distribute persons among
 	// projects without people before doing it randomly
 	var firstProjectWithoutPeople = Project.all().select(p | p.people.isEmpty()).first;
 	if (firstProjectWithoutPeople.isDefined()) {
@@ -39,7 +44,7 @@ operation Person create() {
 	}
 }
 
-$instances numEfforts
+$instances numberOfEfforts
 operation Effort create() {
 	self.percentage = 20 * nextInteger(1, 6); // 20, 40, ..., 100
 
@@ -64,25 +69,23 @@ operation Effort create() {
 	}
 }
 
-
-// The previous operations generate redundant efforts.
+// The previous operations can generate redundant efforts.
 // This happens when a person participates in a task
-// via two or more efforts. To solve this, we replace
-// these efforts by a single one with joint percentages
+// via two or more efforts. To fix this, we replace
+// these efforts with a single one with joint percentages
 pattern CompactEfforts 
-pr : Project,
-t : Task
-    from: pr.tasks,
-p : Person
-    from: t.effort.person
-guard: t.effort.size() >= 2 {
+	pr : Project,
+	t : Task from: pr.tasks,
+	p : Person from: t.effort.person
+	guard: t.effort.size() >= 2 {
+	
 	onmatch {
-		var participatedEfforts = t.effort.select(e | e.person == p);
-		var jointEffortsPercentage = participatedEfforts.percentage.sum();
+		var existingEfforts = t.effort.select(e | e.person == p);
+		var jointEffortsPercentage = existingEfforts.percentage.sum();
 
 		// Delete all existing efforts and
 		// create a new one with the joint percentage
-		for (e in participatedEfforts) {
+		for (e in existingEfforts) {
 			delete e;
 		}
 		
