@@ -57,4 +57,4 @@ You may also need to manually bump up the version of the `releng/org.eclipse.eps
 
 ### Announce release on forum
 
-It would be courteous to let users know of the new release, along with the new features, on the [Epsilon Forum](https://www.eclipse.org/forums/index.php/f/22/).
+It would be courteous to let users know of the new release, along with the new features, on the [Epsilon Forum](../../../forum).

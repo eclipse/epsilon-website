@@ -51,7 +51,7 @@ nav:
         - Open-source Projects: 'users/open-source.md'
       - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
       - How can I support Epsilon?: 'https://ko-fi.com/eclipseepsilon'
-      - Forum: 'https://www.eclipse.org/forums/index.php/f/22/'
+      - Forum: 'forum.md'
       - Professional Services: professional-services
       - Social Media:
         - Twitter: 'https://twitter.com/eclipseepsilon'
@@ -172,7 +172,6 @@ plugins:
         j2_variable_end_string: '}}}'
     - redirects:
         redirect_maps:
-            'forum.md': 'https://www.eclipse.org/forums/index.php/f/22/'
             'doc/screencasts.md' : 'https://www.youtube.com/epsilondevs'
             'doc/lectures.md' : 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
             'doc/articles/emfatic.md': 'https://www.eclipse.org/emfatic'
