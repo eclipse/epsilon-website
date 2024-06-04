@@ -24,8 +24,8 @@ public class Example {
         EmfModel model = new EmfModel();
         model.setName("Model");
         // We use XMI instead of Flexmi as the format of the target model as Flexmi is a read-only format
-        model.setModelFile("model.xmi");
-        model.setMetamodelFile("metamodel.emf");
+        model.setModelFile(new File("model.xmi").getAbsolutePath());
+        model.setMetamodelFile(new File("metamodel.emf").getAbsolutePath());
         model.setReadOnLoad(false);
         model.setStoredOnDisposal(true);
         model.load();

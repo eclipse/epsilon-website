@@ -24,8 +24,8 @@ public class Example {
         // Load the model from model.flexmi using metamodel.emf as its metamodel
         EmfModel model = new EmfModel();
         model.setName("M");
-        model.setModelFile("model.flexmi");
-        model.setMetamodelFile("metamodel.emf");
+        model.setModelFile(new File("model.flexmi").getAbsolutePath());
+        model.setMetamodelFile(new File("metamodel.emf").getAbsolutePath());
         model.setReadOnLoad(true);
         model.setStoredOnDisposal(false);
         model.load();

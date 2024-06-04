@@ -29,8 +29,8 @@ public class Example {
         EmfModel left = new EmfModel();
         left.setName("Left");
         left.getAliases().add("Source");
-        left.setModelFile("left.flexmi");
-        left.setMetamodelFile("left.emf");
+        left.setModelFile(new File("left.flexmi").getAbsolutePath());
+        left.setMetamodelFile(new File("left.emf").getAbsolutePath());
         left.setReadOnLoad(true);
         left.setStoredOnDisposal(false);
         left.load();
@@ -39,8 +39,8 @@ public class Example {
         EmfModel right = new EmfModel();
         right.setName("Right");
         right.getAliases().add("Source");
-        right.setModelFile("right.flexmi");
-        right.setMetamodelFile("right.emf");
+        right.setModelFile(new File("right.flexmi").getAbsolutePath());
+        right.setMetamodelFile(new File("right.emf").getAbsolutePath());
         right.setReadOnLoad(true);
         right.setStoredOnDisposal(false);
         right.load();
@@ -50,8 +50,8 @@ public class Example {
         merged.setName("Merged");
         merged.getAliases().add("Target");
         // We use XMI instead of Flexmi as the format of the merged model as Flexmi is a read-only format
-        merged.setModelFile("merged.xmi");
-        merged.setMetamodelFile("target.emf");
+        merged.setModelFile(new File("merged.xmi").getAbsolutePath());
+        merged.setMetamodelFile(new File("target.emf").getAbsolutePath());
         merged.setReadOnLoad(false);
         merged.setStoredOnDisposal(true);
         merged.load();
