@@ -23,8 +23,8 @@ public class Example {
         // Load the source model from source.flexmi using source.emf as its metamodel
         EmfModel source = new EmfModel();
         source.setName("Source");
-        source.setModelFile("source.flexmi");
-        source.setMetamodelFile("source.emf");
+        source.setModelFile(new File("source.flexmi").getAbsolutePath());
+        source.setMetamodelFile(new File("source.emf").getAbsolutePath());
         source.setReadOnLoad(true);
         source.setStoredOnDisposal(false);
         source.load();
@@ -33,8 +33,8 @@ public class Example {
         EmfModel target = new EmfModel();
         target.setName("Target");
         // We use XMI instead of Flexmi as the format of the target model as Flexmi is a read-only format
-        target.setModelFile("target.xmi");
-        target.setMetamodelFile("target.emf");
+        target.setModelFile(new File("target.xmi").getAbsolutePath());
+        target.setMetamodelFile(new File("target.emf").getAbsolutePath());
         target.setReadOnLoad(false);
         target.setStoredOnDisposal(true);
         target.load();
