@@ -23,8 +23,8 @@ public class Example {
         // Load the original model from original.flexmi using original.emf as its metamodel
         EmfModel original = new EmfModel();
         original.setName("Original");
-        original.setModelFile("original.flexmi");
-        original.setMetamodelFile("original.emf");
+        original.setModelFile(new File("original.flexmi").getAbsolutePath());
+        original.setMetamodelFile(new File("original.emf").getAbsolutePath());
         original.setReadOnLoad(true);
         original.setStoredOnDisposal(false);
         original.load();
@@ -33,8 +33,8 @@ public class Example {
         EmfModel migrated = new EmfModel();
         migrated.setName("Migrated");
         // We use XMI instead of Flexmi as the format of the migrated model as Flexmi is a read-only format
-        migrated.setModelFile("migrated.xmi");
-        migrated.setMetamodelFile("migrated.emf");
+        migrated.setModelFile(new File("migrated.xmi").getAbsolutePath());
+        migrated.setMetamodelFile(new File("migrated.emf").getAbsolutePath());
         migrated.setReadOnLoad(false);
         migrated.setStoredOnDisposal(true);
         migrated.load();
