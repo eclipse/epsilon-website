@@ -12,6 +12,9 @@ The [`examples.eol.dap`](https://github.com/eclipse/epsilon/tree/main/examples/o
 ## Debugging Epsilon scripts embedded in Java programs
 
 If you are running your Epsilon script from a Java program, you can wrap your module in an `EpsilonDebugServer` class provided by Epsilon and debug it through a DAP client of your choice.
+The video below gives an overview of the Debug Adapter Protocol, and explains the design and general use of the debug adapter for Epsilon.
+
+<iframe width="90%" height="494" src="https://www.youtube.com/embed/QWtVbm1rVfY?si=BWcpvmA6Ryi6uQnk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Importing the EpsilonDebugServer into your program
 
@@ -94,6 +97,14 @@ You will need the "Debug Adapter client for Eclipse IDE" feature.
 Set your breakpoints as usual. Once the DAP server is running and waiting for connections (as shown in the terminal with the "Started Epsilon debug server" text), start an LSP4E debug configuration that attaches to the relevant port in `127.0.0.1`:
 
 ![DAP LSP4E debug configuration attaching to port 4040](./debugger/lsp4e-configuration.png)
+
+You can use this small JSON fragment for your launch parameters:
+
+```json
+{
+  "request": "attach"
+}
+```
 
 Once LSP4E connects to the DAP server, the script will start running.
 After hitting a breakpoint, you will be prompted to switch to the Debug perspective, as usual:
