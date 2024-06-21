@@ -9,7 +9,7 @@ EGL is a *template-based* language (i.e. EGL programs resemble the text that the
 - formatting algorithms (for producing generated text that is well-formatted and hence readable), and traceability mechanisms (for linking generated text with source models).
 
 !!! tip "Try EGL online"
-    You can run and fiddle with an EGL template that generates an ASCII-based Gantt chart from a project scheduling model in the [online Epsilon Playground](../../playground/?egl).
+    You can run and fiddle with EGL templates in the [online Epsilon Playground](../../playground/?egx).
 
 ## Abstract Syntax
 
@@ -108,13 +108,13 @@ Finally, it is worth noting that user-defined operations in EGL do not have to g
 
 ```egl
 [%
-  operation Class isAnonymous() : Boolean {
-        return self.name.isUndefined();
-  }
+operation Class isAnonymous() : Boolean {
+    return self.name.isUndefined();
+}
 
-  operation removeOneClass() {
-        delete Class.all.random();
-    }
+operation removeOneClass() {
+    delete Class.all.random();
+}
 %]
 ```
 
@@ -163,8 +163,8 @@ For example, consider the EGL program in the listing below. This template genera
 
 ```egl
 [%
-  var t : Template = TemplateFactory.load("ClassNames.egl");
-  t.generate("Output.txt");
+var t : Template = TemplateFactory.load("ClassNames.egl");
+t.generate("Output.txt");
 %]
 ```
 
@@ -202,22 +202,22 @@ The operations provided by the *TemplateFactory* object and *Template* type are 
 
 ```egl
 [%
-  TemplateFactory.setTemplateRoot("/usr/franz/templates");
-    TemplateFactory.setOutputRoot("/tmp/output");
+TemplateFactory.setTemplateRoot("/usr/franz/templates");
+TemplateFactory.setOutputRoot("/tmp/output");
 
-  var interface      : Template =
+var interface : Template =
     TemplateFactory.prepare("public interface [%=root.name] {}");
-    
-    var implementation : Template = 
-      TemplateFactory.load("Class2Impl.egl");
 
-    for (c in Class.all) {
-      interface.populate("root", c);    
+var implementation : Template = 
+    TemplateFactory.load("Class2Impl.egl");
+
+for (c in Class.all) {
+    interface.populate("root", c);    
     interface.generate("I" + c.name + ".java");
-        
-        implementation.populate("root", c);
-        implementation.generate(c.name + ".java");
-    }
+    
+    implementation.populate("root", c);
+    implementation.generate(c.name + ".java");
+}
 %]
 ```
 
@@ -247,39 +247,23 @@ import org.eclipse.epsilon.egl.exceptions.EglRuntimeException;
 import org.eclipse.epsilon.egl.execute.context.IEglContext;
 import org.eclipse.epsilon.egl.spec.EglTemplateSpecification;
 
-public class CountingTemplateFactory 
-extends EglFileGeneratingTemplateFactory {
+public class CountingTemplateFactory extends EglFileGeneratingTemplateFactory {
 
     @Override
-    protected EglTemplate createTemplate(EglTemplateSpecification spec) 
-    throws Exception {
-        return new CountingTemplate(spec,
-                                    context,
-                                    getOutputRootOrRoot(),
-                                    outputRootPath);
+    protected EglTemplate createTemplate(EglTemplateSpecification spec) throws Exception {
+        return new CountingTemplate(spec, context, getOutputRootOrRoot(), outputRootPath);
     }   
 
-  public class CountingTemplate 
-  extends EglPersistentTemplate {
+    public class CountingTemplate extends EglPersistentTemplate {
 
         public static int numberOfCallsToGenerate = 0;
 
-        public CountingTemplate(EglTemplateSpecification spec,
-                                IEglContext context,
-                                URI outputRoot,
-                                String outputRootPath)
-        throws Exception {
+        public CountingTemplate(EglTemplateSpecification spec, IEglContext context, URI outputRoot, String outputRootPath) throws Exception {
             super(spec, context, outputRoot, outputRootPath);
         }
 
-
-
         @Override
-        protected void doGenerate(File file,
-                                    String targetName,
-                                    boolean overwrite,
-                                    boolean protectRegions) 
-        throws EglRuntimeException {
+        protected void doGenerate(File file, String targetName, boolean overwrite, boolean protectRegions) throws EglRuntimeException {
             numberOfCallsToGenerate++;
         }
     }
@@ -301,9 +285,7 @@ EGL provides language constructs that allow M2T transformations to designate reg
 Within an EGL program, protected regions are specified with the *preserve(String, String, String, Boolean, String)* method on the `out` keyword. The first two parameters define the comment delimiters of the target language. The other parameters provide the name, enable-state and content of the protected region, as illustrated in the listing below.
 
 ```egl
-[%=out.preserve("/*", "*/", "anId", true,
-                "System.out.println(foo);")
-%]
+[%=out.preserve("/*", "*/", "anId", true, "System.out.println(foo);")%]
 ```
 
 A protected region declaration may have many lines, and use many EGL variables in the contents definition. To enhance readability, EGL provides two additional methods on the `out` keyword: *startPreserve(String, String, String, Boolean)* and `stopPreserve`. The listing below uses these to generate a protected region.
@@ -359,10 +341,10 @@ EGL provides several built-in formatters. Users can implement additional formatt
 
 ```egl
 [%
-    var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter");
-    var t = TemplateFactory.load("generate_some_xml.egl");
-    t.setFormatter(f);
-    t.generate("formatted.xml");
+var f = new Native("org.eclipse.epsilon.egl.formatter.language.XmlFormatter");
+var t = TemplateFactory.load("generate_some_xml.egl");
+t.setFormatter(f);
+t.generate("formatted.xml");
 %]
 ```
 
@@ -399,9 +381,9 @@ A common issue encountered when writing EGL templates is that the ideal indentat
 
 ```egl
 digraph G {
-	[%for (t in Transition.all){%]
-	[%=t.from.name%] -> [%=t.to.name%]
-	[%}%]
+    [%for (t in Transition.all){%]
+    [%=t.from.name%] -> [%=t.to.name%]
+    [%}%]
 }
 ```
 
@@ -409,9 +391,9 @@ The output of the template for a minimal state machine model is shown below.
 
 ```dot
 digraph G {
-	A -> B
-	B -> C
-	C -> A
+    A -> B
+    B -> C
+    C -> A
 }
 ```
 
@@ -419,9 +401,9 @@ Note that in order to indent lines 2-4 of the output with one tab, we had to "pu
 
 ```egl
 digraph G {
-	[%for (t in Transition.all){-%]
-		[%=t.from.name%] -> [%=t.to.name%]
-	[%}%]
+    [%for (t in Transition.all){-%]
+        [%=t.from.name%] -> [%=t.to.name%]
+    [%}%]
 }
 ```
 
@@ -438,22 +420,21 @@ EGL also provides a traceability API, as a debugging aid, to support auditing of
 API.](images/TraceView.png)
 
 ```java
-EglTemplateFactoryModuleAdapter module = 
-      new EglTemplateFactoryModuleAdapter(new EglTemplateFactory());
+EglTemplateFactoryModuleAdapter module = new EglTemplateFactoryModuleAdapter(new EglTemplateFactory());
     
-    boolean parsed = module.parse(new File("myTemplate.egl"));
-    
-    if (parsed && module.getParseProblems().isEmpty()) {
-        module.execute();
+boolean parsed = module.parse(new File("myTemplate.egl"));
 
-        Template base = module.getContext().getBaseTemplate();
-        
-        // traverse the template hierachy
-        // display data 
-        
-    } else {
-        // error handling
-    }
+if (parsed && module.getParseProblems().isEmpty()) {
+    module.execute();
+
+    Template base = module.getContext().getBaseTemplate();
+    
+    // traverse the template hierachy
+    // display data 
+    
+} else {
+    // error handling
+}
 ```
 
 ## Additional Resources
