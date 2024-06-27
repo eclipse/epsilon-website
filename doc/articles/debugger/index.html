@@ -1384,12 +1384,20 @@ The video below gives an overview of the Debug Adapter Protocol, and explains th
 More information on the stable and interim Epsilon Maven artifacts is available from our <a href="https://eclipse.dev/epsilon/download/#maven">download page</a>.</p>
 <p>If you are developing an Eclipse plug-in, you will need to declare a dependency on the <code>org.eclipse.epsilon.eol.dap</code> plugin.</p>
 <h3 id="wrapping-your-module-with-the-epsilondebugserver">Wrapping your module with the EpsilonDebugServer<a class="headerlink" href="#wrapping-your-module-with-the-epsilondebugserver" title="Permanent link">&para;</a></h3>
-<p>The next step is to replace your regular <code>module.execute()</code> call with this code:</p>
-<div class="highlight"><pre><span></span><code><span class="k">new</span><span class="w"> </span><span class="n">EpsilonDebugServer</span><span class="p">(</span><span class="n">module</span><span class="p">,</span><span class="w"> </span><span class="mi">4040</span><span class="p">).</span><span class="na">run</span><span class="p">();</span>
+<p>The next step is to replace your regular <code>module.execute()</code> call with code that uses the debug server.
+For instance, if you have this code:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 </code></pre></div>
-<p>The first line wraps the module with Epsilon's DAP server and indicates that it will listen on TCP port 4040.
-The second line starts the server and blocks until the script has completed its execution.
-The server will automatically shut down once the script has completed its execution.</p>
+<p>You can replace it with:</p>
+<div class="highlight"><pre><span></span><code><span class="n">EpsilonDebugServer</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EpsilonDebugServer</span><span class="p">(</span><span class="n">module</span><span class="p">,</span><span class="w"> </span><span class="n">port</span><span class="p">);</span>
+<span class="n">server</span><span class="p">.</span><span class="na">run</span><span class="p">();</span>
+<span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="na">getResult</span><span class="p">().</span><span class="na">get</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li>The first line wraps the module with Epsilon's DAP server and indicates that it will listen on a certain port (it can be a port of your choosing, or 0 to pick any available port).</li>
+<li>The second line starts the server and blocks until the script has completed its execution: the server will automatically shut down once the script has completed its execution.</li>
+<li>The third line retrieves the result of <code>module.execute()</code>: it will also rethrow any exceptions produced by <code>module.execute()</code>.</li>
+</ul>
 <p>The script will not start its execution until a DAP client connects to it, to allow you to set any necessary breakpoints.</p>
 <p>The next step is to connect to the DAP server with your DAP client of choice.
 Several options are discussed in the <a href="#debug-adapter-protocol-clients-tested-with-epsilon">DAP client</a> section.</p>
