@@ -25,15 +25,24 @@ If you are developing an Eclipse plug-in, you will need to declare a dependency 
 
 ### Wrapping your module with the EpsilonDebugServer
 
-The next step is to replace your regular `module.execute()` call with this code:
+The next step is to replace your regular `module.execute()` call with code that uses the debug server.
+For instance, if you have this code:
 
 ```java
-new EpsilonDebugServer(module, 4040).run();
+Object result = module.execute();
 ```
 
-The first line wraps the module with Epsilon's DAP server and indicates that it will listen on TCP port 4040.
-The second line starts the server and blocks until the script has completed its execution.
-The server will automatically shut down once the script has completed its execution.
+You can replace it with:
+
+```java
+EpsilonDebugServer server = new EpsilonDebugServer(module, port);
+server.run();
+Object result = server.getResult().get();
+```
+
+* The first line wraps the module with Epsilon's DAP server and indicates that it will listen on a certain port (it can be a port of your choosing, or 0 to pick any available port).
+* The second line starts the server and blocks until the script has completed its execution: the server will automatically shut down once the script has completed its execution.
+* The third line retrieves the result of `module.execute()`: it will also rethrow any exceptions produced by `module.execute()`.
 
 The script will not start its execution until a DAP client connects to it, to allow you to set any necessary breakpoints.
 
