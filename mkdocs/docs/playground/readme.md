@@ -24,3 +24,7 @@ To speed up test execution, please disable live reloading by serving the website
 ```
 ./serve-no-livereload.sh
 ```
+
+### Use Node's http-server
+
+The CheerpJ library that we use for syntax checking doesn't work well with the built-in web server of MkDocs. For syntax checking to work, run `npx http-server` from the `docs` directory instead.

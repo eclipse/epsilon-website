@@ -13,7 +13,8 @@ class ConsolePanel extends Panel {
         this.defineHoverlink();
         this.detectSemanticErrorLinks(this.editor);
         this.detectSyntacticErrorLinks(this.editor);
-        this.setTitleAndIcon("Console", "console");   
+        this.setTitleAndIcon("Console", "console");
+        this.editor.renderer.setShowGutter(false);
     }
 
     getButtons() {
