@@ -1,4 +1,5 @@
 import { ModelPanel } from './ModelPanel.js';
+import { editorValidator } from './Playground.js';
 
 class MetamodelPanel extends ModelPanel {
     constructor(id) {
@@ -9,6 +10,23 @@ class MetamodelPanel extends ModelPanel {
 
     setupSyntaxHighlighting() {
         this.editor.getSession().setMode("ace/mode/emfatic");
+    }
+
+    init() {
+        super.init();
+        editorValidator.addOnReadyListener(this);
+    }
+
+    async editorValidatorReady() {
+        this.validate();
+        var self = this;
+        this.editor.on("input", () => {
+            self.validate();
+        });
+    }
+
+    async validate() {
+        await editorValidator.validateEmfaticEditor(this.editor);
     }
 
     getButtons() {

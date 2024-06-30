@@ -24,25 +24,30 @@ import org.json.JSONObject;
 public class EditorValidator {
 
     public String validateEmfatic(String emfatic) {
-        
-        EmfaticResource emfaticResource = new EmfaticResource(URI.createURI("emfatic.emf"));
+
         try {
-		    emfaticResource.load(new ByteArrayInputStream(emfatic.getBytes()), null);
-        }
-        catch (Exception ex) { return "[]"; }
-
-        if (emfaticResource.getParseContext().hasErrors()) {
-            JSONArray annotations = new JSONArray();
-        
-            for (ParseMessage message : emfaticResource.getParseContext().getMessages()) {
-                JSONObject annotation = new JSONObject();
-                annotation.put("row", 0);
-                annotation.put("text", message.getMessage());
-                annotation.put("type", "error");
-                annotations.put(annotation);
+            EmfaticResource emfaticResource = new EmfaticResource(URI.createURI("emfatic.emf"));
+            try {
+                emfaticResource.load(new ByteArrayInputStream(emfatic.getBytes()), null);
             }
+            catch (Exception ex) { return "[]"; }
 
-            return annotations.toString();
+            if (emfaticResource.getParseContext().hasErrors()) {
+                JSONArray annotations = new JSONArray();
+            
+                for (ParseMessage message : emfaticResource.getParseContext().getMessages()) {
+                    JSONObject annotation = new JSONObject();
+                    annotation.put("row", 0);
+                    annotation.put("text", message.getMessage());
+                    annotation.put("type", "error");
+                    annotations.put(annotation);
+                }
+
+                return annotations.toString();
+            }
+        }
+        catch (Exception ex) {
+            return ex.getMessage();
         }
 
         return "[]";

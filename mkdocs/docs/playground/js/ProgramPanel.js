@@ -34,11 +34,16 @@ class ProgramPanel extends Panel {
         editorValidator.addOnReadyListener(this);
     }
 
-    editorValidatorReady() {
-        editorValidator.validate(this.editor, this.language);
+    async editorValidatorReady() {
+        this.validate();
+        var self = this;
         this.editor.on("input", () => {
-            editorValidator.validate(this.editor, this.language);
+            self.validate();
         });
+    }
+
+    async validate() {
+        await editorValidator.validateProgramEditor(this.editor, this.language);
     }
 
     fit() {

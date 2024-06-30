@@ -2,6 +2,7 @@ class EditorValidator {
 
     cj;
     onReadyListeners = [];
+    validator;
 
     constructor() {
         this.init();
@@ -11,6 +12,9 @@ class EditorValidator {
         console.log("init");
         await cheerpjInit();
         this.cj = await cheerpjRunLibrary("/app/playground/java/target/epsilon.jar");
+        const JavaEditorValidator = await this.cj.org.eclipse.epsilon.playground.EditorValidator;
+        this.validator = await new JavaEditorValidator();
+        
         this.onReadyListeners.forEach(listener => listener.editorValidatorReady());
     }
 
@@ -18,31 +22,26 @@ class EditorValidator {
         this.onReadyListeners.push(onReadyListener);
     }
 
-    async validateProgramEditor() {
-
-    }
-
-    async validate(editor, language) {
-        console.log("Validate!");
-        if (! this.cj) {
-            console.log("Not ready yet!");
-            return;
-        }
+    async validateEmfaticEditor(editor) {
+        if (! this.cj) return;
 
         editor.session.clearAnnotations();
         
-        const JavaEditorValidator = await this.cj.org.eclipse.epsilon.playground.EditorValidator;
-        const validator = await new JavaEditorValidator();
-        const result = await validator.validateProgram(editor.getValue(), language);
+        const result = await this.validator.validateEmfatic(editor.getValue());
+        console.log(result);
+
+        editor.getSession().setAnnotations(JSON.parse(result));       
+    }
+
+    async validateProgramEditor(editor, language) {
+        if (! this.cj) return;
+
+        editor.session.clearAnnotations();
+        
+        const result = await this.validator.validateProgram(editor.getValue(), language);
         console.log(result);
 
         editor.getSession().setAnnotations(JSON.parse(result));
-
-        //const EolModule = await this.cj.org.eclipse.epsilon.eol.EolModule;
-        //const m = await new EolModule();
-        //const ok = await m.parse("return 'Hello from Epsilon';", null);
-        //const result = await m.execute();
-        //console.log(result);
     }
 
 }
