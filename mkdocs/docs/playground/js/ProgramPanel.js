@@ -34,7 +34,7 @@ class ProgramPanel extends Panel {
     }
 
     validate() {
-        editorValidator.validate(this.editor);
+        editorValidator.validate(this.editor, this.language);
     }
 
     fit() {

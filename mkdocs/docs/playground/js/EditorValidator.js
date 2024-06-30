@@ -16,7 +16,8 @@ class EditorValidator {
 
     }
 
-    async validate(editor) {
+    async validate(editor, language) {
+        console.log("Validate!");
         if (! this.cj) {
             console.log("Not ready yet!");
             return;
@@ -26,8 +27,8 @@ class EditorValidator {
         
         const JavaEditorValidator = await this.cj.org.eclipse.epsilon.playground.EditorValidator;
         const validator = await new JavaEditorValidator();
-        const result = await validator.validateProgram("", "");
-        //console.log(result);
+        const result = await validator.validateProgram(editor.getValue(), language);
+        console.log(result);
 
         editor.getSession().setAnnotations(JSON.parse(result));
 
