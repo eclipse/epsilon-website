@@ -23,12 +23,7 @@ class Panel {
         });
 
         this.visible = true;
-        this.editor.on("input", () => {
-            this.validate();
-        });
     }
-
-    validate() {}
 
     createButtons() {
         this.element.dataset.customButtons = JSON.stringify(this.getAllButtons());

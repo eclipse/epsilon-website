@@ -1,6 +1,7 @@
 class EditorValidator {
 
     cj;
+    onReadyListeners = [];
 
     constructor() {
         this.init();
@@ -10,6 +11,11 @@ class EditorValidator {
         console.log("init");
         await cheerpjInit();
         this.cj = await cheerpjRunLibrary("/app/playground/java/target/epsilon.jar");
+        this.onReadyListeners.forEach(listener => listener.editorValidatorReady());
+    }
+
+    addOnReadyListener(onReadyListener) {
+        this.onReadyListeners.push(onReadyListener);
     }
 
     async validateProgramEditor() {

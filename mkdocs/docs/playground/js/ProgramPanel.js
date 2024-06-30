@@ -31,10 +31,14 @@ class ProgramPanel extends Panel {
         }
 
         this.setTitleAndIcon(title + " (" + (language == "flock" ? "Flock" : language.toUpperCase()) + ")", language);
+        editorValidator.addOnReadyListener(this);
     }
 
-    validate() {
+    editorValidatorReady() {
         editorValidator.validate(this.editor, this.language);
+        this.editor.on("input", () => {
+            editorValidator.validate(this.editor, this.language);
+        });
     }
 
     fit() {

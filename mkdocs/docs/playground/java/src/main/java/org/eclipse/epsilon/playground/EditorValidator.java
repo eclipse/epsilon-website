@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class EditorValidator {
 
     public String validateEmfatic(String emfatic) {
-        /*
+        
         EmfaticResource emfaticResource = new EmfaticResource(URI.createURI("emfatic.emf"));
         try {
 		    emfaticResource.load(new ByteArrayInputStream(emfatic.getBytes()), null);
@@ -43,7 +43,7 @@ public class EditorValidator {
             }
 
             return annotations.toString();
-        }*/
+        }
 
         return "[]";
     }
