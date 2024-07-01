@@ -34,7 +34,7 @@ class ProgramPanel extends Panel {
         editorValidator.addOnReadyListener(this);
     }
 
-    async editorValidatorReady() {
+    editorValidatorReady() {
         this.validate();
         var self = this;
         this.editor.on("input", () => {
@@ -42,8 +42,8 @@ class ProgramPanel extends Panel {
         });
     }
 
-    async validate() {
-        await editorValidator.validateProgramEditor(this.editor, this.language);
+    validate() {
+        editorValidator.validateProgramEditor(this.editor, this.language);
     }
 
     fit() {

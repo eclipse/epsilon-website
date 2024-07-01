@@ -1,9 +1,15 @@
 package org.eclipse.epsilon.playground;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.util.EcoreValidator;
 import org.eclipse.emf.emfatic.core.EmfaticResource;
+import org.eclipse.emf.emfatic.core.lang.gen.parser.EmfaticParserDriver;
 import org.eclipse.epsilon.common.parse.problem.ParseProblem;
 import org.eclipse.epsilon.ecl.EclModule;
 import org.eclipse.epsilon.egl.EglModule;
@@ -17,14 +23,22 @@ import org.eclipse.epsilon.etl.EtlModule;
 import org.eclipse.epsilon.evl.EvlModule;
 import org.eclipse.epsilon.flock.FlockModule;
 import org.eclipse.epsilon.pinset.PinsetModule;
+import org.eclipse.gymnast.runtime.core.parser.ParseContext;
 import org.eclipse.gymnast.runtime.core.parser.ParseMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class EditorValidator {
 
+    public static void main(String[] args) {
+        String emfatic = "package p";
+        System.out.println(new EditorValidator().validateEmfatic(emfatic));
+    }
+
     public String validateEmfatic(String emfatic) {
 
+        JSONArray annotations = new JSONArray();
+        
         try {
             EmfaticResource emfaticResource = new EmfaticResource(URI.createURI("emfatic.emf"));
             try {
@@ -33,24 +47,35 @@ public class EditorValidator {
             catch (Exception ex) { return "[]"; }
 
             if (emfaticResource.getParseContext().hasErrors()) {
-                JSONArray annotations = new JSONArray();
-            
+                
                 for (ParseMessage message : emfaticResource.getParseContext().getMessages()) {
                     JSONObject annotation = new JSONObject();
-                    annotation.put("row", 0);
+                    annotation.put("row", getRowFromEmfaticParseMessage(message.getMessage())); // Search the message as it mentions the line at the end
                     annotation.put("text", message.getMessage());
                     annotation.put("type", "error");
                     annotations.put(annotation);
                 }
-
-                return annotations.toString();
+            }
+            else {
+                return "[]";
             }
         }
         catch (Exception ex) {
-            return ex.getMessage();
+            JSONObject annotation = new JSONObject();
+            annotation.put("row", 0);
+            annotation.put("text", ex.getMessage());
+            annotation.put("type", "error");
+            annotations.put(annotation);
         }
 
-        return "[]";
+        return annotations.toString();
+    }
+
+    protected int getRowFromEmfaticParseMessage(String message) {
+        Pattern pattern = Pattern.compile("at line (\\d+)");
+        Matcher matcher = pattern.matcher(message);
+        matcher.find();
+        return Integer.parseInt(matcher.group(1)) - 1;
     }
 
     public String validateFlexmi(String flexmi, String emfatic) {

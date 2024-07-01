@@ -27,19 +27,27 @@ class EditorValidator {
 
         editor.session.clearAnnotations();
         
-        const result = await this.validator.validateEmfatic(editor.getValue());
-        console.log(result);
+        try {
+            const result = await this.validator.validateEmfatic(editor.getValue());
+            // console.log(result);
+            editor.getSession().setAnnotations(JSON.parse(result));
+        }
+        catch (err) {
+            // When there are no validation errors, validateEmfatic throws an exception in CheerpJ
+            // possibly because Emfatic tries to build some data structure and we're missing a class from
+            // the classpath (missing dependency)
+        }
 
-        editor.getSession().setAnnotations(JSON.parse(result));       
+               
     }
 
     async validateProgramEditor(editor, language) {
         if (! this.cj) return;
 
         editor.session.clearAnnotations();
-        
+
         const result = await this.validator.validateProgram(editor.getValue(), language);
-        console.log(result);
+        // console.log(result);
 
         editor.getSession().setAnnotations(JSON.parse(result));
     }

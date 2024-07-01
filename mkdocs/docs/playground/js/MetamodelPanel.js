@@ -17,7 +17,7 @@ class MetamodelPanel extends ModelPanel {
         editorValidator.addOnReadyListener(this);
     }
 
-    async editorValidatorReady() {
+    editorValidatorReady() {
         this.validate();
         var self = this;
         this.editor.on("input", () => {
@@ -25,8 +25,8 @@ class MetamodelPanel extends ModelPanel {
         });
     }
 
-    async validate() {
-        await editorValidator.validateEmfaticEditor(this.editor);
+    validate() {
+       editorValidator.validateEmfaticEditor(this.editor);
     }
 
     getButtons() {
