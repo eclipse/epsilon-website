@@ -25,17 +25,15 @@ class EditorValidator {
     async validateEmfaticEditor(editor) {
         if (! this.cj) return;
 
-        editor.session.clearAnnotations();
-        
         try {
-            const result = await this.validator.validateEmfatic(editor.getValue());
-            // console.log(result);
-            editor.getSession().setAnnotations(JSON.parse(result));
+            var annotationsJson = await this.validator.validateEmfatic(editor.getValue());
+            this.setEditorAnnotations(editor, annotationsJson);
         }
         catch (err) {
             // When there are no validation errors, validateEmfatic throws an exception in CheerpJ
             // possibly because Emfatic tries to build some data structure and we're missing a class from
             // the classpath (missing dependency)
+            this.setEditorAnnotations(editor, "[]");
         }
 
                
@@ -44,12 +42,19 @@ class EditorValidator {
     async validateProgramEditor(editor, language) {
         if (! this.cj) return;
 
-        editor.session.clearAnnotations();
+        var annotationsJson = await this.validator.validateProgram(editor.getValue(), language);
+        this.setEditorAnnotations(editor, annotationsJson);
+    }
 
-        const result = await this.validator.validateProgram(editor.getValue(), language);
-        // console.log(result);
-
-        editor.getSession().setAnnotations(JSON.parse(result));
+    setEditorAnnotations(editor, annotationsJson) {
+        //console.log("Existing: " + JSON.stringify(editor.getSession().getAnnotations()));
+        //console.log("New: " + JSON.stringify(annotations));
+        
+        if (annotationsJson != JSON.stringify(editor.getSession().getAnnotations())) {
+            //console.log("Setting annotations...");
+            editor.session.clearAnnotations();
+            editor.getSession().setAnnotations(JSON.parse(annotationsJson));
+        }
     }
 
 }
