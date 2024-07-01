@@ -1,5 +1,6 @@
 import { Panel } from "./Panel.js";
 import { Splitter } from "./Splitter.js";
+import { editorValidator } from './Playground.js';
 
 import svgPanZoom from 'svg-pan-zoom';
 
@@ -22,7 +23,20 @@ class ModelPanel extends Panel {
         super.init();
         this.setDiagramRefreshButtonVisible(false);
         this.setFitDiagramButtonVisible(!this.editable);
+        if (this.editable) editorValidator.addOnReadyListener(this);
     }
+
+    editorValidatorReady() {
+        this.validate();
+        var self = this;
+        this.editor.on("input", () => {
+            self.validate();
+        });
+    }
+
+    validate() {
+        editorValidator.validateFlexmiEditor(this.editor, this.metamodelPanel.editor);
+     }
 
     showDiagram() {
         $("#" + this.id + "Diagram").show();
@@ -46,6 +60,7 @@ class ModelPanel extends Panel {
 
     setupSyntaxHighlighting() {
         this.editor.getSession().setMode("ace/mode/xml");
+        this.editor.getSession().setUseWorker(false); // Disable built-in syntax checking
         this.updateSyntaxHighlighting();
         var self = this;
         this.editor.getSession().on('change', function () {

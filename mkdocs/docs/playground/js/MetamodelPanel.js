@@ -12,19 +12,6 @@ class MetamodelPanel extends ModelPanel {
         this.editor.getSession().setMode("ace/mode/emfatic");
     }
 
-    init() {
-        super.init();
-        editorValidator.addOnReadyListener(this);
-    }
-
-    editorValidatorReady() {
-        this.validate();
-        var self = this;
-        this.editor.on("input", () => {
-            self.validate();
-        });
-    }
-
     validate() {
        editorValidator.validateEmfaticEditor(this.editor);
     }

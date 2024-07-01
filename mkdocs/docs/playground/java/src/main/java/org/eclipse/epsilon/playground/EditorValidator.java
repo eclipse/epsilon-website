@@ -1,15 +1,13 @@
 package org.eclipse.epsilon.playground;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.util.EcoreValidator;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.emfatic.core.EmfaticResource;
-import org.eclipse.emf.emfatic.core.lang.gen.parser.EmfaticParserDriver;
 import org.eclipse.epsilon.common.parse.problem.ParseProblem;
 import org.eclipse.epsilon.ecl.EclModule;
 import org.eclipse.epsilon.egl.EglModule;
@@ -21,9 +19,11 @@ import org.eclipse.epsilon.eol.IEolModule;
 import org.eclipse.epsilon.epl.EplModule;
 import org.eclipse.epsilon.etl.EtlModule;
 import org.eclipse.epsilon.evl.EvlModule;
+import org.eclipse.epsilon.flexmi.FlexmiParseException;
+import org.eclipse.epsilon.flexmi.FlexmiResource;
+import org.eclipse.epsilon.flexmi.FlexmiResourceFactory;
 import org.eclipse.epsilon.flock.FlockModule;
 import org.eclipse.epsilon.pinset.PinsetModule;
-import org.eclipse.gymnast.runtime.core.parser.ParseContext;
 import org.eclipse.gymnast.runtime.core.parser.ParseMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,8 +31,52 @@ import org.json.JSONObject;
 public class EditorValidator {
 
     public static void main(String[] args) {
-        String emfatic = "package p";
-        System.out.println(new EditorValidator().validateEmfatic(emfatic));
+        String emfatic = "package p; class X{}";
+        String flexmi = "<?nsuri p?>\n<";
+        System.out.println(new EditorValidator().validateFlexmi(flexmi, emfatic));
+    }
+
+    /*
+     * 
+     * protected List<Diagnostic> getDiagnostics(FlexmiResource resource, String text) {
+        List<Diagnostic> diagnostics = new ArrayList<>();
+        diagnostics.addAll(getDiagnostics(resource.getWarnings(), DiagnosticSeverity.Warning));
+        diagnostics.addAll(getDiagnostics(resource.getErrors(), DiagnosticSeverity.Error));
+        return diagnostics;
+    }
+
+    protected Collection<Diagnostic> getDiagnostics(List<org.eclipse.emf.ecore.resource.Resource.Diagnostic> emfDiagnostics, DiagnosticSeverity severity) {
+        List<Diagnostic> diagnostics = new ArrayList<>();
+        for (org.eclipse.emf.ecore.resource.Resource.Diagnostic emfDiagnostic : emfDiagnostics) {
+            Diagnostic diagnostic = new Diagnostic();
+            diagnostic.setMessage(emfDiagnostic.getMessage());
+            diagnostic.setSeverity(severity);
+            Position position = new Position(emfDiagnostic.getLine() - 1, emfDiagnostic.getColumn());
+            diagnostic.setRange(new Range(position, position));
+            diagnostics.add(diagnostic);
+        }
+        return diagnostics;
+    }
+     */
+    public String validateFlexmi(String flexmi, String emfatic) {
+        JSONArray annotations = new JSONArray();
+        ResourceSet resourceSet = new ResourceSetImpl();
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("flexmi", new FlexmiResourceFactory());
+        FlexmiResource resource = (FlexmiResource) resourceSet.createResource(org.eclipse.emf.common.util.URI.createURI("flexmi.flexmi"));
+        try {
+            resource.load(new ByteArrayInputStream(flexmi.getBytes()), null);
+        }
+        catch (FlexmiParseException fex) {
+            JSONObject annotation = new JSONObject();
+            annotation.put("row", fex.getLineNumber() - 1);
+            annotation.put("text", fex.getMessage());
+            annotation.put("type", "error");
+            annotations.put(annotation);
+        }
+        catch (Exception ex) {
+            return "[]";
+        }
+        return annotations.toString();
     }
 
     public String validateEmfatic(String emfatic) {
@@ -76,10 +120,6 @@ public class EditorValidator {
         Matcher matcher = pattern.matcher(message);
         matcher.find();
         return Integer.parseInt(matcher.group(1)) - 1;
-    }
-
-    public String validateFlexmi(String flexmi, String emfatic) {
-        return "[]";
     }
 
     public String validateProgram(String program, String language) {

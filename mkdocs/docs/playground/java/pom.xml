@@ -98,6 +98,11 @@
             <version>${epsilon.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.eclipse.epsilon</groupId>
+            <artifactId>org.eclipse.epsilon.flexmi</artifactId>
+            <version>${epsilon.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.emfatic</groupId>
             <artifactId>org.eclipse.emfatic.core</artifactId>
             <version>1.1.0</version>

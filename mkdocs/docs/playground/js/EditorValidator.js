@@ -9,7 +9,6 @@ class EditorValidator {
     }
 
     async init() {
-        console.log("init");
         await cheerpjInit();
         this.cj = await cheerpjRunLibrary("/app/playground/java/target/epsilon.jar");
         const JavaEditorValidator = await this.cj.org.eclipse.epsilon.playground.EditorValidator;
@@ -35,8 +34,16 @@ class EditorValidator {
             // the classpath (missing dependency)
             this.setEditorAnnotations(editor, "[]");
         }
+    }
 
-               
+    async validateFlexmiEditor(flexmiEditor, emfaticEditor) {
+        //console.log("Flexmi: " + flexmiEditor.getValue());
+        //console.log("Emfatic: " + emfaticEditor.getValue());
+
+        if (! this.cj) return;
+
+        var annotationsJson = await this.validator.validateFlexmi(flexmiEditor.getValue(), emfaticEditor.getValue());
+        this.setEditorAnnotations(flexmiEditor, annotationsJson);
     }
 
     async validateProgramEditor(editor, language) {
@@ -47,12 +54,9 @@ class EditorValidator {
     }
 
     setEditorAnnotations(editor, annotationsJson) {
-        //console.log("Existing: " + JSON.stringify(editor.getSession().getAnnotations()));
-        //console.log("New: " + JSON.stringify(annotations));
-        
+        // Only set editor annotations if they have actually changed
         if (annotationsJson != JSON.stringify(editor.getSession().getAnnotations())) {
-            //console.log("Setting annotations...");
-            editor.session.clearAnnotations();
+            editor.getSession().clearAnnotations();
             editor.getSession().setAnnotations(JSON.parse(annotationsJson));
         }
     }
