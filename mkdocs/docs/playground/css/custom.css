@@ -309,3 +309,11 @@ body {
 	text-align:center;
 	color: rgb(205, 53, 44);
 }
+
+.ace_gutter-cell.ace_error {
+	background-image: url("../images/error.png");
+}
+
+.ace_gutter-cell.ace_warning {
+	background-image: url("../images/warning.png");
+}
