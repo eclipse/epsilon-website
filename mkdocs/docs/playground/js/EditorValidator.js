@@ -24,16 +24,9 @@ class EditorValidator {
     async validateEmfaticEditor(editor) {
         if (! this.cj) return;
 
-        try {
-            var annotationsJson = await this.validator.validateEmfatic(editor.getValue());
-            this.setEditorAnnotations(editor, annotationsJson);
-        }
-        catch (err) {
-            // When there are no validation errors, validateEmfatic throws an exception in CheerpJ
-            // possibly because Emfatic tries to build some data structure and we're missing a class from
-            // the classpath (missing dependency)
-            this.setEditorAnnotations(editor, "[]");
-        }
+        var annotationsJson = await this.validator.validateEmfatic(editor.getValue());
+        this.setEditorAnnotations(editor, annotationsJson);
+    
     }
 
     async validateFlexmiEditor(flexmiEditor, emfaticEditor) {
@@ -42,8 +35,16 @@ class EditorValidator {
 
         if (! this.cj) return;
 
+        try {
         var annotationsJson = await this.validator.validateFlexmi(flexmiEditor.getValue(), emfaticEditor.getValue());
         this.setEditorAnnotations(flexmiEditor, annotationsJson);
+        }
+        catch (err) {
+            console.log(err);
+            //console.log(await err.getMessage());
+            //console.log(err.getException());
+            //console.log(err.getMessage());
+        }
     }
 
     async validateProgramEditor(editor, language) {
