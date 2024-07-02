@@ -108,7 +108,7 @@ public class EditorValidator {
                 for (ParseMessage message : resource.getParseContext().getMessages()) {
                     JSONObject annotation = new JSONObject();
                     annotation.put("row", getLineFromOffset(emfatic, message.getOffset()) - 1);
-                    annotation.put("text", message.getMessage() + " / " + message.getClass().getCanonicalName());
+                    annotation.put("text", message.getMessage());
                     annotation.put("type", message instanceof ParseWarning ? "warning" : "error");
                     annotations.put(annotation);
                 }
