@@ -317,3 +317,11 @@ body {
 .ace_gutter-cell.ace_warning {
 	background-image: url("../images/warning.png");
 }
+
+.ace_tooltip {
+	background-image: none;
+	border-color: rgb(246, 246, 246);
+	background-color: rgb(246, 246, 246);
+	box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
+	padding: 2px;
+}
