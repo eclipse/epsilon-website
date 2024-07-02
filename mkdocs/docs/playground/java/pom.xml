@@ -108,26 +108,40 @@
             <version>1.1.0</version>
         </dependency>
         <dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.ecore</artifactId>
-			<version>2.23.0</version>
-		</dependency>
-        <dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-			<version>2.35.0</version>
-		</dependency>      
-        <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20240303</version>
         </dependency>
-       <!--
-       The versions of the org.eclipse.equinox.registry
-       and org.eclipse.equinox.common dependencies that Emfatic
-       brings in are Java 8+ and therefore they need to be
-       replaced with older, Java 8-compatible versions.
-       -->
+        <!-- 
+        We need more recent versions of the EMF dependencies
+        than those required by Flexmi and Emfatic to keep CheerpJ happy.
+        -->
+        <dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.common</artifactId>
+			<version>2.30.0</version>
+		</dependency>
+        <dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore</artifactId>
+			<version>2.30.0</version>
+		</dependency>
+        <dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<version>2.37.0</version>
+		</dependency>
+        <dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore.change</artifactId>
+			<version>2.16.0</version>
+		</dependency>
+        <!--
+        The versions of the org.eclipse.equinox.registry
+        and org.eclipse.equinox.common dependencies that Emfatic
+        brings in are Java 8+ and therefore they need to be
+        replaced with older, Java 8-compatible versions.
+        -->
         <dependency>
             <groupId>org.eclipse.platform</groupId>
             <artifactId>org.eclipse.equinox.registry</artifactId>
