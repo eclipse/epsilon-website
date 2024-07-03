@@ -4,7 +4,7 @@ To run the playground locally, check that you have [Maven](https://maven.apache.
 
 - In this directory (`playground`), run `npx webpack --watch --mode=development`
 - In the `java` directory, run `mvn package`
-- In the parent directory (`mkdocs`), run `npx http-server`
+- In the parent directory (`docs`), run `npx http-server`
 - Open your browser in `http://localhost:8080/playground`
 
 ## Webpack
