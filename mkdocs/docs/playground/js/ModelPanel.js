@@ -36,7 +36,7 @@ class ModelPanel extends Panel {
 
     validate() {
         editorValidator.validateFlexmiEditor(this.editor, this.metamodelPanel.editor);
-     }
+    }
 
     showDiagram() {
         $("#" + this.id + "Diagram").show();
@@ -341,6 +341,9 @@ class ModelPanel extends Panel {
         return root;
     }
 
+    getMetamodelPanel() {
+        return this.metamodelPanel;
+    }
 
 }
 

@@ -45,7 +45,7 @@ var preloader = new Preloader();
 export var backend = new Backend();
 export var examplesManager = new ExampleManager();
 export var editorValidator = new EditorValidator();
-var panels = [];
+export var panels = [];
 
 backend.configure();
 
