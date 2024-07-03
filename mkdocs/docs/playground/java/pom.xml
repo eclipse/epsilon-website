@@ -15,6 +15,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <epsilon.version>2.5.0</epsilon.version>
+        <epsilon.snapshot.version>2.6.0-SNAPSHOT</epsilon.snapshot.version>
     </properties>
 
     <build>
@@ -45,6 +46,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -97,10 +105,11 @@
             <artifactId>org.eclipse.epsilon.pinset.engine</artifactId>
             <version>${epsilon.version}</version>
         </dependency>
+        <!-- We need Flexmi 2.6.0 because of https://github.com/eclipse/epsilon/commit/a738ce37c00332cab0a7a67c5d8e99970a186bc4-->
         <dependency>
             <groupId>org.eclipse.epsilon</groupId>
             <artifactId>org.eclipse.epsilon.flexmi</artifactId>
-            <version>${epsilon.version}</version>
+            <version>${epsilon.snapshot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.emfatic</groupId>
