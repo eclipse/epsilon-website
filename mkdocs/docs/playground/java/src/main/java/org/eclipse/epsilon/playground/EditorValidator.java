@@ -37,6 +37,10 @@ public class EditorValidator {
                 package p; 
                 class X { 
                     attr int size; 
+                    val Y1 y;
+                }
+                class Y {
+                
                 }
                 """;
         String flexmi = """
@@ -44,7 +48,7 @@ public class EditorValidator {
                 <x size="x"/>
                 """;
         
-        System.out.println(new EditorValidator().getLineFromOffset(emfatic, 22));
+        //System.out.println(new EditorValidator().getLineFromOffset(emfatic, 22));
 
         System.out.println(new EditorValidator().validateFlexmi(flexmi, emfatic));
     }
@@ -53,14 +57,24 @@ public class EditorValidator {
         JSONArray annotations = new JSONArray();
         ResourceSet resourceSet = new ResourceSetImpl();
         resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("flexmi", new FlexmiResourceFactory());
-        FlexmiResource resource = (FlexmiResource) resourceSet.createResource(org.eclipse.emf.common.util.URI.createURI("flexmi.flexmi"));
         try {
 
-            EmfaticResource emfaticResource = new EmfaticResource(URI.createURI("emfatic.emf"));
-            emfaticResource.load(new ByteArrayInputStream(emfatic.getBytes()), null);
-            EPackage ePackage = (EPackage) emfaticResource.getContents().get(0);
-            EPackage.Registry.INSTANCE.put(ePackage.getNsURI(), ePackage);
-
+            try {
+                EmfaticResource emfaticResource = new EmfaticResource(URI.createURI("emfatic.emf"));
+                emfaticResource.load(new ByteArrayInputStream(emfatic.getBytes()), null);
+                
+                if (emfaticResource.getParseContext().getErrorCount() == 0) {
+                    //TODO: Support multiple/nested packages? Also need to update the backend accordingly
+                    EPackage ePackage = (EPackage) emfaticResource.getContents().get(0);
+                    resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
+                }
+            }
+            catch (Exception ex) {
+                // If there is an exception do nothing
+                // The nsuri processing instruction of Flexmi will report an error
+            }
+            
+            FlexmiResource resource = (FlexmiResource) resourceSet.createResource(org.eclipse.emf.common.util.URI.createURI("flexmi.flexmi"));
             resource.load(new ByteArrayInputStream(flexmi.getBytes()), null);
 
             for (org.eclipse.emf.ecore.resource.Resource.Diagnostic diagnostic : resource.getWarnings()) {
