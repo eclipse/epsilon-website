@@ -1441,13 +1441,8 @@ This section details two DAP clients that have been tested with the Epsilon DAP 
 <h3 id="eclipse-lsp4e">Eclipse LSP4E<a class="headerlink" href="#eclipse-lsp4e" title="Permanent link">&para;</a></h3>
 <p>To use this client, install it from its <a href="https://github.com/eclipse/lsp4e">official repository</a>.
 You will need the "Debug Adapter client for Eclipse IDE" feature.</p>
-<p>Set your breakpoints as usual. Once the DAP server is running and waiting for connections (as shown in the terminal with the "Started Epsilon debug server" text), start an LSP4E debug configuration that attaches to the relevant port in <code>127.0.0.1</code>:</p>
-<p><img alt="DAP LSP4E debug configuration attaching to port 4040" src="lsp4e-configuration.png" /></p>
-<p>You can use this small JSON fragment for your launch parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attach&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>Set your breakpoints as usual. Once the DAP server is running and waiting for connections (as shown in the terminal with the "Started Epsilon debug server" text), start a "Remote Epsilon Program" debug configuration that attaches to the relevant port in <code>localhost</code>:</p>
+<p><img alt="Remote Epsilon Program debug configuration attaching to port 4040" src="lsp4e-configuration.png" /></p>
 <p>Once LSP4E connects to the DAP server, the script will start running.
 After hitting a breakpoint, you will be prompted to switch to the Debug perspective, as usual:</p>
 <p><img alt="LSP4E debugger stopped on an EOL breakpoint" src="lsp4e-debugger.png" /></p>
