@@ -10,7 +10,8 @@ class EditorValidator {
 
     async init() {
         await cheerpjInit();
-        this.cj = await cheerpjRunLibrary("/app/playground/java/target/epsilon.jar");
+        const jar = "/app" + window.location.pathname + "java/target/epsilon.jar";
+        this.cj = await cheerpjRunLibrary(jar);
         const JavaEditorValidator = await this.cj.org.eclipse.epsilon.playground.EditorValidator;
         this.validator = await new JavaEditorValidator();
         
