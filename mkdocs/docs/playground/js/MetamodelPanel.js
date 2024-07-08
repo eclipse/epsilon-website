@@ -1,5 +1,4 @@
 import { ModelPanel } from './ModelPanel.js';
-import { editorValidator, panels } from './Playground.js';
 
 class MetamodelPanel extends ModelPanel {
     constructor(id) {
@@ -10,18 +9,6 @@ class MetamodelPanel extends ModelPanel {
 
     setupSyntaxHighlighting() {
         this.editor.getSession().setMode("ace/mode/emfatic");
-    }
-
-    async validate() {
-       
-        await editorValidator.validateEmfaticEditor(this.editor);
-        
-        // When a metamodel changes, also re-validate models that conform to it
-        for (const panel of panels) {
-            if (panel instanceof ModelPanel && panel.getMetamodelPanel() != null && panel.getMetamodelPanel() == this) {
-                panel.validate();
-            }
-        }
     }
 
     getButtons() {
