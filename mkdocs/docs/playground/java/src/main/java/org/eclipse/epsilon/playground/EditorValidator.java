@@ -32,15 +32,17 @@ import org.json.JSONObject;
 
 public class EditorValidator {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         String emfatic = """
                 package p; 
+
                 class X { 
                     attr int size; 
-                    val Y1 y;
+                    ref Y#x y;
                 }
+
                 class Y {
-                
+                    ref X x;
                 }
                 """;
         String flexmi = """
@@ -50,7 +52,9 @@ public class EditorValidator {
         
         //System.out.println(new EditorValidator().getLineFromOffset(emfatic, 22));
 
-        System.out.println(new EditorValidator().validateFlexmi(flexmi, emfatic));
+        //System.out.println(new EditorValidator().validateFlexmi(flexmi, emfatic));
+
+        System.out.println(new EditorValidator().validateEmfatic(emfatic));
     }
 
     public String validateFlexmi(String flexmi, String emfatic) {
@@ -121,7 +125,10 @@ public class EditorValidator {
                 
                 for (ParseMessage message : resource.getParseContext().getMessages()) {
                     JSONObject annotation = new JSONObject();
-                    annotation.put("row", getLineFromOffset(emfatic, message.getOffset()) - 1);
+
+                    int row = getRowFromEmfaticParseMessage(message.getMessage());
+                    if (row == -1) row = getLineFromOffset(emfatic, message.getOffset()) - 1;
+                    annotation.put("row", row);
                     annotation.put("text", message.getMessage());
                     annotation.put("type", message instanceof ParseWarning ? "warning" : "error");
                     annotations.put(annotation);
@@ -155,7 +162,7 @@ public class EditorValidator {
         if (matcher.find()) {
             return Integer.parseInt(matcher.group(1)) - 1;
         }
-        else return 0;
+        else return -1;
     }
 
     public String validateProgram(String program, String language) {
