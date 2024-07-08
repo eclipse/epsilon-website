@@ -2,7 +2,7 @@ import {programPanel, consolePanel, firstModelPanel, firstMetamodelPanel, second
 
 class SettingsDialog {
 
-    showEditorLineNumbers = false;
+    showEditorLineNumbers = true;
 
     show(event) {
         event.preventDefault();

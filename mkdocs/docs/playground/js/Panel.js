@@ -16,7 +16,6 @@ class Panel {
         this.editor = ace.edit(this.element.querySelector('.editor'));
         this.editor.setShowPrintMargin(false);
         this.editor.setTheme("ace/theme/eclipse");
-        this.editor.renderer.setShowGutter(false);
         this.editor.setFontSize("1rem");
         this.editor.setOptions({
             fontSize: "11pt",
