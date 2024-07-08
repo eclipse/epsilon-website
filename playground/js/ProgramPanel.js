@@ -1,11 +1,14 @@
 import { Panel } from "./Panel.js";
+import { editorValidator, syntaxChecker } from "./Playground.js";
 
 class ProgramPanel extends Panel {
 
     language;
+    inited = 0;
 
     constructor(id = "program") {
         super(id);
+        this.editor.session.setOption("useWorker", false);
     }
 
     setLanguage(language) {
@@ -28,6 +31,19 @@ class ProgramPanel extends Panel {
         }
 
         this.setTitleAndIcon(title + " (" + (language == "flock" ? "Flock" : language.toUpperCase()) + ")", language);
+        editorValidator.addOnReadyListener(this);
+    }
+
+    editorValidatorReady() {
+        this.validate();
+        var self = this;
+        this.editor.on("input", () => {
+            self.validate();
+        });
+    }
+
+    validate() {
+        editorValidator.validateProgramEditor(this.editor, this.language);
     }
 
     fit() {
