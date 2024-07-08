@@ -15,7 +15,7 @@ class OutputPanel extends ModelPanel {
         this.language = language;
         this.createButtons();
         this.getEditor().getSession().setMode("ace/mode/" + outputLanguage.toLowerCase());
-        this.getEditor().getSession().setUseWorker(false);
+        //this.getEditor().getSession().setUseWrapMode(false);
     }
 
     setupSyntaxHighlighting() {}

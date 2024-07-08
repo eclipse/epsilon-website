@@ -17,7 +17,6 @@ import { SettingsDialog } from './SettingsDialog.js';
 import { Preloader } from './Preloader.js';
 import { Backend } from './Backend.js';
 import { Layout } from './Layout.js';
-import { EditorValidator } from './EditorValidator.js';
 import 'metro4';
 import './highlighting/highlighting.js';
 
@@ -44,8 +43,7 @@ var settingsDialog = new SettingsDialog();
 var preloader = new Preloader();
 export var backend = new Backend();
 export var examplesManager = new ExampleManager();
-export var editorValidator = new EditorValidator();
-export var panels = [];
+var panels = [];
 
 backend.configure();
 
@@ -449,4 +447,3 @@ window.copyShortenedLink = copyShortenedLink;
 window.downloadDialog = downloadDialog;
 window.language = language;
 window.getActivePanels = getActivePanels;
-window.editorValidator = editorValidator;
