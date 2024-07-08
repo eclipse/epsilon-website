@@ -32,6 +32,31 @@ import org.json.JSONObject;
 
 public class EditorValidator {
 
+    public static void main(String[] args) throws Exception {
+        String emfatic = """
+                package p; 
+
+                class X { 
+                    attr int size; 
+                    ref Y#x y;
+                }
+
+                class Y {
+                    ref X x;
+                }
+                """;
+        String flexmi = """
+                <?nsuri p?>
+                <x size="x"/>
+                """;
+        
+        //System.out.println(new EditorValidator().getLineFromOffset(emfatic, 22));
+
+        //System.out.println(new EditorValidator().validateFlexmi(flexmi, emfatic));
+
+        System.out.println(new EditorValidator().validateEmfatic(emfatic));
+    }
+
     public String validateFlexmi(String flexmi, String emfatic) {
         JSONArray annotations = new JSONArray();
         ResourceSet resourceSet = new ResourceSetImpl();
