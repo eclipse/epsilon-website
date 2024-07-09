@@ -33,22 +33,8 @@ import org.json.JSONObject;
 public class EditorValidator {
 
     public static void main(String[] args) throws Exception {
-        String emfatic = """
-                package p; 
-
-                class X { 
-                    attr int size; 
-                    ref Y#x y;
-                }
-
-                class Y {
-                    ref X x;
-                }
-                """;
-        String flexmi = """
-                <?nsuri p?>
-                <x size="x"/>
-                """;
+        String emfatic = "package p; class X { attr int size; }";
+        String flexmi = "<?nsuri p?><x size=\"x\"/>";
         
         //System.out.println(new EditorValidator().getLineFromOffset(emfatic, 22));
 
