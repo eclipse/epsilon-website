@@ -172,7 +172,7 @@ class ExampleManager {
             
             xhr.open("POST", backend.getShortURLService(), false);
             xhr.setRequestHeader("Content-Type", "application/json");
-            var data = JSON.stringify({"shortened": id});
+            var data = JSON.stringify({"shortened": id, "function": "ShortURL"});
             xhr.send(data);
             if (xhr.status === 200) {
                 try {
