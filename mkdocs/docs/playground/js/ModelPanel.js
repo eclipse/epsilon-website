@@ -41,7 +41,7 @@ class ModelPanel extends Panel {
     }
 
     refreshDiagram() {
-        this.refreshDiagramImpl(backend.getFlexmiToPlantUMLService(), this.id + "Diagram", "model", this.getEditor(), this.metamodelPanel.getEditor());
+        this.refreshDiagramImpl(backend.getFlexmiToPlantUMLService(), "FlexmiToPlantUML", this.id + "Diagram", "model", this.getEditor(), this.metamodelPanel.getEditor());
     }
 
     setupSyntaxHighlighting() {
@@ -153,7 +153,7 @@ class ModelPanel extends Panel {
     }
 
     /* TODO: Rename to something more sensible */
-    refreshDiagramImpl(url, diagramId, diagramName, modelEditor, metamodelEditor) {
+    refreshDiagramImpl(url, functionName, diagramId, diagramName, modelEditor, metamodelEditor) {
 
         var diagramElement = document.getElementById(diagramId);
         diagramElement.innerHTML = '<img src="images/preloader.gif" style="width:100px;margin:auto"/>'
@@ -190,8 +190,9 @@ class ModelPanel extends Panel {
                 }
             }
         };
-        var data = this.modelToJson(modelEditor, metamodelEditor);
-        xhr.send(data);
+        var data = this.modelToJsonObject(modelEditor, metamodelEditor);
+        data.function = functionName;
+        xhr.send(JSON.stringify(data));
     }
 
     renderDiagram(svg) {
@@ -268,12 +269,16 @@ class ModelPanel extends Panel {
         return container.firstElementChild;
     }
 
+    modelToJsonObject(modelEditor, metamodelEditor) {
+        return {
+            "flexmi": modelEditor != null ? modelEditor.getValue() : "",
+            "emfatic": metamodelEditor != null ? metamodelEditor.getValue() : ""
+        };
+    }
+
     modelToJson(modelEditor, metamodelEditor) {
         return JSON.stringify(
-            {
-                "flexmi": modelEditor != null ? modelEditor.getValue() : "",
-                "emfatic": metamodelEditor != null ? metamodelEditor.getValue() : ""
-            }
+            this.modelToJsonObject(modelEditor, metamodelEditor)
         );
     }
 

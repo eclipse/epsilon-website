@@ -141,7 +141,7 @@ function copyShortenedLink(event) {
             Metro.notify.killAll();
         }
     };
-    var data = JSON.stringify({"content": content});
+    var data = JSON.stringify({"content": content, "function": "ShortURL"});
     xhr.send(data);
     longNotification("Generating short link");
     return false;
@@ -266,7 +266,7 @@ function runProgram() {
 	
     var xhr = new XMLHttpRequest();
     var url = backend.getRunEpsilonService();
-    
+
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
@@ -341,8 +341,11 @@ function runProgram() {
             Metro.notify.killAll();
         }
     };
-    var data = editorsToJson();
-    xhr.send(data);
+
+    var data = editorsToJsonObject();
+    data.function = "RunEpsilon";
+    xhr.send(JSON.stringify(data));
+
     longNotification("Executing program");
 }
 
