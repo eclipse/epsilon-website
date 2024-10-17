@@ -1,0 +1,8 @@
+{
+    "services": [
+      {"name": "RunEpsilonFunction", "url": "http://localhost:8005"},
+      {"name": "FlexmiToPlantUMLFunction", "url": "http://localhost:8005"},
+      {"name": "EmfaticToPlantUMLFunction", "url": "http://localhost:8005"},
+      {"name": "ShortURLFunction", "url": "http://localhost:8005"}
+    ]
+  }

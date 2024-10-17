@@ -374,8 +374,8 @@ Finally, an Eclipse extension point is provided for custom formatters. Providing
 
 ## Outdentation
 
-!!! tip "New in 2.4"
-    Support for outdentation was added in version 2.4 of Epsilon. If outdentation does not behave as expected in your EGX-coordinated templates with 2.4, please install the latest interim version of Epsilon.
+!!! bug "Outdentation breaks fine-grained traceability links"
+    The current implementation of outdentation [doesn't work well](https://github.com/eclipse/epsilon/issues/128) with EGL's [fine-grained traceability](#traceability) feature.
 
 A common issue encountered when writing EGL templates is that the ideal indentation for the template code itself and the output it produces may be different. For example, consider the template below, which produces a Graphviz graph from a state machine model.
 
@@ -397,7 +397,7 @@ digraph G {
 }
 ```
 
-Note that in order to indent lines 2-4 of the output with one tab, we had to "pull" line 3 of the template at the same indentation level as its container `for` loop, which is not ideal. To format both the template and its output properly in this case, we can use `-%]` instead of `%]` to close the `for` loop statement in line 2. This will instruct a built-in EGL formatter to remove one indentation character (see the `setIndenters` method above) from each of the lines of the content produced within the `for` loop. The template below uses this feature to produce the same output as the template above.
+Note that in order to indent lines 2-4 of the output with one tab, we had to "pull" line 3 of the template at the same indentation level as its container `for` loop, which is not ideal. To format both the template and its output properly in this case, since Epsilon 2.4, we can use `-%]` instead of `%]` to close the `for` loop statement in line 2. This will instruct a built-in EGL formatter to remove one indentation character (see the `setIndenters` method above) from each of the lines of the content produced within the `for` loop. The template below uses this feature to produce the same output as the template above.
 
 ```egl
 digraph G {
