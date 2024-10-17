@@ -1541,7 +1541,7 @@ operation Entity getIcon() {
 }
 
 operation Feature getLabel() {
-    return self.name + " : " + self.type?.name + (self.many ? "["+"*"+"]" : "") ;
+    return self.name + " : " + self.type?.name + (self.many ? "["+"*"+"]" : "") + " " ;
 }
 
 operation Feature getIcon() {

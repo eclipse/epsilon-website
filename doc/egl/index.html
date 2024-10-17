@@ -2048,9 +2048,9 @@ t.generate("formatted.xml");
 <p>The set of built-in formatters provided by EGL includes some partial implementations of the <code>Formatter</code> interface that can be re-used to simplify the implementation of custom formatters. For instance, the <code>LanguageFormatter</code> class can correct the indentation of a program written in most languages, when given a start and end regular expression.</p>
 <p>Finally, an Eclipse extension point is provided for custom formatters. Providing an extension that conforms to the custom formatter extension point allows EGL to display the custom formatter in the launch configuration tabs of the EGL development tools.</p>
 <h2 id="outdentation">Outdentation<a class="headerlink" href="#outdentation" title="Permanent link">&para;</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">New in 2.4</p>
-<p>Support for outdentation was added in version 2.4 of Epsilon. If outdentation does not behave as expected in your EGX-coordinated templates with 2.4, please install the latest interim version of Epsilon.</p>
+<div class="admonition bug">
+<p class="admonition-title">Outdentation breaks fine-grained traceability links</p>
+<p>The current implementation of outdentation <a href="https://github.com/eclipse/epsilon/issues/128">doesn't work well</a> with EGL's <a href="#traceability">fine-grained traceability</a> feature.</p>
 </div>
 <p>A common issue encountered when writing EGL templates is that the ideal indentation for the template code itself and the output it produces may be different. For example, consider the template below, which produces a Graphviz graph from a state machine model.</p>
 <pre class="prettyprint lang-egl"><code>digraph G {
@@ -2065,7 +2065,7 @@ t.generate("formatted.xml");
 <span class="w">    </span><span class="nt">C</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">A</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Note that in order to indent lines 2-4 of the output with one tab, we had to "pull" line 3 of the template at the same indentation level as its container <code>for</code> loop, which is not ideal. To format both the template and its output properly in this case, we can use <code>-%]</code> instead of <code>%]</code> to close the <code>for</code> loop statement in line 2. This will instruct a built-in EGL formatter to remove one indentation character (see the <code>setIndenters</code> method above) from each of the lines of the content produced within the <code>for</code> loop. The template below uses this feature to produce the same output as the template above.</p>
+<p>Note that in order to indent lines 2-4 of the output with one tab, we had to "pull" line 3 of the template at the same indentation level as its container <code>for</code> loop, which is not ideal. To format both the template and its output properly in this case, since Epsilon 2.4, we can use <code>-%]</code> instead of <code>%]</code> to close the <code>for</code> loop statement in line 2. This will instruct a built-in EGL formatter to remove one indentation character (see the <code>setIndenters</code> method above) from each of the lines of the content produced within the <code>for</code> loop. The template below uses this feature to produce the same output as the template above.</p>
 <pre class="prettyprint lang-egl"><code>digraph G {
     [%for (t in Transition.all){-%]
         [%=t.from.name%] -&gt; [%=t.to.name%]
