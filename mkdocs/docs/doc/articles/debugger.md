@@ -153,6 +153,18 @@ Launch the above configuration, and you should be able to hit breakpoints, contr
 
 ![VS Code debugger stopped on an EOL breakpoint](./debugger/vscode-debugger.png)
 
+#### Conditional breakpoints
+
+The Epsilon debug adapter supports conditional breakpoints.
+
+To set a condition on a breakpoint, right-click on its red circle in the editor, and select "Edit Breakpoint".
+Select the "Expression" option as shown below, write a Boolean expression in EOL, and press Enter:
+
+![VS Code editor showing editor for condition on an EOL breakpoint](./debugger/vscode-conditional.png)
+
+*Note*: the debug adapter will automatically wrap the expresssion with a `return` statement, casting the result to a Boolean.
+If the expression fails to run, the adapter will allow execution to continue, and will disable the breakpoint.
+
 #### Single-click launching and debugging
 
 The above approach requires separately launching your Gradle task, and your debug configuration.
