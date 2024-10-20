@@ -162,8 +162,10 @@ Select the "Expression" option as shown below, write a Boolean expression in EOL
 
 ![VS Code editor showing editor for condition on an EOL breakpoint](./debugger/vscode-conditional.png)
 
-*Note*: the debug adapter will automatically wrap the expresssion with a `return` statement, casting the result to a Boolean.
+Note that the debug adapter will automatically wrap the expresssion with a `return` statement, casting the result to a Boolean.
 If the expression fails to run, the adapter will allow execution to continue, and will disable the breakpoint.
+
+The condition is evaluated from within the debugged module, so you can access user-defined operations as usual, as well as operations imported from other modules.
 
 #### Single-click launching and debugging
 
