@@ -167,6 +167,16 @@ If the expression fails to run, the adapter will allow execution to continue, an
 
 The condition is evaluated from within the debugged module, so you can access user-defined operations as usual, as well as operations imported from other modules.
 
+#### Inline breakpoints
+
+When setting a regular line breakpoint, the debugger will only stop at the first valid location at that line.
+If you would like to stop at a later location, you can use [inline breakpoints](https://code.visualstudio.com/docs/editor/debugging#_inline-breakpoints) from VS Code.
+This is normally done by placing your editing cursor at the location you would like to stop, and pressing `Shift + F9`.
+
+For instance, in this EGL example, execution will stop from inside the dynamic region at the middle of the line, instead of the static region at the beginning of the line:
+
+![Screenshot of VS Code with an inline breakpoint in an EGL program](debugger/vscode-inline.png)
+
 #### Single-click launching and debugging
 
 The above approach requires separately launching your Gradle task, and your debug configuration.
