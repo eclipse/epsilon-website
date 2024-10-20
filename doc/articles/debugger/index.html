@@ -1486,8 +1486,9 @@ Launch the above configuration, and you should be able to hit breakpoints, contr
 <p>To set a condition on a breakpoint, right-click on its red circle in the editor, and select "Edit Breakpoint".
 Select the "Expression" option as shown below, write a Boolean expression in EOL, and press Enter:</p>
 <p><img alt="VS Code editor showing editor for condition on an EOL breakpoint" src="vscode-conditional.png" /></p>
-<p><em>Note</em>: the debug adapter will automatically wrap the expresssion with a <code>return</code> statement, casting the result to a Boolean.
+<p>Note that the debug adapter will automatically wrap the expresssion with a <code>return</code> statement, casting the result to a Boolean.
 If the expression fails to run, the adapter will allow execution to continue, and will disable the breakpoint.</p>
+<p>The condition is evaluated from within the debugged module, so you can access user-defined operations as usual, as well as operations imported from other modules.</p>
 <h4 id="single-click-launching-and-debugging">Single-click launching and debugging<a class="headerlink" href="#single-click-launching-and-debugging" title="Permanent link">&para;</a></h4>
 <p>The above approach requires separately launching your Gradle task, and your debug configuration.
 You can configure VS Code to launch the Gradle task for you, by using a <code>preLaunchTask</code>.</p>
