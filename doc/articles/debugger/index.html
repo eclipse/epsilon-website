@@ -1340,6 +1340,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#inline-breakpoints" class="md-nav__link">
+    Inline breakpoints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#single-click-launching-and-debugging" class="md-nav__link">
     Single-click launching and debugging
   </a>
@@ -1489,6 +1496,12 @@ Select the "Expression" option as shown below, write a Boolean expression in EOL
 <p>Note that the debug adapter will automatically wrap the expresssion with a <code>return</code> statement, casting the result to a Boolean.
 If the expression fails to run, the adapter will allow execution to continue, and will disable the breakpoint.</p>
 <p>The condition is evaluated from within the debugged module, so you can access user-defined operations as usual, as well as operations imported from other modules.</p>
+<h4 id="inline-breakpoints">Inline breakpoints<a class="headerlink" href="#inline-breakpoints" title="Permanent link">&para;</a></h4>
+<p>When setting a regular line breakpoint, the debugger will only stop at the first valid location at that line.
+If you would like to stop at a later location, you can use <a href="https://code.visualstudio.com/docs/editor/debugging#_inline-breakpoints">inline breakpoints</a> from VS Code.
+This is normally done by placing your editing cursor at the location you would like to stop, and pressing <code>Shift + F9</code>.</p>
+<p>For instance, in this EGL example, execution will stop from inside the dynamic region at the middle of the line, instead of the static region at the beginning of the line:</p>
+<p><img alt="Screenshot of VS Code with an inline breakpoint in an EGL program" src="vscode-inline.png" /></p>
 <h4 id="single-click-launching-and-debugging">Single-click launching and debugging<a class="headerlink" href="#single-click-launching-and-debugging" title="Permanent link">&para;</a></h4>
 <p>The above approach requires separately launching your Gradle task, and your debug configuration.
 You can configure VS Code to launch the Gradle task for you, by using a <code>preLaunchTask</code>.</p>
