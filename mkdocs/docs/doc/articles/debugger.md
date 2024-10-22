@@ -112,6 +112,10 @@ After hitting a breakpoint, you will be prompted to switch to the Debug perspect
 
 ![LSP4E debugger stopped on an EOL breakpoint](./debugger/lsp4e-debugger.png)
 
+!!! warning "LSP4E does not support conditional or inline breakpoints"
+    Currently, debugging from LSP4E does not support conditional breakpoints or inline breakpoints.
+    If you need to stop at a statement in the middle of a line, you can enable for now the "Line breakpoints stop at every statement on the line" option in the "Remote Epsilon Program" launch configuration.
+
 ### Microsoft Visual Studio Code
 
 Recent versions of the [VS Code](./vscode/index.md) support in Epsilon include support for the Epsilon DAP server.
