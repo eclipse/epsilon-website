@@ -1460,6 +1460,11 @@ You will need the "Debug Adapter client for Eclipse IDE" feature.</p>
 <p>Once LSP4E connects to the DAP server, the script will start running.
 After hitting a breakpoint, you will be prompted to switch to the Debug perspective, as usual:</p>
 <p><img alt="LSP4E debugger stopped on an EOL breakpoint" src="lsp4e-debugger.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">LSP4E does not support conditional or inline breakpoints</p>
+<p>Currently, debugging from LSP4E does not support conditional breakpoints or inline breakpoints.
+If you need to stop at a statement in the middle of a line, you can enable for now the "Line breakpoints stop at every statement on the line" option in the "Remote Epsilon Program" launch configuration.</p>
+</div>
 <h3 id="microsoft-visual-studio-code">Microsoft Visual Studio Code<a class="headerlink" href="#microsoft-visual-studio-code" title="Permanent link">&para;</a></h3>
 <p>Recent versions of the <a href="../vscode/">VS Code</a> support in Epsilon include support for the Epsilon DAP server.
 Epsilon includes an <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.eol.dap/epsilon">example Gradle project</a> with VS Code configuration files that you can use as a starting point.
