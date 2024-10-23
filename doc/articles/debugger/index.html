@@ -1347,6 +1347,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#stopping-at-every-statement-on-a-line-breakpoint" class="md-nav__link">
+    Stopping at every statement on a line breakpoint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#single-click-launching-and-debugging" class="md-nav__link">
     Single-click launching and debugging
   </a>
@@ -1463,7 +1470,7 @@ After hitting a breakpoint, you will be prompted to switch to the Debug perspect
 <div class="admonition warning">
 <p class="admonition-title">LSP4E does not support conditional or inline breakpoints</p>
 <p>Currently, debugging from LSP4E does not support conditional breakpoints or inline breakpoints.
-If you need to stop at a statement in the middle of a line, you can enable for now the "Line breakpoints stop at every statement on the line" option in the "Remote Epsilon Program" launch configuration.</p>
+If you need to stop at a statement in the middle of a line, you can enable for now the "Line breakpoints stop at every statement on the line" option in the "Remote Epsilon Program" launch configuration. This option is also available from <a href="#stopping-at-every-statement-on-a-line-breakpoint">VS Code</a>, and the same caveats apply as on Code.</p>
 </div>
 <h3 id="microsoft-visual-studio-code">Microsoft Visual Studio Code<a class="headerlink" href="#microsoft-visual-studio-code" title="Permanent link">&para;</a></h3>
 <p>Recent versions of the <a href="../vscode/">VS Code</a> support in Epsilon include support for the Epsilon DAP server.
@@ -1507,6 +1514,28 @@ If you would like to stop at a later location, you can use <a href="https://code
 This is normally done by placing your editing cursor at the location you would like to stop, and pressing <code>Shift + F9</code>.</p>
 <p>For instance, in this EGL example, execution will stop from inside the dynamic region at the middle of the line, instead of the static region at the beginning of the line:</p>
 <p><img alt="Screenshot of VS Code with an inline breakpoint in an EGL program" src="vscode-inline.png" /></p>
+<h4 id="stopping-at-every-statement-on-a-line-breakpoint">Stopping at every statement on a line breakpoint<a class="headerlink" href="#stopping-at-every-statement-on-a-line-breakpoint" title="Permanent link">&para;</a></h4>
+<p>Instead of using inline breakpoints, you can instruct the debug adapter to stop at every statement on your line breakpoints.
+This can be done by setting the <code>"stop-at-every-statement"</code> to <code>true</code> in your <code>launch.json</code> configuration, like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;epsilon&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attach&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug 01-hello&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4040</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;stop-at-every-statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><em>Note</em>: in EGL, every static region is a statement of its own, dynamic regions can have their own statements as well, and the final newline is on a statement of its own. For instance, if you use this option and set a line breakpoint on this line of EGL code:</p>
+<pre class="prettyprint lang-egl"><code>Hello [%=name]! The current date is [%=date%].</code></pre>
+<p>The debugger will then stop at:</p>
+<ol>
+<li><code>Hello</code>,</li>
+<li>the <code>name</code> expression,</li>
+<li><code>! The current date is</code>,</li>
+<li>the <code>date</code> expression,</li>
+<li><code>.</code>,</li>
+<li>and the final newline.</li>
+</ol>
 <h4 id="single-click-launching-and-debugging">Single-click launching and debugging<a class="headerlink" href="#single-click-launching-and-debugging" title="Permanent link">&para;</a></h4>
 <p>The above approach requires separately launching your Gradle task, and your debug configuration.
 You can configure VS Code to launch the Gradle task for you, by using a <code>preLaunchTask</code>.</p>
