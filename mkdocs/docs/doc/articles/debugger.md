@@ -114,7 +114,7 @@ After hitting a breakpoint, you will be prompted to switch to the Debug perspect
 
 !!! warning "LSP4E does not support conditional or inline breakpoints"
     Currently, debugging from LSP4E does not support conditional breakpoints or inline breakpoints.
-    If you need to stop at a statement in the middle of a line, you can enable for now the "Line breakpoints stop at every statement on the line" option in the "Remote Epsilon Program" launch configuration.
+    If you need to stop at a statement in the middle of a line, you can enable for now the "Line breakpoints stop at every statement on the line" option in the "Remote Epsilon Program" launch configuration. This option is also available from [VS Code](#stopping-at-every-statement-on-a-line-breakpoint), and the same caveats apply as on Code.
 
 ### Microsoft Visual Studio Code
 
@@ -180,6 +180,36 @@ This is normally done by placing your editing cursor at the location you would l
 For instance, in this EGL example, execution will stop from inside the dynamic region at the middle of the line, instead of the static region at the beginning of the line:
 
 ![Screenshot of VS Code with an inline breakpoint in an EGL program](debugger/vscode-inline.png)
+
+#### Stopping at every statement on a line breakpoint
+
+Instead of using inline breakpoints, you can instruct the debug adapter to stop at every statement on your line breakpoints.
+This can be done by setting the `"stop-at-every-statement"` to `true` in your `launch.json` configuration, like this:
+
+```json
+{
+    "type": "epsilon",
+    "request": "attach",
+    "name": "Debug 01-hello",
+    "port": 4040,
+    "stop-at-every-statement": true
+}
+```
+
+*Note*: in EGL, every static region is a statement of its own, dynamic regions can have their own statements as well, and the final newline is on a statement of its own. For instance, if you use this option and set a line breakpoint on this line of EGL code:
+
+```egl
+Hello [%=name]! The current date is [%=date%].
+```
+
+The debugger will then stop at:
+
+1. `Hello `,
+1. the `name` expression,
+1. `! The current date is`,
+1. the `date` expression,
+1. `.`,
+1. and the final newline.
 
 #### Single-click launching and debugging
 
