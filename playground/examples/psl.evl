@@ -1,16 +1,22 @@
 // For every task
 context Task {
 	
-	// Check that the start month is > 0
+	// Check that the start month is positive
 	constraint ValidStart {
 		check: self.start > 0
-		message: "Start month must be positive"
+		message: "The start month of a task must be positive"
 	}
 
-	// Check that the duration is > 0
+	// Check that the duration is positive
 	constraint ValidDuration {
 		check: self.duration > 0
-		message: "Duration must be positive"
+		message: "The duration of a task must be positive"
+	}
+
+	// Check that the duration is no more than 12 months
+	constraint TaskNotTooLong {
+		check: self.duration <= 12
+		message: "The duration of a task must not exceed 12 months"
 	}
 
 }

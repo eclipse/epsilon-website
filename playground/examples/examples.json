@@ -30,12 +30,13 @@
 			},
 			{
 				"id": "egl",
-				"title": "Generate Gantt Chart",
+				"title": "Generate Task Report",
 				"language": "egl",
 				"program": "psl.egl",
 				"flexmi": "psl.flexmi",
 				"emfatic": "psl.emf",
-				"outputType": "code"
+				"outputType": "code",
+				"outputLanguage": "html"
 			},
 			{
 				"id": "egx",
@@ -114,6 +115,15 @@
 				"flexmi": "psl.flexmi",
 				"emfatic": "psl.emf",
 				"outputType": "html"
+			},
+			{
+				"id": "psl2ganttchart",
+				"title": "Generate Gantt Chart",
+				"language": "egl",
+				"program": "psl2ganttchart.egl",
+				"flexmi": "psl.flexmi",
+				"emfatic": "psl.emf",
+				"outputType": "code"
 			},
 			{
 				"id": "wbs2puml",

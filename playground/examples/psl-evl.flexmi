@@ -9,7 +9,7 @@
 	<task title="Design" start="4" dur="6">
 		<effort person="Bob"/>
 	</task>
-	<task title="Implementation" start="7" dur="0">
+	<task title="Implementation" start="7" dur="24">
 		<effort person="Bob" perc="50"/>
 		<effort person="Alice" perc="50"/>
 	</task>
