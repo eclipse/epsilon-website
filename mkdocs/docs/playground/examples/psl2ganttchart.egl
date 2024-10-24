@@ -1,0 +1,46 @@
+[*Generate a Gantt chart for the project*]
+[%var p = Project.all.first();%]
+[*Print the title of the project*]
+Project: [%=p.title%]
+---
+[*Print the timeline of the project*]
+[%=p.getTimeline()%]
+[%for (t in p.tasks){%]
+[*For every task, print its lifeline*]
+[%=t.getPaddedTitle()%] [%=t.getLifeline()%]
+[%}%]
+
+[%
+operation Project getTimeline() {
+	return new Task(title="").getPaddedTitle() + " |" +
+		1.to(self.getDuration()).collect(i|i.asString().
+			pad(2,"0", false)+"|").concat("");
+}
+
+operation Task getPaddedTitle() {
+	return self.title.pad(p.getMaxTaskTitleLength()," ", true);
+}
+
+@cached
+operation Project getMaxTaskTitleLength() {
+	return self.tasks.collect(t|t.title.length()).max();
+}
+
+operation Task getLifeline() {
+	var lifeline = "";
+	for (i in 1.to(p.getDuration())){
+		lifeline += "|";
+		if (i>=self.start and i<=self.start+self.duration-1) {
+			lifeline += "--";
+		}
+		else lifeline+="  ";
+		if (not hasMore) lifeline += "|";
+	}
+	return lifeline;
+}
+
+@cached
+operation Project getDuration() {
+	return self.tasks.collect(t|t.start + t.duration - 1).max();
+}
+%]
