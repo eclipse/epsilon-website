@@ -1,7 +1,7 @@
 # Education
 
 <style>
-	img { padding: 10px; }
+	.md-content img { padding: 10px; }
 </style>
 
 Below is a list of institutions that use one or more components of Epsilon (e.g. EGL, Eugenia) as part of their modelling/MDE courses. If you'd like to report additional uses of Epsilon in taught courses or you've spotted any outdated content, please [let us know](../../forum).
