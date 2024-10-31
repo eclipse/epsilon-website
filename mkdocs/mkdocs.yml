@@ -54,6 +54,7 @@ nav:
       - Forum: 'forum.md'
       - Professional Services: professional-services
       - Social Media:
+        - LinkedIn: 'https://www.linkedin.com/company/eclipse-epsilon'
         - Twitter: 'https://twitter.com/eclipseepsilon'
         - YouTube: 'https://youtube.com/epsilondevs'
       - Epsilon Labs: 'labs.md'
@@ -73,7 +74,9 @@ theme:
     accent: 'orange'
 extra:
   social:
-    - icon: fontawesome/brands/twitter
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/eclipse-epsilon
+    - icon: fontawesome/brands/x-twitter
       link: https://twitter.com/eclipseepsilon
     - icon: fontawesome/brands/youtube
       link: https://youtube.com/epsilondevs
