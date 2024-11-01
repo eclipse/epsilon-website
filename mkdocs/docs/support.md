@@ -11,6 +11,6 @@ Epsilon also has a legacy [Eclipse-hosted forum](https://www.eclipse.org/forums/
 
 ## Email
 
-You can also contact us [by email](mailto:epsilon.devs@gmail.com) for confidential inquiries or to share how you are using Epsilon in your organisation. 
+You can also contact us [by email](mailto:epsilon.devs@gmail.com) for confidential enquiries or to share how you are using Epsilon in your organisation. 
 
 As we strive to continuously improve Epsilon, feedback from real-world users like you is invaluable. Understanding the diverse domains where Epsilon is applied can help us prioritise new features and better support the community's needs. Whether it's about its strengths, areas for improvement, or specific challenges you've faced, your insights are crucial. If you're open to a conversation, please [drop us a message](mailto:epsilon.devs@gmail.com). 
