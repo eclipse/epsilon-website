@@ -45,20 +45,19 @@ nav:
       - View open issues: 'https://github.com/eclipse/epsilon/issues'
       - Bugzilla (legacy): 'https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time'
   - Community:
+      - Frequently Asked Questions: 'faq.md'
+      - Support: 'support.md'
+      - Professional Services: professional-services
       - Who is using Epsilon?:
         - Industry: 'users/index.md'
         - Education: 'users/education.md'
         - Open-source Projects: 'users/open-source.md'
       - Who is developing Epsilon?: 'https://projects.eclipse.org/projects/modeling.epsilon/who'
-      - How can I support Epsilon?: 'https://ko-fi.com/eclipseepsilon'
-      - Forum: 'forum.md'
-      - Professional Services: professional-services
       - Social Media:
         - LinkedIn: 'https://www.linkedin.com/company/eclipse-epsilon'
-        - Twitter: 'https://twitter.com/eclipseepsilon'
+        - X: 'https://x.com/eclipseepsilon'
         - YouTube: 'https://youtube.com/epsilondevs'
       - Epsilon Labs: 'labs.md'
-      - Frequently Asked Questions: 'faq.md'
   - Branding: 'branding/index.md'
 theme:
   name: material
@@ -77,7 +76,7 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/eclipse-epsilon
     - icon: fontawesome/brands/x-twitter
-      link: https://twitter.com/eclipseepsilon
+      link: https://x.com/eclipseepsilon
     - icon: fontawesome/brands/youtube
       link: https://youtube.com/epsilondevs
 repo_name: 'Epsilon @ GitHub'
@@ -175,13 +174,14 @@ plugins:
         j2_variable_end_string: '}}}'
     - redirects:
         redirect_maps:
+            'forum.md' : 'support.md'
             'doc/screencasts.md' : 'https://www.youtube.com/epsilondevs'
             'doc/lectures.md' : 'https://www.youtube.com/playlist?list=PLRwHao6Ue0YUecg7vEUQTrtySIWwrd_mI'
             'doc/articles/emfatic.md': 'https://www.eclipse.org/emfatic'
-            'doc/articles/eugenia-gmf-tutorial/index.md': 'https://www.eclipse.org/epsilon/doc/eugenia'
-            'doc/articles/flexmi/index.md': 'https://www.eclipse.org/epsilon/doc/flexmi'
-            'doc/articles/picto/index.md': 'https://www.eclipse.org/epsilon/doc/picto'
-            'doc/articles/exeed-reference/index.md': 'https://www.eclipse.org/epsilon/doc/exeed'
+            'doc/articles/eugenia-gmf-tutorial/index.md': 'doc/eugenia.md'
+            'doc/articles/flexmi/index.md': 'doc/flexmi/index.md'
+            'doc/articles/picto/index.md': 'doc/picto/index.md'
+            'doc/articles/exeed-reference/index.md': 'doc/exeed/index.md'
 
 
 copyright: 'Copyright © <a href="https://www.eclipse.org">Eclipse Foundation, Inc.</a> All Rights Reserved <br/> <a href="https://www.eclipse.org/legal/privacy.php">Privacy Policy</a> &centerdot; <a href="https://www.eclipse.org/legal/termsofuse.php">Terms of Use</a> &centerdot; <a href="https://www.eclipse.org/legal/copyright.php">Copyright Agent</a>  &centerdot; <a href="https://www.eclipse.org/legal/">Legal</a><p><img src="https://eclipse.dev/epsilon/assets/images/eclipse-foundation-logo.svg"/></p>'
