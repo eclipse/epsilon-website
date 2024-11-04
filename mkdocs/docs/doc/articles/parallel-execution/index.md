@@ -4,11 +4,46 @@ Some of Epsilon's languages support parallel execution, which can leverage multi
 
 ![](adv-tab.png)
 
-Note that the modelling technology must also be able to handle concurrent query operations. Most modelling technologies will likely be supported for read-only model management tasks such as validation and code generation, however some which rely on external tools e.g. Simulink cannot handle concurrent operations. In any case, since most models support caching, the cache must be set up to support concurrency. You should ensure that the appropriate concurrency support option is checked in the model configuration.
+When choosing a parallel implementation, first-order operations such as `select`, `exists` and so on will also be parallelised automatically where appropriate. This applies in particular to the parallel EOL implementation.
+
+## Enabling thread-safety features in modelling technologies
+
+The modelling technology must also be able to handle concurrent query operations. Most modelling technologies will likely be supported for read-only model management tasks such as validation and code generation, however some which rely on external tools (e.g. Simulink) cannot handle concurrent operations.
+
+In any case, since most models support caching, the cache must be set up to support concurrency.
+The appropriate way will depend on how you are executing your Epsilon programs.
+
+### From Eclipse launch configurations
+
+You should ensure that the appropriate concurrency support option is checked in the model configuration.
+For example, EMF models require checking the "Thread-safe cache" option:
 
 ![](model-conf.png)
 
-Note that when choosing a parallel implementation, first-order operations such as `select`, `exists` etc. will also be parallelised automatically where appropriate. This applies in particular to the parallel EOL implementation.
+### From Java programs
+
+If you are using Epsilon from Java rather than from the Eclipse IDE, you would need to enable the `concurrent` flag before loading the model:
+
+```java
+model.setConcurrent(true);
+```
+
+### From Ant tasks
+
+The `concurrent` flag is also exposed from the Ant tasks.
+For EMF models:
+
+```xml
+<epsilon.emf.loadModel ... concurrent="true" />
+```
+
+For other models:
+
+```xml
+<epsilon.loadModel ...>
+  <parameter name="concurrent" value="true" />
+</epsilon.loadModel>
+```
 
 ## Annotation-based parallelism
 
@@ -40,4 +75,5 @@ context ModelElementType {
 ```
 
 ## Limitations
-Currently Epsilon does not support assignment of extended properties when executing in parallel. Parallel operations also cannot be nested.
+
+Currently, Epsilon does not support assignment of extended properties when executing in parallel. Parallel operations cannot be nested, either.
