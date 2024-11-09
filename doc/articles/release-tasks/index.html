@@ -186,7 +186,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/eclipse/epsilon" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/eclipse-epsilon/epsilon" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -231,7 +231,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/eclipse/epsilon" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/eclipse-epsilon/epsilon" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -1209,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/eclipse/epsilon/issues/new/choose" class="md-nav__link">
+      <a href="https://github.com/eclipse-epsilon/epsilon/issues/new/choose" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1230,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/eclipse/epsilon/issues" class="md-nav__link">
+      <a href="https://github.com/eclipse-epsilon/epsilon/issues" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1783,10 +1783,10 @@ It's important to do them in proper order, as described below.</p>
 <p>Log in to <a href="https://projects.eclipse.org/projects/modeling.epsilon">the PMI</a>. Under the "Releases" section (right hand side under "Committer Tools"), click on "Create a new release" and fill in the fields. Note that we typically have a major.minor naming scheme, so for the release name, make sure it's 2 numbers (i.e. don't add a .0 patch number). If it has been more than one year since the last release, a review is required, so the release date should be set at least 8 days later than today. In this case, you will also need to do "Generate IP log" for the release.</p>
 <p>On the release, go to "Edit". At a minimum, you should ensure "The Basics" section is filled in and correct. For "IP Due Dilligence Type", select Type A if you're unsure. The hit "Save". When you're happy with it, and it has been more than a year since the last release, you need to submit the release for review.</p>
 <h3 id="updating-orbit-repos">Updating Orbit repos<a class="headerlink" href="#updating-orbit-repos" title="Permanent link">&para;</a></h3>
-<p>Before creating the release, it's worth updating links to the Orbit repository used for resolving our dependencies. <a href="https://github.com/eclipse/epsilon/commit/1f6f1fac9edf21de7614bc74da9165db53408448">This commit</a> provides an example of the process, showing which files should be updated.</p>
+<p>Before creating the release, it's worth updating links to the Orbit repository used for resolving our dependencies. <a href="https://github.com/eclipse-epsilon/epsilon/commit/1f6f1fac9edf21de7614bc74da9165db53408448">This commit</a> provides an example of the process, showing which files should be updated.</p>
 <h3 id="managing-the-update-sites">Managing the update sites<a class="headerlink" href="#managing-the-update-sites" title="Permanent link">&para;</a></h3>
 <p>When creating a new release, we need to add the update site for this release to the <a href="https://download.eclipse.org/epsilon/updates/">composite</a>. We also need to create a folder containing the javadocs for the release under a directory with the name of the release at the <a href="https://download.eclipse.org/epsilon/">root of the download site</a>. We also need to remove the old release folder (move it to the archive). The new update site for the release is obtained by copying the interim.</p>
-<p>These tasks are automated by a <a href="https://github.com/eclipse/epsilon/tree/main/releng/org.eclipse.epsilon.releng/new_version_tasks.sh">shell script</a>. Please check this before the release. The main thing you'll need to check are the <code>OldVersion</code> and <code>NewVersion</code> variables.
+<p>These tasks are automated by a <a href="https://github.com/eclipse-epsilon/epsilon/tree/main/releng/org.eclipse.epsilon.releng/new_version_tasks.sh">shell script</a>. Please check this before the release. The main thing you'll need to check are the <code>OldVersion</code> and <code>NewVersion</code> variables.
 There are two ways this can be run, but in any case, it needs to be run from the CI server. One way is to uncomment the <code>NEW VERSION</code> stage in the Jenkinsfile at the root of the repository, then push to trigger it. The other way is to run the <a href="https://ci.eclipse.org/epsilon/job/release-logistics/">release-logistics</a> Jenkins job. Of course, you should check what is being run first, since if anything is deleted or overwritten, it can't be undone. Login to the CI and then you can check what is being run in <a href="https://ci.eclipse.org/epsilon/job/release-logistics/configure">Configure</a>. Scroll down to Build and check the Execute shell task, making sure it's the same as that in the shell script in the repo (or whichever looks correct).</p>
 <h3 id="creating-a-new-version-in-the-oomph-installer">Creating a new version in the Oomph installer<a class="headerlink" href="#creating-a-new-version-in-the-oomph-installer" title="Permanent link">&para;</a></h3>
 <p>The <code>releng/org.eclipse.epsilon.releng/epsilonUse.setup</code> should be updated with the new version. You can copy the Interim version and rename it to the release. The ordering of Product Versions should always be the latest release at the top, then Interim, then older versions. Whichever is at the top will be the default when users try to install Epsilon using Oomph.
@@ -1797,7 +1797,7 @@ Of course, the properties for the new version should be changed to match (e.g. t
 <p>You should run <code>git tag x.y</code>, replacing x.y with the version. Then do <code>git push origin x.y</code> (again, <code>x.y</code> is the version).
 You can verify the tag was pushed by checking the output of <code>git ls-remote --tags origin</code>.</p>
 <h3 id="update-the-website">Update the website<a class="headerlink" href="#update-the-website" title="Permanent link">&para;</a></h3>
-<p>The Epsilon website's <a href="https://www.eclipse.org/epsilon/download/">Download page</a> should be the only place in the <a href="https://github.com/eclipse/epsilon-website">website repo</a> that needs updating. Specifically, you will need to change two source files in the <a href="https://github.com/eclipse/epsilon-website/tree/master/mkdocs/docs/download">source directory</a>.
+<p>The Epsilon website's <a href="https://www.eclipse.org/epsilon/download/">Download page</a> should be the only place in the <a href="https://github.com/eclipse-epsilon/epsilon-website">website repo</a> that needs updating. Specifically, you will need to change two source files in the <a href="https://github.com/eclipse-epsilon/epsilon-website/tree/master/mkdocs/docs/download">source directory</a>.
 Add the new release info to <code>all-versions.md</code>. Copy <code>index.md</code> and rename it to the current / old release. Then update <code>index.md</code> to mention the new release. Generally it should be as easy as Find and Replacing the old version with the new one.</p>
 <p>You should also update the list of Javadoc URLs in <code>mkdocs.yml</code>, adding the link to the previous stable release as the <code>Stable</code> link will now point to the new stable release.</p>
 <p>Also don't forget to build the static site for changes to take effect.</p>

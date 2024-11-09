@@ -186,7 +186,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/eclipse/epsilon" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/eclipse-epsilon/epsilon" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -231,7 +231,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/eclipse/epsilon" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/eclipse-epsilon/epsilon" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -1209,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/eclipse/epsilon/issues/new/choose" class="md-nav__link">
+      <a href="https://github.com/eclipse-epsilon/epsilon/issues/new/choose" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1230,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/eclipse/epsilon/issues" class="md-nav__link">
+      <a href="https://github.com/eclipse-epsilon/epsilon/issues" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1937,7 +1937,7 @@
 </ul>
 <details class="bug">
 <summary>Issues with numeric cell values in Epsilon 2.5.0 and earlier</summary>
-<p>In Epsilon 2.5.0 and earlier releases, the Excel driver only supported the <code>integer</code>, <code>double</code>, and <code>float</code> datatypes for cells with numeric values. <code>string</code> and <code>boolean</code> datatypes were ignored, and treated as <code>double</code>. See <a href="https://github.com/eclipse/epsilon/issues/89">issue #89</a>.</p>
+<p>In Epsilon 2.5.0 and earlier releases, the Excel driver only supported the <code>integer</code>, <code>double</code>, and <code>float</code> datatypes for cells with numeric values. <code>string</code> and <code>boolean</code> datatypes were ignored, and treated as <code>double</code>. See <a href="https://github.com/eclipse-epsilon/epsilon/issues/89">issue #89</a>.</p>
 </details>
 <h3 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h3>
 <p>In a configuration document we can also specify ID-based references to capture relationships between columns belonging to potentially different worksheets. Each reference has a <code>source</code> and a <code>target</code> column, an optional <code>name</code> (if a name is not specified, the name of the source column is used to navigate the reference), a cardinality (<code>many</code> attribute), and specifies whether updates to cells of the target column should be propagated automatically (<code>cascadeUpdates</code> attribute) to the respective cells in the source column to preserve referential integrity.</p>
@@ -1987,7 +1987,7 @@ to.teaches = to.teaches.including(module);</code></pre>
     }
 }</code></pre>
 <h2 id="creating-spreadsheets">Creating Spreadsheets<a class="headerlink" href="#creating-spreadsheets" title="Permanent link">&para;</a></h2>
-<p>To create a spreadsheet from scratch (e.g. when it is produced by an ETL transformation), we also need to specify an <code>index</code> for each column in the XML mapping file. Below is an EOL program that creates the <a href="#worksheets-columns-and-rows">spreadsheet above</a> from scratch, and the mapping file for it. The complete example is in <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel">Epsilon's Git repo</a>.</p>
+<p>To create a spreadsheet from scratch (e.g. when it is produced by an ETL transformation), we also need to specify an <code>index</code> for each column in the XML mapping file. Below is an EOL program that creates the <a href="#worksheets-columns-and-rows">spreadsheet above</a> from scratch, and the mapping file for it. The complete example is in <a href="https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel">Epsilon's Git repo</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">create-spreadsheet.eol</label><label for="__tabbed_2_2">mapping.xml</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2061,7 +2061,7 @@ new Mark(student=jane, module=HCI, mark=74);</code></pre>
 </div>
 </div>
 <h2 id="working-with-formulas">Working with Formulas<a class="headerlink" href="#working-with-formulas" title="Permanent link">&para;</a></h2>
-<p>To set the value of a cell to a formula, start its value with <code>=</code> as shown below. The complete example is in <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel.formulas">Epsilon's Git repo</a>.</p>
+<p>To set the value of a cell to a formula, start its value with <code>=</code> as shown below. The complete example is in <a href="https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel.formulas">Epsilon's Git repo</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">create-spreadsheet-with-formulas.eol</label><label for="__tabbed_3_2">mapping.xml</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

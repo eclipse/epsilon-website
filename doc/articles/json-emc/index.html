@@ -186,7 +186,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/eclipse/epsilon" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/eclipse-epsilon/epsilon" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -231,7 +231,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/eclipse/epsilon" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/eclipse-epsilon/epsilon" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -1209,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/eclipse/epsilon/issues/new/choose" class="md-nav__link">
+      <a href="https://github.com/eclipse-epsilon/epsilon/issues/new/choose" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1230,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/eclipse/epsilon/issues" class="md-nav__link">
+      <a href="https://github.com/eclipse-epsilon/epsilon/issues" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1806,14 +1806,14 @@
 </ul>
 <h2 id="querying-a-json-document">Querying a JSON document<a class="headerlink" href="#querying-a-json-document" title="Permanent link">&para;</a></h2>
 <p>For this first example, we will query the <a href="https://docs.github.com/en/rest">GitHub REST API</a> via HTTP, asking it about the <a href="https://api.github.com/repos/eclipse/epsilon">Eclipse Epsilon project</a>, parse its JSON response, and produce a short text report in Markdown.
-This example is available from the <a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.emc.json.example">Epsilon GitHub repository</a>.</p>
+This example is available from the <a href="https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.emc.json.example">Epsilon GitHub repository</a>.</p>
 <p>Here is an excerpt of the JSON document (omitted parts are in <code>...</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="err">...</span>
 <span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Epsilon is a family of Java-based scripting languages for automating common model-based software engineering tasks, such as code generation, model-to-model transformation and model validation, that work out of the box with EMF (including Xtext and Sirius), UML (including Cameo/MagicDraw), Simulink, XML and other types of models.&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="err">...</span>
 <span class="w">  </span><span class="nt">&quot;ssh_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git@github.com:eclipse/epsilon.git&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;clone_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/eclipse/epsilon.git&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;clone_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/eclipse-epsilon/epsilon.git&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="err">...</span>
 <span class="w">  </span><span class="nt">&quot;stargazers_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;watchers_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span>
@@ -1878,7 +1878,7 @@ Epsilon is licensed under the [[%=M.root.license.name%]]([%=M.root.license.url%]
 
 Epsilon is a family of Java-based scripting languages for automating common model-based software engineering tasks, such as code generation, model-to-model transformation and model validation, that work out of the box with EMF (including Xtext and Sirius), UML (including Cameo/MagicDraw), Simulink, XML and other types of models.
 
-* Clone via HTTPS: https://github.com/eclipse/epsilon.git
+* Clone via HTTPS: https://github.com/eclipse-epsilon/epsilon.git
 * Clone via SSH: git@github.com:eclipse/epsilon.git
 
 ## License

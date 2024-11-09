@@ -190,7 +190,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/eclipse/epsilon" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/eclipse-epsilon/epsilon" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -235,7 +235,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/eclipse/epsilon" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/eclipse-epsilon/epsilon" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -1335,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/eclipse/epsilon/issues/new/choose" class="md-nav__link">
+      <a href="https://github.com/eclipse-epsilon/epsilon/issues/new/choose" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1356,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://github.com/eclipse/epsilon/issues" class="md-nav__link">
+      <a href="https://github.com/eclipse-epsilon/epsilon/issues" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2135,7 +2135,7 @@ operation Original!Port isOutput() : Boolean {
 <p>Firstly, Flock does not support rule inheritance, and re-use of migration logic is instead achieved by exploiting the inheritance hierarchy of the original metamodel. The form of re-use provided by Flock is less general than rule-inheritance, but has proved sufficient for existing use-cases.</p>
 <p>Secondly, Flock does not provide language constructs for controlling the order in which rules are scheduled (other than the ordering of the rules in the program file). ATL, for example, includes constructs that allow users to specify that rules are scheduled explicitly (lazy rules) or in a memoised manner (unique rules). We anticipate that scheduling constructs might be necessary for larger migration strategies, but have not yet encountered situations in which they have been required.</p>
 <p>Thirdly, Flock is tailored for applying migration to a single original and a single migrated model. Although further models can be accessed by a Flock migration strategy, they cannot be used as the source or target of the conservative copy algorithm. By contrast, some general-purpose model transformation languages can access and manipulate any number of models.</p>
-<p>Fourthly, Flock can only operate on models loaded with <a href="../emc">EMC drivers</a> that implement the <a href="https://github.com/eclipse/epsilon/blob/874e5c435742e94faed95b42d06d43b8efecf242/plugins/org.eclipse.epsilon.eol.engine/src/org/eclipse/epsilon/eol/models/IReflectiveModel.java">IReflectiveModel</a> interface  (such as the <a href="../emc/#eclipse-modeling-framework">EMF driver</a>), as its conservative copy algorithm needs additional information to what Epsilon's <a href="../emc/#the-imodel-interface">IModel</a> interface provides. </p>
+<p>Fourthly, Flock can only operate on models loaded with <a href="../emc">EMC drivers</a> that implement the <a href="https://github.com/eclipse-epsilon/epsilon/blob/874e5c435742e94faed95b42d06d43b8efecf242/plugins/org.eclipse.epsilon.eol.engine/src/org/eclipse/epsilon/eol/models/IReflectiveModel.java">IReflectiveModel</a> interface  (such as the <a href="../emc/#eclipse-modeling-framework">EMF driver</a>), as its conservative copy algorithm needs additional information to what Epsilon's <a href="../emc/#the-imodel-interface">IModel</a> interface provides. </p>
 <p>Finally, Flock has been tailored to the model migration problem. In other words, we believe that Flock is well-suited to specifying model transformations between two metamodels that are very similar. For metamodel evolution in which the original metamodel undergoes significant and large-scale revision, a general-purpose transformation might be more suitable than Flock for specifying model migration.</p>
 <h3 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h3>
 <p>Flock is typically used as a manual specification approach in which model migration strategies are written by hand. As such, we believe that Flock provides a flexible and concise way to specify migration, and is a foundation for further tools that seek to automate the metamodel evolution and model migration processes. There are approaches to model migration that encompass both the metamodel evolution and model migration processes, seeking to automatically derive model migration strategies (e.g., <a href="http://www.eclipse.org/edapt/">Edapt</a>. These approaches provide more automation but at the cost of flexibility: for example, you might be restricted to using a tool-specific editor to perform model migration, or to using only EMF.</p>
@@ -2144,7 +2144,7 @@ semantics of Flock can be found in a <a href="https://dl.acm.org/doi/10.1007/s10
 and languages in a <a href="https://link.springer.com/chapter/10.1007/978-3-642-16145-2_5">MoDELS paper</a>.</p>
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone/flock/FlockStandaloneExample.java">Executing a Flock migration transformation from Java</a>: Shows how to run Flock to migrate an EMF-based model from a headless Java application.</li>
+<li><a href="https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone/flock/FlockStandaloneExample.java">Executing a Flock migration transformation from Java</a>: Shows how to run Flock to migrate an EMF-based model from a headless Java application.</li>
 </ul>
 
 
