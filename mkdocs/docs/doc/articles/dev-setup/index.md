@@ -22,6 +22,6 @@ You can customise variables to suit, such as where Eclipse will be installed and
 
 ![](installer-variables.png)
 
-Keep going with Next and then Finish. If all went to plan, then you should have a local copy of the [main Epsilon repository](https://github.com/eclipse/epsilon) and [the website](https://github.com/eclipse/epsilon-website), with projects imported into Eclipse. You may need to wait for setup tasks to finish when first launching Eclipse. This can also be manually triggered from the *Help -> Perform Setup Tasks* menu in Eclipse.
+Keep going with Next and then Finish. If all went to plan, then you should have a local copy of the [main Epsilon repository](https://github.com/eclipse-epsilon/epsilon) and [the website](https://github.com/eclipse-epsilon/epsilon-website), with projects imported into Eclipse. You may need to wait for setup tasks to finish when first launching Eclipse. This can also be manually triggered from the *Help -> Perform Setup Tasks* menu in Eclipse.
 
 If you encounter any issues, please let us know via the [mailing list](https://accounts.eclipse.org/mailing-list/epsilon-dev) or [forum](../../../forum).

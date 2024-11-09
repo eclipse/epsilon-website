@@ -41,8 +41,8 @@ nav:
       - '2.2.0': 'https://download.eclipse.org/epsilon/2.2.0-javadoc/'
       - '2.1.0': 'https://download.eclipse.org/epsilon/2.1.0-javadoc/'
   - Issues:
-      - Report a new issue: 'https://github.com/eclipse/epsilon/issues/new/choose'
-      - View open issues: 'https://github.com/eclipse/epsilon/issues'
+      - Report a new issue: 'https://github.com/eclipse-epsilon/epsilon/issues/new/choose'
+      - View open issues: 'https://github.com/eclipse-epsilon/epsilon/issues'
       - Bugzilla (legacy): 'https://bugs.eclipse.org/bugs/buglist.cgi?product=epsilon&cmdtype=doit&order=Reuse+same+sort+as+last+time'
   - Community:
       - Frequently Asked Questions: 'faq.md'
@@ -80,7 +80,7 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://youtube.com/epsilondevs
 repo_name: 'Epsilon @ GitHub'
-repo_url: 'https://github.com/eclipse/epsilon'
+repo_url: 'https://github.com/eclipse-epsilon/epsilon'
 edit_uri: ../epsilon-website/edit/master/mkdocs/docs/
 markdown_extensions:
   - pymdownx.superfences:

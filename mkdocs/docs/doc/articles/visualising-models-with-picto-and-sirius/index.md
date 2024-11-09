@@ -12,7 +12,7 @@ In this example, we will use the Sirius basicfamily example and render charts us
 	- Basic Family Metamodel Definition
 	(If you cannot see the Sirius Examples, you will need to install the samples feature from [here](https://wiki.eclipse.org/Sirius/Update_Sites#Releases))
 
-2. Import the `org.eclipse.epsilon.examples.picto.sirius` plug-in project from the [Epsilon repository](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.sirius).
+2. Import the `org.eclipse.epsilon.examples.picto.sirius` plug-in project from the [Epsilon repository](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.sirius).
 
 3. Launch a new runtime instance of Eclipse.
 

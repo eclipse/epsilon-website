@@ -1,6 +1,6 @@
 # Running Epsilon Programs on POJOs
 
-Epsilon's languages can be used to query and modify plain-old Java objects (POJOs). The following [Maven-based example](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.pojos) demonstrates setting up a `Project` object with two `Task`s, and passing it to an [EOL](../../eol) program (`return project.tasks.size();`) to query.
+Epsilon's languages can be used to query and modify plain-old Java objects (POJOs). The following [Maven-based example](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.pojos) demonstrates setting up a `Project` object with two `Task`s, and passing it to an [EOL](../../eol) program (`return project.tasks.size();`) to query.
 
 === "EOLExample.java"
 
@@ -55,4 +55,4 @@ The example below demonstrates processing the same POJO using Epsilon's template
     {{{ example("org.eclipse.epsilon.examples.pojos/pom.xml", true) }}}
     ```
 
-The complete source of the example is [on GitHub](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.pojos).
+The complete source of the example is [on GitHub](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.pojos).

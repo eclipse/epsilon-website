@@ -393,7 +393,7 @@ For multi-valued attributes and non-containment references, comma-separated valu
 !!! tip "Tabs vs. Spaces"
     If your YAML-flavoured Flexmi model doesn't parse (i.e. the outline view of the Flexmi editor is empty), you may want to check that you have not accidentally used tabs instead of spaces for indentation.
 
-The Flexmi parser auto-detects whether a file is XML-based or YAML-based and parses it accordingly. As such, you should be able to edit YAML-flavoured `*.flexmi` files in the Flexmi editor. Additional examples of YAML-flavoured Flexmi models are available in this [test project](https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.flexmi.test/src/org/eclipse/epsilon/flexmi/test/models) (look for `*.yaml` files).
+The Flexmi parser auto-detects whether a file is XML-based or YAML-based and parses it accordingly. As such, you should be able to edit YAML-flavoured `*.flexmi` files in the Flexmi editor. Additional examples of YAML-flavoured Flexmi models are available in this [test project](https://github.com/eclipse-epsilon/epsilon/tree/main/tests/org.eclipse.epsilon.flexmi.test/src/org/eclipse/epsilon/flexmi/test/models) (look for `*.yaml` files).
 
 ### Dynamic Templates in YAML
 
@@ -435,7 +435,7 @@ Flexmi was originally developed as a quick and dirty way to type in EMF models w
 
 ## Resources
 
-- More examples of using Flexmi can be found in projects containing `flexmi` in their name, under the [examples folder](https://github.com/eclipse/epsilon/tree/main/examples) of Epsilon's Git repository.
+- More examples of using Flexmi can be found in projects containing `flexmi` in their name, under the [examples folder](https://github.com/eclipse-epsilon/epsilon/tree/main/examples) of Epsilon's Git repository.
 - [This article](../articles/running-epsilon-ant-tasks-from-command-line/#flexmi-and-emfatic) shows how to use Flexmi models in ANT/Gradle/Maven builds
 - Flexmi and relevant underpinning research is further described in the following papers:
     - [Towards Flexible Parsing of StructuredTextual Model Representations](http://ceur-ws.org/Vol-1694/FlexMDE2016_paper_3.pdf)

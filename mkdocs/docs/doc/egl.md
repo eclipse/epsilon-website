@@ -375,7 +375,7 @@ Finally, an Eclipse extension point is provided for custom formatters. Providing
 ## Outdentation
 
 !!! bug "Outdentation breaks fine-grained traceability links"
-    The current implementation of outdentation [doesn't work well](https://github.com/eclipse/epsilon/issues/128) with EGL's [fine-grained traceability](#traceability) feature.
+    The current implementation of outdentation [doesn't work well](https://github.com/eclipse-epsilon/epsilon/issues/128) with EGL's [fine-grained traceability](#traceability) feature.
 
 A common issue encountered when writing EGL templates is that the ideal indentation for the template code itself and the output it produces may be different. For example, consider the template below, which produces a Graphviz graph from a state machine model.
 
@@ -410,7 +410,7 @@ digraph G {
 !!! tip "Run this example"
     You can run and tweak this example is the [Epsilon Playground](../../playground/?78a011a5).
 
-Outdentation also works with `if`, `switch`, `while` statements etc. More examples are available in the [unit tests folder of this feature](https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.egl.engine.test.acceptance/src/org/eclipse/epsilon/egl/test/acceptance/outdentation).
+Outdentation also works with `if`, `switch`, `while` statements etc. More examples are available in the [unit tests folder of this feature](https://github.com/eclipse-epsilon/epsilon/tree/main/tests/org.eclipse.epsilon.egl.engine.test.acceptance/src/org/eclipse/epsilon/egl/test/acceptance/outdentation).
 
 ## Traceability
 

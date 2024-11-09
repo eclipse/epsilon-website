@@ -10,7 +10,7 @@ Picto is an Eclipse view for **visualising models via model-to-text transformati
 ??? info "Citing Picto in a publication?"
 	If you are referring to Picto in a publication, please cite [this paper](https://dl.acm.org/doi/10.1145/3365438.3410943) instead of the website URL. A pre-print of the paper is available [here](http://eprints.whiterose.ac.uk/164209/).
 
-On the flip side, Picto displays read-only views of models and as such it is not a good fit if diagram-based model editing capabilities are required. In this article we demonstrate Picto through a small social network example. The complete source code of the example is available [here](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.socialnetwork/).
+On the flip side, Picto displays read-only views of models and as such it is not a good fit if diagram-based model editing capabilities are required. In this article we demonstrate Picto through a small social network example. The complete source code of the example is available [here](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.socialnetwork/).
 
 ![](picto-eclipse.png)
 
@@ -99,7 +99,7 @@ The transformation consists of two rules:
 Each rule specifies the EGL template that it will invoke (`socialnetwork2graphviz.egl` in both cases here) as well as a set of parameters that Picto needs. The parameters are as follows:
 
 * `path`: A collection of strings that specify the path of the produced view in the Picto tree
-* `icon`: The icon of the view on the Picto tree. Allowed values at the moment are file names (without the extension) of all icon files under [this folder](https://github.com/eclipse/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/icons), as well as `diagram-rrggbb` values where `rrggbb` is a hex colour. Additionally, you can extend the available set of icons by populating an `icons` folder next to the model-to-text transformation file that defines your Picto visualisation (e.g. next to `socialnetwork.egx`)
+* `icon`: The icon of the view on the Picto tree. Allowed values at the moment are file names (without the extension) of all icon files under [this folder](https://github.com/eclipse-epsilon/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/icons), as well as `diagram-rrggbb` values where `rrggbb` is a hex colour. Additionally, you can extend the available set of icons by populating an `icons` folder next to the model-to-text transformation file that defines your Picto visualisation (e.g. next to `socialnetwork.egx`)
 * `format`: The format of the view that the EGL transformation will produce. Built-in formats supported in Epsilon 2.4.0 are `graphviz-dot`, `graphviz-circo`, `graphviz-neato`, `graphviz-fdp`, `plantuml`, `text`, `html` and `svg`. Epsilon 2.5.0 will add integration with [Kroki](https://kroki.io) servers (both public and self-hosted): the Kroki `/FORMAT/svg` endpoint is available as `kroki-FORMAT` (e.g. `kroki-plantuml`, `kroki-structurizr`, or `kroki-mermaid`).
 * `layers`: A sequence of maps, each of which represents a layer of the view. Each layer needs to define an `id`, a `title` and (optionally), whether it is `active` by default
 
@@ -190,7 +190,7 @@ In such cases, it is preferable to generate many smaller diagrams; for this exam
 
 ## Interactive Diagrams
 
-Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions below, which are showcased [here](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl).
+Diagrams can also be linked to each other and link back to the models from which they were generated. For example, clicking any of the yellow classes in the diagram below takes you to the respective diagram and clicking on the green EClassifer class, takes you to the class definition in the Ecore editor. This is achieved through two built-in JavaScript functions below, which are showcased [here](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.ecore/ecore2vis/classdiagram.egl).
 
 | Signature                                         | Description                                                  |
 | ------------------------------------------------- | ------------------------------------------------------------ |
@@ -222,10 +222,10 @@ Picto provides the following extension points that can be used to extend its fun
 | org.eclipse.epsilon.picto.pictoSource            | Bind Picto to a type of Eclipse-based editors so that Picto auto-refreshes every time a file in an editor of this type is saved |
 | org.eclipse.epsilon.picto.browserFunction        | Add a custom Javascript function that generated diagrams can call (much like the `showView` and `showElement` functions above) |
 | org.eclipse.epsilon.picto.browserScript          | Add a Javascript that executes when the Picto browser loads  |
-| org.eclipse.epsilon.picto.viewContentTransformer | Transform a custom content type to HTML, or to a content type that another [ViewContentTransformer](https://github.com/eclipse/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/ViewContentTransformer.java) can transform. See [MarkdownContentTransformer](https://github.com/eclipse/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/MarkdownContentTransformer.java) as an example. |
-| org.eclipse.epsilon.picto.htmlElementTransformer | Add support for custom HTML elements to Picto. See [PictoViewElementTransformer](https://github.com/eclipse/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/elements/PictoViewElementTransformer.java) as an example, which adds a new `<picto-view path="..."/>` HTML tag to Picto, that supports embedding Picto views [within other Picto views](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.ecore/comps/readme.html). |
+| org.eclipse.epsilon.picto.viewContentTransformer | Transform a custom content type to HTML, or to a content type that another [ViewContentTransformer](https://github.com/eclipse-epsilon/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/ViewContentTransformer.java) can transform. See [MarkdownContentTransformer](https://github.com/eclipse-epsilon/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/MarkdownContentTransformer.java) as an example. |
+| org.eclipse.epsilon.picto.htmlElementTransformer | Add support for custom HTML elements to Picto. See [PictoViewElementTransformer](https://github.com/eclipse-epsilon/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/src/org/eclipse/epsilon/picto/transformers/elements/PictoViewElementTransformer.java) as an example, which adds a new `<picto-view path="..."/>` HTML tag to Picto, that supports embedding Picto views [within other Picto views](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.ecore/comps/readme.html). |
 
-Please see this [plugin.xml](https://github.com/eclipse/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/plugin.xml), which shows how some of these extension points were used to integrate Picto with different technologies, such as [PlantUML](https://plantuml.com/) or [Mermaid](https://github.com/mermaid-js/mermaid).
+Please see this [plugin.xml](https://github.com/eclipse-epsilon/epsilon/tree/main/plugins/org.eclipse.epsilon.picto/plugin.xml), which shows how some of these extension points were used to integrate Picto with different technologies, such as [PlantUML](https://plantuml.com/) or [Mermaid](https://github.com/mermaid-js/mermaid).
 
 ## Using Picto in standalone mode / with many models
 
@@ -259,15 +259,15 @@ While EMF provides support for [reflective model instantiation](../articles/refl
 
 ## Gallery
 
-[![](picto-minisd.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.plantuml.minisd)
+[![](picto-minisd.png)](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.plantuml.minisd)
 
-[![](picto-comps.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.comps)
+[![](picto-comps.png)](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.comps)
 
-[![](picto-risks.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.risks)
+[![](picto-risks.png)](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.risks)
 
-[![](picto-gsn.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.gsn)
+[![](picto-gsn.png)](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.flexmi.gsn)
 
-[![Table generated with the Pinset language](../articles/picto-tables/pinset-picto.png)](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.socialnetwork)
+[![Table generated with the Pinset language](../articles/picto-tables/pinset-picto.png)](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.socialnetwork)
 
 ## Additional Resources
 

@@ -3,7 +3,7 @@
 !!! warning "Eugenia discontinued in Epsilon 2.5"
     Following the [archival of the GMF Tooling project](https://projects.eclipse.org/projects/modeling.gmf-tooling), Eugenia has been discontinued from version 2.5 onwards. While you can still use Eugenia with older versions of Epsilon, you may want to consider more actively-maintained tools such as [Eclipse Sirius](https://eclipse.org/sirius) if you need to develop a graphical editor, or [Picto](../picto) if you are only interested in producing read-only views from models.
 
-Eugenia is a tool that simplifies the development of GMF-based graphical model editors by automatically generating the `.gmfgraph`, `.gmftool` and `.gmfmap` models needed by GMF editor from a single annotated Ecore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic; an Ecore version is available [here](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eugenia.examples.filesystem/model/filesystem.ecore)) it can generate a fully functional GMF editor, a screenshot of which is displayed below.
+Eugenia is a tool that simplifies the development of GMF-based graphical model editors by automatically generating the `.gmfgraph`, `.gmftool` and `.gmfmap` models needed by GMF editor from a single annotated Ecore metamodel. For example, from the following annotated EMF metamodel (expressed using Emfatic; an Ecore version is available [here](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.eugenia.examples.filesystem/model/filesystem.ecore)) it can generate a fully functional GMF editor, a screenshot of which is displayed below.
 
 ## The Filesystem metamodel
 

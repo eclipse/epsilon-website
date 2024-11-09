@@ -3,7 +3,7 @@
 To run Epsilon from source, you need to:
 
 - Download a copy of the [latest version of Eclipse](https://www.eclipse.org/downloads) and select the "Eclipse IDE for Eclipse Committers" option when prompted during the installation process.
-- Clone the Git repository from `https://github.com/eclipse/epsilon`
+- Clone the Git repository from `https://github.com/eclipse-epsilon/epsilon`
 - Import all the projects under the `plugins`, `features`, and `tests` folders in your workspace.
 - (optional) To organise your workspace, you can create [working sets](http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Fconcepts%2Fcworkset.htm). For example, you could create three working sets that mirror the contents of the folders above (`plugins`, `features`, and `tests`).
 - Open `releng/org.eclipse.epsilon.target/org.eclipse.epsilon.target.target` and click the "Set as Active Target Platform" link on the top right

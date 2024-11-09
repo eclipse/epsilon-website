@@ -105,5 +105,5 @@ The current version of the BibTeX driver for Epsilon is not yet a complete imple
 - Storing changes to BibTeX models to disk.
 - Deleting entries from a BibTeX file.
 
-Please file an [enhancement request](https://github.com/eclipse/epsilon/issues)
+Please file an [enhancement request](https://github.com/eclipse-epsilon/epsilon/issues)
 if you require -- or can provide a patch for -- these features.

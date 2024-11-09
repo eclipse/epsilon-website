@@ -113,7 +113,7 @@ As of 2.6.0, numeric values are converted to various datatypes as follows:
 
 ??? bug "Issues with numeric cell values in Epsilon 2.5.0 and earlier"
 
-    In Epsilon 2.5.0 and earlier releases, the Excel driver only supported the `integer`, `double`, and `float` datatypes for cells with numeric values. `string` and `boolean` datatypes were ignored, and treated as `double`. See [issue #89](https://github.com/eclipse/epsilon/issues/89).
+    In Epsilon 2.5.0 and earlier releases, the Excel driver only supported the `integer`, `double`, and `float` datatypes for cells with numeric values. `string` and `boolean` datatypes were ignored, and treated as `double`. See [issue #89](https://github.com/eclipse-epsilon/epsilon/issues/89).
 
 ### Reference
 In a configuration document we can also specify ID-based references to capture relationships between columns belonging to potentially different worksheets. Each reference has a `source` and a `target` column, an optional `name` (if a name is not specified, the name of the source column is used to navigate the reference), a cardinality (`many` attribute), and specifies whether updates to cells of the target column should be propagated automatically (`cascadeUpdates` attribute) to the respective cells in the source column to preserve referential integrity.
@@ -195,7 +195,7 @@ context Staff {
 
 ## Creating Spreadsheets
 
-To create a spreadsheet from scratch (e.g. when it is produced by an ETL transformation), we also need to specify an `index` for each column in the XML mapping file. Below is an EOL program that creates the [spreadsheet above](#worksheets-columns-and-rows) from scratch, and the mapping file for it. The complete example is in [Epsilon's Git repo](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel).
+To create a spreadsheet from scratch (e.g. when it is produced by an ETL transformation), we also need to specify an `index` for each column in the XML mapping file. Below is an EOL program that creates the [spreadsheet above](#worksheets-columns-and-rows) from scratch, and the mapping file for it. The complete example is in [Epsilon's Git repo](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel).
 
 === "create-spreadsheet.eol"
     ```eol
@@ -236,7 +236,7 @@ To create a spreadsheet from scratch (e.g. when it is produced by an ETL transfo
 
 ## Working with Formulas
 
-To set the value of a cell to a formula, start its value with `=` as shown below. The complete example is in [Epsilon's Git repo](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel.formulas).
+To set the value of a cell to a formula, start its value with `=` as shown below. The complete example is in [Epsilon's Git repo](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.excel.formulas).
 
 === "create-spreadsheet-with-formulas.eol"
     ```eol

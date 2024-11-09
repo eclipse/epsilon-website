@@ -33,7 +33,7 @@ The images show the tree view of a OO Model with the EMF Reflective Editor (left
 
 ![EMF Reflective Editor](normaltree.png)![Exeed Editor](exeedtree.png)
 
-The following code presents the annotated OO metamodel (in Emfatic) that was used to obtain the Exeed result above (the example is available from the [examples](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.exeedoo) folder of the Git repository):
+The following code presents the annotated OO metamodel (in Emfatic) that was used to obtain the Exeed result above (the example is available from the [examples](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.exeedoo) folder of the Git repository):
 
 ```emf
 @namespace(uri="OO", prefix="")

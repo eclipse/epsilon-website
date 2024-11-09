@@ -7,7 +7,7 @@ The debugger for the Epsilon Object Language is demonstrated in the screencast b
 
 Since 2.6.0, you can debug Epsilon scripts which run from outside an Eclipse launch configuration (e.g. [embedded in a Java program](./run-epsilon-from-java.md) or [executed from the command line](./running-epsilon-ant-tasks-from-command-line/index.md)), using the Epsilon [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/) server and a [DAP client](#debug-adapter-protocol-clients-tested-with-epsilon).
 
-The [`examples.eol.dap`](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.eol.dap) project on GitHub shows several examples of how to do this, and further information on various use cases is listed below.
+The [`examples.eol.dap`](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.eol.dap) project on GitHub shows several examples of how to do this, and further information on various use cases is listed below.
 
 ## Debugging Epsilon scripts embedded in Java programs
 
@@ -90,8 +90,8 @@ To do so, set the `debug` and `debugPort` attributes in your Ant task, like this
 When executed, this task will start a DAP server listening on TCP port 4040.
 It wait for a connection from a [DAP client](#debug-adapter-protocol-clients-tested-with-epsilon), and then start the script.
 
-Epsilon includes an [example](https://github.com/eclipse/epsilon/blob/main/examples/org.eclipse.epsilon.examples.eol.dap/build.xml) of an Ant buildfile that uses DAP for debugging.
-There is also an [example of a Gradle script](https://github.com/eclipse/epsilon/blob/main/examples/org.eclipse.epsilon.examples.eol.dap/epsilon/build.gradle).
+Epsilon includes an [example](https://github.com/eclipse-epsilon/epsilon/blob/main/examples/org.eclipse.epsilon.examples.eol.dap/build.xml) of an Ant buildfile that uses DAP for debugging.
+There is also an [example of a Gradle script](https://github.com/eclipse-epsilon/epsilon/blob/main/examples/org.eclipse.epsilon.examples.eol.dap/epsilon/build.gradle).
 
 ## Debug Adapter Protocol clients tested with Epsilon
 
@@ -119,7 +119,7 @@ After hitting a breakpoint, you will be prompted to switch to the Debug perspect
 ### Microsoft Visual Studio Code
 
 Recent versions of the [VS Code](./vscode/index.md) support in Epsilon include support for the Epsilon DAP server.
-Epsilon includes an [example Gradle project](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.eol.dap/epsilon) with VS Code configuration files that you can use as a starting point.
+Epsilon includes an [example Gradle project](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.eol.dap/epsilon) with VS Code configuration files that you can use as a starting point.
 The rest of the section breaks down some of these details.
 
 #### Starting the DAP server

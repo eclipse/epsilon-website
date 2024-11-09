@@ -33,11 +33,11 @@ You will find the following options:
     * Due to the fact that CDO works like a database rather than like a file-based model (where you can immediately connect to it and access its entire contents), the "Read on load" option is not used by the driver.
     * The "Store on disposal" option is honored, however. If ticked, the driver will commit a new revision when the model is disposed. If left unticked, the driver will discard the transaction without committing anything to the repository.
 
-For an example with step-by-step instructions, please consult [this project on Github](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.emc.cdo.example).
+For an example with step-by-step instructions, please consult [this project on Github](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.emc.cdo.example).
 
 ## How to use from Java
 
 You will need to create a new instance of the `CDOModel` class, and use setter methods to configure it appropriately.
 The setter methods match the options listed above.
 
-For concrete examples, please consult the [JUnit tests for the driver](https://github.com/eclipse/epsilon/blob/main/tests/org.eclipse.epsilon.emc.cdo.test/src/org/eclipse/epsilon/emc/cdo/tests/CDOPluggedInTestSuite.java).
+For concrete examples, please consult the [JUnit tests for the driver](https://github.com/eclipse-epsilon/epsilon/blob/main/tests/org.eclipse.epsilon.emc.cdo.test/src/org/eclipse/epsilon/emc/cdo/tests/CDOPluggedInTestSuite.java).

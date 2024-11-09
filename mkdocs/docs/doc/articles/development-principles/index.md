@@ -75,7 +75,7 @@ catch (Exception ex) {
 
 ## Bug/Feature Tracking
 
-**Trace changes using GitHub Issues**: we use [Github Issues](https://github.com/eclipse/epsilon/issues) to document and discuss design and implementation changes. We often raise our own issues. We use issue numbers in commit messages to maintain trace links between the code and discussions about the code.
+**Trace changes using GitHub Issues**: we use [Github Issues](https://github.com/eclipse-epsilon/epsilon/issues) to document and discuss design and implementation changes. We often raise our own issues. We use issue numbers in commit messages to maintain trace links between the code and discussions about the code.
 
 ## Source Code Management
 

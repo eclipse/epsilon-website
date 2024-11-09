@@ -104,7 +104,7 @@ You can launch the Playground with a custom set of examples by appending an `exa
 
 [https://eclipse.org/epsilon/playground/?examples=https://raw.githubusercontent.com/eclipse/epsilon-website/master/mkdocs/docs/playground/examples/examples.json](https://eclipse.org/epsilon/playground/?examples=https://raw.githubusercontent.com/eclipse/epsilon-website/master/mkdocs/docs/playground/examples/examples.json)
 
-The structure of [examples.json](https://github.com/eclipse/epsilon-website/blob/master/mkdocs/docs/playground/examples/examples.json) should be self-explanatory but if you have any questions, please let us know.
+The structure of [examples.json](https://github.com/eclipse-epsilon/epsilon-website/blob/master/mkdocs/docs/playground/examples/examples.json) should be self-explanatory but if you have any questions, please let us know.
 
 ## Settings
 
@@ -114,11 +114,11 @@ If you hide the program panel, you can still run the program it contains using t
 
 ## Docker container
 
-If the Playground is a critical dependency for you (e.g. to support a training course), you may want to run your own instance through a [Docker container](https://github.com/epsilonlabs/playground-docker). Despite using [automated testing with Cypress](https://github.com/eclipse/epsilon-website/tree/master/mkdocs/docs/playground/cypress/e2e), as we are evolving the Playground, we may indadvertedly introduce regressions that break the Playground and make (parts of it) unusable for a period of time.
+If the Playground is a critical dependency for you (e.g. to support a training course), you may want to run your own instance through a [Docker container](https://github.com/epsilonlabs/playground-docker). Despite using [automated testing with Cypress](https://github.com/eclipse-epsilon/epsilon-website/tree/master/mkdocs/docs/playground/cypress/e2e), as we are evolving the Playground, we may indadvertedly introduce regressions that break the Playground and make (parts of it) unusable for a period of time.
 
 ## Fair usage policy
 
 The cost of running Epsilon Playground is proportional to the number of requests made to its Google Cloud Platform back-end (i.e. execution of programs and rendering of diagrams). With fair usage we can comfortably afford this cost and keep the Playground operational, but in case of excessive use we may have to take it down with no notice. To keep costs down, server-side operations that take more than 60 seconds to complete are automatically terminated. For extensive use, large models, or complex programs, please use the [development tools / Java libraries](../../../download) provided on the Epsilon website instead, or run your own instance of the Epsilon Playground in a [Docker container](https://github.com/epsilonlabs/playground-docker).
 
 ## Reporting bugs and requesting help
-Please submit bug reports using [GitHub Issues](https://github.com/eclipse/epsilon-website/issues) and ask for help in [Epsilon's forum](../../../forum). You can submit feature requests too but please keep in mind that the Playground is not a replacement for Epsilon's [Eclipse-based development tools](../../../download). The Playground has been tested on recent versions of Firefox and Chrome. It's unlikely that we'll be able to invest too much effort in making it compatible with older/other browsers but any pull requests you may be able to contribute are always welcome.
+Please submit bug reports using [GitHub Issues](https://github.com/eclipse-epsilon/epsilon-website/issues) and ask for help in [Epsilon's forum](../../../forum). You can submit feature requests too but please keep in mind that the Playground is not a replacement for Epsilon's [Eclipse-based development tools](../../../download). The Playground has been tested on recent versions of Firefox and Chrome. It's unlikely that we'll be able to invest too much effort in making it compatible with older/other browsers but any pull requests you may be able to contribute are always welcome.

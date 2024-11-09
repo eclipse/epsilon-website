@@ -94,4 +94,4 @@ The result looks like this:
 ![](Friends.png)
 
 For more details, please check the [full
-example](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.eugenia.examples.friends).
+example](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.eugenia.examples.friends).

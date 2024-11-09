@@ -1009,4 +1009,4 @@ Additional resources about EOL are available [here](../articles/#epsilon-object-
 
 [^3]: <https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>
 
-[^4]: For further examples of ternary operator, see <https://github.com/eclipse/epsilon/tree/main/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol>
+[^4]: For further examples of ternary operator, see <https://github.com/eclipse-epsilon/epsilon/tree/main/tests/org.eclipse.epsilon.eol.engine.test.acceptance/src/org/eclipse/epsilon/eol/engine/test/acceptance/TernaryTests.eol>

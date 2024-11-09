@@ -192,4 +192,4 @@ The result is a set of sequence diagrams that we can navigate to drill down the 
 
 !!! info "Source code"
 
-    The complete source code for this example is in Epsilon's [Git repository](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.plantuml.minisd).
+    The complete source code for this example is in Epsilon's [Git repository](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.picto.plantuml.minisd).

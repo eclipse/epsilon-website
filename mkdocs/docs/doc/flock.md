@@ -249,7 +249,7 @@ Secondly, Flock does not provide language constructs for controlling the order i
 
 Thirdly, Flock is tailored for applying migration to a single original and a single migrated model. Although further models can be accessed by a Flock migration strategy, they cannot be used as the source or target of the conservative copy algorithm. By contrast, some general-purpose model transformation languages can access and manipulate any number of models.
 
-Fourthly, Flock can only operate on models loaded with [EMC drivers](../emc) that implement the [IReflectiveModel](https://github.com/eclipse/epsilon/blob/874e5c435742e94faed95b42d06d43b8efecf242/plugins/org.eclipse.epsilon.eol.engine/src/org/eclipse/epsilon/eol/models/IReflectiveModel.java) interface  (such as the [EMF driver](../emc/#eclipse-modeling-framework)), as its conservative copy algorithm needs additional information to what Epsilon's [IModel](../emc/#the-imodel-interface) interface provides. 
+Fourthly, Flock can only operate on models loaded with [EMC drivers](../emc) that implement the [IReflectiveModel](https://github.com/eclipse-epsilon/epsilon/blob/874e5c435742e94faed95b42d06d43b8efecf242/plugins/org.eclipse.epsilon.eol.engine/src/org/eclipse/epsilon/eol/models/IReflectiveModel.java) interface  (such as the [EMF driver](../emc/#eclipse-modeling-framework)), as its conservative copy algorithm needs additional information to what Epsilon's [IModel](../emc/#the-imodel-interface) interface provides. 
 
 Finally, Flock has been tailored to the model migration problem. In other words, we believe that Flock is well-suited to specifying model transformations between two metamodels that are very similar. For metamodel evolution in which the original metamodel undergoes significant and large-scale revision, a general-purpose transformation might be more suitable than Flock for specifying model migration.
 
@@ -264,4 +264,4 @@ and languages in a [MoDELS paper](https://link.springer.com/chapter/10.1007/978-
 
 ## Additional Resources
 
-- [Executing a Flock migration transformation from Java](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone/flock/FlockStandaloneExample.java): Shows how to run Flock to migrate an EMF-based model from a headless Java application.
+- [Executing a Flock migration transformation from Java](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.standalone/src/org/eclipse/epsilon/examples/standalone/flock/FlockStandaloneExample.java): Shows how to run Flock to migrate an EMF-based model from a headless Java application.

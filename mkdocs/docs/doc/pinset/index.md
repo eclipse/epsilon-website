@@ -4,7 +4,7 @@ The Pinset language offers specific syntax constructs to **extract table-like da
 
 ## Model example
 
-We use as running example a course model, which contains the enrolled students along with their grades. All models and Pinset scripts shown in this documentation can be found in an [example project](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.pinset.grades) in the Epsilon repository.
+We use as running example a course model, which contains the enrolled students along with their grades. All models and Pinset scripts shown in this documentation can be found in an [example project](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.pinset.grades) in the Epsilon repository.
 
 All Pinset scripts query the following metamodel:
 

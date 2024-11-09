@@ -10,7 +10,7 @@ As of Epsilon 2.5.0, the JSON driver can:
 ## Querying a JSON document
 
 For this first example, we will query the [GitHub REST API](https://docs.github.com/en/rest) via HTTP, asking it about the [Eclipse Epsilon project](https://api.github.com/repos/eclipse/epsilon), parse its JSON response, and produce a short text report in Markdown.
-This example is available from the [Epsilon GitHub repository](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.emc.json.example).
+This example is available from the [Epsilon GitHub repository](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.emc.json.example).
 
 Here is an excerpt of the JSON document (omitted parts are in `...`):
 
@@ -20,7 +20,7 @@ Here is an excerpt of the JSON document (omitted parts are in `...`):
   "description": "Epsilon is a family of Java-based scripting languages for automating common model-based software engineering tasks, such as code generation, model-to-model transformation and model validation, that work out of the box with EMF (including Xtext and Sirius), UML (including Cameo/MagicDraw), Simulink, XML and other types of models.",
   ...
   "ssh_url": "git@github.com:eclipse/epsilon.git",
-  "clone_url": "https://github.com/eclipse/epsilon.git",
+  "clone_url": "https://github.com/eclipse-epsilon/epsilon.git",
   ...
   "stargazers_count": 27,
   "watchers_count": 27,
@@ -97,7 +97,7 @@ With the above JSON document, it will produce this output:
 
 Epsilon is a family of Java-based scripting languages for automating common model-based software engineering tasks, such as code generation, model-to-model transformation and model validation, that work out of the box with EMF (including Xtext and Sirius), UML (including Cameo/MagicDraw), Simulink, XML and other types of models.
 
-* Clone via HTTPS: https://github.com/eclipse/epsilon.git
+* Clone via HTTPS: https://github.com/eclipse-epsilon/epsilon.git
 * Clone via SSH: git@github.com:eclipse/epsilon.git
 
 ## License

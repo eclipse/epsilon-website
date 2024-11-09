@@ -1,6 +1,6 @@
 # Running Epsilon's Ant Tasks from Command Line
 
-[This example project](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone) shows how to download, configure and run [Epsilon's Ant tasks](../../workflow) from the command line using Ant, Maven and Gradle.
+[This example project](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone) shows how to download, configure and run [Epsilon's Ant tasks](../../workflow) from the command line using Ant, Maven and Gradle.
 To debug Epsilon scripts running from these tasks, read [these instructions](../debugger.md#debugging-epsilon-scripts-running-from-ant-workflows).
 
 To run the examples below, you **only** need to have [Ant](https://ant.apache.org), [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/) installed in your system.
@@ -35,7 +35,7 @@ run-epsilon:
 BUILD SUCCESSFUL
 ```
 
-The complete source code is below and in [Epsilon's Git repo](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone).
+The complete source code is below and in [Epsilon's Git repo](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone).
 
 === "build.xml"
 
@@ -177,5 +177,5 @@ Models conforming to the [Eclipse UML2 metamodel](http://wiki.eclipse.org/MDT/UM
 
 ## Epsilon 1.x
 
-If you would like to use an older (1.x) version of Epsilon, you can use [this example instead](https://github.com/eclipse/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone.1x), which uses a fat jar we used to produce (`epsilon-1.x-kitchensink.jar`) before moving all our jars to Maven Central/Sonatype.
+If you would like to use an older (1.x) version of Epsilon, you can use [this example instead](https://github.com/eclipse-epsilon/epsilon/tree/main/examples/org.eclipse.epsilon.examples.workflow.standalone.1x), which uses a fat jar we used to produce (`epsilon-1.x-kitchensink.jar`) before moving all our jars to Maven Central/Sonatype.
 

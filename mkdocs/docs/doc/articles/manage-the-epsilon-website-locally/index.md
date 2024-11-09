@@ -4,7 +4,7 @@ This article provides a step-by-step guide for obtaining a local copy of the Eps
 
 ## Setting up your environment
 
-- Clone the Git repository at [https://github.com/eclipse/epsilon-website](https://github.com/eclipse/epsilon-website).
+- Clone the Git repository at [https://github.com/eclipse-epsilon/epsilon-website](https://github.com/eclipse-epsilon/epsilon-website).
 - Download and install [virtualenv](https://virtualenv.pypa.io/en/stable/installation.html).
 - Navigate to the `mkdocs` folder, and run `./serve.sh` from a terminal. The first time this command is run, a Python virtual environment will be created unther the `mkdocs/env` directory. After the environment is ready (and on subsequent calls to `./serve.sh`), a local web server containing the Epsilon website will be running at [http://localhost:8000](http://localhost:8000).
 
@@ -22,7 +22,7 @@ Once you've happy with the changes you've made to the Markdown sources, you can 
 
 As a convention for project commiters, introducing a change in the website is usually separated in two commits: the first one contains any changes to the Markdown sources, while the second one includes the result of building again the static site as described in the previous section.
 
-If you are not a commiter, but you find any typos or parts of the website that do not work as they should, thanks for [letting us know](https://github.com/eclipse/epsilon/issues)!
+If you are not a commiter, but you find any typos or parts of the website that do not work as they should, thanks for [letting us know](https://github.com/eclipse-epsilon/epsilon/issues)!
 
 ## Pushing your changes
 
