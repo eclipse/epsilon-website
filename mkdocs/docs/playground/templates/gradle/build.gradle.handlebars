@@ -67,7 +67,7 @@ task run {
         ant.'epsilon.emf.loadModel'(name: 'M', modelfile: 'model.flexmi', metamodelfile: 'metamodel.emf')
 
         // Run program.{{ language }} against it
-        ant.'epsilon.{{ task }}'(src: 'program.{{ extension }}'{{#if egl}}, target: 'generated.txt' {{/if}}){ model(ref: 'M') }
+        ant.'epsilon.{{ task }}'(src: 'program.{{ extension }}'{{#if egl}}, target: 'generated.txt' {{/if}}{{#if pinset}}, outputfolder: 'gen'{{/if}}){ model(ref: 'M') }
     {{/if}}
 
     }
