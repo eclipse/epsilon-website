@@ -325,7 +325,7 @@ function runProgram() {
                             else krokiEndpoint = "graphviz/svg"
 
                             var krokiXhr = new XMLHttpRequest();
-                            krokiXhr.open("POST", "https://kroki.io/" + krokiEndpoint, true);
+                            krokiXhr.open("POST", "https://kroki.agd8ydq6fp1t8.eu-west-2.cs.amazonlightsail.com/" + krokiEndpoint, true);
                             krokiXhr.setRequestHeader("Accept", "image/svg+xml");
                             krokiXhr.setRequestHeader("Content-Type", "text/plain");
                             krokiXhr.onreadystatechange = function () {
