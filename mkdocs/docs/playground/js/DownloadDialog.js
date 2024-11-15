@@ -29,6 +29,7 @@ class DownloadDialog {
                             etlOrFlock: language == "etl" || language == "flock",
                             egl: language == "egl",
                             eml: language == "eml",
+                            pinset: language == "pinset",
                             sourceModelName: language == "flock" ? "Original" : "Source",
                             targetModelName: language == "flock" ? "Migrated" : "Target",
                             sourceModelFileName: language == "flock" ? "original" : "source",
