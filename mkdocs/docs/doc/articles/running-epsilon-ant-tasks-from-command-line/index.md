@@ -57,7 +57,7 @@ The complete source code is below and in [Epsilon's Git repo](https://github.com
 
 ## Maven 
 
-Since Maven can run Ant tasks, Epsilon Ant tasks can also be executed from a Maven build (`mvn clean install`) as shown below. 
+Since Maven can run Ant tasks, Epsilon Ant tasks can also be executed from a Maven build (`mvn clean package`) as shown below. 
 
 === "pom.xml"
 
@@ -82,7 +82,7 @@ You can also use [Flexmi](../../flexmi) instead of XMI (`library.flexmi` instead
 === "Ivy/ANT"
 
     ```xml
-    <dependency org="org.eclipse.emfatic" name="org.eclipse.emfatic.core" rev="1.1.0-SNAPSHOT" conf="binaries->default"/>
+    <dependency org="org.eclipse.emfatic" name="org.eclipse.emfatic.core" rev="1.1.0" conf="binaries->default"/>
     ```
 
 === "Maven"
@@ -91,14 +91,14 @@ You can also use [Flexmi](../../flexmi) instead of XMI (`library.flexmi` instead
     <dependency>
         <groupId>org.eclipse.emfatic</groupId>
         <artifactId>org.eclipse.emfatic.core</artifactId>
-        <version>1.1.0-SNAPSHOT</version>
+        <version>1.1.0</version>
     </dependency>
     ```
 
 === "Gradle"
     
     ```groovy
-    epsilon 'org.eclipse.emfatic:org.eclipse.emfatic.core:1.1.0-SNAPSHOT'
+    epsilon 'org.eclipse.emfatic:org.eclipse.emfatic.core:1.1.0'
     ```
 
 A complete Gradle example that uses `library.flexmi` instead of (the XMI-based) `library.model`, and `library.emf` instead of `library.ecore` is shown below.
@@ -163,16 +163,6 @@ Models conforming to the [Eclipse UML2 metamodel](http://wiki.eclipse.org/MDT/UM
 
     ```xml
     {{{ example("org.eclipse.epsilon.examples.workflow.standalone/uml2/model.uml", true) }}}
-    ```
-
-### GenMyModel
-
-[GenMyModel](https://www.genmymodel.com/) is a web-based modelling tool that can be used to create UML2-compliant models. You can consume the XMI representation of a public [GenMyModel UML model](https://app.genmymodel.com/api/dictionary/projects/_in3dgJiMEeuzROqeHhotPw) directly from Epsilon as shown below.
-
-=== "build.gradle"
-
-    ```groovy
-    {{{ example("org.eclipse.epsilon.examples.workflow.standalone/uml2/genmymodel/build.gradle", true) }}}
     ```
 
 ## Epsilon 1.x
