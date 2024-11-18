@@ -272,7 +272,7 @@ isSubstringOf(str : String) : Boolean                               |Returns tru
 length() : Integer                                                  |Returns the number of characters in the string
 matches(reg : String) : Boolean                                     |Returns true if there are occurrences of the regular expression `reg` in the string
 pad(length : Integer, padding : String, right : Boolean) : String   |Pads the string up to the specified length with specified padding (e.g. `"foo".pad(5, "*", true)` returns `"foo**"`)
-replace(source : String, target : String) : String                  |Returns a new string in which all instances of `source` have been replaced with instances of `target`
+replace(reg : String, replacement : String) : String                |Returns a new string in which all matches of the regular expression `reg` have been replaced with instances of `replacement`
 split(reg : String) : Sequence(String)                              |Splits the string using as a delimiter the provided regular expression, `reg`, and returns a sequence containing the parts
 startsWith(str : String) : Boolean                                  |Returns true iff the string starts with `str`
 substring(index : Integer) : String                                 |Returns a sub-string of the string starting from the specified `index` and extending to the end of the original string
