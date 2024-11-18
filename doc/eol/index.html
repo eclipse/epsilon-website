@@ -2861,8 +2861,8 @@ instances of the Any type are outlined in the table below<sup id="fnref:1"><a cl
 <td>Pads the string up to the specified length with specified padding (e.g. <code>"foo".pad(5, "*", true)</code> returns <code>"foo**"</code>)</td>
 </tr>
 <tr>
-<td>replace(source : String, target : String) : String</td>
-<td>Returns a new string in which all instances of <code>source</code> have been replaced with instances of <code>target</code></td>
+<td>replace(reg : String, replacement : String) : String</td>
+<td>Returns a new string in which all matches of the regular expression <code>reg</code> have been replaced with instances of <code>replacement</code></td>
 </tr>
 <tr>
 <td>split(reg : String) : Sequence(String)</td>
