@@ -1704,6 +1704,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#updates-in-epsilon-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updates in Epsilon 2.6
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1724,20 +1733,26 @@
 
 <h1 id="scripting-simulink-models-using-epsilon">Scripting Simulink models using Epsilon<a class="headerlink" href="#scripting-simulink-models-using-epsilon" title="Permanent link">&para;</a></h1>
 <p>In this article we demonstrate how you can create, query and modify Simulink models in Epsilon programs. While the example in this article demonstrates using EOL to script Simulink models, it's worth stressing that Simulink models are supported throughout Epsilon. Therefore, you can use Epsilon to (cross-)validate, transform (to other models - Simulink or EMF-based -, or to text), compare and merge your Simulink models.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The Simulink driver only works with Java 8 for versions of MATLAB before 2021a. This is due to a limitation of the <a href="https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html">official MATLAB Java API</a>.</p>
-</div>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>The first time you run Eclipse after installing the Simulink driver you will need to point it to the location of your Matlab installation through the Eclipse <code>Preferences→Epsilon→Simulink</code> dialog. In particular, you need to specify the location of the <code>&lt;matlab-root&gt;/bin/win64</code> (or <code>/bin/maci64</code> if you are on Mac OS) directory and Matlab's <code>engine.jar</code> as shown below. Note that in most cases, if you installed MATLAB in the default location for your operating system, the paths should be automatically detected, and if not you should usually only need to set the MATLAB root directory in your preferences.</p>
+<p>The first time you run Eclipse after installing the Simulink driver you will need to point it to the location of your MATLAB installation through the Eclipse <code>Preferences -&gt; Epsilon -&gt; MATLAB Installation</code> dialog as shown below. In particular, you need to specify:</p>
+<ul>
+<li>The MATLAB Installation directory</li>
+<li>The MATLAB Library directory<ul>
+<li><code>&lt;matlab-root&gt;/bin/win64</code> on Windows </li>
+<li><code>/bin/maci64</code> on MacOS Intel </li>
+<li><code>/bin/maca64</code> on MacOS Apple Silicon</li>
+</ul>
+</li>
+<li>MATLAB's <code>engine.jar</code> </li>
+</ul>
+<p>Note that in most cases, if you installed MATLAB in the default location for your operating system, the paths should be automatically detected, and if not you should usually only need to set the MATLAB root directory in your preferences.</p>
 <p><img alt="" src="preferences.png" /></p>
 <h2 id="troubleshooting-notes">Troubleshooting / Notes<a class="headerlink" href="#troubleshooting-notes" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The driver has been developed and tested with Matlab_R2017a and may not work with older versions of Matlab (<code>engine.jar</code> was introduced fairly recently).</li>
+<li>Please see the official <a href="https://uk.mathworks.com/help/matlab/matlab_external/setup-environment.html">Matlab documentation</a> for instructions on setting up OS variables and the Java library path.</li>
 <li>If you start getting strange errors about dynamic libraries, chances are that the Matlab paths above are wrong. If restarting Eclipse and correcting the paths doesn't solve this, please post a message to the forum.</li>
-<li>If you are on Windows, ensure that <code>&lt;matlab-root&gt;/bin/win64</code> is in the system path (in Windows' Environment Variables).</li>
 <li>In some cases, you may need to use the same Java runtime (JRE) as your MATLAB installation. For example in Windows, the path to MATLAB's Java is <code>&lt;matlab-root&gt;/sys/java/jre/win64/jre</code>. To configure an alternative JRE, please set the <code>MATLAB_JAVA</code> environment variable to point to a compatible JRE, and ensure that both your Eclipse and MATLAB are using the same JRE version.</li>
-<li>If you are having trouble configuring the MATLAB paths from the UI (or no alternative configuration method is available), you can set the "org.eclipse.epsilon.emc.matlab_path" environment variable to point to your MATLAB installation.</li>
+<li>If you are having trouble configuring the MATLAB paths from the UI (or no alternative configuration method is available), you can set the <code>org.eclipse.epsilon.emc.matlab_path</code> environment variable to point to your MATLAB installation.</li>
 </ul>
 <h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1776,6 +1791,8 @@ busCreator.link(scope);</code></pre>
 <li>Launch the Run configuration. Simulink should pop up and you should see the model below (which you can edit/run as normal)</li>
 </ul>
 <p><img alt="" src="simulink-model.png" /></p>
+<h2 id="updates-in-epsilon-26">Updates in Epsilon 2.6<a class="headerlink" href="#updates-in-epsilon-26" title="Permanent link">&para;</a></h2>
+<p>While older versions of Java allowed altering the Java library path at runtime, this is no longer possible. Therefore, we have removed the respective configuration property and UI. Please check the official <a href="https://uk.mathworks.com/help/matlab/matlab_external/setup-environment.html">Matlab documentation</a> for instructions on setting up OS variables and the Java library path. Epsilon 2.6 also adds support for Apple Silicon.</p>
 
 
 
