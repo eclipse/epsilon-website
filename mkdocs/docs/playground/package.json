@@ -19,7 +19,7 @@
     "svg-pan-zoom": "3.6.1"
   },
   "devDependencies": {
-    "cypress": "13.6.1",
+    "cypress": "13.16.0",
     "file-loader": "6.2.0",
     "webpack": "5.75.0",
     "webpack-cli": "5.1.4"
