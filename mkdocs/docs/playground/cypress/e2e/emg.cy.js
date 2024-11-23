@@ -5,7 +5,7 @@ describe('Tests the default EMG example', () => {
       cy.visit(playground + "?emg");
     }),
     it('Tests that the example loads fine and there is text in all editors', () => {
-      cy.contains('Project create()');
+      cy.contains('- Each project');
       cy.contains('package psl;');
     }),
     it('Checks that the generation runs fine and a Project is produced', () => {

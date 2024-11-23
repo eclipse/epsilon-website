@@ -62,7 +62,7 @@ environments.forEach((environment) => {
 
                     // The EVL example is expected to fail because of an unsatisfied constraint
                     // All other examples are expected to pass
-                    var expectedOutput = (example == "evl") ? "Duration must be positive" : environment.success;
+                    var expectedOutput = (example == "evl") ? "The duration of a task must not exceed 12 months" : environment.success;
                     
                     cy.exec("cd " + exampleFolder + "; " + environment.command, { failOnNonZeroExit: false })
                         .its('stdout')
