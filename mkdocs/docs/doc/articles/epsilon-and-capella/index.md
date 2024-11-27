@@ -4,16 +4,16 @@
 
 ![](installation.png)
 
-You can then use Epsilon's languages to write validation constraints, transformations etc. as you would do with any EMF-based model. For example, the following [EVL](../../evl.md) critique checks that all Data Packages in a Capella model start with an upper-case letter.
+You can then use Epsilon's languages to write validation constraints, transformations etc. as you would do with any EMF-based model. For example, the following [EVL](../../evl.md) critique checks that all functions (instances of `AbstractFunction`) in a Capella model start with an upper-case letter.
 
 ```evl
-context DataPkg {
+context AbstractFunction {
 	
 	critique StartsWithUpperCase {
 	
-		check : self.name.ftuc() = self.name
+		check : self.name.ftuc() == self.name
 		
-		message : "Data package " + self.name + 
+		message : self.eClass().name + " " + self.name + 
 			" should start with an upper-case letter"
 		
 		fix {
