@@ -116,7 +116,9 @@ Before any constraint is evaluated, the *pre* blocks of the module are executed 
 
 ### Phase 2
 
-For each non-lazy *context* with at least one non-lazy constraint, the instances of the meta-class it defines are collected. For each instance, the *guard* of the *context* is evaluated. If the *guard* is satisfied, then for each non-lazy constraint contained in the context the constraint's *guard* is also evaluated. If the *guard* of the constraint is satisfied, the *body* of the constraint is evaluated. In case the *body* evaluates to *false*, the *message* part of the rule is evaluated and the produced message is added along with the instance, the constraint and the available *fixes* to the *ValidationTrace*.
+For each non-lazy *context* with at least one non-lazy constraint, the instances of the meta-class it defines are collected. For each instance, the *guard* of the *context* is evaluated. If the *guard* is satisfied, then for each non-lazy constraint contained in the context the constraint's *guard* is also evaluated. If the *guard* of the constraint is satisfied, the body (*check*) of the constraint is evaluated. In case the *check* evaluates to *false*, the *message* part of the rule is evaluated and the produced message is added (along with the instance, the constraint, and the available *fixes*) to the *ValidationTrace*.
+
+Any variables declared inside the *check* are also accessible from the *message* part of the rule, as well as the *guard*s of the *fixes*. Variables declared inside the *guard*s are discarded after evaluation, and are not accessible from anywhere else.
 
 The execution order of an EVL module follows a top-down depth-first scheme that respects the order in which the *contexts* and *constraints* appear in the module. However, the execution order can change in case one of the *satisfies*, *satisfiesOne*, *satisfiesAll* built-in operations, discussed in detail in the sequel, are called.
 
