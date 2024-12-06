@@ -3,6 +3,6 @@
       {"name": "RunEpsilonFunction", "url": "http://localhost:8080/epsilon"},
       {"name": "FlexmiToPlantUMLFunction", "url": "http://localhost:8080/flexmi2plantuml"},
       {"name": "EmfaticToPlantUMLFunction", "url": "http://localhost:8080/emfatic2plantuml"},
-      {"name": "ShortURLFunction", "url": "https://europe-west2-epsilon-live-gcp.cloudfunctions.net/playground"}
+      {"name": "ShortURLFunction", "url": "http://localhost:8080/shorturl"}
     ]
   }
