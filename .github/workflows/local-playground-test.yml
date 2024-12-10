@@ -3,10 +3,10 @@ name: Test local Playground
 on:
   push:
     branches: [ "main" ]
-    paths: [ "mkdocs/docs/playground" ]
+    paths: [ "mkdocs/docs/playground", ".github/workflows/local-playground-test.yml" ]
   pull_request:
     branches: [ "main" ]
-    paths: [ "mkdocs/docs/playground" ]
+    paths: [ "mkdocs/docs/playground", ".github/workflows/local-playground-test.yml" ]
   workflow_dispatch:
 
 jobs:
