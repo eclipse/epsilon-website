@@ -6,8 +6,14 @@ wait_for_service() {
   SERVICE="$1"
   PORT="$2"
   echo "Waiting for $SERVICE at port $PORT..."
+  i=0
   while ! nc -z localhost "$PORT"; do
     sleep 0.1s
+    i=$((i + 1))
+    if [[ "$i" -gt 100 ]]; then
+      echo "Timed out after waiting 10s"
+      exit 1
+    fi
   done
 }
 
