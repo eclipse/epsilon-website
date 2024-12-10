@@ -3,13 +3,16 @@ name: Test local Playground
 on:
   push:
     branches: [ "main" ]
-    paths: &paths
+    paths:
       - mkdocs/docs/playground/**
       - mkdocs/docs/serve-no-livereload.sh
       - .github/workflows/local-playground-test.yml
   pull_request:
     branches: [ "main" ]
-    paths: *paths
+    paths:
+      - mkdocs/docs/playground/**
+      - mkdocs/docs/serve-no-livereload.sh
+      - .github/workflows/local-playground-test.yml
   workflow_dispatch:
 
 jobs:
