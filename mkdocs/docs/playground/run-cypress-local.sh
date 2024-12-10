@@ -25,9 +25,9 @@ cleanup() {
 
 # Starts frontend and backend and ensures they are stopped when the script exits
 trap cleanup EXIT
-"$SCRIPT_DIR/../../serve-no-livereload.sh" &>/dev/null &
+"$SCRIPT_DIR/../../serve-no-livereload.sh" >/dev/null &
 PID_MKDOCS=$!
-docker run --rm -p 8080:8080 ghcr.io/epsilonlabs/playground-backend:standalone-server &>/dev/null &
+docker run --rm -p 8080:8080 ghcr.io/epsilonlabs/playground-backend:standalone-server >/dev/null &
 PID_DOCKER=$!
 
 wait_for_service Frontend 8000
