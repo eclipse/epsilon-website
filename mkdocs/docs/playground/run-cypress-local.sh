@@ -10,8 +10,8 @@ wait_for_service() {
   while ! nc -z localhost "$PORT"; do
     sleep 0.1s
     i=$((i + 1))
-    if [[ "$i" -gt 100 ]]; then
-      echo "Timed out after waiting 10s"
+    if [[ "$i" -gt 300 ]]; then
+      echo "Timed out after waiting 30s for $SERVICE at $PORT"
       exit 1
     fi
   done
@@ -31,9 +31,9 @@ cleanup() {
 
 # Starts frontend and backend and ensures they are stopped when the script exits
 trap cleanup EXIT
-"$SCRIPT_DIR/../../serve-no-livereload.sh" >/dev/null &
+"$SCRIPT_DIR/../../serve-no-livereload.sh" &
 PID_MKDOCS=$!
-docker run --rm -p 8080:8080 ghcr.io/epsilonlabs/playground-backend:standalone-server >/dev/null &
+docker run --rm -p 8080:8080 ghcr.io/epsilonlabs/playground-backend:standalone-server &
 PID_DOCKER=$!
 
 wait_for_service Frontend 8000
