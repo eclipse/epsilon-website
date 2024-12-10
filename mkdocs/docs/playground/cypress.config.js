@@ -4,7 +4,7 @@ module.exports = {
     // can take a while is they are not warmed up
     defaultCommandTimeout: 60000,
     video: false,
-    screenshotOnRunFailure: false,
+    screenshotOnRunFailure: true,
     setupNodeEvents(on, config) {
       
     },

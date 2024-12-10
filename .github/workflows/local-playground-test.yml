@@ -32,3 +32,9 @@ jobs:
       run: |
         cd mkdocs/docs/playground
         ./run-cypress-local.sh
+    - name: Upload Cypress screenshots
+      uses: actions/upload-artifact@v4
+      if: '!cancelled()'
+      with:
+        name: cypress-screenshots
+        path: mkdocs/docs/playground/cypress/screenshots
