@@ -2,7 +2,8 @@
 
 | Version             | Eclipse Release | Release Date | Release Type       |
 | ------------------- | --------------- | ------------ | ------------------ |
-[2.8](index.md) | 4.34 (2024-12) | 20 February 2025 | Scheduled release
+[2.9](index.md) | 4.40 (2026-06) | 15 October 2026 | Scheduled release
+[2.8](2.8.md) | 4.34 (2024-12) | 20 February 2025 | Scheduled release
 2.7 | 4.34 (2024-12) | 17 February 2025 | Scheduled release  (2.7 contained a significant memory leak and was replaced by 2.8)
 2.6 | 4.34 (2024-12) | 3 January 2025 | Scheduled release (2.6 contained significant regressions and was replaced by 2.7)
 [2.5](2.5.md) | 4.30 (2023-12)  | 15 April 2024  | Scheduled release
