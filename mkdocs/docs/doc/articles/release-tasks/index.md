@@ -77,6 +77,8 @@ mvn -f pom-plain.xml versions:set -DnewVersion=X.Y.Z-SNAPSHOT
 
 You may also need to manually bump up the version of the `releng/org.eclipse.epsilon.target` project. Specifically, the `META-INF/MANIFEST.MF`, but it's also worth checking the `pom.xml` to make sure they're consistent with each other. Also check `org.eclipse.epsilon.test/META-INF/MANIFEST.MF`. The build will fail if anything is inconsistent.
 
+Update the target platform (both `.tpd` and `.target`) to point to the matching version of the Jena uber-JAR, as otherwise the build will break.
+
 ### Announce release on forum
 
 It would be courteous to let users know of the new release, along with the new features, on the [forum](../../../forum).

@@ -37,6 +37,8 @@ git add ...
 git commit -m "Set pom-plain versions to X.Y.Z"
 ```
 
+Update the target platform (both `.tpd` and `.target`) to point to the matching version of the Jena uber-JAR, as otherwise the build will break.
+
 Push the commit to Jenkins:
 
 ```sh
