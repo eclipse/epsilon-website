@@ -1145,6 +1145,28 @@
   
   
     <li class="md-nav__item">
+      <a href="https://download.eclipse.org/epsilon/2.8.0-javadoc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.8.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="https://download.eclipse.org/epsilon/2.5.0-javadoc/" class="md-nav__link">
         
   
@@ -1865,6 +1887,7 @@ Make sure that all tests pass in the Tycho build first.</p>
 <p>Enter the version number of the release, and create a commit for it:</p>
 <pre class="highlight"><code class="language-sh">git add ...
 git commit -m "Set pom-plain versions to X.Y.Z"</code></pre>
+<p>Update the target platform (both <code>.tpd</code> and <code>.target</code>) to point to the matching version of the Jena uber-JAR, as otherwise the build will break.</p>
 <p>Push the commit to Jenkins:</p>
 <pre class="highlight"><code class="language-sh">git push</code></pre>
 <p><a href="https://github.com/eclipse-epsilon/epsilon/commit/8f680d0bb7270e332d57fe24334012d3cfdae73b">Here is an example commit</a>.
